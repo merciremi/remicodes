@@ -2,6 +2,7 @@
 layout: post
 title: 'Life After Bootcamp: Always Be Shipping'
 date: 2018-07-01
+excerpt: "Last week was the 9th and final week of my Ruby on Rails Bootcamp at Le Wagon Paris. My buddies and I showed to the public what could be shipped in two weeks. A lot of great projects stood out that night. But now, it’s Monday morning. The excitement has worn off over the weekend, the many naps and the odd drinks. What shall I do?"
 ---
 
 Last week was the 9th and final week of my Ruby on Rails Bootcamp at Le Wagon Paris. My buddies and I - from the batches 145 and 146 - showed to the public what could be shipped in two weeks. A lot of great projects stood out that night - whether for their overall classiness or their technical challenges. On top of my head, I really dug [Potify](https://www.potify.pw/), [Recll](http://www.recll.xyz/), [Diggerz](https://www.diggerz.co/), [Storymap](http://www.storymap.space/) and [Kbuddy](http://www.kbuddy.org/). I was very happy about the final release of [Harry](http://harry.team). [Antoine](https://github.com/agoffette), [Laura](https://github.com/Laumartin4) and [Giovanni](https://github.com/giovannirescaglio) made it a very cool project to work on. Kudos to you all!

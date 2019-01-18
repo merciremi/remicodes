@@ -3,6 +3,7 @@ layout: post
 title: "How to set-up a lead generation strategy for small businesses: do’s \U0001F44D
   and don’ts \U0001F44E"
 date: 2017-12-01
+excerpt: "You’re building a product that can be used on the Internet? Good for you! But then, the thought of finding customers start to creep in. Should you talk about it now? Later? Should build a marketing war machine? Should you play it safe? After a few years of generating demand for companies, here is the gist of what I believe to be the best bet."
 ---
 
 You’re building a product that can be used on the Internet? Good for you! But then, the thought of finding customers start to creep in. Should you talk about it now? Later? Should build a marketing war machine? Should you play it safe? After a few years of generating demand for companies, here is the gist of what I believe to be the best bet.

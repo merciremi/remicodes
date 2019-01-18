@@ -1,9 +1,8 @@
 ---
 layout: post
-title: 'Add Omniauth GitHub to Your Rails App on Top of Devise
-
-'
+title: 'Add Omniauth GitHub to Your Rails App on Top of Devise'
 date: 2018-06-01 14:44 +0100
+excerpt: "As I’ve moved into the last three weeks of Le Wagon coding bootcamp, the need to authorize people to sign-up with GitHub quickly arise. Here's a step-by-step tutorial on how to do it when you already use Devise to handle authentification."
 ---
 
 ==Last update: 16 July 2018==

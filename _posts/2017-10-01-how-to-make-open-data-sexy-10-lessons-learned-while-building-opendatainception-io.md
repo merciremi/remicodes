@@ -2,9 +2,8 @@
 layout: post
 title: 'How to make Open Data sexy: 10 lessons learned while building opendatainception.io'
 date: 2017-10-01
+excerpt: "In June 2015, Nicolas Terpolilli and I were ranting about the difficulty to locate Open Data portals. Poor SEO seemed to result in poor rankings. Existing listings were either outdated or partisan. We started joking around with the idea of building a truly comprehensive resource. A resource that would gather every single Open Data portal we could lay our hands on."
 ---
-
-How to make Open Data sexy: 10 lessons learned while building opendatainception.io
 
 In June 2015, [Nicolas Terpolilli](https://twitter.com/NTerpo) and I were ranting about the difficulty to locate Open Data portals. Poor SEO seemed to result in poor rankings. Existing listings were either outdated or partisan. We started joking around with the idea of building a truly comprehensive resource. A resource that would gather every single Open Data portal we could lay our hands on.
 This seemed to be a common need too. We would come across multiple threads on Twitter, [Reddit](https://www.reddit.com/r/datasets/), [Quora](https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public)… And all of these would start with this unique question:

@@ -2,6 +2,7 @@
 layout: post
 title: What is an API?
 date: 2017-08-27 14:34 +0100
+excerpt: "Wrapping your head around APIs can be challenging for non-technical users. What’s an API? What can be share through an API? Data? Services? How does one design an API?How do you code an API?"
 ---
 
 Before we start, I’d like to ask you a few questions. Do you know how:
