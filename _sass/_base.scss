@@ -1,18 +1,24 @@
-// $content-width: 800px;
-// $main: #19CCAA;
-// $font-style: 'Open Sans', sans-serif;
-// $font-color: #262626;
-// $link-color: #425469;
-// $link-hover-color: $main;
-// $heading-font: 'Muli', sans-serif;
-// $heading-font-color: #425469;
-// $light: #E7EDF4;
-// $header:  #1D1425;
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700');
 
-// *,
-// *::before,
-// *::after {
-//   -webkit-box-sizing: border-box;
-//   -moz-box-sizing: border-box;
-//   box-sizing: border-box;
-// }
+$content-width: 70%;
+
+$headers-font: 'Playfair Display', serif;
+$body-font:'IBM Plex Sans', sans-serif;
+
+$body-font-size: 1.1em;
+
+$font-color: rgba(36, 44, 63, 1);
+$body-background-color: rgba(232, 236, 241, 0.1);
+$link-color: rgba(236, 100, 75, 1);
+$opaque-background-color: rgba(232, 236, 241, 1);
+
+$dark-grey: rgba(36, 44, 63, 0.2);
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
