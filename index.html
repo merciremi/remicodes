@@ -2,7 +2,11 @@
 layout: default
 ---
 <section>
-  <h1>Hi, I'm Rémi Mercier</h1>
+  <div class="vertically-centered">
+    <img src="{{site.url}}/media/remi-mercier.jpeg" height="100" width="100" class="circle inlined" id="profile-pic" />
+    <h1 class="inlined">Hi, I'm Rémi Mercier</h1>
+  </div>
+
 
   <p>I'm a Ruby on Rails developer, maker of ✨ things on the internet and former stained-glass master.</p>
 
@@ -12,12 +16,15 @@ layout: default
 </section>
 
 <section>
-  <h2>My latest posts:</h2>
+  <div class="vertically-centered">
+    <h2 class="inlined">Latest posts</h2>
+    <a class="read-all" href="{{site.url}}/blog" class="inlined">Read all</a>
+  </div>
 
   <ul>
     {% for post in site.posts limit:5 %}
     <li>
-      <a class="post-link" href="{{ post.url }}">{{ post.title }}</a> &nbsp; <span class="meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <a class="post-link" href="{{ post.url }}">{{ post.title }}</a> &nbsp; <time>{{ post.date | date: "%b %-d, %Y" }}</time>
     </li>
     {% endfor %}
   </ul>

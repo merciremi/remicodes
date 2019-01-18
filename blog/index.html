@@ -2,10 +2,14 @@
 layout: default
 ---
 
-<h4>blog</h4>
-{% for post in site.posts %}
-    <time>{{ post.date | date: "%b %-d, %Y" }}</time>
-    <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-{% endfor %}
+<h2>Sometimes, I write:</h2>
 
-<p>subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+{% for post in site.posts %}
+  <div class="post-excerpt">
+    <h4>
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h4>
+    <p>{{ post.excerpt }}</p>
+
+  </div>
+{% endfor %}
