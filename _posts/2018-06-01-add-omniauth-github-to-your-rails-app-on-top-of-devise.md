@@ -29,7 +29,7 @@ ngrok exposes your local web server through a public URL. So we need to install 
 
 First, run in your terminal:
 
-```
+```console
 brew install ngrok
 ```
 
