@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900,400');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700');
 
 $content-width: 70%;
@@ -7,10 +7,12 @@ $headers-font: 'Playfair Display', serif;
 $body-font:'IBM Plex Sans', sans-serif;
 
 $body-font-size: 1.1em;
+$quote-font-size: 1.3em;
 
 $font-color: rgba(36, 44, 63, 1);
 $body-background-color: rgba(232, 236, 241, 0.1);
 $link-color: rgba(236, 100, 75, 1);
+$transparent-link-color: rgba(236, 100, 75, 0.1);
 $opaque-background-color: rgba(232, 236, 241, 1);
 
 $dark-grey: rgba(36, 44, 63, 0.2);

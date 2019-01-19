@@ -38,6 +38,17 @@ time {
   font-size: 0.8em;
   font-weight: 700;
 }
+hr {
+  border: 2px $dark-grey solid;
+}
+blockquote {
+  margin: 25px 0;
+  padding: 10px 20px 10px 30px;
+  background-color: $transparent-link-color;
+  border-left: 5px $link-color solid;
+  font-weight: bold;
+  font-size: $quote-font-size;
+}
 
 .circle {
   border-radius: 100%;
