@@ -1,20 +1,22 @@
 ---
 layout: default
 ---
+<article>
+  <h2>{{ page.title }}</h2>
 
-<h2>{{ page.title }}</h2>
+  <div>
+    🗓 <time>{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</time> -
 
-<div>
-  🗓 <time>{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</time> -
+    ⏱ <span class="article-list-minutes">
+      {% capture words %}
+        {{ page.content | number_of_words }}
+      {% endcapture %}
+      {% unless words contains "-" %}
+        {{ words | plus: 250 | divided_by: 250 | append: " minute read" }}
+      {% endunless %}
+  </span>
+  </div>
 
-  ⏱ <span class="article-list-minutes">
-    {% capture words %}
-      {{ page.content | number_of_words }}
-    {% endcapture %}
-    {% unless words contains "-" %}
-      {{ words | plus: 250 | divided_by: 250 | append: " minute read" }}
-    {% endunless %}
-</span>
-</div>
+  {{ content }}
+</article>
 
-{{ content }}
