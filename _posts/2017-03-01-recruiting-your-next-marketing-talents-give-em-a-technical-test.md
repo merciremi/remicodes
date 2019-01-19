@@ -26,7 +26,7 @@ These tests are so anchored in the recruiting process for developers that it rai
 3. Because being technical gives marketers an edge about conceivable strategies, their replicability and their implementation.
 4. It entertains the false narrative that marketers are just tap-dancers flushing money down the toilets. Believe it or not, marketing now comes with a serious bunch of technical skills: writing compelling copy that converts, setting up conversion funnels, analyzing data, plugging APIs, scrapping content to help the open data community, writing code, you name it!
 
-![recruiting-your-next-marketing-talent-technical-test](/content/images/2017/10/recruiting-your-next-marketing-talent-technical-test.gif)
+![recruiting-your-next-marketing-talent-technical-test](/media/2017/recruiting-your-next-marketing-talent-technical-test.gif)
 
 “So, you work in marketing?”
 
@@ -36,7 +36,9 @@ A few weeks ago, one of our team member wanted to learn how to build a MailChimp
 
 The instructions were:
 
-> Let’s create an onboarding automation for people signing up to a free trial.Ideally, we’d love them to be welcomed right after they signed up. Then, after a few days (let’s say 3) we’d like to invite them to an upcoming webinar where they’ll learn how to use the platform.These people can be either French or English.
+<blockquote>
+  Let’s create an onboarding automation for people signing up to a free trial.Ideally, we’d love them to be welcomed right after they signed up. Then, after a few days (let’s say 3) we’d like to invite them to an upcoming webinar where they’ll learn how to use the platform.These people can be either French or English.
+</blockquote>
 
 There were some room for templating, creating a list with segments, adding tracking parameters to check conversion from each new subscriber in our Analytics dashboard…
 

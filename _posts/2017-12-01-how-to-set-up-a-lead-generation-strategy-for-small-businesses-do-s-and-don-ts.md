@@ -10,7 +10,7 @@ You’re building a product that can be used on the Internet? Good for you! But 
 
 ## 1. Keep it simple: kill the marketing war machine
 
-When you want to build demand for your product, and someone says “let’s build a marketing war machine” (or whatever machinery analogy), walk out of the room. Physical machines are complex systems that are prone to bug and break. Marketing war machines are exactly the same. ==The more complex they get, the more prone to break at the slightest touch they are.== Or to put it more plainly, I’d rather go with an old Defender than a brand new full-technology-loaded BMW. Let me show you the beauty of simplicity over bloated-unmanageable-complex systems.
+When you want to build demand for your product, and someone says “let’s build a marketing war machine” (or whatever machinery analogy), walk out of the room. Physical machines are complex systems that are prone to bug and break. Marketing war machines are exactly the same. The more complex they get, the more prone to break at the slightest touch they are. Or to put it more plainly, I’d rather go with an old Defender than a brand new full-technology-loaded BMW. Let me show you the beauty of simplicity over bloated-unmanageable-complex systems.
 
 First of all, when you’re a small business, you don’t have the time to do everything. A lot of solo founders run every aspect of their business alone. They code, design, tweet, support. Building a complex demand generation system takes time. A lot of time! But hey, let’s say you take the time and you build you awesome marketing war machine. You’ve put in the time, you’ve built the system, you know how it works, end of the story. The only thing is that you’re the only master here. So unpredictable mistakes are less likely to happen. But when your company’s growing, new people come in. And some of these people will use your marketing machine in ways you wouldn’t imagine (that’s the beauty and the curse of it). What was working smoothly with one (or two people) can become a big pile of 💩 in a matter of weeks.
 
@@ -18,7 +18,7 @@ The more complex a system is, the more asymmetrical the ratio benefits/costs are
 
 When you build a complex demand gen system, you need to document it. It’s useful but it takes time. Now, let’s face the hard truth, nobody ever reads the documentation. Why? Because marketing tools are so easy to use! It feels like I know what I’m doing. Until it’s too late and I fucked something up. So while I end up reading the documentation, someone else in the team is left to clean the mess.
 
-==Time of maintenance grows exponentially with every layer of complexity.== When you have complex integrations going back and forth between several tools, it’s easy to loose count of all loose ends. The time you waste in maintenance could be invested in creating more content, in shipping your next update or growing your website’s traffic.
+Time of maintenance grows exponentially with every layer of complexity. When you have complex integrations going back and forth between several tools, it’s easy to loose count of all loose ends. The time you waste in maintenance could be invested in creating more content, in shipping your next update or growing your website’s traffic.
 
 ## 2. Keep it simple redux: start by focusing on two points of entries
 
@@ -30,7 +30,7 @@ You sell courses? Show me the table of content, some nudgets, etc. [Paul Jarvis]
 
 [Ghost.org](https://ghost.org/features/) does a superb job showing off its awesome product (yep, I moved from WP to Ghost a few weeks ago). Another product that is doing this perfectly is [Livestorm](https://livestorm.co/). [Gilles](https://twitter.com/gillesbertaux) and his team went to great lenghts to show us what the product looks like.
 
-![licecap](/content/images/2017/11/licecap.gif)
+![licecap](/media/2017/livestorm.gif)
 
 Once you covered these prospects, focus on those who won’t buy just yet. I browse your website, read loads of articles and follow you on Twitter? Cool! I’m window-shopping. I have no intention of buying right now but I have a clear interest in your product. This is what newsletters are for. They keep me informed. They help your company grow your contact base until those who were not ready to buy become ready.
 
@@ -40,9 +40,9 @@ One last thing: stop locking every damn piece of content behind closed doors. No
 
 ## 3. Ruffling some feathers is good for ya
 
-==Companies that pledge to play it safe until they have an audience are aplenty. Companies that used this strategy and managed to get a massive following are almost non-existent.==
+Companies that pledge to play it safe until they have an audience are aplenty. Companies that used this strategy and managed to get a massive following are almost non-existent.
 
-> Fear is always a shitty advisor.
+<blockquote>Fear is always a shitty advisor.</blockquote>
 
 When you’re the underdog, you don’t build an audience by being bland and boring. The euphemism “corporate communication” is usually a poor decision motivated by the fear of not pleasing everyone. And let’s be clear, whether you build a product for people or for companies doesn’t matter. Even people working for governmental agencies love to loosen up every now and then. There’s really no need to be so serious all the time.
 
@@ -57,13 +57,13 @@ Obviously, if you’re Deloitte, well, people expect you to be boring. [But even
 
 ## 4. Don’t farm out content
 
-First, don’t do “content”. ==It’s usually a bad idea to treat words, voices and creativity as a commodity.==
+First, don’t do “content”. It’s usually a bad idea to treat words, voices and creativity as a commodity.
 
 Finally, never, ever hire content agencies to write for you. They almost never take the time to get intimate with your business. You always need to spend countless hours correcting their crappy copy. Also, they write soulless boring stuff that will make everyone cringe and flee.
 
 Farming out content usually ends up like this:
 
-![hiring-content-agencies-summed-up-remi-mercier](/content/images/2017/11/hiring-content-agencies-summed-up-remi-mercier.jpeg)
+![hiring-content-agencies-summed-up-remi-mercier](/media/2017/hiring-content-agencies-summed-up-remi-mercier.jpeg)
 
 ## 5. Be patient and keep shipping day in day out
 
@@ -98,13 +98,13 @@ For a demand gen strategy to work (also applies to a lot of other topics), you n
 
 When I was a stained glass maker (that’ll make for another story), there was this saying:
 
-> You recognize the craftsman by its tools.
+<blockquote>You recognize the craftsman by its tools.</blockquote>
 
 I had to keep my tools in perfect condition and my workbench clean because a single nail could break a piece of painted glass I’d then have to redo.
 
 When it comes to marketing tools and CRM, your tools should be squeaky clean. I mean Bree van de Kamp clean. For example: define a naming taxonomy for your contact lists, create dos and don’ts in your Trello boards… Give everyone the ability to know what they can do and what they shouldn’t do. Be ruthless when enforcing these rules otherwise it’ll become a huge mess in no time. And believe me, spending a month cleaning everyone’s mess is not something you’ll enjoy.
 
-==But let creativity run wild! I see a lot of time invested in “complex” strategies. Honestly, fuck these. Just play around, ship good enough projects to see what stick and what doesn’t. Never stop having fun!== This, my friends, is the best advice you can get.
+But let creativity run wild! I see a lot of time invested in “complex” strategies. Honestly, fuck these. Just play around, ship good enough projects to see what stick and what doesn’t. Never stop having fun! This, my friends, is the best advice you can get.
 
 ---
 

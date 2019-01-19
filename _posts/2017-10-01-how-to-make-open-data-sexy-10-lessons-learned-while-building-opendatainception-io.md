@@ -8,8 +8,9 @@ excerpt: "In June 2015, Nicolas Terpolilli and I were ranting about the difficul
 In June 2015, [Nicolas Terpolilli](https://twitter.com/NTerpo) and I were ranting about the difficulty to locate Open Data portals. Poor SEO seemed to result in poor rankings. Existing listings were either outdated or partisan. We started joking around with the idea of building a truly comprehensive resource. A resource that would gather every single Open Data portal we could lay our hands on.
 This seemed to be a common need too. We would come across multiple threads on Twitter, [Reddit](https://www.reddit.com/r/datasets/), [Quora](https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public)… And all of these would start with this unique question:
 
-
-> Where can I find clean and usable data?
+<blockquote>
+  Where can I find clean and usable data?
+</blockquote>
 
 When you strive to build the best data and API management platform, you need data. A lot of data. Whether they be for [creating network effects](https://medium.com/@nicolasterpolilli/open-data-network-the-challenge-of-interconnectivity-c7a3cd2a073), innovative use-cases or quirky infographics.
 So, instead of waiting for someone else to build a comprehensive listing of all Open Data portals around the world, we decided to make it happen.
@@ -48,13 +49,13 @@ This is why we built opendatainception.io: to give people who need data a compre
 
 For something as open as Open Data, people have a hard time pooling resources regardless of technological obedience.
 
-This is why we decided to scrap existing resources. We already did it for [our infamous list of French cheeses](https://www.opendatasoft.com/2015/05/04/how-to-create-a-map-with-open-data-the-map-of-french-cheese/). [And we did it again](https://www.youtube.com/watch?v=CduA0TULnow). ¯\_(ツ)_/¯
+This is why we decided to scrap existing resources. We already did it for [our infamous list of French cheeses](https://www.opendatasoft.com/2015/05/04/how-to-create-a-map-with-open-data-the-map-of-french-cheese/). [And we did it again](https://www.youtube.com/watch?v=CduA0TULnow). 🤷‍♂️
 
-We gathered a first list of ~1,600 open data portals. Data was incomplete: lot of geographic coordinates missing, encoding problems, duplicates…
+We gathered a first list of ~1,600 open data portals. Data was incomplete: lot of geographic coordinates missing, encoding problems, duplicates, etc.
 
 We used simple scripts, namely Clojure, to harmonize the different fields. For example, we capitalized textual fields or converted geographic data into one coordinate system.
 
-We also did our best to remove duplicates, dead links… I spent days normalizing were portals were to be mapped, adding coordinates by hand (yup!), correcting names… ==We were working guerrilla-style, so we did not bother with quality that much. We wanted to launch it and test if people would be interested.==
+We also did our best to remove duplicates, dead links… I spent days normalizing were portals were to be mapped, adding coordinates by hand (yup!), correcting names… We were working guerrilla-style, so we did not bother with quality that much. We wanted to launch it and test if people would be interested.
 
 ## 👆✌️ Find a story to tell
 
@@ -62,7 +63,7 @@ Aggregating data is one thing. Making it sexy is quite another.
 
 Our story was easy to find. We wanted to built:
 
-> The most comprehensive list of data portals ever made!
+<blockquote>The most comprehensive list of data portals ever made!</blockquote>
 
 Nicolas and I believe that being shy usually doesn’t get you anywhere. 😎
 
@@ -76,13 +77,13 @@ I am extremely lucky to be surrounded by people who can make anything with data:
 
 Because, let’s face it: rough data is only attractive to a handful of people.
 
-==Data should speak for itself but outside the realm of data scientists or data geeks like us, it doesn’t. Normal people, business stakeholders, politicians… they all need help to understand the underlying truths hidden in data.==
+Data should speak for itself but outside the realm of data scientists or data geeks like us, it doesn’t. Normal people, business stakeholders, politicians… they all need help to understand the underlying truths hidden in data.
 
 It doesn’t mean you should aim for simplistic interpretation. Some things require people to reach a deeper level of understanding to express their full potential. But for opendatainception.io, we thought it’d be a shame to leave some many people behind.
 
 That’s why we first launched a static list sorted by alphabetic order. Alphabetical list are easy to browse. We added a table of content where countries name would take readers directly to the appropriate part of the list.
 
-![sexy-open-data-list-of-open-data-portals](/content/images/2017/11/sexy-open-data-list-of-open-data-portals.gif)
+![sexy-open-data-list-of-open-data-portals](/media/2017/sexy-open-data-list-of-open-data-portals.gif)
 
 The fist list was a HTML export. Nicolas would run a Ruby script turning a CSV into preformated HTML everytime we needed to update the list. After a dozen updates, we grew fed up with the process. We decided to inject some Angular JS context in our Wordpress page. We used open source widgets that create dynamic elements within a page. Our list would then update itself in real-time through APIs creating an endless communication between our widgets and the dataset (thanks to APIs). Timesaver!
 
@@ -114,7 +115,7 @@ The French version of this tweet [gathered 100 retweets](https://twitter.com/ope
 
 So far, it’s still the second top post of all time in [r/datasets](https://www.reddit.com/r/datasets/top/?sort=top&t=all).
 
-![how-to-make-open-data-sexy-reddit-remi-mercier](/content/images/2017/11/how-to-make-open-data-sexy-reddit-remi-mercier.jpeg)
+![how-to-make-open-data-sexy-reddit-remi-mercier](/media/2017/how-to-make-open-data-sexy-reddit-remi-mercier.png)
 
 The next day, we built and launched opendatainception.io, the list visualized as a map.
 
@@ -122,7 +123,7 @@ A few months later, we organized a webinar-thingy where Nicolas and I talked abo
 
 At the same time, [Nicolas shared opendatainception.io on Product Hunt](https://www.producthunt.com/posts/open-data-inception). The post became the 5th product of the day. For 48 hours, we saw a huge traffic spike.
 
-==Most importantly, we spent countless hours talking to people about it (mostly on Twitter), answering tweets, following-up when an update would be released…== To me, this seems like the most important part of our distribution:
+Most importantly, we spent countless hours talking to people about it (mostly on Twitter), answering tweets, following-up when an update would be released… To me, this seems like the most important part of our distribution:
 
 - talking a lot about it,
 - not hammering people through “corporate” channels,
@@ -148,7 +149,7 @@ I won’t re-tell the whole story, you can find it [here](https://www.opendataso
 
 Whatever you do, it’s bound to be perfectible. Like Boileau said:
 
-> Put your work twenty times upon the anvil. Polish it continuously, and polish it again.
+<blockquote>Put your work twenty times upon the anvil. Polish it continuously, and polish it again.</blockquote>
 
 We took a lot of feedback through emails, on Twitter, Reddit, LinkedIn and, from our own team. At least 30% of the records were either dead links, or were displaying portals in the wrong place… We were determined to launch first and count on the community to give feedback! And it worked!
 
@@ -160,7 +161,7 @@ In late 2016, our UX designer and front-end engineer, redesigned opendataincepti
 
 Nicolas has a strong stance when in comes to open data as [HTML resources](https://medium.com/@nicolasterpolilli/nope-html-is-not-open-data-dabc2f172eb).
 
-> Let’s be clear, HTML resources are a terrible excuse for Open Data, and just make me want to leave your portal!
+<blockquote>Let’s be clear, HTML resources are a terrible excuse for Open Data, and just make me want to leave your portal!</blockquote>
 
 We wanted people to be able to use the resources in their favourite format. This is why we published it a list, a map and an open dataset that can be downloaded as a CSV or used as an API.
 
@@ -193,7 +194,7 @@ The only thing I could have done better, would have been to keep in touch faster
 
 Remember when I talked about open data portals being 💩 at SEO? Well, we thought that a technological layer could be a great solution. It would work as [a crawler](https://en.wikipedia.org/wiki/Web_crawler) coupled with a sitemap.xml file. The file would map a portal’s metadata (and link to deeper levels of information). Nicolas coded a first draft of dataportal.json:
 
-```
+{% highlight json %}
 {
 "language": "en",
 "name": "Paris Data",
@@ -230,7 +231,7 @@ Remember when I talked about open data portals being 💩 at SEO? Well, we thoug
   "http://opendata.paris.fr/explore/dataset/cinemas-a-paris/datapackage.json"
   ]
 }
-```
+{% endhighlight %}
 
 We 💘 Json.
 

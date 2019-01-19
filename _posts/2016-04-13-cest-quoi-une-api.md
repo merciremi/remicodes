@@ -10,4 +10,6 @@ This is the French version on this [article explaining to newbies what are APIs]
 
 If you want to practice your French, click on the link below!
 
-> 👉 [C'est quoi une API ? Une explication (compréhensible) pour les utilisateurs métier](https://medium.com/@mercier_remi/c-est-quoi-une-api-f37ae350cb9) 👈
+<blockquote>
+  <a href="https://medium.com/@mercier_remi/c-est-quoi-une-api-f37ae350cb9">C'est quoi une API ? Une explication (compréhensible) pour les utilisateurs métier</a>
+</blockquote>

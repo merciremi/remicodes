@@ -11,22 +11,22 @@ It was an exciting night worthy of those exciting nine weeks.
 
 But now, it’s Monday morning. The excitement has worn off over the weekend, the many naps and the odd drinks. What shall I do?
 
-> ⛵️Always. Be. Shipping.
+<blockquote>⛵️Always. Be. Shipping.</blockquote>
 
 Being at Le Wagon was like getting into Hogwarts. I realized I could wave my fingers around my keyboard and make things appeared at will! There’s no way I’m going back to the Muggles.
 
-==So for the next two months, I’ll build an app a week and go back to some basic training (remember the Karate Kid? Well, the same but with more programming and less painting fences).==
+So for the next two months, I’ll build an app a week and go back to some basic training (remember the Karate Kid? Well, the same but with more programming and less painting fences).
 
-![karatekid](/content/images/2018/06/karatekid.gif)
+![karatekid](/media/2018/karatekid.gif)
 
 ☝️ Note: This is an ongoing post so I’ll update my progress as I go, mostly depending on suggestions, whims...
 
 ## Jot it. Do it. Strike it.
 ### A public to-do app
-#### ==Status: Done ✅==
+#### Status: Done ✅
 Let’s go back to the fundamentals of the CRUD for a moment.
 
-![strikeitv0](/content/images/2018/06/strikeitv0.gif)
+<img src="{{site.url}}/media/2018/strikeitv0.gif" alt="Strike It App" height="90%" width="90%">
 
 Basic features:
 - CRUD 101
@@ -51,7 +51,7 @@ It has taken me ten days to ship it. And it still needs some work (especially th
 
 ## RandCode
 ### Real-time coding challenges
-#### ==Status: To-do==
+#### Status: To-do
 
 Some of my buddies presented Code and Drink, a coding challenges platform where multiple players can try and outsmart each other. I found the idea of coding challenges to be an interesting use of ActionCable.
 
@@ -70,17 +70,17 @@ Basic features:
 - App with Action cable for real-time features like a chat
 - App with background jobs and no front end
 - App to track books I lent and borrowed
-  - Scan ISBN and get a book info prefilled
-  - Tag your friend
-  - Set a start date
-  - A state: lent, back at home
+- Scan ISBN and get a book info prefilled
+- Tag your friend
+- Set a start date
+- A state: lent, back at home
 - APIs to try: Algolia, Twilio…
 - A game where something moves to eat something (dynamisation)
 - Trying my hand at react → app only exposing an API and interacting w/ JS framework
 
 ## Back to basics
 ### Learning the basics of programming
-#### ==Status: Doing 🔥==
+#### Status: Doing 🔥
 
 - CodeWars katas up to 6th kyu / Leetcode
 - Learn RSpec, integration tests, test coverage…
