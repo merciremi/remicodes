@@ -26,7 +26,7 @@ These tests are so anchored in the recruiting process for developers that it rai
 3. Because being technical gives marketers an edge about conceivable strategies, their replicability and their implementation.
 4. It entertains the false narrative that marketers are just tap-dancers flushing money down the toilets. Believe it or not, marketing now comes with a serious bunch of technical skills: writing compelling copy that converts, setting up conversion funnels, analyzing data, plugging APIs, scrapping content to help the open data community, writing code, you name it!
 
-![recruiting-your-next-marketing-talent-technical-test](/media/2017/recruiting-your-next-marketing-talent-technical-test.gif)
+<img src="{{ site.baseurl }}/media/2017/recruiting-your-next-marketing-talent-technical-test.gif" alt="">
 
 “So, you work in marketing?”
 

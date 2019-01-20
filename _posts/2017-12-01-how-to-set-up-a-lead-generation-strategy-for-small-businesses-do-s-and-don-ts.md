@@ -63,7 +63,7 @@ Finally, never, ever hire content agencies to write for you. They almost never t
 
 Farming out content usually ends up like this:
 
-![hiring-content-agencies-summed-up-remi-mercier](/media/2017/hiring-content-agencies-summed-up-remi-mercier.jpeg)
+<img src="{{ site.baseurl }}/media/2017/hiring-content-agencies-summed-up-remi-mercier.jpeg" alt="">
 
 ## 5. Be patient and keep shipping day in day out
 
