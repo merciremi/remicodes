@@ -34,8 +34,9 @@ a {
 footer {
   padding-bottom: 30px;
   a {
+    color: rgba(36, 44, 63, 0.5) !important;
     margin-right: 20px;
-    border-bottom: 2px $dark-grey solid;
+    border-bottom: 2px $link-color solid;
   }
 }
 time {
