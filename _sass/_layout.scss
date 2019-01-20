@@ -1,11 +1,16 @@
-body {
-  margin: 120px auto;
-  width: $content-width;
-  color: $font-color;
+html {
   background-color: $body-background-color;
+}
+body {
+  margin: 0 auto;
+  width: 70%;
+  color: $font-color;
   font-family: $body-font;
   font-size: $body-font-size;
   line-height: 1.6;
+}
+main {
+  margin: 120px 0px 90px 0px;
 }
 h1,
 h2,
@@ -27,8 +32,11 @@ a {
   }
 }
 footer {
-  position: relative;
-  top: 60px;
+  padding-bottom: 30px;
+  a {
+    margin-right: 20px;
+    border-bottom: 2px $dark-grey solid;
+  }
 }
 time {
   margin-left: 4px;
