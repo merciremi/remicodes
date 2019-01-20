@@ -19,7 +19,7 @@ Without further ado, here are a few things you might want to know about me.
 - lives in Paris, tweets his coding sprees and headaches on [Twitter](https://twitter.com/mercier_remi),
 - builds wooden furniture on his balcony.
 
-That's it for now. Want to know more? Here's [what I'm doing right now](https://remimercier.com/now/) and some kind of resume down there 👇.
+That's it for now. Want to know more? Here's [what I'm doing right now]({{ site.baseurl }}/now) and some kind of resume down there 👇.
 
 ## What have I done these past few years?
 
