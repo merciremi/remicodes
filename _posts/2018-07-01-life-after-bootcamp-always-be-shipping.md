@@ -17,7 +17,7 @@ Being at Le Wagon was like getting into Hogwarts. I realized I could wave my fin
 
 So for the next two months, I’ll build an app a week and go back to some basic training (remember the Karate Kid? Well, the same but with more programming and less painting fences).
 
-![karatekid](/media/2018/karatekid.gif)
+<img src="{{ site.baseurl }}/media/2018/karatekid.gif" alt="">
 
 ☝️ Note: This is an ongoing post so I’ll update my progress as I go, mostly depending on suggestions, whims...
 
@@ -26,16 +26,16 @@ So for the next two months, I’ll build an app a week and go back to some basic
 #### Status: Done ✅
 Let’s go back to the fundamentals of the CRUD for a moment.
 
-<img src="{{site.url}}/media/2018/strikeitv0.gif" alt="Strike It App" height="90%" width="90%">
+<img src="{{ site.baseurl }}/media/2018/strikeitv0.gif" alt="Strike It App" height="90%" width="90%">
 
 Basic features:
 - CRUD 101
 - Each user can CRUD his/her own tasks only
 - Each task can be assigned one of three categories: to-do, doing, done
 - Each user has a public page where everyone can check his/her current task, done tasks and, pending tasks
-
+<!--
 My very own public page 👇
-![strike-it-public-profile](/content/images/2018/06/strike-it-public-profile.png)
+![strike-it-public-profile](/content/images/2018/06/strike-it-public-profile.png) -->
 
 Nice to have:
 - Each task has a set deadline with some kind of countdown

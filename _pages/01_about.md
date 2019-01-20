@@ -4,7 +4,7 @@ title: About Rémi
 permalink: /about/
 ---
 
-<img src="{{site.url}}/media/remi-mercier.jpeg" height="300" width="300" class="inlined" />
+<img src="{{ site.baseurl }}/media/remi-mercier.jpeg" height="300" width="300" class="inlined" />
 
 Hi, my name is Remi Mercier (`ray · me · mercy · 'ey `).
 

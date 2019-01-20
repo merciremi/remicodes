@@ -30,7 +30,7 @@ You sell courses? Show me the table of content, some nudgets, etc. [Paul Jarvis]
 
 [Ghost.org](https://ghost.org/features/) does a superb job showing off its awesome product (yep, I moved from WP to Ghost a few weeks ago). Another product that is doing this perfectly is [Livestorm](https://livestorm.co/). [Gilles](https://twitter.com/gillesbertaux) and his team went to great lenghts to show us what the product looks like.
 
-![licecap](/media/2017/livestorm.gif)
+<img src="{{ site.baseurl }}/media/2017/livestorm.gif" alt="">
 
 Once you covered these prospects, focus on those who won’t buy just yet. I browse your website, read loads of articles and follow you on Twitter? Cool! I’m window-shopping. I have no intention of buying right now but I have a clear interest in your product. This is what newsletters are for. They keep me informed. They help your company grow your contact base until those who were not ready to buy become ready.
 
