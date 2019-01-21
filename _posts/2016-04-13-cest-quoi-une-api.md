@@ -4,7 +4,6 @@ title:  "C'est quoi une API ?"
 date:   2016-04-13
 categories: french articles
 excerpt: "This is the French version on an article explaining to newbies what are APIs."
-permalink: /:title
 ---
 
 This is the French version on this [article explaining to newbies what are APIs](http://remimercier.com/what-is-an-api/).
