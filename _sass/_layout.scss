@@ -27,6 +27,7 @@ h2 {
 a {
   color: $link-color;
   text-decoration: none;
+  border-bottom: 2px $dark-grey solid;
   &:visited {
     color: $link-color;
   }
@@ -41,6 +42,7 @@ footer {
 }
 time {
   margin-left: 4px;
+  min-width: 100px;
   padding: 3px 6px;
   background: $opaque-background-color;
   color: rgba(36, 44, 63, 0.5);
@@ -87,6 +89,7 @@ blockquote {
   background: $opaque-background-color;
   color: rgba(36, 44, 63, 0.5) !important;
   font-weight: 700;
+  border-bottom: none;
   &:hover {
     background: $link-color;
     color: white !important;
