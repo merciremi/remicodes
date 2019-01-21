@@ -4,9 +4,9 @@ title: About Rémi
 permalink: /about/
 ---
 
-<img src="{{ site.baseurl }}/media/remi-mercier.jpeg" height="300" width="300" class="inlined" />
+<!-- <img src="{{ site.baseurl }}/media/remi-mercier.jpeg" height="300" width="300" class="inlined" /> -->
 
-Hi, my name is Remi Mercier (`ray · me · mercy · 'ey `).
+👋 Hi, my name is Remi Mercier (`ray · me · mercy · 'ey `).
 
 Without further ado, here are a few things you might want to know about me.
 
@@ -15,7 +15,8 @@ Without further ado, here are a few things you might want to know about me.
 - is a former stained glass maker specialized in conservation and restoration,
 - drew infographics for grassroot organizations for two years,
 - spearheaded inbound marketing for an open data startup for four years,
-- develops [harry.team](http://harry.team) and [Strike it](https://strike-it.herokuapp.com/) after attending the Wagon Ruby on Rails bootcamp,
+- developed [harry.team](http://harry.team) and [Strike it](https://strike-it.herokuapp.com/) after attending the Wagon Ruby on Rails bootcamp,
+- teaches Ruby, Rails and much much more @Le Wagon Paris,
 - lives in Paris, tweets his coding sprees and headaches on [Twitter](https://twitter.com/mercier_remi),
 - builds wooden furniture on his balcony.
 
@@ -25,20 +26,20 @@ That's it for now. Want to know more? Here's [what I'm doing right now]({{ site.
 
 ### Work things:
 
-**Ruby on Rails Assistant Teacher: Le Wagon Paris, 2018**
+**Teacher: Le Wagon Paris, 2018**
 Helping out students coding their way through the first four weeks of the coding bootcamp:
 
 - Ruby and programming basics
 - OOP and MVC design pattern
-- Database design and SQL.
+- Database design and SQL
+- Projects
 
 **Lead Generation Manager: OpenDataSoft, 2014-2018**
 OpenDataSoft is a B2B SaaS that allows non-technical users to turn structured data into REST APIs and visualizations.
 
-- Developed a lead generation infrastructure from the ground up generating +600,000€ ARR.
-- Integrated Salesforce, Hubspot, Eventbrite and GoToWebinar using their APIs: mapped databases design to ensure data integrity throughout synchronizations.
+- Developed a lead generation pipeline from the ground up generating +600,000€ ARR.
+- Integrated Salesforce, Hubspot, Eventbrite and GoToWebinar using their APIs.
 - Coded opendatainception.io using an open source AngularJS widgets library and OpenDataSoft API to grow traffic acquisition. +100,000 unique visitors to date.
-- Teamed up to relaunch the OpenDataSoft freemium onboarding UX: user experience, front-end design and conversion
 - Relaunched and rebranded the corporate website. Brought a strong focus on user experience, page loading speed and readability.
 - Learnt technical workflow to maintain websites and projects: git, Github, code reviews, deployment, etc.
 
