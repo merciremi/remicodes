@@ -8,9 +8,21 @@ body {
   font-family: $body-font;
   font-size: $body-font-size;
   line-height: 1.6;
+  @media screen and (max-width: $break-medium) {
+    width: 85%;
+  }
+  @media screen and (max-width: $break-small) {
+    width: 90%;
+  }
 }
 main {
   margin: 120px 0px 90px 0px;
+  @media screen and (max-width: $break-medium) {
+    margin: 60px 0px 30px 0px;
+  }
+  @media screen and (max-width: $break-small) {
+    margin: 60px 0px 30px 0px;
+  }
 }
 h1,
 h2,
@@ -104,4 +116,8 @@ blockquote {
   margin-right: 10px;
   height: 100px;
   width: 100px;
+}
+
+@media only screen and (max-device-width: 480px) {
+
 }
