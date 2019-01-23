@@ -44,15 +44,6 @@ a {
     color: $link-color;
   }
 }
-img {
-  max-width: 90%;
-}
-iframe {
-  max-width: 90%;
-}
-figure {
-  margin-inline-start: 0px;
-}
 ul {
   @media screen and (max-width: $break-small) {
     padding-inline-start: 20px;
@@ -86,14 +77,24 @@ blockquote {
   font-weight: bold;
   font-size: $quote-font-size;
 }
-.highlighter-rouge {
-  padding: 2px 3px;
-  color: $link-color;
-  background-color: $opaque-background-color;
+img {
+  max-width: 90%;
+}
+iframe {
+  max-width: 90%;
+}
+figure {
+  margin-inline-start: 0px;
+  overflow-wrap: normal;
 }
 
 .circle {
   border-radius: 100%;
+}
+.highlighter-rouge {
+  padding: 2px 3px;
+  color: $link-color;
+  background-color: $opaque-background-color;
 }
 .icon {
   width: 10px;
@@ -143,8 +144,4 @@ blockquote {
   margin-right: 10px;
   height: 100px;
   width: 100px;
-}
-
-@media only screen and (max-device-width: 480px) {
-
 }
