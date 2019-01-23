@@ -44,6 +44,20 @@ a {
     color: $link-color;
   }
 }
+img {
+  max-width: 90%;
+}
+iframe {
+  max-width: 90%;
+}
+figure {
+  margin-inline-start: 0px;
+}
+ul {
+  @media screen and (max-width: $break-small) {
+    padding-inline-start: 20px;
+  }
+}
 footer {
   padding-bottom: 30px;
   a {
@@ -71,6 +85,11 @@ blockquote {
   border-left: 5px $link-color solid;
   font-weight: bold;
   font-size: $quote-font-size;
+}
+.highlighter-rouge {
+  padding: 2px 3px;
+  color: $link-color;
+  background-color: $opaque-background-color;
 }
 
 .circle {
@@ -106,10 +125,18 @@ blockquote {
     background: $link-color;
     color: white !important;
   }
+  @media screen and (max-width: $break-small) {
+    margin: 0 0;
+  }
 }
 .vertically-centered {
   display: flex;
   align-items: center;
+  @media screen and (max-width: $break-small) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 #profile-pic {

@@ -350,4 +350,4 @@ From early April to early June, I attended Le Wagon Paris' fullstack coding boot
 
 Check out our demo of [harry.team](https://harry.team) here 👇.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2KMdJLoWjCU?rel=0&amp;showinfo=0&amp;start=5555" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/2KMdJLoWjCU?rel=0&amp;showinfo=0&amp;start=5555" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
