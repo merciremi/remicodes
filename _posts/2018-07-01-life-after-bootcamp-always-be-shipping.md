@@ -12,7 +12,9 @@ It was an exciting night worthy of those exciting nine weeks.
 
 But now, it’s Monday morning. The excitement has worn off over the weekend, the many naps and the odd drinks. What shall I do?
 
-<blockquote>⛵️Always. Be. Shipping.</blockquote>
+<blockquote>
+  ⛵️Always. Be. Shipping.
+</blockquote>
 
 Being at Le Wagon was like getting into Hogwarts. I realized I could wave my fingers around my keyboard and make things appeared at will! There’s no way I’m going back to the Muggles.
 
