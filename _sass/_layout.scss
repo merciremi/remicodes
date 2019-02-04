@@ -85,14 +85,34 @@ iframe {
 }
 figure {
   margin-inline-start: 0px;
+  margin-inline-end: 0px;
   overflow-wrap: normal;
+  @media screen and (max-width: $break-small) {
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
 }
 
 .circle {
   border-radius: 100%;
 }
+.footnotes {
+  &:before {
+    content: "Footnotes";
+    font-family: $headers-font;
+    font-weight: bold;
+  }
+  padding-top: 30px;
+  margin-top: 60px;
+  border-top: 1px $link-color solid;
+}
+.highlight {
+  border-radius: 1em 0 1em 0;
+  background-image: linear-gradient(-100deg, rgba(236, 100, 75, 0.1), rgba(236, 100, 75, 0.3) 90%, rgba(236, 100, 75, 0.1));
+}
 .highlighter-rouge {
   padding: 2px 3px;
+  overflow-wrap: break-word;
   color: $link-color;
   background-color: $opaque-background-color;
 }
