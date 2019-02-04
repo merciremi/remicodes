@@ -210,7 +210,7 @@ def self.from_omniauth(auth)
          user.email = auth.info.email
          user.password = Devise.friendly_token[0,20]
          user.first_name = auth.info.name.split(' ').first
-  user.last_name = auth.info.name.split(' ').second
+         user.last_name = auth.info.name.split(' ').second
        end
      end
      unless user.avatar.present?
