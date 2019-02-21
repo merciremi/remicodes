@@ -1,15 +1,15 @@
 ---
 layout: post
-title: WTF is time complexity (and why should I care about it)?
+title: Exploring time complexity through a pairing algorithm
 excerpt: People who learn web development through coding bootcamp aren't (usually) familiar with time complexity. They might have read the words, but that's it. I know I tried to look up the Wikipedia page only to fall asleep at the end of the first paragraph. When I finally woke up, I thought "Nevermind, I'll never have to deal with it anyway". And boy, was I wrong.
 permalink: wtf-time-complexity
 ---
 
-Here's a subject I never thought I'd write about. But hey, life is full of surprises.
+Here's a subject I never thought I'd write about. But life is full of surprises.
 
 People who learn web development through coding bootcamp aren't (usually) familiar with time complexity. They might have read the words, but that's it. I know I tried to look up [the Wikipedia page](https://en.wikipedia.org/wiki/Time_complexity) only to fall asleep at the end of the first paragraph. When I finally woke up, I thought "Nevermind, I'll never have to deal with it anyway".
 
-And boy, was I wrong. I was soon asked during a coding interview to write an algorithm and to calculate its time complexity 🤔. It made me realize that time complexity is more than just a fancy word thrown by an engineer to make you sweat. Knowing the gist of it can be useful outside the coding-interviews-world too.
+And boy, was I wrong. I was soon asked during a coding interview to write a pairing algorithm and to calculate its time complexity 🤔. It made me realize that time complexity is more than just a fancy word thrown by an engineer to make you sweat. Knowing the gist of it can be useful outside the coding-interviews-world too.
 
 So, for all my fellow bootcampers out there, here are the very basics of time complexity - so you can shine like a diamond during your next cocktail party.
 
@@ -307,6 +307,10 @@ Here's the benchmark for this new code:
 Much better! Now, my code only takes 10x longer to run when the input is multiplied by 10. Its time complexity has become linear (`0(n)`) and takes less than 0,006s to handle a 10,000-integer input 🥳.
 
 Well, that was super geeky. I hope it'll help fellow bootcampers to wrap their head around time complexity and how it can be useful.
+
+Dis I missed something? Lemme know on [Twitter](https://twitter.com/mercier_remi),
+
+Rémi
 
 
 [^1]: Not a **Real Developer™** notation.
