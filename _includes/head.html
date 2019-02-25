@@ -10,4 +10,31 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,600' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 
+  <meta content="{{ site.title }} - Maker of shiny stuff on the internet" property="og:site_name">
+  {% if page.title %}
+  <meta content="{{ page.title }}" property="og:title">
+  {% else %}
+  <meta content="{{ site.title }}" property="og:title">
+  {% endif %}
+  {% if page.title %}
+  <meta content="article" property="og:type">
+  {% else %}
+  <meta content="website" property="og:type">
+  {% endif %}
+  {% if page.excerpt %}
+  <meta content="{{ page.excerpt }}" property="og:description">
+  {% else %}
+  <meta content="{{ site.description }}" property="og:description">
+  {% endif %}
+  {% if page.url %}
+  <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+  {% endif %}
+  {% if page.date %}
+  <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+  <meta content="{{ site.url }}/about/" property="article:author">
+  {% endif %}
+  <meta content="/media/remi-mercier.jpeg" property="og:image">
+
+  <meta name="twitter:site" content="@mercier_remi">
+  <meta name="twitter:creator" content="@mercier_remi">
 </head>
