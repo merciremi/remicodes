@@ -22,7 +22,7 @@ That's it. You can stop reading right now and go back to your life.
 Still with me? Ok, wannabe-CS-nerd, here's an example:
 
 - If your code handles a 10-integer array and a 10,000-integer array during the same amount of time, well done, your code's time complexity is 👌.
-- If your code takes 1,000x longer to handle a 10-integer array and a 10,000-integer array, sorry, your code's time complexity is 💩 [^1].
+- If your code takes 100x longer to handle a 10x larger array, sorry, your code's time complexity is 💩 [^1].
 
 
 ## A much-needed example
@@ -308,7 +308,7 @@ Much better! Now, my code only takes 10x longer to run when the input is multipl
 
 Well, that was super geeky. I hope it'll help fellow bootcampers to wrap their head around time complexity and how it can be useful.
 
-Dis I missed something? Lemme know on [Twitter](https://twitter.com/mercier_remi),
+Did I missed something? Lemme know on [Twitter](https://twitter.com/mercier_remi),
 
 Rémi
 
