@@ -152,7 +152,7 @@ From best to worst:
 - `0(n)`: 10x the input and your code takes 10x longer to run
 - `0(n log n)`: 10x the input and your code takes 50x longer to run
 - `0(n^2)`: 10x the input and your code takes 100x longer to run
-- `0(2n)`: 10x the input and your user has fallen asleep while your code still runs
+- `0(2^n)`: 10x the input and your user has fallen asleep while your code still runs
 
 There's really no need to learn it by heart or to be able to calculate the right Big-0 on top of your head (the first reason is: [CS engineers and math nerds don't even agree on the calculus](https://www.reddit.com/r/programming/comments/1dotwe/bigo_cheat_sheet/c9si8pj/)).
 
