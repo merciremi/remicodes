@@ -43,7 +43,7 @@ After taking some time off from job seeking, I talked with <a href="https://twit
 
 I love to build stuff. I started my professional life making stained-glass. I build wooden furniture on my balcony whenever I can. I draw. After a few years in marketing, I grew bored with being left out of the product building. That's why I wanted to go back to shipping things.
 
-I also got into tech through the small door: managing communities, designing infographics, customizing Wordpress themes, learning about DB design, coding Javascript shitty programs, etc... I don't hold a CS degree (nor will I ever do). I'll be one of these developers who pushes the <a href="https://dev.to/ben/ah-to-be-the-justin-bieber-of-open-source-4jog">"standard rails mess"</a> and don't know <a href="https://twitter.com/dhh/status/834146806594433025">how to write a bubble sort on a whiteboard</a>. I'll also be one of these developers who enjoy:
+I also got into tech through the small door: managing communities, designing infographics, customizing Wordpress themes, learning about DB design, coding Javascript shitty programs, etc... I don't hold a CS degree (nor will I ever do). I'll be one of these developers who push the <a href="https://dev.to/ben/ah-to-be-the-justin-bieber-of-open-source-4jog">"standard rails mess"</a> and don't know <a href="https://twitter.com/dhh/status/834146806594433025">how to write a bubble sort on a whiteboard</a>. I'll also be one of these developers who enjoy:
 - building stuff that people use,
 - sharing with others the little they know,
 - and working towards more inclusive and supportive workplaces.
