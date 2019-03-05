@@ -27,9 +27,6 @@ I even got lectured for 45 minutes by a lead developer on how bootcampers lack p
 
 All these interviews spent being judged and the backlash I experienced eventually brought back fear into my life. Fear of comparison. Fear of not being able to work as a dev. Fear of being a complete fraud. I changed completely in just a couple of months. From bold, I became fearful. And I didn't want to start my dev career like that.
 
-For all the haters out there 😘:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RqQGUJK7Na4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 When I started looking for a job, I did interviews wearing the thinnest of social mask. I wore torn jeans, talked about burning out, didn't have a resume, and said 'fuck' a LOT (but I still got to move onto technical tests). Yet, after a few interviews, I realized this behavior was freaking people out so I tried a more conventional approach.
 
 I updated my resume and crammed it with every line of code I could lay my hands on. Problem was, the impostor syndrome had already kicked in. Ever heard of the frog that wanted to be as big as an ox? 👋
