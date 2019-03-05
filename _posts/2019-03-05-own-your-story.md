@@ -35,10 +35,10 @@ When I started looking for a job, I did interviews wearing the thinnest of socia
 I updated my resume and crammed it with every line of code I could lay my hands on. Problem was, the impostor syndrome had already kicked in. Ever heard of the frog that wanted to be as big as an ox? 👋
 
 **What I was saying:**
-<quote>Developped a lead generation infrastructure generating $600,000 ARR. Integrated several marketing CRMs using their APIs: mapped database design to ensure data integrity. Coded <a href="https://opendatainception.io/" target="_blank">opendatainception.io</a> using an open source AngularJS widgets library and external APIs.</quote>
+<blockquote>Developped a lead generation infrastructure generating $600,000 ARR. Integrated several marketing CRMs using their APIs: mapped database design to ensure data integrity. Coded <a href="https://opendatainception.io/" target="_blank">opendatainception.io</a> using an open source AngularJS widgets library and external APIs.</blockquote>
 
 **IRL:**
-<quote>Generated leads with Hubspot and passed data to Salesforce through the built-in integration. Actually coded <a href="https://opendatainception.io/" target="_blank">opendatainception.io</a> using an open source AngularJS widgets library that's super eay to use and external APIs. Also bored to death by menial tasks, office politics, and too many meetings.</quote>
+<blockquote>Generated leads with Hubspot and passed data to Salesforce through the built-in integration. Actually coded <a href="https://opendatainception.io/" target="_blank">opendatainception.io</a> using an open source AngularJS widgets library that's super eay to use and external APIs. Also bored to death by menial tasks, office politics, and too many meetings.</blockquote>
 
 I wanted so much to look like a *Real Developer™* that I unconsciously stretched the truth and got smacked for it. Remember those nasty comments I talked about? After reading my resume, people had high expectations because my resume led them to believe I was more experienced. Their disappointment was kinda legitimate.
 
