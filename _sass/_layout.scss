@@ -96,6 +96,11 @@ figure {
 .circle {
   border-radius: 100%;
 }
+.dev-to-badge img {
+  position: relative;
+  top: 4px;
+  height: 23px;
+}
 .footnotes {
   &:before {
     content: "Footnotes";
@@ -164,4 +169,20 @@ figure {
   margin-right: 10px;
   height: 100px;
   width: 100px;
+}
+
+.product-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.product-text {
+  width: 60%;
+  border: 1px solid red;
+}
+
+.product-picture {
+  width: 40%;
+  border: 1px solid red;
 }
