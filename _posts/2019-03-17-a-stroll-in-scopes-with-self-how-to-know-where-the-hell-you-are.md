@@ -78,7 +78,7 @@ What does it mean by private method? Let's output our current context (i.e. wher
 
 Ok, but what about that `NoMethodError` of mine?
 
-Here's my mistake: I've forgot on write `.my_map` in a class. So it's been defined in the Object object instead of the Array object. And yet, I'm trying to call `.my_map` on an array.
+Here's my mistake: I've forgot to write `.my_map` in a class. So it's been defined in the Object object by default. And yet, I'm trying to call `.my_map` on an array.
 
 In order to call `.my_map` on an array, I need to open and define it in the Array class.
 
@@ -101,7 +101,7 @@ p [1, 2, 3].my_map { |integer| integer * 2 }
 
 👏 It works! Classes in Ruby can be opened and modified. Now that I've defined `.my_map` inside the Array class, I can call it on arrays. Easy peasy!
 
-A side note: If you feel like it, you can modify the real `.map` and make it do weird things too.
+<span class="highlight">A side note: If you feel like it, you can modify the real `.map` and make it do weird things too.</span>
 
 Alright, now I want to pass the `{ |integer| integer * 2 }` block to `.my_map`. I know I should loop through the array and yield the block at some point. But since I'm not passing the array as an argument, where am I to call `.each` on it?
 
