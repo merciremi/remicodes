@@ -15,6 +15,7 @@ body {
     width: 90%;
   }
 }
+
 main {
   margin: 120px 0px 90px 0px;
   @media screen and (max-width: $break-medium) {
@@ -71,11 +72,9 @@ hr {
 }
 blockquote {
   margin: 25px 0;
-  padding: 10px 20px 10px 30px;
-  background-color: $transparent-link-color;
+  padding: 5px 20px 5px 30px;
   border-left: 5px $link-color solid;
-  font-weight: bold;
-  font-size: $quote-font-size;
+  font-style: italic;
 }
 img {
   max-width: 90%;
@@ -91,6 +90,20 @@ figure {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
   }
+}
+
+h1::selection,
+h2::selection,
+h3::selection,
+p::selection,
+a::selection,
+ul::selection,
+li::selection,
+code::selection,
+span::selection,
+blockquote::selection {
+  background-color: $link-color;
+  color: $body-background-color;
 }
 
 .circle {
