@@ -25,7 +25,7 @@ github_username:  merciremi
 # Build settings
 sass:
   sass_dir: _sass
-include: ['_pages']
+include: ['_pages', '_data']
 kramdown:
   input: GFM
 markdown: kramdown
