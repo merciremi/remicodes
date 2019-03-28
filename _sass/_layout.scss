@@ -3,7 +3,7 @@ html {
 }
 body {
   margin: 0 auto;
-  width: 70%;
+  width: 65%;
   color: $font-color;
   font-family: $body-font;
   font-size: $body-font-size;
@@ -46,6 +46,8 @@ a {
   }
 }
 ul {
+  margin-block-start: 0em;
+  margin-block-end: 2em;
   @media screen and (max-width: $break-small) {
     padding-inline-start: 20px;
   }
@@ -91,7 +93,23 @@ figure {
     margin-inline-end: 0px;
   }
 }
-
+cite {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  margin-top: 10px;
+  font-size: $cite-font-size;
+  a {
+    margin-right: 5px;
+  }
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0px 10px;
+  }
+}
 h1::selection,
 h2::selection,
 h3::selection,
@@ -101,7 +119,8 @@ ul::selection,
 li::selection,
 code::selection,
 span::selection,
-blockquote::selection {
+blockquote::selection,
+cite::selection {
   background-color: $link-color;
   color: $body-background-color;
 }
@@ -153,6 +172,20 @@ blockquote::selection {
     margin-top: 10px;
   }
 }
+.product-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.product-picture {
+  width: 40%;
+  border: 1px solid red;
+}
+.product-text {
+  width: 60%;
+  border: 1px solid red;
+}
 .read-all {
   padding: 5px 10px;
   margin: 0 40px;
@@ -168,6 +201,9 @@ blockquote::selection {
     margin: 0 0;
   }
 }
+.twitter {
+  margin: 30px 0 20px;
+}
 .vertically-centered {
   display: flex;
   align-items: center;
@@ -182,20 +218,4 @@ blockquote::selection {
   margin-right: 10px;
   height: 100px;
   width: 100px;
-}
-
-.product-block {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-}
-.product-text {
-  width: 60%;
-  border: 1px solid red;
-}
-
-.product-picture {
-  width: 40%;
-  border: 1px solid red;
 }

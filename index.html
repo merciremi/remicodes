@@ -13,6 +13,9 @@ layout: default
 
   <p>Currently working @<a href="https://hosman.co">Hosman</a>. I code using Ruby, Rails, Javascript, HTML5, CSS3 and other tools such as git, Rspec, etc. You can check <a href="{{ site.baseurl }}/now">what I'm doing right now</a>.</p>
 </section>
+<section class="twitter">
+  <a href="https://twitter.com/mercier_remi?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-screen-name="false" data-dnt="true" data-show-count="true">Follow @mercier_remi</a>
+</section>
 
 <section>
   <div class="vertically-centered">
@@ -27,4 +30,18 @@ layout: default
     </li>
     {% endfor %}
   </ul>
+</section>
+
+<section>
+  <h2>Some awesome folks' opinion</h2>
+  {% for testimonial in site.data.testimonials %}
+    <blockquote>
+      {{testimonial.content}}
+      <cite>
+        <a href="https://github.com/{{testimonial.github}}/">{{testimonial.first_name}}</a>
+        <img src="{{testimonial.profile_pic}}" alt="">
+      </cite>
+    </blockquote>
+
+  {% endfor %}
 </section>
