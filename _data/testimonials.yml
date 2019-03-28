@@ -1,0 +1,28 @@
+- first_name: Cécile
+  last_name: Dezy
+  batch: 200
+  content: "Remi is a great Teaching Assistant! He is kind, patient, pedagogue and dedicated."
+  github: cecile-dzy-ncl
+  profile_pic: https://avatars0.githubusercontent.com/u/37446241
+
+- first_name: Grégoire
+  last_name: Courtois
+  batch: 220
+  content: "Rémi is really nice. He'll not only helping code through your task, he'll explain the notions to you in your own way.
+            One of my favourite Teaching Assistant."
+  github: greginos
+  profile_pic: https://avatars3.githubusercontent.com/u/27558438
+
+- first_name: Esther
+  last_name: Waldmeier
+  batch: 220
+  content: "Remi was a great tutor - always in good spirits and with lots of helpful tips!"
+  github: esthiw
+  profile_pic: https://avatars0.githubusercontent.com/u/15608429
+
+- first_name: Louis
+  last_name: Sommer
+  batch: 177
+  content: "Remi was one of the funniest, most motivating and most efficient Teaching Assistants I had. He made me the TA I am today."
+  github: bear-in-mind
+  profile_pic: https://avatars2.githubusercontent.com/u/38864576
