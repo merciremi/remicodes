@@ -31,17 +31,3 @@ layout: default
     {% endfor %}
   </ul>
 </section>
-
-<section>
-  <h2>Some awesome folks' opinion</h2>
-  {% for testimonial in site.data.testimonials %}
-    <blockquote>
-      {{testimonial.content}}
-      <cite>
-        <a href="https://github.com/{{testimonial.github}}/">{{testimonial.first_name}}</a>
-        <img src="{{testimonial.profile_pic}}" alt="">
-      </cite>
-    </blockquote>
-
-  {% endfor %}
-</section>
