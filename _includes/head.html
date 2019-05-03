@@ -3,18 +3,18 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }} - Remi Mercier{% else %}{{ site.title }} - Maker & Rails Developer{% endif %}</title>
 
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,600' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 
-  <meta content="{{ site.title }} - Maker of shiny stuff on the internet" property="og:site_name">
+  <meta content="{{ site.title }} - Maker & Rails Developer" property="og:site_name">
   {% if page.title %}
-  <meta content="{{ page.title }}" property="og:title">
+  <meta content="{{ page.title }} - Remi Mercier" property="og:title">
   {% else %}
-  <meta content="{{ site.title }}" property="og:title">
+  <meta content="{{ site.title }} - Maker & Rails Developer" property="og:title">
   {% endif %}
   {% if page.title %}
   <meta content="article" property="og:type">

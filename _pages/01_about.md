@@ -40,8 +40,8 @@ Helping out students coding their way through the first four weeks of the coding
     <blockquote>
       {{testimonial.content}}
       <cite>
-        <a href="https://github.com/{{testimonial.github}}/">{{testimonial.first_name}}</a>
         <img src="{{testimonial.profile_pic}}" alt="">
+        <a href="https://github.com/{{testimonial.github}}/">{{testimonial.first_name}} - batch {{testimonial.batch}}</a>
       </cite>
     </blockquote>
 

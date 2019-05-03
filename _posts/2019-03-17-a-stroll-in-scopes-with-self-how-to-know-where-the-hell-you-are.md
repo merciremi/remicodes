@@ -7,7 +7,7 @@ permalink: your-new-friend-self
 
 When coding, it's not always easy to know what's what. Why can't I call that method on this array? When in a method, what am I working with exactly? In these cases, `self` can prove a super-duper friend!
 
-Even if you're a junior developer, you've probably come across `self` in class methods definition.
+Even if [you're a junior developer]({{site.baseurl}}/daily-recap-coding-bootcamp/), you've probably come across `self` in class methods definition.
 
 {% highlight ruby %}
 class Hello

@@ -79,7 +79,7 @@ Basic features:
 - A state: lent, back at home
 - APIs to try: Algolia, Twilio…
 - A game where something moves to eat something (dynamisation)
-- Trying my hand at react → app only exposing an API and interacting w/ JS framework
+- Trying my hand at react → app only exposing an API <a href="https://github.com/merciremi/vuejs-101" target="_blank">and interacting w/ a  JS framework.</a>
 
 ## Back to basics
 ### Learning the basics of programming
@@ -88,7 +88,7 @@ Basic features:
 - CodeWars katas up to 6th kyu / Leetcode
 - Learn RSpec, integration tests, test coverage…
 - Add linter in code
-- Code speed: complexity, n+1 queries…
+- Code speed: [complexity]({{site.baseurl}}/wtf-time-complexity/), n+1 queries…
 - Basics of trigonometry, algorithms…
 
 ---

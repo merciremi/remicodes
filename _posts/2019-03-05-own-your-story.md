@@ -18,7 +18,7 @@ Even though I'm comfortable with my increasing ignorance, I eventually became di
 <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Programming doesn&#39;t have to hurt to be worthwhile. Programmers don&#39;t have to suffer to be worthy. That&#39;s one personal ideology amongst many. I for one am so happy that Matz thoroughly rejected this dogma when he created Ruby specifically to spark joy.</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/status/1101191757264445440?ref_src=twsrc%5Etfw">February 28, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-I also got a lot of shit for being a bootcamper. A few comments I heard during interviews:
+I also got a lot of shit [for being a bootcamper]({{site.baseurl}}/life-after-bootcamp/). A few comments I heard during interviews:
 - "I thought you'd be able to write this piece of code in 5 minutes top" (it took me 45 minutes 🤷‍♂️).
 - "How come you're not able to explain how this algorithm works".
 - "So you don't know what an Eigenclass is".
@@ -41,7 +41,7 @@ I wanted so much to look like a *Real Developer™* that I unconsciously stretch
 
 After taking some time off from job seeking, I talked with <a href="https://twitter.com/nicoolas25">Nicolas Zermati</a> about my experience. Nicolas helped me realize I was just pretending to be someone else. I was shutting off my own specificities. So I tried to reconnect with why I'd decided to learn web development in the first place. Getting back to my own story and how I ended up coding <a href="http://harry.team">Harry</a>, <a href="https://strike-it.herokuapp.com">Strike It</a>, and <a href="{{ site.url }}/wtf-time-complexity">some pretty geeky things</a> felt good.
 
-I love to build stuff. I started my professional life making stained-glass. I build wooden furniture on my balcony whenever I can. I draw. After a few years in marketing, I grew bored with being left out of the product building. That's why I wanted to go back to shipping things.
+I love to build stuff. I started my professional life making stained-glass. I build wooden furniture on my balcony whenever I can. I draw. After a few years in marketing, I grew bored with being left out of the product building. That's why I wanted [to go back to shipping things]({{site.baseurl}}/make-open-data-sexy/).
 
 I also got into tech through the small door: managing communities, designing infographics, customizing Wordpress themes, learning about DB design, coding Javascript shitty programs, etc... I don't hold a CS degree (nor will I ever do). I'll be one of these developers who push the <a href="https://dev.to/ben/ah-to-be-the-justin-bieber-of-open-source-4jog">"standard rails mess"</a> and don't know <a href="https://twitter.com/dhh/status/834146806594433025">how to write a bubble sort on a whiteboard</a>. I'll also be one of these developers who enjoy:
 - building stuff that people use,
