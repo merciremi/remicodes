@@ -1,10 +1,23 @@
-html {
-  background-color: $body-background-color;
+:root {
+  --font-color: rgba(36, 44, 63, 1);
+  --link-color: rgba(236, 100, 75, 1);
+  --bg-color: rgba(253, 253, 253, 1);
+  --link-contrast: rgba(36, 44, 63, 0.2);
+  --code-border-color: rgba(253, 253, 253, 0);
 }
+[data-theme="dark"] {
+  --font-color: rgba(253, 253, 253, 1);
+  --link-color: rgba(236, 100, 75, 1);
+  --bg-color: rgba(36, 44, 63, 1);
+  --link-contrast: rgba(36, 44, 63, 1);
+  --code-border-color: rgba(253, 253, 253, 0.1);
+}
+
 body {
   margin: 0 auto;
   width: 65%;
-  color: $font-color;
+  color: var(--font-color);
+  background-color: var(--bg-color);
   font-family: $body-font;
   font-size: $body-font-size;
   line-height: 1.6;
@@ -15,7 +28,6 @@ body {
     width: 90%;
   }
 }
-
 main {
   margin: 120px 0px 90px 0px;
   @media screen and (max-width: $break-medium) {
@@ -38,11 +50,11 @@ h2 {
   font-size: 2em;
 }
 a {
-  color: $link-color;
+  color: var(--link-color);
   text-decoration: none;
-  border-bottom: 2px $dark-grey solid;
+  border-bottom: 2px var(--link-contrast) solid;
   &:visited {
-    color: $link-color;
+    color: var(--link-color);
   }
 }
 ul {
@@ -52,12 +64,16 @@ ul {
     padding-inline-start: 20px;
   }
 }
+header {
+  padding-top: 20px;
+  margin-bottom: -30px;
+}
 footer {
   padding-bottom: 30px;
   a {
-    color: rgba(36, 44, 63, 1) !important;
+    color: var(--link-color) !important;
     margin-right: 20px;
-    border-bottom: 2px $link-color solid;
+    border-bottom: 2px var(--link-contrast) solid;
   }
 }
 time {
@@ -75,7 +91,7 @@ hr {
 blockquote {
   margin: 25px 0;
   padding: 5px 20px 5px 30px;
-  border-left: 5px $link-color solid;
+  border-left: 5px var(--link-color) solid;
   font-style: italic;
 }
 img {
@@ -96,8 +112,7 @@ figure {
 cite {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  text-align: right;
+  justify-content: flex-start;
   margin-top: 10px;
   font-size: $cite-font-size;
   a {
@@ -110,6 +125,9 @@ cite {
     margin: 0px 10px;
   }
 }
+pre {
+  border: 1px var(--code-border-color) solid;
+}
 h1::selection,
 h2::selection,
 h3::selection,
@@ -121,8 +139,8 @@ code::selection,
 span::selection,
 blockquote::selection,
 cite::selection {
-  background-color: $link-color;
-  color: $body-background-color;
+  background-color: var(--link-color);
+  color: var(--bg-color);
 }
 
 .circle {
@@ -141,7 +159,7 @@ cite::selection {
   }
   padding-top: 30px;
   margin-top: 60px;
-  border-top: 1px $link-color solid;
+  border-top: 1px var(--link-color) solid;
 }
 .highlight {
   border-radius: 1em 0 1em 0;
@@ -150,7 +168,7 @@ cite::selection {
 .highlighter-rouge {
   padding: 2px 3px;
   overflow-wrap: break-word;
-  color: $link-color;
+  color: var(--link-color);
   background-color: $opaque-background-color;
 }
 .icon {
@@ -194,7 +212,7 @@ cite::selection {
   font-weight: 700;
   border-bottom: none;
   &:hover {
-    background: $link-color;
+    background: var(--link-color);
     color: white !important;
   }
   @media screen and (max-width: $break-small) {
@@ -212,6 +230,56 @@ cite::selection {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  em {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+}
+.theme-switch {
+  display: inline-block;
+  height: 15px;
+  position: relative;
+  width: 30px;
+}
+.theme-switch input {
+  display:none;
+}
+.slider {
+  background-color: $dark-grey;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+.slider:before {
+  background-color: $body-background-color;
+  bottom: 1px;
+  content: "";
+  height: 13px;
+  left: 1px;
+  position: absolute;
+  transition: .4s;
+  width: 13px;
+}
+input:checked + .slider {
+  background-color: $link-color;
+}
+input:checked + .slider:before {
+  transform: translateX(13px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
 }
 
 #profile-pic {
