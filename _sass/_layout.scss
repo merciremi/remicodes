@@ -245,6 +245,7 @@ cite::selection {
   height: 15px;
   position: relative;
   width: 30px;
+  margin: 0px 10px;
 }
 .theme-switch input {
   display:none;
@@ -273,7 +274,7 @@ input:checked + .slider {
   background-color: $link-color;
 }
 input:checked + .slider:before {
-  transform: translateX(13px);
+  transform: translateX(15px);
 }
 .slider.round {
   border-radius: 34px;
