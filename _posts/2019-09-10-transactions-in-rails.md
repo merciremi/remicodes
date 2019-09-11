@@ -68,9 +68,6 @@ But what if I want to do more? Let's say I want to:
         lead = Lead.new(lead_params)
         render :new
       else
-        # redirect new leads to their profile page
-        redirect_to lead_path(lead)
-
         # synchronize new lead to distant CRM
         MyDistantCrm.create_lead(lead)
 
@@ -80,6 +77,13 @@ But what if I want to do more? Let's say I want to:
 
         # notify business developer
         BusinessDevelopperMailer.new_lead(lead).deliver_now
+
+        # redirect new leads to their profile page
+        redirect_to lead_path(lead)
+
+      # rescue any error to avoid a 500 error
+      rescue StandardError => exception
+        flash[:error] = exception
       end
     end
 
@@ -197,52 +201,56 @@ I'll start with the transaction we started earlier and I'll move parts of our `L
   class Leads::Create < BaseTransaction
     tee :params
     step :create_lead
+    step :create_distant_lead
+    step :send_welcome_sms
+    step :send_welcome_email
+    step :notify_business_developper
 
     def params(input)
       @params = input.fetch(:params)
     end
 
     def create_lead(input)
-      lead = Lead.create(@params)
+      @lead = Lead.create(@params)
 
-      if lead.errors.any?
-        Failure(error: lead.errors.full_messages.join(' | '))
+      if @lead.errors.any?
+        Failure(error: @lead.errors.full_messages.join(' | '))
       else
         Success(input)
       end
     end
-  end
 
-  def create_distant_lead(input)
-    MyDistantCrm.create_lead(@lead)
+    def create_distant_lead(input)
+      MyDistantCrm.create_lead(@lead)
 
-    Success(input)
-  rescue StandardError => exception
-    Failure(error: exception)
-  end
+      Success(input)
+    rescue StandardError => exception
+      Failure(error: exception)
+    end
 
-  def send_welcome_sms(input)
-    MySmsProvider.welcome_sms(@lead).deliver_now
+    def send_welcome_sms(input)
+      MySmsProvider.welcome_sms(@lead).deliver_now
 
-    Success(input)
-  rescue StandardError => exception
-    Failure(error: exception)
-  end
+      Success(input)
+    rescue StandardError => exception
+      Failure(error: exception)
+    end
 
-  def send_welcome_email(input)
-    LeadMailer.welcome(@lead).deliver_now
+    def send_welcome_email(input)
+      LeadMailer.welcome(@lead).deliver_now
 
-    Success(input)
-  rescue StandardError => exception
-    Failure(error: exception)
-  end
+      Success(input)
+    rescue StandardError => exception
+      Failure(error: exception)
+    end
 
-  def notify_business_developper(input)
-    BusinessDevelopperMailer.new_lead(@lead).deliver_now
+    def notify_business_developper(input)
+      BusinessDevelopperMailer.new_lead(@lead).deliver_now
 
-    Success(input)
-  rescue StandardError => exception
-    Failure(error: exception)
+      Success(input)
+    rescue StandardError => exception
+      Failure(error: exception)
+    end
   end
 {% endhighlight %}
 
@@ -263,7 +271,7 @@ Now that all my steps are in my transaction, what should I do with my controller
     end
 
     def create
-      Leads::Create.call(lead_params)
+      Leads::Create.call(params: lead_params)
     end
 
     private
