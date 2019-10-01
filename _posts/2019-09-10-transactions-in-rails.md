@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  How to use transactions to unclutter your controllers
+title:  How to use railway-oriented business transactions to unclutter your Rails controllers
 date:   2019-09-09
-excerpt: "When your Rails app needs to handle multiple steps, your controllers' methods can become a mess. Let's see how to Marie-Kondo them"
+excerpt: "When your Rails app needs to handle multiple steps, your controllers' methods can become a mess. Let's see how to Marie-Kondo them with dry-transaction"
 permalink: /transactions-in-rails/
 ---
 
