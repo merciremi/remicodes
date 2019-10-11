@@ -4,6 +4,7 @@ title: Testing railway-oriented business transactions with Rspec
 date:   2019-10-09
 excerpt: "Railway-oriented business transactions are a great way to unclutter your Rails controllers. But how should we test them? Let's get down to it."
 permalink: /testing-business-transactions-in-rails/
+cover_image: /media/2019/testing-rails-transactions-rspec-remi-mercier.jpeg
 ---
 
 Railway-oriented business transactions are a great way to [unclutter your Rails controllers]({{site.baseurl}}/transactions-in-rails/). We've already seen how to write 'em. Now let's see how we can test 'em. I'll be using [dry-transaction](https://dry-rb.org/gems/dry-transaction/) as a business transaction DSL and RSpec for testing. I'm assuming that you already have RSpec set up for your app. If not, check [Aaron Sumner's blog](https://everydayrails.com/) and his book [Everyday Rails Testing With RSpec](https://leanpub.com/everydayrailsrspec) to saddle up.
