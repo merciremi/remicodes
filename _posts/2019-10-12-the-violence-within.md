@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The violence within
-date:   2019-10-03
+date:   2019-10-12
 excerpt: "Our mainstream work culture cultivates systemic violence: bullying, constant competition, sexism, etc. You name it. What if talking about could empower and protect us?"
 permalink: /the-violence-within/
 cover_image: /media/2019/violence-within-remi-mercier.jpeg
@@ -31,9 +31,7 @@ You're not alone. Help and kindness are sometimes found when most needed. Find y
 
 Rémi
 
-[^1]: Official studies assume that most harassment are not reported for fear of retributions. For official data (in French): https://www.egalite-femmes-hommes.gouv.fr/dossiers/egalite-professionnelle/lutte-contre-le-harcelement-sexuel-au-travail/les-chiffres-cles-du-harcelement-sexuel-au-travail/
-[^2]: See Canada's official data: https://www150.statcan.gc.ca/n1/pub/75-006-x/2018001/article/54982-eng.htm
-
----
-
 Want to talk? [Ping me on Twitter](https://twitter.com/mercier_remi). Noticed something? [Create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new).
+
+[^1]: Official studies assume that most harassment are not reported for fear of retributions. For official data (in French): [https://www.egalite-femmes-hommes.gouv.fr/dossiers/egalite-professionnelle/lutte-contre-le-harcelement-sexuel-au-travail/les-chiffres-cles-du-harcelement-sexuel-au-travail/](https://www.egalite-femmes-hommes.gouv.fr/dossiers/egalite-professionnelle/lutte-contre-le-harcelement-sexuel-au-travail/les-chiffres-cles-du-harcelement-sexuel-au-travail/)
+[^2]: See Canada's official data: [https://www150.statcan.gc.ca/n1/pub/75-006-x/2018001/article/54982-eng.htm](https://www150.statcan.gc.ca/n1/pub/75-006-x/2018001/article/54982-eng.htm)
