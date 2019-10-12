@@ -13,13 +13,13 @@ I've spent hours talking about these heart-breaking situations with friends, law
 
 All companies indulge in it: big corporations, public services, NGOs, etc. It's everywhere, even (especially!) in those over-hyped companies called startups.
 
-Look around you for a moment. One out of three women is sexually harassed in the workplace[^1]. One out of two men is bullied by a supervisor[^2]. The person you're looking at right now is likely molested as we speak.
+Look around you for a moment. One out of three women is sexually harassed in the workplace [^1]. One out of two men is bullied by a supervisor [^2]. The person you're looking at right now is likely molested as we speak.
 
 I don't know if you've been there (yet), but I have. And I refuse to feel guilty about it. I refuse to wear those traumas as a shame mark.
 
 I fell prey to [the lies our work culture tells us](https://dev.to/ronsoak/the-lies-and-lack-of-self-respect-that-lead-to-burnout-5007). And our work culture has seared its own culture of silence into our collective conscience. For a long time, I felt isolated. But no more.
 
-<blockquote>Only sitting in a circle of women, listening to similar stories, allowed her to realize that she wasn't alone, it wasn't her fault, she could speak up. <footer>Gloria Steinem, <cite>My Life On The Road</cite></footer></blockquote>
+<blockquote>Only sitting in a circle of women, listening to similar stories, allowed her to realize that she wasn't alone, it wasn't her fault, she could speak up. <cite>Gloria Steinem, My Life On The Road</cite></blockquote>
 
 No matter the gender you're relating to, sitting and sharing similar stories with others can be the first step to saying "No!" to this violence. This is why I want people to speak up and talk to each other. This is why I talk about it so that people will take courage from it.
 
@@ -31,8 +31,8 @@ You're not alone. Help and kindness are sometimes found when most needed. Find y
 
 Rémi
 
-[^1] Official studies assume that most harassment are not reported for fear of retributions. For official data (in French): https://www.egalite-femmes-hommes.gouv.fr/dossiers/egalite-professionnelle/lutte-contre-le-harcelement-sexuel-au-travail/les-chiffres-cles-du-harcelement-sexuel-au-travail/
-[^2] See Canada's official data: https://www150.statcan.gc.ca/n1/pub/75-006-x/2018001/article/54982-eng.htm
+[^1]: Official studies assume that most harassment are not reported for fear of retributions. For official data (in French): https://www.egalite-femmes-hommes.gouv.fr/dossiers/egalite-professionnelle/lutte-contre-le-harcelement-sexuel-au-travail/les-chiffres-cles-du-harcelement-sexuel-au-travail/
+[^2]: See Canada's official data: https://www150.statcan.gc.ca/n1/pub/75-006-x/2018001/article/54982-eng.htm
 
 ---
 
