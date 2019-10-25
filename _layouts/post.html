@@ -14,10 +14,10 @@ layout: default
       {% unless words contains "-" %}
         {{ words | plus: 250 | divided_by: 250 | append: " minute read" }}
       {% endunless %}
-  </span> -
+  </span>
 
   <span>
-    {% if page.lang %} 🇫🇷 [fr] {% endif %}
+     - {% if page.lang %} 🇫🇷 [fr] {% endif %}
   </span>
   </div>
 

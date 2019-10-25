@@ -329,9 +329,11 @@ This is it!
 
 Y'all go and checkout [dry-transaction's documentation](https://dry-rb.org/gems/dry-transaction/) and do not hesitate [to read the source code](https://github.com/dry-rb/dry-transaction/) for more magic!
 
+Thank you [Nicolas](https://twitter.com/nicoolas25) for your feedback and help with this post!
+
 If you have any questions or if something is not clear enough, [ping me on Twitter](https://twitter.com/mercier_remi) or [create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new) so we can make this tutorial better.
 
-Next time, I'll show you how to test your transactions.
+Next time, I'll show you [how to test your transactions with Rspec]({{site.baseurl}}/testing-business-transactions-in-rails/) [update: it's live! ✌️].
 
 Cheers,
 
