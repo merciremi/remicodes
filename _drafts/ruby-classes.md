@@ -1,6 +1,10 @@
 ---
 layout: post
 title: A beginners introduction to Ruby classes and objects
+date:   2019-11-14
+excerpt: "When you start learning Ruby, you often hear that everything is - or evaluates as - an object. Here an introduction for junior developers who want to get the gist of objects and classes in Ruby."
+permalink: /beginners-introduction-to-ruby-classes-objects/
+cover_image: /media/2019/remi-mercier-objects-classes-ruby-004.jpeg
 ---
 
 When you start learning Ruby, you often hear that everything is - or evaluates as - an object. And you're usually like "🤔 Come again"?
@@ -14,13 +18,17 @@ So, here's an introduction to objects and classes in Ruby for my [fellow Ruby ju
 Some types of data:
 - `'Hey there'` is a string.
 - `1` is an integer.
+- `5` is another integer.
+- `👶` is a baby.
 - `[]` is an empty array.
+
+<img src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-001.jpeg" alt="a schema explaining how different babies are different objects in real life, yet sharing common data types and behaviors">
 
 Easy right?
 
 ## Objects and classes 101
 
-Now, to handle objects, Ruby creates a set of abstractions handling common behavior for the same objects: <mark>classes</mark>.
+Now, to handle objects, Ruby creates a set of abstractions handling common behaviors for the same objects: <mark>classes</mark>.
 
 Let's dive in:
 
@@ -93,6 +101,8 @@ Here, I now have a blueprint for babies. It's pretty limited but here's what it 
 
 A baby is an "object" whose information and behaviors are specified by a class. Different babies are different "objects" but they all share the same set of basic capabilities.
 
+<img src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-002.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class">
+
 Let's recap:
 
 <blockquote>
@@ -140,6 +150,8 @@ Well, that's the same in Ruby. Any object can be inspected. It's a common behavi
 
 It allows Ruby to define methods at appropriate levels of abstraction.
 
+<img src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-003.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class which inherits from the root Object class">
+
 You can dig deeper and check the full inheritance chain by running `Object.ancestors` in your console. For those who want the TL;DR, `Object` inherits from `BasicObject` and mixes in `Kernel`'s methods (like the `p` method, we junior developers use everywhere to debug our code).
 
 Let's sum everything we've seen so far:
@@ -168,6 +180,8 @@ That's right my friend!
 
 As an instance method of `Class`, `#new` is accessible by all instances of `Class` like our `Baby` class.
 
+<img src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-004.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class, which inherits from the root Object class, but also benefits from the Class class instance methods">
+
 My `Baby` class does not have a `#new` method. And yet, I can create new babies with `Baby.new(dna)`. It's because all classes - `String`, `Integer`, `Baby`, etc - inherit from `Class`.
 
 Let me show you how it works when you define a class in your code.
@@ -190,7 +204,7 @@ is the same as:
   baby = Baby.new
 {% endhighlight %}
 
-So if `Baby` and `Class` are both classes, they both inherit from `Class`? Yep. `Class.class` returns `Class`. It's recursive.
+So if `Baby` and `Class` are both classes, they're both instances of the `Class` class? Yep. `Class.class` returns `Class`. It's recursive.
 
 Let's wrap up before letting you massage away that headache of yours:
 
@@ -200,7 +214,9 @@ Let's wrap up before letting you massage away that headache of yours:
 
 I hope you enjoyed the ride as much as I did!
 
-Many thanks to [Nicolas](https://twitter.com/nicoolas25) for making this introduction to objects and classes better.
+Keep in mind that this is only an introduction. There are many broad strokes and many (more or less voluntary) omissions on my part. If you enjoyed the topic, dig deeper and report back!
+
+Many thanks to [Nicolas](https://twitter.com/nicoolas25) and [Sylvain](https://twitter.com/abelar_s) for reading my drafts, asking a lot of questions, and making this introduction to objects and classes (much much) better.
 
 Noticed something? [Ping me on Twitter](https://twitter.com/mercier_remi) or [create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new).
 
@@ -209,13 +225,3 @@ Cheers,
 Rémi
 
 [^1] My upcoming post "How to make babies in 30 seconds thanks to Ruby", soon in your RSS feed.
-
-
-
-
-add graphs to show the inheritance chain (simplified) at every step?
-String > Object
-
-String > Object > Basic Object
-
-String > Class > Object > Basic Object
