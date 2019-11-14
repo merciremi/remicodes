@@ -1,8 +1,8 @@
 ---
 layout: post
 title: A beginners introduction to Ruby classes and objects
-date:   2019-11-14
-excerpt: "When you start learning Ruby, you often hear that everything is - or evaluates as - an object. Here an introduction for junior developers who want to get the gist of objects and classes in Ruby."
+date:   2019-11-18
+excerpt: "When you start learning Ruby, you often hear that everything is - or evaluates as - an object. Here's an introduction for junior developers who want to get the gist of objects and classes in Ruby."
 permalink: /beginners-introduction-to-ruby-classes-objects/
 cover_image: /media/2019/remi-mercier-objects-classes-ruby-004.jpeg
 ---
@@ -114,7 +114,7 @@ Let's recap:
 
 Yes, I know, it seems like I'm in for the tautology of the year. And yet, different objects can have common behaviors too!
 
-Let's take an example with the method `inspect` which returns a human-readable representation of the object. We'll make a new baby[^1] and print her information in my console.
+Let's take an example with the method `inspect` which returns a human-readable representation of the object. We'll make a new baby [^1] and print her information in my console.
 
 {% highlight irb %}
   baby = Baby.new({possible_hair_colors: ['brownish', 'pale blonde', 'a pinch of redhead']})
@@ -174,7 +174,7 @@ When you think about it, classes are nothing more than objects. If `'Hello there
   Class.public_methods.include? :new # => true
 {% endhighlight %}
 
-Every time you're calling `#new` on a class you want to instantiate, you're using an instance method of the `Class` class.  Wait, what? If `#new` is an instance method of `Class` and if I can call it on my own `Baby` class too, it means that all classes are instances of the `Class` class?
+Every time you're calling `#new` on a class you want to instantiate, you're using an instance method of the `Class` class.  Wait, what? <mark>If `#new` is an instance method of `Class` and if I can call it on my own `Baby` class too, it means that all classes are instances of the `Class` class?</mark>
 
 That's right my friend!
 
@@ -224,4 +224,4 @@ Cheers,
 
 Rémi
 
-[^1] My upcoming post "How to make babies in 30 seconds thanks to Ruby", soon in your RSS feed.
+[^1]: My upcoming post "How to make babies in 30 seconds thanks to Ruby", soon in your RSS feed.
