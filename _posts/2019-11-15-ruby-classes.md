@@ -52,7 +52,7 @@ Let's call the method `.class` on some objects to check their Ruby class.
   true.class               # => TrueClass
 
   # It even works with your own classes
-  wood = Struct.new(:species)
+  Wood = Struct.new(:species)
   Wood.new('mapple').class # => Wood
 {% endhighlight %}
 
@@ -137,14 +137,14 @@ To find out and pull on the thread, let's get back to our console.
 
 What have I just done? I've inspected [the current context]({{site.baseurl}}/your-new-friend-self/) - `self` - in which I am when I open my console. The current context is the `main` object. And in Ruby, the `main` object is represented by the class `Object`. Still with me?
 
-Forget about Ruby and web development for a second. Consider this `main` object as the mother of all objects. Every object is unique, yet they all share common patterns. For instance, they can be inspected, analyzed, etc. You can inspect integers, trees, strings, and babies all the same. Nothing stops you - if you're mentally and physically able - to submit any object to your scrutiny.
+Forget about Ruby and web development for a second. Consider this `main` object as the mother of all objects. Every object is unique, yet they all share common patterns. For instance, they can be inspected, analyzed, etc. You can inspect integers, trees, strings, and babies all the same. Nothing stops you to submit any object to your scrutiny.
 
 Well, that's the same in Ruby. Any object can be inspected. It's a common behavior shared by all objects. And this behavior is defined in the `Object` class with the method `#inspect` as you can see in the third line of the console screen above.
 
 <blockquote>
   Object is the default root of all Ruby objects. [...] Methods on Object are available to all classes unless explicitly overridden.
   <cite>
-    <a href="https://ruby-doc.org/core-2.6.5/Object.html", target="_blank">The Ruby doc</a>
+    The Ruby doc
   </cite>
 </blockquote>
 
