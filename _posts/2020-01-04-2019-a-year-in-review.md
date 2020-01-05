@@ -37,9 +37,9 @@ I'll try to write more about stuff unrelated to tech this year. Some topics I ca
 
 Also on my list of things I'd enjoy writing: a [wiki](https://tomcritchlow.com/wiki/) or [a personal garden](https://joelhooks.com/digital-garden), laying out my values, shorter notes ([see my logs]({{site.baseurl}}/logs/)) both in French and English. We'll see.
 
-## My first year as a Real Developer™
+## My first year in a dev team
 
-2019 was the year I got my first gig as a developer. I had some projects under my belt already. I spent some months teaching and mentoring too. But I'd never took the time to find a team I'd be happy to spend time with.
+2019 was the year I got my first gig as a developer. I had some projects under my belt already. I'd spent some months teaching and mentoring too. But I'd never took the time to find a team I'd be happy to spend time with. So I did.
 
 And to be honest, I've felt like a fish in the water.
 
@@ -47,7 +47,7 @@ There's been so much to learn that my curiosity has always been satisfied. I've 
 
 The results:
 - A learning curve steeper than most startups' growth trajectory while being able to disconnect at the end of each day.
-- I've been able to do my best work and create substantial value for the company I work for (I can't go into any specifics, but let's say it's <mark>**A LOT compared to the market's perceived value of a junior developer**</mark>).
+- I've been able to do my best work and create substantial value for the company I work for (I can't go into any specifics obviously, but let's say <mark>it's A LOT compared to the market's perceived value of a junior developer</mark>).
 
 So, everybody's happy.
 
@@ -63,25 +63,31 @@ One of the biggest challenges was to wrap my head around an unfamiliar market (r
 
 After three months on the job, I stopped checking the documentation every other minute. Some things became automatisms: handling migrations, querying data from the database, applying methods on [their proper objects]({{site.baseurl}}/beginners-introduction-to-ruby-classes-objects/), etc.
 
-Getting to know the ropes of the codebase was tougher. I draw the schema and pasted it on my wall on my second day. But as soon as I was done, the team ran several migrations in production and my drawing was obsolete. Some parts of the codebase were easy to grasp. Some others, not so much. For instance, we have some controllers handling multiple steps with [Wicked](https://github.com/zombocom/wicked). And boy, those give me the creeps every time I come near 'em. One of the solutions I've found: when I start working on some part of the codebase I don't know, I ask my teammates for a walk-through. What does it do? What's the necessary setup? What are the flows? This helps.
+Getting to know the ropes of the codebase was tougher. I draw the schema and pasted it on my wall on my second day. But as soon as I was done, the team ran several migrations in production and my drawing was obsolete. Some parts of the codebase were easy to grasp. Some others, not so much. For instance, we have some controllers handling multiple steps with [Wicked](https://github.com/zombocom/wicked). And boy, those still give me the creeps every time I come near 'em. One of the solutions I've found: when I start working on some unfamiliar part of the codebase, I ask my senior teammates for a walk-through. What does it do? What's the necessary setup? What are the flows? What the hell is this method doing? This helps a lot.
 
 After nine months of writing tests, I now feel I'm getting my head around the basics of RSpec. I can draft a test suite in no time, and I can tell things apart more easily. More importantly, I now leverage tests to dig out bugs or code smells beforehand. And that, friend, is one hell of a feeling.
 
 ### Some features I'm proud of
 
-Real estate agents write up an advert for each property they're mandated to sell. Then, they copy and paste this advert across 40-ish different websites. Each of these websites targets a specific market of buyers. Imagine that, having to copy and paste forty times (!) the same advert. So much time, so many potential errors.
+Real estate agents write up an advert for each property they're mandated to sell. Then, they copy and paste this advert across 40-ish different websites (for the French market). Each of these websites targets specific buyers. Imagine that, having to copy and paste forty times (!) the same advert. So much time, so many potential errors.
 
 Before the summer, I started working on a cool feature that would allow our agents - we call them _experts_ - to dispatch their advert on all those portals, with a single click. It was my first _big feature_ and I had the chance to get both autonomy and help to nail it.
 
-A few of the things it involved: integrating with a third-party service through their API, building XML files from our data, manipulating [tempfiles](https://www.rubyguides.com/2019/05/ruby-tempfile/) (I'll write a short post at some point), building and [testing several railway-oriented business transactions with Rspec]({{site.baseurl}}/testing-business-transactions-in-rails/), etc. This was no small stuff. But the feature has been cheered by the team, and that's saved hundreds of hours so far.
+A few of the things it involved: integrating with a third-party service through their API, building XML files from our data, manipulating [tempfiles](https://www.rubyguides.com/2019/05/ruby-tempfile/) (I'll write a short post at some point), building and [testing several railway-oriented business transactions with Rspec]({{site.baseurl}}/testing-business-transactions-in-rails/), etc. This was no small stuff. But the feature has been cheered by the team, and **it has saved hundreds of hours so far**.
 
-Let's get back in our real estate agents' shoes: Once you've published your advert on 40-something websites, what happens? Well, people try and contact you. So you're left to your own devices to gather all your potential buyers' details: scribbled notes of pieces of paper, emails, multiple websites' interface, etc.
+Let's get back in our real estate agents' shoes.
 
-One of the other cool features I worked on was to create an MVP-ish CRM where all potential buyers' details are now gathered automatically. All in one place, not all over the place (as our Basecamp friends would say). It's now super easy for our team to deliver the best experience to our clients.
+Once you've published your advert on 40-something websites, what happens? Well, people try and contact you. So you're left to your own devices to gather all your potential buyers' details: scribbled notes of pieces of paper, emails, multiple websites' interface, etc.
+
+One of the other cool features I worked on was to create an MVP-ish CRM where all potential buyers' details are now gathered automatically. All in one place, not all over the place (as our Basecamp friends would say). It's now super easy for our team to know what's what and to deliver the best experience to our customers.
 
 This, too, was intense yet rewarding: a huge adoption by the team, no more missed opportunities and less mental load. Also, I got to hunt a bug for several days which was both really frustrating and fun. <mark>This is where I learned that you should neither trust a user's input nor make assumptions on your database integrity.</mark>
 
-There were a lot of other things: APIs, webhooks, performance optimisation, logs management, etc.
+There were a lot of other things this year: APIs, webhooks, performance optimisation, logs management, etc.
+
+We'll see what 2020 has in store.
+
+That's it for me folks!
 
 Noticed something? [Ping me on Twitter](https://twitter.com/mercier_remi) or [create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new).
 
