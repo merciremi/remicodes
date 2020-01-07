@@ -2,7 +2,7 @@
 layout: post
 title: Own your story
 excerpt: When you put yourself out there, you get attention. Some of it is enjoyable. Some of it, not so much. It's not easy to keep your story straight.
-permalink: own-your-story
+permalink: /own-your-story/
 ---
 
 When you put yourself out there - writing a book, shipping a product, making changes in your life -, you get attention. Some of it is enjoyable. Some of it, not so much. Whatever feedback you're getting, it's not easy to keep your head straight.

@@ -16,10 +16,10 @@ I also decided to write for my pleasure rather than for the whole _build an audi
 
 Relaunching my own corner of the web would have not been possible without the tremendous help (unbeknown to her) of Tania Rascia's [fantastic tutorial on setting up Jekyll](https://www.taniarascia.com/make-a-static-website-with-jekyll/). So thank you, Tania.
 
-My first post was an [introduction to time complexity]({{site.baseurl}}/wtf-time-complexity). Not something I thought I'd ever write about! But after being tasked to compute the time complexity of an algorithm during a technical test, I thought I'd share this fancy knowledge with the world.
+My first post was an [introduction to time complexity]({{site.baseurl}}/wtf-time-complexity/). Not something I thought I'd ever write about! But after being tasked to compute the time complexity of an algorithm during a technical test, I thought I'd share this fancy knowledge with the world.
 
 Some other technical stuff I've written this year:
-- [An introduction to the keyword self]({{site.baseurl}}/your-new-friend-self)
+- [An introduction to the keyword self]({{site.baseurl}}/your-new-friend-self/)
 - [How to use railway-oriented business transactions to unclutter Rails controllers]({{site.baseurl}}/transactions-in-rails/)
 - [Testing railway-oriented business transactions with Rspec]({{site.baseurl}}/testing-business-transactions-in-rails/)
 
@@ -27,7 +27,7 @@ The technical post I'm the proudest of is my [beginners' introduction to Ruby cl
 
 Now, if I'm honest, my favourite posts are those about life and how it sometimes sucks. I've come to accept that sharing shitty moments is okay and that other people can relate to those stories. It's also okay to reclaim and feel empowered by our struggles.
 
-One of these, in early 2019, was to [own my story as a thirty-five years old junior developer]({{site.baseurl}}/own-your-story) and not trying to fake being a Real Developer™ (i.e. someone with a CS background and years of expertise).
+One of these, in early 2019, was to [own my story as a thirty-five years old junior developer]({{site.baseurl}}/own-your-story/) and not trying to fake being a Real Developer™ (i.e. someone with a CS background and years of expertise).
 
 I also wanted to share [my own stories about systemic violence in our mainstream work culture]({{site.baseurl}}/the-violence-within/) and how it can be fought back to some extent through the act of talking and caring.
 
@@ -69,11 +69,13 @@ After nine months of writing tests, I now feel I'm getting my head around the ba
 
 ### Some features I'm proud of
 
-Real estate agents write up an advert for each property they're mandated to sell. Then, they copy and paste this advert across 40-ish different websites (for the French market). Each of these websites targets specific buyers. Imagine that, having to copy and paste forty times (!) the same advert. So much time, so many potential errors.
+Real estate agents write up an advert for each property they're mandated to sell. Then, they copy and paste this advert across 40-ish different websites (for the French market). Each of these websites targets specific buyers.
+
+Imagine that, having to copy and paste forty times (!) the same advert. So much time, so many potential errors.
 
 Before the summer, I started working on a cool feature that would allow our agents - we call them _experts_ - to dispatch their advert on all those portals, with a single click. It was my first _big feature_ and I had the chance to get both autonomy and help to nail it.
 
-A few of the things it involved: integrating with a third-party service through their API, building XML files from our data, manipulating [tempfiles](https://www.rubyguides.com/2019/05/ruby-tempfile/) (I'll write a short post at some point), building and [testing several railway-oriented business transactions with Rspec]({{site.baseurl}}/testing-business-transactions-in-rails/), etc. This was no small stuff. But the feature has been cheered by the team, and **it has saved hundreds of hours so far**.
+A few of the things it involved: integrating with a third-party service through their API, building XML files from our data, manipulating [tempfiles](https://www.rubyguides.com/2019/05/ruby-tempfile/) (I'll write a short post at some point), building and [testing several railway-oriented business transactions with Rspec]({{site.baseurl}}/testing-business-transactions-in-rails/), etc. This was no small stuff. But the feature has been cheered by the team, and <mark>it has saved hundreds of hours so far</mark>.
 
 Let's get back in our real estate agents' shoes.
 
@@ -81,7 +83,7 @@ Once you've published your advert on 40-something websites, what happens? Well, 
 
 One of the other cool features I worked on was to create an MVP-ish CRM where all potential buyers' details are now gathered automatically. All in one place, not all over the place (as our Basecamp friends would say). It's now super easy for our team to know what's what and to deliver the best experience to our customers.
 
-This, too, was intense yet rewarding: a huge adoption by the team, no more missed opportunities and less mental load. Also, I got to hunt a bug for several days which was both really frustrating and fun. <mark>This is where I learned that you should neither trust a user's input nor make assumptions on your database integrity.</mark>
+This, too, was intense yet rewarding: <mark>a huge adoption by the team, no more missed opportunities and less mental load</mark>. Also, I got to hunt a bug for several days which was both really frustrating and fun. <mark>This is where I learned that you should neither trust a user's input nor make assumptions on your database integrity.</mark>
 
 There were a lot of other things this year: APIs, webhooks, performance optimisation, logs management, etc.
 

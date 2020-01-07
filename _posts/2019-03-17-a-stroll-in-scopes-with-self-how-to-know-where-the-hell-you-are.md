@@ -2,7 +2,7 @@
 layout: post
 title: "Meet your new friend: self"
 excerpt: "tl;dr: When you're new to coding, it's not always easy to know where the fuck you are in your code. Well, call the most unexpected friend to the rescue: self!"
-permalink: your-new-friend-self
+permalink: /your-new-friend-self/
 ---
 
 When coding, it's not always easy to know what's what. Why can't I call that method on this array? When in a method, what am I working with exactly? In these cases, `self` can prove a super-duper friend!

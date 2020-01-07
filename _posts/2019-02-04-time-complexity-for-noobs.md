@@ -2,7 +2,7 @@
 layout: post
 title: WTF is time complexity? 🤔
 excerpt: People who learn web development through coding bootcamp aren't (usually) familiar with time complexity. They might have read the words, but that's it. I know I tried to look up the Wikipedia page only to fall asleep at the end of the first paragraph. When I finally woke up, I thought "Nevermind, I'll never have to deal with it anyway". And boy, was I wrong.
-permalink: wtf-time-complexity
+permalink: /wtf-time-complexity/
 ---
 
 Here's a subject I never thought I'd write about. But life is full of surprises.
