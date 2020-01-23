@@ -17,13 +17,11 @@ Tempfile.open(stuff) do |file|
 end
 ```
 
-## The problem:
-A while back, I needed to create an XML file, send it to a distant server then delete it.
+A while back, I needed to handle temporary files. I had to create xml exports, send them to a distant server then delete them once the transfer is done.
 
-## The solution:
-At first, I thought about create the file in my `tmp` folder, then have a cron job running every day to get rid of these files. Not super pretty, right?.
+At first, I thought about creating those files into my app's `tmp` directory. Then, a cron job would run every now and then to delete them. In would have worked in theory, but I wasn't very happy with it.
 
-So after looking on the internets, I came accross Tempfiles (and I - for the umpteenth time - rejoiced in using Ruby).
+So after looking on the internet, I came accross `Tempfile` (and I - for the umpteenth time - rejoiced in using Ruby).
 
 ## Tempfiles 101
 
@@ -36,7 +34,58 @@ So after looking on the internets, I came accross Tempfiles (and I - for the ump
 
 So are there any differences between `Tempfile` and `File`? Glad you asked!
 
-Tempfiles only exists as long as they are referenced. Once I leave this context, Tempfiles are automatically [garbage collected](https://stackify.com/how-does-ruby-garbage-collection-work-a-simple-tutorial/){:target="\_blank"}. Whereas Files are persisted outside of the context.
+Files are created, persisted and are accessed from anywhere.
+
+Tempfiles, on the other hand, only exist within the context they were defined. Lemme show you.
+
+Let's create a file.
+
+{% highlight irb %}
+  class FileCreator
+    def create_file
+      file = File.new('my_file.md', 'r+')
+      file.write('Bob wuz here.')
+      file.rewind
+      file
+    end
+  end
+
+  file_creator = FileCreator.new
+
+  my_file = file_creator.create_file # => #<File:my_file.md>
+  my_file.read                       # => "Bob wuz here."
+  File.basename(my_file.path)        # => "my_file.md"
+
+{% endhighlight %}
+
+Let's create a tempfile.
+
+{% highlight irb %}
+  class FileCreator
+    def create_file
+      Tempfile.open do |file|
+        file
+        file.write('Bob wuz here.')
+        file.rewind
+        file
+      end
+    end
+  end
+
+  file_creator = FileCreator.new
+
+  my_file = file_creator.create_file # => #<File:my_file.md>
+  my_file.read                       # => IOError: closed stream
+  File.basename(my_file.path)        # => "20200123-83768-1wrlh4s"
+{% endhighlight %}
+
+
+
+
+
+When you create a `File`,
+
+Tempfiles only exists as long as they are referenced. Meaning that if Once I leave this context, Tempfiles are automatically [garbage collected](https://stackify.com/how-does-ruby-garbage-collection-work-a-simple-tutorial/){:target="\_blank"}. Whereas Files are persisted outside of the context.
 
 https://www.hilman.io/blog/2016/01/tempfile/
 http://www.songjiayang.com/posts/where-is-my-tempfile
