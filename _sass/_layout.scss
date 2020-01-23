@@ -151,6 +151,9 @@ cite::selection {
   top: 4px;
   height: 23px;
 }
+.flag-emoji {
+  margin-left: 10px;
+}
 .footnotes {
   &:before {
     content: "Footnotes";
@@ -222,6 +225,15 @@ mark {
   @media screen and (max-width: $break-small) {
     margin: 0 0;
   }
+}
+.scribble {
+  margin-top: 10px;
+  time {
+    margin-left: 0px;
+  }
+}
+.scribble-icon {
+  margin: 50px 0px 30px 0px;
 }
 .twitter {
   margin: 30px 0 20px;

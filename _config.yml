@@ -25,6 +25,8 @@ github_username:  merciremi
 collections:
   logs:
     output: true
+  scribbles:
+    output: true
 
 # Build settings
 sass:

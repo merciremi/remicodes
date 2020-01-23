@@ -2,6 +2,7 @@
 layout: page
 title: Logs
 permalink: /logs/
+published: false
 ---
 
 <p>Breadcrumbs and moments of life logged in French or in English.</p>

@@ -35,7 +35,7 @@ These two posts alone sparked a lot of conversations with folks. They also remin
 
 I'll try to write more about stuff unrelated to tech this year. Some topics I care about: redefining our relationship to work, degrowth (the infamous _décroissance_), unlearning mainstream masculinity, feminism, rape culture, raising kids, building things with your hands, etc.
 
-Also on my list of things I'd enjoy writing: a [wiki](https://tomcritchlow.com/wiki/) or [a personal garden](https://joelhooks.com/digital-garden), laying out my values, shorter notes ([see my logs]({{site.baseurl}}/logs/)) both in French and English. We'll see.
+Also on my list of things I'd enjoy writing: a [wiki](https://tomcritchlow.com/wiki/) or [a personal garden](https://joelhooks.com/digital-garden), laying out my values, shorter notes ([see my scribbles]({{site.baseurl}}/scribbles/)) both in French and English. We'll see.
 
 ## My first year in a dev team
 

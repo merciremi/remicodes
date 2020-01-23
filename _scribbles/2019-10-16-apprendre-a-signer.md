@@ -1,12 +1,7 @@
 ---
-layout: log
-title: Apprendre à signer
+layout: null
 date: 2019-10-05
 lang: fr
-permalink: /apprendre-a-signer/
-excerpt: Ce matin, j'ai appris quelques mots en langue des signes pour accompagner des chansons.
-cover_image: /media/2019/20191005-log-01.jpeg
-published: false
 ---
 
 Ce matin, j'ai appris quelques mots en langue des signes pour accompagner des chansons de mon enfance.
