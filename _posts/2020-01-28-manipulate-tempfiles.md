@@ -60,7 +60,7 @@ Let me show you.
 
 First, let's create a normal file.
 
-{% highlight irb %}
+{% highlight ruby %}
   class FileCreator
     def create_file
       file = File.new('my_file.md', 'r+')
@@ -69,7 +69,9 @@ First, let's create a normal file.
       file
     end
   end
+{% endhighlight %}
 
+{% highlight irb %}
   file_creator = FileCreator.new
 
   my_file = file_creator.create_file # => #<File:my_file.md>
@@ -83,7 +85,7 @@ You'll notice some subtleties:
 
 Now, let's create a tempfile.
 
-{% highlight irb %}
+{% highlight ruby %}
   class FileCreator
     def create_file
       Tempfile.open do |file|
@@ -93,7 +95,9 @@ Now, let's create a tempfile.
       end
     end
   end
+{% endhighlight %}
 
+{% highlight irb %}
   file_creator = FileCreator.new
 
   my_file = file_creator.create_file # => #<File:my_file.md>
@@ -106,7 +110,7 @@ Here, the tempfile doesn't need any input on my part for its name. It's automati
 
 But the real interesting part is the `IOError: closed stream`.
 
-It means that I can no longer perform operations on my tempfile - like reading its content - because the stream is now unavailable. And why has the stream become unavailable? Because my tempfile was automatically closed when leaving its original context (the `Temfile.open do [...] end` bit) and claimed by the [garbage collector.(https://ruby-doc.org/core-2.7.0/IO.html#method-i-close){:target="\_blank"}.
+It means that I can no longer perform operations on my tempfile - like reading its content - because the stream is now unavailable. And why has the stream become unavailable? Because my tempfile was automatically closed when leaving its original context (the `Tempfile.open do [...] end` bit) and claimed by the [garbage collector](https://ruby-doc.org/core-2.7.0/IO.html#method-i-close){:target="\_blank"}.
 
 <blockquote>
   I/O streams are automatically closed when they are claimed by the garbage collector.
@@ -117,7 +121,7 @@ It means that I can no longer perform operations on my tempfile - like reading i
 
 Tempfiles are extremelly useful when handled in strictly defined contexts, like a [railway-oriented business transaction]({{site.baseurl}}/transactions-in-rails/). But the following example can create some unwanted problems.
 
-{% highlight irb %}
+{% highlight ruby %}
   class FileCreator
     def create_file
       file = Tempfile.new
@@ -126,7 +130,9 @@ Tempfiles are extremelly useful when handled in strictly defined contexts, like 
       file.path
     end
   end
+{% endhighlight %}
 
+{% highlight irb %}
   file_creator = FileCreator.new
 
   my_file_path = file_creator.create_file # => #<File:my_file.md>
