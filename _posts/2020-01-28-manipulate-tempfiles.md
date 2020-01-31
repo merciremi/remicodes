@@ -120,7 +120,7 @@ It means that I can no longer perform operations on my tempfile - like reading i
 
 ## Tempfiles' quirks
 
-Tempfiles are extremelly useful when handled in strictly defined contexts, like a [railway-oriented business transaction]({{site.baseurl}}/transactions-in-rails/). But the following example can create some unwanted problems.
+Tempfiles are extremely useful when handled in strictly defined contexts, like a [railway-oriented business transaction]({{site.baseurl}}/transactions-in-rails/). But the following example can create some unwanted problems.
 
 {% highlight ruby %}
   class FileCreator
