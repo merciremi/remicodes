@@ -16,7 +16,7 @@ Mélange de joie et d'appréhension à l'idée de parler de mon vécu, de mon in
 - découvrir le consentement à 35 ans
 - casser la croyance que "les garçons bien élevés ne harcèlent pas"
 - le sexe comme langage de communication
-- la sexualité quand on a des enfants : quels injonctions versus le terrain
+- la sexualité quand on a des enfants : quelles injonctions versus le terrain
 - etc...
 
 Mais joie d'y croiser des hommes de tous horizons (homme == toute personne ayant ou ayant eu un vécu social d'homme).
