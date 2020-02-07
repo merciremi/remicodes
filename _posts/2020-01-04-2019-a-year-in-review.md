@@ -75,7 +75,7 @@ Imagine that, having to copy and paste forty times (!) the same advert. So much 
 
 Before the summer, I started working on a cool feature that would allow our agents - we call them _experts_ - to dispatch their advert on all those portals, with a single click. It was my first _big feature_ and I had the chance to get both autonomy and help to nail it.
 
-A few of the things it involved: integrating with a third-party service through their API, building XML files from our data, manipulating [tempfiles](https://www.rubyguides.com/2019/05/ruby-tempfile/) (I'll write a short post at some point), building and [testing several railway-oriented business transactions with Rspec]({{site.baseurl}}/testing-business-transactions-in-rails/), etc. This was no small stuff. But the feature has been cheered by the team, and <mark>it has saved hundreds of hours so far</mark>.
+A few of the things it involved: integrating with a third-party service through their API, building XML files from our data, [manipulating tempfiles]({{site.baseurl}}/working-with-tempfiles/) (~~I'll write a short post at some point~~ [update: it's live!]), [building]({{site.baseurl}}/transactions-in-rails/) and [testing several railway-oriented business transactions with Rspec]({{site.baseurl}}/testing-business-transactions-in-rails/), etc. This was no small stuff. But the feature has been cheered by the team, and <mark>it has saved hundreds of hours so far</mark>.
 
 Let's get back in our real estate agents' shoes.
 
