@@ -83,6 +83,7 @@ First, let's create a normal file.
 You'll notice some subtleties:
 - I need to pass a name and permissions as I create my file.
 - I can read the content of my file despite being outside of the `FileCreator` class (i.e. outside of its original context)
+- If I exit the current context or if my process dies, the file is created and can be accessed later.
 
 Now, let's create a tempfile.
 
@@ -107,16 +108,24 @@ Now, let's create a tempfile.
   my_file.closed?                    # => true
 {% endhighlight %}
 
-Here, the tempfile doesn't need any input on my part for its name. It's automatically generated.
+Here, the tempfile doesn't need any input on my part for its name. It's automatically generated. Note that it is possible to specify a name and an extension too.
 
 But the real interesting part is the `IOError: closed stream`.
 
-It means that I can no longer perform operations on my tempfile - like reading its content - because the stream is now unavailable. And why has the stream become unavailable? Because my tempfile was automatically closed when leaving its original context (the `Tempfile.open do [...] end` bit) and claimed by the [garbage collector](https://ruby-doc.org/core-2.7.0/IO.html#method-i-close){:target="\_blank"}.
+It means that I can no longer perform operations on my tempfile - like reading its content - because the stream is now unavailable.
+
+And why has the stream become unavailable? Here, I have two suspicions:
+
+1) Because my tempfile was automatically closed when leaving its original context (the `Tempfile.open do [...] end` bit) and claimed by the garbage collector. This is suggested by the [Ruby documentation](https://ruby-doc.org/core-2.7.0/IO.html#method-i-close){:target="\_blank"}.
 
 <blockquote>
   I/O streams are automatically closed when they are claimed by the garbage collector.
   <cite>the Ruby doc</cite>
 </blockquote>
+
+2) Because I use `Tempfile.open { ... }` (instead of `Templife.new`), `Tempfile#close` is implicitly called at the end of the block and closes the stream.
+
+In any case, <mark>your temporary file will be deleted once the object is finalized</mark> (or when you lose the reference to the object).
 
 ## Tempfiles' quirks
 
@@ -149,6 +158,8 @@ Read more about these quirks here:
 - [where is my tempfile?](http://www.songjiayang.com/posts/where-is-my-tempfile){:target="\_blank"}
 
 This whole tempfiles-are-garbage-collected-and-become-unavailable thing still feels a little fuzzy to me. But I'll keep digging at memory allocation.
+
+Thank you [to the redditors](https://www.reddit.com/r/ruby/comments/ewm3mk/working_with_tempfiles/){:target="\_blank"} who helped make this article better through their suggestions and questions.
 
 Noticed something? [Ping me on Twitter](https://twitter.com/mercier_remi) or [create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new).
 
