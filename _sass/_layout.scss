@@ -97,6 +97,10 @@ blockquote {
 img {
   max-width: 100%;
 }
+img.half-sized {
+  display: inline-block;
+  width: 48%;
+}
 iframe {
   max-width: 90%;
 }
@@ -230,6 +234,10 @@ mark {
   margin-top: 10px;
   time {
     margin-left: 0px;
+  }
+  a {
+    text-decoration: none;
+    border-bottom: none;
   }
 }
 .scribble-icon {

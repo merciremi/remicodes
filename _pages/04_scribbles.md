@@ -11,7 +11,10 @@ _Griffonages à la hâte_ and random thoughts in French and English.
 {% for scribble in sorted_scribbles %}
   <div class="scribble">
     <div>
-      <img src="{{ site.baseurl }}/media/scribble.png" class="scribble-icon" />
+      <a href="{{ site.baseurl }}/scribbles#{{ scribble.date | date: '%Y-%m-%d'}}">
+        <img src="{{ site.baseurl }}/media/scribble.png"
+             class="scribble-icon" />
+      </a>
     </div>
     <div>
       {{ scribble.content }}
