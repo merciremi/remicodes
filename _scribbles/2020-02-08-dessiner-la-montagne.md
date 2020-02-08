@@ -11,15 +11,15 @@ J'ai enfin réussi à me libérer des injonctions de la maîtrise et du "beau" q
 
 Du temps - seul - à foison, des paysages de montagne, un carnet poussiéreux ressorti du placard, un stylo, un pinceau. Ce bonheur tient en peu de choses (et dans la poche).
 
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_01.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_02.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_03.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_04.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_05.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_06.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_07.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_08.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_09.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_10.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_11.jpeg" alt="dessins représentant la montage" class="half-sized" >
-<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_12.jpeg" alt="dessins représentant la montage" class="half-sized" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_01.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_02.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_03.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_04.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_05.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_06.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_07.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_08.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_09.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_10.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_11.jpeg" alt="dessins représentant la montage" width="450px" >
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_12.jpeg" alt="dessins représentant la montage" width="450px" >
