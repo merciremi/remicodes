@@ -1,7 +1,7 @@
 ---
 layout: null
 date: 2020-02-09
-lang: fr
+lang: en
 ---
 
 Finally managed to create anchors for each scribble. Now I can share specific ones with friends without having them to scroll through the entire page.
