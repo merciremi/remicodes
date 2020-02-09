@@ -23,10 +23,8 @@ twitter_username: mercier_remi
 github_username:  merciremi
 
 collections:
-  logs:
-    output: true
   scribbles:
-    output: true
+    output: false
 
 # Build settings
 sass:

@@ -2,7 +2,6 @@
 layout: null
 date: 2020-02-08
 lang: fr
-anchor: '#2020-02-08'
 ---
 
 En novembre dernier, j'ai re(vécu)découvert le plaisir de dessiner: suspension du temps, entièreté du moment, aucune distraction.
