@@ -5,13 +5,13 @@
   --link-contrast: rgba(36, 44, 63, 0.2);
   --code-border-color: rgba(253, 253, 253, 0);
 }
-[data-theme="dark"] {
-  --font-color: rgba(253, 253, 253, 1);
-  --link-color: rgba(236, 100, 75, 1);
-  --bg-color: rgba(36, 44, 63, 1);
-  --link-contrast: rgba(36, 44, 63, 1);
-  --code-border-color: rgba(253, 253, 253, 0.1);
-}
+// [data-theme="dark"] {
+//   --font-color: rgba(253, 253, 253, 1);
+//   --link-color: rgba(236, 100, 75, 1);
+//   --bg-color: rgba(36, 44, 63, 1);
+//   --link-contrast: rgba(36, 44, 63, 1);
+//   --code-border-color: rgba(253, 253, 253, 0.1);
+// }
 
 body {
   margin: 0 auto;
