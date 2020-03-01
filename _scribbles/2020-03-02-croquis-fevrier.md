@@ -14,15 +14,32 @@ Une sélection qui court du 23 janvier à aujourd'hui.
   <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-01.jpeg" alt="croquis" >
   <figcaption>Dessiner la dessinatrice.</figcaption>
 </figure>
-<img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-02.jpeg" alt="croquis" width="450px" >
-<img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-04.jpeg" alt="croquis" width="450px" >
-<img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-03.jpeg" alt="croquis" width="450px" >
-<img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-10.jpeg" alt="croquis" width="450px" >
-<img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-08.jpeg" alt="croquis" width="" >
-<img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-12.jpeg" alt="croquis" width="450px" >
-<img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-13.jpeg" alt="croquis" width="450px" >
+<figure>
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-02.jpeg" alt="croquis" width="450px" >
+</figure>
+<figure>
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-04.jpeg" alt="croquis" width="450px" >
+</figure>
+<figure>
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-03.jpeg" alt="croquis" width="450px" >
+</figure>
+<figure>
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-10.jpeg" alt="croquis" width="450px" >
+</figure>
+<figure>
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-08.jpeg" alt="croquis" width="" >
+</figure>
+<figure>
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-12.jpeg" alt="croquis" width="450px" >
+</figure>
+<figure>
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-13.jpeg" alt="croquis" width="450px" >
+</figure>
 <figure>
   <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-11.jpeg" alt="croquis" width="450px" >
-  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-14.jpeg" alt="croquis" width="450px" >
   <figcaption>Dessin plutôt contractuel.</figcaption>
+</figure>
+<figure>
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-14.jpeg" alt="croquis" width="450px" >
+  <figcaption>Dessin moins contractuel (mais j'aime le raccourci).</figcaption>
 </figure>

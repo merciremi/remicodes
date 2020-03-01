@@ -103,6 +103,8 @@ iframe {
 figure {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
   overflow-wrap: normal;
   @media screen and (max-width: $break-small) {
     margin-inline-start: 0px;
@@ -234,6 +236,9 @@ mark {
   a {
     text-decoration: none;
     border-bottom: none !important;
+  }
+  figure {
+    display: inline-block;
   }
 }
 .scribble-icon {
