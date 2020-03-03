@@ -5,10 +5,10 @@ lang: fr
 ---
 
 <blockquote>
-  You tell me that I make no difference
-  Well at least I'm fucking trying
-  What the fuck have you done?
+  You tell me that I make no difference<br>
+  Well at least I'm fucking trying<br>
+  What the fuck have you done?<br>
 </blockquote>
 
-[True that arsehole!](https://www.youtube.com/watch?v=mOf6w59jz_g){:target="\_blank"}
+[True that fuckers!](https://www.youtube.com/watch?v=mOf6w59jz_g){:target="\_blank"}
 
