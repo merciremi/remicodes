@@ -4,7 +4,7 @@ title: Now
 permalink: /now/
 ---
 
-What I'm doing right now
+What I'm doing right now:
 
 - Spending time with my kiddos.
 - Coding things fullstack at [Hosman](https://www.hosman.co).
