@@ -47,7 +47,7 @@ There's been so much to learn that my curiosity has always been satisfied. I've 
 
 The results:
 - A learning curve steeper than most startups' growth trajectory while being able to disconnect at the end of each day.
-- I've been able to do my best work and create substantial value for the company I work for (I can't go into any specifics obviously, but let's say <mark>it's A LOT compared to the market's perceived value of a junior developer</mark>).
+- I've been able to do my best work and create substantial value for the company I work for (I can't go into any specifics obviously, but let's say <strong>[it's A LOT compared to the market's perceived value of a junior developer]({{site.baseurl}}/dont-sell-yourself-short/)</strong>).
 
 So, everybody's happy.
 

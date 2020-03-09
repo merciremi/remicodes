@@ -57,6 +57,12 @@ a {
     color: var(--link-color);
   }
 }
+.task-list {
+  padding-left: 0px;
+}
+.task-list-item {
+  list-style-type: none;
+}
 ul {
   margin-block-start: 0em;
   margin-block-end: 2em;
