@@ -2,6 +2,7 @@
 layout: page
 title: Scribbles
 permalink: /scribbles/
+excerpt: "This is where I scribble random thoughts, drawings, songs, etc. Both in French and in English."
 ---
 
 _Griffonages à la hâte_ and random thoughts in French and English.
