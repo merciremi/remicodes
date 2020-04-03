@@ -1,11 +1,14 @@
 ---
 layout: post
-title: hands-on introduction to debugging your code with pry-byebug
+title: A hands-on tutorial to debugging your code with pry-byebug
+date: 2020-04-07
+excerpt: "Like most new developers, I started as puts developer. Then, I discovered pry-byebug and my life got easier. This is a beginner-level, hands-on, introduction to debbuging your code with pry-byebug. Behold the power of binding.pry!"
+permalink: /pry-byebug-tutorial/
 ---
 
 Like most new developers, I first started as [a `puts` debugger](https://tenderlovemaking.com/2016/02/05/i-am-a-puts-debuggerer.html){:target="\_blank"}. I would write `puts` everywhere to see what was what - something I'm still doing when debugging Javascript [^1].
 
-One day though, I had the chance to spend some time with [Cecile Varin](https://www.linkedin.com/in/cecilevarin/){:target="\_blank"} who taught me the ropes of _[pry-byebug](https://github.com/deivid-rodriguez/pry-byebug){:target="\_blank"}_.
+One day, I had the chance to spend some time with [Cecile Varin](https://www.linkedin.com/in/cecilevarin/){:target="\_blank"}, who showed me the ropes of _[pry-byebug](https://github.com/deivid-rodriguez/pry-byebug){:target="\_blank"}_.
 
 So, when I taught Ruby's basics at Le Wagon Paris, I passed that knowledge along.
 
@@ -29,13 +32,12 @@ That's it.
 
 ## Some context
 
-Before we begin, let's build up a bit of context so my demo is more idiomatic. I'll draw on something that happened to me a while back.
+Before we begin, let's build up a bit of context, so my demo is more idiomatic. I'll draw on something that happened to me a while back.
 
 Here's our scenario:
-
-- Some third-party service periodically sends us a webhook with people information.
+- Some third-party service periodically sends us a webhook with people's information.
 - We receive and handle the data: checking for people in our database, creating them if need be, etc.
-- We check that people were either matched to an exisiting instance or created.
+- We check that people were either matched to an existing instance or created.
 
 Sounds good? Let's check our code now.
 
@@ -48,7 +50,7 @@ First, here's an excerpt from the data **we expect** to receive:
       { first_name: 'Willow', last_name: 'Rosenberg', email: 'willow@gmail.com'},
       { first_name: 'Rupert', last_name: 'Giles', email: 'giles@sunnydale.edu'},
       { first_name: 'Cordelia', last_name: 'Chase', email: 'cordelia@gmail.com'},
-      { first_name: 'Xander', last_name: 'Harris', email: 'xander@sunnydale.edu'},
+      { first_name: 'Xander', last_name: 'Harris', email: 'xander@sunnydale.edu'}
       etc...
     ]
   }.with_indifferent_access
@@ -90,9 +92,9 @@ What does it do:
 - Assigns the _ad hoc_ values and persists them.
 - Handles unexpected errors.
 
-Remember when I told you the context was drawn from my own experience? Well here's what happened.
+Remember when I told I'd drawn the context from my own experience? Well, here's what happened.
 
-At first, I didn't notice anything wrong. The webhooks were sent and handled. No error showed up. But after a while, my users reported that some people were not created in the application. Some already existing people information seemed to dissapear. No clear pattern emerged from the get go. 🤔
+But after a while, my users reported some discrepancies: some people sent by the third-party service were neither found nor created. No clear pattern emerged from the get-go. 🤔
 
 'Twas time for some `binding.pry`.
 
@@ -100,7 +102,7 @@ At first, I didn't notice anything wrong. The webhooks were sent and handled. No
 
 ### Add a breakpoint and check current values: binding.pry
 
-Let's go back to our `SomeServiceHooksController`. I'll add two breakpoints - the `binding.pry`s - inside the loop to check each person information sent through the webhook, at different stages of my code.
+Let's go back to our `SomeServiceHooksController`. I'll add two breakpoints inside the loop. It'll help me check the data at different stages.
 
 {% highlight ruby %}
   class SomeServiceHooksController < ApplicationController
@@ -123,7 +125,7 @@ Let's go back to our `SomeServiceHooksController`. I'll add two breakpoints - th
   end
 {% endhighlight %}
 
-Now, I can send the concatenated content of the last few webhooks to our controller. Each `binding.pry` will pause the execution of our code. And, right in the midst of our server's logs, _pry-byebug_ will open a debugging console. Let me show you.
+Now, I can send the concatenated content of the last few webhooks to our controller. Each `binding.pry` will pause the execution of our code. And, right amid our server's logs, _pry-byebug_ will open a debugging console. Let me show you.
 
 {% highlight irb %}
   From: (pry) @ line 52 SomeServiceHooksController#find_or_create_person:
@@ -146,9 +148,11 @@ Now, I can send the concatenated content of the last few webhooks to our control
     64: end
 {% endhighlight %}
 
-See that `=>` in front of the line 52? That's _pry-byebug_ telling you the execution is paused before this line and that it's waiting on your instructions.
+Behold _pry-byebug_'s console!
 
-From there, you can check everything that's already declared in the present context: `params` and the current `person`.
+See that `=>` in front of line 52? That's _pry-byebug_ telling you the execution paused there.
+
+From there, you can check every variable already declared in the present context: our `params` and the current `person`.
 
 Typing `params` in the console will give you the following output:
 
@@ -171,7 +175,7 @@ Typing `person` will give you:
   => {"first_name"=>"Buffy", "last_name"=>"Summers", "email"=>"buffy@sunnydale.edu"}
 {% endhighlight %}
 
-But things that are not declared yet, like `new_person` are not accessible yet.
+But soon-to-be-defined variables - like `new_person` - are not accessible yet.
 
 {% highlight irb %}
   pry(#<SomeServiceHooksController>)> new_person
@@ -179,7 +183,7 @@ But things that are not declared yet, like `new_person` are not accessible yet.
   => nil
 {% endhighlight %}
 
-I can also call the methods defined in my class (because the code within class definition is read by Ruby before it's actual execution). I can even query things from my database:
+I can also call the methods defined in my class. Ruby reads class definitions before their execution. I can even query things from my database:
 
 {% highlight irb %}
   pry(#<SomeServiceHooksController>)> Person.count
@@ -191,7 +195,7 @@ Fancy right? Let's move on.
 
 ### Execute the next line of code and wait: next
 
-So, our application is paused by the first breakpoint, just before `new_person` is defined. What if we want to move the cursor down one line and see what `Person.find_or_create_by(email: person[:email])` returns?
+So, our application paused just before `new_person`'s definition. What if we want to move the cursor down one line and see what `Person.find_or_create_by(email: person[:email])` returns?
 
 Well, we can type `next` in our _pry-byebug_ console.
 
@@ -222,7 +226,7 @@ This'll output:
     64: end
 {% endhighlight %}
 
-See what happened there? The `=>` cursor move just before the next line of code. So now, `new_person` is defined.
+See what happened there? The `=>` cursor moved through the definition of `new_person`, and stopped just before the next line of code. So now, `new_person` is accessible.
 
 {% highlight irb %}
   pry(#<SomeServiceHooksController>)> new_person
@@ -234,11 +238,11 @@ See what happened there? The `=>` cursor move just before the next line of code.
  email: "buffy@sunnydale.edu">
 {% endhighlight %}
 
-Tada! An existing person was affected to `new_person` because an existing instance of Person existed with the email `buffy@sunnydale.edu`.
+Tada! An existing instance of `Person` was affected to `new_person` because it existed with the email `buffy@sunnydale.edu`.
 
-### Continue execution until the next breaking point or until the end of the current process: continue
+### Continue execution until the next breakpoint (or until the end of the current process): continue
 
-Now, remember when I said I'd throw a couple of breakpoints for good mesure? Sometimes, I want to skip big chunks of code but still pause at some point (like when you have private methods in your controller and want to check which one is home to the nasty bug). In this case, `next` is not enough. You'd have to type it countless times and navigate through your app's stack, something that's way too much advanced for this tutorial.
+Now, remember when I said I'd throw a couple of breakpoints for good measure? Sometimes, I want to skip big chunks of code but still pause its execution later. Think about controllers calling multiple methods, one of which is faulty. In this case, `next` is not enough. You'd have to type it countless times and navigate through your app's stack (something that's way too much advanced for this tutorial).
 
 So, what should you use? `continue` of course! Lemme show you:
 
@@ -281,67 +285,45 @@ The `=>` cursor didn't just move onto the next line. It only stopped at the next
    email: "buffy@sunnydale.edu">
 {% endhighlight %}
 
-I know! This feels like a hell lot easier that putting `puts` everywhere.
+I find this easier than putting `puts` everywhere, right?
 
-### Exit the current context and/or debugger console: exit and exit!
+Once you've passed the last breakpoint, `continue` will resume the code's execution until the end of the current context. In our example, the current context is `SomeServiceHooksController`. Since we're in a loop, `continue` will only bring you to the next `person` until we looped through every people. Then, it'll exit the `SomeServiceHooksController` class.
 
-`exit` will let the code run until the current context is done with. In our example, the context is `SomeServiceHooksController`. Since we're in a loop, `exit` will bring you to the next `person` until all people are handled and the code exit the class.
+Want to exit _pry-byebug_ the dirty (my) way? Try `exit!`. It'll kill both the current process and the server. This is useful when having too many breakpoints across multiple places.
 
-Want to exit _pry-byebug_ altogether? Try `exit!`. It'll kill the current process and the server.
+⚠️ A warning: since `binding.pry`'s pause code execution, don't push 'em' into production. Or you'll be in for a rough time. 😬
 
-### warning don't let binding.pry in prod code cause it breaks everything ya
+## How my debugging ended up: never trust your database
 
-A note of caution, since `binding.pry` pause code execution, don't let it pass into production.
+When I learned to code, a lot of people told me to never trust users' input. Well, no one ever told me to never trust my database either!
 
-## How my debug ended up: never trust users input + never trust your database's integrity
+Remember when I told you that I was only sure about the structure of the data sent through the webhook? Well, it turned out that some people's data were incomplete:
 
+{% highlight json %}
+  {
+    people: [
+      { first_name: 'Buffy', last_name: 'Summers', email: 'buffy@sunnydale.edu'},
+      { first_name: 'Willow', last_name: 'Rosenberg', email: 'willow@gmail.com'},
+      { first_name: 'Rupert', last_name: 'Giles', email: 'giles@sunnydale.edu'},
+      { first_name: 'Cordelia', last_name: 'Chase', email: 'cordelia@gmail.com'},
+      { first_name: 'Xander', last_name: 'Harris', email: 'xander@sunnydale.edu'},
+      { first_name: 'Spike', last_name: '', email: 'nil'} # 👈 😱
+    ]
+  }.with_indifferent_access
+{% endhighlight %}
 
-- receive webhooks
-- route
-- controller code
-- data passed in webhook
-- output
-- the debug
+You would expect `Person.find_or_create_by(email: nil)` to return `nil`, right? Well, it turned out some of my oldest instances of `Person` had been created before I had a validation of presence in place for their email.
 
+So, every time I was looping over a person with a `nil` email, I would update the first instance of `Person` with an `email == nil` instead of creating a new one (or handling this as an error).
 
-Let's dive right in so i can show you a very practical guide on using _pry-byebug_ in your applications.
+I can tell you, I learned this lesson the hard way: neither trust your user's input nor your database.
 
-- set up
-- your code doesn't work, what do you do?
-  - add a breaking point
-  - read the console
-  - basic command #1: interrogate the current values, methods, vars...
-  - basic command #2: go to the next line w/ next
-  - basic command #3: continue
-  - basic command #4: exit || exit!
+Well, that's it for today folks! I hope it'll make your debugging more enjoyable!
 
-that's it.
+Noticed something? [Ping me on Twitter](https://twitter.com/mercier_remi) or [create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new).
 
-<!-- we need code from controller + console code -->
+Cheers,
 
-https://github.com/deivid-rodriguez/pry-byebug
+Rémi
 
 [^1]: Can someone please explain to me how the hell is supposed to work `debugger` in Javascript?
-
-
-
-
-class SomeServiceHooksController
-  def find_or_create_person(params)
-    params[:people].each do |person|
-      binding.pry
-      new_person = Lead.find_or_create_by(email: person[:email])
-
-      binding.pry
-      new_person.assign_attributes(
-        first_name: person[:first_name],
-        last_name: person[:last_name]
-      )
-
-      binding.pry
-      new_person.save
-    rescue StandardError => exception
-      # handle exception
-    end
-  end
-end
