@@ -92,7 +92,7 @@ What does it do:
 - Assigns the _ad hoc_ values and persists them.
 - Handles unexpected errors.
 
-Remember when I told I'd drawn the context from my own experience? Well, here's what happened:
+Remember when I told I'd drawn the context from [my own experience]({{site.baseurl}}/2019-year-review/)? Well, here's what happened:
 
 After a while, my users reported some discrepancies in the app: some people sent by the third-party service were neither found nor created. No clear pattern emerged from the get-go. 🤔
 
@@ -100,7 +100,7 @@ After a while, my users reported some discrepancies in the app: some people sent
 
 ## pry-byebug basic commands
 
-### Add a breakpoint and check current values: binding.pry
+### Add a breakpoint and check current values: `binding.pry`
 
 Let's go back to our `SomeServiceHooksController`. I'll add two breakpoints inside the loop. It'll help me check the data at different stages.
 
@@ -195,7 +195,7 @@ I can also call the methods defined in my class because Ruby reads class definit
 
 Fancy right? Let's move on.
 
-### Execute the next line of code and wait: next
+### Execute the next line of code and wait: `next`
 
 So, our application paused just before `new_person`'s definition. What if we want to move the cursor down one line and see what `Person.find_or_create_by(email: person[:email])` returns?
 
@@ -242,7 +242,7 @@ See what happened? The `=>` cursor moved through the definition of `new_person`,
 
 Tada! An existing instance of `Person` was affected to `new_person` because it existed with the email `buffy@sunnydale.edu`.
 
-### Continue execution until the next breakpoint (or until the end of the current process): continue
+### Continue execution until the next breakpoint (or until the end of the current process): `continue`
 
 Now, remember when I said I'd throw a couple of breakpoints for good measure? Sometimes, I want to skip big chunks of code but still pause its execution later. Think about controllers calling multiple methods, one of which is faulty. I can add breakpoint in each method to see what's what.
 
