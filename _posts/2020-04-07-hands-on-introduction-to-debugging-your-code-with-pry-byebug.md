@@ -309,7 +309,7 @@ Remember when I told you that I was only sure about the structure of the data se
       { first_name: 'Rupert', last_name: 'Giles', email: 'giles@sunnydale.edu'},
       { first_name: 'Cordelia', last_name: 'Chase', email: 'cordelia@gmail.com'},
       { first_name: 'Xander', last_name: 'Harris', email: 'xander@sunnydale.edu'},
-      { first_name: 'Spike', last_name: '', email: 'nil'} # 👈 😱
+      { first_name: 'Spike', last_name: '', email: nil} # 👈 😱
     ]
   }.with_indifferent_access
 {% endhighlight %}
