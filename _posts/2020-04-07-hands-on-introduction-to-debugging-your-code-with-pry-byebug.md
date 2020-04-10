@@ -330,4 +330,6 @@ Cheers,
 
 Rémi
 
-[^1]: Can someone explain to me, how `debugger` is supposed to work in the Javascript console?
+P.S.: This post was featured in [Ruby Weekly's 496 edition](https://rubyweekly.com/issues/496){:target="\_blank"}.
+
+[^1]: ~~Can someone explain to me, how `debugger` is supposed to work in the Javascript console?~~ Many thanks to [Mirha](https://www.mirhamasala.com/){:target="\_blank"} who explained to me how the JS `debugger` keyword works 🙏.
