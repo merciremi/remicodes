@@ -1,19 +1,22 @@
 ---
 layout: post
-title: asynchronous HTTP requests in rails with vanilla javascript
+title: Build asynchronous HTTP requests in Rails
+date: 2020-04-07
+excerpt: "Let's look at how we can update parts of our app's pages with asynchronous HTTP requests. This is a step-by-step how-to with some good ol' Javascript fetch() method, and Rails native server-side partial rendering."
+permalink: /asynchronous-requests/
 ---
 
-Today is a very special day. This is the day I'll (mostly) talk about Javascript!
+Today is a special day. It's the day I'll (mostly) talk about Javascript!
 
-I've been struggling with AJAX requests in Rails apps for a while. But I've started using them a lot recently and the pieces kinda fell together. Those can be handly when you need to update some part of your application's page without reloading the whole thing [^1].
+I've been struggling with AJAX requests in Rails apps for a while. But I've started using them a lot recently, and the pieces kinda fell together. Asynchronous requests can be handy when you need to update some parts of your application's page without reloading the whole thing [^1]. I'll show you how to do this with plain ol' vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}), and Rails native server-side partial rendering.
 
 ## Some context
 
-Alright, let's say you have a list of essays from your app's blog. They are sorted from newest to oldest. But you'd like your readers to have the ability to filter your essays by topic.
+Alright, let's say you have a list of essays from your app's blog. They are sorted from newest to oldest. But you'd like your readers to have the ability to filter them by topic.
 
 You'd start by adding some buttons at the top of your feed. Now, when readers click the button `Ruby`, you'd like your feed to only display essays with the category `Ruby`. All of this, without reloading the whole page.
 
-This sounds like a job for some asynchronous HTTP requests. To do this, we'll use plain 'ol vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}) and Rails native server-side partial rendering.
+This sounds like a job for some asynchronous HTTP requests.
 
 ## The Rails bit
 
@@ -24,7 +27,7 @@ Let's add a new route:
   resources :posts, only: :index, controller: 'blog/posts'
 {% endhighlight %}
 
-This will be the endpoint our Javascript pings. Now, here's a basic controller:
+This will be the endpoint our requests will ping. Now, here's a basic controller:
 
 {% highlight ruby %}
   # Located at: app/controllers/blog/posts_controller.rb
@@ -58,9 +61,9 @@ The corresponding view:
 {% endhighlight %}
 
 Note that:
-  - each filter has its own ID.
-  - the DOM element embedding the list of posts has an ID
-  - the list of posts is in a partial: this will make server-side rendering much easier
+  - Each filter has an ID.
+  - The DOM element embedding the list of posts has an ID.
+  - The list of posts is in a partial: this will make server-side rendering much easier.
 
 Speaking of partial, here's our `posts_list.html.erb`:
 
@@ -75,13 +78,13 @@ Speaking of partial, here's our `posts_list.html.erb`:
   <% end %>
 {% endhighlight %}
 
-Just a loop building a collection of posts with a clickable title and an excerpt.
+We're looping over a collection of posts, and we generate a clickable title and an excerpt for each post.
 
-And now, ladies, gentlemen, and variations thereupon [^1], let's dive into Javascript!
+And now, ladies, gentlemen, and variations thereupon [^2], let's dive into Javascript!
 
 ## Building asynchronous requests in Rails with `fetch()`, step-by-step
 
-Before we begin, you can either write your Javascript in your `app/assets/javascripts` directory or in `app/javascript/packs` based on your Rails configuration (i.e. Do you have webpacker installed or not?).
+Before we begin, you can either write your Javascript in your `app/assets/javascripts` directory or in your `app/javascript/packs` directory based on your Rails configuration (i.e. Do you have webpacker installed or not?).
 
 ### The basic syntax for `fetch()`
 
@@ -89,11 +92,6 @@ Here are the outlines:
 
 {% highlight js %}
   // Located at app/javascript/packs/blog_filters.js
-
-  // Store all filter-type elements
-  const rubyFilter = document.getElementById('ruby-filter');
-  const javascriptFilter = document.getElementById('javascript-filter');
-  const remoteFilter = document.getElementById('remote-filter');
 
   // Store the DOM element embedding the list
   const postsList = document.getElementById('posts-list');
@@ -109,26 +107,35 @@ Here are the outlines:
       // And we'll do some fancy stuff there.
     });
   }
+
+  // Store all filter-type elements
+  const rubyFilter = document.getElementById('ruby-filter');
+  const javascriptFilter = document.getElementById('javascript-filter');
+  const remoteFilter = document.getElementById('remote-filter');
+
+  // Trigger filterPosts when users click on a filter button
+  rubyFilter.onclick = () => { filterPosts('ruby'); }
+  javascriptFilter.onclick = () => { filterPosts('javascript'); }
+  remoteFilter.onclick = () => { filterPosts('remote'); }
 {% endhighlight %}
 
 Here's what `blog_filters.js` does:
   - Find and store the DOM element embedding my list of posts.
   - Find and store every filter-type button.
+  - Add an event listener `onclick` that'll trigger our asynchronous request.
   - Identify the URL where I will send my asynchronous request (i.e `Blog::PostsController#index`).
   - Fetch then handle the response from my controller.
 
-A word about the `actionUrl`: this is the Rails path you'll get from your Rails routes. Only, you need to replace the `_path` bit by `_url`. Why? I do not know friend! [^2]
+A word about the `actionUrl`: this is your Rails path. You simply need to replace the `_path` bit by `_url`. Why? I do not know friend! [^3]
 
 Let's work some magic between our Javascript file and our controller.
 
 ### Flesh out `fetch()`
 
-`fetch()` takes an URL as first parameter. We've already done that. Now, we'll add details to the second parameter (it's called an `init` object).
+`fetch()` takes an URL as the first parameter. We've already done that. Now, we'll add details to the second parameter (it's called an `init` object).
 
 {% highlight js %}
-  const rubyFilter = document.getElementById('ruby-filter');
-  const javascriptFilter = document.getElementById('javascript-filter');
-  const remoteFilter = document.getElementById('remote-filter');
+  // Located at app/javascript/packs/blog_filters.js
 
   const postsList = document.getElementById('posts-list');
 
@@ -148,6 +155,14 @@ Let's work some magic between our Javascript file and our controller.
       // And do stuff there.
     });
   }
+
+  const rubyFilter = document.getElementById('ruby-filter');
+  const javascriptFilter = document.getElementById('javascript-filter');
+  const remoteFilter = document.getElementById('remote-filter');
+
+  rubyFilter.onclick = () => { filterPosts('ruby'); }
+  javascriptFilter.onclick = () => { filterPosts('javascript'); }
+  remoteFilter.onclick = () => { filterPosts('remote'); }
 {% endhighlight %}
 
 What's happening here?
@@ -155,14 +170,12 @@ What's happening here?
   - I fill in the request's headers with:
     - my CRSF token (so Rails doesn't think your request is illegitimate)
     - the type of content I expect to receive (in our case, HTML)
-  - I specify that the request comes from our own app.
+  - I specify that the request comes from our app.
 
-This bit will ping our `Blog::PostsController` (through the route stored in `actionUrl`). Remember, we want our controller to filter our essays based on a category sent through our Javascript request. So we need to add that category to our request:
+This bit will ping our `Blog::PostsController` (through the route stored in `actionUrl`). Remember, we want our controller to filter our essays based on the category sent through our `fetch()` method. So we need to add that category to our request:
 
 {% highlight js %}
-  const rubyFilter = document.getElementById('ruby-filter');
-  const javascriptFilter = document.getElementById('javascript-filter');
-  const remoteFilter = document.getElementById('remote-filter');
+  // Located at app/javascript/packs/blog_filters.js
 
   const postsList = document.getElementById('posts-list');
 
@@ -183,6 +196,14 @@ This bit will ping our `Blog::PostsController` (through the route stored in `act
       // And do stuff there.
     });
   }
+
+  const rubyFilter = document.getElementById('ruby-filter');
+  const javascriptFilter = document.getElementById('javascript-filter');
+  const remoteFilter = document.getElementById('remote-filter');
+
+  rubyFilter.onclick = () => { filterPosts('ruby'); }
+  javascriptFilter.onclick = () => { filterPosts('javascript'); }
+  remoteFilter.onclick = () => { filterPosts('remote'); }
 {% endhighlight %}
 
 I've added a parameter `category` to my `filterPosts` function. Then, I'm building my some Rails `params` with `category` and, I'm adding them to my `actionUrl`. Now, I can access my `category` in my `Blog::PostsController` through my `ActionController::Parameters`. 👌
@@ -208,30 +229,22 @@ I can update our controller based on the presence of the `category` key in my `p
 
 Let's break it down:
   - If `params['category']` is absent, my controller returns a list of posts (`@posts`) to `index.html.erb`which renders the partial `posts_list.html.erb`.
-  - If `params['category']` is present, my controller directly returns the partial `posts_list.html.erb` with the filtered list of posts to **my Javascript method!** Not to the view, to the Javascript `filterPosts()` function.
+  - If `params['category']` is present, my controller directly returns the partial `posts_list.html.erb` with the filtered list of `@posts` to **my Javascript method!** Not to the view, to `filterPosts()`.
 
-Javascript kinda places itself inbetween my controller and my view. Why? Because we'll only update one bit of the page by manipulating the DOM.
+Javascript kinda places itself in between my controller and my view. Why? Because we'll only update one bit of the page by manipulating the DOM.
+
+`layout: false` tells Rails to not look for a template (since I'm feeding my Javascript method with a partial).
 
 ### Handling the response from our controller
 
-
-⚠️ what is layout false?
-
-
-First, I'll check if my controller sent a `200` status.
+The first thing I like to do, is to check the HTTP status sent from my controller. If it's a `200`, I'll use the response to replace the posts list in my view.
 
 {% highlight js %}
-  // Let's get our filters
-  const rubyFilter = document.getElementById('ruby-filter');
-  const javascriptFilter = document.getElementById('javascript-filter');
-  const remoteFilter = document.getElementById('remote-filter');
+  // Located at app/javascript/packs/blog_filters.js
 
-  // Let's get the parent element of our list of posts
   const postsList = document.getElementById('posts-list');
 
-  // Let's embed our fetch in a function
   const filterPosts = (category) => {
-    // Let's attribute our route to actionUrl for clarity's sake
     let categoryParams = `?category=${category}`;
     let actionUrl = 'blog_posts_url' + 'categoryParams';
 
@@ -252,21 +265,35 @@ First, I'll check if my controller sent a `200` status.
       }
     });
   }
+
+  const rubyFilter = document.getElementById('ruby-filter');
+  const javascriptFilter = document.getElementById('javascript-filter');
+  const remoteFilter = document.getElementById('remote-filter');
+
+  rubyFilter.onclick = () => { filterPosts('ruby'); }
+  javascriptFilter.onclick = () => { filterPosts('javascript'); }
+  remoteFilter.onclick = () => { filterPosts('remote'); }
 {% endhighlight %}
 
-What did I do? I applied the `text()` method to my response. `response` is - and I quote - a readable stream of byte data (you gotta love Javascript 🙃). `text()` take the stream and turns it into a UTF-8-encoded string.
+What did I do? I applied the `text()` method to my controller `response`. `response` is - and I quote the Mozilla documentation - a readable stream of byte data (you gotta love Javascript 🙃). `text()` takes this stream and turns it into a UTF-8-encoded string.
 
-In our case, here's what'll happen:
-- our controller returns a partial with a loop in it
-- erb file is interpreted and rendered as html
-- then `text()` quicks in and turn the whole html into a string
+In our case, here's what happens:
+  - Our controller returns a partial with a loop in it.
+  - Our ERB file is interpreted, and Javascript accesses the HTML as a stream.
+  - `text()` kicks in and turns the stream into a string containing our HTML.
 
-I then assign the `response.text()` to `content` and replace the `postsList` section of my html with this new string that's basically html (pretty sure this post won't make it in javascirpt or ruby weeekly).
+Phew!
 
-And wham! The DOM section where the posts are indexed is changed without the page reloading. Fancy as fuck!
+Then, I assign `response.text()` to `content`, and I replace the `postsList` section of my DOM with the stringify partial. Done! I just changed the posts section of my page without reloading the page.👌
 
-[^1]: 👋 Doctor Who fans.
-[^2]: Lemme know on Twitter if you know the reason.
+That's is for today!
+
+Noticed something? [Ping me on [Ping me on Twitter](https://twitter.com/mercier_remi) or [create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new).
+
+Cheers,
+
+Rémi
+
 [^1]: And when you don't have six months to learn React.
-
-⚠️ Ajouter des graphs de interactions, ce serait pas mal.
+[^2]: 👋 Doctor Who fans.
+[^3]: Lemme know on [Twitter](https://twitter.com/mercier_remi) if you know the reason.
