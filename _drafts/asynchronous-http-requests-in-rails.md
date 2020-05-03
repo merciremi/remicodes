@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Asynchronous HTTP requests in Rails
-date: 2020-04-07
+date: 2020-05-05
 excerpt: "Let's look at how we can update parts of our app's pages with asynchronous HTTP requests. This is a step-by-step how-to with some good ol' Javascript fetch() method, and Rails native server-side partial rendering."
 permalink: /asynchronous-requests/
 ---
@@ -130,7 +130,7 @@ A word about the `actionUrl`: this is your Rails path. You simply need to replac
 
 Now, let's work some magic between our Javascript file and our controller.
 
-### Flesh out `fetch()`
+### Fleshing out `fetch()`
 
 `fetch()` takes an URL as the first parameter. We've already done that. Now, we'll add details to the second parameter (it's called the `init` object).
 
@@ -231,6 +231,7 @@ Let's break it down:
   - If `params['category']` is absent, my controller returns a list of posts (`@posts`) to `index.html.erb`which renders the partial `posts_list.html.erb`.
   - If `params['category']` is present, my controller directly returns the partial `posts_list.html.erb` with the filtered list of `@posts` to **my Javascript method**, not to the view.
 
+If your partial is somewhere else (like in your `shared` directory, just give your controller the relative path - i.e. `../../shared/posts_list`).
 Javascript kinda places itself in between my controller and my view. Why? Because we'll only update one bit of the page by manipulating the DOM.
 
 `layout: false` tells Rails not to look for a template (since I'm feeding my Javascript method with a partial).
@@ -283,7 +284,9 @@ In our case, here's what happens:
   - `text()` kicks in and turns the stream into a string (which is a stringified version of our HTML).
   - I assign `response.text()` to `content`, and I replace the `postsList` section of my DOM with the stringify partial.
 
-Phew! I just changed the posts section of my page without reloading the page. No fancy framework. No HTML written inside the Javascript code. Just some well-integrated server-side rendering and vanilla Javascript. 👌
+If the `response` status is an error (like a `500`), I can show the user an error. Whatever's tickling your fancy.
+
+Phew! We just changed the posts section of my page without reloading the page. No fancy framework. No HTML written inside the Javascript code. Just some well-integrated server-side rendering and vanilla Javascript. 👌
 
 That's is for today folks! I hope you enjoyed it as much as I did.
 
