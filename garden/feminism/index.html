@@ -1,0 +1,16 @@
+---
+layout: page
+title: Feminism
+---
+
+Yo
+
+{% assign folderfilter = page.path | replace: "/index.html" , "" %}
+
+{% assign bobs = site.pages | where_exp: "item" , "item.path contains folderfilter" %}
+
+{% for bob in bobs %}
+  <a href="{{ site.url }}{{ bob.permalink }}/">
+    <div class="">{{ bob.title | capitalize }}</div>
+  </a>
+{% endfor %}

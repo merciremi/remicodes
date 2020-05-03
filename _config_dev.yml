@@ -25,6 +25,11 @@ github_username:  merciremi
 collections:
   scribbles:
     output: false
+  garden:
+    output: false
+  feminism:
+    output: true
+    permalink: /garden/feminism
 
 # Build settings
 sass:

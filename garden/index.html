@@ -1,0 +1,14 @@
+---
+layout: page
+title: This is my garden 🌱
+permalink: /garden/
+---
+
+<p>This is where I plant seeds and nurture my interests.</p>
+
+{% assign garden = site.collections | where_exp:"collection", "collection.permalink contains 'garden'" %}
+{% for topic in garden %}
+  <a href="{{ site.url }}{{ topic.permalink }}/">
+      <div class="">{{ topic.label | capitalize }}</div>
+    </a>
+{% endfor %}
