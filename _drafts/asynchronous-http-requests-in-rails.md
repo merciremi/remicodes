@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Build asynchronous HTTP requests in Rails
+title: Asynchronous HTTP requests in Rails
 date: 2020-04-07
 excerpt: "Let's look at how we can update parts of our app's pages with asynchronous HTTP requests. This is a step-by-step how-to with some good ol' Javascript fetch() method, and Rails native server-side partial rendering."
 permalink: /asynchronous-requests/
@@ -8,11 +8,11 @@ permalink: /asynchronous-requests/
 
 Today is a special day. It's the day I'll (mostly) talk about Javascript!
 
-I've been struggling with AJAX requests in Rails apps for a while. But I've started using them a lot recently, and the pieces kinda fell together. Asynchronous requests can be handy when you need to update some parts of your application's page without reloading the whole thing [^1]. I'll show you how to do this with plain ol' vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}), and Rails native server-side partial rendering.
+I've been struggling with AJAX requests in Rails apps for a while. But I've started using them a lot recently, and pieces of the puzzle kinda fell together. Asynchronous requests can be handy when you need to update some parts of your application's page without reloading the whole thing. I'll show you how to do this with plain ol' vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}), and Rails native server-side partial rendering.
 
 ## Some context
 
-Alright, let's say you have a list of essays from your app's blog. They are sorted from newest to oldest. But you'd like your readers to have the ability to filter them by topic.
+Alright. Let's say you have a list of essays from your app's blog. They're sorted from newest to oldest. But you'd like your readers to have the ability to filter them by topic.
 
 You'd start by adding some buttons at the top of your feed. Now, when readers click the button `Ruby`, you'd like your feed to only display essays with the category `Ruby`. All of this, without reloading the whole page.
 
@@ -20,14 +20,14 @@ This sounds like a job for some asynchronous HTTP requests.
 
 ## The Rails bit
 
-Let's add a new route:
+Let's dive right in and add a new route:
 
 {% highlight ruby %}
   # Expose an endpoint for our request
   resources :posts, only: :index, controller: 'blog/posts'
 {% endhighlight %}
 
-This will be the endpoint our requests will ping. Now, here's a basic controller:
+This will be the endpoint our requests ping. Now, here's a basic controller:
 
 {% highlight ruby %}
   # Located at: app/controllers/blog/posts_controller.rb
@@ -39,10 +39,10 @@ This will be the endpoint our requests will ping. Now, here's a basic controller
   end
 {% endhighlight %}
 
-The corresponding view:
+And the corresponding view:
 
 {% highlight erb %}
-  # Located at: app/views/blog/posts/index.html.erb
+  <!-- Located at: app/views/blog/posts/index.html.erb -->
 
   <h1>My app's blog</h1>
 
@@ -65,10 +65,10 @@ Note that:
   - The DOM element embedding the list of posts has an ID.
   - The list of posts is in a partial: this will make server-side rendering much easier.
 
-Speaking of partial, here's our `posts_list.html.erb`:
+Speaking of partial, here's `posts_list.html.erb`:
 
 {% highlight erb %}
-  # Located at: app/views/blog/posts/\_posts_list.html.erb
+  <!-- Located at: app/views/blog/posts/\_posts_list.html.erb -->
 
   <% posts.each do \|post\| %>
     <%= link_to blog_post_path(post.url) %>
@@ -78,17 +78,17 @@ Speaking of partial, here's our `posts_list.html.erb`:
   <% end %>
 {% endhighlight %}
 
-We're looping over a collection of posts, and we generate a clickable title and an excerpt for each post.
+We're looping over a collection of posts. For each post, we generate a clickable title and an excerpt.
 
-And now, ladies, gentlemen, and variations thereupon [^2], let's dive into Javascript!
+And now, ladies, gentlemen, and variations thereupon [^1], let's make some Javascript!
 
 ## Building asynchronous requests in Rails with `fetch()`, step-by-step
 
-Before we begin, you can either write your Javascript in your `app/assets/javascripts` directory or in your `app/javascript/packs` directory based on your Rails configuration (i.e. Do you have webpacker installed or not?).
+Before we begin, you can either write your Javascript in your `app/assets/javascripts` directory or in your `app/javascript/packs` directory based on your Rails configuration (i.e. Do you have webpacker installed or not?). Both will work just fine!
 
 ### The basic syntax for `fetch()`
 
-Here are the outlines:
+Here are the outlines of our Javascript file:
 
 {% highlight js %}
   // Located at app/javascript/packs/blog_filters.js
@@ -121,18 +121,18 @@ Here are the outlines:
 
 Here's what `blog_filters.js` does:
   - Find and store the DOM element embedding my list of posts.
-  - Find and store every filter-type button.
-  - Add an event listener `onclick` that'll trigger our asynchronous request.
-  - Identify the URL where I will send my asynchronous request (i.e `Blog::PostsController#index`).
+  - Find and store every filter-type button on our page.
+  - Add an event listener on each button that'll trigger our asynchronous request.
+  - Store the URL where I'll send my asynchronous request (i.e `Blog::PostsController#index`).
   - Fetch then handle the response from my controller.
 
-A word about the `actionUrl`: this is your Rails path. You simply need to replace the `_path` bit by `_url`. Why? I do not know friend! [^3]
+A word about the `actionUrl`: this is your Rails path. You simply need to replace the `_path` bit by `_url`. Why? I do not know friend! [^2]
 
-Let's work some magic between our Javascript file and our controller.
+Now, let's work some magic between our Javascript file and our controller.
 
 ### Flesh out `fetch()`
 
-`fetch()` takes an URL as the first parameter. We've already done that. Now, we'll add details to the second parameter (it's called an `init` object).
+`fetch()` takes an URL as the first parameter. We've already done that. Now, we'll add details to the second parameter (it's called the `init` object).
 
 {% highlight js %}
   // Located at app/javascript/packs/blog_filters.js
@@ -229,11 +229,11 @@ I can update our controller based on the presence of the `category` key in my `p
 
 Let's break it down:
   - If `params['category']` is absent, my controller returns a list of posts (`@posts`) to `index.html.erb`which renders the partial `posts_list.html.erb`.
-  - If `params['category']` is present, my controller directly returns the partial `posts_list.html.erb` with the filtered list of `@posts` to **my Javascript method!** Not to the view, to `filterPosts()`.
+  - If `params['category']` is present, my controller directly returns the partial `posts_list.html.erb` with the filtered list of `@posts` to **my Javascript method**, not to the view.
 
 Javascript kinda places itself in between my controller and my view. Why? Because we'll only update one bit of the page by manipulating the DOM.
 
-`layout: false` tells Rails to not look for a template (since I'm feeding my Javascript method with a partial).
+`layout: false` tells Rails not to look for a template (since I'm feeding my Javascript method with a partial).
 
 ### Handling the response from our controller
 
@@ -279,21 +279,19 @@ What did I do? I applied the `text()` method to my controller `response`. `respo
 
 In our case, here's what happens:
   - Our controller returns a partial with a loop in it.
-  - Our ERB file is interpreted, and Javascript accesses the HTML as a stream.
-  - `text()` kicks in and turns the stream into a string containing our HTML.
+  - Our ERB file is interpreted, and Javascript accesses the HTML as a readable stream.
+  - `text()` kicks in and turns the stream into a string (which is a stringified version of our HTML).
+  - I assign `response.text()` to `content`, and I replace the `postsList` section of my DOM with the stringify partial.
 
-Phew!
+Phew! I just changed the posts section of my page without reloading the page. No fancy framework. No HTML written inside the Javascript code. Just some well-integrated server-side rendering and vanilla Javascript. 👌
 
-Then, I assign `response.text()` to `content`, and I replace the `postsList` section of my DOM with the stringify partial. Done! I just changed the posts section of my page without reloading the page.👌
+That's is for today folks! I hope you enjoyed it as much as I did.
 
-That's is for today!
-
-Noticed something? [Ping me on [Ping me on Twitter](https://twitter.com/mercier_remi) or [create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new).
+If anything seems odd, [ping me on Twitter](https://twitter.com/mercier_remi){:target="\_blank"} or [create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new){:target="\_blank"}.
 
 Cheers,
 
 Rémi
 
-[^1]: And when you don't have six months to learn React.
-[^2]: 👋 Doctor Who fans.
-[^3]: Lemme know on [Twitter](https://twitter.com/mercier_remi) if you know the reason.
+[^1]: 👋 Doctor Who fans.
+[^2]: Lemme know on [Twitter](https://twitter.com/mercier_remi){:target="\_blank"} if you know the reason.
