@@ -8,7 +8,7 @@ permalink: /asynchronous-requests/
 
 Today is a special day. It's the day I'll (mostly) talk about Javascript!
 
-I've been struggling with AJAX requests in Rails apps for a while. But I've started using them a lot recently, and pieces of the puzzle kinda fell together. Asynchronous requests can be handy when you need to update some parts of your application's page without reloading the whole thing. I'll show you how to do this with plain ol' vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}), and Rails native server-side partial rendering.
+I've been struggling with AJAX requests in Rails apps for a while. But I've started using them a lot recently, and pieces of the puzzle kinda fell together. Asynchronous requests can be handy when you need to update some parts of your application's page without reloading the whole thing. I'll show you how to do this with plain ol' vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}), and Rails 6 native server-side partial rendering.
 
 ## Some context
 
@@ -99,7 +99,7 @@ Here are the outlines of our Javascript file:
   // Wrap our fetch() method in a function we can call whenever we want
   const filterPosts = () => {
     // Store our controller enpoint for clarity
-    let actionUrl = 'posts_url';
+    let actionUrl = 'posts';
 
     fetch(actionUrl, {
       // We'll add some configuration here.
@@ -126,8 +126,6 @@ Here's what `blog_filters.js` does:
   - Store the URL where I'll send my asynchronous request (i.e `Blog::PostsController#index`).
   - Fetch then handle the response from my controller.
 
-A word about the `actionUrl`: this is your Rails path. You simply need to replace the `_path` bit by `_url`. Why? I do not know friend! [^2]
-
 Now, let's work some magic between our Javascript file and our controller.
 
 ### Fleshing out `fetch()`
@@ -140,15 +138,15 @@ Now, let's work some magic between our Javascript file and our controller.
   const postsList = document.getElementById('posts-list');
 
   const filterPosts = () => {
-    let actionUrl = 'blog_posts_url';
+    let actionUrl = 'posts';
 
     fetch(actionUrl, {
       method: 'GET',
       headers: {
         'X-CSRF-Token':     document.getElementsByName('csrf-token')[0].getAttribute('content'),
         'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type':     'html',
-        'Accept':           'html'
+        'Content-Type':     'application/html',
+        'Accept':           'application/html'
       },
       credentials: 'same-origin'
     }).then((response) => {
@@ -172,7 +170,7 @@ What's happening here?
     - the type of content I expect to receive (in our case, HTML)
   - I specify that the request comes from our app.
 
-This bit will ping our `Blog::PostsController` (through the route stored in `actionUrl`). Remember, we want our controller to filter our essays based on the category sent through our `fetch()` method. So we need to add that category to our request:
+This bit will ping our `Blog::PostsController#index` (through the route stored in `actionUrl`). Remember, we want our controller to filter our essays based on the category sent through our `fetch()` method. So we need to add that category to our request:
 
 {% highlight js %}
   // Located at app/javascript/packs/blog_filters.js
@@ -181,15 +179,15 @@ This bit will ping our `Blog::PostsController` (through the route stored in `act
 
   const filterPosts = (category) => {
     let categoryParams = `?category=${category}`;
-    let actionUrl = 'blog_posts_url' + 'categoryParams';
+    let actionUrl = 'posts' + categoryParams;
 
     fetch(actionUrl, {
       method: 'GET',
       headers: {
         'X-CSRF-Token':     document.getElementsByName('csrf-token')[0].getAttribute('content'),
         'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type':     'html',
-        'Accept':           'html'
+        'Content-Type':     'application/html',
+        'Accept':           'application/html'
       },
       credentials: 'same-origin'
     }).then((response) => {
@@ -247,15 +245,15 @@ The first thing I like to do, is to check the HTTP status sent from my controlle
 
   const filterPosts = (category) => {
     let categoryParams = `?category=${category}`;
-    let actionUrl = 'blog_posts_url' + 'categoryParams';
+    let actionUrl = 'posts' + categoryParams;
 
     fetch(actionUrl, {
       method: 'GET',
       headers: {
         'X-CSRF-Token':     document.getElementsByName('csrf-token')[0].getAttribute('content'),
         'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type':     'html',
-        'Accept':           'html'
+        'Content-Type':     'application/html',
+        'Accept':           'application/html'
       },
       credentials: 'same-origin'
     }).then((response) => {
@@ -297,4 +295,3 @@ Cheers,
 Rémi
 
 [^1]: 👋 Doctor Who fans.
-[^2]: Lemme know on [Twitter](https://twitter.com/mercier_remi){:target="\_blank"} if you know the reason.
