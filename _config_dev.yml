@@ -25,9 +25,7 @@ github_username:  merciremi
 collections:
   scribbles:
     output: false
-  garden:
-    output: false
-  feminism:
+  garden_feminism:
     output: true
     permalink: /garden/feminism
 

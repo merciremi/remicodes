@@ -1,7 +1,8 @@
 ---
 layout: post
-title: quel monde voulons-nous - lecture
-permalink: /bob
+title: "Quel monde voulons-nous?"
+category: reading_note
+permalink: /quel-monde-voulons-nous-notes-lecture/
 ---
 
 Quel monde voulons-nous?
@@ -10,9 +11,7 @@ Traduit et présenté par Isabelle Stengers
 Cambourakis, collection Sorcières
 2019
 
----
-
-Voilà des mois que je lorgne ce livre de Starhawk sur les étagères de Sonia. Enfin, j'ai eu l'autorisation de lui emprunter - chez nous, commencer un livre déjà commencé par l'autre vaut crime de lèse-majesté.
+Voilà des mois que je lorgne ce livre de Starhawk sur les étagères de So. Enfin, j'ai eu l'autorisation de lui emprunter - chez nous, commencer un livre déjà commencé par l'autre vaut crime de lèse-majesté.
 
 ## Notre place dans la nature
 

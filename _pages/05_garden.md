@@ -4,11 +4,9 @@ title: This is my garden 🌱
 permalink: /garden/
 ---
 
-<p>This is where I plant seeds and nurture my interests.</p>
+This is where I plant seeds and nurture my interests.
 
 {% assign garden = site.collections | where_exp:"collection", "collection.permalink contains 'garden'" %}
 {% for topic in garden %}
-  <a href="{{ site.url }}{{ topic.permalink }}/">
-      <div class="">{{ topic.label | capitalize }}</div>
-    </a>
+  [{{ topic.label | remove: "garden_" | capitalize }}]({{site.url}}{{topic.permalink}}/)
 {% endfor %}
