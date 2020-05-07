@@ -1,6 +1,7 @@
 ---
 layout: page
 title: This is my garden 🌱
+excerpt: This is where I plant seeds and nurture my interests.
 permalink: /garden/
 ---
 

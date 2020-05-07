@@ -4,6 +4,7 @@ title: Asynchronous HTTP requests in Rails
 date: 2020-05-05
 excerpt: "Let's look at how we can update parts of our app's pages with asynchronous HTTP requests. This is a step-by-step how-to with some good ol' Javascript fetch() method, and Rails native server-side partial rendering."
 permalink: /asynchronous-requests/
+cover_image: /media/2020/05/async-requests-in-rails-remi-mercier.png
 ---
 
 Today is a special day. It's the day I'll (mostly) talk about Javascript!
@@ -15,6 +16,10 @@ I've been struggling with AJAX requests in Rails apps for a while. But I've star
 Alright. Let's say you have a list of essays from your app's blog. They're sorted from newest to oldest. But you'd like your readers to have the ability to filter them by topic.
 
 You'd start by adding some buttons at the top of your feed. Now, when readers click the button `Ruby`, you'd like your feed to only display essays with the category `Ruby`. All of this, without reloading the whole page.
+
+Something like this 👇
+
+<img src="{{ site.baseurl }}/media/2020/05/asynchronous-requests-in-rails.gif" alt="a gif showing someone clicking on three topic buttons and filtering post on the fly">
 
 This sounds like a job for some asynchronous HTTP requests.
 
