@@ -5,46 +5,67 @@
 
   <title>{% if page.title %}{{ page.title }} - Remi Mercier{% else %}{{ site.title }} - Maker & Rails Developer{% endif %}</title>
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ '/css/main.css' | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,600' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 
+  <!---------------->
+  <!-- Open Graph -->
+  <!---------------->
+
+  <!-- Site title -->
   <meta content="{{ site.title }} - Maker & Rails Developer" property="og:site_name">
+
+  <!-- Page title -->
   {% if page.title %}
-  <meta content="{{ page.title }} - Remi Mercier" property="og:title">
+    <meta content="{{ page.title }} - Remi Mercier - Maker & Rails Developer" property="og:title">
   {% else %}
-  <meta content="{{ site.title }} - Maker & Rails Developer" property="og:title">
-  {% endif %}
-  {% if page.title %}
-  <meta content="article" property="og:type">
-  {% else %}
-  <meta content="website" property="og:type">
-  {% endif %}
-  {% if page.excerpt %}
-  <meta content="{{ page.excerpt }}" property="og:description">
-  {% else %}
-  <meta content="{{ site.description }}" property="og:description">
-  {% endif %}
-  {% if page.url %}
-  <meta content="{{ site.url }}{{ page.url }}" property="og:url">
-  {% endif %}
-  {% if page.date %}
-  <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
-  <meta content="{{ site.url }}/about/" property="article:author">
-  {% endif %}
-  {% if page.cover_image %}
-  <meta content="{{ page.cover_image }}" property="og:image">
-  {% else %}
-  <meta content="/media/remi-mercier.jpeg" property="og:image">
+    <meta content="{{ site.title }} - Maker & Rails Developer" property="og:title">
   {% endif %}
 
+  <!-- Type of content -->
+  {% if page.title %}
+    <meta content="article" property="og:type">
+  {% else %}
+    <meta content="website" property="og:type">
+  {% endif %}
+
+  <!-- Excerpt -->
+  {% if page.excerpt %}
+    <meta content="{{ page.excerpt }}" property="og:description">
+  {% else %}
+    <meta content="{{ site.description }}" property="og:description">
+  {% endif %}
+
+  <!-- Url -->
+  {% if page.url %}
+    <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+  {% endif %}
+
+  <!-- Author -->
+  <meta content="{{ site.url }}/about/" property="article:author">
+
+  <!-- Date -->
+  {% if page.date %}
+    <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+  {% endif %}
+
+  <!-- Cover image -->
+  {% if page.cover_image %}
+    <meta content="{{ page.cover_image }}" property="og:image">
+  {% else %}
+    <meta content="/media/remi-mercier.jpeg" property="og:image">
+  {% endif %}
+
+  <!-- Twitter stuff -->
   <meta name="twitter:site" content="@mercier_remi">
   <meta name="twitter:creator" content="@mercier_remi">
   {% if page.cover_image %}
-  <meta name="twitter:image" content="{{ page.cover_image }}">
+    <meta name="twitter:image" content="{{ page.cover_image }}">
+    <meta name="twitter:card" content="summary_large_image">
   {% else %}
-  <meta name="twitter:image" content="https://remimercier.com/media/remi-mercier.jpeg">
+    <meta name="twitter:image" content="https://remimercier.com/media/remi-mercier.jpeg">
+    <meta name="twitter:card" content="summary">
   {% endif %}
-  <meta name="twitter:card" content="summary">
 </head>
