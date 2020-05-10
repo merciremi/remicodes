@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How not to live stream your code
-date: 2020-05-09
+date: 2020-05-10
 excerpt: "This week, I did my first live stream on Twitch and it didn't turn out so well (to say the least). Here's a recap of my rookie mistakes, what I liked about it anyway, and what I'm planning on doing."
 permalink: /how-not-to-live-stream/
 ---
@@ -15,9 +15,9 @@ Last Wednesday, I decided to livestream a coding session on Twitch - [follow me 
 - I've wanted to jump on the live stream bandwagon for ages now.
 - And, more importantly, I thought some people might understand tutorials better by following along a video.
 
-I prepared a little bit and thought "Fuck it, I'll learn by doing". And of course, it turned bad. Awkwardly bad.
+I prepared a little bit but mostly thought "Fuck it, I'll learn by doing". And of course, it turned bad. Awkwardly bad.
 
-I'll still upload that video and share it, for posterity and as a landmark to look at one year from now.
+I'll still upload that video, and share it for posterity and as a landmark to look at one year from now.
 
 Time for a recap!
 
@@ -42,7 +42,7 @@ __This freaking accent:__ This one was tough for me. It was hard to explain thin
 
 __Fun:__ In retrospect, I enjoyed doing it. I've been watching seasoned streamers for a while now, and even them experience hicups. And that's okay. This is what learning-in-public is. Sometimes, things go wrong, and you fix them.
 
-__I can do better:__ I've realized that despite this first stream being shitty, I could do better. I even recorded another screencast the next day. I tweaked my OBS setup. I found a better place to do it. I have plenty of room to improve and find my groove. ✌️
+__I can do better:__ I've realized that despite this first stream being shitty, I could do better. [I even recorded another screencast the next day]({{site.baseurl}}/asynchronous-requests/#async-request-screencast). I tweaked my OBS setup. I found a better place to do it. I have plenty of room to improve and find my groove. ✌️
 
 __So much potential:__ I've felt that live streams are a fantastic way to learn, teach, and share knowledge with others. I've missed teaching code, and I'd love to see where I can take this thing. Even make it sustainable?
 
@@ -64,7 +64,7 @@ __Practice speaking English aloud:__ I'm okay with speaking in front of people o
 
 Before I say good-bye for today, here's my first live stream. Don't watch it please. 😅
 
-<!-- video -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CHvA0uzQd9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 That's is for today folks!
 
