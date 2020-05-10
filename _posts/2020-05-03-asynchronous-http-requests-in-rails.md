@@ -11,6 +11,8 @@ Today is a special day. It's the day I'll (mostly) talk about Javascript!
 
 I've been struggling with AJAX requests in Rails apps for a while. But I've started using them a lot recently, and pieces of the puzzle kinda fell together. Asynchronous requests can be handy when you need to update some parts of your application's page without reloading the whole thing. I'll show you how to do this with plain ol' vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}), and Rails 6 native server-side partial rendering.
 
+[2020-05-10 Update: If you're more confortable following along a video, I've recorded [a screencast]({{site.baseurl}}/asynchronous-requests/#async-request-screencast).]
+
 ## Some context
 
 Alright. Let's say you have a list of essays from your app's blog. They're sorted from newest to oldest. But you'd like your readers to have the ability to filter them by topic.
@@ -290,6 +292,10 @@ In our case, here's what happens:
 If the `response` status is an error (like a `500`), I can show the user an error. Whatever's tickling your fancy.
 
 Phew! We just changed the posts section of my page without reloading the page. No fancy framework. No HTML written inside the Javascript code. Just some well-integrated server-side rendering and vanilla Javascript. 👌
+
+<h2 id="async-request-screencast">Screencast</h2>
+
+<iframe width="900" height="500" src="https://www.youtube-nocookie.com/embed/Gm7GdXx44mk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 That's is for today folks! I hope you enjoyed it as much as I did.
 
