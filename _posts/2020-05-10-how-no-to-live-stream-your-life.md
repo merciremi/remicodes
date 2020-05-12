@@ -40,7 +40,7 @@ __This freaking accent:__ This one was tough for me. It was hard to explain thin
 
 ## The good bits
 
-__Fun:__ In retrospect, I enjoyed doing it. I've been watching seasoned streamers for a while now, and even them experience hicups. And that's okay. This is what learning-in-public is. Sometimes, things go wrong, and you fix them.
+__Fun:__ In retrospect, I enjoyed doing it. I've been watching seasoned streamers for a while now, and even them experience hiccups. And that's okay. This is what learning-in-public is. Sometimes, things go wrong, and you fix them.
 
 __I can do better:__ I've realized that despite this first stream being shitty, I could do better. [I even recorded another screencast the next day]({{site.baseurl}}/asynchronous-requests/#async-request-screencast). I tweaked my OBS setup. I found a better place to do it. I have plenty of room to improve and find my groove. ✌️
 
@@ -48,7 +48,7 @@ __So much potential:__ I've felt that live streams are a fantastic way to learn,
 
 ## Improvements
 
-__Just fucking breath:__ Problems, bugs, hiccups are just part of a normal day. Stressing out never anyone getting things done with gusto.
+__Just fucking breath:__ Problems, bugs, hiccups are just part of a normal day. Stressing out never helped anyone getting things done with gusto.
 
 __Try out different setups:__ I've got to tinker with OBS so my streaming setup doesn't get in the way. Same thing with headphones, mic, etc.
 

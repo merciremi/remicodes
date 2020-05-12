@@ -169,8 +169,8 @@ cite::selection {
     font-weight: bold;
   }
   padding-top: 30px;
-  margin-top: 60px;
-  border-top: 1px var(--link-color) solid;
+  margin-top: 30px;
+  border-top: 1px $dark-grey solid;
 }
 .highlight {
   border-radius: 1em 0 1em 0;
@@ -192,6 +192,34 @@ mark {
 }
 .inlined {
   display: inline-block;
+}
+.newsletter-block {
+  border: 3px solid $link-color;
+  text-align: center;
+  padding: 25px;
+  margin-top: 60px;
+  #tlemail {
+    padding: 10px 10px 10px 10px;
+    border: none;
+    border-bottom: 1px solid $link-color;
+    background-color: $body-background-color;
+    font-size: 1em;
+  }
+  #tlsubmit {
+    border-radius: 0;
+    border: none;
+    color: $body-background-color;
+    background-color: $link-color;
+    padding: 13px;
+    margin: 10px;
+    font-size: 1em;
+    &:hover {
+      background-color: $dark-link-color;
+    }
+  }
+  .newsletter-credits {
+    font-size: 0.7em;
+  }
 }
 .post-excerpt {
   margin: 50px 0px;
