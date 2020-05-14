@@ -4,27 +4,34 @@ title: About Rémi
 permalink: /about/
 ---
 
-<!-- <img src="{{ site.baseurl }}/media/remi-mercier.jpeg" height="300" width="300" class="inlined" /> -->
-
 👋 Hi, my name is Remi Mercier (`ray · me · mercy · 'ey `).
 
 Without further ado, here are a few things you might want to know about me.
 
-**Remi:**
+**I...**
 
-- is a former stained glass maker specialized in conservation and restoration,
+- am a former stained glass maker specialized in conservation and restoration,
 - drew infographics for grassroot organizations for two years,
 - spearheaded inbound marketing for an open data startup for four years,
-- developed [harry.team](http://harry.team) and [Strike it](https://strike-it.herokuapp.com/) after attending the Wagon Ruby on Rails bootcamp,
-- teaches Ruby, Rails and much much more @Le Wagon Paris,
-- lives in Paris, tweets his coding sprees and headaches on [Twitter](https://twitter.com/mercier_remi),
-- builds wooden furniture on his balcony.
+- developed [harry.team](http://harry.team){:target="\_blank"} and [Strike it](https://strike-it.herokuapp.com/){:target="\_blank"} after attending the Wagon Ruby on Rails bootcamp,
+- teached Ruby, Rails and much much more @Le Wagon Paris,
+- live in Paris, tweet my coding sprees and headaches on [Twitter](https://twitter.com/mercier_remi){:target="\_blank"},
+- build wooden furniture on my balcony.
 
-That's it for now. Want to know more? Here's [what I'm doing right now]({{ site.baseurl }}/now) and some kind of resume down there 👇.
+That's it for now. Want to know more? Here's [what I'm doing right now]({{site.baseurl}}/now) and some kind of resume down there 👇.
 
 ## What have I done these past few years?
 
 ### Work things:
+
+👉 **Fullstack developer: [Hosman](https://hosman.co){:target="\_blank"}, 2019-2020**
+I design, code, and ship to production [https://hosman.co](https://hosman.co){:target="\_blank"}, an app to streamline real estate transactions.
+
+Some cool features:
+  - Replicate properties’ advert across ~40 real estate portals with one click.
+  - MVP-ish CRM to gather potential buyers’ details, etc...
+
+Those currently save the sales team more than 5,000 hours per annum in terms of workload.
 
 👉 **Teacher: Le Wagon Paris, 2018**
 Helping out students coding their way through the first four weeks of the coding bootcamp:
@@ -52,9 +59,7 @@ Helping out students coding their way through the first four weeks of the coding
 OpenDataSoft is a B2B SaaS that allows non-technical users to turn structured data into REST APIs and visualizations.
 
 - Developed a lead generation pipeline from the ground up generating +600,000€ ARR.
-- Integrated Salesforce, Hubspot, Eventbrite and GoToWebinar using their APIs.
 - Coded opendatainception.io using an open source AngularJS widgets library and OpenDataSoft API to grow traffic acquisition. +100,000 unique visitors to date.
-- Relaunched and rebranded the corporate website. Brought a strong focus on user experience, page loading speed and readability.
 - Learnt technical workflow to maintain websites and projects: git, Github, code reviews, deployment, etc.
 
 👉 **Digital Marketing Consultant: RMMRCR, 2012-2014**
