@@ -64,7 +64,7 @@ __Practice speaking English aloud:__ I'm okay with speaking in front of people o
 
 Before I say good-bye for today, here's my first live stream. Don't watch it please. 😅
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CHvA0uzQd9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="900" height="500" src="https://www.youtube-nocookie.com/embed/CHvA0uzQd9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 That's is for today folks!
 
