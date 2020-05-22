@@ -6,6 +6,8 @@ excerpt: "Last week, I started the process of transitioning from an on-site posi
 permalink: /going-remote-live-documentation/
 ---
 
+<mark>Current step: I signed the severance paperwork. I'll be leaving the company mid-July. Now, I need to organize a Zoom goodbye party.</mark>
+
 Last week, I announced to my fellow developers at Hosman that I would be leaving Paris this summer.  I've expressed my wish to keep working with the team as a fully distributed member.
 
 ## A bit of context
@@ -22,27 +24,23 @@ This documentation will include:
 - personal journey: taking a leap of faith, leaving out and moving in, caring for our friends and making new ones, etc...
 - professional journey: communicating with the team, becoming (or not) the first remote employee in an on-site company, the back-and-forths, the challenges and the solutions, the outcome, etc.
 
-I'll probably take the opportunity to start a [theme-based personal garden](https://joelhooks.com/digital-garden){:target="\_blank"} with this new chapter of my professional life. It'll be easier to connect the dots than though an antichronological timeline of essays. But that'll come later.
+I'll probably take the opportunity to start a [theme-based personal garden]({{site.baseurl}}/garden/) with this new chapter of my professional life. It'll be easier to connect the dots than though an antichronological timeline of essays. But that'll come later.
 
 The list below will serve as a table of content with due dates when relevant:
 
 1. before_action <time>Feb 29, 2020</time>
   - [x] Decide on going full remote.
-  - [x] Where should we go?
+  - [x] Where should we go: In a mountainous region called La Drôme (will write about it later!)
   - [x] Talk to remote developers (like Nicolas) about the tricks of the trade.
   - [x] Gather documentation about remote working (Remote, Zapier's guide).
 2. Going remote with an on-site based company.
   - [x] Talk to my lead developer. <time>Mar 1, 2020</time>
   - [x] Talk to my CTO/one-third owner of the company. <time>Mar 1, 2020</time>
-  - [ ] Get an agreement in principle from the owners. <time>Mar 16, 2020</time>
-  - [ ] Based on answer, discuss terms for the remote position/the severance package.
-  - [ ] Discuss terms for the remote position <time>Mar 31, 2020</time>
-  - [ ] Get a final (non-)agreement and move on to paperwork. <time>Apr 7, 2020</time>
-  - [ ] Plan new processes.
-  - [ ] Shop for necessary tools.
-3. Leaving Paris. <time>Jul 7th, 2020</time>
-  - [ ] Find a new place.
-  - [ ] Admin stuff: close current providers contracts, etc.
+  - [x] Get an (non-)agreement in principle from the owners: This is a non-agreement. <time>Mar 16, 2020</time>
+  - [x] Discuss terms for the severance package.
+  - [x] Get a final non-agreement and move on to paperwork. <time>Apr 7, 2020</time>
+  - [ ] Organize a Zoom goodbye party w/ my colleagues since I've already moved to the countryside.
+  - [ ] Send back my gear
 
 The list will evolve all year since I plan on documenting the whole thing: before, during, and after. Whenever I want to dig into a specific topic, I'll link the relevant post on the list.
 
