@@ -303,6 +303,6 @@ If anything seems odd, [ping me on Twitter](https://twitter.com/mercier_remi){:t
 
 Cheers,
 
-Rémi
+Rémi - [@mercier_remi](https://twitter.com/mercier_remi){:target="\_blank"}
 
 [^1]: 👋 Doctor Who fans.
