@@ -281,6 +281,18 @@ mark {
 .twitter {
   margin: 30px 0 20px;
 }
+.twitter-follow-button {
+  padding: 10px 15px;
+  background-color: #1b95e0;
+  color: white;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: none;
+  &:visited {
+    color: white;
+  }
+}
 .vertically-centered {
   display: flex;
   align-items: center;

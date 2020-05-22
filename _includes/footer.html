@@ -1,12 +1,16 @@
 <footer>
-  🏡 <a href="{{ site.url }}">{{ 'home' }}</a>
-  ✍️ <a href="{{ site.baseurl }}/blog">{{ 'articles' }}</a>
-  👨🏻 <a href="{{ site.baseurl }}/about">{{ '.self' }}</a>
-  🔥 <a href="{{ site.baseurl }}/now">{{ 'now' }}</a>
-  🐦 <a href="https://twitter.com/mercier_remi">{{ 'twitter' }}</a>
-  <span class="dev-to-badge"><img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Rémi Mercier's DEV Profile" height="30" width="30" /><a href="https://dev.to/mercier_remi">{{ 'dev.to' }}</a></span>
-  👨🏻‍💻 <a href="https://github.com/merciremi/">{{ 'github' }}</a>
-  📭 <a href="{{ site.url }}/feed.xml">{{ 'rss' }}</a>
+  {% if page.url != "/" %}
+    <a href="{{ site.url }}">{{ 'home' }}</a>
+  {% endif %}
+  <a href="{{ site.baseurl }}/blog">{{ 'articles' }}</a>
+  <a href="{{ site.baseurl }}/scribbles">{{ 'scribbles' }}</a>
+  <a href="{{ site.baseurl }}/garden">{{ 'garden' }}</a>
+  <a href="{{ site.baseurl }}/about">{{ '.self' }}</a>
+  <a href="{{ site.baseurl }}/now">{{ 'now' }}</a>
+  <a href="https://twitter.com/mercier_remi">{{ 'twitter' }}</a>
+  <!-- <span class="dev-to-badge"><img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Rémi Mercier's DEV Profile" height="30" width="30" /><a href="https://dev.to/mercier_remi">{{ 'dev.to' }}</a></span> -->
+  <!-- 👨🏻‍💻 <a href="https://github.com/merciremi/">{{ 'github' }}</a> -->
+  <!-- 📭 <a href="{{ site.url }}/feed.xml">{{ 'rss' }}</a> -->
 
   <!-- <script src="{{ base.url | prepend: site.url }}/assets/dark-mode.js"></script> -->
 </footer>
