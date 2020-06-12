@@ -49,7 +49,7 @@ Note that depending on your situation, some of these tips cannot be copied and p
   - Ask for a walkthrough: what's the main goal underlying that part of the codebase, what are the interactions, why did they code things that way, etc.
   - Get a proper set up: do you need to create test accounts with 3rd-party software? Are there any credentials you'll need to do your work? Should you run any tasks?
   - As your understanding grows, dig deeper for edge cases. Don't shy away from tough questions. Your work is to improve the codebase, not stroke your colleagues' ego.
-- If the person responsible for the code is not here, go to the person who has the highest seniority-mentorship ability ratio. If that one is not available, go on to the next down the ratio. Better wait a few extra hours than being downtrodden by the office's arse.
+- If the person responsible for the code is not here, go to the person who has the highest seniority-mentorship ability ratio. If that one is not available, go on to the next down the ratio.
 
 ### Some additional steps
 - Draw things of paper: database interaction, data flow, user flow, etc...
