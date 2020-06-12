@@ -6,8 +6,6 @@ excerpt: "For the last eighteen months, I've spent my time trying to understand 
 permalink: /wrap-your-head-around-new-codebase/
 ---
 
-# How to wrap your head around a new codebase?
-
 For the last eighteen months, I've spent my time trying to understand bits of code I'd never seen before. Eighteen months later, I still don't know every corner of this reasonably sized codebase (\~300_OOO lines of code). But what I do know is how to get familiar with new parts of a codebase.
 
 So today, I'll try and give you some tips about an understated skill: how to wrap your head around a new (part of the) codebase.
