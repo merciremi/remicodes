@@ -59,7 +59,7 @@ So, everybody's happy.
 
 ### What was really really cool
 
-One of the biggest challenges was to wrap my head around an unfamiliar market (real estate) and an existing codebase, all the while getting comfortable with the basics of Ruby and Rails.
+One of the biggest challenges was to wrap my head around an unfamiliar market (real estate) and [an existing codebase]({{site.baseurl}}/wrap-your-head-around-new-codebase/), all the while getting comfortable with the basics of Ruby and Rails.
 
 After three months on the job, I stopped checking the documentation every other minute. Some things became automatisms: handling migrations, querying data from the database, applying methods on [their proper objects]({{site.baseurl}}/beginners-introduction-to-ruby-classes-objects/), etc.
 
@@ -83,7 +83,7 @@ Once you've published your advert on 40-something websites, what happens? Well, 
 
 One of the other cool features I worked on was to create an MVP-ish CRM where all potential buyers' details are now gathered automatically. All in one place, not all over the place (as our Basecamp friends would say). It's now super easy for our team to know what's what and to deliver the best experience to our customers.
 
-This, too, was intense yet rewarding: <mark>a huge adoption by the team, no more missed opportunities and less mental load</mark>. Also, I got to hunt a bug for several days which was both really frustrating and fun. <mark>This is where I learned that you should neither trust a user's input nor make assumptions on your database integrity.</mark>
+This, too, was intense yet rewarding: <mark>a huge adoption by the team, no more missed opportunities and less mental load</mark>. Also, [I got to hunt a bug for several days]({{site.baseurl}}/pry-byebug-tutorial/) which was both really frustrating and fun. <mark>This is where I learned that you should neither trust a user's input nor make assumptions on your database integrity.</mark>
 
 There were a lot of other things this year: APIs, webhooks, performance optimisation, logs management, etc.
 
