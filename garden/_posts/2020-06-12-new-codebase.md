@@ -6,7 +6,7 @@ excerpt: "For the last eighteen months, I've spent my time trying to understand 
 permalink: /wrap-your-head-around-new-codebase/
 ---
 
-For the last eighteen months, I've spent my time trying to understand bits of code I'd never seen before. Eighteen months later, I still don't know every corner of this reasonably sized codebase (\~300_OOO lines of code). But what I do know is how to get familiar with new parts of a codebase.
+For the last eighteen months, I've spent my time trying to understand bits of code I'd never seen before. Eighteen months later, I still don't know every corner of this reasonably sized codebase (\~300_000 lines of code). But what I do know is how to get familiar with new parts of it.
 
 So today, I'll try and give you some tips about an understated skill: how to wrap your head around a new (part of the) codebase.
 
@@ -20,12 +20,12 @@ I would try to understand the code alone and knock my head on my keyboard for ho
 
 I had that same bad habit when learning Ruby. I would get to the point of self-loathing before asking teachers for help.
 
-When I finally got to teach Ruby to new developers, I saw this was a common mistake. Ask for help early, ask for help fast.
+When I finally got to teach Ruby to new developers, I saw this was a common mistake. So, ask for help early, ask for help fast.
 
 Once I identified that habit and worked on improving it, both my learning curve and my output skyrocketed.
 
 ## Some things you could do
-The end goal for you is to get how things work, faster and more comprehensively, so you can work on improving the codebase instead.
+The end goal for you is to get how things work, faster and more comprehensively, so you can work on improving the codebase.
 
 ### What you can do on our own
 - Read the code you need to work with.
@@ -35,7 +35,7 @@ The end goal for you is to get how things work, faster and more comprehensively,
 
 Of course, you won't approach a whole new codebase the same way you approach a specific part of it. The granularity of what you want to do changes whether you're starting a new job or tackling a feature.
 
-After these steps, do you still feel unsure about where you should start? Take a break. This is the tipping point where you'll fall into stubborn-mode.
+If after these steps you still feel unsure about where you should start, take a break. This is the tipping point where you'll fall into stubborn-mode.
 
 Do you feel you've started to pull on a thread but still can't quite wrap your head around it - "I'm almost there."? Take a break. This is a tipping point too.
 
@@ -49,7 +49,7 @@ Note that depending on your situation, some of these tips cannot be copied and p
   - Ask for a walkthrough: what's the main goal underlying that part of the codebase, what are the interactions, why did they code things that way, etc.
   - Get a proper set up: do you need to create test accounts with 3rd-party software? Are there any credentials you'll need to do your work? Should you run any tasks?
   - As your understanding grows, dig deeper for edge cases. Don't shy away from tough questions. Your work is to improve the codebase, not stroke your colleagues' ego.
-- If the person responsible for the code is not here, go to the person who has the highest seniority-mentorship ability ratio. If that one is not available, go on to the next down the ratio.
+- If the person responsible for the code is not here, go to the person who has the highest seniority-mentorship ability ratio. If that one is not available, go to the next person with the second highest ratio.
 
 ### Some additional steps
 - Draw things of paper: database interaction, data flow, user flow, etc...
