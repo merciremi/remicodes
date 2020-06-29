@@ -10,5 +10,5 @@ lang: en
   What the fuck have you done?<br>
 </blockquote>
 
-[True that fuckers!](https://www.youtube.com/watch?v=mOf6w59jz_g){:target="\_blank"}
+[True that, fuckers!](https://www.youtube.com/watch?v=mOf6w59jz_g){:target="\_blank"}
 
