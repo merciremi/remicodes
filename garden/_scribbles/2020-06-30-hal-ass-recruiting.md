@@ -51,3 +51,5 @@ I know recruiting is hard, but, don't you think it would help if:
 - You had anything specific to say about your product? Or your culture? Something that would not involve raising funds, a JS framework or being young.
 - Target specific people you really dig instead of spraying and praying some fish will bite.
 
+It's fun to me that recruiting usually ends up being done by either HR people or techies: the two categories of people less prone to show empathy or care for the well being of others.
+
