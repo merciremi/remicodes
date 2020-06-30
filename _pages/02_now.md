@@ -14,4 +14,4 @@ What I'm doing right now:
 
 This page was last updated on June 30, 2020.
 
-This is a `Now` page. Thanks [Dereck Sivers](https://sivers.org/now){:target="\_blank"} for popularizing 'em.
+This is a `Now` page. Thanks [Derek Sivers](https://sivers.org/now){:target="\_blank"} for popularizing 'em.
