@@ -4,21 +4,21 @@ date: 2020-06-30
 lang: en
 ---
 
-I've been receiving an increasing number of work opportunities over the past six months. I always try to reply, even if I know a message was sent through a script scraping Github or Linkedin for developers' profile. But let's face it, whether people reaching out are from HR or members of tech teams, it always feels _odd_. I've compiled a list of things, ranging from akward to rude that I've experienced lately.
+I've been receiving an increasing number of work opportunities over the past six months. I always try to reply, even if I know a message was sent through a script scraping Github or Linkedin for developers' profile. But let's face it, whether the people reaching out are from HR or CTOs, their messages always feel _odd_. I've compiled a list of those odd things, ranging from awkward to rude, that I've read lately.
 
-I know recruiting developers is tough (for now) so, I'll try to be as factual as possible. And of course, I'll keep updating the list as examples come in.
-
----
-
-Received numerous emails telling me about of __young__ teams are:
-
-> The average age is 27. So we're a vibrant, young and playful team.
-
-I'm 36. And I have a second full time job that awaits me in the evening (kids). So, how am I gonna fit in a team that hasn't experienced being responsible for other human beings? How this is going to play when I'll leave at 5pm to go and take care of the young ones?
+I know recruiting developers is tough (for now) so I'll try to be as factual as possible. And of course, I'll keep updating the list as examples come in.
 
 ---
 
-Replied to a HR person that had reached out. I explained that I dig back-end more than front-end, and that I'm more into Vanilla Javascript than JS frameworks.
+Received numerous emails telling me about how __young__ teams are:
+
+> The average age is 27. We're a vibrant, young and playful team.
+
+I'm 36. And I have a second full time job that awaits me in the evening (kids). So, how am I gonna fit in a team that hasn't experienced being responsible for other human beings? How is this gonna play out when I'll leave at 5pm to go and take care of my young ones?
+
+---
+
+Replied to a HR person that had reached out. I explained that I'm more skilled in back-end work than in front-end.
 
 After she wrote back "Sure, no probs, we'll help you level up", I hopped on a call. Once on the phone, she asked about my expertise with JS frameworks. When I replied "As I stated before, close to none", she said:
 
@@ -51,5 +51,5 @@ I know recruiting is hard, but, don't you think it would help if:
 - You had anything specific to say about your product? Or your culture? Something that would not involve raising funds, a JS framework or being young.
 - Target specific people you really dig instead of spraying and praying some fish will bite.
 
-It's fun to me that recruiting usually ends up being done by either HR people or techies: two categories of people that, in my experience, are less prone to show empathy.
+It's also fun to me that recruiting is usually done by either HR or technical people high up in the hierarchy: two categories of people that, in my experience, are not very skilled at empathy.
 
