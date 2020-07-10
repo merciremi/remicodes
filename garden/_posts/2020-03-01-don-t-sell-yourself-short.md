@@ -2,6 +2,7 @@
 layout: post
 title: Don't sell yourself short
 date:   2020-03-01
+categories: ['fav']
 excerpt: "You've just graduated from university. Maybe you're in your first two years as a developer. You are, what the market calls, a junior developer. And you're a burden to companies. That's what you're being told. Well, this is bullshit."
 permalink: /dont-sell-yourself-short/
 ---

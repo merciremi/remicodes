@@ -2,6 +2,7 @@
 layout: post
 title: 'Going remote: a live documentation on transitioning out of the office'
 date: 2020-03-10
+categories: ['fav']
 excerpt: "Last week, I started the process of transitioning from an on-site position to a full remote one. I'll publicly document what happens as it happens here. Interested in remote working? Join in!"
 permalink: /going-remote-live-documentation/
 ---
