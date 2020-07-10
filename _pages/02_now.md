@@ -6,7 +6,7 @@ permalink: /now/
 
 What I'm doing right now:
 
-- Taking a two-month sabbatical and dicovering my new surroundings.
+- Taking a two-month sabbatical and discovering my new surroundings.
 - Building furnitures.
 - Going remote: [read the on-going documentation about the process]({{site.baseurl}}/going-remote-live-documentation/).
 - [Acquiring German]({{site.baseurl}}/scribbles/#2020-06-17) by reading Harry Potter und der Stein den Weisen (despite JFK's anti-trans stance 😭).
