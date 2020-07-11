@@ -21,3 +21,18 @@ layout: home
 <section class="twitter">
   <a href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fremimercier.com%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=mercier_remi&tw_p=followbutton" class="twitter-follow-button">Follow @mercier_remi</a>
 </section>
+
+<section>
+  <div class="vertically-centered">
+    <h2 class="inlined">Latest posts</h2>
+    <a class="read-all" href="{{ site.baseurl }}/blog" class="inlined">Read all</a>
+  </div>
+
+  <ul>
+    {% for post in site.posts limit:5 %}
+    <li>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> &nbsp; {% if post.lang %} 🇫🇷 {% endif %} &nbsp; <time>{{ post.date | date: "%b %-d, %Y" }}</time>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
