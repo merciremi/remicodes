@@ -1,3 +1,9 @@
+---
+layout: null
+date: 2020-07-11
+lang: en
+---
+
 Some new sensations:
 - the smell of dryied bamboo sticks when it rains
 - the sound of birds in the early morning
