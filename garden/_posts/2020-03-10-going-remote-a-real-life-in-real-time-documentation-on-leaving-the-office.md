@@ -7,7 +7,7 @@ excerpt: "Last week, I started the process of transitioning from an on-site posi
 permalink: /going-remote-live-documentation/
 ---
 
-<mark>Current step: I signed the severance paperwork. I'll be leaving the company mid-July. Now, I need to organize a Zoom goodbye party.</mark>
+<mark>Current step: Left Hosman. Got myself a two-month sabbatical. Started a new gig mid-September.</mark>
 
 Last week, I announced to my fellow developers at Hosman that I would be leaving Paris this summer.  I've expressed my wish to keep working with the team as a fully distributed member.
 
@@ -40,8 +40,8 @@ The list below will serve as a table of content with due dates when relevant:
   - [x] Get an (non-)agreement in principle from the owners: This is a non-agreement. <time>Mar 16, 2020</time>
   - [x] Discuss terms for the severance package.
   - [x] Get a final non-agreement and move on to paperwork. <time>Apr 7, 2020</time>
-  - [ ] Organize a Zoom goodbye party w/ my colleagues since I've already moved to the countryside.
-  - [ ] Send back my gear
+  - [x] Organize a Zoom goodbye party w/ my colleagues since I've already moved to the countryside.
+  - [x] Send back my gear
 
 The list will evolve all year since I plan on documenting the whole thing: before, during, and after. Whenever I want to dig into a specific topic, I'll link the relevant post on the list.
 
