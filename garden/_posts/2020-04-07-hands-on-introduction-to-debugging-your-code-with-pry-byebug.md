@@ -291,6 +291,12 @@ The `=>` cursor didn't just move onto the next line. It only stopped at the next
 
 Once you've passed the last breakpoint, `continue` will resume the code's execution until the end of the current context. In our example, the current context is `SomeServiceHooksController`. Since we're in a loop, `continue` will only bring you to the next `person` until we looped through every people. Then, it'll exit the `SomeServiceHooksController` class and get on with its life.
 
+### Can't remember where your breakpoint is? Use `whereami`
+
+This one I learned recently. Pretty useful when you're checking a lot of values and your current context has gone up beyond your reach. Output your breakpoint's position with `whereami`. Neat!
+
+### Exit _pry-byebug_
+
 Want to exit _pry-byebug_ the dirty (my) way? Try `exit!`. It'll kill both the current process and the server. This is useful when having too many breakpoints across multiple places.
 
 ⚠️ A warning: since `binding.pry`'s pause code execution, don't push 'em into production. Or you'll be in for a rough time. 😬
