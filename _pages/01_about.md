@@ -25,13 +25,13 @@ That's it for now. Want to know more? Here's [what I'm doing right now]({{site.b
 ### Work things:
 
 👉 **Fullstack developer: [Hosman](https://hosman.co){:target="\_blank"}, 2019-2020**
-I design, code, and ship to production [https://hosman.co](https://hosman.co){:target="\_blank"}, an app to streamline real estate transactions.
+I designed, coded, and shiped to production [https://hosman.co](https://hosman.co){:target="\_blank"}, an app to streamline real estate transactions.
 
 Some cool features:
   - Replicate properties’ advert across ~40 real estate portals with one click.
   - MVP-ish CRM to gather potential buyers’ details, etc...
 
-Those currently save the sales team more than 5,000 hours per annum in terms of workload.
+Those save the sales team more than 5,000 hours per annum in terms of workload (as of 2020).
 
 👉 **Teacher: Le Wagon Paris, 2018**
 Helping out students coding their way through the first four weeks of the coding bootcamp:
