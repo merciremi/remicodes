@@ -26,11 +26,8 @@ collections:
   scribbles:
     output: false
   fragments:
-    output: false
-  feminism:
     output: true
-    permalink: /garden/feminism
-collections_dir: garden
+
 # Build settings
 sass:
   sass_dir: _sass
