@@ -24,9 +24,11 @@ Docker is one tough nail to learn, so I'm keeping my notes here.
   # list all containers
   docker ps -a
 
+  # start a specific container
+  docker-compose start my_container
   # stop a specific container
-  docker container stop my_container
+  docker-compose stop my_container
 
-  # recreate a container after the config was changed
-  docker-compose up
+  # recreate a container in the background (daemon)
+  docker-compose up -d
 {% endhighlight %}

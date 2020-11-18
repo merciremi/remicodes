@@ -2,12 +2,14 @@
 layout: page
 title: Fragments
 permalink: /fragments/
-excerpt: ""
+excerpt: "Fragments are works in progress, rough notes, and early drafts that might end up as fully fledged posts."
 ---
 
 Fragments are works in progress, rough notes, and early drafts that might end up as fully fledged posts.
 
-{% for fragment in site.fragments %}
+{% assign sorted_fragments = site.fragments | sort: 'date' | reverse %}
+
+{% for fragment in sorted_fragments %}
   <div class="post-excerpt">
     <h4>
       <a href="{{ fragment.url }}">{{ fragment.title }}</a>
