@@ -6,9 +6,11 @@ permalink: /recruiting-gimmicks/
 lang: en
 ---
 
-I've been receiving an increasing number of work opportunities over the past twelve months. I always try to reply, even if I know a message was sent through a script scraping Github or Linkedin for developers' profile. But let's face it, whether the people reaching out are from HR or CTOs, their messages sometimes feel _odd_. I've compiled a list of red flags, ranging from awkward to rude, that I've read lately.
+I've been receiving an increasing number of work opportunities over the past twelve months. I always try to reply, even if I know a message was sent through a script scraping Github or Linkedin for developers' profile.
 
-I know recruiting developers is tough (for now) so I'll try to be as factual as possible. This is an ongoing list.
+But let's face it, whether the people reaching out are from HR or CTOs, their messages sometimes feel _odd_. I've compiled a list of gimmicks, ranging from awkward to plain rude, that I've encountered lately.
+
+I'll try to be as factual as possible. This is an ongoing list.
 
 ### The one with the young team.
 
