@@ -27,7 +27,7 @@ Let's also add that in real life, "a vibrant, playful and playful team", usually
 
 ### The one with the radar.
 
-Someone over at Spendesk asked me if I'd like to join their team as a fullstack developer. I explained that "Sure, I'd love to" but pointed out that I'd never used a JS framework in production. Would this is be a no-go for them? They wrote back "No probs, we'll help you level up. Let's hop on a call." So I did.
+Someone over at Forest Admin asked me if I'd like to join their team as a fullstack developer. I explained that "Sure, I'd love to" but pointed out that I'd never used a JS framework in production. Would this is be a no-go for them? They wrote back "No probs, we'll help you level up. Let's hop on a call." So I did.
 
 Once on the phone, they asked me about my expertise with JS frameworks. So, I explained (again) to them that I knew the basics of React and Vue, but that I had no experience running JS frameworks in production. Their answer just blew my mind:
 
