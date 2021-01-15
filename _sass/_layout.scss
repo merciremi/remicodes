@@ -150,6 +150,16 @@ cite::selection {
   background-color: var(--link-color);
   color: var(--bg-color);
 }
+table, th, td {
+  border: 1px solid var(--font-color);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td {
+  text-align: center;
+}
 
 .circle {
   border-radius: 100%;
