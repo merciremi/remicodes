@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Level up your debugging: moving in the stack frame"
-<!-- date: 2021-01-18 -->
+title: "Debugging with pry-byebug: moving in the stack frame"
+date: 2021-01-18
 excerpt: "Time to level up your debugging game with frames, adding breakpoints on the fly, and some handy shortcuts."
 permalink: /pry-byebug-intermediate/
 ---
@@ -72,6 +72,8 @@ When I type `next`, the result of `Book.available` is assigned to `available_boo
 
 What happened in `Book.available`? I don't know. I only executed that line of code and stayed in my current frame - `BooksController`.
 
+<img src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-01.jpeg" alt="a schema explaining how the next command stays in the same frame">
+
 Let's re-run my code and use `step` instead.
 
 {% highlight irb %}
@@ -98,6 +100,8 @@ Typing `step` takes me from my `BooksController` to my `Book` model. I've change
 
 I can now check whether my class method worls as intended.
 
+<img src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-02.jpeg" alt="a schema explaining how the step command changes frame">
+
 Disclaimer: `step` is a bit of a rabbit hole. It's a great way to explore how Rails works. For instance, if I type `step` before `where(available: true)`, my console returns:
 
 {% highlight irb %}
@@ -107,6 +111,8 @@ Disclaimer: `step` is a bit of a rabbit hole. It's a great way to explore how Ra
 {% endhighlight %}
 
 Yep, I'm now checking out ActiveRecord's inner gut.
+
+<img src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-03.jpeg" alt="a schema explaining how the step command changes frame">
 
 ## Move up the stack frame: `up`
 
@@ -123,6 +129,8 @@ Remember when we dived into the frames? Well, how do I come back to my `BooksCon
 If I type `up` in my console, I'll move up the frames towards my initial breakpoint.
 
 What if I've moved down frames several times? I can either pass the number of frames I'd like to go up as an argument - `up(2)` - or type `up` several times.
+
+<img src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-04.jpeg" alt="a schema explaining how the up command moves up the frame stack">
 
 ## Add a breakpoint from the console: `break`
 
@@ -152,12 +160,12 @@ I used to exit the `pry` session, go back to my code, add a new breakpoint, then
 
 Finally, here's a handy table with some commands and their aliases.
 
-| command   | shortcut | behavior
-| ---       | ---      | ---
-| `@`       | wherami  | prints out your current context
-| `c`       | continue | continue program execution
-| `n`       | next     | execute the next line in the current stack frame
-| `s`       | step     | step execution into the next line
+| alias     | command    | expected behavior
+| ---       | ---        | ---
+| `@`       | `wherami`  | prints out your current context
+| `c`       | `continue` | continue program execution
+| `n`       | `next`     | execute the next line in the current stack frame
+| `s`       | `step`     | step execution into the next line
 
 
 There's only one thing left to say: Happy debugging!
