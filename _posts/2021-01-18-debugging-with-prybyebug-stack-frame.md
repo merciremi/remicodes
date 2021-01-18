@@ -98,7 +98,7 @@ Typing `step` takes me from my `BooksController` to my `Book` model. I've change
     03:   end
 {% endhighlight %}
 
-I can now check whether my class method worls as intended.
+I can now check whether my class method works as intended.
 
 <img src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-02.jpeg" alt="a schema explaining how the step command changes frame">
 
