@@ -1,7 +1,7 @@
 ---
 layout: fragment
 title: Enough RSpec
-date: 2020-11-12
+date: 2021-01-19
 permalink: /enough-rspec/
 ---
 
