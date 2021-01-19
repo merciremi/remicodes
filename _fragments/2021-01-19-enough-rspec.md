@@ -5,7 +5,7 @@ date: 2021-01-19
 permalink: /enough-rspec/
 ---
 
-How to force the `user` variable as the serializer's scope:
+How to force the user as the serializer's scope:
 
 {% highlight ruby %}
   # spec/serializers/book_serializer_spec.rb
