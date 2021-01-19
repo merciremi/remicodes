@@ -1,7 +1,36 @@
 ---
 layout: post
-title: always-serving-someone
+title: Great service
 ---
+
+
+
+
+
+I get it. You're knee deep in endpoints, refactoring, performance issues, algorythms all day. You don't have time for
+
+
+
+
+
+These days,
+
+It's easy to forget, writing code all day long, that you can either provide a great or a shitty service as a developer.
+
+
+
+When you're not interacting when your end users, it's easy to forget that you're providing a service nonetheless.
+
+
+
+These days, I don't interact with my end users. I fetch data from the database and send it over to the front end teams.
+
+
+In my day to day job, I'm not delivering a service to our end users directly. I get data from the database and send it over to the front end teams. I don't really care about
+
+
+
+
 
 Currently working on a legacy application to migrate stuff over a new version of the app.
 - circumvulated code
