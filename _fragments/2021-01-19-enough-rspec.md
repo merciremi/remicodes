@@ -19,3 +19,27 @@ How to force the user as the serializer's scope:
     # test stuff
   end
 {% endhighlight %}
+
+Based on how you define the `it` part, different behaviors are to be expected:
+
+{% highlight ruby %}
+  # spec/serializers/things_controller_spec.rb
+
+  RSpec.describe ThingsController do
+    subject { post :create, params: params }
+
+    # Implicitly calls subject
+    it { is_expected.to redirect_to(thing_path(Thing.last)) }
+
+    # Explicitly call subject
+    it "redirects to the new thing's show" do
+      expect(subject).to redirect_to(thing_path(Thing.last))
+    end
+
+    # Does not call subject
+    # For this test to work, a before { subject } is needed
+    it 'has correct flash message' do
+      expect(flash[:notice]).to eq "The thing has been created."
+    end
+  end
+{% endhighlight %}
