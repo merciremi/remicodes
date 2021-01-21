@@ -132,7 +132,9 @@ What if I've moved down frames several times? I can either pass the number of fr
 
 <img src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-04.jpeg" alt="a schema explaining how the up command moves up the frame stack">
 
-## Add a breakpoint from the console: `break`
+## Add and remove breakpoints on the fly
+
+### 1) Add a breakpoint from the console: `break`
 
 If I realize, once I'm in my debugging console, that I would have needed another breakpoint, I can add it on the fly with `break line_number`.
 
@@ -146,26 +148,101 @@ If I realize, once I'm in my debugging console, that I would have needed another
     05:
     06:     render json: available_books
     07:   end
+
+  [1] pry(BooksController#index)> break 06
+
+  Breakpoint 1: /path/controllers/books_controller.rb @ 06 (Enabled)
+
+     01:   def index
+     02:     binding.pry
+     03:
+     04:     available_books = Book.available
+     05:
+  => 06:     render json: available_books
+     07:   end
 {% endhighlight %}
 
-I can type `break 05`, resume the execution, and have it paused before the `render json`.
+I can type `break 06`, resume the execution, and have it paused before the `render json`.
 
-I used to exit the `pry` session, go back to my code, add a new breakpoint, then re-run execution. Let me tell you, `break 05` came as a relief!
+A few things to consider:
+- `Breakpoint 1: /path/controllers/books_controller.rb @ 06 (Enabled)` gives me my new breakpoint reference number: `1`. This will come handly later.
+- What appears after `Breakpoint 1 ...` is part of my breakpoint's information. Not where my program is currently paused.
+
+Adding breakpoint son the fly makes for a pretty seamless debugging experience. I used to exit the `pry` session, go back to my code, add a new breakpoint, then re-run execution. Let me tell you, `break 06` came as a relief!
+
+### 2) Remove a breakpoint from the console: `break --delete breakpoint_number` or `break -D breakpoint_number`
+
+So, now my program is paused before the line 04, and I know I added a second breakpoint on the line 06:
+
+{% highlight irb %}
+  From: (pry) @ line 4 BooksController#index:
+
+    01:   def index
+    02:     binding.pry
+    03:
+ => 04:     available_books = Book.available
+    05:
+    06:     render json: available_books
+    07:   end
+{% endhighlight %}
+
+What if I want to remove this second breakpoint?
+
+First, I want to find my breakpoint's reference by listing all breakpoints with `break`. Then, I can delete the breakpoint with `break --delete breakpoint_number`.
+
+{% highlight irb %}
+  [1] pry(BooksController#index)> break
+
+  # Enabled At
+  -------------
+
+  1 Yes     /path/controllers/books_controller.rb @ 06
+
+
+  [2] pry(BooksController#index)> break --delete 1
+
+  # Enabled At
+   -------------
+{% endhighlight %}
+
+`break` outputs the list of all the breakpoints added in the console.
+
+`break --delete breakpoint_number` outputs the list of all remaining breakpoints.
+
+### 3) Show breakpoints information: `break --show breakpoint_number`
+
+{% highlight irb %}
+  [1] pry(BooksController#index)> break --show 1
+
+    Breakpoint 1: /path/controllers/books_controller.rb @ 06 (Enabled)
+
+     01:   def index
+     02:     binding.pry
+     03:
+     04:     available_books = Book.available
+     05:
+  => 06:     render json: available_books
+     07:   end
+{% endhighlight %}
+
+This is the same output that the one I get after adding a breakpoint.
 
 ## Check your latest commands: `history`
 
 `history` gives me a list of all past commands I ran during the current `pry` session.
 
-## Aliases
+## Commands and aliases
 
 Finally, here's a handy table with some commands and their aliases.
 
-| alias     | command    | expected behavior
-| ---       | ---        | ---
-| `@`       | `wherami`  | prints out your current context
-| `c`       | `continue` | continue program execution
-| `n`       | `next`     | execute the next line in the current stack frame
-| `s`       | `step`     | step execution into the next line
+| command          | alias      | expected behavior
+| ---              | ---        | ---
+| `wherami`        | `@`        | prints out your current context
+| `continue`       | `c`        | continue program execution
+| `next`           | `n`        | execute the next line in the current stack frame
+| `step`           | `s`        | step execution into the next line
+| `break --delete` | `break -D` | delete a breakpoint
+| `break --show`   | `break -s` | show a breakpoints details and source
 
 
 There's only one thing left to say: Happy debugging!
