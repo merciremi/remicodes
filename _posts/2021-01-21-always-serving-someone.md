@@ -1,9 +1,6 @@
 ---
 layout: post
-title: "Always serving someone"
-date: 2021-01-21
-excerpt: "It's easy to tell yourself it's not your job to provide a great service to your users. But taking time to write beautiful code will bring joy and value to you and your teammates."
-permalink: /always-serving-someone/
+title: Great service
 ---
 
 It's Monday morning, and you open up a handful of files. You want to get a sense of that piece of the codebase you're about to work on. You're soon finding yourself surrounded by circumvoluted code, abstractions pilling on each other, classes filled to the brim. You end up spending your day trying to figure things out.
