@@ -30,3 +30,9 @@ Aesthetic needs room to breathe.
 This extra time will save you a massive amount of time over and over again. It'll compound. And what was a lost Monday to you will become a joyful one for another developer.
 
 Writing expressive code is me providing a great service to myself and my teammates. We are my own customers. And I want to serve them well.
+
+Noticed something? [Ping me on Twitter](https://twitter.com/mercier_remi) or [create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new).
+
+Cheers,
+
+Rémi
