@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 'RSpec 101: naming files and understanding their structure'
-date: 2021-03-04
-excerpt: "When you learn development, it's not easy to know how to test, what to test, why should you test? Today, we'll check the first to writing tests with RSpec."
+title: 'RSpec 101: basic setup, naming files and understanding their structure'
+date: 2021-03-09
+excerpt: "When you start programming, it's not easy to know what to test, how to test, and why should you test? So let's start with the basics: a basic setup and exploring your tests structure."
 permalink: /rspec-101-basic-set-up/
 ---
 
@@ -12,7 +12,7 @@ Testing requires practice to reveal its potential.
 
 When I started programming, I'd copy other people's tests because, well, I had to test, right? But after a while, my tests would uncover edge cases, potential bugs I'd overlooked.
 
-So, I feel a series of short know-hows, know-whats and, know-whys, could be of some use to newcomers; brief essays around one aspect of testing with RSpec.
+So, I feel a series of short know-hows, know-whats and, know-whys, could be of some use to newcomers; brief essays explaining one aspect of testing with RSpec.
 
 If this sounds fun to you, let's start with the basics.
 
