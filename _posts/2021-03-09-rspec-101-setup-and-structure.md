@@ -104,7 +104,9 @@ Let's say we want to test our `User` model. Our file's structure would look like
   end
 {% endhighlight %}
 
-Let's dig into each element.
+There! Your setup is done.
+
+But now, I'd like us to dig into each element so we get a better understanding of what's going on.
 
 - `require 'rails_helper'` loads the configuration for RSpec. `rails_helper.rb` is located at the root of the `spec` folder. RSpec is configured out of the box so no need to worry about it.
 
@@ -135,8 +137,6 @@ It's a bit hard to read because of the metaprogramming bits, but the main idea i
 - `User` is the class you're testing. It's passed as an argument to the `.describe` method.
 
 - `do ... end` is the block where you're writing your tests. These will be passed as a second argument to the `.describe` method (see `&example_group_block` above).
-
-There! Your setup is done.
 
 I hope these explanations will give you a better understanding of how RSpec works. Next time, we'll write our first tests.
 
