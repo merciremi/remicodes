@@ -10,7 +10,7 @@ It is a truth universally acknowledged that a single developer in possession of 
 
 Alas, debugging never ends. The more you learn, the more debugging becomes complex.
 
-I think it is high time we dive deeper into `pry-byebug`. Are you new to `pry-byebug`? Go and check [the beginners introduction to debugging your code](({{site.baseurl}}/pry-byebug-tutorial/)) first.
+I think it is high time we dive deeper into `pry-byebug`. Are you new to `pry-byebug`? Go and check [the beginners introduction to debugging your code]({{site.baseurl}}/pry-byebug-tutorial/) first.
 
 Here our _menu du jour_: moving in the stack frame, adding breakpoints on the fly, and some handy shortcuts (because who loves to write `continue` continually).
 

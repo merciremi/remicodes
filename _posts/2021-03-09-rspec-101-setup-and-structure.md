@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'RSpec 101: setup, naming and basic structure'
+title: 'RSpec fundamentals: setup, naming and basic structure'
 date: 2021-03-09
 excerpt: "When you start programming, it's not easy to know what to test, how to test, and why should you test? So let's start with the basics: a basic setup and exploring your tests structure."
 permalink: /rspec-101-basic-set-up/
