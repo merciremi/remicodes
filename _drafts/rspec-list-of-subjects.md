@@ -3,7 +3,8 @@ layout: post
 title: RSpec list of subjects
 ---
 
-- basic set-up
+- basic set-up ✅
+- lexicon ✅
 - model tests: validations, methods class + instance
 - controllers tests
 - apis tests
@@ -13,6 +14,7 @@ title: RSpec list of subjects
 - oneliners
 - shared_examples
 - factories: nested factory + trait
+- fancyness: named subject
 
 
 

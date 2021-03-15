@@ -5,13 +5,13 @@ title: 'RSpec fundamentals: a basic glossary'
 
 This post is part of a - hopefully - larger series about RSpec fundamentals. If you haven't read the first part - [how to setup, naming files and, digging into their basic structure]({{site.baseurl}}/rspec-101-basic-set-up/), please do so.
 
-In this second part, I want to explore the methods you'll most use when testing with RSpec.
+In this second part, I want to explore the methods you'll most use when testing with RSpec. I'll build an example test for a `User` model, and explain key concepts along the way.
 
 ## describe
 
 We've already dig into the inner workings of `describe` in the first post. I'll just sum up its main idea.
 
-`describe` is used to group your tests around a common abstraction: a class, a request, etc. You describe _something_.
+`describe` is used to group your tests around a common abstraction: a class, a request, etc.
 
 You can - and usually do - nest several `describe`s in one file. An example were we want to test an instance method `#full_name` of the model `User`.
 
@@ -52,6 +52,8 @@ Once we write tests, RSpec will output more details. But for now, let's just rem
 
 ## let let!
 
+`let` is the method that let's you create variable.
+
 {% highlight ruby %}
   # spec/models/user_spec.rb
 
@@ -65,7 +67,36 @@ Once we write tests, RSpec will output more details. But for now, let's just rem
   end
 {% endhighlight %}
 
-## subject named_subject
+Here, we create a variable `user` in which is referenced an instance of `User`.
+
+<!-- why not simply create a variable user? https://mixandgo.com/learn/let-vs-instance-variables-in-rspec -->
+
+The `user` variable will be accessible by the tests in the current context. In the example above, `user` can be accessed by every tests because the `let` is defined at the root of the `RSpec.define` block. This the context which encapsulates all your tests for the class `User`.
+
+ANother example:
+
+{% highlight ruby %}
+  # spec/models/user_spec.rb
+
+  require 'rails_helper'
+
+  RSpec.describe User, type: :model do
+    let(:user) { User.create(first_name: first_name, last_name: last_name) }
+
+    describe '#full_name' do
+      let(:first_name) { 'Buffy' }
+      let(:last_name) { 'Summers' }
+    end
+  end
+{% endhighlight %}
+
+Here, `user` is still accessible everywhere, but `first_name: 'Buffy'` and `last_name: 'Summers'` are only accessible by the tests written in the `describe '#full_name'` block.
+
+This allows you to change the value when you need it. We'll see some examples when we write our first tests.
+
+## subject and named_subject
+
+`subject` represents the thing you're testing. For instance, it can be a method.
 
 {% highlight ruby %}
   # spec/models/user_spec.rb
@@ -77,6 +108,28 @@ Once we write tests, RSpec will output more details. But for now, let's just rem
 
     describe '#full_name' do
       subject { user.full_name }
+    end
+  end
+{% endhighlight %}
+
+`subject` takes a block in which I call the method `#full_name` on an instance of `User`. It reads as: my subject, is the result of `user.full_name`.
+
+Here, `subject` makes use of my variable `user` defined in the parent context.
+
+`subject` can be a lot of things: a method call, a request to an endpoint, a serialized object, etc. We saw earlier that the testing of the method `full_name` was described by the `describe '#full_name'`. Now, in order to test it, we need to call it. To trigger its behaviour. This is the subject of our tests.
+
+SOmetimes, you need to reference the subject in your test, especially when you expect your subject to change things. The subject can be named to be easier to use in your tests.
+
+{% highlight ruby %}
+  # spec/models/user_spec.rb
+
+  require 'rails_helper'
+
+  RSpec.describe User, type: :model do
+    let(:user) { User.create(first_name: 'Buffy', last_name: 'Summers') }
+
+    describe '#full_name' do
+      subject(:full_name_method) { user.full_name }
     end
   end
 {% endhighlight %}
@@ -125,7 +178,7 @@ To be honest, when I first started testing, I would use `describe` and `context`
 - when I test something - a class, a method, an abstraction - I use `describe`.
 - when I test how that something fare under a certain circumstance - a missing parameter, an `nil` value, etc - I use `context`
 
-## subject named_subject
+## it xit
 
 {% highlight ruby %}
   # spec/models/user_spec.rb
@@ -133,20 +186,61 @@ To be honest, when I first started testing, I would use `describe` and `context`
   require 'rails_helper'
 
   RSpec.describe User, type: :model do
+    let(:user) { User.create(first_name: 'Buffy', last_name: 'Summers') }
+
     describe '#full_name' do
       subject { user.full_name }
+
+      context 'when a user has a first_name and a last_name' do
+        it "returns the user's full name" do
+          # test expected behaviour
+        end
+      end
+
+      context 'when a user has no last_name' do
+        it "returns an error" do
+          # test the expected behaviour
+        end
+      end
     end
   end
 {% endhighlight %}
 
-
-## let let!
-## it xit
 ## expect
+
+expect, to, eq and variations
+
+{% highlight ruby %}
+  # spec/models/user_spec.rb
+
+  require 'rails_helper'
+
+  RSpec.describe User, type: :model do
+    let(:user) { User.create(first_name: 'Buffy', last_name: 'Summers') }
+
+    describe '#full_name' do
+      subject { user.full_name }
+
+      context 'when a user has a first_name and a last_name' do
+        it "returns the user's full name" do
+          expect(subject).to eq("Buffy Summers")
+        end
+      end
+
+      context 'when a user has no last_name' do
+        it "returns an error" do
+          # test the expected behaviour
+        end
+      end
+    end
+  end
+{% endhighlight %}
+
+## expectations
+
+eq, contain_exactly, ...
+
 ## described_class
 
+<!-- faire gif d'un test qui se remplit par strates logiques -->
 
-- let + let!
-- context + describe
-- it '' do end
-- expect (put onliner in another post)

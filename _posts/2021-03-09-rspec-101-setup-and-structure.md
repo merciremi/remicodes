@@ -88,7 +88,29 @@ To make sure RSpec and Rails work smoothly together, <mark>mimick the structure 
 - `app/serializers/admin/book_serializer.rb` is tested by `spec/serializers/admin/book_serializer_spec.rb`
 - and so on.
 
-When testing an API's controllers, you can write your tests in the `spec/requests` folder.
+There's only one catch:
+
+- `app/controllers/users_controller.rb` is tested by `spec/requests/users_controller.rb`. The RSpec team discourages you to use `spec/controllers`. Why? Because testing requests allows you to test the behaviour of your controller's actions through the stack (routing, request, response, etc...) versus testing the controller in isolation [^1].
+
+So for testing controllers, your folder's structure is:
+
+{% highlight zsh %}
+  my_app_directory
+  |
+  |- app
+  |  |
+  |  |- controllers
+  |     |
+  |     |- users_controller.rb
+  |
+  |- spec
+     |
+     |- controllers ❌
+     |
+     |- requests
+        |
+        |- users_controller_spec.rb
+{% endhighlight %}
 
 ## The structure of your RSpec files
 
@@ -145,3 +167,5 @@ Noticed something? [Ping me on Twitter](https://twitter.com/mercier_remi) or [cr
 Cheers,
 
 Rémi
+
+[^1]: Thanks [@Benoit](https://twitter.com/Benoit_Tgt){:target="\_blank"} for pointing that out!
