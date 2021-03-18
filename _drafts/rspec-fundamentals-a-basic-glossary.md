@@ -1,6 +1,9 @@
 ---
 layout: post
-title: 'RSpec fundamentals: a basic glossary'
+title: "RSpec fundamentals: a basic glossary"
+date: 2021-03-22
+excerpt: "RSpec syntax can be tricky to get at first. Here's a glossary of the keywords you'll use the most when testing with RSpec."
+permalink: /rspec-fundamentals-glossary/
 ---
 
 This post is part of a larger series about RSpec fundamentals. If you haven't read the first part - [how to setup RSpec and name files and, digging into their basic structure]({{site.baseurl}}/rspec-101-basic-set-up/), go and read it, I'll wait.
@@ -120,7 +123,9 @@ But `let` is not just a way to assign values to variables.
 
 First, `let` is lazy-evaluated. It means - in our example - that the user won't be created and assigned until the variable `user` is invoked for the first time in your tests. Second, `let` is a memoized helper method. Once the value is evaluated for the first time, it won't be evaluated again. It's value is cached accross the example group. In our example above, `user` is evaluated once and its value is cached accross all examples because `let(:user)` is defined at the top-level example group (the `RSpec.define` block)[^1].
 
-If you want to forece the evaluation of `User.create` before your tests use your variable `user`, use `let!` instead. This is useful when you need to create several instances as a context for your tests.
+### What about `let!`?
+
+If you want to force the evaluation of `User.create` before your tests use your variable `user`, use `let!` instead. This is useful when you need to create several instances as a context for your tests.
 
 To recap:
 - `let(:user) { ... }` is only evaluated the first time a test calls the variable `user`.
@@ -371,7 +376,7 @@ Did you feel too lazy to read all this? I've made you a gif.
 
 If you feel like digging deeper, here are a few links for you:
 
-- [How RSpec works?](https://www.youtube.com/watch?v=B8yKlTNlY5E){:target="\_blank"}: a presentation by Sam Phippen at RubyKaigi in 2019 that gives a good introduction to RSpec's architecture
+- [How RSpec works?](https://www.youtube.com/watch?v=B8yKlTNlY5E){:target="\_blank"}: a presentation by Sam Phippen at RubyKaigi in 2019 that gives a good introduction to RSpec's architecture. It's neat!
 - [RSpec core library](https://github.com/rspec/rspec-core/tree/main/lib/rspec/core){:target="\_blank"}: contains `it`, `describe`, `context`
 - [RSpec expectations](https://github.com/rspec/rspec-expectations){:target="\_blank"}: contains `expect` and matchers
 
