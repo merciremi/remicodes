@@ -4,6 +4,7 @@ title: "RSpec fundamentals: a basic glossary"
 date: 2021-03-22
 excerpt: "RSpec syntax can be tricky to get at first. Here's a glossary of the keywords you'll use the most when testing with RSpec."
 permalink: /rspec-fundamentals-glossary/
+cover_image: /media/2021/03/rspec-fundamentals-glossary-remi-mercier.gif
 ---
 
 This post is part of a series about RSpec fundamentals. If you haven't read the first part - [how to setup RSpec and name files and, digging into their basic structure]({{site.baseurl}}/rspec-101-basic-set-up/), go and read it, I'll wait.
@@ -108,7 +109,7 @@ But hang on! In our example, where does that `user.full_name` comes from? Let me
     let(:user) { User.create(first_name: 'Buffy', last_name: 'Summers') }
 
     describe '#full_name' do
-      subject(:full_name_method) { user.full_name }
+      subject { user.full_name }
     end
   end
 {% endhighlight %}
@@ -148,6 +149,8 @@ You often need to change the value of variables based on some context. Here's an
     let(:user) { User.create(first_name: first_name, last_name: last_name) }
 
     describe '#full_name' do
+      subject { user.full_name }
+
       let(:first_name) { 'Buffy' }
       let(:last_name) { 'Summers' }
     end
@@ -374,6 +377,8 @@ You can discover all matchers [here](https://github.com/rspec/rspec-expectations
 
 You were too lazy to read all this? I've made you a gif.
 
+<img src="{{ site.baseurl }}/media/2021/03/rspec-fundamentals-glossary-remi-mercier.gif" alt="a gif of a test building up">
+
 If you feel like digging deeper, here are a few links for you:
 
 - [How RSpec works?](https://www.youtube.com/watch?v=B8yKlTNlY5E){:target="\_blank"}: a presentation by Sam Phippen at RubyKaigi in 2019 that gives a good introduction to RSpec's architecture. It's neat!
@@ -385,8 +390,6 @@ Noticed something? [Create an issue on GitHub](https://github.com/merciremi/remi
 Cheers,
 
 Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
-
-<!-- faire gif d'un test qui se remplit par strates logiques -->
 
 [^1]: This is the context which encapsulates all your tests for the class `User`.
 [^2]: `aggregate failures` is pretty useful for testing attributes in a serialized object.
