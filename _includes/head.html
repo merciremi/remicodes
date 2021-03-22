@@ -62,10 +62,10 @@
   <meta name="twitter:site" content="@mercier_remi">
   <meta name="twitter:creator" content="@mercier_remi">
   {% if page.cover_image %}
-    <meta name="twitter:image" content="{{ page.cover_image }}">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ site.url }}{{ page.cover_image }}">
   {% else %}
-    <meta name="twitter:image" content="https://remimercier.com/media/remi-mercier.jpeg">
     <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://remimercier.com/media/remi-mercier.jpeg">
   {% endif %}
 </head>
