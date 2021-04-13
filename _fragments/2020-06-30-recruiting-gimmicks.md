@@ -3,7 +3,6 @@ layout: fragment
 date: 2020-06-30
 title: The one with the recruiting gimmicks
 permalink: /recruiting-gimmicks/
-lang: en
 ---
 
 I've been receiving an increasing number of work opportunities over the past twelve months. I always try to reply, even if I know a message was sent through a script scraping Github or Linkedin for developers' profile.
