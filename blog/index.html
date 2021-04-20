@@ -3,14 +3,14 @@ layout: default
 title: Articles by Remi Mercier
 ---
 
-<h2>Sometimes, I write:</h2>
+<h2>Sometimes, I write.</h2>
 
 {% for post in site.posts %}
   <div class="post-excerpt">
-    <h4>
+    <h3>
       <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h4>
+    </h3>
     <p>{{ post.excerpt }}</p>
-
+    <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
   </div>
 {% endfor %}

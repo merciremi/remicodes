@@ -385,8 +385,6 @@ If you feel like digging deeper, here are a few links for you:
 - [RSpec core library](https://github.com/rspec/rspec-core/tree/main/lib/rspec/core){:target="\_blank"}: contains `it`, `describe`, `context`
 - [RSpec expectations](https://github.com/rspec/rspec-expectations){:target="\_blank"}: contains `expect` and matchers
 
-Noticed something? [Create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new).
-
 Cheers,
 
 Rémi - [@mercier_remi](https://twitter.com/mercier_remi)

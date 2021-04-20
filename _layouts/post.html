@@ -4,15 +4,9 @@ layout: default
 <article>
   <h1>{{ page.title }}</h1>
 
-  <div>
-    <!-- <time>{{ page.date | date: "%b %-d, %Y" }}</time> -->
-
-  <span>
-     {% if page.lang %} -  🇫🇷 [fr] {% endif %}
-  </span>
-  </div>
-
   {{ content }}
-
-  {% include newsletter.html %}
 </article>
+
+<section class="newsletter">
+  {% include newsletter.html %}
+</section>
