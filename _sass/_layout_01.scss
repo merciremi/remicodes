@@ -39,7 +39,7 @@ cite {
   align-items: center;
   justify-content: flex-start;
   margin-top: 10px;
-  font-size: $small-font-size;
+  font-size: $smaller-font-size;
   a {
     margin-right: 5px;
   }
@@ -63,8 +63,26 @@ figure.highlight {
   width: 60vw;
   position: relative;
   left: calc(-30vw + 50%);
-  margin: 16px 0px 30px 0px;
-  font-size: 16px;
+  margin: 18px 0px 30px 0px;
+  font-size: $small-font-size;
+  @media screen and (max-width: $break-medium) {
+    width: 35em;
+    position: inherit;
+    left: inherit;
+    font-size: $smaller-font-size;
+    pre {
+      padding: 14px 0px;
+    }
+  }
+  @media screen and (max-width: $break-small) {
+    width: 26em;
+    position: inherit;
+    left: inherit;
+    font-size: $smallest-font-size;
+    pre {
+      padding: 14px 0px;
+    }
+  }
 }
 
 h1, h2, h3, h4, h5 {
@@ -107,6 +125,15 @@ h4, h5 {
 main {
   margin: 150px auto 72px auto;
   width: 35em;
+  @media screen and (max-width: $break-medium) {
+    width: 25em;
+    padding: 0 14px;
+    margin: 60px 0px 30px 0px;
+  }
+  @media screen and (max-width: $break-small) {
+    width: 20em;
+    padding: 0 14px;
+  }
 }
 
 mark {
@@ -140,10 +167,13 @@ ul, ol {
   margin-top: 36px;
   padding-top: 12px;
   border-top: 1px gray solid;
-  font-size: $small-font-size;
+  font-size: $smaller-font-size;
   ol {
     margin-top: 0px;
     padding-inline-start: 18px;
+  }
+  @media screen and (max-width: $break-medium) {
+    width: 100%;
   }
 }
 
@@ -162,7 +192,7 @@ ul, ol {
   margin-top: 60px;
   margin-bottom: 60px;
   padding: 30px 50px 30px 50px;
-  background: url(/media/newsletter-background-01.svg) no-repeat center;
+  background: url(/media/newsletter-background-large.svg) no-repeat center;
   background-size: 60vw;
   #mce-EMAIL {
     padding: 10px 10px 10px 10px;
@@ -181,7 +211,18 @@ ul, ol {
     font-size: $body-font-size;
   }
   .newsletter-credits {
-    font-size: $small-font-size;
+    font-size: $smaller-font-size;
+  }
+  @media screen and (max-width: $break-medium) {
+    width: 100%;
+    position: inherit;
+    left: inherit;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    padding: 60px 36px 30px 36px;
+    text-align: center;
+    background: url(/media/newsletter-background-small.svg) no-repeat center;
+    background-size: 81vw;
   }
 }
 
@@ -190,7 +231,7 @@ ul, ol {
 }
 
 .read-more {
-  font-size: $small-font-size;
+  font-size: $smaller-font-size;
   color: $medium-blue;
   font-weight: 500;
   border-bottom: none;

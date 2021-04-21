@@ -9,7 +9,9 @@ $h1-font-size: 36px;
 $h2-font-size: 24px;
 $h3-font-size: 20px;
 $headings-font-size: 18px;
-$small-font-size: 14px;
+$small-font-size: 16px;
+$smaller-font-size: 14px;
+$smallest-font-size: 12px;
 
 $body-line-height: 1em;
 $h1-line-height: 1.125em;
@@ -19,12 +21,14 @@ $list-line-height: 1.5em;
 $body-background-color-00: hsl(38, 44%, 96%);
 $body-background-color-01: hsl(30, 64%, 91%);
 $body-background-color-02: hsl(30, 68%, 87%);
-
 $headings-color: hsl(202, 77%, 7%);
 $font-color: hsl(202, 66%, 15%);
 $link-color: hsl(28, 76%, 54%);
-
 $medium-blue: hsl(203, 59%, 43%);
+
+$break-medium: 1024px;
+$break-small: 560px;
+
 *,
 *::before,
 *::after {
