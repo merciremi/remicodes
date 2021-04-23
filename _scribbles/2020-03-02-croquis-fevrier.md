@@ -15,31 +15,31 @@ Une sélection qui court du 23 janvier à aujourd'hui.
   <figcaption>Dessiner la dessinatrice.</figcaption>
 </figure>
 <figure>
-  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-02.jpeg" alt="croquis" width="450px" >
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-02.jpeg" alt="croquis" >
 </figure>
 <figure>
-  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-04.jpeg" alt="croquis" width="450px" >
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-04.jpeg" alt="croquis" >
 </figure>
 <figure>
-  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-03.jpeg" alt="croquis" width="450px" >
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-03.jpeg" alt="croquis" >
 </figure>
 <figure>
-  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-10.jpeg" alt="croquis" width="450px" >
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-10.jpeg" alt="croquis" >
 </figure>
 <figure>
-  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-08.jpeg" alt="croquis" width="" >
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-08.jpeg" alt="croquis" >
 </figure>
 <figure>
-  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-12.jpeg" alt="croquis" width="450px" >
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-12.jpeg" alt="croquis" >
 </figure>
 <figure>
-  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-13.jpeg" alt="croquis" width="450px" >
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-13.jpeg" alt="croquis" >
 </figure>
 <figure>
-  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-11.jpeg" alt="croquis" width="450px" >
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-11.jpeg" alt="croquis" >
   <figcaption>Dessin plutôt contractuel.</figcaption>
 </figure>
 <figure>
-  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-14.jpeg" alt="croquis" width="450px" >
+  <img src="{{ site.baseurl }}/media/2020/croquis-fevrier/croquis-fevrier-14.jpeg" alt="croquis" >
   <figcaption>Dessin moins contractuel (mais j'aime le raccourci).</figcaption>
 </figure>
