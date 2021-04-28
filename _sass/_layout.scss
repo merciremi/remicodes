@@ -15,7 +15,7 @@ article img {
     width: 90vw;
     left: calc(-45vw + 50%);
   }
-  @media screen and (min-width: 1500px) {
+  @media screen and (min-width: $break-large) {
     width: 40vw;
     position: relative;
     left: calc(-20vw + 50%);
@@ -108,7 +108,7 @@ footer {
   margin: 0px auto 72px auto;
   width: 35em;
   line-height: 1.5em;
-  text-align: center;
+  text-align: left;
   @media screen and (max-width: $break-medium) {
     width: 25em;
     padding: 0 14px;
@@ -305,6 +305,11 @@ ul, ol {
     background: url(/media/newsletter-background-large.svg) no-repeat center;
     background-size: 50vw;
   }
+}
+
+.newsletter-home {
+  margin-top: 24px;
+  margin-bottom: 18px;
 }
 
 .post-excerpt {
