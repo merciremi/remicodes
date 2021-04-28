@@ -34,6 +34,7 @@ sass:
 include: ['_pages', '_data']
 kramdown:
   input: GFM
+  auto_ids: true
 markdown: kramdown
 theme: minima
 plugins:
