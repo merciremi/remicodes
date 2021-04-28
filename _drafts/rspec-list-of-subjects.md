@@ -14,7 +14,7 @@ title: RSpec list of subjects
 - oneliners
 - shared_examples
 - factories: nested factory + trait
-- fancyness: named subject
+- RSpec commands: rspec, rspec --next-failure, -e, file:number_of_line
 
 
 

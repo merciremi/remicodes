@@ -1,11 +1,9 @@
 <footer>
   {% if page.url != "/" %}
-    <a href="{{ site.url }}">{{ 'home' }}</a>
+    <a href="{{ site.url }}">{{ 'home' | upcase }}</a>
   {% endif %}
-  <a href="{{ site.baseurl }}/blog">{{ 'articles' }}</a>
-  <a href="{{ site.baseurl }}/scribbles">{{ 'scribbles' }}</a>
-  <a href="{{ site.baseurl }}/fragments">{{ 'fragments' }}</a>
-  <a href="{{ site.baseurl }}/about">{{ '.self' }}</a>
-  <a href="{{ site.baseurl }}/now">{{ 'now' }}</a>
-  <a href="https://twitter.com/mercier_remi">{{ 'twitter' }}</a>
+  <a href="{{ site.baseurl }}/blog">{{ 'articles' | upcase }}</a>
+  <a href="{{ site.baseurl }}/scribbles">{{ 'scribbles' | upcase }}</a>
+  <a href="{{ site.baseurl }}/about">{{ '.self' | upcase }}</a>
+  <a href="https://twitter.com/mercier_remi">{{ 'twitter' | upcase }}</a>
 </footer>
