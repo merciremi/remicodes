@@ -7,9 +7,9 @@ title: Articles by Remi Mercier
 
 {% for post in site.posts %}
   <div class="post-excerpt">
-    <h3>
+    <h2>
       <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h3>
+    </h2>
     <p>{{ post.excerpt }}</p>
     <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
   </div>

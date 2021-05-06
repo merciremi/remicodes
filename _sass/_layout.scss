@@ -11,14 +11,15 @@ article img {
   left: calc(-30vw + 50%);
   box-shadow: rgba(4, 21, 31, 0.2) 0px 3px 6px, rgba(4, 21, 31, 0.3) 0px 3px 6px;
   margin: 36px 0px;
-  @media screen and (max-width: $break-medium) {
-    width: 90vw;
-    left: calc(-45vw + 50%);
-  }
   @media screen and (min-width: $break-large) {
     width: 40vw;
     position: relative;
     left: calc(-20vw + 50%);
+  }
+  @media screen and (max-width: $break-medium) {
+    width: 80vw;
+    position: relative;
+    left: calc(-40vw + 50%);
   }
 }
 
@@ -41,6 +42,9 @@ body {
   font-family: $body-font;
   background-color: $body-background-color-00;
   color: $font-color;
+  @media screen and (max-width: $break-medium) {
+    font-size: $small-font-size;
+  }
 }
 
 cite {
@@ -83,10 +87,11 @@ figure.highlight {
   pre {
     padding-left: 1em;
   }
+  @media screen and (min-width: $break-large) {
+    width: 35vw;
+  }
   @media screen and (max-width: $break-medium) {
-    width: 52vw;
-    position: inherit;
-    left: inherit;
+    width: 65vw;
     font-size: $smaller-font-size;
     pre {
       padding: 14px 0px;
@@ -94,14 +99,7 @@ figure.highlight {
   }
   @media screen and (max-width: $break-small) {
     width: 90vw;
-    position: inherit;
-    left: inherit;
     font-size: $smallest-font-size;
-  }
-  @media screen and (min-width: 1500px) {
-    width: 40vw;
-    position: relative;
-    left: calc(-20vw + 50%);
   }
 }
 
@@ -110,8 +108,11 @@ footer {
   width: 45vw;
   line-height: 1.5em;
   text-align: center;
+  @media screen and (min-width: $break-large) {
+    width: 35vw;
+  }
   @media screen and (max-width: $break-medium) {
-    width: 55vw;
+    width: 70vw;
     padding: 0 14px;
   }
   @media screen and (max-width: $break-small) {
@@ -134,8 +135,11 @@ header {
   a {
     margin-right: 18px;
   }
-  @media screen and (max-width: $break-medium) {
-    width: 55vw;
+  @media screen and (min-width: $break-large) {
+    width: 35vw;
+  }
+  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+    width: 70vw;
     padding: 0 14px;
   }
   @media screen and (max-width: $break-small) {
@@ -159,6 +163,9 @@ h1 {
   font-size: $h1-font-size;
   line-height: $h1-line-height;
   font-weight: 900;
+  @media screen and (max-width: $break-small) {
+    font-size: 36px;
+  }
 }
 
 h2 {
@@ -185,8 +192,11 @@ h4, h5 {
 main {
   margin: 150px auto 72px auto;
   width: 45vw;
-  @media screen and (max-width: $break-medium) {
-    width: 55vw;
+  @media screen and (min-width: $break-large) {
+    width: 35vw;
+  }
+  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+    width: 70vw;
     padding: 0 14px;
   }
   @media screen and (max-width: $break-small) {
@@ -251,10 +261,6 @@ ul, ol {
   display: inline-block;
 }
 
-.margin-bottom-30 {
-  margin-bottom: 30px;
-}
-
 .newsletter {
   width: 60vw;
   position: relative;
@@ -283,18 +289,7 @@ ul, ol {
   .newsletter-credits {
     font-size: $smaller-font-size;
   }
-  @media screen and (max-width: $break-medium) {
-    width: 100%;
-    position: inherit;
-    left: inherit;
-    margin-top: 48px;
-    margin-bottom: 48px;
-    padding: 60px 36px 30px 36px;
-    text-align: center;
-    background: url(/media/newsletter-background-small.svg) no-repeat center;
-    background-size: 81vw;
-  }
-  @media screen and (min-width: 1500px) {
+  @media screen and (min-width: $break-large) {
     width: 80vw;
     position: relative;
     left: calc(-40vw + 50%);
@@ -302,8 +297,29 @@ ul, ol {
     margin-bottom: 48px;
     padding: 60px 36px 30px 36px;
     text-align: center;
-    background: url(/media/newsletter-background-large.svg) no-repeat center;
     background-size: 50vw;
+  }
+  @media screen and (max-width: $break-medium) {
+    width: 90vw;
+    position: relative;
+    left: calc(-45vw + 50%);
+    margin-top: 48px;
+    margin-bottom: 48px;
+    padding: 30px 50px 30px 50px;
+    text-align: center;
+    background-size: 90vw;
+
+  }
+  @media screen and (max-width: $break-small) {
+    width: 90vw;
+    position: relative;
+    left: calc(-45vw + 50%);
+    background: url(/media/newsletter-background-small.svg) no-repeat center;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    padding: 30px 50px 30px 50px;
+    text-align: center;
+    background-size: 90vw;
   }
 }
 
@@ -324,8 +340,8 @@ ul, ol {
 }
 
 .breadcrumbs {
-  margin-top: -20px;
-  margin-bottom: 40px;
+  margin-top: -1em;
+  margin-bottom: 3em;
   font-size: $smaller-font-size;
   color: $blue-01;
   font-weight: 500;
