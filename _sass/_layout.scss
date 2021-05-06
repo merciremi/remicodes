@@ -61,7 +61,7 @@ cite {
 }
 
 iframe {
-  max-width: 90%;
+  max-width: 100%;
 }
 
 figure {
@@ -77,13 +77,14 @@ figure {
 }
 
 figure.highlight {
-  width: 50vw;
-  position: relative;
-  left: calc(-25vw + 50%);
-  margin: 18px 0px 30px 0px;
-  font-size: $small-font-size;
+  width: 45vw;
+  margin: 18px auto 30px auto;
+  font-size: $smaller-font-size;
+  pre {
+    padding-left: 1em;
+  }
   @media screen and (max-width: $break-medium) {
-    width: 35em;
+    width: 52vw;
     position: inherit;
     left: inherit;
     font-size: $smaller-font-size;
@@ -92,7 +93,7 @@ figure.highlight {
     }
   }
   @media screen and (max-width: $break-small) {
-    width: 26em;
+    width: 90vw;
     position: inherit;
     left: inherit;
     font-size: $smallest-font-size;
@@ -106,15 +107,15 @@ figure.highlight {
 
 footer {
   margin: 0px auto 72px auto;
-  width: 35em;
+  width: 45vw;
   line-height: 1.5em;
-  text-align: left;
+  text-align: center;
   @media screen and (max-width: $break-medium) {
-    width: 25em;
+    width: 55vw;
     padding: 0 14px;
   }
   @media screen and (max-width: $break-small) {
-    width: 20em;
+    width: 90vw;
   }
 }
 
@@ -126,19 +127,19 @@ footer > a, header > a {
 }
 
 header {
-  margin: 30px auto -30px auto;
-  width: 35em;
+  margin: 60px auto -60px auto;
+  width: 45vw;
   line-height: 1.5em;
   text-align: right;
   a {
     margin-right: 18px;
   }
   @media screen and (max-width: $break-medium) {
-    width: 25em;
+    width: 55vw;
     padding: 0 14px;
   }
   @media screen and (max-width: $break-small) {
-    width: 20em;
+    width: 90vw;
   }
 }
 
@@ -157,7 +158,6 @@ h2, h3, h4, h5 {
 h1 {
   font-size: $h1-font-size;
   line-height: $h1-line-height;
-  margin-bottom: 14px;
   font-weight: 900;
 }
 
@@ -184,13 +184,13 @@ h4, h5 {
 
 main {
   margin: 150px auto 72px auto;
-  width: 35em;
+  width: 45vw;
   @media screen and (max-width: $break-medium) {
-    width: 25em;
+    width: 55vw;
     padding: 0 14px;
   }
   @media screen and (max-width: $break-small) {
-    width: 20em;
+    width: 90vw;
   }
 }
 
@@ -324,6 +324,8 @@ ul, ol {
 }
 
 .breadcrumbs {
+  margin-top: -20px;
+  margin-bottom: 40px;
   font-size: $smaller-font-size;
   color: $blue-01;
   font-weight: 500;
@@ -358,10 +360,6 @@ ul, ol {
 }
 .scribble-icon {
   margin: 50px 0px 30px 0px;
-}
-
-.title {
-  margin-bottom: 48px;
 }
 
 .vertically-centered {
