@@ -328,10 +328,6 @@ ul, ol {
   margin-bottom: 18px;
 }
 
-.post-excerpt {
-  margin-bottom: 48px;
-}
-
 .read-more {
   font-size: $smaller-font-size;
   color: $blue-01;
@@ -392,4 +388,12 @@ ul, ol {
     margin-right: 10px;
     height: 80px;
     width: 80px;
+}
+
+.m-b-72 {
+  margin-bottom: 72px;
+}
+
+.m-b-48 {
+  margin-bottom: 48px;
 }

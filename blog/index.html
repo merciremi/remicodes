@@ -3,14 +3,19 @@ layout: default
 title: Articles by Remi Mercier
 ---
 
-<h1>Sometimes, I write.</h1>
+<div class="m-b-72">
+  <h1>Sometimes, I write.</h1>
+  <p>I find joy <em>in building things</em>. Then, I find joy <em>in writing about what I've learned while building them</em>. Don't fancy getting updates through capricious algorithms? Grab the <a href="{{site.baseurl}}/feed.xml">RSS feed</a>.</p>
+</div>
 
-{% for post in site.posts %}
-  <div class="post-excerpt">
-    <h2>
-      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-    <p>{{ post.excerpt }}</p>
-    <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
-  </div>
-{% endfor %}
+<section class="archive">
+  {% for post in site.posts %}
+    <div class="m-b-48">
+      <h2>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h2>
+      <p>{{ post.excerpt }}</p>
+      <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
+    </div>
+  {% endfor %}
+</section>
