@@ -238,7 +238,7 @@ ul, ol {
   width: 70%;
   margin-top: 36px;
   padding-top: 12px;
-  border-top: 1px $green-01 solid;
+  border-top: 1px $green-02 solid;
   font-size: $smaller-font-size;
   ol {
     margin-top: 0px;
@@ -390,10 +390,61 @@ ul, ol {
     width: 80px;
 }
 
+.m-b-48 {
+  margin-bottom: 48px;
+}
+
+.m-b-60 {
+  margin-bottom: 60px;
+}
+
 .m-b-72 {
   margin-bottom: 72px;
 }
 
-.m-b-48 {
-  margin-bottom: 48px;
+.featured-container {
+  width: 100vw;
+  position: relative;
+  left: calc(-50vw + 50%);
+}
+
+.featured-main {
+  display: flex;
+  justify-content: center;
+  a {
+    border: none;
+  }
+}
+
+.featured-serie {
+  text-align: center;
+  width: 200px;
+  height: 130px;
+  margin: 0px 24px;
+  h3 {
+    font-size: $headings-font-size;
+  }
+  p {
+    font-size: $smallest-font-size;
+    font-weight: 500;
+  }
+}
+
+.featured-ruby {
+  background: url(/media/shared/pinkish-sun.svg) no-repeat center;
+  background-position: 35% 40%;
+}
+
+.featured-rails {
+  background: url(/media/shared/golden-mountain.svg) no-repeat center;
+  background-position: 55%;
+}
+
+.featured-rspec {
+  background: url(/media/shared/brown-rock.svg) no-repeat center;
+  background-position: 45% 55%;
+}
+
+.featured-career {
+  background: url(/media/shared/stormy-river.svg) no-repeat center;
 }
