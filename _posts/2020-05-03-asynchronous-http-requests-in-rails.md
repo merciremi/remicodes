@@ -4,6 +4,7 @@ title: Asynchronous HTTP requests in Rails
 date: 2020-05-05
 excerpt: "Let's look at how we can update parts of our app's pages with asynchronous HTTP requests. This is a step-by-step how-to with some good ol' Javascript fetch() method, and Rails native server-side partial rendering."
 permalink: /asynchronous-requests/
+category: 'rails'
 cover_image: /media/2020/05/async-requests-in-rails-remi-mercier.png
 ---
 

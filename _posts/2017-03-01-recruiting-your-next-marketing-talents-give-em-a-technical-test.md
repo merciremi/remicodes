@@ -3,6 +3,7 @@ layout: post
 title: Recruiting Your Next Marketing Talents? Give ’em a Technical Test
 date: 2017-03-01
 excerpt: "Over the past years, I’ve been invited to several interviews for marketing positions. Yet, I’ve not been asked a single time to do a marketing technical test. And you know what, this sucks!"
+category: 'other'
 permalink: /recruiting-marketing-talents/
 ---
 

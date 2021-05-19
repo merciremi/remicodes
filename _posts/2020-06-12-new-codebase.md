@@ -3,6 +3,7 @@ layout: post
 title: How to wrap your head around a new codebase
 date: 2020-06-12
 excerpt: "For the last eighteen months, I've spent my time trying to understand bits of code I'd never seen before. Eighteen months later, I still don't know every corner of the codebase, but what I do know, is how to get efficiently familiar with new parts of a codebase."
+category: 'other'
 permalink: /wrap-your-head-around-new-codebase/
 ---
 

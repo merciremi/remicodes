@@ -3,6 +3,7 @@ layout: post
 title: How not to live stream your code
 date: 2020-05-10
 excerpt: "This week, I did my first live stream on Twitch and it didn't turn out so well (to say the least). Here's a recap of my rookie mistakes, what I liked about it anyway, and what I'm planning on doing."
+category: 'other'
 permalink: /how-not-to-live-stream/
 ---
 

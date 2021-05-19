@@ -2,8 +2,8 @@
 layout: post
 title:  'Fixing PGError: ERROR: column of relation already exists'
 date:   2019-07-10
-categories: tidbits
 excerpt: "How to fix a corrupted database's schema?"
+category: 'other'
 permalink: /pgerror-restore-local-database/
 ---
 

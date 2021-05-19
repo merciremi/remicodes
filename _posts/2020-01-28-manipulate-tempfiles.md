@@ -2,8 +2,8 @@
 layout: post
 title: Working with tempfiles
 date:   2020-01-28
-categories: ['fav']
 excerpt: "A while back, I needed to create XML files, send them to a distant server and delete them once the transfer completed. This is when I discovered Tempfiles and rejoiced in using Ruby."
+category: ruby
 permalink: /working-with-tempfiles/
 cover_image: /media/2020/working-with-tempfiles-remi-mercier.jpeg
 ---

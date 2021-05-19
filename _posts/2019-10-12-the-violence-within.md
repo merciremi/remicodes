@@ -4,6 +4,7 @@ title: The violence within
 date:   2019-10-12
 excerpt: "Our mainstream work culture cultivates systemic violence: bullying, constant competition, sexism, etc. You name it. What if talking about could empower and protect us?"
 permalink: /the-violence-within/
+category: 'career'
 cover_image: /media/2019/violence-within-remi-mercier.jpeg
 ---
 

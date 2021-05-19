@@ -3,6 +3,7 @@ layout: post
 title: "Always serving someone"
 date: 2021-01-21
 excerpt: "It's easy to tell yourself it's not your job to provide a great service to your users. But taking time to write beautiful code will bring joy and value to you and your teammates."
+category: 'career'
 permalink: /always-serving-someone/
 ---
 

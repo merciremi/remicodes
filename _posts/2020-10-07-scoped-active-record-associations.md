@@ -3,6 +3,7 @@ layout: post
 title: Scoped Active Record Associations
 date: 2020-10-07
 excerpt: "Active Record Associations are a great feature of Rails. But I had never thought of using them as scopes until last week! So let me show you a neat little trick that'll make your code much much more expressive (and keep your N+1 queries in check)."
+category: 'rails'
 permalink: /scoped-active-record-associations/
 ---
 

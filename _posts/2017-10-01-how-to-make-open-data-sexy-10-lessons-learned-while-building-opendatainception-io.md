@@ -3,6 +3,7 @@ layout: post
 title: 'How to make Open Data sexy: 10 lessons learned while building opendatainception.io'
 date: 2017-10-01
 excerpt: "In June 2015, Nicolas Terpolilli and I were ranting about the difficulty to locate Open Data portals. Poor SEO seemed to result in poor rankings. Existing listings were either outdated or partisan. We started joking around with the idea of building a truly comprehensive resource. A resource that would gather every single Open Data portal we could lay our hands on."
+category: 'other'
 permalink: /make-open-data-sexy/
 ---
 

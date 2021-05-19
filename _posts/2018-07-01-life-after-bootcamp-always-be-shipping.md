@@ -3,6 +3,7 @@ layout: post
 title: 'Life After Bootcamp: Always Be Shipping'
 date: 2018-07-01
 excerpt: "Last week was the 9th and final week of my Ruby on Rails Bootcamp at Le Wagon Paris. My buddies and I showed to the public what could be shipped in two weeks. A lot of great projects stood out that night. But now, it’s Monday morning. The excitement has worn off over the weekend, the many naps and the odd drinks. What shall I do?"
+category: 'other'
 permalink: /life-after-bootcamp/
 ---
 

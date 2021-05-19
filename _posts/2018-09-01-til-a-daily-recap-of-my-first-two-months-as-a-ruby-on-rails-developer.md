@@ -3,6 +3,7 @@ layout: post
 title: "#TIL: a daily recap of my first two months as a Ruby on Rails developer"
 date: 2018-09-01
 excerpt: "From early April to early June, I attended Le Wagon Paris' fullstack coding bootcamp. Each day, I shared what I'd learned on Twitter. Wanna know what it feels like to dive into coding for 2 months for the first time?"
+category: 'career'
 permalink: /daily-recap-coding-bootcamp/
 ---
 

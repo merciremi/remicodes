@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Own your story
-categories: ['fav']
 excerpt: When you put yourself out there, you get attention. Some of it is enjoyable. Some of it, not so much. It's not easy to keep your story straight.
+category: 'career'
 permalink: /own-your-story/
 ---
 

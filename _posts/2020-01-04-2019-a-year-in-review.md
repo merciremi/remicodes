@@ -3,6 +3,7 @@ layout: post
 title: "2019 - a year in review"
 date:   2020-01-04
 excerpt: "Well, here we are. December has come and gone. Now is the time to look back on what happened last year: a lot of writing and becoming a Real Developer™."
+category: 'career'
 permalink: /2019-year-review/
 ---
 

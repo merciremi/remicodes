@@ -3,6 +3,7 @@ layout: post
 title: Testing railway-oriented business transactions with Rspec
 date:   2019-10-09
 excerpt: "Railway-oriented business transactions are a great way to unclutter your Rails controllers. But how should we test them? Let's get down to it."
+category: 'rspec'
 permalink: /testing-business-transactions-in-rails/
 cover_image: /media/2019/testing-rails-transactions-rspec-remi-mercier.jpeg
 ---

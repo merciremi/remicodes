@@ -2,6 +2,7 @@
 layout: post
 title: "Meet your new friend: self"
 excerpt: "tl;dr: When you're new to coding, it's not always easy to know where the fuck you are in your code. Well, call the most unexpected friend to the rescue: self!"
+category: 'ruby'
 permalink: /your-new-friend-self/
 ---
 
