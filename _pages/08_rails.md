@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ruby on Rails - Remi Mercier
+title: Ruby on Rails
 permalink: /series/rails/
 ---
 

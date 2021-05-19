@@ -1,10 +1,11 @@
 ---
 layout: default
-title: RSpec - Remi Mercier
+title: RSpec
 permalink: /series/rspec/
 ---
 
-{% assign posts = site.posts | where: "category", "rspec fundamentals" %}
+{% assign posts = site.posts | where: "category", "rspec fundamentals" | sort: 'date' %}
+{% assign other_posts = site.posts | where: "category", "rspec" %}
 
 <div class="m-b-72">
   <div class="serie-icon">
@@ -16,6 +17,17 @@ permalink: /series/rspec/
 
 <section class="archive">
   {% for post in posts %}
+    <div class="m-b-48">
+      <h3>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h3>
+      <p>{{ post.excerpt }}</p>
+      <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
+    </div>
+  {% endfor %}
+
+  <h2 class="m-b-48">Other RSpec related posts</h2>
+  {% for post in other_posts %}
     <div class="m-b-48">
       <h3>
         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>

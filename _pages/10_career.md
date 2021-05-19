@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Career Growth - Remi Mercier
+title: Career Growth
 permalink: /series/career/
 ---
 

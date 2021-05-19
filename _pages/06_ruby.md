@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ruby - Remi Mercier
+title: Ruby
 permalink: /series/ruby/
 ---
 
