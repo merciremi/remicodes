@@ -268,7 +268,7 @@ ul, ol {
   margin-top: 60px;
   margin-bottom: 60px;
   padding: 30px 50px 30px 50px;
-  background: url(/media/newsletter-background-large.svg) no-repeat center;
+  background: url(/media/shared/newsletter-background-large.svg) no-repeat center;
   background-size: 60vw;
   #mce-EMAIL {
     padding: 10px 10px 10px 10px;
@@ -314,7 +314,7 @@ ul, ol {
     width: 90vw;
     position: relative;
     left: calc(-45vw + 50%);
-    background: url(/media/newsletter-background-small.svg) no-repeat center;
+    background: url(/media/shared/newsletter-background-small.svg) no-repeat center;
     margin-top: 48px;
     margin-bottom: 48px;
     padding: 30px 50px 30px 50px;
@@ -447,37 +447,6 @@ ul, ol {
   }
   @media screen and (max-width: $break-small) {
     margin: 18px auto;
-  }
-}
-
-.featured-ruby {
-  background: url(/media/shared/pinkish-sun.svg) no-repeat center;
-  background-position: 35% 40%;
-  @media screen and (max-width: $break-small) {
-    margin: 0px 33% 0px auto;
-  }
-}
-
-.featured-rails {
-  background: url(/media/shared/golden-mountain.svg) no-repeat center;
-  background-position: 55%;
-  @media screen and (max-width: $break-small) {
-    margin: -10px auto 0px 33%;
-  }
-}
-
-.featured-rspec {
-  background: url(/media/shared/brown-rock.svg) no-repeat center;
-  background-position: 45% 55%;
-  @media screen and (max-width: $break-small) {
-    margin: 6px 30% 0px auto;
-  }
-}
-
-.featured-career {
-  background: url(/media/shared/stormy-river.svg) no-repeat center;
-  @media screen and (max-width: $break-small) {
-    margin: 0px auto;
   }
 }
 
