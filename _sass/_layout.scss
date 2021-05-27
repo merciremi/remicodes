@@ -350,11 +350,11 @@ ul, ol {
 }
 
 .scribble {
-  margin-top: 12px;
+  margin-bottom: 60px;
   time {
     display: inline-block;
     margin-left: 0px;
-    margin-top: 24px;
+    margin-top: 18px;
   }
   figure {
     display: inline-block;
@@ -369,12 +369,11 @@ ul, ol {
   }
 }
 
-.scribble-icon {
-  margin: 50px 0px 30px 0px;
+.scribbles {
+  margin-top: 48px;
 }
 
 .scribble-icon-link {
-  margin: 50px 0px 30px 0px;
   text-decoration: none;
   border-bottom: none !important;
 }
