@@ -350,13 +350,11 @@ ul, ol {
 }
 
 .scribble {
-  margin-top: 10px;
+  margin-top: 12px;
   time {
+    display: inline-block;
     margin-left: 0px;
-  }
-  a {
-    text-decoration: none;
-    border-bottom: none !important;
+    margin-top: 24px;
   }
   figure {
     display: inline-block;
@@ -370,8 +368,15 @@ ul, ol {
     max-width: 100%;
   }
 }
+
 .scribble-icon {
   margin: 50px 0px 30px 0px;
+}
+
+.scribble-icon-link {
+  margin: 50px 0px 30px 0px;
+  text-decoration: none;
+  border-bottom: none !important;
 }
 
 .vertically-centered {
