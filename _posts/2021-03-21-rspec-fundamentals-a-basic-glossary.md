@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "RSpec fundamentals: a basic glossary"
-date: 2021-03-22
+date: 2021-03-21
 excerpt: "RSpec syntax can be tricky to get at first. Here's a glossary of the keywords you'll use the most when testing with RSpec."
 permalink: /rspec-fundamentals-glossary/
 category: 'rspec fundamentals'
