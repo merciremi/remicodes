@@ -91,7 +91,7 @@ Now, I can open my first child branch from my parent branch (`313-my-feature-par
   Switched to a new branch '314-my-feature-add-models'
 {% endhighlight %}
 
-This first child branch starts from the parent branch. The parent branch only serves, for now, as a proxy. Tile to write some code!
+This first child branch starts from the parent branch. The parent branch only serves, for now, as a proxy. Time to write some code!
 
 {% highlight git %}
                        A --- B    314-my-feature-add-models
