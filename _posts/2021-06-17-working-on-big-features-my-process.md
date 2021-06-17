@@ -1,7 +1,10 @@
 ---
 layout: post
 title: 'Building large features: my process for branches, requests and reviews'
-excerpt: "Working on large features can be tricky. I've spent the past few months refining a process that makes it easy to keep in touch with the main branch, to make reviews more manageable, and with little GIT overhead."
+excerpt: "Working on large features can be tricky. I've spent the last few months refining a process that makes it easy to keep in touch with the main branch, to make reviews more manageable, and with little GIT overhead."
+date: 2021-06-17
+permalink: /building-large-features-process/
+category: 'other'
 ---
 
 During my first couple of years as a developer, I didn't have much of a process for large features.
@@ -258,7 +261,7 @@ For each child pull request, repeat step #08 until they are no child branches le
 
 ## Step 09: Submit the parent pull request
 
-All child pull requests are merged into the parent pull request. Now is the time to submit the full feature for a final review (see [step #06](#step-06-submit-the-first-child-pull-request))
+All child pull requests are merged into the parent pull request. Now is the time to submit the full feature for a final review (see [step #06](#step-06-submit-the-first-child-pull-request)).
 
 Usually, reviews for the parent pull request are trivial: typos, tiny fixes, etc.
 
