@@ -11,6 +11,8 @@ During my first couple of years as a developer, I didn't have much of a process 
 
 I would start a feature branch from the main branch, work on my feature for weeks, and open up a pull request. I would subject my coworkers to grueling thousand-lines-of-code reviews without thinking about it twice.
 
+<img src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-big-pr.png" alt="a passive pr">
+
 At the time, that seemed normal. Everyone was doing it.
 
 But no more!
@@ -22,13 +24,11 @@ This process was born from three constraints:
 - Don't commit code to production that is not used right away.
 - Make do with reviews (and subsequent modifications) that can happen over a few days.
 
-For clarity's sake, I'll use the word `card` to describe an information entity where you write a piece of specification. Think Trello cards, Jira issues, Post-Its, whatever tickles your fancy.
-
 ## Step 01: The way I specify == the way I code
 
 My brain has a mind of its own.
 
-If I write my feature specifications in one card, I'll end up writing this feature in one go, then submit a massive pull request.
+If I write my feature specifications in one card [^1], I'll end up writing this feature in one go, then submit a massive pull request.
 
 <img src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-one-card-one-pr.jpg" alt="one card equals one pull request">
 
@@ -63,7 +63,7 @@ Now, `313-my-feature-parent-branch` will serve as a basis for all my child branc
   X --- Y --- Z         main branch
 {% endhighlight %}
 
-Let's push my parent branch onto my remote repository manager [^1].
+Let's push my parent branch onto my remote repository manager [^2].
 
 ## Step 03: Open a pull request for the parent branch
 
@@ -115,44 +115,11 @@ I'll open a pull request for my first child branch:
 
 <img src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-child-pull-request.png" alt="a github pull request">
 
-## Step 06: Submit the first child pull request
-
-Now, my parent pull request and my first child pull request are open.
-
-As I said, the parent pull request shows no difference with the `main` branch. There's no point in submitting it now.
-
-Instead, I'll submit my first child pull request to my coworkers. Here's how I do it:
-- Share a link to the child pull request.
-- Share the number of added and removed lines: `+313 -23`. People can parse this diff count and decide if they can review it now or later.
-- Explain in one line what the child pull request does and specify it's a child pull request (and from which branch it's forked).
-
-{% highlight zsh %}
-  a-link-to-my-pull-request *313 -23*
-  Adds the ad hoc models for my large feature
-  ⚠️ This is a child-pull request of 313-my-feature-parent-branch + forked from <branch-name>
-{% endhighlight %}
-
-This is mostly inspired by [Thoughtbot](https://thoughtbot.com/blog/slack-emojis-for-pr-reviews){:target="\_blank"}.
-
-## Step 07: Handling the following child branches and their respective pull requests
+## Step 06: Handling the following child branches and their respective pull requests
 
 I've written my first chunk of code. I've opened a pull request for my first child card, and I'm waiting for reviews to pour in. Now what?
 
-Now, I have a choice based on my need.
-
-__Option #01__
-
-If my different chunks of code work independently, I can __open a new child branch from the parent branch__. Then I move through steps #04 to #06 again. Disclaimer: this rarely happens.
-
-You usually need the code you wrote earlier to move forward: you need your models to work on your endpoints, and you need your endpoints to work on your views, and so on.
-
-This brings me to option #02.
-
-__Option #02__
-
-If I need the code in my first child branch in my second child branch, I can spawn a new child branch from a previous child branch.
-
-Following up on step #06, instead of starting my second child branch from the `main` branch, I'll start it from the first child branch.
+I usually need the code in my first child branch in my second child branch. I can spawn a new child branch from a previous child branch.
 
 {% highlight zsh %}
   ➜  my-project git:(314-my-feature-add-models) git checkout -b 315-my-feature-add-endpoints
@@ -186,7 +153,7 @@ But what happens if my first child branch - `314-my-feature-add-models` - is mod
   X --- Y --- Z                                          main branch
 {% endhighlight %}
 
-I usually have this cascading type of branch dependencies [^2]. Each new child branch starts from the previous child. It gives me the code and the context I need to move forward in my feature. Plus, it's easier for reviewers.
+I usually have this cascading type of branch dependencies [^3]. Each new child branch starts from the previous child. It gives me the code and the context I need to move forward in my feature. Plus, it's easier for reviewers.
 
 When I finish a child branch, I push it on my remote repository manager.
 
@@ -196,7 +163,7 @@ I'll open a pull request for each child branch:
 - The child pull request's description specifies its status and links to the parent branch `⚠️ This is a child-pull request of 313-my-feature-parent-branch`.
 - The child pull request's description specifies if the branch is forked from the parent branch or the previous child branch.
 
-## Step 08: Getting things together with merge and rebase
+## Step 07: Getting things together with merge and rebase
 
 Okay. Now is the time to start merging my branches. In real life, this happens progressively, one branch at a time.
 
@@ -257,11 +224,11 @@ All set!
 
 ### Rinse and repeat
 
-For each child pull request, repeat step #08 until they are no child branches left.
+For each child pull request, repeat this step until they are no child branches left.
 
-## Step 09: Submit the parent pull request
+## Step 08: Submit the parent pull request
 
-All child pull requests are merged into the parent pull request. Now is the time to submit the full feature for a final review (see [step #06](#step-06-submit-the-first-child-pull-request)).
+All child pull requests are merged into the parent pull request. Now is the time to submit the full feature for a final review.
 
 Usually, reviews for the parent pull request are trivial: typos, tiny fixes, etc.
 
@@ -273,5 +240,6 @@ Cheers,
 
 Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
 
-[^1]: GitHub or GitLab for instance.
-[^2]: I can picture horrified looks at the words _cascading type of branch dependencies_, but fear not! The benefits of branch dependency offset its potential problems.
+[^1]: For clarity's sake, I'll use the word `card` to describe an information entity where you write a piece of specification. Think Trello cards, Jira issues, Post-Its, whatever tickles your fancy.
+[^2]: GitHub or GitLab for instance.
+[^3]: I can picture horrified looks at the words _cascading type of branch dependencies_, but fear not! The benefits of branch dependency offset its potential problems.
