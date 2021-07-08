@@ -1,0 +1,22 @@
+---
+layout: page
+title: Feminism
+permalink: /garden/feminism/
+---
+
+<p>This is where I collect notes regarding feminism (in French and English).</p>
+
+{% assign feminism = site.feminism %}
+
+{% for item in feminism %}
+  <div class="post-excerpt">
+    {% unless item.path contains 'index.html' %}
+      <h4>
+        <a href="{{site.baseurl}}{{item.permalink}}">
+          {% if item.category == 'reading_note' %} 📖 {% endif %}
+          {{ item.title }}
+        </a>
+      </h4>
+    {% endunless %}
+  </div>
+{% endfor %}

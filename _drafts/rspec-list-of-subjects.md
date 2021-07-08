@@ -1,0 +1,32 @@
+---
+layout: post
+title: RSpec list of subjects
+---
+
+- basic set-up ✅
+- lexicon ✅
+- model tests: validations, methods class + instance
+- controllers tests
+- apis tests
+- mock instances
+- mock requests
+- before do
+- oneliners
+- shared_examples
+- factories: nested factory + trait
+- RSpec commands: rspec, rspec --next-failure, -e, file:number_of_line
+
+
+
+
+## The basic stuff
+
+- subject + named subject
+- let + let!
+- context + describe
+- it '' do end
+- expect (put onliner in another post)
+
+## RSpec documentation
+
+It's fricking hard to read. Don't.
