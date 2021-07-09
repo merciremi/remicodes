@@ -242,6 +242,8 @@ Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
 
 ps: Many thanks to [Jeremy](https://twitter.com/NotGrm){:target="\_blank"} for helping me make this post clearer (even though I didn't follow all of his suggestions 😜)
 
+__July 9th 2021 update__: I've been invited to the `Rails With Jason` podcast to talk about this process and other strategies for releasing features (amongst other things). Listen to it here: [Building and Releasing Large Features with Rémi Mercier](https://www.codewithjason.com/rails-with-jason-podcast/episodes/102-building-and-releasing-large-features-with-remi-mercier-Mb1sP_iY/){:target="\_blank"}
+
 [^1]: For clarity's sake, I'll use the word `card` to describe an information entity where you write a piece of specification. Think Trello cards, Jira issues, Post-Its, whatever tickles your fancy.
 [^2]: GitHub or GitLab for instance.
 [^3]: I can picture horrified looks at the words _cascading type of branch dependencies_, but fear not! The benefits of branch dependency offset its potential problems.
