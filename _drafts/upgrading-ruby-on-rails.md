@@ -1,29 +1,46 @@
 ---
 layout: post
-title: A beginners guide to upgrading Ruby on Rails
+title: "Upgrading Ruby on Rails: a beginner's guide"
+excerpt: "You're about to upgrade your application to the newest version of Ruby on Rails. And you've never done it before? Fear not! Here's my battle-tested companion to migrating Rails."
+date: 2021-09-17
+permalink: /upgrading-ruby-on-rails/
+category: 'rails'
+cover_image: /media/2021/09/upgrading-ruby-on-rails-guide-remi-mercier.png
 ---
 
-"We need to upgrade Ruby on Rails". I've seen senior developers flinched at those words.
+For a long time, upgrading applications to newer versions of Ruby on Rails seemed one of those tasks reserved to experienced developers.
 
-Today, I had the chance to migrate one app from Rails 5.2 to 6.0 (so, a major upgrade). I've kept some notes I'd like to share with you.
+Last July, I migrated an app from Rails 5.2 to Rails 6.0. A major upgrade, then.
 
-Let's see how we can approach this for the first time.
+While upgrading the application, I wrote notes about the process, the tricky parts, etc. This is what I want to share with you today: a straightforward guide about upgrading Rails for those of you who never did it (yet!).
 
-## Read the guide first
+I was lucky enough to be coached through the whole thing by one of my senior colleagues. So if you have to do it alone, I want this guide to be a companion of sorts to you.
 
-Rails has an [offical guide](https://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html){:target="\_blank"} to help us upgrade our apps from one version of Rails to a newer one.
+You'll see, it'll be fun!
 
-The first advices are, in my opinion, underrated and golden. Before comitting the time to upgrade Rails, we should:
-- have good reasons to do it because it can be no small task
-- a good test coverage because there's a lot of things we'll change without grasping the full effect of these changes. So tests give us a (false?) sense of confidence.
+## Read the official guide first
 
-## Basic process
+Rails has an [offical guide](https://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html){:target="\_blank"} for upgrading Ruby on Rails.
 
-- change Rails version in our Gemfile
-- bundle update
-- fix dependencies: usually update them
+The first chapter - `General Advice` - is full of gold. If you're like me and tend to skim through documentation, don't! Carefully read that chapter and take notes about the important bits. You'll learn about the recommended process, the various commands Rails give, etc.
 
-```
+I particularly liked the first couple of advice:
+  - You should have good reasons to upgrade your application because it can be a challenging feat.
+  - You should have good test coverage to give you some confidence. Many things will change, and it can be hard to grasp the full effect of these changes.
+
+## The full process I went through
+
+### Upgrading Rails
+
+Here, I'll leave the path of the recommended process to explain what I went through. There's a lot of overlaps with the official guide, though.
+
+- Change the Rails version number in your Gemfile.
+- Run `bundle update`.
+- Fix dependencies as they arise during the `bundle update` process.
+
+Let's pause for a minute and check a typical error message from a gem:
+
+{% highlight zsh %}
 Bundler could not find compatible versions for gem "railties":
   In Gemfile:
     devise (~> 4.4.0) was resolved to 4.4.3, which depends on
@@ -31,70 +48,70 @@ Bundler could not find compatible versions for gem "railties":
 
     rails (~> 6.0.4) was resolved to 6.0.4, which depends on
       railties (= 6.0.4)
+{% endhighlight %}
 
-```
+Reading error messages is one fundamental skill in debugging (one I often overlook myself 😅).
 
-Means that my devise gem is capped at the latest minor version of 4. And its dependy on railties is not compatible with the latest version of Rails. I need to update devise to a higher version.
+What this message tells you is:
+  - In your Gemfile, you declared the `devise` gem and locked it to the latest version between `4.4.0` and `< 5.0`.
+  - Your version of `devise` needs a version of `railties` between `4.1.0` and the latest minor version before `6.0`.
+  - On the other hand, you declared your new version of `rails` and locked it to the latest minor of `6.0.4`[^1].
+  - The new version of `rails` needs a specific version of `railties`: the `6.0.4`.
 
-Every time, bundle update.
+There's a conflict between the version of `railties` your current configuration of `devise` uses and the one your new version of `rails` needs. __You need to upgrade `devise` too.__
 
-Then fix every depency as they arise. The next i had.
+To do so, change the Devise version number in your Gemfile, then run `bundle update`.
 
-```
-Bundler could not find compatible versions for gem "actionmailer":
-  In Gemfile:
-    premailer-rails (= 1.9.7) was resolved to 1.9.7, which depends on
-      actionmailer (>= 3, < 6)
+Rinse and repeat until you don't get any more error messages from your gems.
 
-    rails (~> 6.0.4) was resolved to 6.0.4, which depends on
-      actionmailer (= 6.0.4)
+A side note: How do you chose the version of the gem you should use?
 
+I went through the changelog of each gem and checked for backward-incompatible changes that would break my codebase. If all is safe, you can use the latest stable version. Keep in mind that there's a lot of guessing involved, and you will break things no matter how careful you are.
 
-```
+I didn't need to worry about Javascript packages (I upgraded an API). But if you use Javascript, check the [official guide](https://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html#moving-between-versions){:target="\_blank"}.
 
-I had to upgrade premailer-rails.
+### Update your application
 
-One every depency are done. git add and git commit for this part of the upgrade.
+Rails comes with a handy command: `rails app:update`.
 
-do the same with package.json if you use javascript.
+The command will output a list of configuration files Rails wants to update.
 
-## App update
+{% highlight zsh %}
+  identical  config/boot.rb
+  exist      config
+  conflict   config/routes.rb
+  Overwrite  ~/config/routes.rb? (enter "h" for help) [Ynaqdhm]
 
-rails comes with the `rails app:update` command.
+{% endhighlight %}
 
-This will show you all the config files that Rails want to update. Use `d` to show the diff. What's printe din white in zsh is the same thging, what's red is what rails want to delete, green to be added. Be careful, sometimes, you want to keep your own configuration, sometimes, you want to add stuff from the new config.
+This is a tricky part. Sometimes, you're okay with Rails updating files, and sometimes you're not.
 
-Some things are obvious : comments for config. Some are less obvious : your own settings for configs. If you don't know, best to ask someone in the team about the current changes. Best to be conservative. But good to keep as much of the new information to stay in line with Rails default.
+For each conflict, I've entered the letter `d` to print the **d**ifference in my terminal. The output is color-coded:
+  - In white: the lines that won't change.
+  - In green: the lines that Rails wants to add.
+  - In red: the lines that Rails wants to delete.
 
-An example : rails wanted to delete all my routes file and replace it with the default comment when the file is empty. Nah!
+You can also see the little `-` and `+` at the beginning of each line that hint about the expected behavior.
 
-```
-bin/rails app:update
-DEPRECATION WARNING: Single arity template handlers are deprecated. Template handlers must
-now accept two parameters, the view object and the source for the view object.
-Change:
-  >> PrawnRails::Renderer.call(template)
-To:
-  >> PrawnRails::Renderer.call(template, source)
- (called from <main> at /Users/remi/code/merciremi/youboox-web/config/application.rb:11)
-   identical  config/boot.rb
-       exist  config
-    conflict  config/routes.rb
-Overwrite /Users/remi/code/merciremi/youboox-web/config/routes.rb? (enter "h" for help) [Ynaqdhm] d
-  Rails.application.routes.draw do
+{% highlight zsh %}
+Overwrite  ~/config/routes.rb? (enter "h" for help) [Ynaqdhm] d
+Rails.application.routes.draw do
 -   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 +   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 -
+{% endhighlight %}
 
+You want to be extra careful here. You should know what needs to stay (custom configuration, for example) and what can be changed (configuration comments, typos, etc.).
 
-```
+I chose to be conservative. I've kept everything that looked custom, and I've stayed as close to the new Rails defaults as possible.
 
-What I did was add the updated comments like `# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html` in my files a la mano. And replied `n` to the prompt.
+I manually updated most of my configuration files. For each file, I would copy/paste the new content, then replied `n` in the terminal prompt (as in `no, do not overwrite`).
 
-Sometimes is Rails that changes the way it handle something
-```
+Sometimes, standard Rails configuration changes in its implementation:
+
+{% highlight zsh %}
 conflict  config/spring.rb
-Overwrite /Users/remi/code/merciremi/youboox-web/config/spring.rb? (enter "h" for help) [Ynaqdhm] d
+Overwrite ~/config/spring.rb? (enter "h" for help) [Ynaqdhm] d
 - %w[
 + Spring.watch(
 -   .ruby-version
@@ -107,77 +124,86 @@ Overwrite /Users/remi/code/merciremi/youboox-web/config/spring.rb? (enter "h" fo
 +   "tmp/caching-dev.txt"
 - ].each { |path| Spring.watch(path) }
 + )
+Retrying...
+Overwrite ~/config/spring.rb? (enter "h" for help) [Ynaqdhm] y
+{% endhighlight %}
 
+In this case, I would allow Rails to overwrite the whole file with `y`.
 
-```
-in that case, i've kept the new rails stuff with `y` in the prompt.
+The process is long and tedious. You'll need to stay focused. I missed a couple of changes in my configuration file for `puma`.
 
-This is long and tedious. We need to stay super focused. I actually missed a couple of changes in my puma configuration file while doing it.
+Once you're confident (more or less) about the changes, add your files to GIT and commit them.
 
-once we (a peu près) confident about the changes in our config files, git add git commit.
+### Run your tests
 
-## Run tests
+Now, you can run your tests for the first time. Take it slow.
 
-This is the first time we run tests. Start with models, then controllers/requests, then the others. Some upgrade introduce backward compatibility issue, changes on how things work. So, fix your tests.
+Start with testing your models, then your controllers/requests, then the whole suite.
 
-have a ```LoadError:
-       Unable to autoload constant``` ? Try `bin/spring stop` then rerun the tests.
+A major upgrade can introduce breaking changes, so you'll need to fix your code (and your tests) to reflect those changes.
 
-At that point you might see a lot of deprecation warnings. Don't worry, we'll do them later.
+If you see some `LoadError: Unable to autoload constant`, try to run `bin/spring stop` to reload the application.
 
-Once tests are done, git add git commit.
+At this point, you'll see a lot of deprecation warnings. We'll tackle those in a minute.
 
-## Deprecation warnings
+Once your tests are all green again, add your files to GIT and commit them.
 
-Now we treat deprecation warnings introduced by our upgrade. Sometomes it's a method name that changes, sometimes, we need to upgrade yet another gem.
+## Handling deprecation warnings
 
-After fixing one kind of deprecation waring, git add git commit. Then move on to the next. A few things I had : `update_attributes`, `shouldamatchers`
+Upgrades also introduce deprecation warnings. These warnings can range from method aliases to gems that need an update.
 
-```
-DEPRECATION WARNING: Single arity template handlers are deprecated. Template handlers must
-now accept two parameters, the view object and the source for the view object.
-Change:
-  >> PrawnRails::Renderer.call(template)
+Every time you fix one deprecation warning, add your modification to GIT and commit. You'd better keep your commit history clean if you need to revert some changes.
 
-```
+Here are a few warnings I had:
+  - `DEPRECATION WARNING: update_attributes! is deprecated and will be removed from Rails 6.1`: I had to change those occurences in my code.
+  - `DEPRECATION WARNING: Single arity template handlers are deprecated...`: an warning from Prawn, a gem handling PDF creation.
 
-For each deprecation warning unexpected problems can arise. This is why upgrading can be so daunting. But when a problem comes from a gem, it's a good thing to go and read the changelog of the gem so we can identify what changed in the gem that breaks our code.
+Each deprecation can introduce unexpected problems. Gems rely on other gems. Updating a gem can trigger the update of another one. This is why **upgrading can be so daunting**.
 
-Sometime, when you upgrade a gem to remove a deprecation warning, a lot of test brake afterward. It's shitty but it's normal. Shouldamatcher had us on edge for a couple hours. We realized that that validation of uniqueness scoped to several stuff was not suported anymore (but we moved from v2 to v5 in one go, so heay!). I had t orewrite all tests without the syntax by shouldamatchers.
+I had a lot of tests failing after I had resolved some deprecation warnings. That sucks, but that's normal.
 
-## Configure Framework Defaults
+Do not hesitate to read the changelog of the incriminated gems! The gem `shoulda matchers` had me on my heels for hours, but the changelog of `shoulda matchers` showed me the change that was breaking my tests. I had to rewrite a few tests from the ground up.
 
-This I did last which was a error (even if nothing bad happened). But since Rails 5, the `app update` command generates a file with the new defaults config for the app. You need to flip them one by one and check that your tests pass.
+### Configure framework defaults
 
-Did I mention that we basically need to run our tests everytime we change the slightest thing? :D
+Since Rails 5, the `app update` command generates a file with the new default configuration.
 
+You'll need to uncomment each configuration line gradually check if your tests still pass.
 
+I've found it handy to have all my tests green before toggling on these new configuration defaults.
 
-One of tne specific i did with rails 6 as to change the autoloading strategy to zeitwerk. A lot of things had to be changed for this:
-- Class name infered from names of files with inflections
-- configuration about autoreloading and stale objects in tests (did  you know that when you compare to User.class, if you change and reload the first one it's not the same anymore because of the object_id?)
+### A Rails 6 specificity: Zeitwerk
 
-```
-irb> joe = User.new
-irb> reload!
-irb> alice = User.new
-irb> joe.class == alice.class
-=> false
+One of the major changes introduced by Rails 6 is the new autolading strategy: [Zeitwerk](https://github.com/fxn/zeitwerk){:target="\_blank"}.
 
-```
+I had to change a few things to make Zeitwerk work:
+  - Class names inferred from filenames that contain inflections (i.e. `Csv`, `Ftp`). Some names were capitalized, others were uppercased. I had to homogenize them all.
+  - Configuration about auto-reloading in tests.
 
-😱
+Hopefully, Zeitwerk comes with a neat command: `rails zeitwerk:check`. It'll give you the next problem that needs fixing. Once you're done with Zeitwerk, run your test one more time!
 
-Zeitwerk comes with a cool command `rails zeitwerk:check`! it gives you the next things that needs fixing!once everything is good with zeitwerk, time to... run your tests once again!
+## Last check
 
-This part was the trickiest because the range of the things you have to change is enormous. Sometimes, you change things, it works and you don't really know why. 🤷‍♂️
+You're almost done!
 
-## Last checks
+Check the official Rails guide and verify you didn't miss anything relevant to you.
 
-Check your Rails guide if you missed anything relevant for you (for instance, we don't use actioncable, so that part of the guide was of no interest for us). Run your specs one last time. Then run your linter. Run a rails console. run your server and see what's what for real. Then you're done.
+Run your specs one last time. Then run your linter.
 
-## the scope
+Run a Rails console. Then fire up a server to see if your application behaves the way it should.
 
-Focus on making tests green. Don't refactor things now. You'll do it later.
+All good? Great, you're done!
 
-Thanks Jeremy!
+## Beware of scope creep
+
+While you're fixing things, you'll realize that some objects could do with a little refactoring. Don't!
+
+Focus on making your tests pass. That way, if a new bug pops out, it'll be easier to tell it's because of your migration. You won't have to worry about separating the migration from the refactoring while chasing bugs.
+
+Happy migrating!
+
+Cheers,
+
+Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+
+[^1]: A small reminder on gem versioning: **0.0.x** is a patch: implementation details, bug fixes, etc..  **0.x.0** is a minor upgrade: new features with backward compatibility. **x.0.0** is a major upgrade: can contain backward incompatible changes.
