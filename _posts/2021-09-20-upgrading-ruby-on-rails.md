@@ -148,7 +148,7 @@ At this point, you'll see a lot of deprecation warnings. We'll tackle those in a
 
 Once your tests are all green again, add your files to GIT and commit them.
 
-## Handling deprecation warnings
+### Handling deprecation warnings
 
 Upgrades also introduce deprecation warnings. These warnings can range from method aliases to gems that need an update.
 
