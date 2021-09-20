@@ -2,7 +2,7 @@
 layout: post
 title: "Upgrading Ruby on Rails: a beginner's guide"
 excerpt: "You're about to upgrade your application to the newest version of Ruby on Rails. And you've never done it before? Fear not! Here's my battle-tested companion to migrating Rails."
-date: 2021-09-17
+date: 2021-09-20
 permalink: /upgrading-ruby-on-rails/
 category: 'rails'
 cover_image: /media/2021/09/upgrading-ruby-on-rails-guide-remi-mercier.png
