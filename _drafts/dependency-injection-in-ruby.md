@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Dependency injection in Ruby"
-excerpt: "Classes depend on each other all the time. But the way you tie those classes together will determine the _cost of change_. Dependency injection can help you reduce that coupling, and make the change easy."
+excerpt: "Classes depend on each other all the time. But the way you tie those classes together will determine the cost of change. Dependency injection can help you reduce that coupling and make changes easy."
 date: 2021-12-07
 permalink: /dependency-injection-in-ruby/
 category: 'ruby'
@@ -48,7 +48,7 @@ This knowledge introduces tight coupling between `Author` and `RevenueStatsCalcu
 
 <blockquote>Dependency injection is a coding practice that allows you to move a dependency from the guts of a class to its initialization.</blockquote>
 
-Dependy injection is [the implementation derived from the Dependency Inversion Principle](https://stackoverflow.com/a/46745172){:target="\_blank"} (DIP). The `D` in DIP is also known as the `D` in the [SOLID principles](http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod){:target="\_blank"}[^2].
+Dependy injection is [the implementation derived from the Dependency Inversion Principle](https://stackoverflow.com/a/46745172){:target="\_blank"} (DIP). The `D` in DIP is also known as the `D` in the [SOLID principles](http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod){:target="\_blank"}[^1].
 
 The Dependency Inversion Principle says that your objects should not rely on other specific objects (_concretions_) but higher-level abstractions.
 
@@ -195,6 +195,4 @@ Cheers,
 
 Rémi
 
-
-[^1]: If you're using Rails, you're already familiar with seeing a lot of `SomethingMailer` hang around your code.
-[^2]: I've never managed to learn the meaning of all SOLID principles. I mean, an acronym that declines into five acronyms, that decline into cryptic principles.
+[^1]: I've never managed to learn the meaning of all SOLID principles. I mean, an acronym that declines into five acronyms, that decline into cryptic principles.
