@@ -36,7 +36,7 @@ The code could look like this:
   end
 {% endhighlight %}
 
-Here, `Author` have __one dependency__: `Author` depends on `RevenueCalculator` to pull the raw statistics.
+Here, `Author` has __one dependency__: `Author` depends on `RevenueCalculator` to pull the raw statistics.
 
 That dependency lies within the body of the `Author` class in the `monthly_revenue` method.
 
@@ -159,7 +159,7 @@ If you want to test `Author#monthly_revenue` as it's defined below, you'd need t
     end
   end
 
-  RSpec.describle Author do
+  RSpec.describe Author do
     describe '#montly_revenue' do
       subject(:montly_revenue) { author.monthly_revenue }
 
