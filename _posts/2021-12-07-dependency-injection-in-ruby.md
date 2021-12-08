@@ -164,11 +164,10 @@ If you want to test `Author#monthly_revenue` as it's defined below, you'd need t
       subject(:montly_revenue) { author.monthly_revenue }
 
       let(:author) { create :author }
-      let(:fake_calculator) { instance_double(RevenueCalculator) }
-      let(:response) { # some response }
+      let(:response) { :ok }
 
       before do
-        allow(fake_calculator).to receive(:calculate_for).and_return(response)
+        allow(RevenueCalculator).to receive(:calculate_for).and_return(response)
       end
 
       it 'fetches statistics' do
@@ -178,9 +177,9 @@ If you want to test `Author#monthly_revenue` as it's defined below, you'd need t
   end
 {% endhighlight %}
 
-The setup is complicated. Your tests know more than they should.
+Your tests know more than they should. They know about `RevenueCalculator`, about its method `calculate_for`.
 
-When `Author` keeps a dependency at its heart, it's impossible to test it in isolation. You _have_ to create a whole context around it. You need to bring in the dependency too. Your tests are tied to the current implementation of `#monthly_revenue`. If your code changes - by adding conditionals, for instance - your tests need to change too.
+When `Author` keeps a dependency at its heart, it's impossible to test it in isolation. You _have_ to create a whole context around it. You need to bring in the dependency and directly interact with it. Your tests are tied to the current implementation of `#monthly_revenue`. If your code changes - by adding conditionals, for instance - your tests need to change too. You'll have to allow another _concrete_ class to receive a method.
 
 With dependency injection, you loosen that coupling a bit. You can inject any fake Ruby object that serves as a test-only statistics calculator. When you inject a dependency, you rely on polymorphism instead of conditionals. The dependency needed in `Author#monthly_revenue` responds to the same API, whichever calculator you feed your class. And your tests don't need to change.
 
