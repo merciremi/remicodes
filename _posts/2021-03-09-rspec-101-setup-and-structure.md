@@ -13,7 +13,7 @@ Testing requires practice to reveal its potential.
 
 When I started programming, I'd copy other people's tests because, well, I had to test, right? But after a while, my tests would uncover edge cases, potential bugs I'd overlooked.
 
-So, I feel a series of short know-hows, know-whats and, know-whys, could be of some use to newcomers; brief essays explaining one aspect of testing with RSpec.
+So, I feel a [series of RSpec fundamentals]({{site.baseurl}}/series/rspec/) - short know-hows, know-whats and, know-whys - could be of some use to newcomers. Brief essays explaining one aspect of testing with RSpec.
 
 If this sounds fun to you, let's start with the basics.
 

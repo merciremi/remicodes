@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A beginners' introduction to Ruby classes and objects"
+title: "Ruby classes and objects: a beginners' introduction"
 date:   2019-11-18
 excerpt: "When you start learning Ruby, you often hear that everything is - or evaluates as - an object. Here's an introduction for junior developers who want to get the gist of objects and classes in Ruby."
 category: ruby

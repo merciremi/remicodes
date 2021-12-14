@@ -63,13 +63,13 @@ Here's a list of my non-tech skills and how they affect my technical work daily.
 
 - Writing: I love writing. I love when words chime and rhythm, and take me someplace else. So I try and write code that's expressive, articulated and easy to understand.
 
-- Museology: After working in museums for years, I'm officially a nerd when it comes to taxonomy. This has proved handy when searching for the appropriate level of abstraction in code.
+- Museology: After working in museums for years, I'm officially a nerd when it comes to taxonomy. This has proved handy when searching for the [appropriate level of abstraction]({{site.baseurl}}/dependency-injection-in-ruby/) in code.
 
 - Design: Studying and designing stuff throughout my life has been one of my greatest joy. It's taught me how to listen to problems, deconstruct them to first principles, and to find creative yet down-to-earth solutions. I also learned to be less domain-dependent and find inspiration everywhere. [^1]
 
-- Craftmanship: I worked for four years as a stained-glass master. During that time, I restored stained-glass from the 15th to the 20th century. There I nourished my love of building things, of honing the know-how, of patience and minutiae.
+- Craftmanship: I worked for four years as a stained-glass master. During that time, I restored stained-glass from the 15th to the 20th century. There I nourished my love of [building things]({{site.baseurl}}/building-large-features-process/), of honing the know-how, of patience and minutiae.
 
-- Entrepreneurship: Running a business for years has proved useful when dealing with employers. I can put myself into their shoes and avoid a paradox Calvin (as in Calvin and Hobbes) pointed out:
+- Entrepreneurship: Running a business for years has proved useful [when dealing with employers]({{site.baseurl}}/series/career/). I can put myself into their shoes and avoid a paradox Calvin (as in Calvin and Hobbes) pointed out:
 
 > Even though we're both talking English, we're not speaking the same language.
 

@@ -18,7 +18,7 @@ First, let's explain what a dependency is.
 
 <blockquote>A dependency is an abstraction upon which another abstraction depends.</blockquote>
 
-In the context of a Ruby - or a Rails - application, _abstraction_ mainly refers to _classes_.
+In the context of a Ruby - or a Rails - application, [_abstraction_ mainly refers to _classes_]({{site.baseurl}}/beginners-introduction-to-ruby-classes-objects/).
 
 Check out the codebase you're working on right now. Look out for classes that send messages to other classes directly from their methods.
 
@@ -183,7 +183,7 @@ When `Author` keeps a dependency at its heart, it's impossible to test it in iso
 
 With dependency injection, you loosen that coupling a bit. You can inject any fake Ruby object that serves as a test-only statistics calculator. When you inject a dependency, you rely on polymorphism instead of conditionals. The dependency needed in `Author#monthly_revenue` responds to the same API, whichever calculator you feed your class. And your tests don't need to change.
 
-Once again, I encourage you to read the end of 99 Bottles of OOP, which explores the topic of testing while moving dependencies to initialization with _brio_.
+Once again, I encourage you to read the end of _99 Bottles of OOP_, which explores the topic of testing while moving dependencies to initialization with _brio_.
 
 ## Additional thoughts
 

@@ -7,13 +7,11 @@ category: 'other'
 permalink: /pry-byebug-tutorial/
 ---
 
-Like most new developers, I first started as [a `puts` debugger](https://tenderlovemaking.com/2016/02/05/i-am-a-puts-debuggerer.html){:target="\_blank"}. I would write `puts` everywhere to see what's what - something I'm still doing when debugging Javascript [^1].
+Like most new developers, I first started as a `puts` debugger. I would write `puts` everywhere to see what's what.
 
-One day, I had the chance to spend some time with [Cecile Varin](https://www.linkedin.com/in/cecilevarin/){:target="\_blank"}, who showed me the ropes of _[pry-byebug](https://github.com/deivid-rodriguez/pry-byebug){:target="\_blank"}_.
+Debugging is hard enough, so knowing your tools makes that task much simpler. When I learned the ropes of _[pry-byebug](https://github.com/deivid-rodriguez/pry-byebug){:target="\_blank"}_, I decided to passed that knowledge along to anyone who'd hear it!
 
-So, when I taught Ruby's basics at Le Wagon Paris, I passed that knowledge along.
-
-Let's dive right in, so I can give you practical tips on using _pry-byebug_ in your applications.
+Let's dive right in, so I can give you practical tips on using _pry-byebug_ in your [Rails applications]({{site.baseurl}}/series/rails/).
 
 ## Set up pry-byebug
 
@@ -338,5 +336,3 @@ Cheers,
 Rémi
 
 P.S.: This post was featured in [Ruby Weekly's 496 edition](https://rubyweekly.com/issues/496){:target="\_blank"}.
-
-[^1]: ~~Can someone explain to me, how `debugger` is supposed to work in the Javascript console?~~ Many thanks to [Mirha](https://www.mirhamasala.com/){:target="\_blank"} who explained to me how the JS `debugger` keyword works 🙏.

@@ -8,7 +8,7 @@ category: 'other'
 cover_image: /media/2021/10/remi-mercier-how-to-use-git-bisect.png
 ---
 
-No matter how thorough your test coverage is, you can't test everything.
+No matter how thorough your [test coverage]({{site.baseurl}}/series/rspec/) is, you can't test everything.
 
 One day, you'll introduce a regression in your application, and you won't notice it straight away. When you finally realize you broke your feature, it can be hard to pinpoint where and when it happened. It's even harder when several people are working on the same application.
 

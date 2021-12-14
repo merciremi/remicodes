@@ -10,7 +10,7 @@ cover_image: /media/2020/05/async-requests-in-rails-remi-mercier.png
 
 Today is a special day. It's the day I'll (mostly) talk about Javascript!
 
-I've been struggling with AJAX requests in Rails apps for a while. But I've started using them a lot recently, and pieces of the puzzle kinda fell together. Asynchronous requests can be handy when you need to update some parts of your application's page without reloading the whole thing. I'll show you how to do this with plain ol' vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}), and Rails 6 native server-side partial rendering.
+I've been struggling with AJAX requests in [Rails apps]({{site.baseurl}}/series/rails) for a while. But I've started using them a lot recently, and pieces of the puzzle kinda fell together. Asynchronous requests can be handy when you need to update some parts of your application's page without reloading the whole thing. I'll show you how to do this with plain ol' vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}), and Rails 6 native server-side partial rendering.
 
 [2020-05-10 Update: If you're more confortable following along a video, I've recorded [a screencast]({{site.baseurl}}/asynchronous-requests/#async-request-screencast).]
 
