@@ -1,6 +1,11 @@
 ---
 layout: post
-title: Build a minimal feature flag manager in under an hour
+title: "Build a minimal feature flag manager in under an hour"
+excerpt: "Feature flags are a neat way to hide in-progress features from your users. For those who need a simple on-and-off system, here's a minimal feature flag manager that'll take less than an hour to build, using plain Ruby objects, the Rails configuration, and some neat variables organization."
+date: 2022-01-18
+permalink: /build-minimal-feature-flags-manager/
+category: ['ruby', 'rails']
+cover_image: /media/2022/01/remi-mercier-build-feature-flags-manager.png
 ---
 
 When you deploy your code continuously, feature flags are a neat way to hide in-progress features from your users. In the past, I've written about [my process for releasing large features]({{site.baseurl}}/building-large-features-process/). But after using feature flags in the last six months, I've come to like them better than my former process.
