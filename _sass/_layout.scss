@@ -261,6 +261,27 @@ ul, ol {
   display: inline-block;
 }
 
+.newsletter-lite {
+  width: 100%;
+  #mce-EMAIL {
+    width: 66%;
+    padding: 10px 10px 10px 10px;
+    border: none;
+    border-bottom: 3px solid $link-color;
+    background-color: $body-background-color-01;
+    font-size: $body-font-size;
+  }
+  #mc-embedded-subscribe {
+    border-radius: 5;
+    border: none;
+    color: $body-background-color-00;
+    background-color: $link-color;
+    padding: 13px;
+    margin: 10px;
+    font-size: $body-font-size;
+  }
+}
+
 .newsletter {
   width: 60vw;
   position: relative;
