@@ -2,6 +2,7 @@
 layout: page
 title: Wanna be my pen pal?
 permalink: /newsletter/
+cover_image: '/media/shared/remi-mercier-newsletter.png'
 ---
 
 __Each month__, I send an email to +100 developers __with my latest essay about what I learn while building awesome software__.
@@ -13,6 +14,8 @@ Some of the things I like to dig into:
   - How to foster a safe, inclusive, and gratifying remote work environment.
 
 Do you want to get an early copy of my posts? Then, sign-up!
+
+<div class='pink-arrow'></div>
 
 <section class="newsletter-lite">
   <div id="mc_embed_signup">
