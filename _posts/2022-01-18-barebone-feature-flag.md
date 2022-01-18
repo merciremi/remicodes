@@ -5,7 +5,7 @@ excerpt: "Feature flags are a neat way to hide in-progress features from your us
 date: 2022-01-18
 permalink: /minimal-feature-flags-manager/
 category: ['ruby', 'rails']
-cover_image: /media/2022/01/remi-mercier-build-feature-flags-manager.png
+cover_image: '/media/2022/01/remi-mercier-build-feature-flags-manager.png'
 ---
 
 When you deploy your code continuously, feature flags are a neat way to hide in-progress features from your users. In the past, I've written about [my process for releasing large features]({{site.baseurl}}/building-large-features-process/). But after using feature flags in the last six months, I've come to like them better than my former process.
@@ -34,7 +34,7 @@ A basic implementation of my `Features` class could be this:
 
 {% highlight ruby %}
   class Features
-    self.enabled?(feature)
+    def self.enabled?(feature)
       # check if _feature_ is in the list of flags AND enabled
     end
   end
@@ -73,7 +73,7 @@ A minimal implementation could be:
       editorial_feed: true
     }.freeze
 
-    self.enabled?(feature)
+    def self.enabled?(feature)
       FEATURES[feature.to_sym]
     end
   end
@@ -100,7 +100,7 @@ The smallest step we can take is to replace hardcoded values with environment va
       editorial_feed: ENV.fetch('EDITORIAL_FEED_FEATURE', false)
     }.freeze
 
-    self.enabled?(feature)
+    def self.enabled?(feature)
       FEATURES[feature.to_sym]
     end
   end
@@ -146,8 +146,8 @@ In your `config` directory, create a `features.yml` file. The first key represen
 {% highlight ruby %}
   # in config/features.yml
   shared:
-    audiobooks: <%= ENV.fetch('AUDIOBOOKS_FEATURE', false) %>,
-    comic_strips: <%= ENV.fetch('COMIC_STRIPS_FEATURE', false) %>,
+    audiobooks: <%= ENV.fetch('AUDIOBOOKS_FEATURE', false) %>
+    comic_strips: <%= ENV.fetch('COMIC_STRIPS_FEATURE', false) %>
     editorial_feed: <%= ENV.fetch('EDITORIAL_FEED_FEATURE', false) %>
 {% endhighlight %}
 
@@ -156,8 +156,6 @@ We usually store strings in `YAML` files, but it's possible to execute Ruby code
 Now, __we have a single file where all our feature flags and their respective environment variables will be neatly gathered__. I used to be a librarian, I love things arranged neatly.
 
 ## Access our feature flags through Rails configuration
-
-We usually store strings in `YAML` files, but it's possible to execute Ruby code with the help of the `<%= =>` syntax.
 
 Now, __a single file centralize all our feature flag keys and their respective environment variables__. I used to be a librarian. I love things arranged neatly.
 
@@ -181,7 +179,7 @@ Let's try to code our method and make the test green.
 
 {% highlight ruby %}
   class Features
-    self.configuration
+    def self.configuration
       Rails.configuration.features
     end
 
@@ -195,11 +193,11 @@ Now that we've made the change easy, it's just a matter of changing `FEATURES` b
 
 {% highlight ruby %}
   class Features
-    self.configuration
+    def self.configuration
       Rails.configuration.features
     end
 
-    self.enabled?(feature)
+    def self.enabled?(feature)
       configuration[feature.to_sym]
     end
   end
@@ -347,11 +345,11 @@ With that, I can enforce a boolean as a return type for `.enabled?`.
 
 {% highlight ruby %}
   class Features
-    self.configuration
+    def self.configuration
       Rails.configuration.features
     end
 
-    self.enabled?(feature)
+    def self.enabled?(feature)
       configuration[feature.to_sym].to_boolean
     end
   end
