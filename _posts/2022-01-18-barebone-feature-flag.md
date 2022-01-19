@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Build a minimal feature flag manager in under an hour"
-excerpt: "Feature flags are a neat way to hide in-progress features from your users. For those who need a simple on-and-off system, here's a minimal feature flag manager that'll take less than an hour to build, using plain Ruby objects, the Rails configuration, and some neat variables organization."
+title: "Build a minimal feature flags manager in under an hour"
+excerpt: "Feature flags (or feature toggles) are a neat way to hide in-progress features from your users. For those who need a simple on-and-off system, here's a minimal feature flag manager that'll take less than an hour to build, using plain Ruby objects, the Rails configuration, and some neat variables organization."
 date: 2022-01-18
 permalink: /minimal-feature-flags-manager/
 category: ['ruby', 'rails']
@@ -112,6 +112,8 @@ The application evaluates the presence of environment variables at runtime. If o
 
 So our test does not _really_ evaluate the presence and setting of our feature flags. It only tests if the return value is truthy or falsy. And it is, since `fetch` defaults to `false` every time. We could mock the value `ENV` returns, but it'll couple our tests too tightly to our testing environment. This _smells_ like a bad idea.
 
+Our tests could be better if we changed the expectation from `.to be_in([true, false])` to a more constrained `.to be(true)`. This would make sure that the tests don't return a false positive.
+
 Another thing I don't like is passing variables - which are _variable_ by definition - to a constant? Meh.
 
 I'd rather group these variables into a dedicated file. If we could load all these feature flags' variables at boot time, we'd save up some time when our application needs to evaluate those flags.
@@ -218,7 +220,7 @@ The full test suite is:
 
       let(:feature) { :my_feature }
 
-      it { is_expected.to be_in([true, false]) }
+      it { is_expected.to be(true) }
     end
   end
 {% endhighlight %}
@@ -244,7 +246,7 @@ Well, we created a dependency between `Features.configuration` and the Rails con
         allow(Rails.configuration).to receive(:features).and_return({ my_feature: true})
       end
 
-      it { is_expected.to be_in([true, false]) }
+      it { is_expected.to be(true) }
     end
   end
 {% endhighlight %}
@@ -272,7 +274,7 @@ What happens if the feature we'd like to check is not in our list? `configuratio
         allow(Rails.configuration).to receive(:features).and_return({ my_feature: true} )
       end
 
-      it { is_expected.to be_in([true, false]) }
+      it { is_expected.to be(true) }
 
       context 'with a feature not in the features list' do
         let(:feature) { :an_inexistant_feature }
@@ -302,46 +304,26 @@ First, let's update our tests.
 
       let(:feature) { :my_feature }
 
-      it { is_expected.to be_in([true, false]) }
-
       before do
         allow(Rails.configuration).to receive(:features).and_return({ my_feature: true} )
       end
 
+      it { is_expected.to be(true) }
+
       context 'when the symbol is not present is our list of feature flags' do
         let(:feature) { :an_inexistent_feature }
 
-        it { is_expected.to be_in([true, false]) }
+        it { is_expected.to be(true) }
       end
     end
   end
 {% endhighlight %}
 
-We could create a private method in `Features`. It would check for truthy and falsy values, then cast them as boolean. I feel `Features` is not really the place to handle this logic, though.
+There are several ways of doing this. Initially, I'd decided to modify `TrueClass`, `FalseClass`, and `NilClass` to accept a `to_boolean` method. Several readers pointed out it was _a tad_ overkill.
 
-Right now, `.enabled?` can return instances of three different classes: `TrueClass`, `FalseClass`, and `NilClass`. Each has its specific behavior. We'll re-open those classes and add a `to_boolean` method to each. Yes, we'll duplicate some code, but since we need to handle different behaviors, I'd rather accept a bit of duplication than a bunch of `if-else` conditionals in `Features` (or `Object` for that matter).
+### Use hashes capabilities
 
-{% highlight ruby %}
-  class TrueClass
-    def to_boolean
-      self
-    end
-  end
-
-  class FalseClass
-    def to_boolean
-      self
-    end
-  end
-
-  class NilClass
-    def to_boolean
-      false
-    end
-  end
-{% endhighlight %}
-
-With that, I can enforce a boolean as a return type for `.enabled?`.
+Since `.configuration` return an object inheriting from `Hash`, we can use `.fetch` on it.
 
 {% highlight ruby %}
   class Features
@@ -350,10 +332,50 @@ With that, I can enforce a boolean as a return type for `.enabled?`.
     end
 
     def self.enabled?(feature)
-      configuration[feature.to_sym].to_boolean
+      configuration.fetch(feature.to_sym, false)
     end
   end
 {% endhighlight %}
+
+What happens is if our `.configuration` contains `feature` we're passing along, `.enabled?` will return the boolean stored in the YAML. If `feature` is not present, `.fetch` will default to `false`.
+
+### Use `.present?`
+
+Another suggestion was using `.present?` on my configuration hash.
+
+{% highlight ruby %}
+  class Features
+    def self.configuration
+      Rails.configuration.features
+    end
+
+    def self.enabled?(feature)
+      configuration[feature.to_sym].present?
+    end
+  end
+{% endhighlight %}
+
+The return results' strategy works as in the previous example.
+
+### Use the double bang
+
+A last suggestion was using `!!` a.k.a the _[double bang](https://stackoverflow.com/a/3994065){:target="\_blank"}_. This would look like this:
+
+{% highlight ruby %}
+  class Features
+    def self.configuration
+      Rails.configuration.features
+    end
+
+    def self.enabled?(feature)
+      !!configuration[feature.to_sym]
+    end
+  end
+{% endhighlight %}
+
+The rationale behind it is:
+
+> If you negate something, that forces a boolean context. Of course, it also negates it. If you double-negate it, it forces the boolean context, but returns the proper boolean value.
 
 And voilà! Your feature flags manager is ready. Now, you can safely wrap your features with `Features.enabled? :editorial_feed` conditionals!
 
@@ -362,3 +384,5 @@ Hope you liked this code-along as much as I did!
 Cheers,
 
 Rémi
+
+PS: Many thanks to [@NotGrm](https://twitter.com/NotGrm){:target="\_blank"}, [@sunfox](https://twitter.com/sunfox){:target="\_blank"}, [@_swanson](https://twitter.com/_swanson){:target="\_blank"}, and Kaloyan for their suggestions!
