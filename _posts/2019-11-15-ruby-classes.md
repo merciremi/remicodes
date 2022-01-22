@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Ruby classes and objects: a beginners' introduction"
+title: "An Introduction to Ruby classes and objects"
 date:   2019-11-18
-excerpt: "When you start learning Ruby, you often hear that everything is - or evaluates as - an object. Here's an introduction for junior developers who want to get the gist of objects and classes in Ruby."
+excerpt: "When you start learning Ruby, you often hear that everything is - or evaluates as - an object. Here's an introduction for developers who want to get the gist of objects and classes in Ruby."
 category: ruby
 permalink: /beginners-introduction-to-ruby-classes-objects/
 cover_image: /media/2019/remi-mercier-objects-classes-ruby-004.jpeg
@@ -10,7 +10,9 @@ cover_image: /media/2019/remi-mercier-objects-classes-ruby-004.jpeg
 
 When you start learning Ruby, you often hear that everything is - or evaluates as - an object. And you're usually like "🤔 Come again"?
 
-So, here's an introduction to objects and classes in Ruby for my [fellow Ruby junior developers]({{site.baseurl}}/own-your-story/) out there.
+Objects are the main paradigm in defining Ruby as a language. Objects and classes serve as blueprint. But when objects are defined by other objects, the recursion can seem a tad _difficult_ to grasp at first.
+
+So, here's an introduction to objects and classes in Ruby for my fellow Ruby developers out there.
 
 ## What is an object?
 
@@ -27,7 +29,7 @@ Some types of data:
 
 Easy right?
 
-## Objects and classes 101
+## Ruby's Objects and classes 101
 
 Now, to handle objects, Ruby creates a set of abstractions handling common behaviors for the same objects: <mark>classes</mark>.
 
@@ -215,7 +217,7 @@ Let's wrap up before letting you massage away that headache of yours:
 
 I hope you enjoyed the ride as much as I did!
 
-Keep in mind that this is only an introduction. There are many broad strokes and many (more or less voluntary) omissions on my part. If you enjoyed the topic, dig deeper and report back!
+Keep in mind that this is only an introduction. There are many broad strokes and many (more or less voluntary) omissions on my part. If you enjoyed the topic, check out the rest of [my essays on Ruby]({{site.baseurl}}/series/ruby/).
 
 Many thanks to [Nicolas](https://twitter.com/nicoolas25) and [Sylvain](https://twitter.com/abelar_s) for reading my drafts, asking a lot of questions, and making this introduction to objects and classes (much much) better.
 

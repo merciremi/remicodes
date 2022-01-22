@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git Bisect: travel through time and bugs"
+title: "Introduction to Git Bisect: travel through time and bugs"
 excerpt: "No matter how thorough your test coverage is, you can't test everything. So when you introduce a bug in your application, git bisect will help you zero in on your regression's origin."
 date: 2021-10-20
 permalink: /how-to-use-git-bisect/
@@ -12,7 +12,7 @@ No matter how thorough your [test coverage]({{site.baseurl}}/series/rspec/) is, 
 
 One day, you'll introduce a regression in your application, and you won't notice it straight away. When you finally realize you broke your feature, it can be hard to pinpoint where and when it happened. It's even harder when several people are working on the same application.
 
-Now is a good time to get acquainted with `git bisect`.
+Now is a good time to get acquainted with __`git bisect`__.
 
 Ready to time travel through your application?
 
@@ -150,6 +150,6 @@ Feeling adventurous? You can check the official documentation for [git bisect](h
 
 Cheers,
 
-Rémi
+Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
 
 [^1]: The time it takes for a quadratic search to perform is proportional to the squared size of its input. 10x the data take 100x more time. Hence it's Big 0 notation: `0(n^2)`.

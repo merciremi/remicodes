@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Working with tempfiles
+title: Working with tempfiles in Ruby
 date:   2020-01-28
 excerpt: "A while back, I needed to create XML files, send them to a distant server and delete them once the transfer completed. This is when I discovered Tempfiles and rejoiced in using Ruby."
 category: ruby
@@ -12,7 +12,7 @@ A while back, I needed to create XML files, send them to a distant server and de
 
 At first, I thought about creating those files into my app's `tmp` directory. Then, a cron job would run daily to delete them. It would have worked, but I wasn't very happy with it.
 
-So after looking on the internet, I came across the `Tempfile` object (and I - for the umpteenth time - rejoiced in using Ruby).
+So after looking on the internet, I came across the Ruby `Tempfile` object (and I - for the umpteenth time - rejoiced in [using Ruby as my main programming language]({{site.baseurl}}/series/ruby/)).
 
 <blockquote>
   Tempfile is a utility class for managing temporary files. It behaves just like a File object, and you can perform all the usual file operations on it: reading data, writing data, changing its permissions, etc.
@@ -21,7 +21,7 @@ So after looking on the internet, I came across the `Tempfile` object (and I - f
   </cite>
 </blockquote>
 
-## How-to tempfile?
+## How-to tempfile in Ruby?
 
 Let's create a simple example. First, I'll [create an object]({{site.baseurl}}/beginners-introduction-to-ruby-classes-objects/) that generates a tempfile when instantiated. Then I'll export it on demand.
 

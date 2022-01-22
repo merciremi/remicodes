@@ -8,7 +8,7 @@ category: 'ruby'
 cover_image: /media/2021/12/remi-mercier-dependency-injection-in-ruby.png
 ---
 
-Lately, I've been interested in abstractions: why objects behave the way they do, how do we architecture our code so it's open to change (without causing unnecessary headaches), to which class _that_ specific behavior should belong? And during that time, I've repeatedly heard folks talk about __dependency injection__.
+Lately, I've been interested in abstractions: why objects behave the way they do, how do we architecture our code so it's open to change (without causing unnecessary headaches), to which class _that_ specific behavior should belong? And during that time, I've repeatedly heard folks talk about __dependency injection__. Yet, dependency injection in Ruby is not widely covered.
 
 I'm glad to report that I've finally managed to wrap my head around this enough to use this practice regularly. I guess it's time for me to give you a tour of my current understanding of dependency injection: what it is, why do you need it, and how to use it?
 
@@ -247,6 +247,6 @@ Hope these closing thoughts will help!
 
 Cheers,
 
-Rémi
+Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
 
 [^1]: I've never managed to learn the meaning of all SOLID principles. I mean, an acronym that declines into five acronyms, that decline into cryptic principles.

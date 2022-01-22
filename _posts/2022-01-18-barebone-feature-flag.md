@@ -8,7 +8,7 @@ category: ['ruby', 'rails']
 cover_image: '/media/2022/01/remi-mercier-build-feature-flags-manager.png'
 ---
 
-When you deploy your code continuously, feature flags are a neat way to hide in-progress features from your users. In the past, I've written about [my process for releasing large features]({{site.baseurl}}/building-large-features-process/). But after using feature flags in the last six months, I've come to like them better than my former process.
+When you deploy your code continuously, feature flags (or feature toggles) are a neat way to hide in-progress features from your users. In the past, I've written about [my process for releasing large features]({{site.baseurl}}/building-large-features-process/). But after using feature flags in the last six months, I've come to like them better than my former process.
 
 Still, hiding behavior behind `if ENV['MY-FEATURE'].present?`-type conditionals bothers me.
 
@@ -383,6 +383,6 @@ Hope you liked this code-along as much as I did!
 
 Cheers,
 
-Rémi
+Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
 
 PS: Many thanks to [@NotGrm](https://twitter.com/NotGrm){:target="\_blank"}, [@sunfox](https://twitter.com/sunfox){:target="\_blank"}, [@_swanson](https://twitter.com/_swanson){:target="\_blank"}, and Kaloyan for their suggestions!

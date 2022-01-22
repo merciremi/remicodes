@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  'Fixing PGError: ERROR: column of relation already exists'
+title:  'Debugging PGError: ERROR: column of relation already exists'
 date:   2019-07-10
-excerpt: "How to fix a corrupted database's schema?"
+excerpt: "How do you fix a corrupted database's schema? Here's a hands-on tutorial on restoring your local database."
 category: 'other'
 permalink: /pgerror-restore-local-database/
 ---
@@ -69,3 +69,9 @@ run this into your terminal:
 {% endhighlight %}
 
 It'll identify the server already running and kill it.
+
+Hope this will help! If you need more tips and tricks, check out the rest of [the technical blog]({{site.baseurl}}/blog/).
+
+Cheers,
+
+Remi - [@mercier_remi](https://twitter.com/mercier_remi)

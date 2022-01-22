@@ -66,7 +66,7 @@ After three months on the job, I stopped checking the documentation every other 
 
 Getting to know the ropes of the codebase was tougher. I draw the schema and pasted it on my wall on my second day. But as soon as I was done, the team ran several migrations in production and my drawing was obsolete. Some parts of the codebase were easy to grasp. Some others, not so much. For instance, we have some controllers handling multiple steps with [Wicked](https://github.com/zombocom/wicked). And boy, those still give me the creeps every time I come near 'em. One of the solutions I've found: when I start working on some unfamiliar part of the codebase, I ask my senior teammates for a walk-through. What does it do? What's the necessary setup? What are the flows? What the hell is this method doing? This helps a lot.
 
-After nine months of writing tests, I now feel I'm getting my head around the basics of RSpec. I can draft a test suite in no time, and I can tell things apart more easily. More importantly, I now leverage tests to dig out bugs or code smells beforehand. And that, friend, is one hell of a feeling.
+After nine months of writing tests, I now feel I'm getting my head around the basics of RSpec. I can draft a test suite in no time, and I can tell things apart more easily. More importantly, I now leverage tests [to dig out bugs]({{site.baseurl/how-to-use-git-bisect/}}) or code smells beforehand. And that, friend, is one hell of a feeling.
 
 ### Some features I'm proud of
 
