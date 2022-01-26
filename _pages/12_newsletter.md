@@ -13,9 +13,10 @@ Some of the things I like to dig into:
   - How to grow your career as a software engineer with an unorthodox background.
   - How to foster a safe, inclusive, and gratifying remote work environment.
 
-Do you want to get an early copy of my posts? Then, sign-up!
-
-<div class='pink-arrow'></div>
+<p>
+  <strong>Do you want to get an early copy of my posts?</strong> Then, sign-up!
+  <img class='pink-arrow' src="{{ site.baseurl }}/media/shared/pink_arrow.png"/>
+</p>
 
 <section class="newsletter-lite">
   <div id="mc_embed_signup">

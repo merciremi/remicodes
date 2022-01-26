@@ -262,13 +262,15 @@ ul, ol {
 }
 
 .newsletter-lite {
-  width: 100%;
+  padding: 30px 50px 30px 50px;
+  background: url(/media/shared/golden-rectangle.png) no-repeat center;
+  background-size: 45vw;
   #mce-EMAIL {
     width: 66%;
     padding: 10px 10px 10px 10px;
     border: none;
     border-bottom: 3px solid $link-color;
-    background-color: $body-background-color-01;
+    background-color: $body-background-color-00;
     font-size: $body-font-size;
   }
   #mc-embedded-subscribe {
@@ -279,6 +281,41 @@ ul, ol {
     padding: 13px;
     margin: 10px;
     font-size: $body-font-size;
+  }
+  .newsletter-credits {
+    font-size: $smaller-font-size;
+  }
+  @media screen and (min-width: $break-large) {
+    width: 80vw;
+    position: relative;
+    left: calc(-40vw + 50%);
+    margin-top: 48px;
+    margin-bottom: 48px;
+    padding: 60px 36px 30px 36px;
+    text-align: center;
+    background-size: 50vw;
+  }
+  @media screen and (max-width: $break-medium) {
+    width: 90vw;
+    position: relative;
+    left: calc(-45vw + 50%);
+    margin-top: 48px;
+    margin-bottom: 48px;
+    padding: 30px 50px 30px 50px;
+    text-align: center;
+    background-size: 90vw;
+
+  }
+  @media screen and (max-width: $break-small) {
+    width: 90vw;
+    position: relative;
+    left: calc(-45vw + 50%);
+    background: url(/media/shared/newsletter-background-small.svg) no-repeat center;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    padding: 30px 50px 30px 50px;
+    text-align: center;
+    background-size: 90vw;
   }
 }
 
@@ -347,6 +384,14 @@ ul, ol {
 .newsletter-home {
   margin-top: 24px;
   margin-bottom: 18px;
+}
+
+.pink-arrow {
+  position: relative;
+  height: 60px;
+  margin-top: -50px;
+  right: 5px;
+  top: 50px;
 }
 
 .read-more {
