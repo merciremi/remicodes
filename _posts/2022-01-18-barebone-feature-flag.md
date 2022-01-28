@@ -386,3 +386,5 @@ Cheers,
 Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
 
 PS: Many thanks to [@NotGrm](https://twitter.com/NotGrm){:target="\_blank"}, [@sunfox](https://twitter.com/sunfox){:target="\_blank"}, [@_swanson](https://twitter.com/_swanson){:target="\_blank"}, and Kaloyan for their suggestions!
+
+PPS: John Nunemaker wrote a [Rebuttal and Addendum](https://www.johnnunemaker.com/hourly-feature-flags/){:target="\_blank"} to this post. John - whose blog I love - makes some great suggestions to better the feature flags manager. I like the idea of switching features during runtime without restarting your dynos. Obviously, as the creator of Flipper - a gem dedicated to flipping features - he’s created something much more comprehensive for people who need more control over their feature toggles.
