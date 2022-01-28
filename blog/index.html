@@ -1,0 +1,41 @@
+---
+layout: default
+title: Articles by Remi Mercier
+---
+
+<div class="m-b-60">
+  <h1>Sometimes, I write.</h1>
+  <p>I find joy <em>in building things</em>. Then, I find joy <em>in writing about what I've learned while building them</em>. Don't fancy getting updates through capricious algorithms? Grab the <a href="{{site.baseurl}}/feed.xml">RSS feed</a>.</p>
+</div>
+<section class="featured-container">
+  <div class="featured-main">
+    <a href="{{ site.baseurl }}/series/ruby" class="featured-serie featured-ruby">
+      <h3>Ruby is Magic</h3>
+      <p>Let’s take a peak at what makes Ruby so beautiful.</p>
+    </a>
+    <a href="{{ site.baseurl }}/series/rails" class="featured-serie featured-rails">
+      <h3>How Do You Rails?</h3>
+      <p>Tutorials for you to level-up your Ruby on Rails game.</p>
+    </a>
+    <a href="{{ site.baseurl }}/series/rspec" class="featured-serie featured-rspec">
+      <h3>RSpec Fundamentals</h3>
+      <p>Learn the basics of RSpec once and for all.</p>
+    </a>
+    <a href="{{ site.baseurl }}/series/career" class="featured-serie featured-career">
+      <h3>Career Growth</h3>
+      <p>Unorthodox opinions for developers with unorthodox backgrounds.</p>
+    </a>
+  </div>
+</section>
+
+<section class="archive">
+  {% for post in site.posts %}
+    <div class="m-b-48">
+      <h2>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h2>
+      <p>{{ post.excerpt }}</p>
+      <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
+    </div>
+  {% endfor %}
+</section>

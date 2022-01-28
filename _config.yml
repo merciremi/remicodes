@@ -17,21 +17,30 @@ title: Rémi Mercier
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   This is where I write (sometimes).
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://remimercier.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mercier_remi
 github_username:  merciremi
+author: Rémi Mercier
+
+collections:
+  scribbles:
+    output: false
+  fragments:
+    output: true
 
 # Build settings
 sass:
   sass_dir: _sass
-include: ['_pages']
+include: ['_pages', '_data']
 kramdown:
   input: GFM
+  auto_ids: true
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
