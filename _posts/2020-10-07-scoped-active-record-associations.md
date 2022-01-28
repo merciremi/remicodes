@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Scoped Active Record Associations
+title: Get started with ActiveRecord scoped associations
 date: 2020-10-07
-excerpt: "Active Record Associations are a great feature of Rails. But I had never thought of using them as scopes until last week! So let me show you a neat little trick that'll make your code much much more expressive (and keep your N+1 queries in check)."
+excerpt: "Active Record Associations are a great feature of Rails. But I never thought of using scopes with has_one or has_many associations until recently! So let me show you a neat little trick that'll make your code much much more expressive (and keep your N+1 queries in check)."
 category: 'rails'
 permalink: /scoped-active-record-associations/
 ---
@@ -91,7 +91,7 @@ What you see above are N+1 queries: one query for the author, one query for each
 
 Let's make our code more expressive and robust!
 
-## Scoped associations
+## Adding scopes to your has_one or has_many associations
 
 Remember our `available` scope?
 
@@ -126,7 +126,7 @@ It reads like plain English. Beautiful, isn't it?
 
 I also like that the model `Author` doesn't get to know about the internal logic of books' availability. This logic is encapsulated in the `Book` model because it only concerns books. Neat!
 
-## Scoped many-to-many associations
+## Many-to-many associations with scope
 
 What if our books have several authors? How do we scope through the `has_many` association?
 
