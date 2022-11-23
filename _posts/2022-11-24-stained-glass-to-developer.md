@@ -54,11 +54,9 @@ First, let me tell you how I _pitch_ my professional background.
 >
 > I got my first job right after the bootcamp, focused on creating maximum value for my team, and the rest is history.
 
-I am *very* proud of this story. It's linear to a fault, but it *works so well* and I can tell it under 2 minutes. It's a perfect pitch for interviews.
+I am *very* proud of this story. It's linear to a fault, but it *works* and I can tell it under 2 minutes. It's a perfect pitch for interviews.
 
 All the facts are true. The linearity is not.
-
-[dessin linéaire versus real life]
 
 Artists, companies, and people do this all the time. They select facts in their history and bundle them up in a nice crisp story. If you're someone with an unregular background, why not take a leaf out of their book?
 
@@ -70,6 +68,7 @@ The history - not the story - of my becoming a developer sounds more like a 10-y
  - librarian in various museums
  - multitasking free labor in galleries
  - freelance carpenter (although I had never worked with wood before)
+ - waiter
  - community manager
  - freelance art critic
  - back to being a librarian to pay the bills
@@ -84,6 +83,8 @@ The history - not the story - of my becoming a developer sounds more like a 10-y
  - finding the first job after +30 interviews
 
 My history is a succession of doubts, weird changes, veering off paths, circling back, being stuck in boring jobs, etc. There's no linearity. It's hard to explain, and it's hard to grasp.
+
+<img src="{{ site.baseurl }}/media/2022/11/remi-mercier-from-stained-glass-master-to-software-engineer-story-versus-history.png" alt="a drawing showing the difference in linearity between a story and the life it's based on">
 
 Does it make me a lesser professional? Not at all. I **know** these experiences give me an uncanny number of edges in my day-to-day practice.
 
@@ -121,11 +122,11 @@ When I decided to learn through a coding bootcamp, the first thing I did was to 
 
 Le Wagon requires a two-month full-time commitment. Sessions start at 9 am and until 7 pm. Evenings can fill up pretty quickly with late coding sessions, job fairs, talks from founders, etc. And when you have a family, you can't do that without getting an agreement first (at least, I wouldn't).
 
-Finding money was another subject that required time and organization. To pay for my tuition, I kept my marketing job for almost a year - even when I desperately wanted to quit - to stash up some money. I also negotiated a loan to pay for the bulk of my training. In France, people can be eligible to get monthly allowances when unemployed. But to get it, I needed to conduct successful negotiations with the company I was working for. And I could not have done this without support from my family,  friends, strangers, etc.
+Finding money was another subject that required time and organization. To pay for my tuition, I kept my marketing job for almost a year - even when I desperately wanted to quit - to stash up some money. I also negotiated a loan to pay for the bulk of my training. In France, people can be eligible to get monthly allowances when unemployed. But to get it, I needed to conduct successful negotiations with the company I was working for. And I could not have done this without the support from my family, friends and strangers.
 
-Testing the waters is also a good idea before committing to an all-in change. I tried coding static websites, MOOCs, online courses, and small-scoped side projects.
+Testing the waters is also a good idea before committing to an all-in change. I tried coding static websites, MOOCs, online courses, and small-scoped side projects. But I wasn't sure until I had spent three weeks coding fulltime at the bootcamp.
 
-Here, I can't be thankful enough to the people who helped me in this crucial (and fragile) moment. In 2016, a coworker spent hours answering my questions, explaining scripts, OOP, and Javascript constructors. He trusted my ability even when I did not.
+Here, I can't be thankful enough to the people who helped me in this crucial (and fragile) moment.
 
 Without support, I'm not sure I'd have taken the plunge.
 
