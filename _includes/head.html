@@ -55,9 +55,9 @@
 
   <!-- Cover image -->
   {% if page.cover_image %}
-    <meta content="{{ page.cover_image }}" property="og:image">
+    <meta content="{{ site.url }}{{ page.cover_image }}" property="og:image">
   {% else %}
-    <meta content="/media/remi-mercier.jpeg" property="og:image">
+    <meta content="{{ site.url }}/media/remi-mercier.jpeg" property="og:image">
   {% endif %}
 
   <!-- Twitter stuff -->
