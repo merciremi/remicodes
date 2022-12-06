@@ -1,6 +1,11 @@
 ---
 layout: post
 title: The never-ending days of DEI's importance
+excerpt: "A few weeks back, the creator of Ruby on Rails wrote a pamphlet rejoicing on - what appears to him as - the waning days of DEI's dominance. This rebuttal talks about how diversity, equity, and inclusion were, are, and will always be essential to workers."
+date: 2022-12-07
+permalink: /the-need-for-dei/
+category: 'other'
+cover_image: '/media/2022/12/remi-mercier-never-ending-days-of-dei-importance.png'
 ---
 
 A few weeks back, the creator of Ruby on Rails wrote a pamphlet rejoicing on - what appears to him as - the waning days of DEI's dominance.
@@ -30,9 +35,9 @@ DEI stems from the same roots as unions.
 
 People gather and fight for diversity because they are left out of the myth of meritocracy.
 
-Inherently, **DEI is the losers' team**. It's the people whose parents could not lend them $300,000 to start a business. It's the people who could not benefit from state-sponsored upper education. It's the people who begin the race miles behind those more privileged.
+Inherently, **DEI is the underdogs' team**. It's the people whose parents could not lend them $300,000 to start a business. It's the people who could not benefit from state-sponsored upper education. It's the people who begin the race miles behind those more privileged.
 
-I have to ask: **Can losers really dominate anything**?
+I have to ask: **Can underdogs really dominate anything**?
 
 Even unionized Amazon workers cannot force Jeff Bezos to share his control over Amazon with them. Social justice often works in small steps: get a $300 pay raise, exercise one's legal right to take a break to go to the bathroom, or [apply for fair loans based on one's revenues, not one's gender](https://twitter.com/dhh/status/1192540900393705474){:target="\_blank"}. These fights are small potatoes compared to the strides the corporate world takes to accumulate power and wealth.
 
@@ -128,5 +133,5 @@ Cheers,
 Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
 
 [^1]: "DHH goes off the Rails"
-[^2]: _Women_ as in people who identified with being a woman.
+[^2]: _Women_ as in people who identify with being a woman.
 [^3]: A manifesto that I like very much, by the way.
