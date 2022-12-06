@@ -22,7 +22,7 @@ Let's hit it.
 
 The corporate world might have pretended to look the other way for centuries, but **people who do not hold the keys to the castle have long gathered together to gain better leverage against the people who _do_ hold the keys**.
 
-Think of the British mid-18th century with the fight against nascent proletarianization, the French _Front Populaire_ which fought for the first paid vacations in 1936, or the 1960s civil rights movements in the US. Think of Amazon workers forming unions in 2021 who gathered support from progressive tech CTOs.
+Think of the British mid-18th century with the fight against nascent proletarianization, the French _Front Populaire_ which fought for the first paid vacations in 1936, or Mary Thomas who led the largest labour revolt in Danish colonial history in 19th century. Think of Amazon workers forming unions in 2021 who gathered support from progressive tech CTOs.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Fingers crossed for this drive to unionize Amazon warehouse workers 🤞❤️ <a href="https://t.co/QEpo47x9Hb">https://t.co/QEpo47x9Hb</a></p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/status/1376544493009301513?ref_src=twsrc%5Etfw">March 29, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -99,6 +99,8 @@ After promoting calmer (and saner) workplaces for years, David seems genuinely a
   Tech workers – from whom the DEI movement drew its most active and engaged disciples – no longer hold as much power over their place of employment as they once did.
   <cite>DHH</cite>
 </blockquote>
+
+Why so gleeful, David? Why a project for social justice that would benefit everyone is irritating you so much?
 
 Hopefully, power is dynamic. While workers - not just tech workers - might suffer from a fierce backlash by "the most fervent ideologues" of gross productivism, they're not just done yet.
 
