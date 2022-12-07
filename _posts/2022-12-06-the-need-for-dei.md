@@ -132,6 +132,8 @@ Cheers,
 
 Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
 
+ps: Thanks to [Sonia](https://twitter.com/wondersonja){:target="\_blank"}, [Yannick](https://twitter.com/bonjouryannick){:target="\_blank"} and [Alexandre](https://twitter.com/bankair){:target="\_blank"} for reading the successive drafts of this post.
+
 [^1]: "DHH goes off the Rails"
 [^2]: _Women_ as in people who identify with being a woman.
 [^3]: A manifesto that I like very much, by the way.
