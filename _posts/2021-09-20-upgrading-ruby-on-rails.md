@@ -12,7 +12,7 @@ For a long time, upgrading applications to newer versions of Ruby on Rails seeme
 
 Last July, I migrated an app from Rails 5.2 to Rails 6.0. A major upgrade, then.
 
-While upgrading the application, I wrote notes about the process, the tricky parts, etc. This is what I want to share with you today: a straightforward guide about upgrading Rails for those of you who never did it (yet!).
+While upgrading the application, I wrote notes about the process, the tricky parts, etc. This is what I want to share with you today: a straightforward guide about upgrading Ruby on Rails for those of you who never did it (yet!).
 
 I was lucky enough to be coached through the whole thing by one of my senior colleagues. So if you have to do it alone, I want this guide to be a companion of sorts to you.
 
@@ -30,7 +30,7 @@ I particularly liked the first couple of advice:
 
 ## The full process I went through
 
-### Upgrading Rails
+### Upgrading Ruby on Rails
 
 Here, I'll leave the path of the recommended process to explain what I went through. There's a lot of overlaps with the official guide, though.
 
