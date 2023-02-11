@@ -54,7 +54,7 @@ My first dev post, I published while still in a coding bootcamp. I usually get a
 
 If you already dig my posts, __this is the best way to get notified__. No capricious algorithm. Just plain old email.
 
-For me, __this newsletter is a two-way street__. Wen I say pen pals, I mean it. You invite me into your inbox. I invite you into mine. We share __a conversation__ and make even better contributions to the community.
+For me, __this newsletter is a two-way street__. When I say pen pals, I mean it. You invite me into your inbox. I invite you into mine. We share __a conversation__ and make even better contributions to the community.
 
 If you've never read any of my posts, go check my [technical blog]({{site.baseurl}}/blog/). I know __people appreciate my making complex topics easy to grasp__. I've been writing professionally for more than a decade and covered some pretty impenetrable tech stuff.
 
