@@ -5,10 +5,11 @@ permalink: /newsletter/
 cover_image: '/media/shared/remi-mercier-newsletter.png'
 ---
 
-__Each month__, I send an email to +100 developers __with my latest essay about what I learn while building awesome software__.
+__Each month__, I send an email to +150 developers __with my latest essay about what I learn while building awesome software__.
 
 Some of the things I like to dig into:
   - Ruby and Rails internals.
+  - Transversal tools like Git, RSpec, etc.
   - Teams and development processes.
   - How to grow your career as a software engineer with an unorthodox background.
   - How to foster a safe, inclusive, and gratifying remote work environment.

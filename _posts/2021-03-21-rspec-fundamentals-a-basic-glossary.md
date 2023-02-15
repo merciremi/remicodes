@@ -4,7 +4,7 @@ title: "RSpec fundamentals: a basic glossary"
 date: 2021-03-21
 excerpt: "RSpec syntax can be tricky to get at first. Here's a glossary of the keywords you'll use the most when testing with RSpec: describe, subject, let vs let!, it, context, etc..."
 permalink: /rspec-fundamentals-glossary/
-category: 'rspec fundamentals'
+category: rspec
 cover_image: /media/2021/03/rspec-fundamentals-glossary-remi-mercier.gif
 ---
 
