@@ -12,6 +12,9 @@ excerpt: "Looking for my Ruby on Rails tutorials and posts? You've come to the r
     <img src="{{ site.baseurl }}/media/shared/golden-mountain.svg">
   </div>
   <h1 class="serie-title">A Ruby on Rails blog</h1>
+  <div class="breadcrumbs">
+    <p><a href="{{ site.baseurl }}/blog">← Return to the complete archive</a></p>
+  </div>
   <p>
     Hello, fellow Ruby on Rails programmer. <em>Looking for my Ruby on Rails tutorials and posts?</em> You've come to the right place.
   </p>

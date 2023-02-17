@@ -35,6 +35,15 @@ blockquote {
     margin: 0px;
   }
 }
+.callout {
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding: 18px;
+  border-left: 5px $link-color solid;
+  background-color: $body-background-color-01;
+  color: $font-color;
+  line-height: $list-line-height;
+}
 
 body {
   font-size: $body-font-size;

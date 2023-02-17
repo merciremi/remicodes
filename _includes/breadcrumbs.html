@@ -1,3 +1,9 @@
 <div class="breadcrumbs">
-  <a href="{{ site.baseurl }}/blog">← Return to blog</a>
+  {% if page.category == 'other' %}
+    <a href="{{ site.baseurl }}/blog">← Return to the complete archive</a>
+  {% elsif page.category.size == 2 %}
+    <a href="{{ site.baseurl }}/series/{{page.category.first}}">← Return to the {{page.category.first | capitalize}} blog</a>
+  {% else %}
+    <a href="{{ site.baseurl }}/series/{{page.category}}">← Return to the {{page.category | capitalize}} blog</a>
+  {% endif %}
 </div>

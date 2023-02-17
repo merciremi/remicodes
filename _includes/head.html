@@ -3,7 +3,13 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title }} - Remi Mercier{% else %}{{ site.title }} - Maker & Rails Developer{% endif %}</title>
+  <title>
+    {% if page.title %}
+      {{ page.title }} - Remi Mercier
+    {% else %}
+      {{ site.title }} - Maker & Maker & Ruby on Rails Software Engineer
+    {% endif %}
+  </title>
 
   <link rel="stylesheet" href="{{ '/css/main.css' | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
@@ -17,50 +23,50 @@
   <!---------------->
 
   <!-- Site title -->
-  <meta content="{{ site.title }} - Maker & Rails Developer" property="og:site_name">
+  <meta property="og:site_name" content="{{ site.title }} - Maker & Ruby on Rails Software Engineer">
 
   <!-- Page title -->
   {% if page.title %}
-    <meta content="{{ page.title }} - Remi Mercier - Maker & Rails Developer" property="og:title">
+    <meta property="og:title" content="{{ page.title }} - Remi Mercier - Maker & Ruby on Rails Software Engineer">
   {% else %}
-    <meta content="{{ site.title }} - Maker & Rails Developer" property="og:title">
+    <meta property="og:title" content="{{ site.title }} - Maker & Ruby on Rails Software Engineer">
   {% endif %}
 
   <!-- Type of content -->
   {% if page.title %}
-    <meta content="article" property="og:type">
+    <meta property="og:type" content="article">
   {% else %}
-    <meta content="website" property="og:type">
+    <meta property="og:type" content="website">
   {% endif %}
 
   <!-- Excerpt -->
   {% if page.excerpt %}
-    <meta content="{{ page.excerpt }}" property="og:description">
+    <meta property="og:description" content="{{ page.excerpt }}">
   {% else %}
-    <meta content="{{ site.description }}" property="og:description">
+    <meta property="og:description" content="{{ site.description }}">
   {% endif %}
 
   <!-- Url -->
   {% if page.url %}
-    <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   {% endif %}
 
   <!-- Author -->
-  <meta content="{{ site.url }}/about/" property="article:author">
+  <meta property="article:author" content="{{ site.url }}/about/">
 
   <!-- Date -->
   {% if page.date %}
-    <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
   {% endif %}
 
   <!-- Cover image -->
   {% if page.cover_image %}
-    <meta content="{{ site.url }}{{ page.cover_image }}" property="og:image">
+    <meta property="og:image" content="{{ site.url }}{{ page.cover_image }}">
   {% else %}
-    <meta content="{{ site.url }}/media/remi-mercier.jpeg" property="og:image">
+    <meta property="og:image" content="{{ site.url }}/media/remi-mercier.jpeg">
   {% endif %}
 
-  <!-- Twitter stuff -->
+  <!-- Twitter -->
   <meta name="twitter:site" content="@mercier_remi">
   <meta name="twitter:creator" content="@mercier_remi">
   {% if page.cover_image %}

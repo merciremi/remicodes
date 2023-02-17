@@ -17,6 +17,3 @@ Fragments are works in progress, rough notes, and early drafts that might end up
     </h4>
   </div>
 {% endfor %}
-
-
-{{ site.collections | where_exp:"collection", "collection.permalink contains 'garden'" }}

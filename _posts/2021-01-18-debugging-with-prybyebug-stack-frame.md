@@ -3,7 +3,7 @@ layout: post
 title: "Debugging with pry-byebug: moving in the stack frame"
 date: 2021-01-18
 excerpt: "Time to level up your debugging game with frames, adding breakpoints on the fly, and some handy shortcuts."
-category: 'other'
+category: 'debugging'
 permalink: /pry-byebug-intermediate/
 ---
 

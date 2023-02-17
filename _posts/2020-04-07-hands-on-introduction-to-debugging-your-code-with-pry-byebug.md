@@ -3,7 +3,7 @@ layout: post
 title: A hands-on tutorial to debugging your code with pry-byebug
 date: 2020-04-07
 excerpt: "Like most new developers, I started as a puts developer. Then, I discovered pry-byebug and debugging things got a lot easier. This is a beginner-level, hands-on, introduction to debbuging your code with pry-byebug. Behold the power of binding.pry!"
-category: 'other'
+category: 'debugging'
 permalink: /pry-byebug-tutorial/
 ---
 

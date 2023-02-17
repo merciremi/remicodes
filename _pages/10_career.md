@@ -2,6 +2,7 @@
 layout: default
 title: Career Growth
 permalink: /series/career/
+excerpt: "Looking for my Career Growth posts? You've come to the right place! This is where I blog about building a great career as a software developer."
 ---
 
 {% assign posts = site.posts | where: "category", "career" %}
@@ -11,6 +12,9 @@ permalink: /series/career/
     <img src="{{ site.baseurl }}/media/shared/stormy-river.svg">
   </div>
   <h1 class="serie-title">Career Growth</h1>
+  <div class="breadcrumbs">
+    <p><a href="{{ site.baseurl }}/blog">← Return to the complete archive</a></p>
+  </div>
   <p>There are <strong>{{ posts.size }}</strong> posts in this series.</p>
 </div>
 

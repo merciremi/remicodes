@@ -1,23 +1,23 @@
 ---
 layout: default
-title: RSpec Blog
-permalink: /series/rspec/
-excerpt: "Looking for my RSpec tutorials and posts? You've come to the right place! This is where I blog about building applications with RSpec."
+title: A blog about debugging
+permalink: /series/debugging/
+excerpt: "Looking for my debugging tutorials and posts? You've come to the right place! This is where I blog about troubleshooting and debugging applications."
 ---
 
-{% assign posts = site.posts | where: "category", "rspec" %}
+{% assign posts = site.posts | where: "category", "debugging" %}
 
 <div class="m-b-72">
   <div class="serie-icon">
     <img src="{{ site.baseurl }}/media/shared/brown-rock.svg">
   </div>
-  <h1 class="serie-title">A blog about RSpec</h1>
+  <h1 class="serie-title">I ❤️ debugging</h1>
   <div class="breadcrumbs">
     <p><a href="{{ site.baseurl }}/blog">← Return to the complete archive</a></p>
   </div>
-  <p>Hello, fellow RSpec tester. <em>Looking for my RSpec posts and tutorials?</em> You've come to the right place!</p>
+  <p>Hello, fellow debuggers and troubleshooters. <em>Looking for my posts and tutorials about debugging your applications?</em> You've come to the right place!</p>
   <p>
-    This is where <strong>I gather all the blog's entries about Rspec</strong>. There are currently <strong>{{ posts.size }} posts about RSpec</strong> in this series.
+    This is where <strong>I gather all the blog's entries about debugging</strong>. There are currently <strong>{{ posts.size }} posts</strong> in this series.
   </p>
 </div>
 

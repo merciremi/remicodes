@@ -4,7 +4,7 @@ title: "Introduction to Git Bisect: travel through time and bugs"
 excerpt: "No matter how thorough your test coverage is, you can't test everything. So when you introduce a bug in your application, git bisect will help you zero in on your regression's origin."
 date: 2021-10-20
 permalink: /how-to-use-git-bisect/
-category: 'other'
+category: 'debugging'
 cover_image: /media/2021/10/remi-mercier-how-to-use-git-bisect.png
 ---
 

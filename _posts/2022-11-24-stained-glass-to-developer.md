@@ -4,7 +4,7 @@ title: "From stained-glass master to software engineer: it starts with a mess"
 excerpt: "Changing careers is a long, often-overlooked process. But I want to share both the (linear) story and the (messy) history of how I became a software engineer. And as a lot of good stories, mine always starts with a lie."
 date: 2022-11-24
 permalink: /from-stained-glass-master-to-software-developer/
-category: ['career']
+category: career
 cover_image: '/media/2022/11/from-stained-glass-master-to-software-engineer-part-1-remi-mercier.png'
 ---
 

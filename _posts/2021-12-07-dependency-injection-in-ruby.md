@@ -8,7 +8,7 @@ category: 'ruby'
 cover_image: /media/2021/12/remi-mercier-dependency-injection-in-ruby.png
 ---
 
-Lately, I've been interested in abstractions: why objects behave the way they do, how do we architecture our code so it's open to change (without causing unnecessary headaches), to which class _that_ specific behavior should belong? And during that time, I've repeatedly heard folks talk about __dependency injection__. Yet, dependency injection in Ruby is not widely covered.
+Lately, I've been interested in abstractions: why objects behave the way they do, how do we architecture our code so it's open to change (without causing unnecessary headaches), to which class _that_ specific behavior should belong? And during that time, I've repeatedly heard folks talk about __dependency injection__. Yet, dependency injection in Ruby is not widely covered. **What is a dependency injection in Ruby?**
 
 I'm glad to report that I've finally managed to wrap my head around this enough to use this practice regularly. I guess it's time for me to give you a tour of my current understanding of dependency injection: what it is, why do you need it, and how to use it?
 
@@ -239,7 +239,9 @@ I could use the modularity of injection like this:
 
 So, the definition of dependency injection I gave earlier is misleading.
 
-<blockquote>Dependency injection is a coding practice that allows you <bold>to require</bold> a dependency from the guts of a class to the right moment in the life of an object.</blockquote>
+To summarize, **here's a revised definition of what dependency injection in Ruby is**:
+
+<p class='callout'>Dependency injection is a coding practice that allows you <strong>to require a dependency</strong> from the guts of a class to the right moment in the life of an object.</p>
 
 Dependency injection is not a panacea either. Sometimes, it'll be the right tool for the job. Sometimes, it'll take deeper refactoring to loosen your code coupling.
 

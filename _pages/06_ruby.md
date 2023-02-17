@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Ruby
+title: Ruby Blog
 permalink: /series/ruby/
+excerpt: "Looking for my Ruby tutorials and posts? You've come to the right place! This is where I blog about building applications with Ruby."
 ---
 
 {% assign posts = site.posts | where: "category", "ruby" %}
@@ -11,6 +12,9 @@ permalink: /series/ruby/
     <img src="{{ site.baseurl }}/media/shared/pinkish-sun.svg">
   </div>
   <h1 class="serie-title">A Ruby Blog</h1>
+  <div class="breadcrumbs">
+    <p><a href="{{ site.baseurl }}/blog">← Return to the complete archive</a></p>
+  </div>
   <p>Hello, fellow Ruby programmer. <em>Looking for my Ruby posts and tutorials?</em> You've come to the right place!</p>
   <p>
     This is where <strong>I gather all the blog's entries about Ruby</strong>. There are currently <strong>{{ posts.size }} posts about Ruby</strong> in this series.
