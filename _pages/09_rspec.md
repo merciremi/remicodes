@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RSpec Blog
+title: RSpec Tutorials and Fundamentals
 permalink: /series/rspec/
 excerpt: "Looking for my RSpec tutorials and posts? You've come to the right place! This is where I blog about building applications with RSpec."
 ---
@@ -11,7 +11,7 @@ excerpt: "Looking for my RSpec tutorials and posts? You've come to the right pla
   <div class="serie-icon">
     <img src="{{ site.baseurl }}/media/shared/brown-rock.svg">
   </div>
-  <h1 class="serie-title">A blog about RSpec</h1>
+  <h1 class="serie-title">RSpec tutorials</h1>
   <div class="breadcrumbs">
     <p><a href="{{ site.baseurl }}/blog">← Return to the complete archive</a></p>
   </div>

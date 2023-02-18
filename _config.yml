@@ -14,9 +14,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Rémi Mercier
-email:
+email: hello@remimercier.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This is where I write (sometimes).
+  The blog of Rémi Mercier, Ruby on Rails software engineer.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://remimercier.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mercier_remi
