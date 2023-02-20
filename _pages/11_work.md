@@ -99,3 +99,7 @@ But, seriously? Right now, I'm happy moving up the IC track. (By the way, do you
 
 Of late, I've fallen into the tech-bro coffee-nerd cliché. So, I'd say a lightly roasted coffee with notes of acidity and floral scents. In a thin-brimmed cup, please. I won't say no to a cup of Genmaicha, though.
 
+## Sounds good?
+
+Then <a href="mailto:hello@remimercier.com">let's chat</a>!
+
