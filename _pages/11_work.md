@@ -71,31 +71,31 @@ I've realized, over the past 20 years, that the recruiting process is a good pre
 
 ## FAQ
 
-### Would you relocate to ______?
+### Q: Would you relocate to ______?
 
 No, I wouldn't.
 
 I've been working remotely for the past four years and **I intend to keep it that way for the foreseeable future**.
 
-### Are you willing to come to the office from time to time?
+### Q: Are you willing to come to the office from time to time?
 
 For the past three years, **I've come to the office once a year**. And to be honest, I think it's more than enough. I've learned more about my colleague remotely than in person. This is where building a solid remote culture is key.
 
 However, I'll be happy to come for a few days, as much as **once a quarter**, as long as travel expenses are covered by the company.
 
-### In-office of remotely?
+### Q: In-office of remotely?
 
 Same answer as the previous question: I'll only consider full remote positions.
 
 Remote working has been a godsend for me. You often won't find me in my chair at 11 am because I'm outside. Why would I get out in the middle of the morning? Well, there are plenty of reasons: to get a renewed perspective on a technical challenge, to take the kids to the doctor, or to run an errand.
 
-### Where do you see yourself in 5 years?
+### Q: Where do you see yourself in 5 years?
 
 I'm [a former stained-glass master turned developer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/). I think this answers the question, right?
 
 But, seriously? Right now, I'm happy moving up the IC track. (By the way, do you have an IC track at your company?)
 
-### Tea or coffee?
+### Q: Tea or coffee?
 
 Of late, I've fallen into the tech-bro coffee-nerd cliché. So, I'd say a lightly roasted coffee with notes of acidity and floral scents. In a thin-brimmed cup, please. I won't say no to a cup of Genmaicha, though.
 
