@@ -50,19 +50,19 @@ In terms of technical challenges:
 - Shaping features based on users' needs and companies' goals.
 - Improve tooling and engineering standards.
 
-In term of working environment:
+In terms of the working environment:
 - Calm companies: Clear processes over chaos, emails over meetings, product clarity over investor-pleasing roadmaps, deep focus over long hours.
-- Warm, kind, supportive colleagues in an high-trust environment.
-- Working within a diverse team with various backgrounds and expertises.
+- Warm, kind, supportive colleagues in a high-trust environment.
+- Working within a diverse team with various backgrounds and expertise.
 - Fully remote.
 - 4-day work week.
 
 ## How do I like to interview companies?
 
-- My favourite technical tests are remote live codings where we hash out a real-life challenge: Build a tested API or add a feature to an existing codebase with a preliminary refactoring.
-- I like to talk to several people, both from my future team and other teams.
-- I ask a lot of questions about your investors, your financial strength, how you resolved conflicts, etc...
-- I usually back-channel my way into your employees' DMs to get a less "corporate-y" sense of your company.
+- My favorite technical tests are remote live codings where we hash out a real-life challenge: Build a tested API or add a feature to an existing codebase with preliminary refactoring.
+- I like meeting with several people from my future team and other teams.
+- I ask questions about your investors, your financial strength, or how you resolved conflicts.
+- I usually back-channel my way into your employees’ DMs to get a less “corporate-y” sense of your company.
 - [A reject fast, reject early mentalilty](https://juanitofatas.com/reject-fast-reject-early){:target="\_blank"}.
 
 Remember, I'm interviewing you as much as you're interviewing me.
@@ -75,19 +75,19 @@ I've realized, over the past 20 years, that the recruiting process is a good pre
 
 No, I wouldn't.
 
-I've been working remotely for the past four years and **I intend to keep it that way for the foreseeable future**. And since you brooched the subject, why would you keep offices when you can attract talents from everywhere?
+I've been working remotely for the past four years and **I intend to keep it that way for the foreseeable future**.
 
 ### Are you willing to come to the office from time to time?
 
-For the past three years, **I've come once a year in the office**. And to be honest, I think it's more than enough. I've learned more about my colleague remotely than in person. This is where building a solid remote culture is key.
+For the past three years, **I've come to the office once a year**. And to be honest, I think it's more than enough. I've learned more about my colleague remotely than in person. This is where building a solid remote culture is key.
 
-But, I'll be happy to come for a couple of days as much as **once a quarter**, as long as travel expenses are covered by the company.
+However, I'll be happy to come for a few days, as much as **once a quarter**, as long as travel expenses are covered by the company.
 
 ### In-office of remotely?
 
-Same answer as the previous question: fully remote positions only.
+Same answer as the previous question: I'll only consider full remote positions.
 
-Remote working has proven a godsend for me. I'm not your typical 9-5 worker. You often won't find me in my chair at 11am because I'm outside. Why would I get outside in the middle of the morning? Well, many reasons really: getting a fresh perspective on a technical challenge (a.k.a. Get outside instead of smashing your head on your keyboard), taking the kiddos to the river because it's beautiful outside, run an errand because shops are closed outside of working hours in my small town.
+Remote working has been a godsend for me. You often won't find me in my chair at 11 am because I'm outside. Why would I get out in the middle of the morning? Well, there are plenty of reasons: to get a renewed perspective on a technical challenge, to take the kids to the doctor, or to run an errand.
 
 ### Where do you see yourself in 5 years?
 
@@ -97,5 +97,5 @@ But, seriously? Right now, I'm happy moving up the IC track. (By the way, do you
 
 ### Tea or coffee?
 
-Of late, I've fallen into the tech-bro coffee-nerd cliché. So, I'd say a coffee lighlty roasted (for a V60) with notes of acidity and floral scents. In a thin brimed cup. But I won't say no to a cup of Genmaicha.
+Of late, I've fallen into the tech-bro coffee-nerd cliché. So, I'd say a lightly roasted coffee with notes of acidity and floral scents. In a thin-brimmed cup, please. I won't say no to a cup of Genmaicha, though.
 
