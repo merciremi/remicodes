@@ -10,13 +10,13 @@ permalink: /work/
 
 I'm a Ruby on Rails programmer, a writer, and a former stained-glass master (yup).
 
-I've been a professional developer for the past four and a half years, **mainly focusing on back-end programming**. Before being a software engineer, I held an awful lot of positions, both in tech and non-tech fields for almost 15 years. If you're interested, you can read the whole story of [how I switched careers]({{site.baseurl}}/from-stained-glass-master-to-software-developer/).
+I've been a professional developer for the past four and a half years, **mainly focusing on back-end programming**. Before being a software engineer, I held an awful lot of positions, both in tech and non-tech fields for almost 15 years. It's quite the story! If you're interested, I've wrote about [how I transitioned from being a stained-glass maker to a being a software programmer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/).
 
 My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git, etc.
 
 I like majestic monoliths. I think they work very well for 99% of companies. But when needed, I've shipped micro-services in production as well (relying on Kafka).
 
-Despite focusing on back-end programming, I also worked on some front-end for a couple of years. I know my way around HTML, CSS and Javascript. I've also dabbled in Javascript frameworks - Vue, React and their Rails' alternative, Hotwire.
+Despite focusing on back-end programming, I also studied and worked on some front-end for a few years. I know my way around HTML, CSS and Javascript. I've also dabbled in Javascript frameworks - Vue, React and their Rails' alternative, Hotwire.
 
 As I've moved up the **Individual Contributor** path, my daily contributions now revolve around:
 - designing and implementing features,
@@ -87,7 +87,7 @@ For the past three years, **I've come to the office once a year**. And to be hon
 
 ### Q: Where do you see yourself in 5 years?
 
-Every time I tried to answer this question, I ended up somewhere unexpected. After all, I'm [a former stained-glass master turned developer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/). It thinks for itself, right?
+Every time I tried to answer this question, I ended up somewhere unexpected. After all, I'm [a former stained-glass master turned developer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/). It speaks for itself, right?
 
 Right now, I enjoy moving up the IC track. (By the way, do you have an IC track at your company?)
 
