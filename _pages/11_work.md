@@ -12,11 +12,11 @@ I'm a Ruby on Rails programmer, a writer, and a former stained-glass master (yup
 
 I've been a professional developer for the past four and a half years, **mainly focusing on back-end programming**. Before being a software engineer, I held an awful lot of positions, both in tech and non-tech fields for almost 15 years. If you're interested, you can read the whole story of [how I switched careers]({{site.baseurl}}/from-stained-glass-master-to-software-developer/).
 
-My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git etc. Boring, as in *I don't get hyped by every new fancy framework sent my way*.
+My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git, etc.
 
-I like majestic monoliths. I think they work very well for 99% of companies. But when needed, I've shipped micro-services in production as well (relying of Kafka).
+I like majestic monoliths. I think they work very well for 99% of companies. But when needed, I've shipped micro-services in production as well (relying on Kafka).
 
-Despite focusing on back-end programming, I also enjoy making shiny front-end code (as long as it's not my main occupation). I know my way around HTML and CSS. I've also dabbled in Javascript frameworks - Vue and React (even if I don't like using them).
+Despite focusing on back-end programming, I also worked on some front-end for a couple of years. I know my way around HTML, CSS and Javascript. I've also dabbled in Javascript frameworks - Vue, React and their Rails' alternative, Hotwire.
 
 As I've moved up the **Individual Contributor** path, my daily contributions now revolve around:
 - designing and implementing features,
@@ -26,7 +26,7 @@ As I've moved up the **Individual Contributor** path, my daily contributions now
 - [increasing code coverage]({{site.baseurl}}/series/rspec/),
 - interacting with databases,
 - [troubleshooting]({{site.baseurl}}/series/debugging/),
-- [mentoring junior developers]({{site.baseurl}}/series/carreer/),
+- [mentoring junior developers]({{site.baseurl}}/series/career/),
 - documenting practices and processes,
 - and so much more.
 
@@ -53,7 +53,7 @@ In terms of technical challenges:
 In terms of the working environment:
 - Calm companies: Clear processes over chaos, emails over meetings, product clarity over investor-pleasing roadmaps, deep focus over long hours.
 - Warm, kind, supportive colleagues in a high-trust environment.
-- Working within a diverse team with various backgrounds and expertise.
+- Working within [a diverse team]({{site.baseurl}}/the-need-for-dei/) with various backgrounds and expertise.
 - Fully remote.
 - 4-day work week.
 
@@ -65,35 +65,31 @@ In terms of the working environment:
 - I usually back-channel my way into your employees’ DMs to get a less “corporate-y” sense of your company.
 - [A reject fast, reject early mentalilty](https://juanitofatas.com/reject-fast-reject-early){:target="\_blank"}.
 
-Remember, I'm interviewing you as much as you're interviewing me.
+For me, interviews are a two-way street. You get to know me. I get to know you.
 
-I've realized, over the past 20 years, that the recruiting process is a good preview of what I can expect as an employee. It shows the quality (or lack thereof) of your processes, your priorities, how you handle requests, etc...
+I've realized, over the past 20 years, that the recruiting process is a good preview of what I can expect as a collaborator. It shows the quality of your processes, your priorities, how you handle requests, etc...
 
 ## FAQ
 
-### Q: Would you relocate to ______?
-
-No, I wouldn't.
+### Q: In-office or remotely?
 
 I've been working remotely for the past four years and **I intend to keep it that way for the foreseeable future**.
+
+Remote working has been a godsend for me. You often won't find me in my chair at 11 am because I'm walking around the house or outside. Why would I get out in the middle of the morning? Well, there are plenty of reasons: to get a renewed perspective on a technical challenge, to take the kids to the doctor, or to run an errand.
+
+### Q: Would you relocate to ______?
+
+No, I love living near the mountains so very much. **I'll only consider fully remote positions.**
 
 ### Q: Are you willing to come to the office from time to time?
 
 For the past three years, **I've come to the office once a year**. And to be honest, I think it's more than enough. I've learned more about my colleague remotely than in person. This is where building a solid remote culture is key.
 
-However, I'll be happy to come for a few days, as much as **once a quarter**, as long as travel expenses are covered by the company.
-
-### Q: In-office of remotely?
-
-Same answer as the previous question: I'll only consider full remote positions.
-
-Remote working has been a godsend for me. You often won't find me in my chair at 11 am because I'm outside. Why would I get out in the middle of the morning? Well, there are plenty of reasons: to get a renewed perspective on a technical challenge, to take the kids to the doctor, or to run an errand.
-
 ### Q: Where do you see yourself in 5 years?
 
-I'm [a former stained-glass master turned developer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/). I think this answers the question, right?
+Every time I tried to answer this question, I ended up somewhere unexpected. After all, I'm [a former stained-glass master turned developer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/). It thinks for itself, right?
 
-But, seriously? Right now, I'm happy moving up the IC track. (By the way, do you have an IC track at your company?)
+Right now, I enjoy moving up the IC track. (By the way, do you have an IC track at your company?)
 
 ### Q: Tea or coffee?
 
@@ -102,4 +98,3 @@ Of late, I've fallen into the tech-bro coffee-nerd cliché. So, I'd say a lightl
 ## Sounds good?
 
 Then <a href="mailto:hello@remimercier.com">let's chat</a>!
-
