@@ -16,8 +16,6 @@ My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]
 
 I like majestic monoliths. I think they work very well for 99% of companies. But when needed, I've shipped micro-services in production as well (relying on Kafka).
 
-Despite focusing on back-end programming, I also studied and worked on some front-end for a few years. I know my way around HTML, CSS and Javascript. I've also dabbled in Javascript frameworks - Vue, React and their Rails' alternative, Hotwire.
-
 As I've moved up the **Individual Contributor** path, my daily contributions now revolve around:
 - designing and implementing features,
 - writing specifications,
@@ -31,6 +29,8 @@ As I've moved up the **Individual Contributor** path, my daily contributions now
 - and so much more.
 
 <!-- add some of the coolest things I've done -->
+
+Despite focusing on back-end programming, I also studied and worked on some front-end for a few years. I know my way around HTML, CSS and Javascript. I've also dabbled in Javascript frameworks - Vue, React and their Rails' alternative, Hotwire.
 
 I also run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... As of 2022, *more than 18,700 unique visitors visited this website*. Some articles even got me invited on [podcasts]({{site.baseurl}}/talks/).
 
