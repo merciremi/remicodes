@@ -89,6 +89,11 @@ figure {
   }
 }
 
+figcaption {
+  font-size: $smaller-font-size;
+  text-align: center;
+}
+
 figure.highlight {
   width: 45vw;
   margin: 18px auto 30px auto;
