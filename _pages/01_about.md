@@ -2,6 +2,7 @@
 layout: page
 title: "👋 Hey, I'm Rémi"
 permalink: /about/
+cover_image: '/media/shared/about/remi-mercier-out-of-focus.jpeg'
 ---
 
 First, let's address the elephant in the room:
