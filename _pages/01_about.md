@@ -1,82 +1,90 @@
 ---
 layout: page
-title: About Rémi
+title: "👋 Hey, I'm Rémi"
 permalink: /about/
 ---
 
-👋 Hi, my name is Remi Mercier (`ray · me · mercy · 'ey `).
+First, let's address the elephant in the room:
 
-Without further ado, here are a few things you might want to know about me.
+*"How are we supposed to pronouce your name, Rémi?"*
 
-**I...**
+Fear not, I'm here to help.
 
-- am a former stained glass maker specialized in conservation and restoration,
-- drew infographics for grassroot organizations for two years,
-- spearheaded inbound marketing for an open data startup for four years,
-- developed [harry.team](http://harry.team){:target="\_blank"} and [Strike it](https://strike-it.herokuapp.com/){:target="\_blank"} after attending the Wagon Ruby on Rails bootcamp,
-- teached Ruby, Rails and much much more @Le Wagon Paris,
-- live in Paris, tweet my coding sprees and headaches on [Twitter](https://twitter.com/mercier_remi){:target="\_blank"},
-- build wooden furniture on my balcony.
+So, my full name is <strong>Rémi Mercier</strong>. It's pronounced: `ray · me · mercy · 'ey `.
 
-That's it for now. Want to know more? Here's [what I'm doing right now]({{site.baseurl}}/now) and some kind of resume down there 👇.
+If you want to pronouce it like I do, you’ll have to roll those Rs.
 
-## What have I done these past few years?
+Now that you're *baguette*-ready, let us dive in.
 
-### Work things:
+## Who am I?
 
-👉 **Fullstack developer: [Hosman](https://hosman.co){:target="\_blank"}, 2019-2020**
-I designed, coded, and shiped to production [https://hosman.co](https://hosman.co){:target="\_blank"}, an app to streamline real estate transactions.
+I’m an (almost) forty-year old programmer, writer, and former stained-glass master (yep).
 
-Some cool features:
-  - Replicate properties’ advert across ~40 real estate portals with one click.
-  - MVP-ish CRM to gather potential buyers’ details, etc...
+<figure>
+  <img src="{{ site.baseurl }}/media/shared/about/remi-mercier-out-of-focus.jpeg" alt='an out-of-focus picture of my face'/>
+  <figcaption>An out-of-focus picture of my face (shot by my kiddos with a Prima Twin S)</figcaption>
+</figure>
 
-Those save the sales team more than 5,000 hours per annum in terms of workload (as of 2020).
+Mountainous *Drôme* has been my family's home for the past 3 years. I love living there: quiter pace, beautiful landscapes and *amazing* food.
 
-👉 **Teacher: Le Wagon Paris, 2018**
-Helping out students coding their way through the first four weeks of the coding bootcamp:
+<figure>
+  <img src="{{ site.baseurl }}/media/shared/about/les-trois-becs.jpeg" alt='a view of a foggy mountain from afar'/>
+</figure>
 
-- Ruby and programming basics
-- OOP and MVC design pattern
-- Database design and SQL
-- Projects
+You'll often find me walking those slopes, even at the most egregious time (a.k.a when I'm supposed to be working).
 
-<section>
- <u>Some alumnis' opinions:</u>
-  {% for testimonial in site.data.testimonials %}
-    <blockquote>
-      {{testimonial.content}}
-      <cite>
-        <img src="{{testimonial.profile_pic}}" alt="">
-        <a href="https://github.com/{{testimonial.github}}/">{{testimonial.first_name}} - batch {{testimonial.batch}}</a>
-      </cite>
-    </blockquote>
+## Main occupation: software engineer
 
-  {% endfor %}
-</section>
+I've been a professional developer for the past four and a half years, **mainly focusing on back-end programming**. Before being a software engineer, I held an awful lot of positions, both in tech and non-tech fields for almost 15 years.
 
-👉 **Lead Generation Manager: OpenDataSoft, 2014-2018**
-OpenDataSoft is a B2B SaaS that allows non-technical users to turn structured data into REST APIs and visualizations.
+I was a stained-glass maker for fours years. Moved on to museums and art galleries. Switched to marketing for tech start-ups. Then ended-up doing programming.
 
-- Developed a lead generation pipeline from the ground up generating +600,000€ ARR.
-- Coded opendatainception.io using an open source AngularJS widgets library and OpenDataSoft API to grow traffic acquisition. +100,000 unique visitors to date.
-- Learnt technical workflow to maintain websites and projects: git, Github, code reviews, deployment, etc.
+Interested in the professional side of things? Head over to [the dedicated page]({{site.baseurl}}/work/).
 
-👉 **Digital Marketing Consultant: RMMRCR, 2012-2014**
-Focused on strategies to create and leverage content across social media for grassroot organizations. Specialized in infographics explaining complex subjects such as the Common Agricultural Policy.
+## Writing
 
-### Education stuff:
+I run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... As of 2022, *more than 18,700 unique visitors visited this website*. Some articles even got me invited on [podcasts]({{site.baseurl}}/talks/).
 
-👉 **Fullstack Development Bootcamp (Batch #145): Le Wagon Paris, 2018**
-9-week intensive coding bootcamp learning HTML, CSS, Bootstrap, JavaScript ES2015, SQL, git, GitHub, Heroku and Ruby on Rails. Designed, Implemented and Shipped to production a clone of AirBnB and a Rails prototype of [harry.team](http://harry.team) - an app to organize hassle-free bachelor(ette) parties.
+My top 3 articles are:
+- [Exploring dependency injection in Ruby]({{site.baseurl}}/dependency-injection-in-ruby/) (4.4k views)
+- [Build a minimal feature flags manager in under an hour]({{site.baseurl}}/minimal-feature-flags-manager/) (3.7k views)
+- [Introduction to Git Bisect: travel through time and bugs]({{site.baseurl}}/how-to-use-git-bisect/) (2.9k views)
 
-👉 **Master 2 Digital Project Management, 2016**
-Wrote a 140,000-character essay about the many ways APIs structure startup ventures.
+I'm still tinkering on sharing more unedited content on this website (and I still haven't figure it out). But right now, I like to write [unedited notes (called "fragments")]({{site.baseurl}}/fragments/) and [short personal tweet-like things]({{site.baseurl}}/scribbles/).
 
-### Misc:
+First and foremost, I love to write stories. I usually latch out on a subject and write quirky things about it. This website is no exception.
 
-👉 **Mentor: Rails Girls, 2018**
-Explaining RoR basics and helping out ~20 women to start building their ideas.
+## Newsletter
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="fr" dir="ltr">Toute la team de la journée ! Fierté ! <a href="https://t.co/j8ot0djqa0">pic.twitter.com/j8ot0djqa0</a></p>&mdash; RailsGirls Paris (@RailsGirlsParis) <a href="https://twitter.com/RailsGirlsParis/status/1007980578279477249?ref_src=twsrc%5Etfw">June 16, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+As of early 2023, my newsletter is just a good way to receive my new posts before anyone else.
+
+We're slowly closing in on **200 subscribers** from all over the world!
+
+I'm still looking to make it a more creative space. This will probably evolve in 2023 as I explore new ways of supporting my writing work ([stay tuned!]({{site.baseurl}}/newsletter/)).
+
+## Slow pace
+
+We've talked a lot about "workish" things so far: coding, writing, etc. Let's dive deeper.
+
+A lot of my decisions - professional and personal - stem from the pursuit of a slower life.
+
+Ten years ago, I embraced the motto "moving fast and breaking things". After putting in long hours and working my health off for four years, I realized the things that end up breaking are (mostly) people. Since then, I've decided to examine what I care about deeply. And life rushing past me while I'm stuck in a rat race is not one of them.
+
+So, slow pace.
+
+No long hours. No meetings during lunch. No "stay at work" fuckery.
+
+I like to bear witness to my life. I like to look through the window. I like doing things with purpose, calm, and pleasure.
+
+## Drawing, design and art stuff
+
+Drawing has played a big part in my life.
+
+When I was 14, a teacher suggested I study design and applied arts. He had spotted me drawing caricatures of my schoolmates instead of taking notes.
+
+Design has taught me a few important lessons:
+
+- How to formulate a problem so it's understandable.
+- There are many ways to solve a problem.
+- How to clearly articulate my thoughts.
+- Better done than perfect.
