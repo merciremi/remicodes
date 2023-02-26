@@ -26,10 +26,10 @@ I’m an (almost) forty-year old programmer, writer, and former stained-glass ma
   <figcaption>An out-of-focus picture of my face (shot by my kiddos with a Prima Twin S)</figcaption>
 </figure>
 
-Mountainous *Drôme* has been my family's home for the past 3 years. I love living there: quiter pace, beautiful landscapes and *amazing* food.
+Mountainous *Drôme* has been my family's home for the past 3 years. I love living there: quieter pace, beautiful landscapes and *amazing* food.
 
 <figure>
-  <img src="{{ site.baseurl }}/media/shared/about/les-trois-becs.jpeg" alt='a view of a foggy mountain from afar'/>
+  <img src="{{ site.baseurl }}/media/shared/about/vercors.jpeg" alt='a view of a foggy mountain from afar'/>
 </figure>
 
 You'll often find me walking those slopes, even at the most egregious time (a.k.a when I'm supposed to be working).
@@ -38,7 +38,7 @@ You'll often find me walking those slopes, even at the most egregious time (a.k.
 
 I've been a professional developer for the past four and a half years, **mainly focusing on back-end programming**. Before being a software engineer, I held an awful lot of positions, both in tech and non-tech fields for almost 15 years.
 
-I was a stained-glass maker for fours years. Moved on to museums and art galleries. Switched to marketing for tech start-ups. Then ended-up doing programming.
+I was a stained-glass maker for four years. Moved on to museums and art galleries. Switched to marketing for tech start-ups. Then ended-up doing programming.
 
 Interested in the professional side of things? Head over to [the dedicated page]({{site.baseurl}}/work/).
 
