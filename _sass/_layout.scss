@@ -23,6 +23,24 @@ article img {
   }
 }
 
+.page img {
+  width: 50vw;
+  position: relative;
+  left: calc(-25vw + 50%);
+  box-shadow: rgba(4, 21, 31, 0.2) 0px 3px 6px, rgba(4, 21, 31, 0.3) 0px 3px 6px;
+  margin: 36px 0px;
+  @media screen and (min-width: $break-large) {
+    width: 40vw;
+    position: relative;
+    left: calc(-20vw + 50%);
+  }
+  @media screen and (max-width: $break-medium) {
+    width: 90vw;
+    position: relative;
+    left: calc(-45vw + 50%);
+  }
+}
+
 blockquote {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
@@ -431,11 +449,6 @@ ul, ol {
 
 .scribble {
   margin-bottom: 60px;
-  time {
-    display: inline-block;
-    margin-left: 0px;
-    margin-top: 18px;
-  }
   figure {
     display: inline-block;
     margin-bottom: 12px;

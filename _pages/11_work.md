@@ -83,7 +83,7 @@ No, I love living near the mountains so very much. **I'll only consider fully re
 
 ### Q: Are you willing to come to the office from time to time?
 
-For the past three years, **I've come to the office once a year**. And to be honest, I think it's more than enough. I've learned more about my colleague remotely than in person. This is where building a solid remote culture is key.
+For the past three years, **I've come to the office once a year**. And to be honest, I think it's more than enough. I've learned more about my colleagues remotely than in person. This is where building a solid remote culture is key.
 
 ### Q: Where do you see yourself in 5 years?
 
