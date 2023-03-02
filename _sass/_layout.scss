@@ -448,7 +448,10 @@ ul, ol {
 }
 
 .scribble {
+  position: relative;
+  padding-bottom: 60px;
   margin-bottom: 60px;
+  border-bottom: 1px $blue-00 solid;
   figure {
     display: inline-block;
     margin-bottom: 12px;
@@ -469,6 +472,53 @@ ul, ol {
 .scribble-icon-link {
   text-decoration: none;
   border-bottom: none !important;
+}
+
+.scribble-icon {
+  width: 24px;
+  display: inline-block;
+  margin-bottom: -46px;
+  margin-left: -30px;
+}
+
+.scribble-date {
+  font-size: $smaller-font-size;
+  color: $blue-02;
+}
+
+.scribbles-filters {
+  color: $body-background-color-00;
+  font-size: $smaller-font-size;
+  font-weight: 700;
+}
+
+.scribbles-filters a {
+  padding: 12px 24px;
+  background: $body-background-color-01;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.scribbles-filters a:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.scribbles-filters a:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.scribbles-filters a:before {
+  content: "○";
+  color: $desaturated-font-color;
+  padding-right: 6px;
+}
+
+.scribbles-filters a[aria-current]:before {
+  content: "●";
+  color: #32B67A;
+  padding-right: 6px;
 }
 
 .vertically-centered {

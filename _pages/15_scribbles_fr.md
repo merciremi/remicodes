@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Scribbles
-permalink: /scribbles/
-excerpt: "This is where I scribble random thoughts, drawings, songs, etc. Both in French and in English."
+title: Bafouilles
+permalink: /bafouilles/
+excerpt: ""
 ---
 
 
@@ -10,17 +10,17 @@ excerpt: "This is where I scribble random thoughts, drawings, songs, etc. Both i
   <div class="serie-icon">
     <img src="{{ site.baseurl }}/media/shared/blue-star.svg">
   </div>
-  <h1 class="serie-title">Scribbles</h1>
+  <h1 class="serie-title">Bafouilles</h1>
   <div class="breadcrumbs">
-    <p><a href="{{ site.baseurl }}/">← Return to the homepage</a></p>
+    <p><a href="{{ site.baseurl }}/">← Vers la page d'accueil</a></p>
   </div>
   <div class='scribbles-filters'>
-    <a href="{{site.baseurl}}/scribbles/" class='filter' aria-current='true'>English</a>
-    <a href="{{site.baseurl}}/bafouilles/" class='filter'>French</a>
+    <a href="{{site.baseurl}}/scribbles/" class='filter'>Anglais</a>
+    <a href="{{site.baseurl}}/bafouilles/" class='filter' aria-current='true'>Français</a>
   </div>
 </div>
 
-{% assign sorted_scribbles = site.data.scribbles | sort: 'date' | reverse %}
+{% assign sorted_scribbles = site.data.scribbles-fr | sort: 'date' | reverse %}
 
 <section class="scribbles">
   {% for scribble in sorted_scribbles %}

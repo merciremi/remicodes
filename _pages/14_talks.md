@@ -6,7 +6,6 @@ permalink: /talks/
 
 ## 2022
 
-
 - The Code With Jason Podcast: [Building and Releasing Large Features with Rémi Mercier](https://www.codewithjason.com/podcast/9478213-102-building-and-releasing-large-features-with-remi-mercier/){:target="\_blank"}
 
 ## 2021
@@ -16,5 +15,3 @@ permalink: /talks/
 ## 2016
 
 - Le Campus Fonderie de l'Image (conference): Les APIs web, une technologie structurante pour les start-ups.
-
-
