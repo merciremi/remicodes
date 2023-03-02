@@ -24,8 +24,6 @@ github_username:  merciremi
 author: Rémi Mercier
 
 collections:
-  scribbles:
-    output: false
   fragments:
     output: true
 
