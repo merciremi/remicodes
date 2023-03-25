@@ -14,7 +14,7 @@ We'll cover the fundamental testing strategies with RSpec's built-in features. A
 
 A note: I will not get into [which tests are considered pertinent](https://getaround.tech/non-deterministic-testing/){:target="\_blank"} and [which are not](https://www.codewithjason.com/different-kinds-rails-tests-use/){:target="\_blank"}. This makes for more advanced practice. Keep in mind those opinions exist.
 
-If you're unfamiliar with RSpec, please read the first two posts of this series: [RSpec setup and structure]({{site.baseurl}}/rspec-101-basic-set-up/) and [RSpec glossary]({{site.baseurl}}/rspec-fundamentals-glossary/).
+If you're unfamiliar with RSpec, please read the first two posts of my [series about RSpec fundamentals]({{site.baseurl}}/series/rspec/).
 
 ## A Rails model in need of some tests
 
