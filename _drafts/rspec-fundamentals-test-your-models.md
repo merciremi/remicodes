@@ -134,11 +134,17 @@ Note how the formatting logic is nested in the concatenation. By testing `full_n
 
 You might have guessed the answer from the previous example, but the short answer is __It Depends™__.
 
-A more comprehensive answer:
+<img class="box-shadowed" src="{{ site.baseurl }}/media/2023/03/it-depends.gif" alt="a gif showing cassidy williams saying it dpeends">
 
-__We always strive to test behavior not implementation__. With said input, what output do I get?
+A more comprehensive answer about __whether you should test your private methods__:
 
-__By testing private methods, you're coupling your tests to your code implementation.__ This defeats tests' purpose: I can change my code as long as my public API stays the same.
+<p class='callout'>
+  <strong>Your test suite should strive to test behavior not implementation</strong>. With a specific input, what output should you get?
+  <br>
+  <br>
+  <strong>By testing private methods, you're coupling your tests to your code implementation.</strong> This defeats tests' purpose: I can change my code as long as my public API stays the same.
+
+</p>
 
 However, you can see in the example above that the private methods are tested indirectly.
 
@@ -300,4 +306,9 @@ Cheers,
 
 Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
 
-ps: __I'm working on a "Special Projects Membership Program" to amp up this website (More tutorials! More topics! Until the end of the Internet!)__ Sign-up to my newsletter to be the first to know!
+Psst, I'm working on a __"Special Projects Membership Program" to up this website to eleven__ (More tutorials! More topics! Until the End of the Internet!). I'll share updates about my progress over the next few months.
+
+<p>
+  Sign-up to my newsletter to be the first to know! It'd mean the world to me.
+  <img class='pink-arrow' src="{{ site.baseurl }}/media/shared/pink_arrow.png"/>
+</p>
