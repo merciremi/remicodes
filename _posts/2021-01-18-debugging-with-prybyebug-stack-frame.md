@@ -73,7 +73,7 @@ When I type `next`, the result of `Book.available` is assigned to `available_boo
 
 What happened in `Book.available`? I don't know. I only executed that line of code and stayed in my current frame - `BooksController`.
 
-<img src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-01.jpeg" alt="a schema explaining how the next command stays in the same frame">
+<img class='large' src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-01.jpeg" alt="a schema explaining how the next command stays in the same frame">
 
 Let's re-run my code and use `step` instead.
 
@@ -101,7 +101,7 @@ Typing `step` takes me from my `BooksController` to my `Book` model. I've change
 
 I can now check whether my class method works as intended.
 
-<img src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-02.jpeg" alt="a schema explaining how the step command changes frame">
+<img class='large' src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-02.jpeg" alt="a schema explaining how the step command changes frame">
 
 Disclaimer: `step` is a bit of a rabbit hole. It's a great way to explore how Rails works. For instance, if I type `step` before `where(available: true)`, my console returns:
 
@@ -113,7 +113,7 @@ Disclaimer: `step` is a bit of a rabbit hole. It's a great way to explore how Ra
 
 Yep, I'm now checking out ActiveRecord's inner gut.
 
-<img src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-03.jpeg" alt="a schema explaining how the step command changes frame">
+<img class='large' src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-03.jpeg" alt="a schema explaining how the step command changes frame">
 
 ## Move up the stack frame: `up`
 
@@ -131,7 +131,7 @@ If I type `up` in my console, I'll move up the frames towards my initial breakpo
 
 What if I've moved down frames several times? I can either pass the number of frames I'd like to go up as an argument - `up(2)` - or type `up` several times.
 
-<img src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-04.jpeg" alt="a schema explaining how the up command moves up the frame stack">
+<img class='large' src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-04.jpeg" alt="a schema explaining how the up command moves up the frame stack">
 
 ## Add and remove breakpoints on the fly
 

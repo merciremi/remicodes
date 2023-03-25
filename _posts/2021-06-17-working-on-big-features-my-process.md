@@ -11,7 +11,7 @@ During my first couple of years as a developer, I didn't have much of a process 
 
 I would start a feature branch from the main branch, work on my feature for weeks, and open up a pull request. I would subject my coworkers to grueling thousand-lines-of-code reviews without thinking about it twice.
 
-<img src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-big-pr.png" alt="a passive pr">
+<img class='large' src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-big-pr.png" alt="a passive pr">
 
 At the time, that seemed normal. Everyone was doing it.
 
@@ -30,11 +30,11 @@ My brain has a mind of its own.
 
 If I write my feature specifications in one card [^1], I'll end up writing this feature in one go, then submit a massive pull request.
 
-<img src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-one-card-one-pr.jpg" alt="one card equals one pull request">
+<img class='large' src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-one-card-one-pr.jpg" alt="one card equals one pull request">
 
 If I centralize all my specifications in one parent card, then isolate each conceptual chunk into its own child card, I'll create a dedicated branch and a (well-sized) pull request for each child card.
 
-<img src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-multiple-cards.jpg" alt="multiple cards">
+<img class='large' src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-multiple-cards.jpg" alt="multiple cards">
 
 One side benefit of splitting your feature into conceptual chunks is that you need to take some extra time to think about what needs to be done. You can organize your work and know that first, you need to code some endpoints, then move on to the views, then wrap up with some data migration.
 
@@ -75,7 +75,7 @@ Here's my set-up:
 - The parent pull request targets the `main` branch.
 - The description of the parent pull request links to the parent card. Also, I usually add a link to each child pull request as I open them.
 
-<img src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-parent-pull-request.png" alt="a github pull request">
+<img class='large' src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-parent-pull-request.png" alt="a github pull request">
 
 The parent pull request shows no difference with the `main` branch. It's perfectly normal. Right now, my parent pull request is an empty shell until my first child pull request is approved and merged in it. Since my parent branch is blank, I'm not submitting for reviews (yet).
 
@@ -113,7 +113,7 @@ I'll open a pull request for my first child branch:
 - The description of the child pull request specifies its status - `⚠️ This is a child-pull request of 313-my-feature-parent-branch` - and links to the parent branch.
 - The description of the child pull request also specifies if the branch is forked from the parent branch or from another branch (we'll see why later).
 
-<img src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-child-pull-request.png" alt="a github pull request">
+<img class='large' src="{{ site.baseurl }}/media/2021/06/remi-mercier-feature-process-child-pull-request.png" alt="a github pull request">
 
 ## Step 06: Handling the following child branches and their respective pull requests
 

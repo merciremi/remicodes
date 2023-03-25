@@ -84,7 +84,7 @@ The history - not the story - of my becoming a developer sounds more like a 10-y
 
 My history is a succession of doubts, weird changes, veering off paths, circling back, being stuck in boring jobs, etc. There's no linearity. It's hard to explain, and it's hard to grasp.
 
-<img src="{{ site.baseurl }}/media/2022/11/remi-mercier-from-stained-glass-master-to-software-engineer-story-versus-history.png" alt="a drawing showing the difference in linearity between a story and the life it's based on">
+<img class='large' src="{{ site.baseurl }}/media/2022/11/remi-mercier-from-stained-glass-master-to-software-engineer-story-versus-history.png" alt="a drawing showing the difference in linearity between a story and the life it's based on">
 
 Does it make me a lesser professional? Not at all. I **know** these experiences give me an uncanny number of edges in my day-to-day practice.
 

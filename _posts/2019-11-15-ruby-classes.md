@@ -25,7 +25,7 @@ Some types of data:
 - `👶` is a baby.
 - `[]` is an empty array.
 
-<img src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-001.jpeg" alt="a schema explaining how different babies are different objects in real life, yet sharing common data types and behaviors">
+<img class='large' src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-001.jpeg" alt="a schema explaining how different babies are different objects in real life, yet sharing common data types and behaviors">
 
 Easy right?
 
@@ -104,7 +104,7 @@ Here, I now have a blueprint for babies. It's pretty limited but here's what it 
 
 A baby is an "object" whose information and behaviors are specified by a class. Different babies are different "objects" but they all share the same set of basic capabilities.
 
-<img src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-002.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class">
+<img class='large' src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-002.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class">
 
 Let's recap:
 
@@ -153,7 +153,7 @@ Well, that's the same in Ruby. Any object can be inspected. It's a common behavi
 
 It allows Ruby to define methods at appropriate levels of abstraction.
 
-<img src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-003.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class which inherits from the root Object class">
+<img class='large' src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-003.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class which inherits from the root Object class">
 
 You can dig deeper and check the full inheritance chain by running `Object.ancestors` in your console. For those who want the TL;DR, `Object` inherits from `BasicObject` and mixes in `Kernel`'s methods (like the `p` method, we junior developers use everywhere to debug our code).
 
@@ -183,7 +183,7 @@ That's right my friend!
 
 As an instance method of `Class`, `#new` is accessible by all instances of `Class` like our `Baby` class.
 
-<img src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-004.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class, which inherits from the root Object class, but also benefits from the Class class instance methods">
+<img class='large' src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-004.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class, which inherits from the root Object class, but also benefits from the Class class instance methods">
 
 My `Baby` class does not have a `#new` method. And yet, I can create new babies with `Baby.new(dna)`. It's because all classes - `String`, `Integer`, `Baby`, etc - inherit from `Class`.
 

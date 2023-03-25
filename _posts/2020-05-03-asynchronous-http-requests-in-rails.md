@@ -22,7 +22,7 @@ You'd start by adding some buttons at the top of your feed. Now, when readers cl
 
 Something like this 👇
 
-<img src="{{ site.baseurl }}/media/2020/05/asynchronous-requests-in-rails.gif" alt="a gif showing someone clicking on three topic buttons and filtering post on the fly">
+<img class='large' src="{{ site.baseurl }}/media/2020/05/asynchronous-requests-in-rails.gif" alt="a gif showing someone clicking on three topic buttons and filtering post on the fly">
 
 This sounds like a job for some asynchronous HTTP requests.
 

@@ -85,7 +85,7 @@ It doesn’t mean you should aim for simplistic interpretation. Some things requ
 
 That’s why we first launched a static list sorted by alphabetic order. Alphabetical list are easy to browse. We added a table of content where countries name would take readers directly to the appropriate part of the list.
 
-<img src="{{ site.baseurl }}/media/2017/sexy-open-data-list-of-open-data-portals.gif" alt="">
+<img class='large' src="{{ site.baseurl }}/media/2017/sexy-open-data-list-of-open-data-portals.gif" alt="">
 
 The fist list was a HTML export. Nicolas would run a Ruby script turning a CSV into preformated HTML everytime we needed to update the list. After a dozen updates, we grew fed up with the process. We decided to inject some Angular JS context in our Wordpress page. We used open source widgets that create dynamic elements within a page. Our list would then update itself in real-time through APIs creating an endless communication between our widgets and the dataset (thanks to APIs). Timesaver!
 
@@ -117,7 +117,7 @@ The French version of this tweet [gathered 100 retweets](https://twitter.com/ope
 
 So far, it’s still the second top post of all time in [r/datasets](https://www.reddit.com/r/datasets/top/?sort=top&t=all).
 
-<img src="{{ site.baseurl }}/media/2017/how-to-make-open-data-sexy-reddit-remi-mercier.png" alt="">
+<img class='large' src="{{ site.baseurl }}/media/2017/how-to-make-open-data-sexy-reddit-remi-mercier.png" alt="">
 
 The next day, we built and launched opendatainception.io, the list visualized as a map.
 

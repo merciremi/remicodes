@@ -324,7 +324,7 @@ In our original controller, I would render the `new` form if the lead creation f
 
 Now, my controller only handles calls to a grouped set of business operations. No more database operations mingling with sending out emails or redirection rules. There is some cohesiveness in the abstraction.
 
-<img src="{{ site.baseurl }}/media/2019/marie-kondo.gif" alt="marie kondo">
+<img class='large' src="{{ site.baseurl }}/media/2019/marie-kondo.gif" alt="marie kondo">
 
 This is it!
 

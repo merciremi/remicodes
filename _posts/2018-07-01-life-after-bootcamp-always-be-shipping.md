@@ -21,7 +21,7 @@ Being at Le Wagon was like getting into Hogwarts. I realized I could wave my fin
 
 So for the next two months, I’ll build an app a week and go back to some basic training (remember the Karate Kid? Well, the same but with more programming and less painting fences).
 
-<img src="{{ site.baseurl }}/media/2018/karatekid.gif" alt="">
+<img class='large' src="{{ site.baseurl }}/media/2018/karatekid.gif" alt="">
 
 ☝️ Note: This is an ongoing post so I’ll update my progress as I go, mostly depending on suggestions, whims...
 
@@ -30,7 +30,7 @@ So for the next two months, I’ll build an app a week and go back to some basic
 #### Status: Done ✅
 Let’s go back to the fundamentals of the CRUD for a moment.
 
-<img src="{{ site.baseurl }}/media/2018/strikeitv0.gif" alt="Strike It App" height="90%" width="90%">
+<img class='large' src="{{ site.baseurl }}/media/2018/strikeitv0.gif" alt="Strike It App" height="90%" width="90%">
 
 Basic features:
 - CRUD 101

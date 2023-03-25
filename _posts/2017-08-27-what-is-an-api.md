@@ -13,7 +13,7 @@ Before we start, I’d like to ask you a few questions. Do you know how:
 - [Trainline](https://www.thetrainline.com/) knows if a seat is available (of that very same upcoming trip to Dunkirk)?
 - [Airbnb](https://www.airbnb.com/) puts available flats on a map (do I even need to say “of Dunkirk”)?
 
-<img src="{{ site.baseurl }}/media/2017/what-is-an-api-remi-mercier.gif" alt="">
+<img class='large' src="{{ site.baseurl }}/media/2017/what-is-an-api-remi-mercier.gif" alt="">
 
 These past few years, APIs (also known as Application Programming Interfaces) have spread like wildfire in the startup growth game.
 
@@ -44,7 +44,7 @@ Let’s break that acronym down:
 - **Interface**: The interface is the entry door to the service. You have to go through that door to interact with the service capabilities (e.g., filtering meteorological data for a city, publishing pictures on Instagram…)
 - **Program**: The program is a set of coded procedures written by a developer. The program is designed to interact with the application, so we don’t have to. For example, the program can submit a postal address to get coordinates (think Airbnb or Google Map).
 
-<img src="{{ site.baseurl }}/media/2017/what-is-an-api-diagram-remi-mercier.png" alt="">
+<img class='large' src="{{ site.baseurl }}/media/2017/what-is-an-api-diagram-remi-mercier.png" alt="">
 
 To sum it up: APIs are programs using a specific point of entry (the interface, also call an end-point) to interact with an application (or some features within this application).
 

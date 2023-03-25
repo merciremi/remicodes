@@ -378,7 +378,7 @@ You can discover all matchers [here](https://github.com/rspec/rspec-expectations
 
 You were too lazy to read all this? I've made you a gif.
 
-<img src="{{ site.baseurl }}/media/2021/03/rspec-fundamentals-glossary-remi-mercier.gif" alt="a gif of a test building up">
+<img class='large' src="{{ site.baseurl }}/media/2021/03/rspec-fundamentals-glossary-remi-mercier.gif" alt="a gif of a test building up">
 
 If you feel like digging deeper, here are a few links for you:
 

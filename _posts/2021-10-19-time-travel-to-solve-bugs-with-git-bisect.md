@@ -101,11 +101,11 @@ Your application is currently running in the `02ca345f3e29217bb6553` commit's st
 
 If this current state is faulty, it means the bug was introduced earlier. When typing `git bisect bad`, `git bisect` takes a note about the non-working state of your application then jumps to the middle commit on the left-hand side of our range (i.e. older commits).
 
-<img src="{{ site.baseurl }}/media/2021/10/remi-mercier-how-to-use-git-bisect-02.jpg" alt="a graph about git bisect bad commit">
+<img class='large' src="{{ site.baseurl }}/media/2021/10/remi-mercier-how-to-use-git-bisect-02.jpg" alt="a graph about git bisect bad commit">
 
 If the application works fine in the current state, `git bisect good` will prompt` git bisect` to explore the right-hand side of our range (i.e. newer commits).
 
-<img src="{{ site.baseurl }}/media/2021/10/remi-mercier-how-to-use-git-bisect-01.jpg" alt="a graph about git bisect good commit">
+<img class='large' src="{{ site.baseurl }}/media/2021/10/remi-mercier-how-to-use-git-bisect-01.jpg" alt="a graph about git bisect good commit">
 
 Repeat until there are no revisions left.
 
