@@ -18,9 +18,9 @@ We'll build an example test for a `User` model. I'll explain key concepts and ke
 
 ## Describe your abstraction with `describe`
 
-We've already dug into the inner workings of `describe` in the first post. So here's the gist of it.
+We've already dug into the inner workings of `describe` in the first post. So here's a summary of what RSpec `describe` is:
 
-> `describe` is used to group your tests around a common abstraction: a class, a request, etc. It's a wrapper that builds an example group.
+> `describe` is a method used to group your tests around a common abstraction: a class, a request, etc. It's a wrapper that builds an example group.
 
 Since methods are an abstraction, you usually nest several `describe`s in your example group. Let's test an instance method - `#full_name`.
 
