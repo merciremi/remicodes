@@ -250,8 +250,6 @@ Let me show you:
   end
 {% endhighlight %}
 
-Here, we have the one-liner that test our model's validation. I didn't have to create instances of `Post`.
-
 Shoulda Matchers come with qualifiers allowing you to test the options of your models' structure. In our example, our validation checks the inclusion of the user's gender against a list.
 
 {% highlight ruby %}
