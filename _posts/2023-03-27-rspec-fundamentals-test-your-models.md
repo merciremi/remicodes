@@ -2,7 +2,7 @@
 layout: post
 title: 'How to test your Rails models with RSpec'
 excerpt: "Today, I want to share how to test your Rails models with RSpec. Testing your models is a no-brainer strategy when building your applications. It gives you the confidence to make changes without regressions. We'll cover the fundamental testing strategies with RSpec's built-in features. And for fun, we'll check some extra tools to amp up your models' coverage."
-date: 2023-03-27
+date: 2023-03-20
 permalink: /how-to-test-rails-models-with-rspec/
 category: rspec
 cover_image: '/media/2023/03/how-to-test-rails-models-with-rspec-remi-mercier.png'

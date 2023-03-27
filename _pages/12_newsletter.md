@@ -59,7 +59,7 @@ For me, __this newsletter is a two-way street__. When I say pen pals, I mean it.
 
 If you've never read any of my posts, go check my [technical blog]({{site.baseurl}}/blog/). I know __people appreciate my making complex topics easy to grasp__. I've been writing professionally for more than a decade and covered some pretty impenetrable tech stuff.
 
-My posts have been regularly featured in Ruby Weekly, HN, etc... And I've been invited to conferences and podcasts to talk about them.
+My posts have been regularly featured in Ruby Weekly, HN, etc... And I've been invited to [conferences and podcasts]({{site.baseurl}}/talks/) to talk about them.
 
 Also, there's no tracking on my emails. I'd rather you hit _reply_ and have chat with you. So, you're in good hands!
 
