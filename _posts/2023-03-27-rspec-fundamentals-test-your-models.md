@@ -33,7 +33,7 @@ Let's use a classic example: a `User` model that handles data and behavior.
     scope :by_gender, ->(gender) { where(gender: gender) }
 
     def full_name
-      "#{formatted_first_name}" #{formatted_last_name}"
+      "#{formatted_first_name} #{formatted_last_name}"
     end
 
     private
@@ -43,7 +43,7 @@ Let's use a classic example: a `User` model that handles data and behavior.
     end
 
     def formatted_last_name
-      first_name.capitalize
+      last_name.capitalize
     end
   end
 {% endhighlight %}
@@ -134,7 +134,7 @@ Note how the formatting logic is nested in the concatenation. By testing `full_n
 
 You might have guessed the answer from the previous example, but the short answer is __It Depends™__.
 
-<img class="box-shadowed" src="{{ site.baseurl }}/media/2023/03/it-depends.gif" alt="a gif showing cassidy williams saying it dpeends">
+<img class="box-shadowed regular" src="{{ site.baseurl }}/media/2023/03/it-depends.gif" alt="a gif showing cassidy williams saying it dpeends">
 
 A more comprehensive answer about __whether you should test your private methods__:
 
