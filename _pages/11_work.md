@@ -52,6 +52,7 @@ In terms of technical challenges:
 
 In terms of the working environment:
 - Calm companies: Clear processes over chaos, emails over meetings, product clarity over investor-pleasing roadmaps, deep focus over long hours.
+- A focus on creating value for both users and company.
 - Warm, kind, supportive colleagues in a high-trust environment.
 - Working within [a diverse team]({{site.baseurl}}/the-need-for-dei/) with various backgrounds and expertise.
 - Fully remote.
