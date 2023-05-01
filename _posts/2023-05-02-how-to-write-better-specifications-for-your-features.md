@@ -99,6 +99,8 @@ I know, from the flowcharts, that I need to output something. Whether it's a Kaf
 
 At this step, I usually start drafting my testing scenarios. I like mine in plain English. And I always start my list of scenarios with the happy path (i.e. when everything is going well).
 
+Here, I want to give credit where credit's due. [Jeremy Bertrand](https://twitter.com/NotGrm){:target="\_blank"} was the first to provide me with these types of scenarios.
+
 <blockquote>
   A `Kafka event` is sent every time the `User` account has been charged for a new period. The event handler should produce a payload with the renewal information packaged as a JSON.
 </blockquote>
