@@ -1,14 +1,14 @@
 ---
 layout: post
 title: How to write better specifications for your features
-excerpt: "For years, I've worked without thinking much about feature specification. Many teams endure empty Trello cards, neglected Jira tickets, and misaligned communication. So today, I want to share how to write better specification for your features."
-date: 2023-05-02
+excerpt: "For years, I've worked without thinking much about feature specifications. Many teams endure empty Trello cards, neglected Jira tickets, and misaligned communication. So today, I want to share how to write better specifications for your features."
+date: 2023-05-01
 permalink: /how-to-write-better-specifications/
 category: other
 cover_image: '/media/2023/05/how-to-write-better-specification-for-features-remi-mercier.png'
 ---
 
-For years, I've worked without thinking much about feature specification. I had worked in several teams that were reluctant to embrace opinionated methodologies, because these methodologies were usually tied to specific tools.
+For years, I've worked without thinking much about feature specifications. I had worked in several teams that were reluctant to embrace opinionated methodologies, because these methodologies were usually tied to specific tools.
 
 So, these teams (and I) stayed in this limbo of empty Trello cards, neglected Jira tickets, and misaligned communication:
 
@@ -16,7 +16,7 @@ So, these teams (and I) stayed in this limbo of empty Trello cards, neglected Ji
   <img class='regular box-shadowed' src="{{ site.baseurl }}/media/2023/05/how-to-write-better-specifications-for-features-empty-ticket-remi-mercier.png" alt="a screenshot of a Trello ticket with a non-descriptive title and no specifications">
 </figure>
 
-But last year, some coworkers and I started iterating on a feature specification template. Something that'd help us get the ball rolling **much faster**.
+But last year, some coworkers and I started iterating on a feature specifications template. Something that'd help us get the ball rolling **much faster**.
 
 So today, **I want to share my template on how to write better specifications for your features**.
 
@@ -49,7 +49,7 @@ Here's a breakdown of its different chapters:
 
 ### Summary
 
-I always start my specification with a TLDR summary for the feature.
+I always start my specifications with a TLDR summary for the feature.
 
 > The latest version of our API will handle the synchronization of books' data between legacy applications and the newest versions.
 
