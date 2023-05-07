@@ -88,7 +88,7 @@ You would not believe how many specification documents lack the most basic infor
 
 In most companies, documentation is either non-existent or not updated. So, there's a big chance I won't be able to get accurate information from there. <strong>This is where opening lines of communication between teams is crucial.</strong>
 
-I know, from my graphs, that font-end applications send me the initial data in a JSON format. In this case, the keys of my JSON don't match my database attributes. So, I know I need to document the correspondence between names, types, etc.
+I know, from my graphs, that front-end applications send me the initial data in a JSON format. In this case, the keys of my JSON don't match my database attributes. So, I know I need to document the correspondence between names, types, etc.
 
 The main idea is:
 
