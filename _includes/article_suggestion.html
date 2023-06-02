@@ -1,0 +1,15 @@
+<div class='cta'>
+  {% assign current_category = page.category | sample: 1 %}
+
+  <h3>More posts on {{ current_category | capitalize }}:</h3>
+
+  {% assign posts = site.posts | where: "category", current_category | sample: 3 %}
+
+  <ul>
+    {% for post in posts %}
+      <li>
+        <a href='{{post.url}}'>{{post.title}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

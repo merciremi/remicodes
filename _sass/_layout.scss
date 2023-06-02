@@ -1,3 +1,21 @@
+.cta {
+  color: $pink;
+  margin-top: 36px;
+  margin-bottom: 36px;
+  h3 {
+    color: $pink;
+  }
+  a {
+    color: $pink;
+    &:hover {
+      opacity: 100%;
+    }
+  }
+  ul {
+    list-style-type: '→ ';
+  }
+}
+
 a {
   font-weight: 700;
   color: $font-color;
