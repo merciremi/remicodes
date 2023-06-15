@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 'RSpec fundamentals: setup, naming and basic structure'
+title: 'An introduction to RSpec: setup, naming and basic structure'
 date: 2021-03-09
-excerpt: "When you start programming, it's not easy to know what to test, how to test, and why should you test? So let's start with the basics: a basic setup and exploring your tests structure."
+excerpt: "When you start programming, it's not easy to know what to test, how to test, and why should you test? So let's start with an introduction to RSpec: basic setup and explore your tests structure."
 category: rspec
 permalink: /rspec-101-basic-set-up/
 ---
@@ -25,7 +25,7 @@ First, let's begin with the obvious question: what is RSpec?
 
 It's one of several testing frameworks available out there. You might also know Minitest.
 
-## Adding RSpec to your application
+## How to add RSpec to your application?
 
 The RSpec team maintains a gem, making it easy to use the framework in Rails applications.
 
@@ -57,7 +57,7 @@ Now, run your migrations and prepare your test database.
 
 There! Now, you can run your tests by typing `rspec spec` in your shell. `spec` is the folder where you'll create your test files.
 
-## Naming your RSpec files
+## Name your RSpec files
 
 RSpec naming convention is straightforward:
 
@@ -65,7 +65,7 @@ RSpec naming convention is straightforward:
 - `user.rb` is tested by `user_spec.rb`
 - `user_notification_job.rb` is tested by `user_notification_job_spec.rb`
 
-## Architecturing your spec folder
+## Architecture your spec folder
 
 To make sure RSpec and Rails work smoothly together, <mark>mimick the structure of your `app` folder.</mark>
 

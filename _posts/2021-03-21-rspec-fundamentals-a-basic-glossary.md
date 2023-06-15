@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "RSpec fundamentals: a basic glossary"
+title: "Introduction to RSpec: the syntax"
 date: 2021-03-21
-excerpt: "RSpec syntax can be tricky to get at first. Here's a glossary of the keywords you'll use the most when testing with RSpec: describe, subject, let vs let!, it, context, etc..."
+excerpt: "In this second part of my introduction to RSpec, I want to focus on the syntax. Here's a glossary of the keywords you'll use the most when testing with RSpec: describe, subject, let vs let!, it, context, etc..."
 permalink: /rspec-fundamentals-glossary/
 category: rspec
 cover_image: /media/2021/03/rspec-fundamentals-glossary-remi-mercier.gif
 ---
 
-In this second part of the [RSpec fundamentals series]({{site.baseurl}}/series/rspec/), I want to explore the methods you'll use the most when testing with RSpec: `describe`, `subject`, `let` and `let!`, `context`, and `it`.
+In this second part of the [introduction to RSpec]({{site.baseurl}}/series/rspec/), I want to explore the methods you'll use the most when testing with RSpec: `describe`, `subject`, `let` and `let!`, `context`, and `it`.
 
 If you haven't read the first part - [how to setup RSpec and name files and, digging into their basic structure]({{site.baseurl}}/rspec-101-basic-set-up/), go and read it, I'll wait.
 

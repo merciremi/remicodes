@@ -308,5 +308,4 @@ Psst, I'm working on a __"Special Projects Membership Program" to up this websit
 
 <p>
   Sign-up to my newsletter to be the first to know! It'd mean the world to me.
-  <img class='pink-arrow' src="{{ site.baseurl }}/media/shared/pink_arrow.png"/>
 </p>
