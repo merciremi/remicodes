@@ -41,7 +41,7 @@ My top 3 articles are:
 
 ## Work history (as a software engineer)
 
-Previously at [Youboox](https://nextory.com/fr/){:target="\_blank"} (acquired by Nextory), [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remimercier-cv-2023.pdf/).
+Previously at [Youboox](https://nextory.com/fr/){:target="\_blank"} (acquired by Nextory), [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remimercier-cv-2023.pdf).
 
 ## What am I looking for?
 
