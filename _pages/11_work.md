@@ -10,7 +10,7 @@ permalink: /work/
 
 I'm a Ruby on Rails programmer, a writer, and a former stained-glass master (yup).
 
-I've been a professional developer for the past four and a half years, **mainly focusing on back-end programming**. Before being a software engineer, I held an awful lot of positions, both in tech and non-tech fields for almost 15 years. It's quite the story! If you're interested, I've wrote about [how I transitioned from being a stained-glass maker to a being a software programmer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/).
+I've worked in tech for ten years, and I've been a professional developer for the past four and a half years, **mainly focusing on back-end programming**. Before being a programmer, I worked in product and marketing for startups, and held an awful lot of positions, both in tech and non-tech fields for almost 15 years. It's quite the story! If you're interested, I've wrote about [how I transitioned from being a stained-glass maker to a being a software programmer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/).
 
 My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git, etc.
 
@@ -25,7 +25,7 @@ As I've moved up the **Individual Contributor** path, my daily contributions now
 - interacting with databases,
 - [troubleshooting]({{site.baseurl}}/series/debugging/),
 - [mentoring junior developers]({{site.baseurl}}/series/career/),
-- documenting practices and processes,
+- [documenting practices and processes]({{site.baseurl}}/how-to-write-better-specifications/),
 - and so much more.
 
 <!-- add some of the coolest things I've done -->
@@ -41,7 +41,7 @@ My top 3 articles are:
 
 ## Work history (as a software engineer)
 
-Previously at [Youboox](https://nextory.com/fr/){:target="\_blank"} (acquired by Nextory), [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. For more details, see my CV.
+Previously at [Youboox](https://nextory.com/fr/){:target="\_blank"} (acquired by Nextory), [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remimercier-cv-2023.pdf/).
 
 ## What am I looking for?
 
@@ -51,12 +51,12 @@ In terms of technical challenges:
 - Improve tooling and engineering standards.
 
 In terms of the working environment:
+- **Fully remote**.
+- **4-day work week**.
 - Calm companies: Clear processes over chaos, emails over meetings, product clarity over investor-pleasing roadmaps, deep focus over long hours.
 - A focus on creating value for both users and company.
 - Warm, kind, supportive colleagues in a high-trust environment.
 - Working within [a diverse team]({{site.baseurl}}/the-need-for-dei/) with various backgrounds and expertise.
-- Fully remote.
-- 4-day work week.
 
 ## How do I like to interview companies?
 
@@ -76,7 +76,9 @@ I've realized, over the past 20 years, that the recruiting process is a good pre
 
 I've been working remotely for the past four years and **I intend to keep it that way for the foreseeable future**.
 
-Remote working has been a godsend for me. You often won't find me in my chair at 11 am because I'm walking around the house or outside. Why would I get out in the middle of the morning? Well, there are plenty of reasons: to get a renewed perspective on a technical challenge, to take the kids to the doctor, or to run an errand.
+Remote working has been a godsend for me. It has allowed me to do my best work, focus on better communication, and create (much) more value.
+
+You often won't find me in my chair at 11 am because I'm walking around the house or outside. Why would I get out in the middle of the morning? Well, there are plenty of reasons: to get a renewed perspective on a technical challenge or to take the kids to the doctor.
 
 ### Q: Would you relocate to ______?
 
@@ -84,7 +86,7 @@ No, I love living near the mountains so very much. **I'll only consider fully re
 
 ### Q: Are you willing to come to the office from time to time?
 
-For the past three years, **I've come to the office once a year**. And to be honest, I think it's more than enough. I've learned more about my colleagues remotely than in person. This is where building a solid remote culture is key.
+For the past three years, **I've come to the office once a year**. I've learned more about my colleagues remotely than in person. This is where building a solid remote culture is key. Feeling like you'd like me to come more often because you want to hear me laugh in person (my laugh is kinda a thing)? Let's talk about it.
 
 ### Q: Where do you see yourself in 5 years?
 
@@ -94,7 +96,7 @@ Right now, I enjoy moving up the IC track. (By the way, do you have an IC track 
 
 ### Q: Tea or coffee?
 
-Of late, I've fallen into the tech-bro coffee-nerd cliché. So, I'd say a lightly roasted coffee with notes of acidity and floral scents. In a thin-brimmed cup, please. I won't say no to a cup of Genmaicha, though.
+Coffee, please! I'd say a lightly roasted coffee with notes of acidity and floral scents. In a thin-brimmed cup. I usually purchase my coffee from [my local roastery](https://kaffa-roastery.com/){:target="\_blank"}, in Crest, France.
 
 ## Sounds good?
 
