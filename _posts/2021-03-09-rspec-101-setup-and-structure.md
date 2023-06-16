@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 'An introduction to RSpec: setup, naming and basic structure'
+title: 'An introduction to RSpec: how to install RSpec, naming convention and basic files structure'
 date: 2021-03-09
-excerpt: "When you start programming, it's not easy to know what to test, how to test, and why should you test? So let's start with an introduction to RSpec: basic setup and explore your tests structure."
+excerpt: "When you start programming, it's not easy to know what to test, how to test, and why should you test? So let's start with an introduction to RSpec: how to install RSpec, RSpec naming convention and and RSpec files structure."
 category: rspec
 permalink: /rspec-101-basic-set-up/
 ---
@@ -13,9 +13,11 @@ Testing requires practice to reveal its potential.
 
 When I started programming, I'd copy other people's tests because, well, I had to test, right? But after a while, my tests would uncover edge cases, potential bugs I'd overlooked.
 
-So, I feel a [series of RSpec fundamentals]({{site.baseurl}}/series/rspec/) - short know-hows, know-whats and, know-whys - could be of some use to newcomers. Brief essays explaining one aspect of testing with RSpec.
+So let's start with **an introduction to RSpec**: **how to install RSpec**, **RSpec naming convention** and and **RSpec files structure**.
 
-If this sounds fun to you, let's start with the basics.
+This post will kick off a [series of RSpec fundamentals]({{site.baseurl}}/series/rspec/) - short know-hows, know-whats and, know-whys - that could be of some use to newcomers. Brief essays explaining one aspect of testing with RSpec.
+
+If this sounds fun to you, let's begin our introduction to the fantastic world of RSpec.
 
 ## What is RSpec?
 
@@ -27,7 +29,7 @@ It's one of several testing frameworks available out there. You might also know 
 
 ## How to add RSpec to your application?
 
-The RSpec team maintains a gem, making it easy to use the framework in Rails applications.
+The RSpec team maintains a gem - `rspec-rails`-, making it easy to use the framework in Rails applications.
 
 First, add RSpec to your Gemfile.
 
@@ -57,7 +59,7 @@ Now, run your migrations and prepare your test database.
 
 There! Now, you can run your tests by typing `rspec spec` in your shell. `spec` is the folder where you'll create your test files.
 
-## Name your RSpec files
+## RSpec naming convention
 
 RSpec naming convention is straightforward:
 
