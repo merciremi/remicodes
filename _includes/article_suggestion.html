@@ -1,7 +1,7 @@
 <div class='cta'>
   {% assign current_category = page.category | sample: 1 %}
 
-  <h3>More posts on {{ current_category | capitalize }}:</h3>
+  <h3>More reading about {{ current_category | capitalize }}:</h3>
 
   {% assign posts = site.posts | where: "category", current_category | sample: 3 %}
 
