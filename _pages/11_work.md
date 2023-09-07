@@ -10,7 +10,7 @@ permalink: /work/
 
 I'm a Ruby on Rails programmer, a writer, and a former stained-glass master (yup).
 
-I've worked in tech for ten years, and I've been a professional developer for the past four and a half years, **mainly focusing on back-end programming**. Before being a programmer, I worked in product and marketing for startups, and held an awful lot of positions, both in tech and non-tech fields for almost 15 years. It's quite the story! If you're interested, I've wrote about [how I transitioned from being a stained-glass maker to a being a software programmer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/).
+I've worked in tech for ten years, and **I've been a professional developer for the past four and a half years**, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups, and held a lot of positions, both in tech and non-tech fields for almost 15 years. It's quite the story! If you're interested, I've wrote about [how I transitioned from being a stained-glass maker to a being a software programmer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/).
 
 My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git, etc.
 
@@ -18,14 +18,14 @@ I like majestic monoliths. I think they work very well for 99% of companies. But
 
 As I've moved up the **Individual Contributor** path, my daily contributions now revolve around:
 - designing and implementing features,
-- writing specifications,
+- [writing specifications]({{site.baseurl}}/how-to-write-better-specifications/),
 - code architecture,
 - shipping APIs used by millions of users,
 - [increasing code coverage]({{site.baseurl}}/series/rspec/),
 - interacting with databases,
 - [troubleshooting]({{site.baseurl}}/series/debugging/),
 - [mentoring junior developers]({{site.baseurl}}/series/career/),
-- [documenting practices and processes]({{site.baseurl}}/how-to-write-better-specifications/),
+- documenting practices and processes,
 - and so much more.
 
 To give you a practical idea of what I can do, here are a couple of projects I've worked on over the past few years:
@@ -34,12 +34,12 @@ To give you a practical idea of what I can do, here are a couple of projects I'v
 - Designed the architecture for media overlays for multimedia books.
 - Designed and implemented [a feature flag manager]({{site.baseurl}}/minimal-feature-flags-manager/) to better the release methodology for large features.
 
-Despite focusing on back-end programming, I also studied and worked on some front-end for a few years. I know my way around HTML, CSS and Javascript. I've also dabbled in Javascript frameworks - Vue and React.
+Despite focusing on back-end programming, I also worked on some front-end for a few years. I know my way around HTML, CSS and Javascript. I've also dabbled in Javascript frameworks - Vue and React.
 
 I also run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... As of 2022, *more than 18,700 unique visitors visited this website*. Some articles even got me invited on [podcasts]({{site.baseurl}}/talks/).
 
 My top 3 articles are:
-- [Exploring dependency injection in Ruby]({{site.baseurl}}/dependency-injection-in-ruby/) (4.4k views)
+- [Exploring dependency injection in Ruby]({{site.baseurl}}/dependency-injection-in-ruby/) (4.7k views)
 - [Build a minimal feature flags manager in under an hour]({{site.baseurl}}/minimal-feature-flags-manager/) (3.7k views)
 - [Introduction to Git Bisect: travel through time and bugs]({{site.baseurl}}/how-to-use-git-bisect/) (2.9k views)
 
@@ -90,7 +90,7 @@ No, I love living near the mountains so very much. **I'll only consider fully re
 
 For the past three years, **I've come to the office once a year**. I've learned more about my colleagues remotely than in person. This is where building a solid remote culture is key.
 
-You'd like me to come more often? Let's talk about it.
+You'd like me to come more often? I'm open to come more often. Let's talk about it.
 
 ### Q: Where do you see yourself in 5 years?
 

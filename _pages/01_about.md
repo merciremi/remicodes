@@ -32,11 +32,9 @@ Mountainous *Drôme* has been my family's home for the past 3 years. I love livi
   <img src="{{ site.baseurl }}/media/shared/about/vercors.jpeg" alt='a view of a foggy mountain from afar'/>
 </figure>
 
-You'll often find me walking those slopes, even at the most egregious time.
-
 ## Main occupation: software engineer
 
-I've worked in tech for ten years, and I've been a professional developer for the past four and a half years, **mainly focusing on back-end programming**. Before being a programmer, I worked in product and marketing for startups and held an awful lot of positions, both in non-tech fields for almost 15 years.
+**I've worked in tech for ten years**, and I've been a professional developer for the past four and a half years, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups. Before that, I held an awful lot of positions, both in non-tech fields for almost 15 years.
 
 I was a stained-glass maker for four years. Moved on to museums and art galleries. Switched to marketing for tech start-ups. Then ended-up doing programming.
 
