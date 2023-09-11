@@ -10,7 +10,7 @@ permalink: /work/
 
 I'm a Ruby on Rails programmer, a writer, and a former stained-glass master (yup).
 
-I've worked in tech for ten years, and **I've been a professional developer for the past four and a half years**, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups, and held a lot of positions, both in tech and non-tech fields for almost 15 years. It's quite the story! If you're interested, I've wrote about [how I transitioned from being a stained-glass maker to a being a software programmer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/).
+I've worked in tech for ten years, and **I've been a professional developer for the past four and a half years**, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups, and held a lot of positions, both in tech and non-tech fields for almost 15 years. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
 
 My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git, etc.
 

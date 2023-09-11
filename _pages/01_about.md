@@ -36,7 +36,7 @@ Mountainous *Drôme* has been my family's home for the past 3 years. I love livi
 
 **I've worked in tech for ten years**, and I've been a professional developer for the past four and a half years, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups. Before that, I held an awful lot of positions, both in non-tech fields for almost 15 years.
 
-I was a stained-glass maker for four years. Moved on to museums and art galleries. Switched to marketing for tech start-ups. Then ended-up doing programming.
+I was a stained-glass maker for four years. Moved on to museums and art galleries. Switched to marketing for tech start-ups. Then ended-up doing programming. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
 
 Interested in the professional side of things? Head over to [the dedicated page]({{site.baseurl}}/work/).
 
@@ -73,11 +73,13 @@ So, slow pace.
 
 No long hours. No meetings during lunch. No "stay at work" fuckery.
 
-I like to bear witness to my life. I like to look through the window. I like doing things with purpose, calm, and pleasure.
+I like to bear witness to my life. I like to look through the window. I like doing things with purpose, calm, and pleasure. I like to sip warm coffee while listening to some records after dropping the kiddos to school.
 
 ## Drawing, design and art stuff
 
 Drawing has played a big part in my life.
+
+<img src="{{ site.baseurl }}/media/2020/dessiner-la-montagne_03.jpeg" alt="dessins représentant la montage" width="450px" >
 
 When I was 14, a teacher suggested I study design and applied arts. He had spotted me drawing caricatures of my schoolmates instead of taking notes.
 
@@ -87,3 +89,7 @@ Design has taught me a few important lessons:
 - There are many ways to solve a problem.
 - How to clearly articulate my thoughts.
 - Better done than perfect.
+
+A few arty things I like a lot: romanesque architecture, stained-glass (obviously!), generative art (Matt Deslauriers ❤️)...
+
+I also enjoy building things with my hands: some low-key woodworking, anything that could come up in restoring a 18-th century house (and let me tell you, A LOT can come up!).
