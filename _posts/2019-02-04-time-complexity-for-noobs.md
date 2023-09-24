@@ -309,7 +309,7 @@ Much better! Now, my code only takes 10x longer to run when the input is multipl
 
 Well, that was super geeky. I hope it'll help fellow bootcampers to wrap their head around time complexity and how it can be useful.
 
-Did I missed something? Lemme know on [Twitter](https://twitter.com/mercier_remi),
+Did I missed something? Lemme know on [Mastodon](https://ruby.social/@remi),
 
 Rémi
 

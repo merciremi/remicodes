@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Wanna work with me?
+title: Want to work with me?
 permalink: /work/
 ---
 
@@ -10,11 +10,15 @@ permalink: /work/
 
 I'm a Ruby on Rails programmer, a writer, and a former stained-glass master (yup).
 
-I've worked in tech for ten years, and **I've been a professional developer for the past four and a half years**, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups, and held a lot of positions, both in tech and non-tech fields for almost 15 years. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
+I've worked in tech for ten years, and **I've been a professional developer for the past four and a half years**, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups, and held a lot of positions, both in tech and non-tech fields for 20 years. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
 
 My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git, etc.
 
 I like majestic monoliths. I think they work very well for 99% of companies. But when needed, I've shipped micro-services in production as well (relying on Kafka).
+
+Despite focusing on back-end programming, I also worked on some front-end for a few years.
+
+## My daily contributions as a mid-level software engineer
 
 As I've moved up the **Individual Contributor** path, my daily contributions now revolve around:
 - designing and implementing features,
@@ -28,13 +32,21 @@ As I've moved up the **Individual Contributor** path, my daily contributions now
 - documenting practices and processes,
 - and so much more.
 
-To give you a practical idea of what I can do, here are a couple of projects I've worked on over the past few years:
-- Implemented the mechanism handling server-to-server notifications from Google Playstore based on specifications written by a senior engineer.
-- Designed and implemented bookmark synchronization between Nextory legacy applications and their latest version using Kafka events.
-- Designed the architecture for media overlays for multimedia books.
-- Designed and implemented [a feature flag manager]({{site.baseurl}}/minimal-feature-flags-manager/) to better the release methodology for large features.
+To give you a concrete idea of what I can do, here are a couple of projects I've worked on over the past few years.
 
-Despite focusing on back-end programming, I also worked on some front-end for a few years. I know my way around HTML, CSS and Javascript. I've also dabbled in Javascript frameworks - Vue and React.
+#### Real-time Developer Notifications (RTDN)
+
+I helped implementing the mechanism handling server-to-server notifications from Google Playstore for subscription renewals based on specifications written with a senior developer. This new mechanism eventually replaced a monthly manual verification of our Playstore subscriptions, which was prone to errors and missed revenue.
+
+#### Data synchronization across micro-services
+
+I designed, specified and implemented bookmarks synchronization between legacy JAVA applications and an upcoming new version using Kafka events. This project allowed (and still allows) the back-end team to focus on building their latest application while ensuring data integrity.
+
+#### Minimal feature flag manager
+
+I designed and implemented a feature flag manager to enhance release phase for large features. You can read about the process here: [Build a minimal feature flags manager in under an hour](https://remimercier.com/minimal-feature-flags-manager/).
+
+## Writing about what I learn
 
 I also run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... As of 2022, *more than 18,700 unique visitors visited this website*. Some articles even got me invited on [podcasts]({{site.baseurl}}/talks/).
 
@@ -50,11 +62,12 @@ Previously at [Youboox](https://nextory.com/fr/){:target="\_blank"} (acquired by
 ## What am I looking for?
 
 In terms of technical challenges:
-- Mid-level back-end challenges: features' architecture, specifications, improving performances, etc.
-- Shaping features based on users' needs and companies' goals.
-- Improve tooling and engineering standards.
+- Mid-level back-end contributions: feature specifications, code architecture, implementing features across their lifecycle, improving performances and code coverage, etc.
+- Shaping features based on the needs of users and the companie's goals.
+- Mentoring junior developers and reviewing merge requests.
+- Improving the tooling and the engineering standards.
 
-In terms of the working environment:
+In terms of working environment:
 - Calm companies: Clear processes over chaos, emails over meetings, product clarity over investor-pleasing roadmaps, deep focus over long hours.
 - A focus on creating value for both users and company.
 - Warm, kind, supportive colleagues in a high-trust environment.

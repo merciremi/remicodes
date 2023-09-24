@@ -45,7 +45,7 @@ The list below will serve as a table of content with due dates when relevant:
 
 The list will evolve all year since I plan on documenting the whole thing: before, during, and after. Whenever I want to dig into a specific topic, I'll link the relevant post on the list.
 
-Are you a remote worker or currently in the process of going remote? Come and say 👋 on [Twitter](https://twitter.com/mercier_remi){:target="\_blank"} or email me at `hello [at] remimercier.com`! I'd be happy to chat with you.
+Are you a remote worker or currently in the process of going remote? Come and say 👋 on [Mastodon](https://ruby.social/@remi){:target="\_blank"} or email me at `hello [at] remimercier.com`! I'd be happy to chat with you.
 
 Noticed something? [Create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new).
 

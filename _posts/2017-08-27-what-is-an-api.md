@@ -123,4 +123,4 @@ The abstraction works the other way round. weather.com’s API doesn’t care ab
 
 ----------
 
-Was this helpful? Lemme know in the comments or on [Twitter](https://twitter.com/mercier_remi)!
+Was this helpful? Lemme know in the comments or on [Mastodon](https://ruby.social/@remi)!

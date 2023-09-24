@@ -97,4 +97,4 @@ Way to go people!👌
 
 ----------
 
-Any thoughts? Let’s talk about it on [Twitter](https://twitter.com/mercier_remi)!
+Any thoughts? Let’s talk about it on [Mastodon](https://ruby.social/@remi)!

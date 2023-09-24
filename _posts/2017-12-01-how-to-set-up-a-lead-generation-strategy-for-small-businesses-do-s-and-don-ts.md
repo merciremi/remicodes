@@ -110,4 +110,4 @@ But let creativity run wild! I see a lot of time invested in “complex” strat
 
 ---
 
-That’s it for today! Lemme know your thought in the comments or on [Twitter](https://twitter.com/mercier_remi)!
+That’s it for today! Lemme know your thought in the comments or on [Mastodon](https://ruby.social/@remi)!
