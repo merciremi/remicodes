@@ -238,7 +238,7 @@ Hope you found this interesting! It's not set in stone obviously. But I've found
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 ps: Many thanks to [Jeremy](https://twitter.com/NotGrm){:target="\_blank"} for helping me make this post clearer (even though I didn't follow all of his suggestions 😜)
 

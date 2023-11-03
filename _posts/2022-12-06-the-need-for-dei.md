@@ -130,7 +130,7 @@ Come and see our side David: it's a more fun, a more cheerful life than [the one
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 ps: Thanks to [Sonia](https://twitter.com/wondersonja){:target="\_blank"}, [Yannick](https://twitter.com/bonjouryannick){:target="\_blank"} and [Alexandre](https://twitter.com/bankair){:target="\_blank"} for reading the successive drafts of this post.
 

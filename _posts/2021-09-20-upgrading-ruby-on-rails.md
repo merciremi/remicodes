@@ -204,6 +204,6 @@ Happy migrating!
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 [^1]: A small reminder on gem versioning: **0.0.x** is a patch: implementation details, bug fixes, etc..  **0.x.0** is a minor upgrade: new features with backward compatibility. **x.0.0** is a major upgrade: can contain backward incompatible changes.

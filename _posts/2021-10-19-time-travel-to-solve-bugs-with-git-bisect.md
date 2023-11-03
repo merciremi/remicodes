@@ -150,6 +150,6 @@ Feeling adventurous? You can check the official documentation for [git bisect](h
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 [^1]: The time it takes for a quadratic search to perform is proportional to the squared size of its input. 10x the data take 100x more time. Hence it's Big 0 notation: `0(n^2)`.

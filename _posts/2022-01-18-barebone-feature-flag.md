@@ -383,7 +383,7 @@ Hope you liked this code-along as much as I did!
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 PS: Many thanks to [@NotGrm](https://twitter.com/NotGrm){:target="\_blank"}, [@sunfox](https://twitter.com/sunfox){:target="\_blank"}, [@_swanson](https://twitter.com/_swanson){:target="\_blank"}, and Kaloyan for their suggestions!
 

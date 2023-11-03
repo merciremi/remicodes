@@ -189,4 +189,4 @@ Did I miss something? [Submit an edit on GitHub](https://github.com/merciremi/re
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi){:target="\_blank"}
+Rémi - [@remi@ruby.social](https://ruby.social/@remi){:target="\_blank"}

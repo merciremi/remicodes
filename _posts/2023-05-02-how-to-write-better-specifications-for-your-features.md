@@ -150,6 +150,6 @@ Hope this template will be helpful to you as it is to me.
 
 I'll catch you on the next one.
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 [^1]: [Jeremy Bertrand](https://twitter.com/NotGrm){:target="\_blank"} was the first to intoduce me to these types of scenarios. We were working on a server-to-server mechanism. Jeremy had written a dozen expected behaviors with visual cues for important information. At the time, this list probably cut our development time in half.

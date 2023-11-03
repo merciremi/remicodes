@@ -62,4 +62,4 @@ Wanna add something to the list? [Submit your tip on GitHub](https://github.com/
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi){:target="\_blank"}
+Rémi - [@remi@ruby.social](https://ruby.social/@remi){:target="\_blank"}

@@ -134,7 +134,7 @@ Hope you liked this (hi)story as much as I liked writing it!
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 
 [^1]: Enumeration allows for a basic domain-based classification to be set up: `500 Natural sciences and mathematics > 510 Mathematics > 516 Geometry`. Facets give flexibility and evolutivity to enumeration: `516 Geometry > 516.3 Analytic geometries > 516.37 Metric differential geometries > 516.375 Finsler geometry`

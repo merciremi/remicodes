@@ -249,6 +249,6 @@ Hope these closing thoughts will help!
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 [^1]: I've never managed to learn the meaning of all SOLID principles. I mean, an acronym that declines into five acronyms, that decline into cryptic principles.
