@@ -58,3 +58,5 @@ Nina Torgunakova from Evil Martians wrote about [her experience coding algorithm
 Cheers,
 
 Rémi - [@remi@ruby.social](https://ruby.social/@remi)
+
+ps: The third part on this mini-serie [Technical tests in 2023: were they any good?]({{site.baseurl}}/technical-tests-in-2023/) is live.

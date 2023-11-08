@@ -82,3 +82,5 @@ Now <a href="mailto:hello@remimercier.com">tell me</a>, how do you cope with fat
 Cheers,
 
 Remi
+
+ps: The second part on this mini-serie [Algorithms are fun... I guess?]({{site.baseurl}}/algorithms-are-fun/) is live.
