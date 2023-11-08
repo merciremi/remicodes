@@ -27,6 +27,15 @@ collections:
   fragments:
     output: true
 
+jekyll_compose:
+  default_front_matter:
+    drafts:
+      excerpt:
+      date:
+      permalink:
+      category:
+      cover_image:
+
 # Build settings
 sass:
   sass_dir: _sass
