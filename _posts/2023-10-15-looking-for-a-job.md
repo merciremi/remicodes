@@ -83,4 +83,4 @@ Cheers,
 
 Remi
 
-ps: The second part on this mini-serie [Algorithms are fun... I guess?]({{site.baseurl}}/algorithms-are-fun/) is live.
+ps: The second part on this mini-series, [Algorithms are fun... I guess?]({{site.baseurl}}/algorithms-are-fun/), is live.
