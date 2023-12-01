@@ -53,6 +53,19 @@ Looking for a job is - still - inherently lonely. You're in this middle ground w
 
 Even if you're unemployed - as I am - it's an akward position in society. You're working to get a new gig, yet you don't have A Real Job™. You're supposed to pass through unemployement quickly and quietly.
 
+<p class="callout">
+  December 2023 update:
+  <br>
+  <br>
+  During the first few days of this post, I faced to opposite reactions to this post.
+  <br>
+  <br>
+  A Reddit moderator commented that my post probably was the reason I didn't have a job. They wrote that their employers care more about their technological expertise rather than their blogging prowess. To me, their comment illustrates the shamefulness society casts upon unemployement (and a rather capitalistic nature of blogging).
+  <br>
+  <br>
+  A few days later, another person replied to my newsletter to share their journey looking for a new career and the help they get from self-organizing help groups. And I liked their comments better - for obvious reasons! - because they express how a searching for a job can lead <a href="{{site.baseurl}}/from-stained-glass-master-to-software-developer/">to unexpected paths, new careers, or finding a purpose</a>.
+</p>
+
 A few years ago, my wife and some of her friends created an informal club of unemployed women. They would share their progress, hold themselves accountable, bonding over their struggles. Three months later, each of them had secure their goals.
 
 Bonding over struggles? Sharing while vulnerable? I have had to learn these skills. For most of my life, I had learned men have to grind through hardships with a stiff upperlip. When showing weakness, you expose yourself to mistreatment. You must command a room, your life, or the people around you. No one likes a wuss.
