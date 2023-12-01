@@ -128,11 +128,13 @@ DEI will make a lot of mistakes. It's a given. But is the end goal not worth it?
 
 Come and see our side David: it's a more fun, a more cheerful life than [the one the new bully-in-chief promotes](https://twitter.com/elonmusk/status/1595535360863395842){:target="\_blank"}.
 
-Cheers,
-
 Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 ps: Thanks to [Sonia](https://twitter.com/wondersonja){:target="\_blank"}, [Yannick](https://twitter.com/bonjouryannick){:target="\_blank"} and [Alexandre](https://twitter.com/bankair){:target="\_blank"} for reading the successive drafts of this post.
+
+2023/12/01 Update: [The libraries of Duke University drop Basecamp with a scathing article](https://blogs.library.duke.edu/blog/2023/11/30/why-were-dropping-basecamp/){:target="\_blank"}.
+
+Cheers,
 
 [^1]: "DHH goes off the Rails"
 [^2]: _Women_ as in people who identify with being a woman.
