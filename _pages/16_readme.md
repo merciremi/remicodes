@@ -1,8 +1,7 @@
 ---
-layout: default
-title: Remi's User Manual
+layout: page
+title: "Remi's User Manual"
 permalink: /user-manual/
-excerpt: ""
 ---
 
 ## My role @your organisation

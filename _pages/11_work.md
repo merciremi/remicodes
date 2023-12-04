@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Want to work with me?
+title: Currently not available for work
 permalink: /work/
 ---
 
@@ -74,6 +74,8 @@ In terms of working environment:
 - Working within [a diverse team]({{site.baseurl}}/the-need-for-dei/) with various backgrounds and expertise.
 - **Fully remote**.
 - **4-day work week**.
+
+You can check my [user manual]({{site.baseurl}}/user-manual/).
 
 ## How do I like to interview companies?
 
