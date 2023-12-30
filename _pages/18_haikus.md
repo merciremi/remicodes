@@ -1,14 +1,16 @@
 ---
 layout: page
-title: Haiku
-permalink: /haiku/
+title: Haikus
+permalink: /haikus/
 ---
 
-<div>
-  {% for year in site.data.haikus %}
-    <h2>{{ year[0] }}</h2>
+A list of haikus, mostly written when I was working in marketing (and being bored out of my wits). Making fun as a tool to push through.
 
-    {% assign haikus = year[1] %}
+<div>
+  {% for haikus_by_year in site.data.haikus %}
+    <h2>{{ haikus_by_year[0] }}</h2>
+
+    {% assign haikus = haikus_by_year[1] %}
 
     {% for haiku in haikus %}
       <p>{{ haiku.content }}</p>
