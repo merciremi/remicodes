@@ -1,33 +1,48 @@
 ---
 layout: post
 title: 'Refactoring in practice'
+excerpt: ""
+date: 2024-02-05
+permalink: /
+category: rails
+cover_image: ''
 ---
 
-It's been a while since I've wanted to write about __refactoring in practice__. But coming up with examples of neat architectures is less straightforward than with coming up with .
+I've been meaning to write about __refactoring in practice__ for ages! But coming up with examples of neat refactorings is not straightforward.
 
-A few months ago, I had to write a service that would synchronize data between two versions of an application. The older application would store data on a Kafka topic. My service had to listen to this topic, parse the messages, and handle the data.
+A few months ago, I had to write a Rails micro-service that would synchronize data between two versions of a reading application. The older application would store data on a Kafka topic. My service would need to listen to this topic, parse the messages, and handle the data.
 
-The solution I came up with illustrates well the inner working of refactoring and architecturing in real life.
+The final solution illustrates well the inner working of refactoring and architecturing in real life.
 
-A quick aside: I lean on the terminology of the tech I'm using but the tech is not _actually_ relevant. The philosophy underlying the architecturing is though.
+A quick aside: I lean on the terminology of the tech I'm using but the tech is not relevant. **The philosophy underlying the refactoring is**.
 
-## Understanding what we're working with
+## What are we working with?
 
 I've written about it a while back, [I like to gather as much information as possible about the problem I need to solve]({{site.baseurl}}/how-to-write-better-specifications/). So, let's do just that.
 
-For this project, I'll build a Rails application that streams Kafka topics, and store data.
+For this project, I'll build a Rails application that streams Kafka topics, and stores data.
 
-Kafka is an event-based way of exposing data. Applications can _listen_ to a stream of data instead of having the data sent to them through a request. It allows applications to stream a lot of data asynchronosly.
+Kafka is an event-based way of exposing data. Applications can _listen_ to a stream of data instead of having the data sent to them through a request. It allows applications to process data asynchronously.
 
-Kafka stores the data on __topics__. Each topic stores __messages__. Application streaming messages are __consumers__.
-
-The emphases above will come handly later on.
+Kafka sends data to __topics__. Each topic stores __messages__. Application streaming messages are __consumers__.
 
 Let's start with a quick sketch.
 
-<img class='large' src="{{ site.baseurl }}/media/2023/10/flowchart.png" alt="">
+{% highlight txt %}
 
-Then, let's check the data stored in each `message`.
+  legacy application (writes data)
+    |
+    |
+    v
+  kafka topic (stores data in messages)
+    ^
+    |
+    |
+  new application (read data)
+
+{% endhighlight %}
+
+Now, let's check the data stored in each `message`.
 
 Each `message` stores a list of all the `highlights` made by one user. `Highlights` made by another `user` will be stored in another `message`.
 
@@ -67,19 +82,18 @@ Each `message` looks like this:
       "first_name": "Anne",
       "last_name": "Shirley"
     },
-      "data": {
-        "book_id": 987,
-        "highlights": [{
-          "page": "18",
-          "quote": "I am no bird; and no net ensnares me: I am a free human being with an independent will."
-          "timestamp": "1893-10-19 20:07:34 -0400",
-        },
-        {
-          "position": "198765",
-          "quote": "I would always rather be happy than dignified."
-          "timestamp": "1893-10-20 19:32:20 -0400",
-        }
-      ]
+    "data": {
+      "book_id": 987,
+      "highlights": [{
+        "position": "1846",
+        "quote": "I am no bird; and no net ensnares me."
+        "timestamp": "1893-10-19 20:07:34 -0400",
+      },
+      {
+        "position": "198765",
+        "quote": "I would always rather be happy than dignified."
+        "timestamp": "1893-10-20 19:32:20 -0400",
+      }]
     }
   }
 {% endhighlight %}
@@ -90,21 +104,24 @@ My Rails application needs a few ActiveRecord models to find and/or persist data
 
 {% highlight txt %}
 
-  +-----------+         +----------+
-  | Highlight | *     1 | Book     |
-  +-----------+ ------> +----------+
-  | id        |         | id       |
-  | position  |         | title    |
-  | quote     |         | ...      |
-  | timestamp |         +----------+
-  | book_id   |
-  +-----------+
++----------------+      +----------------+
+|   Highlight    | 1..* |     Book       |
++----------------+      +----------------+
+| - id           |      | - id           |
+| - position     |      | - title        |
+| - quote        |      +----------------+
+| - timestamp    |
+| - book_id      |
+| - user_id      |
++----------------+
 
 {% endhighlight %}
 
 To consume Kafka events, I'll use [Karafka](https://github.com/karafka/karafka){:target="\_blank"}. I won't get into the details of setting up Karafka, but just know that Karafka lets you define _routes_ for your consumers to listen to topics.
 
-We've seen in our Kafka setup that the topic name is `users.highlights`. So, the first thing you'll need to note is that I name my `consumer` with a convention that match the topic name. This is extra useful when working accross multiple services. You'll be able to infer the name of the consumer you need just by parsing the name of the topic.
+The name of the topic is `users.highlights`. As a convention, I'll name all my `consumers` with a convention matching the name of my topics. It'll allow me to infer the name of the consumer I need just by parsing the name of the topic.
+
+Here, my `users.highlights` will transpose to a `Users::HighlightsConsumer`.
 
 {% highlight ruby %}
   # karafka.rb
@@ -116,66 +133,290 @@ We've seen in our Kafka setup that the topic name is `users.highlights`. So, the
   end
 {% endhighlight %}
 
-## A first working version
+Now that our setup is done, let's move on.
+
+## A shameless-green first working version
+
+Let's implement the barest working version.
+
+Our consumer (`Users::HighlightsConsumer`) needs to `consume` the `messages` stored in the `topic`.
+
+This is standard behaviour with Kafka. Kafka stores messages in a log-like manner on topics – i.e. Kafka appends new messages to a list of existing messages –, consumers parse through these messages, one at a time.
+
+So I know, I need to iterate on each message and find the values I need. Only then will I be able to find or create objects in my database.
+
+Remember that the content of the message is formatted as JSON.
 
 {% highlight ruby %}
+  # app/consumers/users/highlights_consumer.rb
   module Users
-    # Our consumers inherit from Karafka's ApplicationConsumer
     class HighlightsConsumer < ApplicationConsumer
       def consume
         messages.each do |message|
-          user = User.find(message.fetch("payload", "user_id")
+          user = User.find(message.fetch("payload", "user_id"))
+          book = Book.find(message.fetch("data", "book_id"))
 
+          highlights = message.fetch("data", "highlights")
 
-          book = Book.find(message.fetch("data", "book_id")
+          highlights.each do |highlight|
+            user_highlight = Highlight.find_or_initialize_by(
+              user: user,
+              book: book,
+              position: hightlight["position"]
+            )
 
+            user_highlight.assign_attributes(
+              quote: highlight["quote"],
+              timestamp: hightlight["timestamp"]
+            )
 
+            user_highlight.save!
+          end
+        end
+      end
+    end
+  end
+{% endhighlight %}
+
+Our shameless-green version has a few benefits:
+- It's easy to read.
+- It's straighforward.
+- It's all in one place.
+
+A teammate could take a look at this, and instantly wrap their head around what's going on.
+
+But, I'd like to anticipate the moment I'll need to consume several topics. I'd like to move toward a **convention** that will allow my team to easily grasp the underlying semantic/structure of Kafka topic consumption.
+
+## Modeling the concept of `message`
+
+Our first step is easy: let's create an abstraction reflecting the concept of Kafka messages.
+
+A message is a JSON and contains information about the **highlights** created by a user from a book.
+
+{% highlight ruby %}
+  # app/consumers/users/highlights_consumer.rb
+  module Users
+    class HighlightsConsumer < ApplicationConsumer
+      def consume
+        messages.each do |message|
+          HighlightsMessage.new(message).save
         end
       end
     end
   end
 
+  # app/models/users/highlights_message.rb
+  module Users
+    class HighlightsMessage
+      def initialize(attributes)
+        @data = attributes.fetch('data')
+        @payload = attributes.fetch('payload')
+      end
+
+      def save
+        user = User.find(@payload.fetch("user_id"))
+        book = Book.find(@data.fetch("book_id"))
+
+        highlights = @data.fetch("highlights")
+
+        highlights.each do |highlight|
+          user_highlight = Highlight.find_or_initialize_by(
+            user: user,
+            book: book,
+            position: hightlight["position"]
+          )
+
+          user_highlight.assign_attributes(
+            quote: highlight["quote"],
+            timestamp: hightlight["timestamp"]
+          )
+
+          user_highlight.save!
+        end
+      end
+    end
+  end
 {% endhighlight %}
 
-Okay, now that we have our bases covered, let's dig in!
+I simply moved the core of my data manipulation into a new object – `HighlightsMessage` – which responds to a `save` method.
 
-!!! Move from no encapsulation with flat data to OOP
+Now, let's change the way we handle the data.
 
-- consumer where everything happens
+## Model input data in a object-oriented way
 
-then
-
-- consumer
-- message where everything happen with flatten data
-
-then
-
-- consumer
-- message w/ data and payload
-- message::highlight
-
-
-
-
-
----
-
-
-
-Then propose a solution that works okay : message listener, handling data as hash.
-
-Now, make this better by having archi with similar terms than karafka and kafka : consumer, message, …
-
-Explain why its better:
-
-- clear terminology and pattern for data manipulation
-- Can be reproduced easily for plenty use case so less cognitive load
-- Offer a clear interface, where each piece knows only what it should
-
-For using Kafka, I'll be using [Karafka](https://github.com/karafka/karafka){:target="\_blank"}.
+Don't get me wrong, I like JSON, but wouldn't it be nice to be able to call `data.highlights` instead of `@data.fetch("highlights")`?
 
 {% highlight ruby %}
-  # Gemfile
+  # app/models/users/highlight_message.rb
+  module Users
+    class HighlightsMessage
+      attr_reader :data, :payload
 
-  gem 'karafka'
+      def initialize(attributes)
+        @data = Data.new(attributes.fetch('data'))
+        @payload = Payload.new(attributes.fetch('payload'))
+      end
+
+      def save
+        user = User.find(payload.user_id)
+        book = Book.find(data.book_id)
+
+        highlights = data.highlights
+
+        highlights.each do |highlight|
+          user_highlight = Highlight.find_or_initialize_by(
+            user: user,
+            book: book,
+            position: hightlight["position"]
+          )
+
+          user_highlight.assign_attributes(
+            quote: highlight["quote"],
+            timestamp: hightlight["timestamp"]
+          )
+
+          user_highlight.save!
+        end
+      end
+
+      class Data
+        attr_reader :book_id, :highlights
+
+        def initialize(attributes)
+          @book_id = attributes.fetch("book_id")
+          @highlights = attributes.fetch("highlights")
+        end
+      end
+
+      class Payload
+        attr_reader :user_id
+
+        def initialize(attributes)
+          @user_id = attributes.fetch("user_id")
+        end
+      end
+    end
+  end
 {% endhighlight %}
+
+By introducing two small classes on initialization – `Data` and `Payload` –, I keep the structure of my input data, while making it more idiomatic (i.e. a method invoked on a receiver).
+
+## Use plain Ruby objects to model transient data
+
+So far, we've worked on interfacing our codebase with the outside world: consumers, messages, data formatted by someone else, etc.
+
+But now that I can access the data stored in messages, I still lack a proper representation for the JSON-ified `highlights` before they become instances of my `Highlight` class.
+
+There are still a handful of places where I need to fetch my data with a `hightlight["key"]` syntax. Since I'm leaning so much in OOP, I'd rather have a temporary object returning a hash with only the data I need (and none of the data I don't need).
+
+{% highlight ruby %}
+  # app/models/users/highlight_message.rb
+  module Users
+    class HighlightsMessage
+      attr_reader :data, :payload
+
+      def initialize(attributes)
+        @data = Data.new(attributes.fetch('data'))
+        @payload = Payload.new(attributes.fetch('payload'))
+
+        @highlights = set_highlights
+      end
+
+      def save
+        user = User.find(payload.user_id)
+        book = Book.find(data.book_id)
+
+        highlights.each do |highlight|
+          user_highlight = Highlight.find_or_initialize_by(
+            user: user,
+            book: book,
+            position: hightlight.position
+          )
+
+          user_highlight.assign_attributes(highlight.to_h)
+
+          user_highlight.save!
+        end
+      end
+
+      private
+
+      def set_highlights
+        data.highlights.map do |highlight|
+          Users::HighlightsMessage::Highlight.new(highlight)
+        end
+      end
+
+      class Data
+        # ...
+      end
+
+      class Payload
+        # ...
+      end
+    end
+  end
+
+  # app/models/users/highlights_message/highlight.rb
+  module Users
+    module HighlightsMessage
+      class Highlight
+        attr_reader :position, :quote, :timestamp
+
+        def initialize(attributes)
+          @position = attributes.fetch("position")
+          @quote = attributes.fetch("quote")
+          @timestamp = attributes.fetch("timestamp")
+        end
+
+        def to_h
+          {
+            position: position,
+            quote: quote,
+            timestamp: timestamp
+          }
+        end
+      end
+    end
+  end
+{% endhighlight %}
+
+Now, on top of initializing a `Data` and a `Payload` objects, I also create a collection of `Users::HighlightsMessage::Highlight`.
+
+`Users::HighlightsMessage::Highlight` is a temporary object that serves as a translator between data I don't have any control over, and the data my application need.
+
+## When looking for patterns, squint!
+
+Sandi Metz introduced generations of developers to the **Squint Test**.
+
+When looking for pattern, leave your reasoning out for a minute, and squint at your screen. Search for visual patterns, such as indentation or color blocks.
+
+All our previous refactoring become apparent with the Squint Test. The architecture of our application now matches the organization of Kafka topics.
+
+{% highlight txt %}
+--- Kafka architecture ----+----------- Rails architecture ---------
+                           |
+- topic "users.highlights" | - consumer "Users::HighlightsConsumer"
+  - messages               |   - messages
+    - message              |     - message "User::HighlightsMessage"
+      - payload            |       - payload "User::HighlightsMessage::Payload"
+        - "user_id"        |         - "#user_id"
+      - data               |       - data "User::HighlightsMessage::Data"
+        - "book_id"        |         - "#book_id"
+        - highlights       |         - "User::HighlightsMessage::Highlight"
+          - "position"     |           - "position"
+          - "quote"        |           - "quote"
+          - "timestamp"    |           - "timestamp"
+
+{% endhighlight %}
+
+By slowly refactoring our code, we've been able to establish:
+- A clear terminology for consuming Kafka topics in our application,
+- A reproducible convention allowing our teamates to easily infer the diffent pieces and their role.
+- An clear interface for each level of abstraction.
+
+Hope you like this real-life (albeit adapted) example of how small refactorings can make a compounding effect on your codebase.
+
+Cheers,
+
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
