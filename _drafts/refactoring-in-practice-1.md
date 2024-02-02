@@ -1,14 +1,14 @@
 ---
 layout: post
-title: 'Refactoring in practice'
+title: 'Refactoring in practice: moving toward convention'
 excerpt: "A few months ago, I had to write a Rails micro-service that synchronizes data between two versions of an application. I'll show you the successive steps I used to refactor this piece of code, from shameless-green to convention."
 date: 2024-02-05
 permalink: /refactoring-in-practice/
 category: rails
-cover_image: ''
+cover_image: '/media/2024/02/remi-mercier-refactoring-in-practice.png'
 ---
 
-I've wanted to write about __refactoring in practice__ for ages! However, coming up with examples of neat refactorings is not straightforward.
+I've wanted to write about __real-life refactoring__ for ages! However, coming up with examples of neat refactorings is not straightforward.
 
 A few months ago, I had to write a Rails micro-service that synchronizes data between two versions of an application. The older application would store data on a Kafka topic. My service would need to listen to this topic, parse the messages, and handle the data.
 
@@ -38,7 +38,7 @@ Let's start with a quick sketch.
     ^
     |
     |
-  new application (read data)
+  new application (reads data)
 
 {% endhighlight %}
 
