@@ -1,26 +1,26 @@
 ---
 layout: post
 title: 'Refactoring in practice'
-excerpt: ""
+excerpt: "A few months ago, I had to write a Rails micro-service that synchronizes data between two versions of an application. I'll show you the successive steps I used to refactor this piece of code, from shameless-green to convention."
 date: 2024-02-05
-permalink: /
+permalink: /refactoring-in-practice/
 category: rails
 cover_image: ''
 ---
 
-I've been meaning to write about __refactoring in practice__ for ages! But coming up with examples of neat refactorings is not straightforward.
+I've wanted to write about __refactoring in practice__ for ages! However, coming up with examples of neat refactorings is not straightforward.
 
-A few months ago, I had to write a Rails micro-service that would synchronize data between two versions of a reading application. The older application would store data on a Kafka topic. My service would need to listen to this topic, parse the messages, and handle the data.
+A few months ago, I had to write a Rails micro-service that synchronizes data between two versions of an application. The older application would store data on a Kafka topic. My service would need to listen to this topic, parse the messages, and handle the data.
 
-The final solution illustrates well the inner working of refactoring and architecturing in real life.
+The final solution illustrates well the inner workings of refactoring and architecture in real life.
 
-A quick aside: I lean on the terminology of the tech I'm using but the tech is not relevant. **The philosophy underlying the refactoring is**.
+A quick aside: I lean on the terminology of the tech I'm using, but the tech is not relevant. **The philosophy underlying the refactoring is**.
 
 ## What are we working with?
 
-I've written about it a while back, [I like to gather as much information as possible about the problem I need to solve]({{site.baseurl}}/how-to-write-better-specifications/). So, let's do just that.
+I wrote about it a while back, [I like to gather as much information as possible about the problem I need to solve]({{site.baseurl}}/how-to-write-better-specifications/). So, let's do just that.
 
-For this project, I'll build a Rails application that streams Kafka topics, and stores data.
+For this project, I'll build a Rails application that streams Kafka topics and stores data.
 
 Kafka is an event-based way of exposing data. Applications can _listen_ to a stream of data instead of having the data sent to them through a request. It allows applications to process data asynchronously.
 
@@ -46,7 +46,7 @@ Now, let's check the data stored in each `message`.
 
 Each `message` stores a list of all the `highlights` made by one user. `Highlights` made by another `user` will be stored in another `message`.
 
-The organisation of our Kafka topic looks like this:
+The organization of our Kafka topic looks like this:
 
 {% highlight txt %}
 
@@ -98,9 +98,9 @@ Each `message` looks like this:
   }
 {% endhighlight %}
 
-Each `highlight` is created from a specific `book`, and contains the `position` of the highlight in the book, the actual `quote` and a `timestamp`.
+Each `highlight` is created from a specific `book`, and contains the `position` of the highlight in the book, the actual `quote`, and a `timestamp`.
 
-My Rails application needs a few ActiveRecord models to find and/or persist data in my database.
+My Rails application needs a few ActiveRecord models to find and persist data in my database.
 
 {% highlight txt %}
 
@@ -117,9 +117,9 @@ My Rails application needs a few ActiveRecord models to find and/or persist data
 
 {% endhighlight %}
 
-To consume Kafka events, I'll use [Karafka](https://github.com/karafka/karafka){:target="\_blank"}. I won't get into the details of setting up Karafka, but just know that Karafka lets you define _routes_ for your consumers to listen to topics.
+To consume Kafka events, I'll use [Karafka](https://github.com/karafka/karafka){:target="\_blank"}. I won't get into the details of setting up Karafka but know that Karafka lets you define _routes_ for your consumers to listen to topics.
 
-The name of the topic is `users.highlights`. As a convention, I'll name all my `consumers` with a convention matching the name of my topics. It'll allow me to infer the name of the consumer I need just by parsing the name of the topic.
+The name of the topic is `users.highlights`. As a convention, I'll name all my `consumers` with a convention matching the names of my topics. It'll allow me to infer the name of the consumer I need just by parsing the topic's name.
 
 Here, my `users.highlights` will transpose to a `Users::HighlightsConsumer`.
 
@@ -139,11 +139,11 @@ Now that our setup is done, let's move on.
 
 Let's implement the barest working version.
 
-Our consumer (`Users::HighlightsConsumer`) needs to `consume` the `messages` stored in the `topic`.
+Our consumer (`Users::HighlightsConsumer`) needs to `consume` the `messages` stored in the topic.
 
-This is standard behaviour with Kafka. Kafka stores messages in a log-like manner on topics – i.e. Kafka appends new messages to a list of existing messages –, consumers parse through these messages, one at a time.
+Kafka's standard behavior is to store messages in a log-like manner on topics – i.e. Kafka appends new messages to a list of existing messages. Consumers then parse through these messages, one at a time.
 
-So I know, I need to iterate on each message and find the values I need. Only then will I be able to find or create objects in my database.
+So, I need to iterate on each message and find the values. Only then will I be able to find or create objects in my database.
 
 Remember that the content of the message is formatted as JSON.
 
@@ -180,12 +180,12 @@ Remember that the content of the message is formatted as JSON.
 
 Our shameless-green version has a few benefits:
 - It's easy to read.
-- It's straighforward.
+- It's straightforward.
 - It's all in one place.
 
-A teammate could take a look at this, and instantly wrap their head around what's going on.
+A teammate could look at this piece of code and instantly understand it.
 
-But, I'd like to anticipate the moment I'll need to consume several topics. I'd like to move toward a **convention** that will allow my team to easily grasp the underlying semantic/structure of Kafka topic consumption.
+But I'd like to anticipate the moment I'll need to consume several topics and move toward a **convention** underlying the structure of Kafka topic consumption.
 
 ## Modeling the concept of `message`
 
@@ -238,13 +238,13 @@ A message is a JSON and contains information about the **highlights** created by
   end
 {% endhighlight %}
 
-I simply moved the core of my data manipulation into a new object – `HighlightsMessage` – which responds to a `save` method.
+I merely moved the core of my data manipulation into a new object – `HighlightsMessage` – which responds to a `save` method.
 
 Now, let's change the way we handle the data.
 
 ## Model input data in a object-oriented way
 
-Don't get me wrong, I like JSON, but wouldn't it be nice to be able to call `data.highlights` instead of `@data.fetch("highlights")`?
+Don't get me wrong, I like JSON, but wouldn't it be nice to call `data.highlights` instead of `@data.fetch("highlights")`?
 
 {% highlight ruby %}
   # app/models/users/highlight_message.rb
@@ -299,15 +299,15 @@ Don't get me wrong, I like JSON, but wouldn't it be nice to be able to call `dat
   end
 {% endhighlight %}
 
-By introducing two small classes on initialization – `Data` and `Payload` –, I keep the structure of my input data, while making it more idiomatic (i.e. a method invoked on a receiver).
+By introducing two small classes on initialization – `Data` and `Payload` – I keep the structure of my input data while making the code more idiomatic (i.e. a method invoked on a receiver).
 
-## Use plain Ruby objects to model transient data
+## Use plain Ruby objects to model transient data.
 
 So far, we've worked on interfacing our codebase with the outside world: consumers, messages, data formatted by someone else, etc.
 
 But now that I can access the data stored in messages, I still lack a proper representation for the JSON-ified `highlights` before they become instances of my `Highlight` class.
 
-There are still a handful of places where I need to fetch my data with a `hightlight["key"]` syntax. Since I'm leaning so much in OOP, I'd rather have a temporary object returning a hash with only the data I need (and none of the data I don't need).
+There are still a handful of places where I need to fetch my data with a `highlight ["key"]` syntax. Since I'm leaning so much in OOP, I'd rather have a temporary object returning a hash with only the data I need (and none of the data I don't need).
 
 {% highlight ruby %}
   # app/models/users/highlight_message.rb
@@ -383,15 +383,15 @@ There are still a handful of places where I need to fetch my data with a `hightl
 
 Now, on top of initializing a `Data` and a `Payload` objects, I also create a collection of `Users::HighlightsMessage::Highlight`.
 
-`Users::HighlightsMessage::Highlight` is a temporary object that serves as a translator between data I don't have any control over, and the data my application need.
+`Users::HighlightsMessage::Highlight` is a temporary object that serves as a translator between data I don't have any control over and the data my application needs.
 
 ## When looking for patterns, squint!
 
 Sandi Metz introduced generations of developers to the **Squint Test**.
 
-When looking for pattern, leave your reasoning out for a minute, and squint at your screen. Search for visual patterns, such as indentation or color blocks.
+When looking for a pattern, leave your reasoning out for a minute and squint at your screen. Search for visual patterns, such as indentation or color blocks.
 
-All our previous refactoring become apparent with the Squint Test. The architecture of our application now matches the organization of Kafka topics.
+All our previous refactoring becomes apparent with the Squint Test. The architecture of our application now matches the organization of Kafka topics.
 
 {% highlight txt %}
 --- Kafka architecture ----+----------- Rails architecture ---------
@@ -412,10 +412,10 @@ All our previous refactoring become apparent with the Squint Test. The architect
 
 By slowly refactoring our code, we've been able to establish:
 - A clear terminology for consuming Kafka topics in our application,
-- A reproducible convention allowing our teamates to easily infer the diffent pieces and their role.
-- An clear interface for each level of abstraction.
+- A reproducible convention allowing my teammates to easily infer the different pieces of code, and their roles.
+- A clear interface for each level of abstraction.
 
-Hope you like this real-life (albeit adapted) example of how small refactorings can make a compounding effect on your codebase.
+I hope you like this real-life (albeit adapted) example of how small refactorings can make a compounding effect on your codebase.
 
 Cheers,
 
