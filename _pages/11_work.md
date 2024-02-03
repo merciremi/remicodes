@@ -10,7 +10,7 @@ permalink: /work/
 
 I'm a Ruby on Rails programmer, a writer, and a former stained-glass master (yup).
 
-I've worked in tech for ten years, and **I've been a professional developer for the past four and a half years**, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups, and held a lot of positions, both in tech and non-tech fields for 20 years. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
+I've worked in tech for ten years, and **I've been a professional developer for the past five years**, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups, and held a lot of positions, both in tech and non-tech fields for 20 years. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
 
 My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git, etc.
 
@@ -24,6 +24,7 @@ As I've moved up the **Individual Contributor** path, my daily contributions now
 - designing and implementing features,
 - [writing specifications]({{site.baseurl}}/how-to-write-better-specifications/),
 - code architecture,
+- codebase consolidation,
 - shipping APIs used by millions of users,
 - [increasing code coverage]({{site.baseurl}}/series/rspec/),
 - interacting with databases,
@@ -54,6 +55,8 @@ My top 3 articles are:
 - [Exploring dependency injection in Ruby]({{site.baseurl}}/dependency-injection-in-ruby/) (4.7k views)
 - [Build a minimal feature flags manager in under an hour]({{site.baseurl}}/minimal-feature-flags-manager/) (3.7k views)
 - [Introduction to Git Bisect: travel through time and bugs]({{site.baseurl}}/how-to-use-git-bisect/) (2.9k views)
+
+As of early 2024, the best ways to get my posts are through [RSS](https://remimercier.com/feed.xml) and my ([newsletter!]({{site.baseurl}}/newsletter/)).
 
 ## Work history (as a software engineer)
 

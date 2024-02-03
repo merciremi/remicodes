@@ -5,21 +5,9 @@ permalink: /about/
 cover_image: '/media/shared/about/remi-mercier-out-of-focus.jpeg'
 ---
 
-First, let's address the elephant in the room:
+Welcome stranger! Nice to meet ya.
 
-*"How are we supposed to pronouce your name, Rémi?"*
-
-Fear not, I'm here to help.
-
-So, my full name is <strong>Rémi Mercier</strong>. It's pronounced: `ray · me · mercy · 'ey `.
-
-If you want to pronouce it like I do, you’ll have to roll those Rs.
-
-Now that you're *baguette*-ready, let us dive in.
-
-## Who am I?
-
-I’m an (almost) forty-year old programmer, writer, and former stained-glass master (yep).
+I’m Rémi (`ray · me`). I'm an (almost) forty-year old [programmer]({{site.baseurl}}/work/), writer, and former stained-glass master (yep).
 
 <figure>
   <img src="{{ site.baseurl }}/media/shared/about/remi-mercier-out-of-focus.jpeg" alt='an out-of-focus picture of my face'/>
@@ -32,24 +20,18 @@ Mountainous *Drôme* has been my family's home for the past 3 years. I love livi
   <img src="{{ site.baseurl }}/media/shared/about/vercors.jpeg" alt='a view of a foggy mountain from afar'/>
 </figure>
 
-## Main occupation: software engineer
-
-**I've worked in tech for ten years**, and I've been a professional developer for the past four and a half years, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups. Before that, I held an awful lot of positions, both in non-tech fields for almost 15 years.
-
-I was a stained-glass maker for four years. Moved on to museums and art galleries. Switched to marketing for tech start-ups. Then ended-up doing programming. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
-
-Interested in the professional side of things? Head over to [the dedicated page]({{site.baseurl}}/work/).
-
 ## Writing
 
-I run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... As of 2022, *more than 18,700 unique visitors visited this website*. Some articles even got me invited on [podcasts]({{site.baseurl}}/talks/).
+I run this website where I share what I learned while building software. It's my way of giving back to the dev community.
 
-My top 3 articles are:
-- [Exploring dependency injection in Ruby]({{site.baseurl}}/dependency-injection-in-ruby/) (4.4k views)
-- [Build a minimal feature flags manager in under an hour]({{site.baseurl}}/minimal-feature-flags-manager/) (3.7k views)
-- [Introduction to Git Bisect: travel through time and bugs]({{site.baseurl}}/how-to-use-git-bisect/) (2.9k views)
+My personal favourites are:
+- [Own your story]({{site.baseurl}}/own-your-story/)
+- [Exploring dependency injection in Ruby]({{site.baseurl}}/dependency-injection-in-ruby/)
+- [Build a minimal feature flags manager in under an hour]({{site.baseurl}}/minimal-feature-flags-manager/)
+- [Introduction to Git Bisect: travel through time and bugs]({{site.baseurl}}/how-to-use-git-bisect/)
+- [Always serving someone]({{site.baseurl}}/always-serving-someone/)
 
-I'm still tinkering on sharing more unedited content on this website (and I still haven't figure it out). But right now, I like to write [unedited notes (called "fragments")]({{site.baseurl}}/fragments/) and [short personal tweet-like things]({{site.baseurl}}/scribbles/).
+I'm still tinkering with sharing more unedited content on this website (and I still haven't figure it out). But right now, I like to write [unedited notes (called "fragments")]({{site.baseurl}}/fragments/) and [short personal tweet-like things]({{site.baseurl}}/scribbles/).
 
 First and foremost, I love to write stories. I usually latch out on a subject and write quirky things about it. This website is no exception.
 
