@@ -1,4 +1,21 @@
-- name: Yannick Schultz
+- first_name: Yannick
+  name: Schultz
   url: https://yannickschutz.com/
-- name: Robin Rendle
+- first_name: Robin
+  name: Rendle
   url: https://robinrendle.com/
+- first_name: Chris
+  name: Butler
+  url: https://www.chrbutler.com/
+- first_name: Manuel
+  name: Morale
+  url: manuelmoreale.com
+- first_name: Rafał
+  name: Pastuszak
+  url: https://untested.sonnet.io/
+- first_name: Winnie
+  name: Lim
+  url: https://winnielim.org/
+- first_name: Mu-An
+  name: Chiou
+  url: https://muan.co/

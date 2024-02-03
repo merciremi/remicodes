@@ -1,15 +1,10 @@
 ---
 layout: page
-title: Blogroll
+title: A bunch of blogs I like to read
 permalink: /blogroll/
 ---
 
-<ul>
-{% for blog in site.data.blogroll %}
-  <li>
-    <a href="{{ blog.url }}">
-      {{ blog.name }}
-    </a>
-  </li>
+{% assign sorted_collection = site.data.blogroll | sort: "name" %}
+{% for item in sorted_collection %}
+  - [{{ item.first_name }} {{ item.name }}]({{item.url}}){:target="\_blank"}
 {% endfor %}
-</ul>
