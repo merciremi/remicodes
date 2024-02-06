@@ -16,7 +16,7 @@
 title: Rémi Mercier
 email: hello@remimercier.com
 description: >- # this means to ignore newlines until "baseurl:"
-  The blog of Rémi Mercier, Ruby on Rails software engineer.
+  The blog of Rémi Mercier, Ruby on Rails Developer.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://remimercier.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mercier_remi
