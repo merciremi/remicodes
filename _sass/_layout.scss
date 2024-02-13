@@ -1,3 +1,26 @@
+blockquote.toot {
+  background-color: #242526;
+  color: $body-background-color-00;
+  border-left: none;
+  font-weight: 300;
+  a {
+    color: silver !important;
+    font-weight: 500;
+    border-bottom: none;
+  }
+  .avatar {
+    margin-bottom: 20px;
+    img {
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+    }
+    &.favourites {
+      margin-left: auto;
+    }
+  }
+}
+
 .cta {
   color: $pink;
   margin-top: 36px;
