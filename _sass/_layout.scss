@@ -3,10 +3,19 @@ blockquote.toot {
   color: $body-background-color-00;
   border-left: none;
   font-weight: 300;
+  padding: 30px;
+  p {
+    margin-bottom: 20px;
+  }
   a {
     color: silver !important;
     font-weight: 500;
     border-bottom: none;
+  }
+  cite {
+    a {
+      border-bottom: 3px $pink solid;
+    }
   }
   .avatar {
     margin-bottom: 20px;
