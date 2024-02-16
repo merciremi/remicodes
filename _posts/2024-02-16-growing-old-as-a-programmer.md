@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Growing old as a developer
-excerpt: 
-date: 2023-11-08
+title: Growing old as a programmer
+excerpt: "I’ll be turning 40 this year, and I’ve started to wonder about my professional life in the next two decades. Not a lot of 60-year-old developers, hey?"
+date: 2024-02-16
 permalink: /growing-old-as-a-developer/
-category: [career, other]
-cover_image: 
+category: career
+cover_image: '/media/2024/02/remi-mercier-growing-old-as-a-programmer.png'
 ---
 
 I’ll be turning 40 this year, and I’ve started to wonder about my professional life in the next two decades. Not a lot of 60-year-old developers, hey?
@@ -22,7 +22,9 @@ This post is a collection of their replies, loosely sorted into broad categories
 
 ## Learn to learn
 
-Learn to learn as always been a mantra for me. But as I grow older, I also realized I don't want to learn new things only to stay relevant. I also need it to be fun and interesting (I know, the audacity!).
+Learn to learn as always been a mantra for me. But as I grow older, I also realize I don't want to learn new things only to stay relevant. I need topics to be fun and interesting (I know, the audacity!).
+
+This strategy / philosophy is probably the most represented in the replies.
 
 <blockquote class="toot">
   <div class="vertically-centered avatar">
@@ -142,6 +144,8 @@ Learn to learn as always been a mantra for me. But as I grow older, I also reali
   <cite><a href="https://mindly.social/users/fran_kostella/statuses/111299021490085755" target="_blank">link</a></cite>
 </blockquote>
 
+Fifty languages! 0_o
+
 <blockquote class="toot">
   <div class="vertically-centered avatar">
     <img src="https://cdn.masto.host/rubysocial/cache/accounts/avatars/109/285/389/927/778/271/original/7ed326a6575fd4db.jpg" class="circle inlined" />
@@ -158,7 +162,7 @@ Learn to learn as always been a mantra for me. But as I grow older, I also reali
     <div><a href="https://mastodon.nz/users/pistonblown" target="_blank">@pistonblown</a></div>
   </div>
 
-  <p><br>Well into my 50's</p><p>It doesn't matter how old you are as long as you keep up.  You have to 'retrain' in new tech/approaches at least every 3 years, though I would say that's decreased to 18 months.</p><p>If you keep up-to-date then your valuable to employers regardless of age, and that experience is what I look for.</p><p>I've seen a lot of dev's fall at the 3rd or 4th tech change as they can't cope.</p><p>I've been a dev, senior dev, IT Manager, Project Troubleshooter and now Technical Director.</p>
+  <p>Well into my 50's</p><p>It doesn't matter how old you are as long as you keep up.  You have to 'retrain' in new tech/approaches at least every 3 years, though I would say that's decreased to 18 months.</p><p>If you keep up-to-date then your valuable to employers regardless of age, and that experience is what I look for.</p><p>I've seen a lot of dev's fall at the 3rd or 4th tech change as they can't cope.</p><p>I've been a dev, senior dev, IT Manager, Project Troubleshooter and now Technical Director.</p>
   <cite><a href="https://mastodon.nz/users/pistonblown/statuses/111280646019488871" target="_blank">link</a></cite>
 </blockquote>
 
@@ -171,6 +175,9 @@ Learn to learn as always been a mantra for me. But as I grow older, I also reali
   <p>46, frontend dev since 2004, woman 🙂 </p><p>I guess I went where the work was (know-how wise, not geographically), and I don't let anyone tell me that certain jobs aren't "real programming" (like JavaScript and CSS)</p><p>I started doing PHP full-stack before it was called that, got into content management systems, first frontend, then backend, then frontend again. <br>I stayed up-to-date with the main frontend frameworks, switched from CMS customizing to API clients with React / React Native <br>1/2</p>
   <cite><a href="https://mastodon.cloud/users/danielaKay/statuses/111280663993682152" target="_blank">link</a></cite>
 </blockquote>
+
+Yes! No gatekeeping, no [Real Programming™ BS]({{site.baseurl}}/own-your-story/).
+
 <blockquote class="toot">
   <div class="vertically-centered avatar">
     <img src="https://cdn.masto.host/rubysocial/cache/accounts/avatars/109/361/420/744/908/740/original/ea477c263f1f1aa9.png" class="circle inlined" />
@@ -221,6 +228,8 @@ Learn to learn as always been a mantra for me. But as I grow older, I also reali
   <cite><a href="https://hachyderm.io/users/recursive/statuses/111293151475604529" target="_blank">link</a></cite>
 </blockquote>
 
+Ah yes. I could be one of these people who "get stuck in whatever mindset worked for them in their early career". The first 20 years of my professional life have been tough, so I'm happy to get a bit lazy.
+
 <blockquote class="toot">
   <div class="vertically-centered avatar">
     <img src="https://cdn.masto.host/rubysocial/cache/accounts/avatars/109/376/939/778/655/568/original/e0379996a541556e.jpg" class="circle inlined" />
@@ -269,6 +278,10 @@ Learn to learn as always been a mantra for me. But as I grow older, I also reali
   <cite><a href="https://mastodon.social/users/GeePawHill/statuses/111282049252842257" target="_blank">link</a></cite>
 </blockquote>
 
+The first mentor makes or breaks a career. It might sound a tad overdramatic, but having people truly interested in making you grow professionally (without being toxic about it) is a godsend.
+
+I got lucky and met people who answered my insatiable questionning with generosity. And I learned a lot with them (Hi Thibault! Hi Jonathan! Hi Jeremy!)
+
 <blockquote class="toot">
   <div class="vertically-centered avatar">
     <img src="https://cdn.masto.host/rubysocial/cache/accounts/avatars/000/000/575/original/88215edcb58f5172.jpg" class="circle inlined" />
@@ -301,7 +314,7 @@ Learn to learn as always been a mantra for me. But as I grow older, I also reali
   <cite><a href="https://mastodon.social/users/martinvanaken/statuses/111277309379558295" target="_blank">link</a></cite>
 </blockquote>
 
-Martin wrote a [longer post expanding on his concept of fitting in](https://www.joyouscoding.com/posts/seniority-reloaded){:target="\_blank"}.
+Martin wrote a [longer post expanding on his concept of fitting in](https://www.joyouscoding.com/posts/seniority-reloaded){:target="\_blank"}. Read it, especially if you're in the same position as me: leaving junior-land but not yet in senior-land.
 
 <blockquote class="toot">
   <div class="vertically-centered avatar">
@@ -315,7 +328,7 @@ Martin wrote a [longer post expanding on his concept of fitting in](https://www.
 
 ## Too old
 
-Aging in software is often conceived as dynamic, as in “If I ever stop moving, I’ll be left out.” Some people seem vindinctive with younger programmers rather than with a system built on cost reduction and ageism.
+Aging in software is often conceived as dynamic, as in “If I ever stop moving, I’ll be left out.” And, some people seemed vindinctive with younger programmers rather than with a system built on cost reduction and ageism.
 
 But this feeling sparks a (very) political question: What do you do when you’re not allowed to fit in anymore?
 
@@ -371,6 +384,8 @@ But this feeling sparks a (very) political question: What do you do when you’r
   <cite><a href="https://fosstodon.org/users/SaintPeter/statuses/111281028532630763" target="_blank">link</a></cite>
 </blockquote>
 
+This idea of "geek to English" resonates a lot with me. I've always loved to make complex things sound easy. And I'm a firm believer that a lot of complex topics are mostly unarticulated explanations.
+
 <blockquote class="toot">
   <div class="vertically-centered avatar">
     <img src="https://ruby.social/avatars/original/missing.png" class="circle inlined" />
@@ -391,6 +406,7 @@ But this feeling sparks a (very) political question: What do you do when you’r
   <cite><a href="https://hachyderm.io/users/recursive/statuses/111293180107027100" target="_blank">link</a></cite>
 </blockquote>
 
+Amen to that! I also believe that programming is not some _ex nihilo_ activity. Understanding where our work comes from, where it tends to, is crucial.
 
 ## Specialize in a field (rather than a technology)
 
@@ -497,6 +513,8 @@ But this feeling sparks a (very) political question: What do you do when you’r
   <cite><a href="https://ruby.social/users/flashesofpanic/statuses/111279008493326458" target="_blank">link</a></cite>
 </blockquote>
 
+I relate to this experience. There's a big push in software for working harder, writing blog posts, and doing much more than "just your job". This testimony was the one that hit closest to home for me.
+
 <blockquote class="toot">
   <div class="vertically-centered avatar">
     <img src="https://cdn.masto.host/rubysocial/cache/accounts/avatars/109/428/410/679/317/829/original/36edfdf2d661fd4a.png" class="circle inlined" />
@@ -506,6 +524,8 @@ But this feeling sparks a (very) political question: What do you do when you’r
   <p>I am fifty and switched to documentation for new programmers, now. I never switched jobs and where as the corporate Java world was boring, the corporate clients, their quirks, their requirements, the people in my team kept changing and that was entertaining enough for me. I never wanted to go into project management and haven’t done technical lead in a long time, mostly because I preferred working part time (60%) over rising in the ranks. Living and working in Switzerland – that surely also makes a difference.</p>
   <cite><a href="https://social.alexschroeder.ch/users/alex/statuses/01HDC3HWC6MVDX859MGNXD0PNS" target="_blank">link</a></cite>
 </blockquote>
+
+💯
 
 <blockquote class="toot">
   <div class="vertically-centered avatar">
@@ -525,11 +545,11 @@ But this feeling sparks a (very) political question: What do you do when you’r
     <div><a href="https://mastodon.online/users/SaltyMonk" target="_blank">@SaltyMonk</a></div>
   </div>
 
-  <p><br>I switched to management a couple of years ago. New things to learn!</p><p>Am still keeping up with technical knowledge, am still doing pro bono projects, but I must admit that my enthusiasm for learning a new programming language, paradigm, technique, library every couple of years is dwindling.</p><p>I was always an advocate of knowing how to program, instead of knowing how to program in a specific language, but even that got old after three decades.</p>
+  <p>I switched to management a couple of years ago. New things to learn!</p><p>Am still keeping up with technical knowledge, am still doing pro bono projects, but I must admit that my enthusiasm for learning a new programming language, paradigm, technique, library every couple of years is dwindling.</p><p>I was always an advocate of knowing how to program, instead of knowing how to program in a specific language, but even that got old after three decades.</p>
   <cite><a href="https://mastodon.online/users/SaltyMonk/statuses/111279232709794887" target="_blank">link</a></cite>
 </blockquote>
 
-I can relate to the idea of always learning, I've found it crucial for the past twenty years. Yet, I also relate to the dwindling of my curiosity tech-wise. May be it's not so much about dwindling, but it's less all consuming, more centered. Dunno.
+I relate to the idea of always learning. I’ve found it crucial for the past twenty years. Yet, I also relate to the dwindling of my curiosity tech-wise. Maybe it’s not so much about dwindling, but it’s less all-consuming, and more centered.
 
 <blockquote class="toot">
   <div class="vertically-centered avatar">
@@ -561,13 +581,15 @@ I can relate to the idea of always learning, I've found it crucial for the past 
   <cite><a href="https://mastodon.gamedev.place/users/Slagh/statuses/111280640804507224" target="_blank">link</a></cite>
 </blockquote>
 
+I feel you!
+
 <blockquote class="toot">
   <div class="vertically-centered avatar">
     <img src="https://cdn.masto.host/rubysocial/cache/accounts/avatars/109/321/033/172/911/120/original/156ab5f33b7ac7c1.jpg" class="circle inlined" />
     <div><a href="https://mastodon.social/users/JeffGrigg" target="_blank">@JeffGrigg</a></div>
   </div>
 
-  <p></p><p>I prefer team leadership as technical leadership among peers over "being a Manager."</p><p>I've been "An Official Manager" several times in my career, and even for my current employer. But they seem to forget that.</p><p>I have conflicts with most "big company management," as I'm committed to agile team empowerment, while most are stuck in pre-agile Command-and-Control mindsets.</p><p>X</p>
+  <p></p><p>I prefer team leadership as technical leadership among peers over "being a Manager."</p><p>I've been "An Official Manager" several times in my career, and even for my current employer. But they seem to forget that.</p><p>I have conflicts with most "big company management," as I'm committed to agile team empowerment, while most are stuck in pre-agile Command-and-Control mindsets.</p>
   <cite><a href="https://mastodon.social/users/JeffGrigg/statuses/111281392521438263" target="_blank">link</a></cite>
 </blockquote>
 
@@ -637,7 +659,7 @@ I can relate to the idea of always learning, I've found it crucial for the past 
   <cite><a href="https://ruby.social/users/emma/statuses/111279474110252712" target="_blank">link</a></cite>
 </blockquote>
 
-I've put Emma's toot here, because I'm a strong believer that technical seniority takes many forms. And the YAGNI philosophy is often forgotten in the whole lifecycle of a product. The best code is the code we don't write.
+I’m a strong believer that technical seniority takes many forms. And the YAGNI philosophy is often forgotten in the whole lifecycle of a product. The best code is the code we don’t write.
 
 <blockquote class="toot">
   <div class="vertically-centered avatar">
@@ -831,9 +853,11 @@ I've put Emma's toot here, because I'm a strong believer that technical seniorit
     <div><a href="https://indieweb.social/users/brbcoding" target="_blank">@brbcoding</a></div>
   </div>
 
-  <p>&gt; 40 here. I've focused on PHP as the bread &amp; butter of my career. Along the way, I  discovered a love for Laravel and front-end in various forms. Currently digging Livewire in the Laravel ecosystem and Svelte outside. I also worked with Vue, Ember, and React.</p><p>I've never been interested in leadership. My career has "peaked" at senior engineer and that's where I like it.</p>
+  <p>40 here. I've focused on PHP as the bread &amp; butter of my career. Along the way, I  discovered a love for Laravel and front-end in various forms. Currently digging Livewire in the Laravel ecosystem and Svelte outside. I also worked with Vue, Ember, and React.</p><p>I've never been interested in leadership. My career has "peaked" at senior engineer and that's where I like it.</p>
   <cite><a href="https://indieweb.social/users/brbcoding/statuses/111280332765421416" target="_blank">link</a></cite>
 </blockquote>
+
+I like the calm satisfaction in brbcoding's reply.
 
 <blockquote class="toot">
   <div class="vertically-centered avatar">
@@ -1159,6 +1183,8 @@ I've put Emma's toot here, because I'm a strong believer that technical seniorit
   <cite><a href="https://carpdiem.online/users/eviltrout/statuses/111280216406161436" target="_blank">link</a></cite>
 </blockquote>
 
+I thought I'd get more "founding a company" but this was the only occurrence with a positive outcome.
+
 ## 😂
 
 <blockquote class="toot">
@@ -1214,3 +1240,11 @@ I've put Emma's toot here, because I'm a strong believer that technical seniorit
   <p>You might enjoy Alexander Serebrenik's research on ageism in software development: <a href="https://www.youtube.com/watch?v=vofY6oeAaBQ" rel="nofollow noopener noreferrer" translate="no" target="_blank"><span class="invisible">https://www.</span><span class="ellipsis">youtube.com/watch?v=vofY6oeAaB</span><span class="invisible">Q</span></a></p>
   <cite><a href="https://mastodon.social/users/gvwilson/statuses/111295825301440203" target="_blank">link</a></cite>
 </blockquote>
+
+Thanks a million to you lovely people for sharing your experience with me.
+
+I didn't know what to expect, but many replies already struck a chord. I know I'll get back to the list, and I'm sure I'll be able to identify some strategies/ideas that'll work for me.
+
+Cheers,
+
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
