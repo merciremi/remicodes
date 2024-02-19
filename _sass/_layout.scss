@@ -10,7 +10,6 @@ blockquote.toot {
   a {
     color: silver !important;
     font-weight: 500;
-    border-bottom: none;
   }
   cite {
     a {
@@ -19,6 +18,9 @@ blockquote.toot {
   }
   .avatar {
     margin-bottom: 20px;
+    a {
+      border-bottom: none;
+    }
     img {
       height: 50px;
       width: 50px;
