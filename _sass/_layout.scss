@@ -32,6 +32,18 @@ blockquote.toot {
   }
 }
 
+.sponsor {
+  margin-top: 36px;
+  padding: 18px 36px 18px 36px;
+  border: 3px solid $blue-01;
+  text-align: center;
+  font-weight: 700;
+  a {
+    text-decoration: none;
+    border-bottom: solid 3px $pink;
+  }
+}
+
 .cta {
   color: $pink;
   margin-top: 36px;
