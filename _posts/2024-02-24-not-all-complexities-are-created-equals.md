@@ -1,13 +1,15 @@
 ---
 layout: post
 title: Domain complexity vs applicative complexity
-excerpt: "For years, code would fall into two categories: easy (good!) and hard (bad!). Recently, I've realized that not every piece of _hard_ code is created equal. Complex code often encompasses two kinds of complexity: domain complexity and applicative complexity. And I often failed to identify which is which."
-date: 20/02/2024
-permalink: /complexities/
+excerpt: 'For years, code would fall into two categories: easy (good!) and hard (bad!).
+  Recently, I''ve realized that not every piece of _hard_ code is created equal. Complex
+  code often encompasses two kinds of complexity: domain complexity and applicative
+  complexity. And I often failed to identify which is which.'
+date: 26/02/2024
+permalink: "/complexities/"
 category: other
-cover_image: /media/2024/02/remi-mercier-domain-complexity-applicative-complexity.png
+cover_image: "/media/2024/02/remi-mercier-domain-complexity-applicative-complexity.png"
 ---
-
 For years, code would fall into two categories: easy (good!) and hard (bad!).
 
 Recently, I've realized that not every piece of _hard_ code is created equal. Complex code often encompasses two kinds of complexity: domain complexity and applicative complexity.
@@ -52,7 +54,7 @@ I briefly worked with a company that did not ship a single feature in a year. Wh
 
 When you can't be sure your changes won't break the application, you don't release any.
 
-Life has seasons. Applications too. Be sure to watch for the signs so you don't sow when you should toil.
+Life has seasons. Applications too. Be sure to watch for the signs so you don't sow when you should plow.
 
 Cheers,
 
