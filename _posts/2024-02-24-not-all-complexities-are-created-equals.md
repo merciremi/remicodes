@@ -22,11 +22,11 @@ Domain complexity is what we refer to when we talk about "rocket science". Build
 
 But any domain where programming happens has inbuilt complexity.
 
-I once worked for a real estate company. The regulations were complex enough that they transpose as complexity in our codebase.
+I once worked for a real estate company. The regulations were abstruse enough that our codebase reflected their complexity. We had procedural abstractions that would handle dozens of steps sequentially.
 
 Later, I worked for a book-streaming company. Handling the (supposedly) standard formats used by publishers to share their books was the stuff of nightmares.
 
-There's no way around domain complexity. If you want to solve your users' pain points, you'll have to solve domain complexity.
+There's no way around domain complexity. If you want to solve your users' pain points, you'll have to accept the complexity of their business.
 
 ## Applicative complexity
 
@@ -44,17 +44,17 @@ Your application starts leaking at the seams. Usage drives new problems: your da
 
 Later, when you're out of the woods, a new phase in the lifecycle begins.
 
-I call this phase __consolidation__.
+I call this phase the __consolidation__ phase.
 
 Features need preliminary refactoring. Teams finally take a look at their `.rubocop_todo.yml`. Maybe it's time to rewrite these seven service-objects nested in one another.
 
 Consolidation often frightens teams. Features take twice as much time to ship. Programmers keep yammering about preliminary clean-ups. However, consolidation is necessary if you wish to grow or to evolve. Not doing the work now will only result in your application grinding to a halt.
 
-I briefly worked with a company that did not ship a single feature in a year. Why? Their codebase was full of applicative complexity yet empty of any tests. They had decided against any consolidation, again and again. And now, they were toast.
+I briefly worked with a company that had not shipped a single feature in a year. Why? Their codebase was full of applicative complexity (yet empty of any tests). They had decided against consolidation repeatedly. And now, they were stuck.
 
-When you can't be sure your changes won't break the application, you don't release any.
+When you can't be sure your changes won't break the application, you don't push any.
 
-Life has seasons. Applications too. Be sure to watch for the signs so you don't sow when you should plow.
+Life has seasons. Applications have cycles. Be sure to watch for the signs so you don't sow when you should plow.
 
 Cheers,
 
