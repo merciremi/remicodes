@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Currently not available for work
+title: Want to work with me?
 permalink: /work/
 ---
 
