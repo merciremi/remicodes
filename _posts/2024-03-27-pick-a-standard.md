@@ -7,7 +7,7 @@ permalink: "/pick-a-standard/"
 category: rails
 cover_image: "/media/2024/03/remi-mercier-pick-a-standard.png"
 ---
-Let me tell you about what my day looks like in a team with no standards, no conventions, and no processes in place.
+Let me tell you about what my day looks like in a codebase with no standards, no conventions, and no processes in place.
 
 Every time I work on a new API endpoint, I wonder about:
 - Which routing syntax should I pick from the four pre-existing syntaxes used in the file?
