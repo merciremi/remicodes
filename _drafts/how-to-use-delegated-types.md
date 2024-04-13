@@ -91,7 +91,13 @@ Delegated types allow me to:
 - Have custom method implementation for each type.
 - Index all `lessons` regardless of their type.
 
-A simplified class diagram would look like this:
+## Initial implementation and pitfalls
+
+My first idea was to treat `directed_studies` in isolation. In my mind, `lectures` where the "golden path" (read: the easiest) so I was happy following he Rails convention of interacting with `lectures` through `lessons`.
+
+But fetching `students` for `directed studies` was slightly harder, so I plan on bypassing `lessons` and create a direct relationships between `directed studies` and `groups`.
+
+<!-- I have to check my initial plan for this, I'm not 100% sure about the way I had planned  -->
 
 {% highlight txt %}
 
@@ -113,22 +119,22 @@ A simplified class diagram would look like this:
     +----------------+    +----------------+
     |   Subjects     |    |    Groups      |
     +----------------+    +----------------+
-            |1                    |1
-            +-----------+---------+
-                        |*
-                +----------------+
-                |    Lessons     |
-                +----------------+
-                | id             |
-                | name           |
-                | start_at       |
-                | end_at         |
-                | lessonable     |
-                | #students      |
-                +----------------+
-                        |1
-            +-----------+---------±
-            |1                    |1
+            |1                        |1
+            +-----------+             |
+                        |*            |
+                +----------------+    |
+                |    Lessons     |    |
+                +----------------+    |
+                | id             |    |
+                | name           |    |
+                | start_at       |    |
+                | end_at         |    |
+                | lessonable     |    |
+                | #students      |    |
+                +----------------+    |
+                        |1            |
+            +-----------+----------+  |
+            |1                     |1 |*
     +----------------+    +----------------+
     |  Lectures      |    |Directed Studies|
     +----------------+    +----------------+
@@ -136,35 +142,27 @@ A simplified class diagram would look like this:
     +----------------+    +----------------+
 {% endhighlight %}
 
+You can already tell, even if you're not knee deep into the feature, that things will turn ugly in about a minute.
 
+By bypassing the parent class `lessons`, `groups` can create `directed studies` directly.
 
-<!-- class diagram -->
+```
+  Group.first.directed_studies.create! # => returns an instance of DirectedStudy
+```
 
-## Initial wanderings and pitfalls
+But doing so means I lose the attributes and common logic defined in `lessons`.
 
+```
+Group.first.directed_studies.first.name # => NoMethodError
+```
 
+Oupsy!
 
-As you can see above, my inital plan had one major flow: delegated types are not designed to work in isolation.
-
-Sure, you can technically write `Lecture.create!` and get an instance of `Lecture` back. But you can neither access the name nor the temporal boundaries of its parent `Lesson`.
-
-Likewise, a relationship should always pass through the parent class.
-
-
-
-<!-- to do -->
+This is my main take away: delegated types are not designed to work in isolation. The main interface for using delegated types should always be the parent class.
 
 As often, Rails provides you with sharp knives. Sure, you can stick them in your foot if you want, but that doesn't mean you should.
 
-Rails designed delegated types to work closely. with their parent class
-
-
-
-
-
-- though that sub-type can be an interface in isolation => NO
-
-
+## Final implementation and main takeaways
 
 {% highlight txt %}
 
@@ -208,8 +206,6 @@ Rails designed delegated types to work closely. with their parent class
     | #students      |    | #students      |
     +----------------+    +----------------+
 {% endhighlight %}
-
----
 
 - parent class is only interface
 - Subclasses only there to handle specifix data
@@ -220,9 +216,4 @@ Rails designed delegated types to work closely. with their parent class
 - Not necessarily have same api accroS child classes (how do you handle qtuff then?)
 - Child classes are not there to be instantiated in isolation
 
-Maybe plan for post:
-
-- The initial requieement
-- The first plan and pitfalls
-- Final implementation and learnings
 
