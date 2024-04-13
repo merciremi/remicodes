@@ -8,36 +8,206 @@ category:
 cover_image: 
 ---
 
-There are a bunch of posts about Ruby on Rails delegated types, out there. But a lot of these focus on theorical comparison between delegated types and STI or polymorphism. Also, the examples always revolve around the basic usecase explain in the initial pull request. And I did not find those examples very handy.
+Delegated types are a modelization pattern introduced in Rails in 2020. While reseaching delegated types for a feature, I found a handful of posts about them. However, most articles focus on the theoretical comparison between delegated types, STI, and polymorphism. Examples used in these posts are often unrepresentative of the complexity of real-life applications.
 
-Today, I want to share a real-world use case. I’ll give you the context and my needs, what was considered before picking up delegated types as a technical solution, the first tries and the impasses, then, the final implementation and my learnings.
+Today, I want to share a real-world use case. I'll walk you through my initial requirements, my first implementation and its hiccups, then how I eventually used delegated types with my main learning points.
 
-It won’t be a typical how-to, but hopefully, it’ll help you wrap your head around the pros and cons of delegated types.
+This post won’t be your typical tutorial, but hopefully, it’ll help you better understand how delegated types can fit into your codebase.
 
-## The context
+## The initial problem
 
-Students sign-up for subjects. Each subject is taught through lessons. Lessons come inntwonflavours: lectures and directed studies.
+First, let me explain the core domain and its logic.
 
-Lectures are open to every student enrolled in a subject. Directed studies are reserved to subsets of the students.
+I currently work on an application where `Students` can sign-up for `subjects`.
 
-Lectures and directed studies are very similar in their representation. Both are a modality of any given subject. Both have a name, a start time and end time.
+Each subject is taught through `lessons`. Lessons come in two flavors: `lectures` and `directed studies`.
 
-However, when checking for enrollments, each has its own version. Lectures access their students through the subject. Directed studies access their students through a concept of group, a subset of students.
+Lectures are `open` to every student enrolled in a subject. Directed studies are `reserved` to subsets of the students.
 
-## Why use delegated types?
+Lectures and directed studies are very similar in their representation. Both are a __modality__ of any given subject. Both have a name, a start time and an end time.
 
-Given our business need, my teamates and I decided to use the little known delegated types, introduced in Rails a few years ago.
+However, each type of lessons __has its own way of getting its list of students__:
+- Lectures access their students through the subject, then through the `enrollements`.
+- Directed studies access their students through groups, which are subsets of students.
 
-Why use delegated types?
+Here is the graph I initially drew (the arrows representing the chain of the method `#students`):
 
-A few pointes stood up for us:
+{% highlight txt %}
 
-- Store common info in one table
-- Store specific attributes in separate tables
-- Allow for deeper customisation, most notably on method name.
-- Allow for aggregated list of all lessons.
+    +----------------+
+    |    Students    | <----------+
+    +----------------+            |
+            ^                     |
+            |                     |
+    +----------------+    +----------------+
+    |  Enrollements  |    | GroupsStudents |
+    +----------------+    +----------------+
+            ^                     ^
+            |                     |
+            |                     |
+    +----------------+    +----------------+
+    |   Subjects     |    |    Groups      |
+    +----------------+    +----------------+
+            ^                     ^
+            |                     |
+  +---------+                     +---------------+
+  |                                               |
+  | +----------------- Lessons ----------------+  |
+  | | +----------------+    +----------------+ |  |
+  | | |  Lectures      |    |Directed Studies| |  |
+  | | +----------------+    +----------------+ |  |
+  +---- #students      |    | #students ----------+
+    | +----------------+    +----------------+ |
+    +------------------------------------------+
 
-## Initial wanderings and common pitfalls
+{% endhighlight %}
+
+In this graph, `enrollements` and `groups students` are join tables, which allow us to have many-to-many relationships. They might get some logic of their own later down the road.
+
+I've not represented `lessons` as a proper class yet. You probably already know `lessons`, `lectures` and `directed studies` will end up as delegated types, but when I initially drew that graph, I didn't.
+
+## Why should I use delegated types?
+
+Before jumping to technical solutions, I like to start from the API I'd like to expose. For this feature, I wanted to be able to write code like:
+
+```
+  subject.lessons # => returns a collection of lessons
+  subject.lessons.lectures # => returns a collection of lessions while filtering out those of type "directed studies"
+  subject.lessons.map(&:students) # => returns a collection of students regardless of the type of lessons
+```
+
+Right off the bat, we can see that I both need some kind of aggregative logic (I want a collection of `lessons`), but also an exclusive logic (I want a collection of only one type of `lessons`).
+
+I also need a common API between `lectures` and `directed studies`. There is a lot of common logic - a `name`, a `start time` and a `stop time` -, but also some distinctive logic (the way each type of `lessons` fetch its students).
+
+To resume: a bit of Single Table Inheritance for the aggregation, a bit of polymorphism for the common API, but also some flexibility in terms of persisting the information.
+
+After pondering these various requirements, I decided to go with delegated types.
+
+Delegated types allow me to:
+- Store common information in a single table.
+- Store specific information in specific tables.
+- Query each type of `lessons` through a unified API: `Lesson`.
+- Have custom method implementation for each type.
+- Index all `lessons` regardless of their type.
+
+A simplified class diagram would look like this:
+
+{% highlight txt %}
+
+    +----------------+
+    |    Students    | -----------+
+    +----------------+ 1          |
+            |1                    |
+            |                     |
+            |*                    |*
+    +----------------+    +----------------+
+    |  Enrollements  |    | GroupsStudents |
+    +----------------+    +----------------+
+    |  student_id    |    | student_id     |
+    |  subject_id    |    | group_id       |
+    +----------------+    +----------------+
+            |*                    |*
+            |                     |
+            |1                    |1
+    +----------------+    +----------------+
+    |   Subjects     |    |    Groups      |
+    +----------------+    +----------------+
+            |1                    |1
+            +-----------+---------+
+                        |*
+                +----------------+
+                |    Lessons     |
+                +----------------+
+                | id             |
+                | name           |
+                | start_at       |
+                | end_at         |
+                | lessonable     |
+                | #students      |
+                +----------------+
+                        |1
+            +-----------+---------±
+            |1                    |1
+    +----------------+    +----------------+
+    |  Lectures      |    |Directed Studies|
+    +----------------+    +----------------+
+    | #students      |    | #students      |
+    +----------------+    +----------------+
+{% endhighlight %}
+
+
+
+<!-- class diagram -->
+
+## Initial wanderings and pitfalls
+
+
+
+As you can see above, my inital plan had one major flow: delegated types are not designed to work in isolation.
+
+Sure, you can technically write `Lecture.create!` and get an instance of `Lecture` back. But you can neither access the name nor the temporal boundaries of its parent `Lesson`.
+
+Likewise, a relationship should always pass through the parent class.
+
+
+
+<!-- to do -->
+
+As often, Rails provides you with sharp knives. Sure, you can stick them in your foot if you want, but that doesn't mean you should.
+
+Rails designed delegated types to work closely. with their parent class
+
+
+
+
+
+- though that sub-type can be an interface in isolation => NO
+
+
+
+{% highlight txt %}
+
+    +----------------+
+    |    Students    | -----------+
+    +----------------+ 1          |
+            |1                    |
+            |                     |
+            |*                    |*
+    +----------------+    +----------------+
+    |  Enrollements  |    | GroupsStudents |
+    +----------------+    +----------------+
+    |  student_id    |    | student_id     |
+    |  subject_id    |    | group_id       |
+    +----------------+    +----------------+
+            |*                    |*
+            |                     |
+            |1                    |1
+    +----------------+    +----------------+
+    |   Subjects     |    |    Groups      |
+    +----------------+    +----------------+
+            |1                    |1
+            +-----------+---------+
+                        |*
+                +----------------+
+                |    Lessons     |
+                +----------------+
+                | id             |
+                | name           |
+                | start_at       |
+                | end_at         |
+                | lessonable     |
+                | #students      |
+                +----------------+
+                        |1
+            +-----------+---------±
+            |1                    |1
+    +----------------+    +----------------+
+    |  Lectures      |    |Directed Studies|
+    +----------------+    +----------------+
+    | #students      |    | #students      |
+    +----------------+    +----------------+
+{% endhighlight %}
 
 ---
 
