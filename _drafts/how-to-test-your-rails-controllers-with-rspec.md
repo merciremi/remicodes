@@ -8,20 +8,40 @@ category:
 cover_image: 
 ---
 
-A while back, I wrote about [testing your Rails models with RSpec]({{site.baseurl}}/how-to-test-rails-models-with-rspec/). It's time we start testing our controllers.
-
+A year ago, I wrote about [testing your Rails models with RSpec]({{site.baseurl}}/how-to-test-rails-models-with-rspec/). I guess it's time we start testing our controllers, right? Let's dive in.
 
 ## A Rails controllers that needs some tests
 
 {% highlight ruby %}
-class PostsController
-end
+class BooksController < BaseController
+  # GET /books
+  def index
+    render json: paginate(books)
+  end
+
+  # GET /books/:id
+  def show
+    authorize book
+
+    render json: book
+  end
+
+  private
+
+  def books
+    policy_scope(Book.all)
+  end
+
+  def book
+    @book ||= Book.find(params[:id])
+  end
 {% endhighlight %}
 
 ## What I always test
 
 - will test the validity of my input, my output (response, serialization formatting (several schools there, might prefer test serializer in isolation))
 - test respnses diff if need for auth or not, policies
+
 ## What I test on a case-to-case basis
 - sometimes, if my controller did what it's supposed to do : create objects, call objects...
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: how to use delegated types
+title: How to use delegated types in Rails
 excerpt: 
 date: 20/02/2024
 permalink: 
@@ -8,7 +8,7 @@ category:
 cover_image: 
 ---
 
-Delegated types are a modelization pattern introduced in Rails in 2020. While reseaching delegated types for a feature, I found a handful of posts about them. However, most articles focus on the theoretical comparison between delegated types, STI, and polymorphism. Examples used in these posts are often unrepresentative of the complexity of real-life applications.
+Delegated types are a modelization pattern introduced in Rails in 2020. While reseaching this pattern for a feature, I found that most existing articles focus on the theoretical comparison between delegated types, STI, and polymorphism. Examples used in these posts are often unrepresentative of the complexity of real-life applications.
 
 Today, I want to share a real-world use case. I'll walk you through my initial requirements, my first implementation and its hiccups, then how I eventually used delegated types with my main learning points.
 
@@ -32,7 +32,7 @@ However, each type of lessons __has its own way of getting its list of students_
 
 Here is the graph I initially drew (the arrows representing the chain of the method `#students`):
 
-{% highlight txt %}
+```
 
     +----------------+
     |    Students    | <----------+
@@ -60,7 +60,7 @@ Here is the graph I initially drew (the arrows representing the chain of the met
     | +----------------+    +----------------+ |
     +------------------------------------------+
 
-{% endhighlight %}
+```
 
 In this graph, `enrollements` and `groups students` are join tables, which allow us to have many-to-many relationships. They might get some logic of their own later down the road.
 
@@ -70,7 +70,7 @@ I've not represented `lessons` as a proper class yet. You probably already know 
 
 Before jumping to technical solutions, I like to start from the API I'd like to expose. For this feature, I wanted to be able to write code like:
 
-```
+```ruby
   subject.lessons # => returns a collection of lessons
   subject.lessons.lectures # => returns a collection of lessions while filtering out those of type "directed studies"
   subject.lessons.map(&:students) # => returns a collection of students regardless of the type of lessons
@@ -93,13 +93,17 @@ Delegated types allow me to:
 
 ## Initial implementation and pitfalls
 
-My first idea was to treat `directed_studies` in isolation. In my mind, `lectures` where the "golden path" (read: the easiest) so I was happy following he Rails convention of interacting with `lectures` through `lessons`.
+My first idea was to treat `directed_studies` in isolation.
 
-But fetching `students` for `directed studies` was slightly harder, so I plan on bypassing `lessons` and create a direct relationships between `directed studies` and `groups`.
+In my application, `lectures` were the "golden path" (read: the easiest path). So, I was happy following he Rails convention of interacting with `lectures` through `lessons`.
 
-<!-- I have to check my initial plan for this, I'm not 100% sure about the way I had planned  -->
+But fetching `students` for `directed studies` was slightly harder, so instead of following Rails' convention, I planed on bypassing `lessons` and create a direct relationship between `directed studies` and `groups`.
 
-{% highlight txt %}
+This association was also a way to assert the fact that `groups` would exlusively work with `directed studies`.
+
+Here's an updated version of my graph:
+
+```
 
     +----------------+
     |    Students    | -----------+
@@ -140,31 +144,36 @@ But fetching `students` for `directed studies` was slightly harder, so I plan on
     +----------------+    +----------------+
     | #students      |    | #students      |
     +----------------+    +----------------+
-{% endhighlight %}
-
-You can already tell, even if you're not knee deep into the feature, that things will turn ugly in about a minute.
-
-By bypassing the parent class `lessons`, `groups` can create `directed studies` directly.
-
-```
-  Group.first.directed_studies.create! # => returns an instance of DirectedStudy
 ```
 
-But doing so means I lose the attributes and common logic defined in `lessons`.
+You can already tell from this graph that things will turn ugly in about a minute.
+
+Bypassing the parent class `lessons` for `groups` results in several pitfalls:
+
+- `subjects` and `groups` do not interact with `lessons` in the same manner.
+- `groups` can create a specific type of `lessons`, but lose the common information in the process.
 
 ```
-Group.first.directed_studies.first.name # => NoMethodError
+  directed_study = Group.first.directed_studies.create! # => returns an instance of DirectedStudy
+  directed_study.name # => NoMethodError
+  directed_study.lesson # => nil
 ```
 
-Oupsy!
+Whoopsy!
 
-This is my main take away: delegated types are not designed to work in isolation. The main interface for using delegated types should always be the parent class.
+If I had one main take-away, it'll be this:
 
-As often, Rails provides you with sharp knives. Sure, you can stick them in your foot if you want, but that doesn't mean you should.
+<p class='callout'>
+  Delegated types are not designed to work in isolation. And the main interface for using delegated types should always be the parent class.
+</p>
+
+As per its manifesto, Rails provides you with sharp knives. Sure, you can stick them in your foot if you want, but that doesn't mean you should.
 
 ## Final implementation and main takeaways
 
-{% highlight txt %}
+After pulling my hair for a while, I updated my architecture to the following:
+
+```
 
     +----------------+
     |    Students    | -----------+
@@ -205,15 +214,25 @@ As often, Rails provides you with sharp knives. Sure, you can stick them in your
     +----------------+    +----------------+
     | #students      |    | #students      |
     +----------------+    +----------------+
-{% endhighlight %}
+```
 
-- parent class is only interface
-- Subclasses only there to handle specifix data
-- Subclasses only there to handle custom interpretation of methods
-- Parent class stores common attributes
-- Parent class stores common behavior
-- Parent class delagates methods that need interpretation on child class
-- Not necessarily have same api accroS child classes (how do you handle qtuff then?)
-- Child classes are not there to be instantiated in isolation
+The main take-aways are:
+- The parent class (`lessons`) should be the only interface.
+- The parent class stores common attributes and behaviors.
+- The parent class delegates the ad hoc methods to their delegated types.
+- Delegated types (`lectures` and `directed studies`) are only there to handle specific data and custom implementation for methods.
+- Delegated types are not designed to be used in isolation.
+
+### Some points that are still unclear to me:
+
+Right now, students can access their `lectures` through one path, and their `directed studies` through another path. This setup stems from the fact that `groups` are not scoped to a subject in our domain.
+
+```ruby
+  Student.first.subjects.first.lessons # => only lectures
+  Student.first.groups.first.lessons # => only directed studies
+```
+
+These can be two scopes on `Student` but it's a pain to merge these two scopes, because the underlying stucture is not the same (meaning, you can't use `or`). So it's back to manually merging the two scopes, which makes it's nearly impossible to leverage `includes`.
+
 
 
