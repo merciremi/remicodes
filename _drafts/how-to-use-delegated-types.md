@@ -8,21 +8,23 @@ category:
 cover_image: 
 ---
 
-Delegated types are a modelization pattern introduced in Rails in 2020. While reseaching this pattern for a feature, I found that most existing articles focus on the theoretical comparison between delegated types, STI, and polymorphism. Examples used in these posts are often unrepresentative of the complexity of real-life applications.
+Delegated types are a modelization pattern introduced in Rails in 2020. While reseaching this pattern for a feature, I found that existing articles overly focus on the theoretical comparison between delegated types, STI, and polymorphism. Examples used in these posts are often unrepresentative of the complexity of real-life applications.
 
-Today, I want to share a real-world use case. I'll walk you through my initial requirements, my first implementation and its hiccups, then how I eventually used delegated types with my main learning points.
+Today, I want to share a real-world use case. I'll walk you through my pre-existing domain architecture, my initial requirements, my mistakes, and eventually, how I used delegated types and what I learned.
 
-This post won’t be your typical tutorial, but hopefully, it’ll help you better understand how delegated types can fit into your codebase.
+This post won’t be your typical tutorial, so prepare yourself for some detours. But hopefully, it’ll help you better understand how delegated types can fit (or not) in your codebase.
 
-## The initial problem
+## The initial domain and the new requirements
 
 First, let me explain the core domain and its logic.
 
 I currently work on an application where `Students` can sign-up for `subjects`.
 
-Each subject is taught through `lessons`. Lessons come in two flavors: `lectures` and `directed studies`.
+Each subject is taught through `lessons`. So far, `Lesson` is the only abstraction representing a growing concept.
 
-Lectures are `open` to every student enrolled in a subject. Directed studies are `reserved` to subsets of the students.
+Teachers now want the ability to have different flavors of `lessons`: `lectures` and `directed studies`.
+
+Lectures are open to every student enrolled in a subject. Directed studies are reserved to subsets of the students.
 
 Lectures and directed studies are very similar in their representation. Both are a __modality__ of any given subject. Both have a name, a start time and an end time.
 
@@ -30,7 +32,7 @@ However, each type of lessons __has its own way of getting its list of students_
 - Lectures access their students through the subject, then through the `enrollements`.
 - Directed studies access their students through groups, which are subsets of students.
 
-Here is the graph I initially drew (the arrows representing the chain of the method `#students`):
+Here is the graph I initially drew (the arrows representing the logical path for each version of the method `#students`):
 
 ```
 
@@ -66,9 +68,9 @@ In this graph, `enrollements` and `groups students` are join tables, which allow
 
 I've not represented `lessons` as a proper class yet. You probably already know `lessons`, `lectures` and `directed studies` will end up as delegated types, but when I initially drew that graph, I didn't.
 
-## Why should I use delegated types?
+## Why did I pick-up delegated types?
 
-Before jumping to technical solutions, I like to start from the API I'd like to expose. For this feature, I wanted to be able to write code like:
+Before jumping to technical solutions, I like to start from the API I'd like to expose. For this feature, I want to write code like this:
 
 ```ruby
   subject.lessons # => returns a collection of lessons
@@ -76,24 +78,25 @@ Before jumping to technical solutions, I like to start from the API I'd like to 
   subject.lessons.map(&:students) # => returns a collection of students regardless of the type of lessons
 ```
 
-Right off the bat, we can see that I both need some kind of aggregative logic (I want a collection of `lessons`), but also an exclusive logic (I want a collection of only one type of `lessons`).
+Right off the bat, I can see I need an aggregative logic (I want a collection of `lessons`), and an exclusive logic (I want a collection of only one type of `lessons`).
 
-I also need a common API between `lectures` and `directed studies`. There is a lot of common logic - a `name`, a `start time` and a `stop time` -, but also some distinctive logic (the way each type of `lessons` fetch its students).
+I also need a common API between `lectures` and `directed studies` (so I can call `students` without raising an error).
 
-To resume: a bit of Single Table Inheritance for the aggregation, a bit of polymorphism for the common API, but also some flexibility in terms of persisting the information.
+There is a lot of common logic between `lectures` and `directed studies`. Both have a `name`, a `start time` and a `stop time`. But I also have some distinctive logic (the way each type of `lessons` fetch its students).
 
-After pondering these various requirements, I decided to go with delegated types.
+To sum up: I need a bit of Single Table Inheritance for the aggregation, a bit of polymorphism for the common API, but also some flexibility in terms of persisting the information.
+
+After pondering these various requirements, I decided to try delegated types.
 
 Delegated types allow me to:
-- Store common information in a single table.
-- Store specific information in specific tables.
-- Query each type of `lessons` through a unified API: `Lesson`.
-- Have custom method implementation for each type.
-- Index all `lessons` regardless of their type.
+- Store common information in a single table: `lessons`.
+- Store specific information in specific tables: `lectures` and `directed studies`.
+- Query each type of `lessons` through a unifying class: `Lesson`.
+- Have custom method implementation for each type: `students`.
+- Index all `lessons` regardless of their type: `Lesson.all`.
+- Have predicate methods generated by Rails on the fly: `Lesson.all.lectures`.
 
-## Initial implementation and pitfalls
-
-My first idea was to treat `directed_studies` in isolation.
+## My initial implementation (and mistakes)
 
 In my application, `lectures` were the "golden path" (read: the easiest path). So, I was happy following he Rails convention of interacting with `lectures` through `lessons`.
 
