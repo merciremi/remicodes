@@ -1,13 +1,17 @@
 ---
 layout: post
-title: "Delegated types in Rails: I tried them, and I'm not sure I really understood them"
-excerpt: Delegated types are a modelization pattern introduced in Rails in 2020. And developers have mostly been scratching their head for a few years trying to use them in their applications. Today, I want to share a real-world use case. I'll walk you through my pre-existing domain architecture, my initial requirements, my mistakes, how I eventually used delegated types, what I learned and my open questions.
+title: 'Delegated types in Rails: I tried them, and I''m not sure I really understood
+  them.'
+excerpt: Delegated types are a modelization pattern introduced in Rails in 2020. And
+  developers have mostly been scratching their head for a few years trying to use
+  them in their applications. Today, I want to share a real-world use case. I'll walk
+  you through my pre-existing domain architecture, my initial requirements, my mistakes,
+  how I eventually used delegated types, what I learned and my open questions.
 date: 18/04/2024
-permalink: /delegated-types/
+permalink: "/delegated-types/"
 category: rails
 cover_image: "/media/2024/04/remi-mercier-delegated-types-ruby-on-rails.png"
 ---
-
 Delegated types are a modelization pattern introduced in Rails in 2020 [^1]. While researching this pattern for a feature, I found that existing articles overly focus on the theoretical comparison between delegated types, STI, and polymorphism. Examples used in these posts are often unrepresentative of the complexity of real-life applications.
 
 Today, I want to share a real-world use case. I'll walk you through my pre-existing domain architecture, the initial requirements, my mistakes, how I eventually used delegated types, what I learned, and my open questions.
@@ -34,7 +38,7 @@ However, each type of lesson __has its way of getting its list of students__:
 
 Here is the graph I initially drew (the arrows representing the logical path for each version of the method `#students`):
 
-{% highlight zsh %}
+{% highlight txt %}
     +----------------+
     |    Students    | <----------+
     +----------------+            |
@@ -145,7 +149,7 @@ This association was also a way to assert the exclusive nature of the relationsh
 
 Here's an updated version of my graph:
 
-{% highlight zsh %}
+{% highlight txt %}
     +----------------+
     |    Students    | -----------+
     +----------------+ 1          |
@@ -268,7 +272,7 @@ After pulling my hair for a while, I updated my architecture to place the contai
 
 Here's an updated graph:
 
-{% highlight zsh %}
+{% highlight txt %}
     +----------------+
     |    Students    | -----------+
     +----------------+ 1          |
