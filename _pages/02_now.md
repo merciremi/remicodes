@@ -6,13 +6,11 @@ permalink: /now/
 
 What I'm doing right now:
 
-- Getting to know my new teammates and a new codebase.
-- Melting cheese in the oven (w/ a lot of garlic, of course).
-- Walking ~~and climbing~ the local mountains, and taking pictures along the way.
-- Getting to know my new camera (Olympus XA) sent by [Yannick](https://yannickschutz.com/){:target="\_blank"}.
-- 🫣 ~~Dabbling in watercolors.~~
-- ✅ ~~Restoring a 18th century house.~~
+- Walking and climbing the local mountains, and taking pictures along the way.
+- Watching our shared garden grow wildly, thanks to the lucky mix of rain and sun we've had for months.
+- Lobbying for better LGBTQIA+ policies in France.
+- Untangling and consolidating codebases in needs.
 
-This page was last updated on December 18, 2023.
+This page was last updated on June 1, 2024.
 
 This is a `now` page popularized by [Derek Sivers](https://sivers.org/now){:target="\_blank"}.

@@ -42,7 +42,7 @@ Interested in the professional side of things? Head over to [the dedicated page]
 
 ## Writing
 
-I run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... As of 2022, *more than 18,700 unique visitors visited this website*. Some articles even got me invited on [podcasts]({{site.baseurl}}/talks/).
+I run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... I don't have analytics on my website anymore, so I don't know how many people read my stuff nowadays. In 2022, *more than 18,700 unique visitors visited this website*. Some articles even got me invited on [podcasts]({{site.baseurl}}/talks/).
 
 My top 3 articles are:
 - [Exploring dependency injection in Ruby]({{site.baseurl}}/dependency-injection-in-ruby/) (4.4k views)
@@ -57,9 +57,9 @@ First and foremost, I love to write stories. I usually latch out on a subject an
 
 As of early 2023, my newsletter is just a good way to receive my new posts before anyone else.
 
-We're slowly closing in on **200 subscribers** from all over the world!
+Last December, we crossed **200 subscribers** from all over the world!
 
-I'm still looking to make it a more creative space. This will probably evolve in 2023 as I explore new ways of supporting my writing work ([stay tuned!]({{site.baseurl}}/newsletter/)).
+I'm still looking to make it a more creative space. This will probably evolve in 2024 as I explore new ways of supporting my writing work ([stay tuned!]({{site.baseurl}}/newsletter/)).
 
 ## Slow pace
 
@@ -67,7 +67,7 @@ We've talked a lot about "workish" things so far: coding, writing, etc. Let's di
 
 A lot of my decisions - professional and personal - stem from the pursuit of a slower life.
 
-Ten years ago, I embraced the motto "moving fast and breaking things". After putting in long hours and working my health off for four years, I realized the things that end up breaking are (mostly) people. Since then, I've decided to examine what I care about deeply. And life rushing past me while I'm stuck in a rat race is not one of them.
+Ten years ago, I embraced the motto "moving fast and breaking things". After putting in long hours and working my health off for years, I realized the things that end up breaking are (mostly) people. Since then, I've decided to examine what I care about deeply. And life rushing past me while I'm stuck in a rat race is not one of them.
 
 So, slow pace.
 

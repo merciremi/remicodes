@@ -45,7 +45,7 @@ Some of the things I like to dig into:
 ## Who am I?
 
 <div class="vertically-centered">
-  <img src="{{ site.baseurl }}/media/remi-mercier.jpeg" height="100" width="100" class="circle inlined" id="profile-pic" />
+  <img src="{{ site.baseurl }}/media/remi-mercier-old.jpeg" height="100" width="100" class="circle inlined" id="profile-pic" />
   <p class="inlined">👋 Hey, I'm Remi. I'm a former stained-glass master turned software developer since 2018. I've always loved to share my learnings.</p>
 </div>
 

@@ -60,6 +60,8 @@ As of early 2024, the best ways to get my posts are through [RSS](https://remime
 
 ## Work history (as a software engineer)
 
+Currently working at [Evalmee](https://en.evalmee.com/), a SaaS helping schools set up and grade their examinations.
+
 Previously at [Youboox](https://nextory.com/fr/){:target="\_blank"} (acquired by Nextory), [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. Before that, I worked as a marketing manager for a tech startup for four years. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remimercier-cv-2023.pdf).
 
 ## What am I looking for?
@@ -106,7 +108,7 @@ No, I love living near the mountains so very much. **I'll only consider fully re
 
 ### Q: Are you willing to come to the office from time to time?
 
-For the past three years, **I've come to the office once a year**. But I'm open to come more often.
+For the past three years, **I've come to the office once a year**. But I'm open to come as much as **a few days once a month**.
 
 ### Q: Where do you see yourself in 5 years?
 
