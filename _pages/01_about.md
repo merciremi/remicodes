@@ -19,14 +19,14 @@ Now that you're *baguette*-ready, let us dive in.
 
 ## Who am I?
 
-I’m an (almost) forty-year old programmer, writer, and former stained-glass master (yep).
+I’m a programmer, a writer, and a former stained-glass maker (yep).
 
 <figure>
   <img src="{{ site.baseurl }}/media/shared/about/remi-mercier-out-of-focus.jpeg" alt='an out-of-focus picture of my face'/>
-  <figcaption>An out-of-focus picture of my face (shot by my kiddos with a Prima Twin S)</figcaption>
+  <figcaption>An out-of-focus picture of my face (shot with a Prima Twin S)</figcaption>
 </figure>
 
-Mountainous *Drôme* has been my family's home for the past 3 years. I love living there: quieter pace, beautiful landscapes and *amazing* food.
+Mountainous *Drôme* has been my home for the past 3 years. I love living there: quieter pace, beautiful landscapes and *amazing* food.
 
 <figure>
   <img src="{{ site.baseurl }}/media/shared/about/vercors.jpeg" alt='a view of a foggy mountain from afar'/>
