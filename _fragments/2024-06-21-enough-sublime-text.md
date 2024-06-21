@@ -1,6 +1,6 @@
 ---
 layout: fragment
-date: 2024-06-30
+date: 2024-06-21
 title: "Enough Sublime Text"
 permalink: /enough-sublime-text/
 ---
