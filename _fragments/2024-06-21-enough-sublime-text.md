@@ -5,6 +5,8 @@ title: "Enough Sublime Text"
 permalink: /enough-sublime-text/
 ---
 
+Currently trying to move from pretty good user, to advanced user for Sublime Text.
+
 ## Navigate files
 
 - `cmd-t` or `cmd-p` to open the file catalog.
