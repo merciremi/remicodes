@@ -23,7 +23,7 @@ These default comments are defined in your `schema.rb`, so gems like [annotate](
     # Table name: books
     #
     #  id          :integer    👉 not null, primary key 👈
-    #  duration    :datetime   👉 in seconds 👈
+    #  duration    :integer   👉 in seconds 👈
     #
   end
 {% endhighlight %}
