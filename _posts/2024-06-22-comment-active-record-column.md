@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Add comments to your tables columns"
-excerpt: "By default, Rails adds comments to some attributes like `id` (`not null, primary key` for instance.) But now, I can add comments to my own attributes."
+excerpt: "Add extra documentation to your columns attributes with this one simple trick."
 date: 2024-06-22
 permalink: /comment-tables-columns-attributes/
 category: rails
-cover_image: "/media/2024/06/remi-mercier-comment-columns-attributes-rails.png"
+cover_image: "/media/2024/06/remi-mercier-add-comments-to-your-tables-columns.png"
 ---
 
 I've been looking for a way to add default comments on models attributes *for ages*!
