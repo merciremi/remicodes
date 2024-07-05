@@ -2,7 +2,7 @@
 layout: post
 title: Pick a standard and move on
 excerpt: Why would you spend your cognitive capacity on useless choices?
-date: 27/03/2024
+date: 2024-03-27
 permalink: "/pick-a-standard/"
 category: rails
 cover_image: "/media/2024/03/remi-mercier-pick-a-standard.png"
