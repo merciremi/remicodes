@@ -1,7 +1,7 @@
 PATH
   remote: ../jekyll-cover
   specs:
-    jekyll-cover (0.1.0)
+    jekyll-cover (0.2.0)
       jekyll
       pry-byebug
       rmagick
@@ -102,7 +102,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll
   jekyll-compose
-  jekyll-cover (= 0.1.0)!
+  jekyll-cover (= 0.2.0)!
   jekyll-feed (~> 0.6)
   jekyll-redirect-from
   kramdown (>= 2.3.1)
