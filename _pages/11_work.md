@@ -73,18 +73,18 @@ In terms of technical challenges:
 - Improving the tooling and the engineering standards.
 
 In terms of working environment:
-- Calm companies: Clear processes over chaos, emails over meetings, product clarity over investor-pleasing roadmaps, deep focus over long hours.
+- Calm companies: Clear processes over chaos, product clarity, deep focus over long hours.
 - A focus on creating value for both users and company.
 - Warm, kind, supportive colleagues in a high-trust environment.
 - Working within [a diverse team]({{site.baseurl}}/the-need-for-dei/) with various backgrounds and expertise.
 - **Fully remote**.
-- **4-day work week**.
+- **4,5-day work week**.
 
 You can check my [user manual]({{site.baseurl}}/user-manual/).
 
 ## How do I like to interview companies?
 
-- My favorite technical tests are remote live codings where we hash out a real-life challenge: Build a tested API or add a feature to an existing codebase with preliminary refactoring.
+- My favorite technical tests are remote live codings where we hash out a real-life challenge.
 - I like meeting with several people from my future team and other teams.
 - I ask questions about your investors, your financial strength, or how you resolved conflicts.
 - I usually back-channel my way into your employees’ DMs to get a less “corporate-y” sense of your company.

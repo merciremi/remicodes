@@ -6,9 +6,9 @@ permalink: /user-manual/
 
 Hey there,
 
-Welcome to my user manual! I've written it to help coworkers get to know how I work, and my quirks. This document is a work-in-progress (obviously).
+Welcome to my user manual! I've written it to help coworkers get to know how I work, and my quirks. This document is a work-in-progress (obviously) and things will be adjusted based on my current team.
 
-_First version written on <time>2023/12/04</time>._
+_Latest update <time>2024/07/26</time>._
 
 ## My role at #{your_organisation}
 
@@ -16,11 +16,11 @@ My official titles usually are "back-end developer", "software engineer" or "ful
 
 I'm here to translate business needs into code. This follows two main paths:
   - Building new features.
-  - Consolidating the codebase: building test coverage, refactoring, YAGNI-ing your codebase. I - sometimes - call myself "the Mrs Doubtfire of Code".
+  - Consolidating the codebase: building test coverage, refactoring, YAGNI-ing your codebase.
 
 ## What I value
 
-  - **Calm environments**: Clear processes over chaos, product clarity over investor-pleasing roadmaps, deep focus over long hours, written documents over Slack conversations.
+  - **Calm environments**: Clear processes over chaos, product clarity, deep focus over long hours, written documents over Slack conversations.
   - A focus on creating **useful features** for users.
   - Warm, kind, supportive colleagues in a **high-trust environment**.
 
@@ -28,13 +28,12 @@ I'm here to translate business needs into code. This follows two main paths:
 
   - **Playing the long-game**: I'll often advocate for that extra refactoring or for taking the time to find the appropriate abstraction over rushing a half-assed feature to the finish line.
   - **Reducing complexity**: This ties with the long-game. My goal, as a programmer, is to build applications that are robust, self-explanatory and with as little complexity as possible. Shameless-green code > cleverish-egotistical code.
-  - **Explicit > Implicit**: Implicit breeds injustice (something I **strongly** dislike). I will always try to be as explicit as possible.
+  - **Explicit > Implicit**: Implicit breeds misunderstandings. I will always try to be as explicit as possible.
   - **Autonomy**: I favour autonomy and I like to create environments that empower people to be so: clear processes, clear channels of communications, etc.
   - **Laughing**: I laugh often and super loud, please adjust the output settings of your headset. 😅
 
 ## What I need to improve, work-wise
 
-  - Keeping engaged with people as I turn into a human bear for the whole winter.
   - Don’t overengineer it: a common default in my line of work.
 
 ## Best way to communicate with me
@@ -45,17 +44,14 @@ I prefer asynchronous communication. Here's a breakdown:
   - For technical communications (feature spec, postmortems): Notion/Linear/etc issues, Github pull requests.
   - For administrative communications: emails.
 
-I check my emails once a week, so if you send me something urgent there, please ping me on Slack.
+If you send me something urgent there, please ping me on Slack.
 
-Please, never call/text me on my phone. The only exception being:
-  - We're meeting up for a team retreat and we need to find each other in a crowdy place.
-
-Most notifications are either **turned off or muted** on my machine. When I read your message, I'll mark it with a "memo" emoji (📝) so you know I'm not ghosting you. If you need more from me, I'll get back to you whenever I'm done with my current task. Focus is my main priority.
+Most notifications are **muted** on my machine. When I read your message, I'll mark it with a "memo" emoji (📝) so you know I'm not ghosting you. If you need me urgently, please let me know so I can prioritize your request. Focus is my main priority, though.
 
 ### Working hours
 
   - I'm a 9 to 5-ish person.
-  - I don't work Wednesday mornings.
+  - I currently don't work Wednesday mornings.
 
 ### How I give feedback
 
@@ -70,8 +66,6 @@ Most notifications are either **turned off or muted** on my machine. When I read
   - On my pull requests: I'd strongly encourage you to stick to [conventional comments](https://conventionalcomments.org/). This will help with points #1 and #2.
   - I like getting 1:1 with my managers on a monthly basis.
 
-Last, I know __radical honesty__ is a thing in tech. I think it's a fancy term coined by toxic men who don't want to be bothered learning empathy. Explict feedback, yes. Being a jerk, no.
-
 ### What I have zero patience for
 
 - Toxic behaviors: misoginy, racism, contradictory demands, harassment, ghosting, etc.
@@ -79,11 +73,11 @@ Last, I know __radical honesty__ is a thing in tech. I think it's a fancy term c
 
 ### What people misunderstand about me
 
-**I'm not a corporate person AT ALL**. I believe in a job well done, in being nice to other people, etc.
+I believe in a job well done, in being nice to other people, etc.
 
 What I don't believe in are "grand mission" statements, motivational posters and the usual tech brouhaha.
 
-**I have strong boundaries** around work. This will pass as being *Not Engaged Enough™* but let me assure you:
+**I also have strong boundaries** around work. This will sometimes pass as being *not engaged enough* but let me assure you:
 
 > Chi va piano, va sano e va lontano.
 
