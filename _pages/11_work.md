@@ -10,13 +10,13 @@ permalink: /work/
 
 I'm a Ruby on Rails programmer, a writer, and a former stained-glass master (yup).
 
-I've worked in tech for ten years, and **I've been a professional developer for the past five years**, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups, and held a lot of positions, both in tech and non-tech fields for 20 years. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
+I've worked in tech for ten years, and **I've been a professional developer for the past five years**, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups, and held a lot of positions, both in and outside of tech for 15 years. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
 
 My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git, etc.
 
-I like majestic monoliths. I think they work very well for 99% of companies. But when needed, I've shipped micro-services in production as well (relying on Kafka).
+I like majestic monoliths. I think they work very well for 99% of companies. But when needed, I've shipped micro-services in production as well.
 
-Despite focusing on back-end programming, I also worked on some front-end for a few years.
+Despite focusing on back-end programming, I also dabbled on some front-end (vanilla JS, Reactjs and Vuejs).
 
 ## My daily contributions as a mid-level software engineer
 
@@ -47,6 +47,12 @@ I designed, specified and implemented bookmarks synchronization between legacy J
 
 I designed and implemented a feature flag manager to enhance release phase for large features. You can read about the process here: [Build a minimal feature flags manager in under an hour](https://remimercier.com/minimal-feature-flags-manager/).
 
+## Work history
+
+Currently working at [Evalmee](https://en.evalmee.com/), a SaaS helping schools set up and grade their examinations.
+
+Previously at [Youboox](https://nextory.com/fr/){:target="\_blank"} (acquired by Nextory), [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. Before that, I worked as a marketing manager for a tech startup for four years. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remi-mercier-cv-2024.pdf).
+
 ## Writing about what I learn
 
 I also run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... As of 2022, *more than 18,700 unique visitors visited this website*. Some articles even got me invited on [podcasts]({{site.baseurl}}/talks/).
@@ -58,12 +64,6 @@ My top 3 articles are:
 
 As of early 2024, the best ways to get my posts are through [RSS](https://remimercier.com/feed.xml) and my ([newsletter!]({{site.baseurl}}/newsletter/)).
 
-## Work history (as a software engineer)
-
-Currently working at [Evalmee](https://en.evalmee.com/), a SaaS helping schools set up and grade their examinations.
-
-Previously at [Youboox](https://nextory.com/fr/){:target="\_blank"} (acquired by Nextory), [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. Before that, I worked as a marketing manager for a tech startup for four years. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remimercier-cv-2023.pdf).
-
 ## What am I looking for?
 
 In terms of technical challenges:
@@ -73,10 +73,10 @@ In terms of technical challenges:
 - Improving the tooling and the engineering standards.
 
 In terms of working environment:
-- Calm companies: Clear processes over chaos, product clarity, deep focus over long hours.
+- Calm companies.
 - A focus on creating value for both users and company.
 - Warm, kind, supportive colleagues in a high-trust environment.
-- Working within [a diverse team]({{site.baseurl}}/the-need-for-dei/) with various backgrounds and expertise.
+- Working within a diverse team with various backgrounds and expertise.
 - **Fully remote**.
 - **4,5-day work week**.
 
@@ -84,11 +84,9 @@ You can check my [user manual]({{site.baseurl}}/user-manual/).
 
 ## How do I like to interview companies?
 
-- My favorite technical tests are remote live codings where we hash out a real-life challenge.
+- My [favorite technical tests]({{site.baseurl}}/technical-tests-in-2023/) are remote live codings where we hash out a real-life challenge.
 - I like meeting with several people from my future team and other teams.
-- I ask questions about your investors, your financial strength, or how you resolved conflicts.
-- I usually back-channel my way into your employees’ DMs to get a less “corporate-y” sense of your company.
-- [A reject fast, reject early mentalilty](https://juanitofatas.com/reject-fast-reject-early){:target="\_blank"}.
+- [A reject fast, reject early mentality](https://juanitofatas.com/reject-fast-reject-early){:target="\_blank"}.
 
 For me, interviews are a two-way street. You get to know me. I get to know you.
 
@@ -100,7 +98,7 @@ I've realized, over the past 20 years, that the recruiting process is a good pre
 
 I've been working remotely for the past four years and **I intend to keep it that way for the foreseeable future**.
 
-Remote working has been a godsend for me. It has allowed me to do my best work, focus on better communication, and create (much) more value.
+Remote working has allowed me to do my best work, focus on better communication, and create (much) more value.
 
 ### Q: Would you relocate to ______?
 
@@ -112,9 +110,9 @@ For the past three years, **I've come to the office once a year**. But I'm open 
 
 ### Q: Where do you see yourself in 5 years?
 
-Every time I tried to answer this question, I ended up somewhere unexpected. After all, I'm [a former stained-glass master turned developer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/). It speaks for itself, right?
+Every time I tried to answer this question, I ended up somewhere unexpected. After all, I'm [a former stained-glass master turned developer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/).
 
-Right now, I enjoy moving up the IC track. (By the way, do you have an IC track at your company?)
+Right now, I enjoy broadening my technical expertise, and moving up the IC track.
 
 ### Q: Tea or coffee?
 

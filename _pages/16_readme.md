@@ -14,20 +14,21 @@ _Latest update <time>2024/07/26</time>._
 
 My official titles usually are "back-end developer", "software engineer" or "fullstack developer".
 
-I'm here to translate business needs into code. This follows two main paths:
+I'm here to translate business needs into code. This follows three main paths:
   - Building new features.
   - Consolidating the codebase: building test coverage, refactoring, YAGNI-ing your codebase.
+  - Meeting with people across the organisation to align our effort, our resources, and our end-goal.
 
-## What I value
+## What I value (and build)
 
-  - **Calm environments**: Clear processes over chaos, product clarity, deep focus over long hours, written documents over Slack conversations.
+  - **Calm environments**: Clear processes, product clarity, deep focus, written documentation.
   - A focus on creating **useful features** for users.
   - Warm, kind, supportive colleagues in a **high-trust environment**.
 
 ## My style
 
-  - **Playing the long-game**: I'll often advocate for that extra refactoring or for taking the time to find the appropriate abstraction over rushing a half-assed feature to the finish line.
-  - **Reducing complexity**: This ties with the long-game. My goal, as a programmer, is to build applications that are robust, self-explanatory and with as little complexity as possible. Shameless-green code > cleverish-egotistical code.
+  - **Playing the long-game**: I'll often advocate for that extra refactoring or for taking the time to find the appropriate abstraction over rushing to the finish line.
+  - **Reducing complexity**: This ties with the long-game. My goal, as a programmer, is to build applications that are robust, self-explanatory and with as little [applicative complexity]({{site.baseurl}}/complexities/) as possible. Shameless-green code > cleverish-egotistical code.
   - **Explicit > Implicit**: Implicit breeds misunderstandings. I will always try to be as explicit as possible.
   - **Autonomy**: I favour autonomy and I like to create environments that empower people to be so: clear processes, clear channels of communications, etc.
   - **Laughing**: I laugh often and super loud, please adjust the output settings of your headset. 😅
@@ -46,7 +47,7 @@ I prefer asynchronous communication. Here's a breakdown:
 
 If you send me something urgent there, please ping me on Slack.
 
-Most notifications are **muted** on my machine. When I read your message, I'll mark it with a "memo" emoji (📝) so you know I'm not ghosting you. If you need me urgently, please let me know so I can prioritize your request. Focus is my main priority, though.
+Most notifications are **muted** on my machine. When I read your message, I'll mark it with a "memo" emoji (📝) so you know I'm not ghosting you. If you need me urgently, please let me know upfront so I can prioritize your request. Focus is my main priority, though.
 
 ### Working hours
 
@@ -73,7 +74,7 @@ Most notifications are **muted** on my machine. When I read your message, I'll m
 
 ### What people misunderstand about me
 
-I believe in a job well done, in being nice to other people, etc.
+I believe in a job well done and in being nice to other people.
 
 What I don't believe in are "grand mission" statements, motivational posters and the usual tech brouhaha.
 
