@@ -5,7 +5,7 @@ permalink: /newsletter/
 cover_image: '/media/shared/remi-mercier-newsletter.png'
 ---
 
-__Each month__, I send an email to +150 developers __with my latest essay about what I learn while building awesome software__.
+Every once in a while, I send an email to +200 developers __with my latest essay about what I learn while building awesome software__.
 
 Some of the things I like to dig into:
   - Ruby and Rails internals.
@@ -45,7 +45,7 @@ Some of the things I like to dig into:
 ## Who am I?
 
 <div class="vertically-centered">
-  <img src="{{ site.baseurl }}/media/remi-mercier-old.jpeg" height="100" width="100" class="circle inlined" id="profile-pic" />
+  <img src="{{ site.baseurl }}/media/remi-mercier.jpg" height="100" width="100" class="circle inlined" id="profile-pic" />
   <p class="inlined">👋 Hey, I'm Remi. I'm a former stained-glass master turned software developer since 2018. I've always loved to share my learnings.</p>
 </div>
 

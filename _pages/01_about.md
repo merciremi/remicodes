@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "👋 Hey, I'm Rémi"
+title: "Bonjour, I'm Remi. 👋"
 permalink: /about/
 cover_image: '/media/shared/about/remi-mercier-out-of-focus.jpeg'
 ---

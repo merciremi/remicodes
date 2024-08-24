@@ -7,7 +7,7 @@
     {% if page.title %}
       {{ page.title }} - Remi Mercier
     {% else %}
-      {{ site.title }} - Ruby on Rails Developer
+      {{ site.title }} - Software Developer
     {% endif %}
   </title>
 
@@ -20,13 +20,13 @@
   <!---------------->
 
   <!-- Site title -->
-  <meta property="og:site_name" content="{{ site.title }} - Ruby on Rails Developer">
+  <meta property="og:site_name" content="{{ site.title }} - Software Developer">
 
   <!-- Page title -->
   {% if page.title %}
-    <meta property="og:title" content="{{ page.title }} - Remi Mercier - Ruby on Rails Developer">
+    <meta property="og:title" content="{{ page.title }} - Remi Mercier - Software Developer">
   {% else %}
-    <meta property="og:title" content="{{ site.title }} - Ruby on Rails Developer">
+    <meta property="og:title" content="{{ site.title }} - Software Developer">
   {% endif %}
 
   <!-- Type of content -->
@@ -60,7 +60,7 @@
   {% if page.cover_image %}
     <meta property="og:image" content="{{ site.url }}{{ page.cover_image }}">
   {% else %}
-    <meta property="og:image" content="{{ site.url }}/media/remi-mercier-old.jpeg">
+    <meta property="og:image" content="{{ site.url }}/media/remi-mercier.jpg">
   {% endif %}
 
   <!-- Mastodon -->
@@ -75,6 +75,6 @@
     <meta name="twitter:image" content="{{ site.url }}{{ page.cover_image }}">
   {% else %}
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="https://remimercier.com/media/remi-mercier-old.jpeg">
+    <meta name="twitter:image" content="https://remimercier.com/media/remi-mercier.jpg">
   {% endif %}
 </head>
