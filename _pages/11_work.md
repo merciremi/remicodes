@@ -14,6 +14,8 @@ I've worked in tech for ten years, and **I've been a professional developer for 
 
 My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git, etc.
 
+I'm currently learning the fundamentals of Rust, and leveling up in SQL and Javascript.
+
 I like majestic monoliths. I think they work very well for 99% of companies. But when needed, I've shipped micro-services in production as well.
 
 Despite focusing on back-end programming, I also dabbled on some front-end (vanilla JS, Reactjs and Vuejs).
