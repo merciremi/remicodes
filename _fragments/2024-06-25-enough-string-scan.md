@@ -5,7 +5,7 @@ title: "StringScanner"
 permalink: /enough-string-scanner/
 ---
 
-Currently reading [Rebuilding Rails](https://rebuilding-rails.com/){:target="\_blank"} by Noah Gibbs.
+Currently reading Rebuilding Rails by Noah Gibbs.
 
 At some point, he writes about checking out Active Support for some pointers on metaprogramming. Currently felt into a rabbit hole on the [duration part of the lib](https://github.com/rails/rails/tree/main/activesupport/lib/active_support/duration){:target="\_blank"}.
 

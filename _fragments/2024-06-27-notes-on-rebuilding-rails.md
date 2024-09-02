@@ -5,7 +5,7 @@ title: "Notes on Rebuilding Rails"
 permalink: /notes-on-rebuilding-rails/
 ---
 
-Currently reading [Rebuilding Rails](https://rebuilding-rails.com/){:target="\_blank"} by Noah Gibbs.
+Currently reading Rebuilding Rails by Noah Gibbs.
 
 ## Notes:
 
