@@ -35,7 +35,11 @@ Interested in the professional side of things? Head over to [the dedicated page]
 
 ## Writing
 
-I run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... I don't have analytics on my website anymore, so I don't know how many people read my stuff nowadays.
+I run this website where I share what I learned while building software. It's my way of giving back to the dev community.
+
+I focus on making things as simple to understand as possible: real-life examples, step-by-step tutorials, expressive naming, etc. No `def foo @bar; end` shenanigans.
+
+I don't have analytics on my website anymore, but in 2022, close to 20,000 unique readers spent time on my website. My posts are often featured in Ruby Weekly, HN, etc...
 
 ## Newsletter
 
