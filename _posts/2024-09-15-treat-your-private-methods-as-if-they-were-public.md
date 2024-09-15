@@ -58,7 +58,8 @@ In the middle of this fairly OOP class, we added an innocuous procedure. It’s 
 Several things happen at once. Given the right (and unfortunate) circumstances, `Rental#transactions` could behave unexpectedly.
 
 Before I give you the solution, let’s ask ourselves:
-What would happen if I moved `Rental#debit_transactions` in the public scope?
+
+> What would happen if we moved `Rental#debit_transactions` in the public scope?
 
 {% highlight ruby %}
   class Rental
@@ -93,7 +94,7 @@ Now that `Rental#debit_transactions` is part of the public interface of `Rental`
   rental_01 = Rental.new
   rental_02 = Rental.new
 
-  # The expected behavior
+  # The expected behavior returns an array of debit AND credit transactions
   rental_01.transactions
   # => [
   #      #<Transaction @amount=100, @recipient=:borrower, @type=:debit>,
@@ -101,7 +102,7 @@ Now that `Rental#debit_transactions` is part of the public interface of `Rental`
   #      #<Transaction @amount=30, @recipient=:platform, @type=:credit>
   #    ]
 
-  # When calling `debit_transactions` before `transactions`
+  # Calling `debit_transactions` before `transactions` returns an array of only debit transactions
   rental_02.debit_transactions
   # => [
   #      #<Transaction @amount=100, @recipient=:borrower, @type=:debit>
@@ -118,15 +119,13 @@ Now that `Rental#debit_transactions` is part of the public interface of `Rental`
 Let's break down the unexpected behavior:
 - Calling `debit_transactions` populate the instance variable `@transactions`.
 - Then, calling `transactions` returns early with our instance variable `@transactions` because it's already populated.
-- The problem is that we never compute `credit_transactions`.
+- We never compute `credit_transactions` (as we should).
 
 By moving one private method into the public scope, our initial procedure just came back to bite us in the back.
 
 When I initially wrote this code, I did not give it a second thought. Why would I? Private methods aren't supposed to be called directly, duh! Oh, do I have some news for you, Remi. They won’t be called, yet! But at some point, they just might be.
 
-This is why, even when you’re writing your methods in the private scope, you should ask yourself:
-
-> What would happen if this method was in the public scope?
+This is why, even when you’re writing your methods in the private scope, you should ask yourself: <mark><strong>What would happen if this method was in the public scope?</strong></mark>
 
 ## Adding some boundaries
 
@@ -169,8 +168,9 @@ Lastly, just look at how clean the whole code is.
 
 ## Key points
 
+Let's wrap it up:
 - Treat private methods as if they were public methods.
-- Proper composition means one method does not mutate the return value of another.
+- Do not let one method mutates the instance variable owned by another method.
 - Beware of hidden procedures that could have side effects later down the road.
 
 Y'all be careful with your private methods.
@@ -179,4 +179,4 @@ Cheers,
 
 Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
-[^1]: For the more serious reader, refer to the concept of [legacy seams](https://martinfowler.com/bliki/LegacySeam.html){:target="\_blank"}.
+[^1]: For the more serious reader, please refer to the concept of [legacy seams](https://martinfowler.com/bliki/LegacySeam.html){:target="\_blank"}.
