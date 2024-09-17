@@ -142,7 +142,7 @@ Well, private methods mutating an instance variable owned by another method is o
     private
 
     def debit_transactions
-      @debit_transactions ||= Transaction.new(:borrower, :debit, 100)
+      @debit_transactions ||= [Transaction.new(:borrower, :debit, 100)]
     end
 
     def credit_transactions
