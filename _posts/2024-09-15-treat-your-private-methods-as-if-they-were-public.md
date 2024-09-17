@@ -121,7 +121,7 @@ Let's break down the unexpected behavior:
 - Then, calling `transactions` returns early with our instance variable `@transactions` because it's already populated.
 - We never compute `credit_transactions` (as we should).
 
-By moving one private method into the public scope, our initial procedure just came back to bite us in the back.
+By moving one private method into the public scope, we realized that our initial procedure would eventually come back to bite us in the back.
 
 When I initially wrote this code, I did not give it a second thought. Why would I? Private methods aren't supposed to be called directly, duh! Oh, do I have some news for you, Remi. They won’t be called, yet! But at some point, they just might be.
 
@@ -129,9 +129,7 @@ This is why, even when you’re writing your methods in the private scope, you s
 
 ## Adding some boundaries
 
-Remember when I said there were several problems happening simultenaously?
-
-Well, private methods mutating an instance variable defined by another method is one of them. [Boundaries are important](https://www.youtube.com/watch?v=aSFvJbSQdA4){:target="\_blank"}, let's add some[^1].
+Well, private methods mutating an instance variable defined by another method is a problem. [Boundaries are important](https://www.youtube.com/watch?v=aSFvJbSQdA4){:target="\_blank"}, let's add some[^1].
 
 {% highlight ruby %}
   class Rental
