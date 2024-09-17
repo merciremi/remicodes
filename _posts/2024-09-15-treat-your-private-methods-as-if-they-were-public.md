@@ -49,15 +49,15 @@ A `lender`  can lend an object to a `borrower` through a `rental`. At some point
 
 When initializing a `Rental`, we instantiate an empty array assigned to the instance variable `@transactions`. To get the transactions, we call `Rental#transactions`. The method first checks if the instance variable `@transactions` is already populated. If so, `transactions` returns early with the content of the instance variable. If not, the method computes the debit transactions and the credit transactions.
 
-This code works just fine, but we just introduced [a potential bug]({{site.baseurl}}/how-to-use-git-bisect/) in our application. Can you spot it?
+As of now, this code works. But we introduced a code smell and [a potential bug]({{site.baseurl}}/how-to-use-git-bisect/) in our application. Can you spot them?
 
-## Booby-trapping the future with hidden procedures
+## Booby-trapping the future
 
-In the middle of this fairly OOP class, we added an innocuous procedure. It’s almost abstracted enough to pass as simple array manipulation. And yet.
+In the middle of this class, we added an innocuous procedure. It’s almost abstracted enough to pass as simple array manipulation. And yet.
 
-Several things happen at once. Given the right (and unfortunate) circumstances, `Rental#transactions` could behave unexpectedly.
+Given the right (and unfortunate) circumstances, `Rental#transactions` could behave unexpectedly.
 
-Before I give you the solution, let’s ask ourselves:
+Before I give you the solution, here's a little methodology trick to help you uncover the code smell:
 
 > What would happen if we moved `Rental#debit_transactions` in the public scope?
 
@@ -121,7 +121,9 @@ Let's break down the unexpected behavior:
 - Then, calling `transactions` returns early with our instance variable `@transactions` because it's already populated.
 - We never compute `credit_transactions` (as we should).
 
-By moving one private method into the public scope, we realized that our initial procedure would eventually come back to bite us in the back.
+This unexpected behavior is a sign that `transactions` is not idempotent - meaning it will not always return the same result, based on the condition of the execution. It also teaches us that private methods mutating a public instance variable is _not_ a good idea.
+
+<mark>By moving one private method into the public scope, we realized that its behavior would eventually come back to bite us in the back.</mark>
 
 When I initially wrote this code, I did not give it a second thought. Why would I? Private methods aren't supposed to be called directly, duh! Oh, do I have some news for you, Remi. They won’t be called, yet! But at some point, they just might be.
 
@@ -140,25 +142,25 @@ Well, private methods mutating an instance variable defined by another method is
     private
 
     def debit_transactions
-      @debit_transactions ||= [Transaction.new(:borrower, :debit, 100)]
+      [
+        Transaction.new(:borrower, :debit, 100)
+      ]
     end
 
     def credit_transactions
-      @credit_transactions ||= begin
-        transactions = []
-
-        transactions << Transaction.new(:lender, :credit, 70)
-        transactions << Transaction.new(:platform, :credit, 30)
-      end
+      [
+        Transaction.new(:lender, :credit, 70),
+        Transaction.new(:platform, :credit, 30)
+      ]
     end
   end
 {% endhighlight %}
 
 Aaah, that’s much better.
 
-First, each method has its own instance variable and memoization strategy.
+First, the public instance variable `@transactions` is now **idempotent**. It will produce the same results, no matter how many times it's called.
 
-Second, no other method is trying to mutate an instance variable defined by another method. Those methods now are **idempotent**, meaning that they will produce the same result, no matter how many times they are called.
+Second, the private methods are not trying to mutate the instance variable defined by another method. Private methods should be side-effect free.
 
 Third, if I were to remove the `private` scope and make all methods public, **I would not get side effects**.
 
