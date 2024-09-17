@@ -167,9 +167,11 @@ Lastly, just look at how clean the whole code is.
 ## Key points
 
 Let's wrap it up:
+- Don't turn your private scope into a junk drawer.
 - Treat private methods as if they were public methods.
-- Do not let one method mutates the instance variable owned by another method.
+- Do not let one method mutates the instance variable defined by another method.
 - Beware of hidden procedures that could have side effects later down the road.
+- Make your methods idempotent as much as possible.
 
 Y'all be careful with your private methods.
 
