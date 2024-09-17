@@ -131,7 +131,7 @@ This is why, even when you’re writing your methods in the private scope, you s
 
 Remember when I said there were several problems happening simultenaously?
 
-Well, private methods mutating an instance variable owned by another method is one of them. [Boundaries are important](https://www.youtube.com/watch?v=aSFvJbSQdA4){:target="\_blank"}, let's add some[^1].
+Well, private methods mutating an instance variable defined by another method is one of them. [Boundaries are important](https://www.youtube.com/watch?v=aSFvJbSQdA4){:target="\_blank"}, let's add some[^1].
 
 {% highlight ruby %}
   class Rental
@@ -158,9 +158,9 @@ Well, private methods mutating an instance variable owned by another method is o
 
 Aaah, that’s much better.
 
-First, **each method has its own instance variable and memoization strategy**.
+First, each method has its own instance variable and memoization strategy.
 
-Second, **no other method is trying to mutate an instance variable owned by another method**.
+Second, no other method is trying to mutate an instance variable defined by another method. Those methods now are **idempotent**, meaning that they will produce the same result, no matter how many times they are called.
 
 Third, if I were to remove the `private` scope and make all methods public, **I would not get side effects**.
 
