@@ -75,7 +75,6 @@ In terms of technical challenges:
 - Improving the tooling and the engineering standards.
 
 In terms of working environment:
-- Calm companies.
 - A focus on creating value for both users and company.
 - Warm, kind, supportive colleagues in a high-trust environment.
 - Working within a diverse team with various backgrounds and expertise.

@@ -21,9 +21,9 @@ I'm here to translate business needs into code. This follows three main paths:
 
 ## What I value (and build)
 
-  - **Calm environments**: Clear processes, product clarity, deep focus, written documentation.
   - A focus on creating **useful features** for users.
   - Warm, kind, supportive colleagues in a **high-trust environment**.
+  - **Calm environments**: Clear processes, product clarity, deep focus, written documentation.
 
 ## My style
 
@@ -71,16 +71,6 @@ Most notifications are **muted** on my machine. When I read your message, I'll m
 
 - Toxic behaviors: misoginy, racism, contradictory demands, harassment, ghosting, etc.
 - Micro-management.
-
-### What people misunderstand about me
-
-I believe in a job well done and in being nice to other people.
-
-What I don't believe in are "grand mission" statements, motivational posters and the usual tech brouhaha.
-
-**I also have strong boundaries** around work. This will sometimes pass as being *not engaged enough* but let me assure you:
-
-> Chi va piano, va sano e va lontano.
 
 ### Topics I’m always happy to talk about
 
