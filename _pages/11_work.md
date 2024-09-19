@@ -39,11 +39,15 @@ To give you a concrete idea of what I can do, here are a couple of projects I've
 
 #### Real-time Developer Notifications (RTDN)
 
-I helped implementing the mechanism handling server-to-server notifications from Google Playstore for subscription renewals based on specifications written with a senior developer. This new mechanism eventually replaced a monthly manual verification of our Playstore subscriptions, which was prone to errors and missed revenue.
+I collaborated on the implemention of the mechanism handling server-to-server notifications from Google Playstore for subscription renewals based on specifications written with a senior developer. This new mechanism eventually replaced a monthly manual verification of our Playstore subscriptions, which was prone to errors and missed revenue.
 
 #### Data synchronization across micro-services
 
-I designed, specified and implemented bookmarks synchronization between legacy JAVA applications and an upcoming new version using Kafka events. This project allowed (and still allows) the back-end team to focus on building their latest application while ensuring data integrity.
+I designed, specified and implemented data synchronization between a legacy JAVA application and an upcoming new version using Kafka events. This micro-service allows the end-users to enjoy a seamless experience and data integrity, while the engineering team focus on building their latest application.
+
+#### LLM-based feedback generation
+
+I designed and implemented an LLM-based feedback generator that allows teachers to correct examination papers 50% faster. With one click, the feedback generator can infer the language of the exam and the domain of expertise of the question, then suggest a preliminary feedback toned to the teacher. I built this feature with robustness and sales upsell in mind.
 
 #### Minimal feature flag manager
 
