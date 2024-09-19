@@ -89,7 +89,7 @@ You can check my [user manual]({{site.baseurl}}/user-manual/).
 
 ## How do I like to interview companies?
 
-- My [favorite technical tests]({{site.baseurl}}/technical-tests-in-2023/) are remote live codings where we hash out a real-life challenge.
+- I like various forms of technical tests: remote live codings where we hash out a real-life challenge, short at-home assignments, etc...
 - I like meeting with several people from my future team and other teams.
 - [A reject fast, reject early mentality](https://juanitofatas.com/reject-fast-reject-early){:target="\_blank"}.
 
