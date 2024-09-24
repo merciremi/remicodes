@@ -1,24 +1,18 @@
 ---
 layout: post
-title: "Write your private methods like they're public"
-excerpt: When designing my abstractions, I’ve always had a very binary view about separating private and public behaviors. A recent gotcha got me to reconsider my practice with a little more nuance.
+title: "What if your private method was a public method? A practical tip to identify bad design"
+excerpt: Where I share a badly designed piece of code, think about what process I can use to reveal its flaws, and how to make it better.
 date: 2024-09-16
 permalink: /private-methods-public-methods/
 category: ruby
 cover_image: "/media/2024/09/remi-mercier-private-methods-public-methods.png"
 ---
 
-When designing my abstractions, I’ve always had a very binary view about separating private and public behaviors:
-- Implementation details are hidden away in the private scope.
-- Only the most necessary methods are accessible through the public interface.
+Today, we're going to review a badly designed piece of code I once wrote, and think about a practical tip we can use to reveal its flaws, and how to make it better.
 
-However, someone recently pointed out to me a potential gotcha. And I started reconsidering my practice with a little more nuance.
+Let’s consider the following:
 
-## An innocent-looking piece of code
-
-Let’s consider the following piece of code.
-
-A `lender`  can lend an object to a `borrower` through a `rental`. At some point, we need to know the transactions related to a rental: where should we debit the money, and where should we credit it?
+A `lender`  can lend an object to a `borrower` through a `rental`. At the end of the rental, we need to know the transactions related to a rental: where should we debit the money, and where should we credit it?
 
 {% highlight ruby %}
   class Rental
@@ -47,19 +41,21 @@ A `lender`  can lend an object to a `borrower` through a `rental`. At some point
   end
 {% endhighlight %}
 
-When initializing a `Rental`, we instantiate an empty array assigned to the instance variable `@transactions`. To get the transactions, we call `Rental#transactions`. The method first checks if the instance variable `@transactions` is already populated. If so, `transactions` returns early with the content of the instance variable. If not, the method computes the debit transactions and the credit transactions.
+Let's break down the steps:
 
-As of now, this code works. But we introduced a code smell and [a potential bug]({{site.baseurl}}/how-to-use-git-bisect/) in our application. Can you spot them?
+When initializing a `Rental`, we instantiate an empty array assigned to the instance variable `@transactions`.
+
+To get the transactions, we call `Rental#transactions`. The method first checks if the instance variable `@transactions` is already populated. If so, `transactions` returns early with the content of the instance variable. If not, the method computes the debit transactions and the credit transactions.
+
+As of now, this code works. But its design is problematic.
 
 ## Booby-trapping the future
 
-In the middle of this class, we added an innocuous procedure. It’s almost abstracted enough to pass as simple array manipulation. And yet.
+Given the wrong circumstances, `Rental#transactions` could behave unexpectedly.
 
-Given the right (and unfortunate) circumstances, `Rental#transactions` could behave unexpectedly.
+Here's a methodology trick to help you uncover the code smell:
 
-Before I give you the solution, here's a little methodology trick to help you uncover the code smell:
-
-> What would happen if we moved `Rental#debit_transactions` in the public scope?
+> What would happen if we made `Rental#debit_transactions` public instead of private?
 
 {% highlight ruby %}
   class Rental
@@ -102,7 +98,8 @@ Now that `Rental#debit_transactions` is part of the public interface of `Rental`
   #      #<Transaction @amount=30, @recipient=:platform, @type=:credit>
   #    ]
 
-  # Calling `debit_transactions` before `transactions` returns an array of only debit transactions
+  # Calling `debit_transactions` before `transactions` returns an array
+  # of debit transactions only.
   rental_02.debit_transactions
   # => [
   #      #<Transaction @amount=100, @recipient=:borrower, @type=:debit>
@@ -116,22 +113,47 @@ Now that `Rental#debit_transactions` is part of the public interface of `Rental`
   # oops
 {% endhighlight %}
 
-Let's break down the unexpected behavior:
+Let's break it down:
 - Calling `debit_transactions` populate the instance variable `@transactions`.
 - Then, calling `transactions` returns early with our instance variable `@transactions` because it's already populated.
 - We never compute `credit_transactions` (as we should).
 
-This unexpected behavior is a sign that `transactions` is not idempotent - meaning it will not always return the same result, based on the condition of the execution. It also teaches us that private methods mutating a public instance variable is _not_ a good idea.
+This behavior is a sign that `transactions` is not **idempotent**.
 
-<mark>By moving one private method into the public scope, we realized that its behavior would eventually come back to bite us in the back.</mark>
+> Idempotency means that a method will **always return the same result**, no matter how many times it's called.
 
-When I initially wrote this code, I did not give it a second thought. Why would I? Private methods aren't supposed to be called directly, duh! Oh, do I have some news for you, Remi. They won’t be called, yet! But at some point, they just might be.
+Right now, the return value of `transactions` is somewhat safeguarded by the fact that `debit_transactions` and `credit_transactions` are private. But if the access control of these two methods was to change, `transactions` would become dependent on the order of execution of our code.
 
-This is why, even when you’re writing your methods in the private scope, you should ask yourself: <mark><strong>What would happen if this method was in the public scope?</strong></mark>
+<mark>By imagining one private method as a public method, we revealed the bad design and realized it would eventually come back to bite us in the back.</mark>
 
-## Adding some boundaries
+## How do we fix it: making the methods idempotent
 
-Well, private methods mutating an instance variable defined by another method is a problem. [Boundaries are important](https://www.youtube.com/watch?v=aSFvJbSQdA4){:target="\_blank"}, let's add some[^1].
+First, we need to ensure that `debit_transactions` and `credit_transactions` have consistent return values.
+
+Instead of filling up `@transactions`, they'll both return an array, each populated with its own type of transactions.
+
+{% highlight ruby %}
+  class Rental
+    # ...
+
+    private
+
+    def debit_transactions
+      [Transaction.new(:borrower, :debit, 100)]
+    end
+
+    def credit_transactions
+      [
+        Transaction.new(:lender, :credit, 70),
+        Transaction.new(:platform, :credit, 30)
+      ]
+    end
+  end
+{% endhighlight %}
+
+Then, `transactions` will only focus on concatenating the return values from `debit_transactions` and `credit_transactions`, and assign it to the instance variable `@transactions`.
+
+I've added a touch of memoization to prevent the recalculation of all transactions, and avoid appending duplicated transactions to our instance variable (the initial problem stated that transactions would only be computed at the very end of the rental lifecyle).
 
 {% highlight ruby %}
   class Rental
@@ -156,29 +178,28 @@ Well, private methods mutating an instance variable defined by another method is
   end
 {% endhighlight %}
 
-Aaah, that’s much better.
+That’s much better!
 
-First, the public instance variable `@transactions` is now **idempotent**. It will produce the same results, no matter how many times it's called.
+All methods are now idempotent. They will return the same result, no matter how many times they're called, no matter the order of execution.
 
-Second, the private methods are not trying to mutate the instance variable defined by another method. Private methods should be side-effect free.
-
-Third, if I were to remove the `private` scope and make all methods public, **I would not get side effects**.
-
-Lastly, just look at how clean the whole code is.
+Lastly, if I were to remove `private` and make all methods public, they would keep working as expected. In this case, `private` merely acts as bouncer between the public interface, and the private implementation.
 
 ## Key points
 
+This example was contrived by design. Often, these code smells hide in the midst of a larger application.
+
 Let's wrap it up:
 - Don't turn your private scope into a junk drawer.
-- Treat private methods as if they were public methods.
-- Do not let one method mutates the instance variable defined by another method.
-- Beware of hidden procedures that could have side effects later down the road.
 - Make your methods idempotent as much as possible.
+- Avoid methods mutating the instance variable defined in another method (A note on this one: initial readers disagree on this one)[^1].
+- Beware of hidden side effects that could pop up later down the road.
 
 Y'all be careful with your private methods.
 
 Cheers,
 
 Rémi - [@remi@ruby.social](https://ruby.social/@remi)
+
+ps: Big thank you to Zachery Hostens and [Jeremy](https://ruby.social/@notgrm){:target="\_blank"} for their thoughtful feedback.
 
 [^1]: For the more serious reader, please refer to the concept of [legacy seams](https://martinfowler.com/bliki/LegacySeam.html){:target="\_blank"}.
