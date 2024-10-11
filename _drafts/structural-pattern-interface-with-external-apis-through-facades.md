@@ -1,73 +1,89 @@
 ---
 layout: post
-title: 'Interfacing with third-party APIs: the facade pattern in Ruby'
-excerpt: ''
-date: 2024-07-23
-permalink: 
-category: 
-cover_image: 
+title: 'Interfacing with external APIs: the facade pattern in Ruby'
+excerpt: "Interacting with third-party APIs is common practice in applications. This is where the structural design pattern called facade comes into play."
+date: 2024-10-01
+permalink: /facade-pattern/
+category: other
+cover_image: "/media/2024/10/remi-mercier-facade-pattern-in-ruby.png"
 ---
 
-Interacting with third-party APIs is common practice in applications: converting addresses into geographic coordinates, fetching subscription information from marketplaces, prompting an LLM, etc.
+Interacting with third-party APIs is common practice in applications. You might need to convert addresses into geographic coordinates, fetch subscription information from marketplaces, prompt an LLM, etc.
 
-Coding with Ruby, you'll often find gems providing a first abstraction over third-party APIs: the client layer. The client layer is often responsible for authenticating and accessing the features of external APIs.
+Coding with Ruby, you'll often find gems providing a first abstraction over third-party APIs: **the client layer**. The client layer is usually responsible for accessing the features of the external API.
 
-One could use the client as is and sprinkle calls to the external API across their codebase. By doing so, teams will usually create duplicated logic, reinvent the wheel, and create multiple points of change.
+One could use the client as is and sprinkle calls to the external API across their codebase. By doing so, teams will often duplicate logic, reinvent the wheel, and create multiple change points.
 
-One way to _DRY_ this up is to create an **authoritative representation** of the external API and **how it relates to your domain logic**. This is where the structural design pattern called **facade** comes into play.
+One way to _DRY_ this is to create an **authoritative representation** of the external API that'll define **how it relates to your domain logic**. This is where the structural design pattern called **facade** comes into play.
 
 ## A brief introduction to the facade design pattern
 
-Before we start, let's acknoledge one caveat: there is **no definitive consensus on the definition of the facade pattern**. For instance, the facade pattern and the gateway pattern are often used interchangeably.
+Before we start, let's acknowledge one caveat: there is **no definitive consensus on the definition of the facade pattern**.
 
-Let's hear what others have to say about it.
+Let's hear what seasoned developers and authors have to say about it.
 
-### The facade pattern as defined in [Design Patterns: Elements of Reusable Object-Oriented Software](http://wiki.c2.com/?FacadePattern){:target="\_blank"}:
+### The facade pattern defined by the Gang of Four
 
 > [Facades] provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use. This can be used to simplify a number of complicated object interactions into a single interface.
+>
+> <cite>[Design Patterns: Elements of Reusable Object-Oriented Software](http://wiki.c2.com/?FacadePattern){:target="\_blank"}</cite>
 
-From this definition, we can deduce some key points:
+From this definition, we can list some key takeaways:
 - A facade simplifies the interactions between a system and a complex subsystem.
-- A facade provides a single point-of-interaction.
-- A facade does not add any feature to the subsystem.
-- A facade is transparent to the subsystem.
-- A facade's intention flows outward (from within to the ouside, from an internal system to an external system).
+- A facade provides a single point of interaction.
+- A facade does not add features to the subsystem.
+- A facade is transparent for the subsystem (ie: the subsystem does not care if the facade exists or not).
+- A facade's intention flows outward (from an internal to an external system).
 
-### The facade pattern as defined by [Martin Fowler](https://martinfowler.com/articles/gateway-pattern.html){:target="\_blank"}:
+### The facade pattern defined by Martin Fowler
+
+Martin Fowler defines facades _in opposition to gateways_, which are often used interchangeably.
 
 > While Facade simplifies a more complex API, it's usually done by the writer of the service for general use. A gateway is written by the client for its particular use.
+>
+> [API gateway] is really more of a facade, since it's built by the service provider for general client usage.
+>
+> <cite>[Martin Fowler](https://martinfowler.com/articles/gateway-pattern.html){:target="\_blank"}</cite>
 
-From Martin Fowler's post on gateways, we can deduce that:
-- The facade pattern served as a stepping stone for his own gateway pattern.
-- The facade flows outward ("build by the writer of the service for general use") whereas the gateway flows inward (build "by the client for its particular use").
-- The facade and the gateway are somewhat used interchangeably.
+Some key points made by Martin Fowler in his post:
+- A facade simplifies the interactions between a system and a complex API.
+- A facade is built by the writer of the complex API for general use, whereas a gateway is built by the API user for their particular use.
+- A facade and a gateway are sometimes used interchangeably.
 
-> [API gateway] is really more of a facade, since it's build by the service provider for general client usage.
+### The facade pattern defined on Refactoring Guru
 
-### The facade pattern as defined on [Refactoring Guru](https://refactoring.guru/design-patterns/facade){:target="\_blank"}:
+> Facade is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes. [...]
+>
+> A facade might provide limited functionality in comparison to working with the subsystem directly. However, it includes only those features that clients really care about.
+>
+> <cite>[Refactoring Guru](https://refactoring.guru/design-patterns/facade){:target="\_blank"}</cite>
 
-> Facade is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes. [...] A facade might provide limited functionality in comparison to working with the subsystem directly. However, it includes only those features that clients really care about.
+From this definition, we can infer that:
+- A facade acts as a simplified interface to a more complex system.
+- A facade can only expose the necessary functionalities of a complex system (and leave out some others).
+- A facade has neither inward nor outward intention.
 
-From this definition, we can infer:
-- A facade acts a simplified interface to a more complex system.
-- A facade can chose to only expose the necessary functionalities of a complex system.
-- A facade has neither inward nor outward flows.
+### The facade pattern defined by yours truly
 
-Overall, even amongst our trusted pairs, the definition of the facade vary. And many more people have [many](https://stackoverflow.com/a/13593045){:target="\_blank"} [more](https://stackoverflow.com/a/13496995){:target="\_blank"} [definitions](https://stackoverflow.com/a/4604911){:target="\_blank"}.
+Overall, even trusted authors don't fully agree on the definition of facades. And many more people have [many](https://stackoverflow.com/a/13593045){:target="\_blank"} [more](https://stackoverflow.com/a/13496995){:target="\_blank"} [definitions](https://stackoverflow.com/a/4604911){:target="\_blank"}.
 
-For the rest of this article, I'll use the term "facade" as:
+I think these definitions also overlook one advantage of the facade pattern: it serves as a bridge[^1] between some features you need from an external system and why you need it (i.e. the context of your application).
 
-> A simplified interface normalizing the interactions between the context of my application and a complex system.
+For the rest of this post, I'll use the term _facade_ as:
 
-## Why do I need a facade for?
+> A simplified interface for normalizing the interactions between a complex system and the context of my application.
 
-Let's conjure up a little bit of context first.
+## What do I need a facade for?
 
-We're building a text editor for students: it's packed with features that'll make their life easier.
+Now that we (mostly) agree on the definition, let's conjure a bit of context first.
 
-Some students are currently working on an assignemnt. Before submitting their work, they'd like to check if their answer is correct and get additional suggestions for their answer.
+We're building a text editor for students. It's packed with features that'll make their lives easier.
 
-To do that, our application could connect to an LLM, send relevant information and get a list of suggestions. Easy peasy.
+### Context
+
+Some students are currently working on an assignment. Before submitting their work, they'd like to check if their answers are correct and get additional suggestions.
+
+To do that, our application can send information to an LLM and get a list of suggestions back. Easy peasy.
 
 Let's build it!
 
@@ -75,10 +91,10 @@ Let's build it!
 module Answers
   class SuggestionsController
     def create
-      # LLM::Client is defined by an imaginary gem
+      # LLM::Client is defined by a dummy gem
       llm_client = LLM::Client.new
 
-      llm_client.login(credentials:).chat(parameters: default_parameters.merge(suggestion_parameters))
+      llm_client.login(credentials:).chat(parameters:)
     end
 
     private
@@ -90,15 +106,9 @@ module Answers
       }
     end
 
-    def default_parameters
+    def parameters
       {
         model: 'some_llm_model',
-        messages: []
-      }
-    end
-
-    def suggestion_parameters
-      {
         messages:
           [
             { role: "system", content: "This is the question in my assignment: #{question.content}" },
@@ -118,32 +128,35 @@ module Answers
 end
 {% endhighlight %}
 
-Our `Answers::SuggestionsController` only fetches suggestions from the external API, yet the boilerplate code is already several steps long:
-- Instantiate a client,
-- authenticate with the external service,
-- pass default parameters,
-- pass tailored parameters,
-- get the necessary information from our own application.
+Despite being straightforward, our `Answers::SuggestionsController` already handles a handful of steps:
+- The `create` method instantiates a client to interact with an external API: `LLM::Client`.
+- The client authenticates with the external API: `llm_client.login(credentials:)`.
+- The client sends information from the application to the external API - `chat(parameters:)` - where the information is multifold: predefined prompts, roles for each prompt, a model name, etc...
 
-Now that we drafted our feature, a couple of questions arise:
-- What if we needed to add steps when we fetch suggestions?
-- What if we needed to interact with the external API elsewhere in our application?
+Some aspects of the code above bother me:
+- The methods exposed by the client carry little meaning in my domain (assessments, answers, suggestions).
+- What am I getting back, exactly?
+- I'm sending a mixed bag of configuration and contextual information.
+- What happens if my teammates need to add steps when fetching suggestions?
+- What happens if my teammates need to interact with the external API elsewhere in the application?
 
 Let's write some more code.
 
 {% highlight ruby %}
+# app/controllers/answers/suggestions_controller.rb
 module Answers
   class SuggestionsController
     def create
       llm_client = LLM::Client.new
 
-      llm_client.login(credentials:).chat(parameters: default_parameters.merge(suggestion_parameters))
+      llm_client.login(credentials:).chat(parameters:)
     end
 
-    ...
+    # ...
   end
 end
 
+# app/controllers/admissions/applications_controller.rb
 module Admissions
   class ApplicationsController
     def suggest_improvements
@@ -172,9 +185,9 @@ module Admissions
       {
         messages:
           [
-            { role: "system", content: "I'm working on an admission application to my local university." },
-            { role: "system", content: "Are there any improvements I could add to my application" },
-            { role: "user", content: "Format the suggestion like this: #{formatting}"}
+            { role: "system", content: "I'm working on an admission application to my local university: #{admission.content}" },
+            { role: "system", content: "Are there any improvements I could add to my application: #{application}" },
+            { role: "user", content: "Format the suggestion like this: #{formatting}" }
           ]
       }
     end
@@ -190,27 +203,30 @@ module Admissions
 end
 {% endhighlight %}
 
-We now have a new controller: `Admissions::ApplicationsController`. This controller helps students get feedback on their universities applications.
-
-Already, some saillant points start standing out:
-- Boiler plate code is repeated.
-- The `LLM::Client` exposes a couple of domain-agnostic methods: `chat` that takes a list of `messages`. And it's hard to infer the link between its interface and our domain.
-- Custom instructions (like `formatting` or the context of the question `amdinssion` versus `answers`) are hidden accross the application which makes it impossible for a team to not repeat itself + share the knowledge.
+Some notable points stand out:
+- We repeat boilerplate code: instantiating the client, authenticating, and default configuration.
+- Small differences start appearing by introducing a `default_parameters` instance method that handles the default configuration.
+- Custom instructions - like `formatting` - are hiding in nooks of our application which makes it impossible for the team to share the cumulative knowledge.
+- `LLM::Client` still exposes domain-agnostic namings such as `chat` or `messages`, making it hard to infer the link between its interface and our domain logic.
 
 ## Building an authoritative representation
 
-NOw is the time to build a facade, that will serve as a single point of interaction with the third party API + will federate the knowledge and domain logic in one place.
+Facades are a great solution for this type of problem.
 
-First, let's encapsulate the basic configuration used for the authentication strategy, and create a client.
+A facade will serve as an authoritative representation of how the external API fits into our application, and it will gather the collective knowledge in one place.
+
+### 1) Basic functionalities
+
+First, let's encapsulate the basic functionalities of the external API into a facade: the authentication strategy, a default configuration, and the instantiation of the client.
 
 {% highlight ruby %}
   # app/facades/llm_facade
-
   class LLMFacade
     attr_reader :configuration, :llm_client
 
     def initialize
-      @configuration ||= Configuration.new
+      @configuration = Configuration.new
+
       @llm_client|| = LLM::Client.new.login(credentials: configuration.credentials)
     end
 
@@ -231,30 +247,38 @@ First, let's encapsulate the basic configuration used for the authentication str
   end
 {% endhighlight %}
 
-Now I can create a new facade for my third-party API, with a default configuration for auth, and embed the gem-provided logic of the client.
+Let's note that my facade is _just_ a Ruby object: composable and testable. It has no dependencies. I could write this facade in any object-oriented language of my choice.
 
-Note I'm using nested value object called `Configuration`. I like this object-first approach over using a hash in the encapsulating class.
+So, what happens in `LLMFacade`?
 
-Now let's add a method to fetch suggestion.
+A facade object instantiates with a default configuration and an authenticated client. The core authentication logic is handled by the dummy gem. The facade only leverages the gem layer and returns a _ready-made[^2]_ client.
+
+I'm using a value object `Configuration` to represent the default configuration. I like this object-first approach over using a hash for encapsulating default values. It also makes testing easier.
+
+### 2) Fetching suggestions for answers
+
+Now that we have an object with basic functionalities, let's add the ability to fetch suggestions.
 
 {% highlight ruby %}
   # app/facades/llm_facade
-
   class LLMFacade
     attr_reader :configuration, :llm_client
 
     def initialize
-      @configuration ||= Configuration.new
-      @llm_client|| = LLM::Client.new.login(credentials: configuration.credentials)
+      @configuration = Configuration.new
+
+      @llm_client ||= LLM::Client.new.login(credentials: configuration.credentials)
     end
 
     def fetch_suggestion_for(question, answer)
-      llm_client.chat default_parameters.merge(suggestion_parameters_for(question, answer))
+      llm_client.chat(parameters:
+        default_parameters.merge(suggestion_parameters_for(question, answer))
+      )
     end
 
     private
 
-    def default_parameters = { model: configuration.model, messages: [] }
+    def default_parameters = { model: configuration.model }
 
     def suggestion_parameters_for(question, answer)
       {
@@ -266,11 +290,10 @@ Now let's add a method to fetch suggestion.
     end
 
     class Configuration
-      attr_reader :credentials
+      attr_reader :model, :credentials
 
       def initialize(model = 'some_llm_model')
         @model = model
-
         @credentials = credentials
       end
 
@@ -286,30 +309,42 @@ Now let's add a method to fetch suggestion.
   end
 {% endhighlight %}
 
-Now, let's add suggestions for admissions.
+Here's a breakdown of what I changed:
+- I added a specific model to my default configuration.
+- I called the `chat` method on our client with our parameters: a default model and instructions.
+
+As of now, our facade allows us to call `LLMFacade.new.fetch_suggestion_for()` in our controllers, which makes more sense in our application than the generic `chat` method.
+
+### 3) Fetching suggestions for applications
+
+The next use case we need to implement in the facade is the ability to fetch suggestions for admission applications.
 
 {% highlight ruby %}
   # app/facades/llm_facade
-
   class LLMFacade
     attr_reader :configuration, :llm_client
 
     def initialize
-      @configuration ||= Configuration.new
-      @llm_client|| = LLM::Client.new.login(credentials: configuration.credentials)
+      @configuration = Configuration.new
+
+      @llm_client ||= LLM::Client.new.login(credentials: configuration.credentials)
     end
 
     def fetch_suggestion_for(question, answer)
-      llm_client.chat default_parameters.merge(suggestion_parameters_for(question, answer))
+      llm_client.chat(parameters:
+        default_parameters.merge(suggestion_parameters_for(question, answer))
+      )
     end
 
-    def fetch_suggestion_for_admission(assignment, admission)
-      llm_client.chat default_parameters.merge(suggestion_parameters_for_admission(assignment, admission))
+    def fetch_suggestion_for_application(admission, application)
+      llm_client.chat(parameters:
+        default_parameters.merge(suggestion_parameters_for_application(admission, application))
+      )
     end
 
     private
 
-    def default_parameters = { model: configuration.model, messages: [] }
+    def default_parameters = { model: configuration.model }
 
     def suggestion_parameters_for(question, answer)
       {
@@ -320,51 +355,106 @@ Now, let's add suggestions for admissions.
       }
     end
 
-    def suggestion_parameters_for_admission(assignment, admission)
+    def suggestion_parameters_for_application(admission, application)
       {
         messages: [
-          { role: 'user', content: "This is the assignment I'm answering about: #{assignment}" },
-          { role: 'user', content: "This is the admission blurb I've written: #{admission}" }
+          { role: "system", content: "I'm working on an admission application to my local university: #{admission.content}" },
+          { role: "system", content: "Are there any improvements I could add to my application: #{application}" },
+          { role: "user", content: "Format the suggestion like this: #{formatting}" }
         ]
       }
     end
 
+    def formatting
+      <<-TXT
+        Suggestions:
+        -
+        -
+      TXT
+    end
+
     class Configuration
-      ...
+      # ...
     end
   end
 {% endhighlight %}
 
-If this looks the same, it's because it is. Let's refactor this.
+If you thought, "But Remi, this new code looks awfully like the code used to fetch suggestions for answers!" you're right.
+
+The naming, the overarching, and the instructions are similar.
+
+However, our new requirement also adds a custom instruction: formatting.
+
+One advantage of the facade is that it gathers use cases in one place. Sure, the complexity grows along with your application, but since it's not sprinkled everywhere in your application, it's easy to identify and fix.
+
+Let's use that to our advantage and find an encompassing concept for these suggestions.
+
+### 4) Refactoring using the flocking rules
+
+Popularized by Sandi Metz, the flocking rules lean on the analogy of a bird flock.
+
+<!-- find quotes of rthis -->
+
+The flocking rules states that:
+
+<!--  find exact quotes -->
+
+In our application:
+- `questions` and `admissions` are directives upon which a student must produce something.
+- `answers` and `applications` are productions, created against a directive.
+
+The overall logic of generating feedback is the same: a pattern emerges from the flock. To follow the flocking rules, we need to remove the smallest difference between `suggestion_parameters_for` and `suggestion_parameters_for_application`: the directive and the production parameters.
+
+Then, we'll tackle the optional formatting parameter.
 
 {% highlight ruby %}
   # app/facades/llm_facade
-
   class LLMFacade
     attr_reader :configuration, :llm_client
 
     def initialize
-      @configuration ||= Configuration.new
-      @llm_client|| = LLM::Client.new.login(credentials: configuration.credentials)
+      @configuration = Configuration.new
+
+      @llm_client ||= LLM::Client.new.login(credentials: configuration.credentials)
     end
 
-    def fetch_suggestion_for(directive, output)
-      llm_client.chat(
-        default_parameters.merge(suggestion_parameters_for(directive, output))
+    def fetch_suggestion_for(directive, production, format = false)
+      llm_client.chat(parameters:
+        default_parameters
+          .merge(suggestion_parameters_for(directive, production))
+          .merge(formatting_parameters(format))
       )
     end
 
     private
 
-    def default_parameters = { model: configuration.model, messages: [] }
+    def default_parameters = { model: configuration.model }
 
-    def suggestion_parameters_for(directive, output)
+    def suggestion_parameters_for(directive, production)
       {
         messages: [
           { role: 'user', content: "This is the directive I'm given: #{directive}" },
-          { role: 'user', content: "This is the answer I've written: #{output}" }
+          { role: 'user', content: "This is the answer I've written: #{production}" }
         ]
       }
+    end
+
+    def formatting_parameters(format)
+      return unless format
+
+      {
+        messages: [
+          { role: 'user', content: "Format the suggestion like this: #{formatting}" }
+        ]
+      }
+    end
+
+    def formatting
+      <<-TXT
+        Suggestions:
+        -
+        -
+      TXT
     end
 
     class Configuration
@@ -373,23 +463,53 @@ If this looks the same, it's because it is. Let's refactor this.
   end
 {% endhighlight %}
 
-A note, we could use some [riffin](kasper) for finding good overarching concepts for this `fetch_suggestion_for`.
+And voilà!
 
-Some ideas that we could use:
-- For questions: question, directive, instruction, assignment
-- For answers: answer, output, response, production
+We could also improve the naming of our methods with some [riffing](https://ruby.social/@kaspth){:target="\_blank"}. Some ideas to best reveal the intention behind our code:
+- `fetch_suggestion_for`: `generate_feedback_for`
+- `suggestion_parameters_for`: `instructions_for`, `parameters_for`
 
-Another thing to note, even if we decided to stick with the duplication, the facade gather the complexity, hence avoiding teams to dispatch complexity accross the application, hence making it easier to see potential refactorings and focus work.
+## Using our facade in our controllers
 
-Already, when we'll call `LLMFacade.new.fetch_suggestion_for()`, it'll be easier to understand that `LLM::Client.login().chat(messages: [])`. It'll be more connected to our domain.
+Now that we have a working facade, let's use it in our controller.
 
+{% highlight ruby %}
+  # app/controllers/answers/suggestions_controller.rb
+  module Answers
+    class SuggestionsController
+      def create
+        llm_facade.fetch_suggestion_for(question, answer)
+      end
 
+      private
 
+      def llm_facade
+        LLMFacade.new
+      end
 
+      def answer
+        Answer.find(params[:answer_id])
+      end
 
+      def question
+        answer.question
+      end
+    end
+  end
+{% endhighlight %}
 
-Do a first version with specific information, then thry to give it more modularity on names and types of objects you use.
+Sweet, right? No more boilerplate. No more crust. Just a very expressive and idiomatic call to our facade.
 
+## The facade pattern: key takeaways
 
+1. A facade creates an authoritative representation of an external API or any complex system you interact with.
+2. A facade serves as a bridge between an external API and the context of your application.
+3. A facade aggregates the use cases in one dedicated place.
+4. A facade prevents duplicated logic, reinventing the wheel, and creating multiple change points.
 
+Cheers,
 
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
+
+[^1]: Are we, software engineers, so enticed with being actual engineers that we keep using architectural metaphors to lend ourselves some credibility?
+[^2]: Marcel Duchamp had the best mind for cool namings.
