@@ -2,9 +2,9 @@
 layout: post
 title: 'Interfacing with external APIs: the facade pattern in Ruby'
 excerpt: "Interacting with third-party APIs is common practice in applications. This is where the structural design pattern called facade comes into play."
-date: 2024-10-01
+date: 2024-10-14
 permalink: /facade-pattern/
-category: other
+category: ruby
 cover_image: "/media/2024/10/remi-mercier-facade-pattern-in-ruby.png"
 ---
 
@@ -381,7 +381,7 @@ The next use case we need to implement in the facade is the ability to fetch sug
 
 If you thought, "But Remi, this new code looks awfully like the code used to fetch suggestions for answers!" you're right.
 
-The naming, the overarching, and the instructions are similar.
+The naming, the overarching concept, and the instructions are similar.
 
 However, our new requirement also adds a custom instruction: formatting.
 
@@ -391,21 +391,20 @@ Let's use that to our advantage and find an encompassing concept for these sugge
 
 ### 4) Refactoring using the flocking rules
 
-Popularized by Sandi Metz, the flocking rules lean on the analogy of a bird flock.
+Popularized by Sandi Metz, the flocking rules lean on the analogy of a bird flock where patterns emerge from displaying behaviors similar to those of surrounding individuals.
 
-<!-- find quotes of rthis -->
+In our facade, the overall logic of generating feedback - whether for `questions` or `admissions` - is the same: a pattern emerges from the flock.
 
 The flocking rules states that:
+- _Select the things that are most alike_: `suggestion_parameters_for` and `suggestion_parameters_for_application`
+- _Find the smallest difference between them_: the name of their parameters.
+- _Make the simplest change that will remove that difference_: find overarching concepts for each of these parameters.
 
-<!--  find exact quotes -->
-
-In our application:
+Let's find the _ad hoc_ abstractions for our parameters:
 - `questions` and `admissions` are directives upon which a student must produce something.
-- `answers` and `applications` are productions, created against a directive.
+- `answers` and `applications` are productions created against a directive.
 
-The overall logic of generating feedback is the same: a pattern emerges from the flock. To follow the flocking rules, we need to remove the smallest difference between `suggestion_parameters_for` and `suggestion_parameters_for_application`: the directive and the production parameters.
-
-Then, we'll tackle the optional formatting parameter.
+Now that we identified our similar behaviors, let's refactor these two methods. Then, we'll tackle the optional formatting parameter.
 
 {% highlight ruby %}
   # app/facades/llm_facade
@@ -440,7 +439,7 @@ Then, we'll tackle the optional formatting parameter.
     end
 
     def formatting_parameters(format)
-      return unless format
+      return {} unless format
 
       {
         messages: [
@@ -465,7 +464,11 @@ Then, we'll tackle the optional formatting parameter.
 
 And voilà!
 
-We could also improve the naming of our methods with some [riffing](https://ruby.social/@kaspth){:target="\_blank"}. Some ideas to best reveal the intention behind our code:
+I removed the `suggestion_parameters_for_application` method, and updated the names of the parameters for `suggestion_parameters_for`.
+
+To allow the optional formatting, I added a third argument with a boolean flag.
+
+We could improve the naming of our methods with some [riffing](https://ruby.social/@kaspth){:target="\_blank"}. Some ideas to best reveal the intention behind our code:
 - `fetch_suggestion_for`: `generate_feedback_for`
 - `suggestion_parameters_for`: `instructions_for`, `parameters_for`
 
