@@ -18,7 +18,9 @@ One way to _DRY_ this is to create an **authoritative representation** of the ex
 
 ## A brief introduction to the facade design pattern
 
-Before we start, let's acknowledge one caveat: there is **no definitive consensus on the definition of the facade pattern**.
+Before we start, let's acknowledge two caveats:
+- There is **no definitive consensus on the definition of the facade pattern**.
+- There is a lot of confusion around facades, gateways and adapters.
 
 Let's hear what seasoned developers and authors have to say about it.
 
@@ -47,8 +49,8 @@ Martin Fowler defines facades _in opposition to gateways_, which are often used 
 
 Some key points made by Martin Fowler in his post:
 - A facade simplifies the interactions between a system and a complex API.
-- A facade is built by the writer of the complex API for general use, whereas a gateway is built by the API user for their particular use.
 - A facade and a gateway are sometimes used interchangeably.
+- A facade is built by the writer of the complex API for general use, whereas a gateway is built by the API user for their particular use.
 
 ### The facade pattern defined on Refactoring Guru
 
@@ -72,6 +74,12 @@ I think these definitions also overlook one advantage of the facade pattern: it 
 For the rest of this post, I'll use the term _facade_ as:
 
 > A simplified interface for normalizing the interactions between a complex system and the context of my application.
+
+### And what about the difference between facades and adapters?
+
+Adapters make an interface _usable_, usually by doing a lot of transformation/adaptation. Their scope is also narrower since adapters typically focus on making one object usable.
+
+Facades merely provide an interface for a system of objects.
 
 ## What do I need a facade for?
 
