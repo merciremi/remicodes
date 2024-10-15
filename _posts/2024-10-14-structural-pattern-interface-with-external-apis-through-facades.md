@@ -235,7 +235,7 @@ First, let's encapsulate the basic functionalities of the external API into a fa
     def initialize
       @configuration = Configuration.new
 
-      @llm_client|| = LLM::Client.new.login(credentials: configuration.credentials)
+      @llm_client ||= LLM::Client.new.login(credentials: configuration.credentials)
     end
 
     class Configuration
