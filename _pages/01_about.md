@@ -45,7 +45,7 @@ I don't have analytics on my website anymore, but in 2022, close to 20,000 uniqu
 
 As of early 2023, my newsletter is just a good way to receive my new posts before anyone else.
 
-Last December, we crossed **200 subscribers** from all over the world!
+We're currently closing on **400 subscribers** from all over the world!
 
 I'm still looking to make it a more creative space. This will probably evolve in 2024 as I explore new ways of supporting my writing work ([stay tuned!]({{site.baseurl}}/newsletter/)).
 
