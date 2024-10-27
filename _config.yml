@@ -31,7 +31,7 @@ jekyll_compose:
   default_front_matter:
     drafts:
       excerpt:
-      date:
+      date: 2000-01-01
       permalink:
       category:
       cover_image:
