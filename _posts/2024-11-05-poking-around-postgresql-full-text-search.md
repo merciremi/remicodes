@@ -56,7 +56,7 @@ Let's try to select some books.
 
 {% highlight sql %}
   SELECT * FROM books
-  WHERE title = 'sorceresses';
+  WHERE title LIKE '%sorceresses%';
 
    Title | Blurb
   -------+-------
@@ -68,7 +68,7 @@ Ugh, that's disappointing. What about querying on the blurb instead?
 
 {% highlight sql %}
   SELECT * FROM books
-  WHERE blurb = 'sorceresses';
+  WHERE blurb LIKE '%sorceresses%';
 
           Title     |    Blurb
   ------------------+---------------------------------------------------------------------------------------------------------------------------------------
@@ -83,7 +83,7 @@ But I know I have more relevant books. Let's add an OR operator so I can search 
 
 {% highlight sql %}
   SELECT * FROM books
-  WHERE blurb = 'sorceress' OR blurb = 'sorceresses';
+  WHERE blurb LIKE '%sorceress%' OR blurb LIKE '%sorceresses%';
 
         Title           |    Blurb
   ----------------------+---------------------------------------------------------------------------------------------------------------------------------------
