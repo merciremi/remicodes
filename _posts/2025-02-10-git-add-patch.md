@@ -48,7 +48,7 @@ I've just created `_drafts/git-patch-draft.md` and I want git to start tracking 
   No changes.
 {% endhighlight %}
 
-`git add --patch` needs a tracked file to work as intended. Trying to patch a file not tracked yet will result in a `No changes` message. It's pretty logical when you think about the _semantic_ used by git. If you do a bit of REST, you know you can only patch an existing resource.
+`git add --patch` needs a tracked file to work as intended. Trying to patch a file not tracked yet will result in a `No changes` message. It's pretty logical when you think about the _semantic_ used by git. If you do a bit of REST, you know you can only patch an existing resource[^1].
 
 So, I'll add my draft to my staging area.
 
@@ -102,7 +102,7 @@ Now that git tracks my draft, I'll be able to patch every changes I make. There 
 
 Let's explain default git metadata first:
 - `diff --git a/_drafts/git-patch-draft.md b/_drafts/git-patch-draft.md` represents which file the current diff is for. `a/` is the file before changes, `b/` is the file after changes. Why? I could rename a file, and git knows how to track this type of change.
-- `index 0e1f8c8..389d061` are the SHA-1 hashes of the file [^1].
+- `index 0e1f8c8..389d061` are the SHA-1 hashes of the file [^2].
 - `100644` is the file mode. Here, it's a standard, non-executable file.
 - `@@ -7,3 +7,83 @@` is the hunk header: it represents the line where the changes occur for each version of the file and how many lines are affected.
 - Lines starting with `-` are the lines removed from your file.
@@ -184,4 +184,6 @@ Cheers,
 
 Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
-[^1]: A SHA-1 hash (Secure Hash Algorithm 1) is a cryptographic hash function that takes an input (like a file or text) and produces a 40-character hexadecimal string (a unique fingerprint of the input).
+[^1]: When you `git add`, git adds the file to the `objects` folder ([read more about how git works under the hood](https://medium.com/@gurayy/how-git-really-works-part-1-how-git-add-works-under-the-hood-2c6221c48b91){:target="_blank"}
+)
+[^2]: A SHA-1 hash (Secure Hash Algorithm 1) is a cryptographic hash function that takes an input (like a file or text) and produces a 40-character hexadecimal string (a unique fingerprint of the input).
