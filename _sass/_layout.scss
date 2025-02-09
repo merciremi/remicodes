@@ -1,8 +1,8 @@
 .header-pastille {
-  height: 15px;
+  height: 10px;
   position: relative;
-  right: 30px;
-  top: -2px;
+  right: 27px;
+  top: -4px;
   z-index: -1;
   border-radius: 50%;
 }
@@ -23,10 +23,10 @@
 
 @keyframes pulse-animation {
   0% {
-    box-shadow: 0 0 0 0px rgba(240, 163, 163, 0.5);
+    box-shadow: 0 0 0 0px rgba(247, 221, 89, 0.5);
   }
   100% {
-    box-shadow: 0 0 0 10px rgba(240, 163, 163, 0.0);
+    box-shadow: 0 0 0 10px rgba(247, 221, 89, 0);
   }
 }
 
@@ -90,7 +90,7 @@ blockquote.toot {
     }
   }
   ul {
-    list-style-type: '→ ';
+    list-style-type: "→ ";
   }
 }
 
