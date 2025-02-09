@@ -76,27 +76,30 @@ Now that git tracks my draft, I'll be able to patch every changes I make. There 
 
 {% highlight zsh %}
   merciremi/remicodes gh-pages → git add --patch _drafts/git-patch-draft.md
+
   diff --git a/_drafts/git-patch-draft.md b/_drafts/git-patch-draft.md
   index 0e1f8c8..389d061 100644
   --- a/_drafts/git-patch-draft.md
   +++ b/_drafts/git-patch-draft.md
   @@ -7,3 +7,83 @@ permalink: git-add-patch
+
   category: git
   cover_image:
   ---
   +
-  +When working on features, I strive to preserve my flow. Which means, that after a few hours, I'll have a bunch of untracked files waiting for me in git. Since I'd rather make atomic changes, I now need to remember which files go hand-in-hand in order to bundle them up in meaningful separate commits.
+  +   When working on features, I strive to preserve my flow. Which means, that after a few hours, I'll have a bunch of untracked files waiting for me in git. Since I'd rather make atomic changes, I now need to remember which files go hand-in-hand in order to bundle them up in meaningful separate commits.
   +
-  +## `git add --patch` to the rescue
+  +   ## `git add --patch` to the rescue
   +
-  +May be you already use `git add` to add files to your staging area. Well `git add --patch` adds a few fancies to the process:
-  +- Interactively review your additions.
-  +- Select those you want to add to your staging area.
-  +- Control the granularity with which you can do the aboves.
+  +   May be you already use `git add` to add files to your staging area. Well `git add --patch` adds a few fancies to the process:
+  +   - Interactively review your additions.
+  +   - Select those you want to add to your staging area.
+  +   - Control the granularity with which you can do the aboves.
   +
-  +Let's take this website repository as an example (#meta)!
+  +   Let's take this website repository as an example (#meta)!
   +
-  +First, let's run `git status` to where we at.
+  +   First, let's run `git status` to where we at.
+
   (1/2) Stage this hunk [y,n,q,a,d,e,p,?]?
 {% endhighlight %}
 
@@ -143,11 +146,13 @@ For this scenario, I use the regex option with my key as a literal pattern: `/my
 
 {% highlight zsh %}
   merciremi/some_app main → git add --patch config/locales.en.yml
+
   diff --git a/config/locales.en.yml b/config/locales.en.yml
   index 0e1f8c8..389d061 100644
   --- a/config/locales.en.yml
   +++ b/config/locales.en.yml
   @@ -3,3 +3,26 @@
+
   en:
   exceptions:
     book_errors:
@@ -160,8 +165,10 @@ For this scenario, I use the regex option with my key as a literal pattern: `/my
       geo_restrictions: Your geographic location does not allow you to access this book.
 +     invalid_epub_slicing_status: The book slicing failed
 +     no_editor: You cannot create a book without specifying its editor.
+
   (1/5) Stage this hunk [y,n,q,a,d,e,p,?]? /unknown_language:
   @@ -13,7 +14,6 @@ en:
+
     level_not_supported: The request book is not compatible with your device.
 +   unknown_language: "Book language is unknown: %{language}"
     user_not_premium: The book is only available for premium user.
@@ -170,6 +177,7 @@ For this scenario, I use the regex option with my key as a literal pattern: `/my
     category_not_supported: Category does not contain any book readable on your device.
 +   category_geo_restrictions: Category does not contain any books available in your geographic location.
     category_not_in_catalog: Category does not contain any book from your catalog.
+
   (2/5) Stage this hunk [y,n,q,a,d,e,p,?]? d
 {% endhighlight %}
 
