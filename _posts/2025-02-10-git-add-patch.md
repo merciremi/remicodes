@@ -126,7 +126,6 @@ Git gives you a handful of options when adding hunks to the staging area:
 - `e`: open the default editor and manually edit the current hunk
 - `p`: print the current hunk
 - `?`: display help
-{% endhighlight %}
 
 Git adds a couple of extra options for specific types of hunks:
 - `s`: split this hunk into smaller hunks
@@ -180,10 +179,8 @@ One last option I only use - when changes are too cumbersome to parse and valida
 
 All in all, `git add --patch` is a great tool for reviewing your work, quickly bundling your changes into atomic commits, and safeguarding your adding changes blindly.
 
-Cheers,
+{% include signature.html %}
 
-Rémi - [@remi@ruby.social](https://ruby.social/@remi)
+[^1]: When you `git add`, git adds the file to the `objects` folder ([read more about how git works under the hood](https://medium.com/@gurayy/how-git-really-works-part-1-how-git-add-works-under-the-hood-2c6221c48b91){:target="_blank"})
 
-[^1]: When you `git add`, git adds the file to the `objects` folder ([read more about how git works under the hood](https://medium.com/@gurayy/how-git-really-works-part-1-how-git-add-works-under-the-hood-2c6221c48b91){:target="_blank"}
-)
 [^2]: A SHA-1 hash (Secure Hash Algorithm 1) is a cryptographic hash function that takes an input (like a file or text) and produces a 40-character hexadecimal string (a unique fingerprint of the input).
