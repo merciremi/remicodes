@@ -102,7 +102,9 @@ a {
 }
 
 .box-shadowed {
-  box-shadow: rgba(4, 21, 31, 0.2) 0px 3px 6px, rgba(4, 21, 31, 0.3) 0px 3px 6px;
+  box-shadow:
+    rgba(4, 21, 31, 0.2) 0px 3px 6px,
+    rgba(4, 21, 31, 0.3) 0px 3px 6px;
 }
 
 article img {
@@ -116,7 +118,9 @@ article img.regular {
 article img.large {
   width: 60vw;
   left: calc(-30vw + 50%);
-  box-shadow: rgba(4, 21, 31, 0.2) 0px 3px 6px, rgba(4, 21, 31, 0.3) 0px 3px 6px;
+  box-shadow:
+    rgba(4, 21, 31, 0.2) 0px 3px 6px,
+    rgba(4, 21, 31, 0.3) 0px 3px 6px;
   margin: 36px 0px;
   @media screen and (min-width: $break-large) {
     width: 40vw;
@@ -250,7 +254,8 @@ footer {
   }
 }
 
-footer > a, header > a {
+footer > a,
+header > a {
   color: $blue-03;
   font-size: $smaller-font-size;
   border-bottom: none;
@@ -277,7 +282,11 @@ header {
   }
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: $headers-font;
   color: $headings-color;
   .highlighter-rouge {
@@ -285,7 +294,10 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-h2, h3, h4, h5 {
+h2,
+h3,
+h4,
+h5 {
   font-weight: 700;
 }
 
@@ -312,7 +324,8 @@ h3 {
   margin-bottom: 14px;
 }
 
-h4, h5 {
+h4,
+h5 {
   font-size: $headings-font-size;
   line-height: $headings-line-height;
   margin-top: 20px;
@@ -337,7 +350,12 @@ main {
 mark {
   border-radius: 0.5em 0 0 0;
   padding: 1px 2px 1px 2px;
-  background-image: linear-gradient(90deg, $body-background-color-02, hsl(29, 74%, 73%), $body-background-color-02);
+  background-image: linear-gradient(
+    90deg,
+    $body-background-color-02,
+    hsl(29, 74%, 73%),
+    $body-background-color-02
+  );
 }
 
 p {
@@ -355,7 +373,8 @@ time {
   font-weight: 700;
 }
 
-ul, ol {
+ul,
+ol {
   line-height: $list-line-height;
   padding-inline-start: 36px;
 }
@@ -434,13 +453,13 @@ ul, ol {
     padding: 30px 50px 30px 50px;
     text-align: center;
     background-size: 90vw;
-
   }
   @media screen and (max-width: $break-small) {
     width: 90vw;
     position: relative;
     left: calc(-45vw + 50%);
-    background: url(/media/shared/newsletter-background-small.svg) no-repeat center;
+    background: url(/media/shared/newsletter-background-small.svg) no-repeat
+      center;
     margin-top: 48px;
     margin-bottom: 48px;
     padding: 30px 50px 30px 50px;
@@ -456,7 +475,8 @@ ul, ol {
   margin-top: 60px;
   margin-bottom: 60px;
   padding: 30px 50px 30px 50px;
-  background: url(/media/shared/newsletter-background-large.svg) no-repeat center;
+  background: url(/media/shared/newsletter-background-large.svg) no-repeat
+    center;
   background-size: 60vw;
   #mce-EMAIL {
     padding: 10px 10px 10px 10px;
@@ -496,13 +516,13 @@ ul, ol {
     padding: 30px 50px 30px 50px;
     text-align: center;
     background-size: 90vw;
-
   }
   @media screen and (max-width: $break-small) {
     width: 90vw;
     position: relative;
     left: calc(-45vw + 50%);
-    background: url(/media/shared/newsletter-background-small.svg) no-repeat center;
+    background: url(/media/shared/newsletter-background-small.svg) no-repeat
+      center;
     margin-top: 48px;
     margin-bottom: 48px;
     padding: 30px 50px 30px 50px;
@@ -598,13 +618,13 @@ ul, ol {
 }
 
 .scribbles-filters a:first-child {
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .scribbles-filters a:last-child {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 .scribbles-filters a:before {
@@ -615,7 +635,7 @@ ul, ol {
 
 .scribbles-filters a[aria-current]:before {
   content: "●";
-  color: #32B67A;
+  color: #32b67a;
   padding-right: 6px;
 }
 
@@ -630,9 +650,9 @@ ul, ol {
 }
 
 #profile-pic {
-    margin-right: 10px;
-    height: 80px;
-    width: 80px;
+  margin-right: 10px;
+  height: 80px;
+  width: 80px;
 }
 
 .m-b-48 {
