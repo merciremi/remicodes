@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Speed up your RSpec test suite: understand lifecycle and execution"
-excerpt: "One of RSpec's strengths is the legibility of its behavior-based DSL. The other side of this coin is that the proliferation of small example blocks introduces a performance overhead."
+title: "Speed up RSpec tests: understand lifecycle and execution"
+excerpt: "One of RSpec's strengths is the legibility of its behavior-based DSL. The other side of this coin is that the proliferation of small example blocks  introduces a performance overhead."
 date: 2025-03-10
 permalink: /aggregate-rspec-expectations/
 category: rspec
 cover_image: "media/2025/03/faster-rspec-test-suite-remi-mercier.png"
 ---
 
-One of RSpec's strengths is the legibility of its behavior-based DSL. The other side of this coin is that the proliferation of small example blocks introduces a performance overhead. Why? Because of the lifecycle of test files. I'll describe broadly how RSpec handles a test file, and the implications performance-wise. Then, we'll see how we can make your RSpec test suite run faster!
+One of RSpec's strengths is the legibility of its behavior-based DSL. The other side of this coin is that the proliferation of small example blocks introduces a performance overhead. Why? Because of RSpec test files' lifecycle! I'll describe broadly how RSpec handles a test file, and the performance implications. Then, we'll see how we can make your RSpec tests run faster!
 
 This is an intermediate-level post. If you're unfamiliar with RSpec, [start at the beginning of the series]({{site.baseurl}}/series/rspec/).
 
@@ -140,7 +140,7 @@ While this decouples testing data from the order of test execution, for a lot of
 
 Ok, Rémi? So, how do we fix it?
 
-## Aggregate examples and save time
+## Aggregate examples and cut setup time
 
 There's a very simple thing you can do, to cut setup time **big time**: aggregate your expectations in fewer examples.
 
