@@ -5,7 +5,7 @@ excerpt: "One of RSpec's strengths is the legibility of its behavior-based DSL. 
 date: 2025-03-10
 permalink: /aggregate-rspec-expectations/
 category: rspec
-cover_image: "media/2025/03/faster-rspec-test-suite-remi-mercier.png"
+cover_image: "/media/2025/03/faster-rspec-test-suite-remi-mercier.png"
 ---
 
 One of RSpec's strengths is the legibility of its behavior-based DSL. The other side of this coin is that the proliferation of small example blocks introduces a performance overhead. Why? Because of RSpec test files' lifecycle! I'll describe broadly how RSpec handles a test file, and the performance implications. Then, we'll see how we can make your RSpec tests run faster!
