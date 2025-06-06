@@ -1,24 +1,24 @@
 ---
 layout: post
-title: How to build a minimal decorator with Ruby
-excerpt:
-date: 2000-01-01
-permalink:
-category:
+title: Build a minimal decorator with Ruby in 30 minutes
+excerpt: A while ago, I needed to add some view-related instance methods to a model. Decorators are my go-to pattern to handle this kind of logic. So, I built a minimal decorator from scratch, added a bunch of extra behaviors, only to end up abstracting all of that away. Follow along!
+date: 2025-06-09
+permalink: /minimal-decorator-ruby/
+category: ruby
 cover_image:
 ---
 
-A while ago, I needed to add some view-related instance methods to a model. Decorators are my go-to pattern to handle this kind of logic.
+A few weeks ago, I needed to add some view-related instance methods to a model. Decorators are my go-to pattern to handle this kind of logic.
 
-Normally, I'd use the [draper](https://github.com/drapergem/draper){:target="_blank"} gem to build decorators. But the app I'm working on was - at the time - built with an older and incompatible version of Rails.
+Normally, I'd use the [draper](https://github.com/drapergem/draper){:target="_blank"} gem to build decorators. But the app I'm working on used an older and incompatible version of Rails.
 
-So, I decided I'd build a minimal decorator from scratch.
+So, I built a minimal decorator from scratch, added a bunch of extra behaviors, only to end up abstracting all of these away. Follow along!
 
 ## What I'm working with
 
 My `Teacher` class has a handful of methods:
   - A one-to-many relationship with `Student`.
-  - Two public methods: one exposing the maximum number of students a teacher can teach to, and one exposing the available teaching places.
+  - Two public methods: one that exposes the maximum number of students a teacher can teach to, and one exposing the available teaching places.
 
 {% highlight ruby %}
   class Teacher < ApplicationRecord
@@ -32,6 +32,8 @@ My `Teacher` class has a handful of methods:
 {% endhighlight %}
 
 In my views, I want to display a table of teachers where the number of available places for each teacher is backed by a background colour.
+
+<!-- image -->
 
 {% highlight ruby %}
 # teachers/index.html.erb
@@ -77,13 +79,11 @@ I could write the `Teacher#colour_coded_availability` method in my model like so
   end
 {% endhighlight %}
 
-However, models are not the place for methods generating CSS classes.
-
-I like to keep my models as bare as possible. They're easier to test (amongst other things).
-
-Let's move this logic into a homemade decorator.
+However, models are not the place for methods generating CSS classes. Decorators are!
 
 ## Drafting a decorator
+
+My decorator should accept an instance of `Teacher` and get the `colour_coded_availability` public method.
 
 {% highlight ruby %}
 # app/decorators/teacher_decorator.rb
@@ -135,11 +135,11 @@ Now, I can instantiate my decorator and use it in my views:
   </table>
 {% endhighlight %}
 
-When I can call `teacher.colour_coded_availability` in my views, the method retrives a CSS class and adds it to the HTML `<td>` tag.
+When I can call `teacher.colour_coded_availability` in my views, the method retrieves a CSS class and adds it to the HTML `<td>` tag.
 
 But if I were to run this code as is, I'd get a beautiful `NoMethodError`. Why?
 
-My views do not handle instances of `Teacher` anymore. They handle instances of `TeacherDecorator`. So, when I'm calling the public methods defined on `Teacher`, the decorator do not know what to do with them.
+My views do not handle instances of `Teacher` anymore. They handle instances of `TeacherDecorator`. So, when I'm calling the public methods defined on `Teacher`, the decorator doesn't know what to do with them.
 
 My decorator needs to be able to handle both its own public methods and the public methods defined on the underlying record (`Teacher`, in this case).
 
@@ -187,9 +187,15 @@ In this example, I keep the original signature of Ruby's `method_missing`.
 
 The only thing I tweak is forwarding the method call to the underlying `teacher`. I only forward it if the `teacher` responds to the method. If not, I let Ruby resume the original behavior [^1].
 
-Now that I have one decorator for my `Teacher` class, I'd like to extend this behavior to other models.
+Now, `@teacher.first_name` is properly forwarded to the underlying instance of `Teacher`.
 
-## Allow other models to rely on my decorator
+What would be cool now, is to allow other decorators to share this behavior.
+
+## Normalizing the behavior to create other decorators
+
+One way to gather default behavior shared across various decorators is to rely on inheritance. I can create an `ApplicationDecorator` whose job is to handle instantiation, and forwarding method calls to the underlying record.
+
+Then, I can have my `TeacherDecorator` inherit from the `ApplicationDecorator`.
 
 {% highlight ruby %}
 class ApplicationDecorator
@@ -217,10 +223,6 @@ end
 class TeacherDecorator < ApplicationDecorator
   attr_reader :teacher
 
-  def initialize(teacher)
-    super(teacher)
-  end
-
   def availability_as_background
     case teacher.max_number_of_students <=> teacher.available_places
     when -1 then "background-danger"
@@ -235,34 +237,70 @@ class TeacherDecorator < ApplicationDecorator
 end
 {% endhighlight %}
 
-
-
-
-
-
-- create application decorator
-- use @record + alias in teacher decorator
-- move method missing to application decorator
-
+My `TeacherDecorator` doesn't need to bother about its initialization since it's handled by the parent `ApplicationDecorator`. The only thing I added, is the ability to reference the `record` as `teacher` so it's clearer what kind of record we're working with.
 
 ## Ensure Rails use underlying teacher in view helpers
 
-`edit_teacher_path(@teacher)` will generate `teachers/#TeacherDecorator/edit` and not `teachers/1/edit`. Why? because @teacher is a TeacherDecorator instance.
+Some Rails native helpers will have a hard time handling my decorator.
 
-So, how does rails convert a normal `teacher` into its id when passed to a path?
+Consider this code:
 
-Thanks to `to_param` method (link to code)
+{% highlight ruby %}
+  `edit_teacher_path(@teacher)` # => Should generate teachers/1/edit
+{% endhighlight %}
 
-So, if i want to reanable that behavior, i need to `delegate :to_param, to: :record` so to_param will be called on the instance of teacher, as rails expects.
+But if `@teacher` references a instance of my `TeacherDecorator`, the generated path is `teachers/#TeacherDecorator/edit`.
 
-ANd bam! it works.
+How do I make my decorator integrate with Rails' default behavior?
 
+I can re-open the `to_param` method which is responsible for turning (among other things) a record into its `id`, and delegate its behavior to the record.
+
+{% highlight ruby %}
+class ApplicationDecorator
+  def initialize(record)
+    @record = record
+  end
+
+  delegate :to_param, to: :record
+
+  private
+
+  attr_reader :record
+
+  def method_missing(method, *args, &block)
+    if record.respond_to?(method)
+      record.public_send(method, *args, &block)
+    else
+      super
+    end
+  end
+
+  def respond_to_missing?(name, include_private = false)
+    record.respond_to?(name) || super
+  end
+end
+{% endhighlight %}
+
+And it works™.
+
+Of course, forwarding every Rails's default behaviors to the underlying record is not always a great strategy.
+
+So, how should I do it?
+
+## Use Ruby's built-in SimpleDelegator
+
+> [SimpleDelegator] provides the means to delegate all supported method calls to the object passed into the constructor.
+
+This means that my `ApplicationDelegator` can shed the initialization logic, and the delegation logic.
+
+{% highlight ruby %}
+require "delegate"
+
+class ApplicationDecorator < SimpleDelegator ; end
+{% endhighlight %}
+
+Everything is abstracted away.
 
 
 
 [^1]: `respond_to_missing?` only ensures that the `responds_to?` does not return false positives by allowing the decorator to respond to methods even if they are not statically defined on it.
-
-
-
-
-Now, you can simply use SImple Delegatro Ruby class
