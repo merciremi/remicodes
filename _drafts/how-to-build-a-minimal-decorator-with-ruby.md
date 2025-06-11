@@ -5,19 +5,19 @@ excerpt: A while ago, I needed to add some view-related instance methods to a mo
 date: 2025-06-09
 permalink: /minimal-decorator-ruby/
 category: ruby
-cover_image:
+cover_image: "/media/2025/06/minimal-decorator-ruby-remi-mercier.png"
 ---
 
-A few weeks ago, I needed to add some view-related instance methods to a model. Decorators are my go-to pattern to handle this kind of logic.
+A few weeks ago, I needed to add some view-related methods to an object. Decorators are my go-to pattern to handle this kind of logic.
 
 Normally, I'd use the [draper](https://github.com/drapergem/draper){:target="_blank"} gem to build decorators. But the app I'm working on used an older and incompatible version of Rails.
 
-So, I built a minimal decorator from scratch, added a bunch of extra behaviors, only to end up abstracting all of these away. Follow along!
+So I built a minimal decorator from scratch, added a bunch of extra behaviors, only to end up abstracting all of these away. Follow along!
 
 ## What I'm working with
 
 My `Teacher` class has a handful of methods:
-  - A one-to-many relationship with `Student`.
+  - A one-to-many relationship with the `Student` class.
   - Two public methods: one that exposes the maximum number of students a teacher can teach to, and one exposing the available teaching places.
 
 {% highlight ruby %}
@@ -25,6 +25,7 @@ My `Teacher` class has a handful of methods:
     has_many :students
 
     def maximum_number_of_students = 30
+
     def available_places
       (maximum_number_of_students <=> students.size).clamp(0..)
     end
@@ -33,7 +34,7 @@ My `Teacher` class has a handful of methods:
 
 In my views, I want to display a table of teachers where the number of available places for each teacher is backed by a background colour.
 
-<!-- image -->
+<img class='large' src="{{ site.baseurl }}/media/2025/06/minimal-decorator-table-example-remi-mercier.png" alt="a screenshot of a table with teachers names and available spaces for each">
 
 {% highlight ruby %}
 # teachers/index.html.erb
@@ -83,7 +84,7 @@ However, models are not the place for methods generating CSS classes. Decorators
 
 ## Drafting a decorator
 
-My decorator should accept an instance of `Teacher` and get the `colour_coded_availability` public method.
+My decorator should accept an instance of `Teacher` and expose the `colour_coded_availability` public method.
 
 {% highlight ruby %}
 # app/decorators/teacher_decorator.rb
@@ -123,7 +124,7 @@ Now, I can instantiate my decorator and use it in my views:
       </tr>
     </thead>
     <tbody>
-      <% teachers.each do |teacher| %>
+      <% @teachers.each do |teacher| %>
         <tr>
           <td><%= teacher.full_name %></td>
           <td class="<%= teacher.colour_coded_availability %>">
@@ -147,9 +148,9 @@ And we do that by using Ruby's `method_missing`.
 
 ## Ruby's `method_missing` to the rescue
 
-A bit of yak shaving first: `method_missing` is how Ruby handles method calls made on objects where said methods are not defined. Ruby passes the method call along [the ancestry chain]({{site.baseurl}}/beginners-introduction-to-ruby-classes-objects/) until it can either resolves it or raise `NoMethodError`.
+`method_missing` is how Ruby handles method calls made on objects where said methods are not defined. Ruby passes the method call along [the ancestry chain]({{site.baseurl}}/beginners-introduction-to-ruby-classes-objects/) until it can either resolves it or raises a `NoMethodError`.
 
-When I call `@teacher.first_name`, I want my decorator to rescue the `NoMethodError`, and forward `#first_name` to the underlying instance of `Teacher`.
+When I call `@teacher.full_name`, I want my decorator to rescue the `NoMethodError`, and forward `#full_name` to the underlying instance of `Teacher`.
 
 To do that, I need to re-open Ruby's `method_missing`, add a custom behavior, then allow `method_missing` to run its normal course.
 
@@ -185,9 +186,9 @@ end
 
 In this example, I keep the original signature of Ruby's `method_missing`.
 
-The only thing I tweak is forwarding the method call to the underlying `teacher`. I only forward it if the `teacher` responds to the method. If not, I let Ruby resume the original behavior [^1].
+The only thing I tweak is forwarding the method call to the underlying `teacher`. I only forward it if the `teacher` responds to the method. Then, I let Ruby resume its original behavior [^1].
 
-Now, `@teacher.first_name` is properly forwarded to the underlying instance of `Teacher`.
+Now, `@teacher.full_name` is properly forwarded to the underlying instance of `Teacher`.
 
 What would be cool now, is to allow other decorators to share this behavior.
 
@@ -239,7 +240,7 @@ end
 
 My `TeacherDecorator` doesn't need to bother about its initialization since it's handled by the parent `ApplicationDecorator`. The only thing I added, is the ability to reference the `record` as `teacher` so it's clearer what kind of record we're working with.
 
-## Ensure Rails use underlying teacher in view helpers
+## Ensure Rails default behavior works well
 
 Some Rails native helpers will have a hard time handling my decorator.
 
@@ -249,11 +250,11 @@ Consider this code:
   `edit_teacher_path(@teacher)` # => Should generate teachers/1/edit
 {% endhighlight %}
 
-But if `@teacher` references a instance of my `TeacherDecorator`, the generated path is `teachers/#TeacherDecorator/edit`.
+But if `@teacher` references an instance of my `TeacherDecorator`, the generated path is `teachers/#TeacherDecorator/edit`.
 
-How do I make my decorator integrate with Rails' default behavior?
+How do I make my decorator integrate with Rails default behavior?
 
-I can re-open the `to_param` method which is responsible for turning (among other things) a record into its `id`, and delegate its behavior to the record.
+I can re-open the `to_param` method which is responsible for turning (among other things) a record into its `id`, and delegating its behavior to the record.
 
 {% highlight ruby %}
 class ApplicationDecorator
@@ -281,17 +282,13 @@ class ApplicationDecorator
 end
 {% endhighlight %}
 
-And it works™.
+Of course, forwarding every Rails default behaviors to the underlying record is not a great strategy (too much complexity). So, how should I do it?
 
-Of course, forwarding every Rails's default behaviors to the underlying record is not always a great strategy.
+## Use Ruby standard SimpleDelegator
 
-So, how should I do it?
+> [SimpleDelegator](https://ruby-doc.org/3.4.1/stdlibs/delegate/SimpleDelegator.html){:target="_blank"} provides the means to delegate all supported method calls to the object passed into the constructor.
 
-## Use Ruby's built-in SimpleDelegator
-
-> [SimpleDelegator] provides the means to delegate all supported method calls to the object passed into the constructor.
-
-This means that my `ApplicationDelegator` can shed the initialization logic, and the delegation logic.
+This means that by using SimpleDelegator, I can remove the initialization and the delegation logics from my `ApplicationDelegator`.
 
 {% highlight ruby %}
 require "delegate"
@@ -299,8 +296,32 @@ require "delegate"
 class ApplicationDecorator < SimpleDelegator ; end
 {% endhighlight %}
 
-Everything is abstracted away.
+Everything is abstracted away. And it just works™. `@record` is not available anymore for my `TeacherDecorator` to reference, but SimpleDelegator exposes a `__getobj__` that works exactly as my previous `@record` ivar.
 
+## Final implementation
 
+Here's what I ended up with:
+
+{% highlight ruby %}
+require "delegate"
+
+class ApplicationDecorator < SimpleDelegator ; end
+
+class TeacherDecorator < ApplicationDecorator
+  def availability_as_background
+    case teacher.max_number_of_students <=> teacher.available_places
+    when -1 then "background-danger"
+    when 0 then "background-warning"
+    when 1 then "background-success"
+    end
+  end
+
+  alias_method :teacher, :__getobj__
+end
+{% endhighlight %}
+
+That's it! A 30-minute minimal decorator in [plain Ruby]({{site.baseurl}}/series/ruby).
+
+{% include signature.html %}
 
 [^1]: `respond_to_missing?` only ensures that the `responds_to?` does not return false positives by allowing the decorator to respond to methods even if they are not statically defined on it.
