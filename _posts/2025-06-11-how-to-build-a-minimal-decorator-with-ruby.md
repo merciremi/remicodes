@@ -172,8 +172,8 @@ class TeacherDecorator
 
   private
 
-  def method_missing(method, *args, &)
-    return teacher.public_send(method, *args, &) if teacher.respond_to?(method)
+  def method_missing(method, ...)
+    return teacher.public_send(method, ...) if teacher.respond_to?(method)
 
     super
   end
@@ -208,9 +208,9 @@ class ApplicationDecorator
 
   attr_reader :record
 
-  def method_missing(method, *args, &block)
+  def method_missing(method,...)
     if record.respond_to?(method)
-      record.public_send(method, *args, &block)
+      record.public_send(method, ...)
     else
       super
     end
@@ -268,9 +268,9 @@ class ApplicationDecorator
 
   attr_reader :record
 
-  def method_missing(method, *args, &block)
+  def method_missing(method,...)
     if record.respond_to?(method)
-      record.public_send(method, *args, &block)
+      record.public_send(method, ...)
     else
       super
     end
