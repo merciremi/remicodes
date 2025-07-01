@@ -410,6 +410,8 @@ Anyway, that's a lot of questions. And I feel a lot of developers are scratching
 
 A big thank you to [Ronan](https://ruby.social/@r3trofitted){:target="\_blank"}, [Jeremy](https://ruby.social/@notgrm){:target="\_blank"} and [Kasper](https://ruby.social/@kaspth){:target="\_blank"} for reading an early draft of this post and for their suggestions!
 
+[July 1, 2025 edit]: Kasper Timm Hansen has published a post proposing [better naming and API for delegated types](https://kaspth.com/posts/making-rails-delegated_types-clearer){:target="_blank"}.
+
 Cheers,
 
 Rémi - [@remi@ruby.social](https://ruby.social/@remi)
