@@ -92,3 +92,7 @@
 - date: 2023/03/02
   content: |
     Twitter - as a traffic source - has no inertia whatsoever. If you're not feeding it with links all the time, your traffic plummets.
+
+- date: 2025/09/26
+  content: |
+    Finally managed to build some system tests with Minitest and Capibara. Minitest has such a poor onboarding experience.
