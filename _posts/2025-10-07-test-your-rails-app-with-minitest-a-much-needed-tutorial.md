@@ -203,6 +203,8 @@ Since `ActiveSupport::TestCase` inherits from `Minitest::Test`, I can also mix a
 
 Here, I use both Minitest syntax and the Rails DSL to define test examples in the same file. Does it work? Yep! Should I do it? I'd rather not!
 
+But I wanted to show you that you can, even if you shouldn't.
+
 I did not even toggle `minitest/spec` which opens up a third syntax to set up and define your test examples. I'll cover this in another post.
 
 ## Wrapping up
