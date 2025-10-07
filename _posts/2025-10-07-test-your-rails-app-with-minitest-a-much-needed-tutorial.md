@@ -215,5 +215,5 @@ The TL;DR is:
 - Minitest is part of Ruby standard library.
 - Minitest is part of Rails `ActiveSupport`.
 - Minitest has several possible syntaxes to define your test examples.
-- Minitest has a multitude of assertions (will cover those in the next post).
+- Minitest has a multitude of assertions (we'll cover those in the next post).
 - Minitest is obscure at first, but once you get the hang of it, it's quite neat.
