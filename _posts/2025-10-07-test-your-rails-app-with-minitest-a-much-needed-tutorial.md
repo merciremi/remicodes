@@ -12,7 +12,7 @@ I have a confession to make: I have never used Minitest in the seven years I've 
 
 I've always used [the *other framework*]({{site.baseurl}}/series/rspec/).
 
-But earlier this year, I started working with a client whose application relied solely on Q&A instead of automated tests. In an effort to bring the team peace of mind during releases, I started adding tests to the most critical parts of the application.
+But earlier this year, I started working with a client whose application relied solely on QA instead of automated tests. In an effort to bring the team peace of mind during releases, I started adding tests to the most critical parts of the application.
 
 Lured by the promise of speed and wide adoption, I suggested we try Minitest.
 
@@ -54,18 +54,16 @@ Coming from RSpec, I'm used to the concept of **expectations** which take the op
 
 > This object should behave this way.
 
-## Assertions : everything, everywhere, all at once
+## Minitest syntax flavors : everything, everywhere, all at once
 
-One thing that slowed down my adoption is that Minitest offers **multiple styles of assertions**. You can write the same test in several ways, sometimes even mixing styles together. Each style lives in its own module or extension.
+One thing that slowed down my adoption is that Minitest offers **multiple styles of syntaxes**. You can write the same test in several ways, sometimes even mixing styles together. Each style lives in its own module or extension.
 
 RSpec is either loved or hated for its DSL, but it gives me one major advantage: I don’t have to decide for every test which style to use. [I use the standard and I move on]({{site.baseurl}}/pick-a-standard/).
 
 With Minitest, though, I can choose from:
-- the default assertions
-- Rails’ custom assertions
-- or Minitest’s expectations (which mimic RSpec’s style)
-
-The same applies to how I define my test blocks. I can write them in plain Minitest style, Rails’ style, or even RSpec-like syntax.
+- the default syntax
+- Rails’ custom syntax
+- or Minitest’s spec syntax (which mimic RSpec’s style)
 
 Let's write some tests so you get my point.
 
@@ -165,7 +163,7 @@ If my test were to failed:
 
   class UserTest < ActiveSupport::TestCase
     def setup
-      @user = User.create(first_name: "buffy", last_name: "summers")
+      @user = User.new(first_name: "buffy", last_name: "summers")
     end
 
     test "returns the full name" do
@@ -179,7 +177,6 @@ What's changed:
 - My test file starts with `require "test_helper"`, which loads the Rails testing environment (database, fixtures, helpers, etc.)
 - `UserTest` now inherits from `ActiveSupport::TestCase`, which inherits from `Minitest::Test`. This allows Rails to define additional assertions.
 - Minitest's test method definition (`def test_returns_the_full_name`) is now abstracted into the Rails DSL (`test "returns the full name"`). This syntax is just a method, `test`, that takes a description and a block as arguments ([see the code source](https://github.com/rails/rails/blob/main/activesupport/lib/active_support/testing/declarative.rb){:target="_blank"}).
-- `User.create` now instantiates a new record in the test database.
 
 Since `ActiveSupport::TestCase` inherits from `Minitest::Test`, I can also mix and match syntaxes if I ever feel so inclined:
 
@@ -195,8 +192,8 @@ Since `ActiveSupport::TestCase` inherits from `Minitest::Test`, I can also mix a
       assert_equal "buffy summers", @user.full_name
     end
 
-    test "returns the full name" do
-      assert_equal "Buffy Summers", @user.full_name
+    test "returns the user slug" do
+      assert_equal "buffy_summers", @user.slug
     end
   end
 {% endhighlight %}
@@ -206,6 +203,12 @@ Here, I use both Minitest syntax and the Rails DSL to define test examples in th
 But I wanted to show you that you can, even if you shouldn't.
 
 I did not even toggle `minitest/spec` which opens up a third syntax to set up and define your test examples. I'll cover this in another post.
+
+One thing I'm not showing here that you should know. In Rails, based on your type of test, you'll want your test file to inherit from a different class:
+- Unit tests, inherit from `ActiveSupport::TestCase`
+- Integration tests, inherit from `ActionDispatch::IntegrationTest`
+- Unit tests for views (think helpers), inherit from `ActionView::TestCase`
+- System tests, inherit from `ApplicationSystemTestCase`
 
 ## Wrapping up
 
@@ -219,3 +222,5 @@ The TL;DR is:
 - Minitest has several possible syntaxes to define your test examples.
 - Minitest has a multitude of assertions (we'll cover those in the next post).
 - Minitest is obscure at first, but once you get the hang of it, it's quite neat.
+
+Thank you to [Cecile](https://www.cecilitse.org/){:target="_blank"} for her suggestions.
