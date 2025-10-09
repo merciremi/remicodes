@@ -2,7 +2,6 @@
 layout: page
 title: Haikus
 permalink: /haikus/
-redirect_from: /haikus-old/
 ---
 
 A list of haikus, mostly written when I was working in marketing (and being bored out of my wits). Making fun as a tool to push through.
