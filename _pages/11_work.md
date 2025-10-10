@@ -4,25 +4,29 @@ title: Hire me
 permalink: /work/
 ---
 
-Need a Ruby on Rails developer? Look no further! I'm available for consulting and freelance work for Ruby on Rails shops.
+👋 Do you need a Ruby on Rails developer? Look no further! I'm available for consulting and freelance work for Ruby on Rails shops.
 
-## Who am I?
+Your being here probably means you’re interested in working with me. Already know we’re a match? [Shoot me an email](mailto:hello@remimercier.com). If not, let me tell you what to expect.
 
-I'm a freelance software developer.
+## Who I am
 
-I help companies **build reliable features faster and better**.
+I'm a freelance software developer, a writer, and a former stained-glass master (yup).
+
+I help companies **build reliable products faster and better**.
 
 The main areas I can leverage within your team are **domain modeling, testing, and OOP**.
 
-I identify myself <mark>as a product-minded engineer</mark>: I like to start from a customer problem and solve it throughout the stack, all the way to production.
+I identify as <mark>as a product-minded engineer</mark>: I like to start from a customer problem and solve it throughout the stack, all the way to production.
 
 I've been a professional developer since 2019. Before becoming a programmer, I worked in tech as a product and marketing manager for startups. Before that? [It's quite the story.]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
 
-My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, [RSpec]({{site.baseurl}}/series/ruby/), Git, etc.
+My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - PostgreSQL, Redis, Sidekiq, vanilla JavaScript, [RSpec]({{site.baseurl}}/series/ruby/), Git, etc.
 
-## Services
+## How I can help
 
-Based on your needs, I can build apps from scratch, work on existing codebases, and everything in-between. My customers value my proactive communication and my getting things done right:
+I either work on existing codebases or build applications from scratch. My customers value my proactive communication, my ability to make complex topics easy to understand, and my knack for writing reliable code that Just Works™.
+
+My typical contributions include:
 - [designing and implementing features]({{site.baseurl}}/refactoring-in-practice/),
 - [writing specifications]({{site.baseurl}}/how-to-write-better-specifications/),
 - [codebase consolidation]({{site.baseurl}}/complexities/),
@@ -34,9 +38,11 @@ Based on your needs, I can build apps from scratch, work on existing codebases, 
 - documenting practices and processes,
 - and so much more.
 
-## Rates
+## My rates
 
-I typically work with open-ended, ongoing contracts at a daily rate. Depending on your project, though, I also offer flat rates for projects with fixed lengths and defined deliverables. My rates vary based on the scope of the project, and the type of company. <a href="mailto:hello@remimercier.com">Get in touch</a> to discuss your project, and we'll figure out what works best for you.
+I typically work with open-ended, ongoing contracts at a daily rate. Depending on your project, though, I also offer flat rates for projects with fixed lengths and defined deliverables.
+
+My rates vary based on the scope of the project, and the type of company. [Get in touch](mailto:hello@remimercier.com) to discuss your project, and we'll figure out what works best for you.
 
 ## Location
 
