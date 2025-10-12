@@ -1,0 +1,214 @@
+/*  Images and figure */
+
+article img {
+  position: relative;
+}
+
+article img.regular {
+  max-width: 100%;
+}
+
+article img.large {
+  width: 60vw;
+  left: calc(-30vw + 50%);
+  box-shadow:
+    rgba(4, 21, 31, 0.2) 0px 3px 6px,
+    rgba(4, 21, 31, 0.3) 0px 3px 6px;
+  margin: 36px 0px;
+  @media screen and (min-width: $break-large) {
+    width: 40vw;
+    position: relative;
+    left: calc(-20vw + 50%);
+  }
+  @media screen and (max-width: $break-medium) {
+    width: 80vw;
+    position: relative;
+    left: calc(-40vw + 50%);
+  }
+}
+
+figure {
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  overflow-wrap: normal;
+  @media screen and (max-width: $break-small) {
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+}
+
+figcaption {
+  font-size: $smaller-font-size;
+  text-align: center;
+}
+
+figure.highlight {
+  width: 45vw;
+  margin: 18px auto 30px auto;
+  font-size: $smaller-font-size;
+  pre {
+    padding-left: 1em;
+  }
+  @media screen and (min-width: $break-large) {
+    width: 35vw;
+  }
+  @media screen and (max-width: $break-medium) {
+    width: 65vw;
+    font-size: $smaller-font-size;
+    pre {
+      padding: 14px 0px;
+    }
+  }
+  @media screen and (max-width: $break-small) {
+    width: 90vw;
+    font-size: $smallest-font-size;
+  }
+}
+
+/* Footnotes */
+
+footnotes {
+  width: 70%;
+  margin-top: 36px;
+  padding-top: 12px;
+  border-top: 1px $green-02 solid;
+  font-size: $smaller-font-size;
+  ol {
+    margin-top: 0px;
+    padding-inline-start: 18px;
+  }
+  @media screen and (max-width: $break-medium) {
+    width: 100%;
+  }
+}
+
+/* Featured series */
+
+.featured-container {
+  width: 100vw;
+  position: relative;
+  left: calc(-50vw + 50%);
+  @media screen and (max-width: $break-medium) {
+    width: 90vw;
+    position: relative;
+    left: calc(-45vw + 50%);
+  }
+}
+
+.featured-main {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 72px;
+  a {
+    border: none;
+  }
+  @media screen and (max-width: $break-medium) {
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  @media screen and (max-width: $break-small) {
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+}
+
+.featured-serie {
+  text-align: center;
+  width: 200px;
+  height: 130px;
+  margin: 0px 24px;
+  h3 {
+    font-size: $headings-font-size;
+  }
+  p {
+    font-size: $smallest-font-size;
+    font-weight: 500;
+  }
+  @media screen and (max-width: $break-medium) {
+    margin-bottom: 18px;
+  }
+  @media screen and (max-width: $break-small) {
+    margin: 18px auto;
+  }
+}
+
+.serie-icon {
+  margin-left: -48px;
+}
+
+.serie-title {
+  margin-top: -119px;
+}
+
+.featured-ruby {
+  background: url(/media/shared/pinkish-sun.svg) no-repeat center;
+  background-position: 35% 40%;
+  @media screen and (max-width: $break-small) {
+    margin: 0px 33% 0px auto;
+  }
+}
+
+.featured-rails {
+  background: url(/media/shared/golden-mountain.svg) no-repeat center;
+  background-position: 55%;
+  @media screen and (max-width: $break-small) {
+    margin: -10px auto 0px 33%;
+  }
+}
+
+.featured-rspec {
+  background: url(/media/shared/brown-rock.svg) no-repeat center;
+  background-position: 45% 55%;
+  @media screen and (max-width: $break-small) {
+    margin: 6px 30% 0px auto;
+  }
+}
+
+.featured-career {
+  background: url(/media/shared/stormy-river.svg) no-repeat center;
+  @media screen and (max-width: $break-small) {
+    margin: 0px auto;
+  }
+}
+
+.breadcrumbs {
+  margin-top: -1em;
+  margin-bottom: 3em;
+  font-size: $smaller-font-size;
+  color: $blue-01;
+  font-weight: 500;
+  a {
+    font-size: $smaller-font-size;
+    color: $blue-01;
+    font-weight: 500;
+    border-bottom: none;
+  }
+}
+
+.read-more {
+  font-size: $smaller-font-size;
+  color: $blue-01;
+  font-weight: 500;
+  border-bottom: none;
+}
+
+
+
+cite {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+  font-size: $smaller-font-size;
+  a {
+    margin-right: 5px;
+  }
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0px 10px;
+  }
+}
