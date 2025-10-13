@@ -2,7 +2,7 @@
 layout: post
 title: "What is Minitest::Spec?"
 excerpt: "In my previous post, I talked a lot about how Minitest comes in various syntax flavors. One flavor I did not cover much is Minitest's spec extension."
-date: 2025-01-13
+date: 2025-10-13
 permalink: /minitest-spec/
 category: other
 cover_image:
