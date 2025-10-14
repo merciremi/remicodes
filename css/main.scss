@@ -1,9 +1,11 @@
+---
 # Front matter comment to ensure Jekyll properly reads file.
 ---
-@use "base";
-@use "layout";
-@use "syntax-highlighting";
-@use "newsletter";
-@use "margins";
-@use "posts";
-@use "scribbles";
+@import
+  "base",
+  "layout",
+  "syntax-highlighting",
+  "newsletter",
+  "margins",
+  "posts",
+  "scribbles"
