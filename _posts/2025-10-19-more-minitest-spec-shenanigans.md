@@ -332,10 +332,10 @@ end
 
 There's no mention of this in the documentation, but I've found this comment in the `ActiveJob` expectations module:
 
-> # This exists as a module to allow easy mixing into classes
-> # other than ActiveJob::TestCase where you might want to do
-> # job testing e.g. in an Active Record model which triggers
-> # jobs in a callback.
+> This exists as a module to allow easy mixing into classes
+> other than ActiveJob::TestCase where you might want to do
+> job testing e.g. in an Active Record model which triggers
+> jobs in a callback.
 
 So it seems there is still some manual mixin to do, despite most of the inheritance being automatically handled.
 
