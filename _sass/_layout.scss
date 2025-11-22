@@ -13,11 +13,15 @@
 
 .blue {
   color: $blue-01;
-  background: linear-gradient(to right, hsl(5, 96%, 61%), blue);
+  background: linear-gradient(to right, hsl(3, 96%, 61%), $link-color);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
+}
+
+.mb-5 {
+  margin-bottom: 5em;
 }
 
 body {
@@ -174,14 +178,43 @@ ol {
 }
 
 mark {
-  border-radius: 0.5em 0 0 0;
-  padding: 1px 2px 1px 2px;
-  background-image: linear-gradient(
+  /* border-radius: 0.5em 0 0 0; */
+  padding: 1px 4px 1px 4px;
+  background-color: hsl(57, 93%, 57%);
+  /* background-image: linear-gradient(
     90deg,
     $body-background-color-02,
     hsl(29, 74%, 73%),
     $body-background-color-02
-  );
+  ); */
+}
+
+.gradient-button {
+  /* Basic button styling */
+  display: inline-block;
+  padding: 12px 24px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  border-bottom: none !important;
+
+  /* Gradient background */
+  background: linear-gradient(to right, hsl(3, 96%, 61%), $link-color);
+
+  /* Optional: Hover effect */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gradient-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-button:active {
+  transform: translateY(0);
 }
 
 time {
