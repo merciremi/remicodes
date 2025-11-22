@@ -1,3 +1,11 @@
+.bob {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: -90px;
+  top: 30px;
+}
+
 body {
   font-size: $body-font-size;
   line-height: $body-line-height;
@@ -354,4 +362,7 @@ iframe {
   margin-right: 10px;
   height: 80px;
   width: 80px;
+  left: 20px;
+  position: relative;
+  z-index: -1;
 }
