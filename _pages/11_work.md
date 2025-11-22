@@ -1,16 +1,17 @@
 ---
 layout: page
-title: Hire me
+title: Freelance Software Engineering from Remi Mercier
 permalink: /work/
+hide_title: true
 ---
 
-👋 Do you need a Ruby on Rails developer? Look no further! I'm available for consulting and freelance work for Ruby on Rails shops.
+<h3 class="top blue">Let's work together.</h3>
 
-Your being here probably means you’re interested in working with me. Already know we’re a match? [Shoot me an email](mailto:hello@remimercier.com). If not, let me tell you what to expect.
-
-## Who I am
-
-I'm a freelance software developer, a writer, and a former stained-glass master (yup).
+<h1>
+  <div>As a freelance developer,</div>
+  <div>I turn your <i>what-ifs</i> into </div>
+  <div><i>It Works™</i> with code.</div>
+</h1>
 
 I help companies **build reliable products faster and better**.
 
