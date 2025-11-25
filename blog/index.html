@@ -35,7 +35,7 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
 </section>
 
 <section class="archive">
-  {% for post in site.posts %}
+  {% for post in paginator.posts %}
     <div class="m-b-48">
       <h2>
         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -44,4 +44,14 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
       <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
     </div>
   {% endfor %}
+
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">← Previous</a>
+    {% endif %}
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next →</a>
+    {% endif %}
+  </div>
 </section>

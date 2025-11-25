@@ -24,6 +24,7 @@ group :jekyll_plugins do
   gem 'jekyll-compose'
   gem 'jekyll-cover', git: 'https://github.com/merciremi/jekyll-cover.git', branch: 'main'
   gem 'jekyll-redirect-from'
+  gem "jekyll-paginate"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -47,8 +47,11 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-paginate
 whitelist:
   - jekyll-redirect-from
+paginate: 20
+paginate_path: "/blog/page/:num"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
