@@ -28,7 +28,7 @@ body {
   font-size: $body-font-size;
   line-height: $body-line-height;
   font-family: $body-font;
-  background-color: $body-background-color-00;
+  background: $body-background-color-00;
   color: $font-color;
   @media screen and (max-width: $break-medium) {
     font-size: $small-font-size;
@@ -36,16 +36,18 @@ body {
 }
 
 main {
-  margin: 150px auto 72px auto;
+  margin: 120px auto 72px 200px;
   width: 45vw;
   @media screen and (min-width: $break-large) {
     width: 35vw;
   }
   @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+    margin: 45px auto 72px auto;
     width: 70vw;
     padding: 0 14px;
   }
   @media screen and (max-width: $break-small) {
+    margin: 45px auto 72px auto;
     width: 90vw;
   }
 }
@@ -53,10 +55,9 @@ main {
 /* Header */
 
 header {
-  margin: 60px auto -60px auto;
+  margin: 30px auto auto 200px;
   width: 45vw;
   line-height: 1.5em;
-  text-align: right;
   a {
     margin-right: 18px;
   }
@@ -64,16 +65,18 @@ header {
     width: 35vw;
   }
   @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+    margin: 30px auto auto auto;
     width: 70vw;
     padding: 0 14px;
   }
   @media screen and (max-width: $break-small) {
+    margin: 30px auto auto auto;
     width: 90vw;
   }
 }
 
 header > a {
-  color: $blue-03;
+  color: $font-color;
   font-size: $smaller-font-size;
   border-bottom: none;
   margin-right: 10px;
