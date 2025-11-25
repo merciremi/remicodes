@@ -11,9 +11,9 @@
   top: 20px;
 }
 
-.blue {
-  color: $blue-01;
-  background: linear-gradient(to right, hsl(3, 96%, 61%), $link-color);
+.gradient-right {
+  color: $tomato;
+  background: linear-gradient(to right, $tomato, $link-color);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -178,15 +178,8 @@ ol {
 }
 
 mark {
-  /* border-radius: 0.5em 0 0 0; */
   padding: 1px 4px 1px 4px;
-  background-color: hsl(57, 93%, 57%);
-  /* background-image: linear-gradient(
-    90deg,
-    $body-background-color-02,
-    hsl(29, 74%, 73%),
-    $body-background-color-02
-  ); */
+  background-color: $bright-yellow;
 }
 
 .gradient-button {

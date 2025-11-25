@@ -5,7 +5,9 @@ permalink: /work/
 hide_title: true
 ---
 
-<h3 class="top blue">Let's work together.</h3>
+<h3 class="top gradient-right">
+  Let's work together.
+</h3>
 
 <h1>
   <div>As a freelance developer,</div>
@@ -17,7 +19,9 @@ hide_title: true
   <a href="mailto:hello@remimercier.com" class="gradient-button">Book an intro call</a>
 </div>
 
-<h2 class="blue">Freelance principles</h2>
+<h2 class="gradient-right">
+  Freelance principles
+</h2>
 
 1. **From problem to production**:  I’m not just shipping code. I start with a customer problem, bridge knowledge across teams and ship a working solution. Then <mark>I stick with it until it runs smoothly</mark> in the real world. You bring the problem. I bring the follow-through.
 2. **Better done than perfect**: I prioritize working solutions over polished ones. They’re not perfect, but they create momentum. Shipping early and often creates real value. <mark>Building is thinking</mark>, and your users are your best beta testers. We build *with* them, not just *for* them.
@@ -25,7 +29,9 @@ hide_title: true
 4. **Great communication, not just technical solutions**: I’ll communicate clearly with you, whether you’re technical or not, so you always know what we’re solving, why it matters, and <mark>how it’ll help your business</mark>.
 5. **You know your business**: Let’s be real, you know your customers better than I do. Together, <mark>we partner to turn your knowledge into tech</mark> that’ll make your business move forward. One problem at a time.
 
-<h2 class="blue">Focus Areas</h2>
+<h2 class="gradient-right">
+  Focus Areas
+</h2>
 
 The main areas I can leverage within your team are **domain modeling, testing, and OOP**.
 
@@ -33,7 +39,9 @@ I've been a professional developer since 2019. Before becoming a programmer, I w
 
 My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - PostgreSQL, Redis, Sidekiq, vanilla JavaScript, [RSpec]({{site.baseurl}}/series/ruby/), Git, etc.
 
-<h2 class="blue">How I can help</h2>
+<h2 class="gradient-right">
+  How I can help
+</h2>
 
 I either work on existing codebases or build applications from scratch. My customers value my proactive communication, my ability to make complex topics easy to understand, and my knack for writing reliable code that Just Works™.
 
@@ -49,17 +57,23 @@ My typical contributions include:
 - documenting practices and processes,
 - and so much more.
 
-<h2 class="blue">My rates</h2>
+<h2 class="gradient-right">
+  My rates
+</h2>
 
 I typically work with open-ended, ongoing contracts at a daily rate. Depending on your project, though, I also offer flat rates for projects with fixed lengths and defined deliverables.
 
 My rates vary based on the scope of the project, and the type of company. [Get in touch](mailto:hello@remimercier.com) to discuss your project, and we'll figure out what works best for you.
 
-<h2 class="blue">Location</h2>
+<h2 class="gradient-right">
+  Location
+</h2>
 
 I work remotely. I'm based in the South East of France, a 3-hour train ride away from Paris.
 
-<h2 class="blue">Work History</h2>
+<h2 class="gradient-right">
+  Work History
+</h2>
 
 I'm currently splitting my time between [cults3d](https://cults3d.com/){:target="_blank"} - an independent marketplace for 3D models and prints — , and [Même Pas Cap!](https://www.memepascap.fr/){:target="_blank"} - an independent skills assessment company.
 
