@@ -26,6 +26,15 @@ author: Rémi Mercier
 collections:
   fragments:
     output: true
+  fr_posts:
+    output: true
+
+defaults:
+  - scope:
+      path: "fr"
+    values:
+      permalink: /fr/:basename/
+      lang: fr
 
 jekyll_compose:
   default_front_matter:
