@@ -55,6 +55,8 @@ main {
 /* Header */
 
 header {
+  display: flex;
+  justify-content: space-between;
   margin: 30px auto auto 200px;
   width: 45vw;
   line-height: 1.5em;
