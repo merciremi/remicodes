@@ -3,7 +3,11 @@
 {% include head.html %}
 
 <body>
-  {% include header.html %}
+  {% if page.lang == 'fr' %}
+    {% include fr/header.html %}
+  {% else %}
+    {% include header.html %}
+  {% endif %}
   <main>
     {{ content }}
   </main>
