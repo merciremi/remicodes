@@ -215,45 +215,6 @@ time {
   font-weight: 700;
 }
 
-
-
-
-
-
-
-
-.header-pastille {
-  height: 10px;
-  position: relative;
-  right: 27px;
-  top: -4px;
-  z-index: -1;
-  border-radius: 50%;
-}
-
-.pastille {
-  height: 20px;
-  width: 20px;
-  position: relative;
-  right: 30px;
-  z-index: -1;
-  border-radius: 100%;
-  background-color: hsl(0, 72%, 79%);
-}
-
-.pulse {
-  animation: pulse-animation 2s infinite;
-}
-
-@keyframes pulse-animation {
-  0% {
-    box-shadow: 0 0 0 0px rgba(247, 221, 89, 0.5);
-  }
-  100% {
-    box-shadow: 0 0 0 10px rgba(247, 221, 89, 0);
-  }
-}
-
 blockquote.toot {
   background-color: #242526;
   color: $body-background-color-00;
