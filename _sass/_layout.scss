@@ -1,11 +1,3 @@
-.bob {
-  display: flex;
-  align-items: center;
-  position: relative;
-  left: -90px;
-  top: 30px;
-}
-
 .top {
   position: relative;
   top: 20px;
@@ -36,18 +28,16 @@ body {
 }
 
 main {
-  margin: 120px auto 72px 200px;
+  margin: 120px auto 72px auto;
   width: 45vw;
   @media screen and (min-width: $break-large) {
     width: 35vw;
   }
   @media screen and (min-width: $break-small) and (max-width: $break-medium) {
-    margin: 45px auto 72px auto;
     width: 70vw;
     padding: 0 14px;
   }
   @media screen and (max-width: $break-small) {
-    margin: 45px auto 72px auto;
     width: 90vw;
   }
 }
@@ -55,7 +45,8 @@ main {
 /* Header */
 
 header {
-  margin: 30px auto auto 200px;
+  margin: 60px auto -60px auto;
+  text-align: right;
   width: 45vw;
   line-height: 1.5em;
   a {
