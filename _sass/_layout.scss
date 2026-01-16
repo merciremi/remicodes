@@ -45,9 +45,10 @@ main {
 /* Header */
 
 header {
-  margin: 60px auto -60px auto;
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
   width: 45vw;
+  margin: 60px auto -40px auto;
   line-height: 1.5em;
   a {
     margin-right: 18px;
@@ -66,9 +67,9 @@ header {
   }
 }
 
-header > a {
+header a {
   color: $font-color;
-  font-size: $smaller-font-size;
+  font-size: $small-font-size;
   border-bottom: none;
   margin-right: 10px;
 }
