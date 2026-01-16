@@ -23,10 +23,10 @@ hide_title: true
   Freelance principles
 </h2>
 
-1. **From problem to production**:  I’m not just shipping code. I start with a customer problem, bridge knowledge across teams and ship a working solution. Then <mark>I stick with it until it runs smoothly</mark> in the real world. You bring the problem. I bring the follow-through.
-2. **Better done than perfect**: I prioritize working solutions over polished ones. They’re not perfect, but they create momentum. Shipping early and often creates real value. <mark>Building is thinking</mark>, and your users are your best beta testers. We build *with* them, not just *for* them.
+1. **From problem to production**: I'm a product-minded engineer. I’m not just shipping code. I start with a customer problem, bridge knowledge across teams and ship a working solution. Then <mark>I stick with it until it runs smoothly</mark> in the real world. You bring the problem. I bring the follow-through.
+2. **Better done than perfect**: I prioritize working and reliable solutions over sophisticated ones. They’re not fancy, but <mark>they create momentum</mark>. Shipping early and often creates real value. Building is thinking, and your users are your best beta testers. We build *with* them, not just *for* them.
 3. **Deep dive, and deliver**: Sometimes, *good enough* ain’t good enough. The problem is complex, the bug ambiguous. That’s when I switch into research mode: I dig into docs, test edge cases, and compare approaches. Every task is a learning opportunity, so you’re not just getting code, <mark>you’re getting a clear path forward</mark>, with a rationale and the next steps ready.
-4. **Great communication, not just technical solutions**: I’ll communicate clearly with you, whether you’re technical or not, so you always know what we’re solving, why it matters, and <mark>how it’ll help your business</mark>.
+4. **Great communication, not just technical solutions**: I'm fluent in both XML and ROI. I’ll communicate clearly with you, whether you’re technical or not, so you always know what we’re solving, why it matters, and <mark>how it’ll help your business</mark>.
 5. **You know your business**: Let’s be real, you know your customers better than I do. Together, <mark>we partner to turn your knowledge into tech</mark> that’ll make your business move forward. One problem at a time.
 
 <h2 class="gradient-right">

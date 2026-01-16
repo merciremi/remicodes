@@ -1,0 +1,23 @@
+---
+layout: default
+title: Le blog de Rémi Mercier - Développeur Freelance
+permalink: "/fr/blog"
+lang: fr
+---
+
+<div class="m-b-60">
+  <h1>Blog</h1>
+</div>
+
+<section class="archive">
+  {% assign filtered_posts = site.posts | where_exp: "post", "post.lang == 'fr'" %}
+  {% for post in filtered_posts %}
+    <div class="m-b-48">
+      <h2>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h2>
+      <p>{{ post.excerpt }}</p>
+      <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Lire cet article →</a>
+    </div>
+  {% endfor %}
+</section>
