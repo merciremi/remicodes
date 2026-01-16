@@ -8,6 +8,10 @@ lang: fr
 permalink: /fr/cest-quoi-une-api/
 ---
 
+<div class="breadcrumbs">
+  <a href="{{ site.baseurl }}/fr/blog">← Retourner au blog</a>
+</div>
+
 Avant de commencer, une rapide question. Savez-vous ce qui permet :
   - à votre application météo de toujours savoir le temps qu'il fera lors de votre week-end à Dunkerque ?
   - à Captain Train de savoir si un siège est disponible pour le trajet que vous avez sélectionné (Paris-Dunkerque) ?
