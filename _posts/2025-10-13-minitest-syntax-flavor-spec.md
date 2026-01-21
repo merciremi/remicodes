@@ -185,3 +185,5 @@ The TL;DR is:
 - `Minitest::Spec` is the third main flavor of Minitest.
 - `Minitest::Spec` provides a bridge between assertions and spec-style expectations.
 - Adding `Minitest::Spec` to Ruby or Rails comes with some gotchas.
+
+The third post of this series – [More Minitest::Spec shenanigans]({{site.baseurl}}/more-minitest-spec/) – is live.

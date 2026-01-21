@@ -223,4 +223,6 @@ The TL;DR is:
 - Minitest has a multitude of assertions (we'll cover those in the next post).
 - Minitest is obscure at first, but once you get the hang of it, it's quite neat.
 
+The second part of this series – [What is Minitest::Spec]({{site.baseurl}}/minitest-spec/) – is now live!
+
 Thank you to [Cecile](https://www.cecilitse.org/){:target="_blank"} for her suggestions.
