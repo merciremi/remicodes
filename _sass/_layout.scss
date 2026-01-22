@@ -24,6 +24,16 @@ main {
   }
 }
 
+main a {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: underline;
+}
+
+main a:hover {
+  color: #f97068;
+}
+
 /* Header */
 
 header {
@@ -94,6 +104,9 @@ h5 {
   .highlighter-rouge {
     font-size: inherit;
   }
+  a:hover {
+    color: inherit;
+  }
 }
 
 h2,
@@ -142,13 +155,8 @@ p {
 }
 
 a {
-  font-weight: 500;
   color: inherit;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #f97068;
+  text-decoration: none;
 }
 
 ul,

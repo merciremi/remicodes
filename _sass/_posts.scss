@@ -103,7 +103,10 @@ footnotes {
   justify-content: center;
   margin-bottom: 72px;
   a {
-    border: none;
+    text-decoration: none;
+  }
+  a:hover {
+    color: inherit;
   }
   @media screen and (max-width: $break-medium) {
     flex-wrap: wrap;
@@ -192,10 +195,13 @@ footnotes {
   font-size: $smaller-font-size;
   color: $blue-01;
   font-weight: 500;
-  border-bottom: none;
+  text-decoration: none;
 }
 
-
+.read-more:hover {
+    color: $blue-01;
+    text-decoration: none;
+}
 
 cite {
   display: flex;
