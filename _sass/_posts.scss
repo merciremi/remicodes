@@ -11,6 +11,7 @@ article img.regular {
 article img.large {
   width: 60vw;
   left: calc(-30vw + 50%);
+  right: calc(-30vw + 50%);
   box-shadow:
     rgba(4, 21, 31, 0.2) 0px 3px 6px,
     rgba(4, 21, 31, 0.3) 0px 3px 6px;
