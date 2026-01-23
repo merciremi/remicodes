@@ -206,8 +206,8 @@ mark {
   background: linear-gradient(to bottom,
     transparent 0%,
     transparent 50%,
-    rgb(from $bright-yellow r g b / .4) 40%,
-    rgb(from $bright-yellow r g b) 100%
+    rgba($bright-yellow, 0.4) 40%,
+    $bright-yellow 100%
   );
   color: inherit;
   padding: 0.125em 0.125em 0 0.125em;
@@ -240,9 +240,9 @@ time {
   padding: 3px 6px;
   background: linear-gradient(to bottom,
     transparent 0%,
-    rgb(from $bright-yellow r g b / .2) 20%,
-    rgb(from $bright-yellow r g b / .4) 40%,
-    rgb(from $bright-yellow r g b) 100%
+    rgba($bright-yellow, 0.2) 20%,
+    rgba($bright-yellow, 0.4) 40%,
+    $bright-yellow 100%
   );
   color: $font-color;
   font-size: 0.8em;
