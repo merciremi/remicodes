@@ -3,7 +3,8 @@ layout: post
 title: "More Minitest::Spec shenanigans"
 excerpt: "While I already covered the basics of `Minitest::Spec`, I forgot to discuss a few aspects of the spec flavor. This post serves as a complement to the previous one and digs a bit deeper into some extra `Minitest::Spec` shenanigans."
 date: 2025-10-19
-permalink: "more-minitest-spec"
+permalink: /more-minitest-spec/
+redirect_from: /haikus
 category: other
 cover_image: ""
 ---
