@@ -23,12 +23,28 @@ layout: home
     <a href="{{ '/about' | prepend: site.baseurl }}">myself</a>. You can also
     check <a href="{{ site.baseurl }}/now">what I'm doing right now</a>.
   </p>
+</section>
 
-  <p>There is no tracking on this website. So, enjoy this moment of privacy!</p>
+<hr class="mt-48 m-b-48">
 
+<section>
+  <h2 class="gradient-right section-label -mb-18">Latest post</h2>
+  {% assign latest_post = site.posts | where_exp: "post", "post.lang != 'fr'" | first %}
+  <div class="m-b-48">
+    <h2>
+      <a href="{{ latest_post.url | prepend: site.baseurl }}">{{ latest_post.title }}</a>
+    </h2>
+    <p>{{ latest_post.excerpt }}</p>
+    <a href="{{ latest_post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
+  </div>
+</section>
+
+<hr class="mt-48 m-b-48">
+
+<section>
   <p>
     Wanna chat? Send words my way on
-    <a href="https://ruby.social/@remi" target="blank">Mastodon</a> or through
+    <a href="https://ruby.social/@remi" target="_blank">Mastodon</a> or through
     <a href="mailto:hello@remimercier.com">good ol' email</a>.
   </p>
 </section>

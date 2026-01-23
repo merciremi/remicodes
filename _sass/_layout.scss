@@ -144,6 +144,11 @@ h2 {
   margin-bottom: 16px;
 }
 
+.section-label {
+  font-size: $body-font-size;
+  letter-spacing: 0.1em;
+}
+
 h3 {
   font-size: $h3-font-size;
   line-height: $headings-line-height;
@@ -175,6 +180,12 @@ ul,
 ol {
   line-height: $list-line-height;
   padding-inline-start: 36px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, $tomato, $link-color);
 }
 
 mark {
