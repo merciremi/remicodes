@@ -149,6 +149,15 @@ h2 {
   letter-spacing: 0.1em;
 }
 
+.post-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  h2 {
+    margin: 0;
+  }
+}
+
 h3 {
   font-size: $h3-font-size;
   line-height: $headings-line-height;
@@ -229,10 +238,14 @@ time {
   margin-left: 4px;
   min-width: 100px;
   padding: 3px 6px;
-  background: $body-background-color-01;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgb(from $bright-yellow r g b / .2) 20%,
+    rgb(from $bright-yellow r g b / .4) 40%,
+    rgb(from $bright-yellow r g b) 100%
+  );
   color: $font-color;
   font-size: 0.8em;
-  font-weight: 700;
 }
 
 blockquote.toot {

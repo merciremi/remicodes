@@ -28,12 +28,15 @@ layout: home
 <hr class="mt-48 m-b-48">
 
 <section>
-  <h2 class="gradient-right section-label -mb-18">Latest post</h2>
+  <h2 class="gradient-right section-label">Latest post</h2>
   {% assign latest_post = site.posts | where_exp: "post", "post.lang != 'fr'" | first %}
   <div class="m-b-48">
-    <h2>
-      <a href="{{ latest_post.url | prepend: site.baseurl }}">{{ latest_post.title }}</a>
-    </h2>
+    <div class="post-header">
+      <h2>
+        <a href="{{ latest_post.url | prepend: site.baseurl }}">{{ latest_post.title }}</a>
+      </h2>
+      <time datetime="{{ latest_post.date | date: '%Y-%m' }}">{{ latest_post.date | date: "%B %Y" }}</time>
+    </div>
     <p>{{ latest_post.excerpt }}</p>
     <a href="{{ latest_post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
   </div>
