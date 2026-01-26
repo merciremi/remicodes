@@ -78,4 +78,56 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://remimercier.com/media/remi-mercier.jpg">
   {% endif %}
+
+  <!------------------>
+  <!-- Schema.org   -->
+  <!------------------>
+
+  <!-- Person Schema (site-wide) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "{{ site.url }}/#person",
+    "name": "Rémi Mercier",
+    "alternateName": "merciremi",
+    "url": "{{ site.url }}",
+    "image": "{{ site.url }}/media/remi-mercier.jpg",
+    "jobTitle": "Independent Software Engineer, Technical Writer",
+    "description": "Rémi Mercier is an independent Ruby/Rails developer and technical writer based in France, known for blogging about building robust software with Ruby on Rails, testing with RSpec and Minitest, and helping developers build joyful careers.",
+    "sameAs": [
+      "https://ruby.social/@remi",
+      "https://github.com/merciremi",
+      "https://www.linkedin.com/in/remimercier/",
+    ],
+    "knowsAbout": [
+      "Ruby",
+      "Ruby on Rails",
+      "RSpec",
+      "Minitest",
+      "PostgreSQL",
+      "Git",
+      "Test-Driven Development",
+      "Object-Oriented Programming",
+      "Refactoring",
+      "Domain modeling",
+      "Career development for developers"
+    ]
+  }
+  </script>
+
+  <!-- WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "{{ site.url }}/#website",
+    "name": "Rémi Mercier",
+    "url": "{{ site.url }}",
+    "description": "{{ site.description }}",
+    "author": {
+      "@id": "{{ site.url }}/#person"
+    }
+  }
+  </script>
 </head>
