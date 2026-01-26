@@ -5,24 +5,25 @@ permalink: /work/
 hide_title: true
 ---
 
+<!-- ProfessionalService Schema (site-wide) -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "{{ site.url }}/work/#service",
-  "name": "Rémi Mercier - Freelance Software Engineer",
-  "description": "Freelance Ruby on Rails developer offering domain modeling, testing, OOP, feature development, codebase consolidation, and mentoring services.",
-  "url": "https://remimercier.com/work/",
-  "provider": {
-    "@id": "https://remimercier.com/#person"
-  },
-  "areaServed": "Worldwide",
-  "serviceType": ["Software Development", "Ruby on Rails Development", "Code Review", "Technical Mentoring"],
-  "availableChannel": {
-    "@type": "ServiceChannel",
-    "serviceUrl": "mailto:hello@remimercier.com"
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "{{ site.url }}/work/#service",
+    "name": "Rémi Mercier - Freelance Software Engineer",
+    "description": "Freelance Ruby on Rails developer offering domain modeling, testing, OOP, feature development, codebase consolidation, and mentoring services.",
+    "url": "https://remimercier.com/work/",
+    "provider": {
+      "@id": "https://remimercier.com/#person"
+    },
+    "areaServed": "Worldwide",
+    "serviceType": ["Software Development", "Ruby on Rails Development", "Code Review", "Technical Mentoring"],
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "mailto:hello@remimercier.com"
+    }
   }
-}
 </script>
 
 <h3 class="top gradient-right">

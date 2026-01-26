@@ -38,10 +38,15 @@
 
   <!-- Excerpt -->
   {% if page.excerpt %}
-    <meta property="og:description" content="{{ page.excerpt }}">
+    <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+    <meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 200 }}">
   {% else %}
+    <meta name="description" content="{{ site.description }}">
     <meta property="og:description" content="{{ site.description }}">
   {% endif %}
+
+  <!-- Locale -->
+  <meta property="og:locale" content="en_US">
 
   <!-- Url -->
   {% if page.url %}
@@ -50,6 +55,7 @@
 
   <!-- Author -->
   <meta property="article:author" content="{{ site.url }}/about/">
+  <meta property="article:publisher" content="https://www.linkedin.com/in/remimercier/">
   <meta name="fediverse:creator" content="@remi@ruby.social">
 
   <!-- Date -->
@@ -60,6 +66,7 @@
   <!-- Cover image -->
   {% if page.cover_image %}
     <meta property="og:image" content="{{ site.url }}{{ page.cover_image }}">
+    <meta property="og:image:alt" content="{{ page.title | escape }}">
   {% else %}
     <meta property="og:image" content="{{ site.url }}/media/remi-mercier.jpg">
   {% endif %}
@@ -67,17 +74,6 @@
   <!-- Mastodon -->
 
   <link rel="me" href="https://ruby.social/@remi">
-
-  <!-- Twitter -->
-  <meta name="twitter:site" content="@mercier_remi">
-  <meta name="twitter:creator" content="@mercier_remi">
-  {% if page.cover_image %}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="{{ site.url }}{{ page.cover_image }}">
-  {% else %}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="https://remimercier.com/media/remi-mercier.jpg">
-  {% endif %}
 
   <!------------------>
   <!-- Schema.org   -->
