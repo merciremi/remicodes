@@ -2,6 +2,20 @@
 layout: default
 ---
 
+<!-- WebPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ site.url }}{{ page.url }}#webpage",
+  "name": "{{ page.title | escape }}",
+  "url": "{{ site.url }}{{ page.url }}",
+  "author": {
+    "@id": "{{ site.url }}/#person"
+  }
+}
+</script>
+
 <section class="page">
   {% if page.hide_title != true %}
     <h1>{{ page.title }}</h1>
