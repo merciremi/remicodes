@@ -93,6 +93,6 @@ I work remotely. I'm based in the South East of France, a 3-hour train ride away
   Work History
 </h2>
 
-I'm currently splitting my time between [cults3d](https://cults3d.com/){:target="_blank"} - an independent marketplace for 3D models and prints — , and [Même Pas Cap!](https://www.memepascap.fr/){:target="_blank"} - an independent skills assessment company.
+I'm currently splitting my time between [Cults](https://cults3d.com/){:target="_blank"} - an independent marketplace for 3D models and prints — , and [Même Pas Cap!](https://www.memepascap.fr/){:target="_blank"} - an independent skills assessment company.
 
 Previously at [Evalmee](https://en.evalmee.com/), [Nextory](https://nextory.com/fr/){:target="\_blank"}, [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remi-mercier-cv-2024.pdf).
