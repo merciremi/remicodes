@@ -29,10 +29,6 @@ main a {
   text-decoration: underline;
 }
 
-main a:hover {
-  color: #f97068;
-}
-
 main a[target="_blank"]::after {
   content: "";
   display: inline-block;
@@ -198,21 +194,20 @@ hr {
 }
 
 mark {
-  padding: 1px 4px 1px 4px;
-  background-color: $bright-yellow;
-}
-
-mark {
-  background: linear-gradient(to bottom,
-    transparent 0%,
-    transparent 50%,
-    rgba($bright-yellow, 0.4) 40%,
-    $bright-yellow 100%
+  background: linear-gradient(to right,
+    $bright-yellow 70%,
+    rgba($bright-yellow, 0.8) 80%,
+    rgba($bright-yellow, 0.7) 90%,
+    rgba($bright-yellow, 0.6) 100%,
   );
   color: inherit;
-  padding: 0.125em 0.125em 0 0.125em;
-  margin-left: -0.125em;
-  margin-right: -0.125em;
+  padding: 0px 2px;
+  margin: 0px -2px;
+}
+
+.bob {
+  color: #22c55e;
+  color: $tomato;
 }
 
 .gradient-button {
@@ -238,14 +233,11 @@ time {
   margin-left: 4px;
   min-width: 100px;
   padding: 3px 6px;
-  background: linear-gradient(to bottom,
-    transparent 0%,
-    rgba($bright-yellow, 0.2) 20%,
-    rgba($bright-yellow, 0.4) 40%,
-    $bright-yellow 100%
-  );
-  color: $font-color;
+  background-color: rgba($blue-01, 0.1);
+  color: $blue-01;
   font-size: 0.8em;
+  font-family: monospace;
+  border-radius: 4px;
 }
 
 blockquote.toot {
@@ -361,7 +353,7 @@ iframe {
 .highlighter-rouge {
   padding: 1px 3px 2px 3px;
   overflow-wrap: break-word;
-  background-color: hsl(0, 0%, 93%);
+  background-color: rgba($blue-01, 0.1);
   border-radius: 5px;
   font-size: $small-font-size;
 }
