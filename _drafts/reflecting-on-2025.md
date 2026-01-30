@@ -18,7 +18,7 @@ So when the opportunity arose last year, I knew I needed to get better at being 
 
 I started freelancing at the very end of 2024. After a taxing four-month job search – that only emphasized how broken some tech companies are – I decided to switch my approach. 
 
-I reached out to Sunny – an internet pal I've known for years – and asked him if he needed an extra pair of hands to ship more features for his company [Cults](https://cults3d.com/){:target="_blank"}. And he said "yes".
+I reached out to Sunny – an internet pal I've known for years – and asked him if he needed an extra pair of hands to ship more features for his company [Cults](https://cults3d.com/?utm_source=hello_from_remimercier.com){:target="_blank"}. And he said "yes".
 
 A week later, Yves – a Le Wagon alumnus – asked me if I was available to help his team tackle their more complex tasks and get some of their velocity back. And I said "yes".
 
