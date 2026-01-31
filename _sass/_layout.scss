@@ -386,6 +386,15 @@ iframe {
   top: 20px;
 }
 
+.bottom {
+  position: relative;
+  bottom: 20px;
+}
+
+.hero {
+  width: 50vw;
+}
+
 .gradient-right {
   color: $tomato;
   background: linear-gradient(to right, $tomato, $link-color);

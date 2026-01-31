@@ -23,15 +23,19 @@ hide_title: true
 }
 </script>
 
-<h3 class="top gradient-right">
-  Let's work together.
-</h3>
-
-<h1>
-  <div>As a freelance developer,</div>
-  <div>I turn your <i>what-ifs</i> into </div>
-  <div><i>It Works™</i> with code.</div>
-</h1>
+<div class="hero">
+  <h3 class="top gradient-right">
+    As a freelance Ruby on Rails fullstack engineer,
+  </h3>
+  
+  <h1>
+    I help tech companies deliver features that make their users (and their business) happy.
+  </h1>
+  
+  <h3 class="bottom">
+    Over the past 8 years, I've built Rails applications for clients large and small, serving 10+ million users.
+  </h3>
+</div>
 
 <div class="mb-5">
   <a href="mailto:hello@remimercier.com" class="gradient-button">Book an intro call</a>
