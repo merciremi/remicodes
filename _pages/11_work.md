@@ -33,7 +33,7 @@ hide_title: true
   </h1>
   
   <h3 class="drag-up-1 opacity-0.8">
-    Over the past 8 years, I've built Rails applications for teams large and small, generating hundreds of thousands in savings and serving 10+ million users.
+    Over the past 8 years, I've built Rails applications for teams large and small, generating hundreds of thousands in revenues and serving 10+ million users.
   </h3>
 </div>
 
