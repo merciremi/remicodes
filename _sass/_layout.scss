@@ -381,18 +381,33 @@ iframe {
   z-index: -1;
 }
 
-.top {
+.drag-down-1 {
   position: relative;
-  top: 20px;
+  bottom: -18px;
 }
 
-.bottom {
+.drag-up-1 {
   position: relative;
-  bottom: 20px;
+  top: -18px;
+}
+
+.opacity-0\.8 {
+  opacity: 0.8;
 }
 
 .hero {
   width: 50vw;
+
+  @media screen and (min-width: $break-large) {
+    width: 45vw;
+  }
+  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+    width: 80vw;
+    padding: 0 14px;
+  }
+  @media screen and (max-width: $break-small) {
+    width: 90vw;
+  }
 }
 
 .gradient-right {

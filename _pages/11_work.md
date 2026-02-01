@@ -24,7 +24,7 @@ hide_title: true
 </script>
 
 <div class="hero">
-  <h3 class="top gradient-right">
+  <h3 class="drag-down-1 gradient-right">
     As a freelance Ruby on Rails fullstack engineer,
   </h3>
   
@@ -32,8 +32,8 @@ hide_title: true
     I help tech companies deliver features that make their users (and their business) happy.
   </h1>
   
-  <h3 class="bottom">
-    Over the past 8 years, I've built Rails applications for clients large and small, serving 10+ million users.
+  <h3 class="drag-up-1 opacity-0.8">
+    Over the past 8 years, I've built Rails applications for teams large and small, generating hundreds of thousands in savings and serving 10+ million users.
   </h3>
 </div>
 
