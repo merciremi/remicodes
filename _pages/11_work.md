@@ -101,4 +101,4 @@ I'm currently splitting my time between [Cults](https://cults3d.com/){:target="_
 
 Previously at [Evalmee](https://en.evalmee.com/), [Nextory](https://nextory.com/fr/){:target="\_blank"}, [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remi-mercier-cv-2024.pdf).
 
-<script src="{{ site.baseurl }}/js/color-shuffle.js"></script>
+<script src="{{ site.baseurl }}/javascript/color-shuffle.js"></script>
