@@ -29,11 +29,11 @@ hide_title: true
   </h3>
   
   <h1>
-    I help tech companies deliver features that make their users (and their business) happy.
+    I help tech companies deliver features that make their users (and their business) <span class="color-shuffle"><span>h</span><span>a</span><span>p</span><span>p</span><span>y</span></span>.
   </h1>
   
   <h3 class="drag-up-1 opacity-0.8">
-    Over the past 8 years, I've built Rails applications for teams large and small, generating hundreds of thousands in revenues and serving 10+ million users.
+    Over the past 8 years, I've built Rails applications for teams large and small, generating six-figure revenues and serving 10+ million users.
   </h3>
 </div>
 
@@ -100,3 +100,5 @@ I work remotely. I'm based in the South East of France, a 3-hour train ride away
 I'm currently splitting my time between [Cults](https://cults3d.com/){:target="_blank"} - an independent marketplace for 3D models and prints — , and [Même Pas Cap!](https://www.memepascap.fr/){:target="_blank"} - an independent skills assessment company.
 
 Previously at [Evalmee](https://en.evalmee.com/), [Nextory](https://nextory.com/fr/){:target="\_blank"}, [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remi-mercier-cv-2024.pdf).
+
+<script src="{{ site.baseurl }}/js/color-shuffle.js"></script>
