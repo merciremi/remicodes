@@ -1,39 +1,12 @@
 /* Catppuccin Macchiato Theme */
 /* https://github.com/catppuccin/catppuccin */
 
-$ctp-rosewater: #f4dbd6;
-$ctp-flamingo: #f0c6c6;
-$ctp-pink: #f5bde6;
-$ctp-mauve: #c6a0f6;
-$ctp-red: #ed8796;
-$ctp-maroon: #ee99a0;
-$ctp-peach: #f5a97f;
-$ctp-yellow: #eed49f;
-$ctp-green: #a6da95;
-$ctp-teal: #8bd5ca;
-$ctp-sky: #91d7e3;
-$ctp-sapphire: #7dc4e4;
-$ctp-blue: #8aadf4;
-$ctp-lavender: #b7bdf8;
-$ctp-text: #cad3f5;
-$ctp-subtext1: #b8c0e0;
-$ctp-subtext0: #a5adcb;
-$ctp-overlay2: #939ab7;
-$ctp-overlay1: #8087a2;
-$ctp-overlay0: #6e738d;
-$ctp-surface2: #5b6078;
-$ctp-surface1: #494d64;
-$ctp-surface0: #363a4f;
-$ctp-base: #24273a;
-$ctp-mantle: #1e2030;
-$ctp-crust: #181926;
-
 /* Code editor window */
 .highlight {
   position: relative;
-  background-color: $ctp-base;
+  background-color: var(--ctp-base);
   border-radius: 8px;
-  border: 1px solid $ctp-surface1;
+  border: 1px solid var(--ctp-surface1);
   margin: 1.5em 0;
 }
 
@@ -42,21 +15,21 @@ $ctp-crust: #181926;
   content: "";
   display: block;
   padding: 12px 16px;
-  background-color: $ctp-mantle;
-  border-bottom: 1px solid $ctp-surface0;
+  background-color: var(--ctp-mantle);
+  border-bottom: 1px solid var(--ctp-surface0);
   border-radius: 8px 8px 0 0;
   background-image:
-    radial-gradient(circle at 12px 50%, $ctp-red 5px, transparent 5px),
-    radial-gradient(circle at 32px 50%, $ctp-yellow 5px, transparent 5px),
-    radial-gradient(circle at 52px 50%, $ctp-green 5px, transparent 5px);
+    radial-gradient(circle at 12px 50%, var(--ctp-red) 5px, transparent 5px),
+    radial-gradient(circle at 32px 50%, var(--ctp-yellow) 5px, transparent 5px),
+    radial-gradient(circle at 52px 50%, var(--ctp-green) 5px, transparent 5px);
 }
 
 /* Base Style */
 .highlight pre {
   margin: 0;
   padding: 1.5em;
-  color: $ctp-text;
-  background-color: $ctp-base;
+  color: var(--ctp-text);
+  background-color: var(--ctp-base);
   border-radius: 0 0 8px 8px;
   overflow: auto;
   line-height: 1.5;
@@ -64,293 +37,293 @@ $ctp-crust: #181926;
 
 /* Punctuation */
 .highlight .p {
-  color: $ctp-text;
+  color: var(--ctp-text);
 }
 
 /* Error */
 .highlight .err {
-  color: $ctp-red;
+  color: var(--ctp-red);
 }
 
 /* Base Style */
 .highlight .n {
-  color: $ctp-text;
+  color: var(--ctp-text);
 }
 
 /* Name Attribute */
 .highlight .na {
-  color: $ctp-blue;
+  color: var(--ctp-blue);
 }
 
 /* Name Builtin */
 .highlight .nb {
-  color: $ctp-teal;
+  color: var(--ctp-teal);
 }
 
 /* Name Class */
 .highlight .nc {
-  color: $ctp-yellow;
+  color: var(--ctp-yellow);
 }
 
 /* Name Constant */
 .highlight .no {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Name Decorator */
 .highlight .nd {
-  color: $ctp-blue;
+  color: var(--ctp-blue);
 }
 
 /* Name Entity */
 .highlight .ni {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Name Exception */
 .highlight .ne {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Name Function */
 .highlight .nf {
-  color: $ctp-blue;
+  color: var(--ctp-blue);
 }
 
 /* Name Label */
 .highlight .nl {
-  color: $ctp-sapphire;
+  color: var(--ctp-sapphire);
 }
 
 /* Name Namespace */
 .highlight .nn {
-  color: $ctp-yellow;
+  color: var(--ctp-yellow);
 }
 
 /* Name Other */
 .highlight .nx {
-  color: $ctp-text;
+  color: var(--ctp-text);
 }
 
 /* Name Property */
 .highlight .py {
-  color: $ctp-red;
+  color: var(--ctp-red);
 }
 
 /* Name Tag */
 .highlight .nt {
-  color: $ctp-mauve;
+  color: var(--ctp-mauve);
 }
 
 /* Name Variable */
 .highlight .nv {
-  color: $ctp-text;
+  color: var(--ctp-text);
 }
 
 /* Name Variable Class */
 .highlight .vc {
-  color: $ctp-text;
+  color: var(--ctp-text);
 }
 
 /* Name Variable Global */
 .highlight .vg {
-  color: $ctp-text;
+  color: var(--ctp-text);
 }
 
 /* Name Variable Instance */
 .highlight .vi {
-  color: $ctp-text;
+  color: var(--ctp-text);
 }
 
 /* Name Builtin Pseudo */
 .highlight .bp {
-  color: $ctp-teal;
+  color: var(--ctp-teal);
 }
 
 /* Base Style */
 .highlight .g {
-  color: $ctp-text;
+  color: var(--ctp-text);
 }
 
 /* Generic Deleted */
 .highlight .gd {
-  color: $ctp-red;
-  background-color: rgba($ctp-red, 0.1);
+  color: var(--ctp-red);
+  background-color: hsl(351, 74%, 73%, 0.1);
 }
 
 /* Operator */
 .highlight .o {
-  color: $ctp-sky;
+  color: var(--ctp-sky);
 }
 
 /* Operator Word */
 .highlight .ow {
-  color: $ctp-mauve;
+  color: var(--ctp-mauve);
 }
 
 /* Comment */
 .highlight .c {
-  color: $ctp-overlay0;
+  color: var(--ctp-overlay0);
   font-style: italic;
 }
 
 /* Comment Multiline */
 .highlight .cm {
-  color: $ctp-overlay0;
+  color: var(--ctp-overlay0);
   font-style: italic;
 }
 
 /* Comment Preproc */
 .highlight .cp {
-  color: $ctp-pink;
+  color: var(--ctp-pink);
 }
 
 /* Comment Single */
 .highlight .c1 {
-  color: $ctp-overlay0;
+  color: var(--ctp-overlay0);
   font-style: italic;
 }
 
 /* Comment Special */
 .highlight .cs {
-  color: $ctp-overlay0;
+  color: var(--ctp-overlay0);
   font-style: italic;
 }
 
 /* Keyword */
 .highlight .k {
-  color: $ctp-mauve;
+  color: var(--ctp-mauve);
 }
 
 /* Keyword Constant */
 .highlight .kc {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Keyword Declaration */
 .highlight .kd {
-  color: $ctp-mauve;
+  color: var(--ctp-mauve);
 }
 
 /* Keyword Namespace */
 .highlight .kn {
-  color: $ctp-teal;
+  color: var(--ctp-teal);
 }
 
 /* Keyword Pseudo */
 .highlight .kp {
-  color: $ctp-mauve;
+  color: var(--ctp-mauve);
 }
 
 /* Keyword Reserved */
 .highlight .kr {
-  color: $ctp-mauve;
+  color: var(--ctp-mauve);
 }
 
 /* Keyword Type */
 .highlight .kt {
-  color: $ctp-yellow;
+  color: var(--ctp-yellow);
 }
 
 /* Literal */
 .highlight .l {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Literal Date */
 .highlight .ld {
-  color: $ctp-green;
+  color: var(--ctp-green);
 }
 
 /* Literal Number */
 .highlight .m {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Literal Number Float */
 .highlight .mf {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Literal Number Hex */
 .highlight .mh {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Literal Number Integer */
 .highlight .mi {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Literal Number Oct */
 .highlight .mo {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Literal Number Integer Long */
 .highlight .il {
-  color: $ctp-peach;
+  color: var(--ctp-peach);
 }
 
 /* Literal String */
 .highlight .s {
-  color: $ctp-green;
+  color: var(--ctp-green);
 }
 
 /* Literal String Backtick */
 .highlight .sb {
-  color: $ctp-green;
+  color: var(--ctp-green);
 }
 
 /* Literal String Char */
 .highlight .sc {
-  color: $ctp-green;
+  color: var(--ctp-green);
 }
 
 /* Literal String Doc */
 .highlight .sd {
-  color: $ctp-overlay0;
+  color: var(--ctp-overlay0);
   font-style: italic;
 }
 
 /* Literal String Double */
 .highlight .s2 {
-  color: $ctp-green;
+  color: var(--ctp-green);
 }
 
 /* Literal String Escape */
 .highlight .se {
-  color: $ctp-pink;
+  color: var(--ctp-pink);
 }
 
 /* Literal String Heredoc */
 .highlight .sh {
-  color: $ctp-green;
+  color: var(--ctp-green);
 }
 
 /* Literal String Interpol */
 .highlight .si {
-  color: $ctp-pink;
+  color: var(--ctp-pink);
 }
 
 /* Literal String Other */
 .highlight .sx {
-  color: $ctp-green;
+  color: var(--ctp-green);
 }
 
 /* Literal String Regex */
 .highlight .sr {
-  color: $ctp-pink;
+  color: var(--ctp-pink);
 }
 
 /* Literal String Single */
 .highlight .s1 {
-  color: $ctp-green;
+  color: var(--ctp-green);
 }
 
 /* Literal String Symbol */
 .highlight .ss {
-  color: $ctp-red;
+  color: var(--ctp-red);
 }
 
 /* Generic Emph */
@@ -360,29 +333,29 @@ $ctp-crust: #181926;
 
 /* Generic Error */
 .highlight .gr {
-  color: $ctp-red;
+  color: var(--ctp-red);
 }
 
 /* Generic Heading */
 .highlight .gh {
-  color: $ctp-blue;
+  color: var(--ctp-blue);
   font-weight: bold;
 }
 
 /* Generic Inserted */
 .highlight .gi {
-  color: $ctp-green;
-  background-color: rgba($ctp-green, 0.1);
+  color: var(--ctp-green);
+  background-color: hsl(96, 44%, 72%, 0.1);
 }
 
 /* Generic Output */
 .highlight .go {
-  color: $ctp-overlay0;
+  color: var(--ctp-overlay0);
 }
 
 /* Generic Prompt */
 .highlight .gp {
-  color: $ctp-subtext0;
+  color: var(--ctp-subtext0);
   font-weight: bold;
 }
 
@@ -393,20 +366,20 @@ $ctp-crust: #181926;
 
 /* Generic Subheading */
 .highlight .gu {
-  color: $ctp-blue;
+  color: var(--ctp-blue);
 }
 
 /* Generic Traceback */
 .highlight .gt {
-  color: $ctp-red;
+  color: var(--ctp-red);
 }
 
 /* Other */
 .highlight .x {
-  color: $ctp-text;
+  color: var(--ctp-text);
 }
 
 /* Text Whitespace */
 .highlight .w {
-  color: $ctp-surface1;
+  color: var(--ctp-surface1);
 }

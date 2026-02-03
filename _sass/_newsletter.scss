@@ -6,21 +6,21 @@
     width: 66%;
     padding: 10px 10px 10px 10px;
     border: none;
-    border-bottom: 3px solid $link-color;
-    background-color: $body-background-color-00;
-    font-size: $body-font-size;
+    border-bottom: 3px solid var(--link-color);
+    background-color: var(--body-background-color-00);
+    font-size: var(--body-font-size);
   }
   #mc-embedded-subscribe {
     border-radius: 5;
     border: none;
-    color: $body-background-color-00;
-    background-color: $link-color;
+    color: var(--body-background-color-00);
+    background-color: var(--link-color);
     padding: 13px;
     margin: 10px;
-    font-size: $body-font-size;
+    font-size: var(--body-font-size);
   }
   .newsletter-credits {
-    font-size: $smaller-font-size;
+    font-size: var(--smaller-font-size);
   }
   @media screen and (min-width: $break-large) {
     width: 80vw;
@@ -69,21 +69,21 @@
   #mce-EMAIL {
     padding: 10px 10px 10px 10px;
     border: none;
-    border-bottom: 3px solid $link-color;
-    background-color: $body-background-color-00;
-    font-size: $body-font-size;
+    border-bottom: 3px solid var(--link-color);
+    background-color: var(--body-background-color-00);
+    font-size: var(--body-font-size);
   }
   #mc-embedded-subscribe {
     border-radius: 5;
     border: none;
-    color: $body-background-color-00;
-    background-color: $link-color;
+    color: var(--body-background-color-00);
+    background-color: var(--link-color);
     padding: 13px;
     margin: 10px;
-    font-size: $body-font-size;
+    font-size: var(--body-font-size);
   }
   .newsletter-credits {
-    font-size: $smaller-font-size;
+    font-size: var(--smaller-font-size);
   }
   @media screen and (min-width: $break-large) {
     width: 80vw;

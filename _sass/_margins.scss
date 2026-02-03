@@ -11,7 +11,7 @@
 }
 
 .-mb-18 {
-  margin-bottom: -$body-font-size;
+  margin-bottom: calc(-1 * var(--body-font-size));
 }
 
 .mt-48 {

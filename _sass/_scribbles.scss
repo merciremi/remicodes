@@ -2,13 +2,13 @@
   position: relative;
   padding-bottom: 60px;
   margin-bottom: 60px;
-  border-bottom: 1px $blue-00 solid;
+  border-bottom: 1px var(--blue-00) solid;
   figure {
     display: inline-block;
     margin-bottom: 12px;
   }
   figcaption {
-    font-size: $smaller-font-size;
+    font-size: var(--smaller-font-size);
     text-align: center;
   }
   img {
@@ -33,19 +33,19 @@
 }
 
 .scribble-date {
-  font-size: $smaller-font-size;
-  color: $blue-02;
+  font-size: var(--smaller-font-size);
+  color: var(--blue-02);
 }
 
 .scribbles-filters {
-  color: $body-background-color-00;
-  font-size: $smaller-font-size;
+  color: var(--body-background-color-00);
+  font-size: var(--smaller-font-size);
   font-weight: 700;
 }
 
 .scribbles-filters a {
   padding: 12px 24px;
-  background: $body-background-color-01;
+  background: var(--body-background-color-01);
   text-decoration: none;
   border-bottom: none;
 }
@@ -62,7 +62,7 @@
 
 .scribbles-filters a:before {
   content: "○";
-  color: $desaturated-font-color;
+  color: var(--desaturated-font-color);
   padding-right: 6px;
 }
 
