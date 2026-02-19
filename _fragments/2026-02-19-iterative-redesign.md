@@ -38,7 +38,7 @@ So I started working by (shamelessly) copying the website of Naz, while knowing 
 
 I can't remember the name of the author who wrote that when faced with the blankness of the page, they would start writing another author's words, then, after a while, their own would follow. 
 
-Copying to create momentum. Copying to learn. And of course, transcending copying to build on that and create your own – even if imperfect – corner of the web.
+Copying to create momentum. Copying to learn. But never stopping there — copying should only ever be a crutch, a way to get moving until your own voice takes over.
 
 What I find funny, is that while I worked on a redesign, the current result looks so much like my existing website. Sure, the colors are muted, and I've cleaned a lot of my CSS mess. But the way the website *feels* is so close I can tell that there is no need for me to keep agonizing over details (I even outgrew my love for the cream and brown palette in the process).
 
@@ -57,3 +57,5 @@ Some of the things I did and I liked that I will port to the main branch:
   - better use of the header and the footer
     
 I'll keep on working on this, but not as full-blown redesign, as big rewrites and I don't get along that well. But as plenty of small iterations, until I'm satisfied enough with it.
+
+But as to the future of the branch `redesign-2026`? It might end up like `redesign-2024`. Collecting dust on a shelf.
