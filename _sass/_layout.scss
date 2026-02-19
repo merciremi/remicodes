@@ -240,7 +240,7 @@ time {
   margin-left: 4px;
   min-width: 100px;
   padding: 3px 6px;
-  background-color: hsl(207, 75%, 44%, 0.1);
+  background-color: hsla(207, 75%, 44%, 0.1);
   color: var(--blue-01);
   font-size: 0.8em;
   font-family: monospace;
@@ -348,7 +348,7 @@ time {
 .highlighter-rouge {
   padding: 1px 3px 2px 3px;
   overflow-wrap: break-word;
-  background-color: hsl(207, 75%, 44%, 0.1);
+  background-color: hsla(207, 75%, 44%, 0.1);
   border-radius: 5px;
   font-size: var(--small-font-size);
 }
