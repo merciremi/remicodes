@@ -29,7 +29,7 @@ My then favorite inspirations were the latest designs of the websites of [Naz Ha
 
 While I liked the work Robin had done around his layout, I loved the muted and calm vibe of Naz's color palette.
 
-So I started working by (shamelessly) copying the website of Naz, while knowing I would not be satisfied stopping there. And after a few hours of work, I had something that looked a lot like Naz's website, but without either the competency or the finesse of Naz.
+So I started working by (shamelessly) copying the website of Naz, while knowing I would not be satisfied stopping there. And after a few hours of work, I had something that looked somewhat like Naz's website, but without either the competency or the finesse of Naz.
 
 <figure>
   <img class='regular box-shadowed' src="{{ site.url }}/media/2026/02/remi-mercier-redesign-naz-copycat.png" alt="a screenshot of a wip redesign of my website with muted colors">
