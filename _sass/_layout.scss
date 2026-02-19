@@ -216,9 +216,9 @@ main a[target="_blank"]::after {
 mark {
   background: linear-gradient(to right,
     var(--bright-yellow) 70%,
-    hsl(54, 100%, 62%, 0.8) 80%,
-    hsl(54, 100%, 62%, 0.7) 90%,
-    hsl(54, 100%, 62%, 0.6) 100%
+    hsla(54, 100%, 62%, 0.8) 80%,
+    hsla(54, 100%, 62%, 0.7) 90%,
+    hsla(54, 100%, 62%, 0.6) 100%
   );
   color: inherit;
   padding: 0px 2px;
