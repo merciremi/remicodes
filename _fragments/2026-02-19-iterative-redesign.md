@@ -2,7 +2,6 @@
 layout: fragment
 title: Iterative redesign
 date: 2026-02-18
-permalink: /iterative-redesign/
 ---
 
 *Written while listening to [Tommy Guerrero's Dusty Dreams](https://losdays.bandcamp.com/album/dusty-dreams){:target="\_blank"}.*
