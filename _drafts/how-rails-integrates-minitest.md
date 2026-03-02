@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using Minitest Spec in Rails? Watch out for the lifecycle hooks!"
+title: "Using Minitest::Spec in Rails? Watch out for the lifecycle hooks!"
 excerpt: "A small mistake sent me on an overly long investigation into Minitest hooks, and how Rails integrates with these."
 date: 2026-03-03
 permalink: /minitest-spec-and-rails-hooks/
@@ -10,7 +10,7 @@ cover_image:
 
 After picking up [Minitest]({{site.url}}/introduction-to-minitest/) to complement the QA process of one of my retainer clients, I've had confusing errors in our test suite for a while. We were moving fast to cover critical parts of the application, so we never had the time to investigate the flakiness thoroughly.
 
-While preparing my upcoming talk – Lost in Minitest, the missing guide for Minitest tourists – I dug into how Ruby on Rails pulls in Minitest. And there I found the answers to my burning question: why on Earth does the following test fail when it should not?
+While preparing my upcoming talk – Lost in Minitest, the missing guide for Minitest tourists – I dug into how Ruby on Rails pulls in Minitest. And there I found the answers to my burning question: why on Earth does the following test fail?
 
 {% highlight ruby %}
 require "test_helper"
@@ -41,12 +41,12 @@ These tests look pretty unremarkable:
 
 A few things worth noting:
   - I'm using the `Minitest::Spec` syntax.
-  - We're in a Ruby on Rails app (see the `< ActionDispatch::IntegrationTest`)
+  - We're in a Ruby on Rails app (see the `< ActionDispatch::IntegrationTest`).
   - Several people are working on the test files.
     
 Wait, what? How did I infer this?
 
-Notice the difference in how each test example is set up? The first test uses the `before` block syntax that is the hallmark of `Minitest::Spec`. The second test uses the `setup` block syntax which is the Rails custom syntax.
+Notice the difference in how each test is set up? The first test uses the `before` block syntax that is part of `Minitest::Spec`. The second test uses the `setup` block syntax, which is the Rails custom syntax. Minitest being pretty lax about conventions, two people used different syntaxes in the same file.
 
 Is it problematic, though? 
 
@@ -118,7 +118,7 @@ Can you see where this is going?
   143 runs, 502 assertions, 0 failures, 0 errors, 0 skips
 {% endhighlight %}
 
-Yep, using `setup` at the outer level and `before` inside the describe block works. Flip them and it blows up. Let me tell you, this one had me scratch my head for a while.
+Yep, using `setup` first then `before` works. Flip them and it blows up. Let me tell you, this one had me scratch my head for a while.
 
 Okay, why does it fail, then?
 
@@ -250,6 +250,10 @@ I don't have a definitive answer, but my guesses are:
   - Because Rails is bullish on the vanilla Minitest syntax and did not want to port the Spec syntax?
 
 If you were one of the contributors who worked on this part of Rails, I'd love to know!
+
+You might have noticed several things in my initial test: 
+- Why not use `let` instead of `before | setup`? I used contrived examples for clarity. Usually, I'd use `let` for instantiating data and `before` for additional setup like authentification, stubbing, etc...
+- Despite using `Minitest::Spec`, my test class still uses the Rails-styled inheritance – `class CustomerIdentificationTest < ActionDispatch::IntegrationTest` – instead of the `describe CustomerIdentification do` syntax one could expect. This is because I haven't setup `Minitest::Spec` properly. But this will be a ~~bug~~ story for another post.
 
 Well, that was quite the rabbit hole! I now know the why behind [some of the gotchas]({{site.url}}/more-minitest-spec/) I'd written previously.
 
