@@ -253,7 +253,7 @@ If you were one of the contributors who worked on this part of Rails, I'd love t
 
 You might have noticed several things in my initial test: 
 - Why not use `let` instead of `before | setup`? I used contrived examples for clarity. Usually, I'd use `let` for instantiating data and `before` for additional setup like authentification, stubbing, etc...
-- Despite using `Minitest::Spec`, my test class still uses the Rails-styled inheritance – `class CustomerIdentificationTest < ActionDispatch::IntegrationTest` – instead of the `describe CustomerIdentification do` syntax one could expect. This is because I haven't setup `Minitest::Spec` properly. But this will be a ~~bug~~ story for another post.
+- Despite using `Minitest::Spec`, my test class still uses the Rails-styled inheritance – `class CustomerIdentificationTest < ActionDispatch::IntegrationTest` – instead of the `describe CustomerIdentification do` syntax one could expect. This is because `Minitest::Spec` is not set up properly. But this will be a story for another post.
 
 Well, that was quite the rabbit hole! I now know the why behind [some of the gotchas]({{site.url}}/more-minitest-spec/) I'd written previously.
 
