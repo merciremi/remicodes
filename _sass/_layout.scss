@@ -196,12 +196,26 @@ main {
   }
 }
 
-main a {
+/* main a {
   color: inherit;
   text-decoration: underline;
+} */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  background-image: url("../media/shared/underline.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 4px;
+  padding-bottom: 2px;
 }
 
-main a[target="_blank"]::after {
+header a, .breadcrumbs a, a.read-more {
+  background-image: unset;
+}
+
+/* main a[target="_blank"]::after {
   content: "";
   display: inline-block;
   width: 0.85em;
@@ -211,7 +225,7 @@ main a[target="_blank"]::after {
   background-size: contain;
   background-repeat: no-repeat;
   vertical-align: middle;
-}
+} */
 
 mark {
   background: linear-gradient(to right,
