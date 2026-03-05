@@ -1,385 +1,186 @@
-/* Catppuccin Macchiato Theme */
-/* https://github.com/catppuccin/catppuccin */
+/* ==========================================================================
+   Syntax Highlighting — Muted Blue Monocolor + Old-School Mac Window
+   Based on --blue-muted (#9db4d7) from the site palette, darkened into
+   a steel-blue monochrome scale.
+   ========================================================================== */
 
-/* Code editor window */
+.highlight {
+  /*
+   * Monocolor token scheme — steel blue at different lightness steps.
+   * All values pass WCAG AA on #e8e9ee.
+   *
+   *   --hl-strong:  darkest  — keywords, tags
+   *   --hl-medium:  mid-dark — functions, types
+   *   --hl-base:    default  — plain text, names
+   *   --hl-subtle:  lighter  — operators, punctuation
+   *   --hl-muted:   lightest — comments
+   */
+  --hl-strong:  #3d3d3d;
+  --hl-medium:  #474747;
+  --hl-base:    #424242;
+  --hl-subtle:  #4d4d4d;
+  --hl-muted:   #525252;
+
+  /* -- Window chrome (old Mac b&w) -- */
+  --ctp-text:      #505050;
+  --ctp-border:    #505050;
+  --ctp-shadow:    #505050;
+  --ctp-surface1:  #e0e0e0;
+  --ctp-overlay0:  #999999;
+  --ctp-base:      #ffffff;
+  --ctp-mantle:    #f0f0f0;
+  --ctp-crust:     #e8e8e8;
+}
+
+/* ---------------------------------------------------------------------------
+   Window Chrome — 90s TUI / Classic Mac OS
+   --------------------------------------------------------------------------- */
+
 .highlight {
   position: relative;
   background-color: var(--ctp-base);
-  border-radius: 8px;
-  border: 1px solid var(--ctp-surface1);
-  margin: 1.5em 0;
+  border: 2px solid var(--ctp-border);
+  border-radius: 0;
+  margin: 2em 0;
+  box-shadow:
+    4px 4px 0 var(--ctp-shadow);
 }
 
-/* Window controls (three dots) */
+/* Title bar — flat grey with horizontal pinstripes and close box */
 .highlight::before {
   content: "";
   display: block;
-  padding: 12px 16px;
-  background-color: var(--ctp-mantle);
-  border-bottom: 1px solid var(--ctp-surface0);
-  border-radius: 8px 8px 0 0;
+  height: 24px;
+  background-color: var(--ctp-surface1);
+  border-bottom: 2px solid var(--ctp-border);
   background-image:
-    radial-gradient(circle at 12px 50%, var(--ctp-red) 5px, transparent 5px),
-    radial-gradient(circle at 32px 50%, var(--ctp-yellow) 5px, transparent 5px),
-    radial-gradient(circle at 52px 50%, var(--ctp-green) 5px, transparent 5px);
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      var(--ctp-border) 2px,
+      var(--ctp-border) 3px
+    );
 }
 
-/* Base Style */
+/* Code area */
 .highlight pre {
   margin: 0;
-  padding: 1.5em;
+  padding: 1em 1.25em;
   color: var(--ctp-text);
   background-color: var(--ctp-base);
-  border-radius: 0 0 8px 8px;
-  overflow: auto;
-  line-height: 1.5;
-}
-
-/* Punctuation */
-.highlight .p {
-  color: var(--ctp-text);
-}
-
-/* Error */
-.highlight .err {
-  color: var(--ctp-red);
-}
-
-/* Base Style */
-.highlight .n {
-  color: var(--ctp-text);
-}
-
-/* Name Attribute */
-.highlight .na {
-  color: var(--ctp-blue);
-}
-
-/* Name Builtin */
-.highlight .nb {
-  color: var(--ctp-teal);
-}
-
-/* Name Class */
-.highlight .nc {
-  color: var(--ctp-yellow);
-}
-
-/* Name Constant */
-.highlight .no {
-  color: var(--ctp-peach);
-}
-
-/* Name Decorator */
-.highlight .nd {
-  color: var(--ctp-blue);
-}
-
-/* Name Entity */
-.highlight .ni {
-  color: var(--ctp-peach);
-}
-
-/* Name Exception */
-.highlight .ne {
-  color: var(--ctp-peach);
-}
-
-/* Name Function */
-.highlight .nf {
-  color: var(--ctp-blue);
-}
-
-/* Name Label */
-.highlight .nl {
-  color: var(--ctp-sapphire);
-}
-
-/* Name Namespace */
-.highlight .nn {
-  color: var(--ctp-yellow);
-}
-
-/* Name Other */
-.highlight .nx {
-  color: var(--ctp-text);
-}
-
-/* Name Property */
-.highlight .py {
-  color: var(--ctp-red);
-}
-
-/* Name Tag */
-.highlight .nt {
-  color: var(--ctp-mauve);
-}
-
-/* Name Variable */
-.highlight .nv {
-  color: var(--ctp-text);
-}
-
-/* Name Variable Class */
-.highlight .vc {
-  color: var(--ctp-text);
-}
-
-/* Name Variable Global */
-.highlight .vg {
-  color: var(--ctp-text);
-}
-
-/* Name Variable Instance */
-.highlight .vi {
-  color: var(--ctp-text);
-}
-
-/* Name Builtin Pseudo */
-.highlight .bp {
-  color: var(--ctp-teal);
-}
-
-/* Base Style */
-.highlight .g {
-  color: var(--ctp-text);
-}
-
-/* Generic Deleted */
-.highlight .gd {
-  color: var(--ctp-red);
-  background-color: hsla(351, 74%, 73%, 0.1);
-}
-
-/* Operator */
-.highlight .o {
-  color: var(--ctp-sky);
-}
-
-/* Operator Word */
-.highlight .ow {
-  color: var(--ctp-mauve);
-}
-
-/* Comment */
-.highlight .c {
-  color: var(--ctp-overlay0);
-  font-style: italic;
-}
-
-/* Comment Multiline */
-.highlight .cm {
-  color: var(--ctp-overlay0);
-  font-style: italic;
-}
-
-/* Comment Preproc */
-.highlight .cp {
-  color: var(--ctp-pink);
-}
-
-/* Comment Single */
-.highlight .c1 {
-  color: var(--ctp-overlay0);
-  font-style: italic;
-}
-
-/* Comment Special */
-.highlight .cs {
-  color: var(--ctp-overlay0);
-  font-style: italic;
-}
-
-/* Keyword */
-.highlight .k {
-  color: var(--ctp-mauve);
-}
-
-/* Keyword Constant */
-.highlight .kc {
-  color: var(--ctp-peach);
-}
-
-/* Keyword Declaration */
-.highlight .kd {
-  color: var(--ctp-mauve);
-}
-
-/* Keyword Namespace */
-.highlight .kn {
-  color: var(--ctp-teal);
-}
-
-/* Keyword Pseudo */
-.highlight .kp {
-  color: var(--ctp-mauve);
-}
-
-/* Keyword Reserved */
-.highlight .kr {
-  color: var(--ctp-mauve);
-}
-
-/* Keyword Type */
-.highlight .kt {
-  color: var(--ctp-yellow);
-}
-
-/* Literal */
-.highlight .l {
-  color: var(--ctp-peach);
-}
-
-/* Literal Date */
-.highlight .ld {
-  color: var(--ctp-green);
-}
-
-/* Literal Number */
-.highlight .m {
-  color: var(--ctp-peach);
-}
-
-/* Literal Number Float */
-.highlight .mf {
-  color: var(--ctp-peach);
-}
-
-/* Literal Number Hex */
-.highlight .mh {
-  color: var(--ctp-peach);
-}
-
-/* Literal Number Integer */
-.highlight .mi {
-  color: var(--ctp-peach);
-}
-
-/* Literal Number Oct */
-.highlight .mo {
-  color: var(--ctp-peach);
-}
-
-/* Literal Number Integer Long */
-.highlight .il {
-  color: var(--ctp-peach);
-}
-
-/* Literal String */
-.highlight .s {
-  color: var(--ctp-green);
-}
-
-/* Literal String Backtick */
-.highlight .sb {
-  color: var(--ctp-green);
-}
-
-/* Literal String Char */
-.highlight .sc {
-  color: var(--ctp-green);
-}
-
-/* Literal String Doc */
-.highlight .sd {
-  color: var(--ctp-overlay0);
-  font-style: italic;
-}
-
-/* Literal String Double */
-.highlight .s2 {
-  color: var(--ctp-green);
-}
-
-/* Literal String Escape */
-.highlight .se {
-  color: var(--ctp-pink);
-}
-
-/* Literal String Heredoc */
-.highlight .sh {
-  color: var(--ctp-green);
-}
-
-/* Literal String Interpol */
-.highlight .si {
-  color: var(--ctp-pink);
-}
-
-/* Literal String Other */
-.highlight .sx {
-  color: var(--ctp-green);
-}
-
-/* Literal String Regex */
-.highlight .sr {
-  color: var(--ctp-pink);
-}
-
-/* Literal String Single */
-.highlight .s1 {
-  color: var(--ctp-green);
-}
-
-/* Literal String Symbol */
-.highlight .ss {
-  color: var(--ctp-red);
-}
-
-/* Generic Emph */
-.highlight .ge {
-  font-style: italic;
-}
-
-/* Generic Error */
-.highlight .gr {
-  color: var(--ctp-red);
-}
-
-/* Generic Heading */
-.highlight .gh {
-  color: var(--ctp-blue);
-  font-weight: bold;
-}
-
-/* Generic Inserted */
-.highlight .gi {
-  color: var(--ctp-green);
-  background-color: hsla(96, 44%, 72%, 0.1);
-}
-
-/* Generic Output */
-.highlight .go {
-  color: var(--ctp-overlay0);
-}
-
-/* Generic Prompt */
-.highlight .gp {
-  color: var(--ctp-subtext0);
-  font-weight: bold;
-}
-
-/* Generic Strong */
-.highlight .gs {
-  font-weight: bold;
-}
-
-/* Generic Subheading */
-.highlight .gu {
-  color: var(--ctp-blue);
-}
-
-/* Generic Traceback */
-.highlight .gt {
-  color: var(--ctp-red);
-}
-
-/* Other */
-.highlight .x {
-  color: var(--ctp-text);
-}
-
-/* Text Whitespace */
-.highlight .w {
-  color: var(--ctp-surface1);
-}
+  overflow-x: auto;
+  line-height: 1.6;
+  font-family: 'Fira Mono', monospace;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
+/* Inline code */
+code {
+  font-family: 'Fira Mono', monospace;
+  font-size: 0.875rem;
+  background-color: #e0e7f0;
+  padding: 0.15em 0.4em;
+  border-radius: 0;
+}
+
+/* Don't double-style code inside highlight blocks */
+.highlight code {
+  background: none;
+  padding: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Token Colors — Monocolor (steel blue, lightness only)
+   --------------------------------------------------------------------------- */
+
+/* -- Base text, punctuation, plain names -- */
+.highlight .p,
+.highlight .n,
+.highlight .nx,
+.highlight .x,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi  { color: var(--hl-base); }
+.highlight .w   { color: var(--ctp-surface1); }
+
+/* -- Errors -- */
+.highlight .err { color: var(--hl-strong); text-decoration: underline; }
+
+/* -- Comments -- */
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs,
+.highlight .sd,
+.highlight .cp  { color: var(--hl-muted); }
+
+/* -- Keywords -- */
+.highlight .k,
+.highlight .kd,
+.highlight .kp,
+.highlight .kr,
+.highlight .kc,
+.highlight .kn,
+.highlight .kt  { color: var(--hl-strong); }
+
+/* -- Operators -- */
+.highlight .o,
+.highlight .ow  { color: var(--hl-subtle); }
+
+/* -- Names: functions, decorators, classes, namespaces -- */
+.highlight .nf,
+.highlight .nd,
+.highlight .nc,
+.highlight .nn  { color: var(--hl-medium); }
+
+/* -- Names: attributes, labels, builtins -- */
+.highlight .na,
+.highlight .nl,
+.highlight .nb,
+.highlight .bp  { color: var(--hl-medium); }
+
+/* -- Names: constants, entities, exceptions, tags -- */
+.highlight .no,
+.highlight .ni,
+.highlight .ne,
+.highlight .nt  { color: var(--hl-strong); }
+.highlight .py  { color: var(--hl-base); }
+
+/* -- Literals & Numbers -- */
+.highlight .l,
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il,
+.highlight .ld  { color: var(--hl-medium); }
+
+/* -- Strings -- */
+.highlight .s,
+.highlight .sb,
+.highlight .sc,
+.highlight .s2,
+.highlight .sh,
+.highlight .sx,
+.highlight .s1,
+.highlight .ss  { color: var(--hl-medium); }
+.highlight .se,
+.highlight .si,
+.highlight .sr  { color: var(--hl-strong); }
+
+/* -- Generic -- */
+.highlight .g   { color: var(--hl-base); }
+.highlight .gd  { color: var(--hl-strong); text-decoration: line-through; }
+.highlight .gi  { color: var(--hl-strong); }
+.highlight .ge  { }
+.highlight .gr  { color: var(--hl-strong); }
+.highlight .gh  { color: var(--hl-strong); }
+.highlight .go  { color: var(--hl-muted); }
+.highlight .gp  { color: var(--hl-subtle); }
+.highlight .gs  { font-weight: bold; }
+.highlight .gu  { color: var(--hl-subtle); }
+.highlight .gt  { color: var(--hl-strong); }
