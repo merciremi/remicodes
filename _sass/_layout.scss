@@ -103,7 +103,7 @@ h5 {
 }
 
 h1 {
-  font-size: var(--h1-font-size);
+  /* font-size: var(--h1-font-size); */
   line-height: var(--h1-line-height);
   font-weight: 900;
   @media screen and (max-width: $break-small) {
@@ -119,14 +119,14 @@ h5 {
 }
 
 h2 {
-  font-size: var(--h2-font-size);
+  /* font-size: var(--h2-font-size); */
   line-height: var(--headings-line-height);
   margin-top: 30px;
   margin-bottom: 16px;
 }
 
 h3 {
-  font-size: var(--h3-font-size);
+  /* font-size: var(--h3-font-size); */
   line-height: var(--headings-line-height);
   margin-top: 24px;
   margin-bottom: 14px;
@@ -134,13 +134,62 @@ h3 {
 
 h4,
 h5 {
-  font-size: var(--headings-font-size);
+  /* font-size: var(--headings-font-size); */
   line-height: var(--headings-line-height);
   margin-top: 20px;
   margin-bottom: 12px;
 }
 
+
 header {
+	width: 95vw;
+	margin: 36px auto;
+	padding: 0.5em 1em;
+	border: 2px solid var(--ctp-border);
+	box-shadow: 4px 4px 0 var(--ctp-shadow);
+	font-family: var(--headings-font);
+	@media screen and (min-width: 1700px) {
+    width: 35vw;
+  }
+  @media screen and (min-width: 560px) and (max-width: 1024px) {
+    width: 70vw;
+    padding: 0 14px;
+  }
+  @media screen and (max-width: 560px) {
+    width: 90vw;
+  }
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  text-decoration: none;
+  background-image: unset;
+}
+
+header nav > a {
+  font-weight: 700;
+  font-family: monospace;
+}
+
+header nav a:hover {
+  background-image: unset;
+}
+
+header nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 1em;
+  list-style: none;
+}
+
+
+/* header {
   display: flex;
   justify-content: space-between;
   width: 45vw;
@@ -169,7 +218,7 @@ header a {
   border-bottom: none;
   margin-right: 10px;
   font-weight: 500;
-}
+} */
 
 hr {
   border: none;
