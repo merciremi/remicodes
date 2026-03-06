@@ -483,3 +483,45 @@ time {
   position: relative;
   z-index: -1;
 }
+
+main article {
+  width: 90vw;
+  margin-left: calc(50% - 45vw);
+  display: grid;
+  grid-template-columns: 1fr 45vw 1fr;
+  @media screen and (min-width: $break-large) {
+    grid-template-columns: 1fr 35vw 1fr;
+  }
+  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+    grid-template-columns: 1fr 70vw 1fr;
+  }
+  @media screen and (max-width: $break-small) {
+    grid-template-columns: 1fr;
+  }
+}
+
+article aside.post--information {
+  position: sticky;
+  top: 36px;
+  align-self: start;
+  justify-self: end;
+  padding-right: 1em;
+  font-size: var(--smaller-font-size);
+  border-right: 2px solid var(--ctp-crust);
+  margin-right: 3em;
+  @media screen and (max-width: $break-small) {
+    justify-self: start;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+article section.post--content {
+  @media screen and (max-width: $break-small) {
+    grid-column: 1;
+  }
+}
+
+article h1, p {
+  margin-top: unset;
+}

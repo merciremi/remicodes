@@ -1,0 +1,11 @@
+<p>Filed under
+  <strong>
+    {% if page.category == 'other' %}
+      <a href="{{ site.baseurl }}/blog">{{page.category | capitalize}}</a>
+    {% elsif page.category.size == 2 %}
+      <a href="{{ site.baseurl }}/series/{{page.category.first}}">{{page.category.first | capitalize}}</a>
+    {% else %}
+      <a href="{{ site.baseurl }}/series/{{page.category}}">{{page.category | capitalize}}</a>
+    {% endif %}
+  </strong>
+</p>

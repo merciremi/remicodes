@@ -35,14 +35,21 @@ layout: default
 </head>
 
 <article>
-  <h1>{{ page.title }}</h1>
+  <aside class="post--information">
+     <p><strong>{{ page.title }}</strong></p>
+     <p>Written by <strong>{{ site.author | split: " " | first }}</strong></p>
+     <p>Published on <strong>{{ page.date | date: "%B %-d, %Y" }}</strong></p>
+     {% include tags.html %}
+  </aside>
+  <section class="post--content">
+    <h1>{{ page.title }}</h1>
 
-  {% if page.lang == 'fr' %}
-  {% else %}
-    {% include breadcrumbs.html %}
-  {% endif %}
+    {% unless page.lang == 'fr' %}
+      {% include breadcrumbs.html %}
+    {% endunless %}
 
-  {{ content }}
+    {{ content }}
+  </section>
 </article>
 
 <section class="newsletter">

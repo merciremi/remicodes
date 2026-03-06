@@ -2,15 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500');
 
 :root {
-  /* Fonts */
   --headers-font: 'Fira Mono', monospace;
   --body-font: 'IBM Plex Sans', sans-serif;
 
-  /* Font sizes */
-  --h1-font-size: 48px;
+  /* deprecating the headings size and let the browsers do their job */
+  /* --h1-font-size: 48px;
   --h2-font-size: 24px;
   --h3-font-size: 20px;
-  --headings-font-size: 18px;
+  --headings-font-size: 18px; */
   --body-font-size: 18px;
   --small-font-size: 16px;
   --smaller-font-size: 14px;
@@ -51,14 +50,7 @@
   --bright-yellow: hsl(54, 100%, 62%);
 
   /*
-   * Monocolor token scheme — steel blue at different lightness steps.
-   * All values pass WCAG AA on #e8e9ee.
-   *
-   *   --hl-strong:  darkest  — keywords, tags
-   *   --hl-medium:  mid-dark — functions, types
-   *   --hl-base:    default  — plain text, names
-   *   --hl-subtle:  lighter  — operators, punctuation
-   *   --hl-muted:   lightest — comments
+    Redesign 2026
    */
   --hl-strong:  #3d3d3d;
   --hl-medium:  #474747;
@@ -66,7 +58,7 @@
   --hl-subtle:  #4d4d4d;
   --hl-muted:   #525252;
 
-  /* -- Window chrome (old Mac b&w) -- */
+  /* -- Code block (old mac style) -- */
   --ctp-text:      #505050;
   --ctp-border:    #505050;
   --ctp-shadow:    #505050;
