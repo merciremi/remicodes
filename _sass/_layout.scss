@@ -148,16 +148,6 @@ header {
 	border: 2px solid var(--ctp-border);
 	box-shadow: 4px 4px 0 var(--ctp-shadow);
 	font-family: var(--headings-font);
-	@media screen and (min-width: 1700px) {
-    width: 35vw;
-  }
-  @media screen and (min-width: 560px) and (max-width: 1024px) {
-    width: 70vw;
-    padding: 0 14px;
-  }
-  @media screen and (max-width: 560px) {
-    width: 90vw;
-  }
 }
 
 header nav {
@@ -510,9 +500,7 @@ article aside.post--information {
   border-right: 2px solid var(--ctp-crust);
   margin-right: 3em;
   @media screen and (max-width: $break-small) {
-    justify-self: start;
-    padding-left: 0;
-    padding-right: 0;
+    display: none;
   }
 }
 
