@@ -548,6 +548,39 @@ article aside.post--information {
   }
 }
 
+.aside--title,
+.aside--meta {
+  border-bottom: 1px solid var(--ctp-crust);
+}
+
+.aside--meta {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em;
+  padding-top: 1em;
+  p {
+    line-height: 1.2;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: var(--ctp-crust);
+  }
+}
+
+.aside--meta p {
+  text-align: center;
+}
+
+.aside--tags {
+  margin-top: 1.5em;
+}
+
 article section.post--content {
   min-width: 0;
   @media screen and (max-width: $break-small) {
