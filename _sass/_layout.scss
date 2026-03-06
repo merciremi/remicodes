@@ -538,6 +538,7 @@ main article {
 article aside.post--information {
   position: sticky;
   top: 100px;
+  min-width: 22vw;
   align-self: start;
   justify-self: end;
   font-size: var(--smaller-font-size);
