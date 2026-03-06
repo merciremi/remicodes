@@ -6,15 +6,37 @@ a {
 }
 
 blockquote {
+  font-size: var(--small-font-size);
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  padding: 18px;
-  border-left: 5px var(--link-color) solid;
-  background-color: var(--body-background-color-01);
+  margin-block-end: 2em;
+  padding: 36px 48px;
+  background-color: white;
+  background-image: radial-gradient(circle, var(--ctp-crust) 1px, transparent 1px);
+  background-size: 20px 20px;
   color: var(--font-color);
   line-height: var(--list-line-height);
+  transform: rotate(-0.75deg);
+  /* &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 28px;
+    width: 1px;
+    background-color: var(--tomato);
+  } */
+  box-shadow:
+    2px 2px 4px var(--ctp-crust),
+    4px 6px 12px var(--ctp-surface1),
+    8px 12px 24px var(--ctp-crust);
   p {
     margin: 0px;
+  }
+  a {
+    background-image: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 }
 
