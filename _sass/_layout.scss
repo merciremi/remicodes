@@ -83,6 +83,17 @@ body {
   @media screen and (max-width: $break-medium) {
     font-size: var(--small-font-size);
   }
+  &::after {
+    content: "";
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: linear-gradient(to bottom, var(--body-background-color-00), transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
 }
 
 footer {
@@ -166,17 +177,28 @@ h5 {
 
 header {
 	width: 95vw;
-	margin: 36px auto;
-	padding: 0.5em 1em;
-	border: 2px solid var(--ctp-border);
-	box-shadow: 4px 4px 0 var(--ctp-shadow);
 	font-family: var(--headings-font);
+	padding: 0px 1em;
+  position: sticky;
+  top: 0px;
+  background-color: var(--body-background-color-00);
+  z-index: 2;
 }
 
 header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1em 2em;
+  /* border: 1px red solid; */
+  /* margin: 1em; */
+  background: var(--body-background-color-00);
+  position: sticky;
+  top: 1em;
+  margin: 36px auto;
+	padding: 0.5em 1em;
+	border: 2px solid var(--ctp-border);
+	box-shadow: 4px 4px 0 var(--ctp-shadow);
 }
 
 header nav a {
@@ -498,8 +520,8 @@ time {
 }
 
 main article {
-  width: 90vw;
-  margin-left: calc(50% - 45vw);
+  width: 95vw;
+  margin-left: calc(50% - 47vw);
   display: grid;
   grid-template-columns: 1fr 45vw 1fr;
   @media screen and (min-width: $break-large) {
@@ -515,10 +537,9 @@ main article {
 
 article aside.post--information {
   position: sticky;
-  top: 36px;
+  top: 100px;
   align-self: start;
   justify-self: end;
-  padding-right: 1em;
   font-size: var(--smaller-font-size);
   border-right: 2px solid var(--ctp-crust);
   margin-right: 3em;
