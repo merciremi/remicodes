@@ -17,15 +17,17 @@ blockquote {
   color: var(--font-color);
   line-height: var(--list-line-height);
   transform: rotate(-0.75deg);
-  /* &::before {
+   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 28px;
-    width: 1px;
-    background-color: var(--tomato);
-  } */
+    top: 36px;
+    bottom: 36px;
+    left: 30px;
+    width: 5px;
+    background-image: url("/media/shared/underline-vertical.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
   box-shadow:
     2px 2px 4px var(--ctp-crust),
     4px 6px 12px var(--ctp-surface1),
