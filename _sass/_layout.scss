@@ -80,7 +80,7 @@ body {
   font-family: var(--body-font);
   background: var(--body-background-color-00);
   color: var(--font-color);
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     font-size: var(--small-font-size);
   }
   &::after {
@@ -101,14 +101,14 @@ footer {
   width: 45vw;
   line-height: 1.5em;
   text-align: center;
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 1900px) {
     width: 35vw;
   }
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     width: 70vw;
     padding: 0 14px;
   }
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     width: 90vw;
   }
 }
@@ -140,7 +140,7 @@ h1 {
   line-height: var(--h1-line-height);
   font-weight: 900;
   overflow-wrap: anywhere;
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     font-size: 36px;
   }
 }
@@ -233,15 +233,15 @@ header nav ul {
   a {
     margin-right: 18px;
   }
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 1900px) {
     width: 35vw;
   }
-  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+  @media screen and (min-width: 560px) and (max-width: 1024px) {
     margin: 30px auto auto auto;
     width: 70vw;
     padding: 0 14px;
   }
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     margin: 30px auto auto auto;
     width: 90vw;
   }
@@ -268,14 +268,14 @@ iframe {
 main {
   margin: 120px auto 72px auto;
   width: 45vw;
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 1900px) {
     width: 35vw;
   }
-  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+  @media screen and (min-width: 560px) and (max-width: 1024px) {
     width: 70vw;
     padding: 0 14px;
   }
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     width: 90vw;
   }
 }
@@ -431,14 +431,14 @@ time {
 .hero {
   width: 50vw;
 
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 1900px) {
     width: 45vw;
   }
-  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+  @media screen and (min-width: 560px) and (max-width: 1024px) {
     width: 80vw;
     padding: 0 14px;
   }
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     width: 90vw;
   }
 }
@@ -464,10 +464,10 @@ time {
 }
 
 .page img {
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 1900px) {
     max-width: 100%;
   }
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     max-width: 100%;
   }
 }
@@ -501,7 +501,7 @@ time {
 .vertically-centered {
   display: flex;
   align-items: center;
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -522,13 +522,13 @@ main article {
   margin-left: calc(50% - 47vw);
   display: grid;
   grid-template-columns: 1fr 45vw 1fr;
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 1900px) {
     grid-template-columns: 1fr 35vw 1fr;
   }
-  @media screen and (min-width: $break-small) and (max-width: $break-medium) {
+  @media screen and (min-width: 560px) and (max-width: 1024px) {
     grid-template-columns: 1fr 70vw 1fr;
   }
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     grid-template-columns: 1fr;
   }
 }
@@ -542,7 +542,7 @@ article aside.post--information {
   font-size: var(--smaller-font-size);
   border-right: 2px solid var(--ctp-crust);
   margin-right: 3em;
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     display: none;
   }
 }
@@ -578,7 +578,7 @@ article aside.post--information {
 
 article section.post--content {
   min-width: 0;
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     grid-column: 1;
   }
 }

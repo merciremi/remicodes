@@ -16,12 +16,12 @@ article img.large {
     rgba(4, 21, 31, 0.2) 0px 3px 6px,
     rgba(4, 21, 31, 0.3) 0px 3px 6px;
   margin: 36px 0px;
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 1900px) {
     width: 40vw;
     position: relative;
     left: calc(-20vw + 50%);
   }
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     width: 80vw;
     position: relative;
     left: calc(-40vw + 50%);
@@ -38,7 +38,7 @@ figure {
   margin-block-start: 1.5em;
   margin-block-end: 1.5em;
   overflow-wrap: normal;
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
   }
@@ -57,17 +57,17 @@ figure.highlight {
   pre {
     padding-left: 1em;
   }
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 1900px) {
     width: 35vw;
   }
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     width: 65vw;
     font-size: var(--smaller-font-size);
     pre {
       padding: 14px 0px;
     }
   }
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     width: 90vw;
     font-size: var(--smallest-font-size);
   }
@@ -85,7 +85,7 @@ figure.highlight {
     margin-top: 0px;
     padding-inline-start: 18px;
   }
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     width: 100%;
   }
 }
@@ -96,7 +96,7 @@ figure.highlight {
   width: 100vw;
   position: relative;
   left: calc(-50vw + 50%);
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     width: 90vw;
     position: relative;
     left: calc(-45vw + 50%);
@@ -113,11 +113,11 @@ figure.highlight {
   a:hover {
     color: inherit;
   }
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     flex-wrap: wrap;
     margin-bottom: 48px;
   }
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     flex-direction: column;
     margin-bottom: 60px;
   }
@@ -135,10 +135,10 @@ figure.highlight {
     font-size: var(--smallest-font-size);
     font-weight: 500;
   }
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     margin-bottom: 18px;
   }
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     margin: 18px auto;
   }
 }
@@ -154,7 +154,7 @@ figure.highlight {
 .featured-ruby {
   background: url(/media/shared/pinkish-sun.svg) no-repeat center;
   background-position: 35% 40%;
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     margin: 0px 33% 0px auto;
   }
 }
@@ -162,7 +162,7 @@ figure.highlight {
 .featured-rails {
   background: url(/media/shared/golden-mountain.svg) no-repeat center;
   background-position: 55%;
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     margin: -10px auto 0px 33%;
   }
 }
@@ -170,14 +170,14 @@ figure.highlight {
 .featured-rspec {
   background: url(/media/shared/brown-rock.svg) no-repeat center;
   background-position: 45% 55%;
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     margin: 6px 30% 0px auto;
   }
 }
 
 .featured-career {
   background: url(/media/shared/stormy-river.svg) no-repeat center;
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     margin: 0px auto;
   }
 }

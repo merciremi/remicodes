@@ -71,10 +71,6 @@
   --ctp-crust:     #e8e8e8;
 }
 
-/* Breakpoints must remain as SCSS variables for media queries */
-$break-large: 1900px;
-$break-medium: 1024px;
-$break-small: 560px;
 
 *,
 *::before,

@@ -22,7 +22,7 @@
   .newsletter-credits {
     font-size: var(--smaller-font-size);
   }
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 1900px) {
     width: 80vw;
     position: relative;
     left: calc(-40vw + 50%);
@@ -32,7 +32,7 @@
     text-align: center;
     background-size: 50vw;
   }
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     width: 90vw;
     position: relative;
     left: calc(-45vw + 50%);
@@ -42,7 +42,7 @@
     text-align: center;
     background-size: 90vw;
   }
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     width: 90vw;
     position: relative;
     left: calc(-45vw + 50%);
@@ -85,7 +85,7 @@
   .newsletter-credits {
     font-size: var(--smaller-font-size);
   }
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 1900px) {
     width: 80vw;
     position: relative;
     left: calc(-40vw + 50%);
@@ -95,7 +95,7 @@
     text-align: center;
     background-size: 50vw;
   }
-  @media screen and (max-width: $break-medium) {
+  @media screen and (max-width: 1024px) {
     width: 90vw;
     position: relative;
     left: calc(-45vw + 50%);
@@ -105,7 +105,7 @@
     text-align: center;
     background-size: 90vw;
   }
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: 560px) {
     width: 90vw;
     position: relative;
     left: calc(-45vw + 50%);
