@@ -57,8 +57,6 @@ jekyll_compose:
       cover_image:
 
 # Build settings
-sass:
-  sass_dir: _sass
 include: ['_pages', '_data']
 kramdown:
   input: GFM
