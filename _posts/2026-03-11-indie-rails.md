@@ -33,7 +33,7 @@ It's also a great punchline – from stained-glass master to software engineer s
 
 ### The value of transferable skills
 
-My first work in tech – as part of a tech start-up marketing team – was due to my ability to convey complex topics to average people. Namely, I worked with an agricultural professional syndicate to explain the PAC through drawings and infographics. This specific experience, quite far from tech, got me through a door which later led to becoming a programmer.
+My first work in tech – as part of a tech start-up marketing team – was due to my ability to convey complex topics to average people. Namely, I worked with an agricultural professional syndicate to explain the European Common Agricultural Policy through drawings and infographics. This specific experience, quite far from tech, got me through a door which later led to becoming a programmer.
 
 Software engineering is a lot like this:
 - You take a complex set of problems that you need to intimately understand.
