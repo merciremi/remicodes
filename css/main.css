@@ -1,8 +1,76 @@
-@import "base.css";
-@import "layout.css";
-@import "syntax-highlighting.css";
-@import "newsletter.css";
-@import "margins.css";
-@import "posts.css";
-@import "scribbles.css";
-@import "test.css";
+/* ============================================
+   REMICODES — redesign 2026
+   ============================================ */
+
+/* Layout */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding-top: 30px;
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
+header nav {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+main {
+  max-width: 90vw;
+  padding: 60px 90px;
+}
+
+article.post h1 {
+  width: 95vw;
+}
+
+article.page .page--body,
+article .post--body {
+  display: grid;
+  grid-template-columns: 66vw 1fr;
+  align-items: start;
+  gap: 2rem;
+}
+
+/* Home */
+
+.home--hero {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  align-items: start;
+  gap: 2em;
+}
+
+.home--hero-text {
+}
+
+.home--hero-photo {
+}
+
+.home--hero-photo img {
+  width: 100%;
+  max-width: 320px;
+  display: block;
+}
+
+.home--latest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.home--hero-secondary-text {
+}
