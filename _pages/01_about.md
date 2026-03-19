@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "👋 Hey, I'm Rémi"
+title: "Bonjour, I'm Remi. 👋"
 permalink: /about/
 cover_image: '/media/shared/about/remi-mercier-out-of-focus.jpeg'
 ---
@@ -9,24 +9,19 @@ First, let's address the elephant in the room:
 
 *"How are we supposed to pronouce your name, Rémi?"*
 
-Fear not, I'm here to help.
-
 So, my full name is <strong>Rémi Mercier</strong>. It's pronounced: `ray · me · mercy · 'ey `.
 
 If you want to pronouce it like I do, you’ll have to roll those Rs.
 
-Now that you're *baguette*-ready, let us dive in.
-
 ## Who am I?
 
-I’m an (almost) forty-year old programmer, writer, and former stained-glass master (yep).
+I’m a programmer, a writer, and a former stained-glass maker (yep).
 
 <figure>
-  <img src="{{ site.baseurl }}/media/shared/about/remi-mercier-out-of-focus.jpeg" alt='an out-of-focus picture of my face'/>
-  <figcaption>An out-of-focus picture of my face (shot by my kiddos with a Prima Twin S)</figcaption>
+  <img src="{{ site.baseurl }}/media/remi-mercier.jpg" alt='a picture of my face' height="300" width="300"/>
 </figure>
 
-Mountainous *Drôme* has been my family's home for the past 3 years. I love living there: quieter pace, beautiful landscapes and *amazing* food.
+Mountainous *Drôme* has been my home for the past 3 years. I love living there: quieter pace, beautiful landscapes and *amazing* food.
 
 <figure>
   <img src="{{ site.baseurl }}/media/shared/about/vercors.jpeg" alt='a view of a foggy mountain from afar'/>
@@ -34,46 +29,25 @@ Mountainous *Drôme* has been my family's home for the past 3 years. I love livi
 
 ## Main occupation: software engineer
 
-**I've worked in tech for ten years**, and I've been a professional developer for the past four and a half years, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups. Before that, I held an awful lot of positions, both in non-tech fields for almost 15 years.
-
-I was a stained-glass maker for four years. Moved on to museums and art galleries. Switched to marketing for tech start-ups. Then ended-up doing programming. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
+**I've worked in tech for ten years**, and I've been a professional developer for the past five years, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups. Before that, I held an awful lot of positions, both in non-tech fields for almost 15 years.
 
 Interested in the professional side of things? Head over to [the dedicated page]({{site.baseurl}}/work/).
 
 ## Writing
 
-I run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... As of 2022, *more than 18,700 unique visitors visited this website*. Some articles even got me invited on [podcasts]({{site.baseurl}}/talks/).
+I run this website where I share what I learned while building software. It's my way of giving back to the dev community.
 
-My top 3 articles are:
-- [Exploring dependency injection in Ruby]({{site.baseurl}}/dependency-injection-in-ruby/) (4.4k views)
-- [Build a minimal feature flags manager in under an hour]({{site.baseurl}}/minimal-feature-flags-manager/) (3.7k views)
-- [Introduction to Git Bisect: travel through time and bugs]({{site.baseurl}}/how-to-use-git-bisect/) (2.9k views)
+I focus on making things as simple to understand as possible: real-life examples, step-by-step tutorials, expressive naming, etc. No `def foo @bar; end` shenanigans.
 
-I'm still tinkering on sharing more unedited content on this website (and I still haven't figure it out). But right now, I like to write [unedited notes (called "fragments")]({{site.baseurl}}/fragments/) and [short personal tweet-like things]({{site.baseurl}}/scribbles/).
-
-First and foremost, I love to write stories. I usually latch out on a subject and write quirky things about it. This website is no exception.
+I don't have analytics on my website anymore, but in 2022, close to 20,000 unique readers spent time on my website. My posts are often featured in Ruby Weekly, HN, etc...
 
 ## Newsletter
 
 As of early 2023, my newsletter is just a good way to receive my new posts before anyone else.
 
-We're slowly closing in on **200 subscribers** from all over the world!
+We're currently closing on **400 subscribers** from all over the world!
 
-I'm still looking to make it a more creative space. This will probably evolve in 2023 as I explore new ways of supporting my writing work ([stay tuned!]({{site.baseurl}}/newsletter/)).
-
-## Slow pace
-
-We've talked a lot about "workish" things so far: coding, writing, etc. Let's dive deeper.
-
-A lot of my decisions - professional and personal - stem from the pursuit of a slower life.
-
-Ten years ago, I embraced the motto "moving fast and breaking things". After putting in long hours and working my health off for four years, I realized the things that end up breaking are (mostly) people. Since then, I've decided to examine what I care about deeply. And life rushing past me while I'm stuck in a rat race is not one of them.
-
-So, slow pace.
-
-No long hours. No meetings during lunch. No "stay at work" fuckery.
-
-I like to bear witness to my life. I like to look through the window. I like doing things with purpose, calm, and pleasure. I like to sip warm coffee while listening to some records after dropping the kiddos to school.
+I'm still looking to make it a more creative space. This will probably evolve in 2024 as I explore new ways of supporting my writing work ([stay tuned!]({{site.baseurl}}/newsletter/)).
 
 ## Drawing, design and art stuff
 

@@ -1,19 +1,68 @@
 ---
 layout: default
 ---
-<head>
-  <meta property='article:published_time' content='{{page.date}}' />
-</head>
 
-<article>
-  <h1>{{ page.title }}</h1>
-  {% include breadcrumbs.html %}
+<article class="post">
+  <section class="post--title">
+    <h1>{{ page.title }}</h1>
+    {% unless page.lang == 'fr' %}
+      {% include breadcrumbs.html %}
+    {% endunless %}
+  </section>
 
-  {{ content }}
+  <section class="post--body">
+    <div class="post--content">
+      {{ content | inject_anchors }}
+    </div>
 
-  {% include article_suggestion.html %}
+    <aside class="post--information">
+      <div class="aside--title">
+        <p><strong>{{ page.title }}</strong></p>
+      </div>
+      <div class="aside--meta">
+        <div>
+          <p><strong>{{ page.date | date: "%B %-d, %Y" }}</strong></p>
+        </div>
+        <div>
+        <p>Written by <a href="https://ruby.social/@remi" target="_blank">{{ site.author | split: " " | first }}</a></p>
+        </div>
+        <div>
+          {% include tags.html %}
+        </div>
+      </div>
+      <div class="aside--toc">
+        <h5>Chapters</h5>
+        {{ content | toc_only }}
+      </div>
+    </aside>
+  </section>
 </article>
 
-<section class="newsletter">
-  {% include newsletter.html %}
-</section>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "{{ site.url }}{{ page.url }}#blogposting",
+    "headline": "{{ page.title | escape }}",
+    "description": "{{ page.excerpt | strip_html | truncate: 200 | escape }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    {% if page.last_modified_at %}
+    "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+    {% else %}
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    {% endif %}
+    "author": {
+      "@id": "{{ site.url }}/#person"
+    },
+    "publisher": {
+      "@id": "{{ site.url }}/#person"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}"
+    }
+    {% if page.category %},
+    "keywords": ["{{ page.category }}"]
+    {% endif %}
+  }
+</script>

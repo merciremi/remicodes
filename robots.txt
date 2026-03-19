@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://remimercier.com/feed.xml
+
+# LLM-friendly content
+# See https://remimercier.com/llms.txt for structured information about this site and its author

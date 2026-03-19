@@ -1,25 +1,36 @@
 ---
 layout: home
 ---
-<section>
-  <div class="vertically-centered">
-    <img src="{{ site.baseurl }}/media/remi-mercier.jpeg" height="100" width="100" class="circle inlined" id="profile-pic" alt='A out-of-focus pictire of my face shot by my kiddos' />
-    <h1 class="inlined">Hi, I'm Rémi</h1>
-  </div>
 
-  <p>I'm a Ruby on Rails developer, a writer, and a former stained-glass master (yup).</p>
+<article class="page home">
+  <section class="home--hero">
+    <div class="home--hero-text">
+      <h1>
+        Hey, I’m Rémi.<br>
+        I'm a freelance software engineer helping tech companies build <span class="color-shuffle"><span>c</span><span>o</span><span>o</span><span>l</span> <span>s</span><span>t</span><span>u</span><span>f</span><span>f</span></span> on the internet.
+      </h1>
 
-  <p>I've built this corner of the web <a href="{{ site.baseurl }}/blog">to share what I learn while building software</a>, to jot down <a href="{{ site.baseurl}}/fragments">unedited notes</a>, to scribble <a href="{{ site.baseurl }}/scribbles">random thoughts</a>, and to share bits about <a href="{{ '/about' | prepend: site.baseurl }}">myself</a>.
+      <div class="home--hero-secondary-text">
+        <p>I help small and medium-sized companies <a href="{{site.baseurl}}/work/">build reliable applications that make their users (and their business) happy</a>.</p>
 
-  <p>I help companies build their product and make a dent in the universe. I'm currently funemployed and busy restoring a 18th-century house. When I <em>do</em> code, my toolbox includes beautiful Ruby, magical Rails, and plenty of other nerdy things. You can also check <a href="{{ site.baseurl }}/now">what I'm doing right now</a>.</p>
+        <p>I find joy in building things. Then, I find joy in writing about what I’ve learned in the process. You can check what I wrote about building reliable <a href="{{site.baseurl}}/series/ruby/">Ruby</a> and <a href="{{site.baseurl}}/series/rails/">Rails</a> applications, about <a href="{{site.baseurl}}/series/rspec/">testing</a>, <a href="{{site.baseurl}}/series/career/">career growth</a>...</p>
 
-  <p>There is no tracking on this website. So, enjoy this moment of privacy!</p>
+        <p>Follow along if you wanna know more about <a href="{{site.baseurl}}/about/">me</a> or <a href="{{site.baseurl}}/now/">what I’m doing at the moment</a>.</p>
+      </div>
+    </div>
+  </section>
 
-  <p>
-    Wanna chat? Send words my way at <a href="mailto:hello@remimercier.com">hello@remimercier.com</a>.
-  </p>
-</section>
+  <section class="home--latest">
+    <div class="home--latest-post">
+      <h3>Hot from the press</h3>
+      → <a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a>
+        <span> (<time datetime="{{ site.posts.first.date }}">{{ site.posts.first.date | date: "%b %-d, %Y" }}</time>)</span>
+    </div>
+    <div class="home--latest-work">
+      <h3>Can't keep up with your roadmap?</h3>
+      → <a href="/work">Check my freelance services</a>
+    </div>
+  </section>
+</article>
 
-<section class="newsletter newsletter-home">
-  {% include newsletter_home.html %}
-</section>
+<script src="{{ site.baseurl }}/javascript/color-shuffle.js"></script>

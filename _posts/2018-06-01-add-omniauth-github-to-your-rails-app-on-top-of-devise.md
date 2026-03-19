@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: 'Add Omniauth GitHub to Your Rails App on Top of Devise'
 date: 2018-06-01 14:44 +0100

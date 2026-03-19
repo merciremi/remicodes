@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title:  'Debugging PGError: ERROR: column of relation already exists'
 date:   2019-07-10
@@ -74,4 +75,4 @@ Hope this will help! If you need more tips and tricks, check out the rest of [th
 
 Cheers,
 
-Remi - [@mercier_remi](https://twitter.com/mercier_remi)
+Remi - [@remi@ruby.social](https://ruby.social/@remi)

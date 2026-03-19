@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "How to set-up a lead generation strategy for small businesses: do’s \U0001F44D
   and don’ts \U0001F44E"

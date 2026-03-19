@@ -1,118 +1,104 @@
 ---
 layout: page
-title: Want to work with me?
+title: Freelance Software Engineering from Remi Mercier
 permalink: /work/
+hide_title: true
 ---
 
-👋 Hey, future coworker! Thank you for checking in, and welcome to my corner of the internet. Your being here probably means you’re interested in working with me. Let me tell you what to expect.
+<div class="hero">
+  <h3 class="drag-down-1 gradient-right">
+    As a freelance Ruby on Rails fullstack engineer,
+  </h3>
+  
+  <h1>
+    I help tech companies deliver features that make their users (and their business) <span class="color-shuffle"><span>h</span><span>a</span><span>p</span><span>p</span><span>y</span></span>.
+  </h1>
+  
+  <h3 class="drag-up-1 opacity-0.8">
+    Over the past 8 years, I've built Rails applications for teams large and small, generating six-figure revenues and serving 10+ million users.
+  </h3>
+</div>
 
-## Who am I?
+<div class="mb-5">
+  <a href="mailto:hello@remimercier.com" class="gradient-button">Book an intro call</a>
+</div>
 
-I'm a Ruby on Rails programmer, a writer, and a former stained-glass master (yup).
+<h2 class="gradient-right">
+  Freelance principles
+</h2>
 
-I've worked in tech for ten years, and **I've been a professional developer for the past four and a half years**, mainly focusing on back-end programming. Before being a programmer, I worked in product and marketing for startups, and held a lot of positions, both in tech and non-tech fields for 20 years. [It's quite the story!]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
+1. **From problem to production**: I'm a product-minded engineer. I’m not just shipping code. I start with a customer problem, bridge knowledge across teams and ship a working solution. Then <mark>I stick with it until it runs smoothly</mark> in the real world. You bring the problem. I bring the follow-through.
+2. **Better done than perfect**: I prioritize working and reliable solutions over sophisticated ones. They’re not fancy, but <mark>they create momentum</mark>. Shipping early and often creates real value. Building is thinking, and your users are your best beta testers. We build *with* them, not just *for* them.
+3. **Deep dive, and deliver**: Sometimes, *good enough* ain’t good enough. The problem is complex, the bug ambiguous. That’s when I switch into research mode: I dig into docs, test edge cases, and compare approaches. Every task is a learning opportunity, so you’re not just getting code, <mark>you’re getting a clear path forward</mark>, with a rationale and the next steps ready.
+4. **Great communication, not just technical solutions**: I'm fluent in both XML and ROI. I’ll communicate clearly with you, whether you’re technical or not, so you always know what we’re solving, why it matters, and <mark>how it’ll help your business</mark>.
+5. **You know your business**: Let’s be real, you know your customers better than I do. Together, <mark>we partner to turn your knowledge into tech</mark> that’ll make your business move forward. One problem at a time.
 
-My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - Postgres, Redis, Sidekiq, vanilla Javascript, RSpec, Git, etc.
+<h2 class="gradient-right">
+  Focus Areas
+</h2>
 
-I like majestic monoliths. I think they work very well for 99% of companies. But when needed, I've shipped micro-services in production as well (relying on Kafka).
+The main areas I can leverage within your team are **domain modeling, testing, and OOP**.
 
-Despite focusing on back-end programming, I also worked on some front-end for a few years.
+I've been a professional developer since 2019. Before becoming a programmer, I worked in tech as a product and marketing manager for startups. Before that? [It's quite the story.]({{site.baseurl}}/from-stained-glass-master-to-software-developer/)
 
-## My daily contributions as a mid-level software engineer
+My go-to languages are [Ruby]({{site.baseurl}}/series/ruby/) and [Ruby on Rails]({{site.baseurl}}/series/rails/) (each with their respective toolbox). Mostly, I use *boring technologies* - PostgreSQL, Redis, Sidekiq, vanilla JavaScript, [RSpec]({{site.baseurl}}/series/ruby/), Git, etc.
 
-As I've moved up the **Individual Contributor** path, my daily contributions now revolve around:
-- designing and implementing features,
+<h2 class="gradient-right">
+  How I can help
+</h2>
+
+I either work on existing codebases or build applications from scratch. My customers value my proactive communication, my ability to make complex topics easy to understand, and my knack for writing reliable code that Just Works™.
+
+My typical contributions include:
+- [designing and implementing features]({{site.baseurl}}/refactoring-in-practice/),
 - [writing specifications]({{site.baseurl}}/how-to-write-better-specifications/),
-- code architecture,
+- [codebase consolidation]({{site.baseurl}}/complexities/),
 - shipping APIs used by millions of users,
 - [increasing code coverage]({{site.baseurl}}/series/rspec/),
-- interacting with databases,
+- [interacting with databases]({{site.baseurl}}/postgresql-full-text-search-for-beginners/),
 - [troubleshooting]({{site.baseurl}}/series/debugging/),
 - [mentoring junior developers]({{site.baseurl}}/series/career/),
 - documenting practices and processes,
 - and so much more.
 
-To give you a concrete idea of what I can do, here are a couple of projects I've worked on over the past few years.
+<h2 class="gradient-right">
+  My rates
+</h2>
 
-#### Real-time Developer Notifications (RTDN)
+I typically work with open-ended, ongoing contracts at a daily rate. Depending on your project, though, I also offer flat rates for projects with fixed lengths and defined deliverables.
 
-I helped implementing the mechanism handling server-to-server notifications from Google Playstore for subscription renewals based on specifications written with a senior developer. This new mechanism eventually replaced a monthly manual verification of our Playstore subscriptions, which was prone to errors and missed revenue.
+My rates vary based on the scope of the project, and the type of company. [Get in touch](mailto:hello@remimercier.com) to discuss your project, and we'll figure out what works best for you.
 
-#### Data synchronization across micro-services
+<h2 class="gradient-right">
+  Location
+</h2>
 
-I designed, specified and implemented bookmarks synchronization between legacy JAVA applications and an upcoming new version using Kafka events. This project allowed (and still allows) the back-end team to focus on building their latest application while ensuring data integrity.
+I work remotely. I'm based in the South East of France, a 3-hour train ride away from Paris.
 
-#### Minimal feature flag manager
+<h2 class="gradient-right">
+  Work History
+</h2>
 
-I designed and implemented a feature flag manager to enhance release phase for large features. You can read about the process here: [Build a minimal feature flags manager in under an hour](https://remimercier.com/minimal-feature-flags-manager/).
+I'm currently splitting my time between [Cults](https://cults3d.com/){:target="_blank"} - an independent marketplace for 3D models and prints — , and [Même Pas Cap!](https://www.memepascap.fr/){:target="_blank"} - an independent skills assessment company.
 
-## Writing about what I learn
+Previously at [Evalmee](https://en.evalmee.com/), [Nextory](https://nextory.com/fr/){:target="\_blank"}, [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remi-mercier-cv-2024.pdf).
 
-I also run this website where I share what I learned while building software. It's my way of giving back to the dev community. My posts are often featured in Ruby Weekly, HN, etc... As of 2022, *more than 18,700 unique visitors visited this website*. Some articles even got me invited on [podcasts]({{site.baseurl}}/talks/).
+<script src="{{ site.baseurl }}/javascript/color-shuffle.js"></script>
 
-My top 3 articles are:
-- [Exploring dependency injection in Ruby]({{site.baseurl}}/dependency-injection-in-ruby/) (4.7k views)
-- [Build a minimal feature flags manager in under an hour]({{site.baseurl}}/minimal-feature-flags-manager/) (3.7k views)
-- [Introduction to Git Bisect: travel through time and bugs]({{site.baseurl}}/how-to-use-git-bisect/) (2.9k views)
-
-## Work history (as a software engineer)
-
-Previously at [Youboox](https://nextory.com/fr/){:target="\_blank"} (acquired by Nextory), [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. Before that, I worked as a marketing manager for a tech startup for four years. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remimercier-cv-2023.pdf).
-
-## What am I looking for?
-
-In terms of technical challenges:
-- Mid-level back-end contributions: feature specifications, code architecture, implementing features across their lifecycle, improving performances and code coverage, etc.
-- Shaping features based on the needs of users and the companie's goals.
-- Mentoring junior developers and reviewing merge requests.
-- Improving the tooling and the engineering standards.
-
-In terms of working environment:
-- Calm companies: Clear processes over chaos, emails over meetings, product clarity over investor-pleasing roadmaps, deep focus over long hours.
-- A focus on creating value for both users and company.
-- Warm, kind, supportive colleagues in a high-trust environment.
-- Working within [a diverse team]({{site.baseurl}}/the-need-for-dei/) with various backgrounds and expertise.
-- **Fully remote**.
-- **4-day work week**.
-
-## How do I like to interview companies?
-
-- My favorite technical tests are remote live codings where we hash out a real-life challenge: Build a tested API or add a feature to an existing codebase with preliminary refactoring.
-- I like meeting with several people from my future team and other teams.
-- I ask questions about your investors, your financial strength, or how you resolved conflicts.
-- I usually back-channel my way into your employees’ DMs to get a less “corporate-y” sense of your company.
-- [A reject fast, reject early mentalilty](https://juanitofatas.com/reject-fast-reject-early){:target="\_blank"}.
-
-For me, interviews are a two-way street. You get to know me. I get to know you.
-
-I've realized, over the past 20 years, that the recruiting process is a good preview of what I can expect as a collaborator. It shows the quality of your processes, your priorities, how you handle requests, etc...
-
-## FAQ
-
-### Q: In-office or remotely?
-
-I've been working remotely for the past four years and **I intend to keep it that way for the foreseeable future**.
-
-Remote working has been a godsend for me. It has allowed me to do my best work, focus on better communication, and create (much) more value.
-
-### Q: Would you relocate to ______?
-
-No, I love living near the mountains so very much. **I'll only consider fully remote positions.**
-
-### Q: Are you willing to come to the office from time to time?
-
-For the past three years, **I've come to the office once a year**. But I'm open to come more often.
-
-### Q: Where do you see yourself in 5 years?
-
-Every time I tried to answer this question, I ended up somewhere unexpected. After all, I'm [a former stained-glass master turned developer]({{site.baseurl}}/from-stained-glass-master-to-software-developer/). It speaks for itself, right?
-
-Right now, I enjoy moving up the IC track. (By the way, do you have an IC track at your company?)
-
-### Q: Tea or coffee?
-
-Coffee, please! I'd say a lightly roasted coffee with notes of acidity and floral scents. I usually purchase my coffee from [my local roastery](https://kaffa-roastery.com/){:target="\_blank"}, in Crest, France.
-
-## Sounds good?
-
-Then <a href="mailto:hello@remimercier.com">let's chat</a>!
+<!-- Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "{{ site.url }}/work/#service",
+  "name": "Freelance Software Engineering",
+  "description": "Freelance Ruby on Rails developer offering domain modeling, testing, OOP, feature development, codebase consolidation, and mentoring services.",
+  "url": "https://remimercier.com/work/",
+  "provider": {
+    "@id": "https://remimercier.com/#person"
+  },
+  "areaServed": "Worldwide",
+  "serviceType": "Software Development",
+  "category": ["Ruby on Rails Development", "Code Review", "Technical Mentoring"]
+}
+</script>

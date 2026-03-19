@@ -1,0 +1,73 @@
+.scribble {
+  position: relative;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+  border-bottom: 1px var(--blue-00) solid;
+  figure {
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  figcaption {
+    font-size: var(--smaller-font-size);
+    text-align: center;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+.scribbles {
+  margin-top: 48px;
+}
+
+.scribble-icon-link {
+  text-decoration: none;
+  border-bottom: none !important;
+}
+
+.scribble-icon {
+  width: 24px;
+  display: inline-block;
+  margin-bottom: -46px;
+  margin-left: -30px;
+}
+
+.scribble-date {
+  font-size: var(--smaller-font-size);
+  color: var(--blue-02);
+}
+
+.scribbles-filters {
+  color: var(--body-background-color-00);
+  font-size: var(--smaller-font-size);
+  font-weight: 700;
+}
+
+.scribbles-filters a {
+  padding: 12px 24px;
+  background: var(--body-background-color-01);
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.scribbles-filters a:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.scribbles-filters a:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.scribbles-filters a:before {
+  content: "○";
+  color: var(--desaturated-font-color);
+  padding-right: 6px;
+}
+
+.scribbles-filters a[aria-current]:before {
+  content: "●";
+  color: #32b67a;
+  padding-right: 6px;
+}

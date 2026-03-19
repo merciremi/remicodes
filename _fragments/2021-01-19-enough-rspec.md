@@ -43,3 +43,17 @@ Based on how you define the `it` part, different behaviors are to be expected:
     end
   end
 {% endhighlight %}
+
+## Fixtures
+
+- Sometimes, it's easier to return an OpenStruct with the ad hoc attributes, than relying on factories. Especially if these are crippled with complicated setup or if you don't need a full factory for the return.
+
+Just wrote this for mocking the return value of a facade sub-class (`SomeDomainName::FacadeTo3rdPartyAPI::Response`):
+
+```
+    let(:expected_response) do
+      OpenStruct.new(content: "art, renaissance, Giotto")
+    end
+```
+
+

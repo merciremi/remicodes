@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Exploring dependency injection in Ruby"
 excerpt: "Classes depend on each other all the time. But the way you tie those classes together will determine how hard it is to change your code. Dependency injection can help you reduce that coupling and reduce your cost of change."
@@ -249,6 +250,6 @@ Hope these closing thoughts will help!
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 [^1]: I've never managed to learn the meaning of all SOLID principles. I mean, an acronym that declines into five acronyms, that decline into cryptic principles.

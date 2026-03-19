@@ -35,10 +35,13 @@ kramdown:
   input: GFM
   auto_ids: true
 markdown: kramdown
-theme: minima
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-paginate
+paginate: 20
+paginate_path: "/blog/page/:num"
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Introduction to RSpec: the syntax"
 date: 2021-03-21
@@ -388,7 +389,7 @@ If you feel like digging deeper, here are a few links for you:
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 [^1]: This is the context which encapsulates all your tests for the class `User`.
 [^2]: `aggregate failures` is pretty useful for testing attributes in a serialized object.

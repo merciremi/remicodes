@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: How to wrap your head around a new codebase
 date: 2020-06-12
@@ -62,4 +63,4 @@ Wanna add something to the list? [Submit your tip on GitHub](https://github.com/
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi){:target="\_blank"}
+Rémi - [@remi@ruby.social](https://ruby.social/@remi){:target="\_blank"}

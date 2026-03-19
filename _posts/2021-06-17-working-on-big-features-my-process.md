@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: 'Building large features: my process for branches, requests and reviews'
 excerpt: "Working on large features can be tricky. I've spent the last few months refining a process that makes it easy to keep in touch with the main branch, to make reviews more manageable, and with little GIT overhead."
@@ -238,7 +239,7 @@ Hope you found this interesting! It's not set in stone obviously. But I've found
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 ps: Many thanks to [Jeremy](https://twitter.com/NotGrm){:target="\_blank"} for helping me make this post clearer (even though I didn't follow all of his suggestions 😜)
 

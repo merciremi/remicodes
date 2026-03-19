@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: A hands-on tutorial to debugging your code with pry-byebug
 date: 2020-04-07

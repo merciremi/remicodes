@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Introduction to Git Bisect: travel through time and bugs"
 excerpt: "No matter how thorough your test coverage is, you can't test everything. So when you introduce a bug in your application, git bisect will help you zero in on your regression's origin."
@@ -150,6 +151,6 @@ Feeling adventurous? You can check the official documentation for [git bisect](h
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 [^1]: The time it takes for a quadratic search to perform is proportional to the squared size of its input. 10x the data take 100x more time. Hence it's Big 0 notation: `0(n^2)`.

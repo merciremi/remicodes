@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Upgrading Ruby on Rails: a beginner's guide"
 excerpt: "You're about to upgrade your application to the newest version of Ruby on Rails. And you've never done it before? Fear not! Here's my battle-tested companion to migrating Rails."
@@ -204,6 +205,6 @@ Happy migrating!
 
 Cheers,
 
-Rémi - [@mercier_remi](https://twitter.com/mercier_remi)
+Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
 [^1]: A small reminder on gem versioning: **0.0.x** is a patch: implementation details, bug fixes, etc..  **0.x.0** is a minor upgrade: new features with backward compatibility. **x.0.0** is a major upgrade: can contain backward incompatible changes.

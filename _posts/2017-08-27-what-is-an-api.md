@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: What is an API?
 date: 2017-08-27 14:34 +0100

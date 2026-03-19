@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "2019 - a year in review"
 date:   2020-01-04
