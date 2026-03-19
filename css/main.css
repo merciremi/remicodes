@@ -18,6 +18,13 @@ article.post figure {
   }
 }
 
+article.post .breadcrumbs {
+  margin-top: -24px;
+}
+
+article.post section.post--title {
+  margin-bottom: 48px;
+}
 /* Links */
 
 a:visited {
