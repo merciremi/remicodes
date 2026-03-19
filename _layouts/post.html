@@ -3,14 +3,16 @@ layout: default
 ---
 
 <article class="post">
-  <h1>{{ page.title }}</h1>
+  <div class="post--title">
+    <h1>{{ page.title }}</h1>
+    {% unless page.lang == 'fr' %}
+      {% include breadcrumbs.html %}
+    {% endunless %}
+  </div>
+
   <div class="post--body">
     <section class="post--content">
-      {% unless page.lang == 'fr' %}
-        {% include breadcrumbs.html %}
-      {% endunless %}
-
-      {{ content }}
+      {{ content | inject_anchors }}
     </section>
 
     <aside class="post--information">
@@ -19,16 +21,17 @@ layout: default
       </div>
       <div class="aside--meta">
         <div>
-          <p>Published on</p>
           <p><strong>{{ page.date | date: "%B %-d, %Y" }}</strong></p>
         </div>
         <div>
-          <p>Written by</p>
-          <p><strong><a href="https://ruby.social/@remi" target="_blank">{{ site.author | split: " " | first }}</a></strong></p>
+        <p>Written by <a href="https://ruby.social/@remi" target="_blank">{{ site.author | split: " " | first }}</a></p>
         </div>
       </div>
       <div class="aside--tags">
         {% include tags.html %}
+      </div>
+      <div class="aside--toc">
+        {{ content | toc_only }}
       </div>
     </aside>
   </div>

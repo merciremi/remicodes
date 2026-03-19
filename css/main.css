@@ -34,43 +34,30 @@ main {
   padding: 60px 90px;
 }
 
-article.post h1 {
-  width: 95vw;
+article.page .page--body,
+article.post .post--body {
+  display: grid;
+  grid-template-columns: 50vw 20vw;
+  align-items: start;
+  gap: 14rem;
 }
 
-article.page .page--body,
-article .post--body {
-  display: grid;
-  grid-template-columns: 66vw 1fr;
-  align-items: start;
-  gap: 2rem;
+.aside--toc ol,
+.aside--toc ul {
+  padding: 0;
+  list-style-position: inside;
 }
 
 /* Home */
 
 .home--hero {
-  display: grid;
+  /*display: grid;
   grid-template-columns: 4fr 1fr;
   align-items: start;
-  gap: 2em;
-}
-
-.home--hero-text {
-}
-
-.home--hero-photo {
-}
-
-.home--hero-photo img {
-  width: 100%;
-  max-width: 320px;
-  display: block;
+  gap: 2em;*/
 }
 
 .home--latest {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-.home--hero-secondary-text {
 }
