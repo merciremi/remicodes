@@ -2,30 +2,34 @@
 layout: home
 ---
 
-<section class="home--hero">
-  <div class="home--hero-text">
-    <h1>
-      Hey, I’m Rémi Mercier. <br>
-      Freelance software engineer, for companies that value their users and their finances.
-    </h1>
+<article class="page home">
+  <section class="home--hero">
+    <div class="home--hero-text">
+      <h1>
+        Hey, I’m Rémi.<br>
+        I'm a freelance software engineer helping tech companies deliver features that make their users (and their business) <span class="color-shuffle"><span>h</span><span>a</span><span>p</span><span>p</span><span>y</span></span>.
+      </h1>
 
-    <div class="home--hero-secondary-text">
-      <p>I help small and medium-sized companies <a href="{{site.baseurl}}/work/">build better products that makes their users (and their business) happy</a>.</p>
+      <div class="home--hero-secondary-text">
+        <p>I help small and medium-sized companies <a href="{{site.baseurl}}/work/">build better products that makes their users (and their business) happy</a>.</p>
 
-      <p>I find joy in building things. Then, I find joy in writing about what I’ve learned in the process. You can check what I wrote about building reliable Ruby and Rails applications, about testing, career growth...</p>
+        <p>I find joy in building things. Then, I find joy in writing about what I’ve learned in the process. You can check what I wrote about building reliable Ruby and Rails applications, about testing, career growth...</p>
 
-      <p>Follow along if you wanna know more about me or what I’m doing at the moment.</p>
+        <p>Follow along if you wanna know more about me or what I’m doing at the moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="home--latest">
+    <div class="home--latest-post">
+      <h3>Latest post</h3>
+      → <a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a>
+    </div>
+    <div class="home--latest-work">
+      <h3>Freelance services</h3>
+      → <a href="/work">Work</a>
     </div>
   </div>
-</section>
+</article>
 
-<div class="home--latest">
-  <div class="home--latest-post">
-    <h3>Latest post</h3>
-    → <a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a>
-  </div>
-  <div class="home--latest-work">
-    <h3>Freelance services</h3>
-    → <a href="/work">Work</a>
-  </div>
-</div>
+<script src="{{ site.baseurl }}/javascript/color-shuffle.js"></script>
