@@ -3,6 +3,19 @@
    ============================================ */
 
 @import "base.css";
+@import "syntax-highlighting.css";
+
+/* Images */
+
+img {
+  max-width: 100%;
+}
+
+/* Links */
+
+a:visited {
+  color: LinkText;
+}
 
 /* Layout */
 
@@ -47,9 +60,7 @@ body {
 }
 
 header {
-  padding-top: 30px;
-  padding-left: 90px;
-  padding-right: 90px;
+  padding: 30px 90px 30px 60px;
 }
 
 header nav {
@@ -97,9 +108,7 @@ article.blog-archive .blog-archive--title {
   list-style-position: inside;
 }
 
-.post--content pre {
-  overflow-x: auto;
-}
+
 
 .post--content pre code {
   white-space: pre;
@@ -115,16 +124,17 @@ article.post .post--title {
 
 /* Home */
 
-.home--hero {
+article.home > section.home--hero {
   display: grid;
   grid-template-columns: 4fr 1fr;
   align-items: start;
   gap: 2em;
 }
 
-.home--latest {
+article.home > section.home--latest {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: 2em 0;
 }
 
 /* Color shuffle */
@@ -155,9 +165,39 @@ article.post .post--title {
   100% { transform: rotate(0deg); }
 }
 
+/* Large screens */
+
+@media (min-width: 1400px) {
+  main {
+    max-width: 70vw;
+  }
+}
+
 /* Mobile */
 
 @media (max-width: 768px) {
+  main {
+    width: 95vw;
+    padding: 60px 10px 60px 20px
+  }
+
+  header {
+    padding: 10px 10px;
+  }
+
+  article.home > section.home--latest,
+  article.home > section.home--hero {
+    display: inherit;
+  }
+
+  article.home > section.home--latest {
+    margin-top: 3em;
+  }
+
+  article.blog-archive .blog-archive--title {
+    width: 90vw;
+  }
+
   article.blog-archive .blog-archive--body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -171,6 +211,10 @@ article.post .post--title {
   article.post .post--body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .post--content {
+    min-width: 0;
   }
 
   .post--information {

@@ -1,0 +1,198 @@
+/* ==========================================================================
+   Syntax Highlighting — Muted Blue Monocolor + Old-School Mac Window
+   Based on --blue-muted (#9db4d7) from the site palette, darkened into
+   a steel-blue monochrome scale.
+   ========================================================================== */
+
+.highlight {
+  /*
+   * Monocolor token scheme — steel blue at different lightness steps.
+   * All values pass WCAG AA on #e8e9ee.
+   *
+   *   --hl-strong:  darkest  — keywords, tags
+   *   --hl-medium:  mid-dark — functions, types
+   *   --hl-base:    default  — plain text, names
+   *   --hl-subtle:  lighter  — operators, punctuation
+   *   --hl-muted:   lightest — comments
+   */
+  --hl-strong:  #000000;
+  --hl-medium:  #1a1a1a;
+  --hl-base:    #333333;
+  --hl-subtle:  #666666;
+  --hl-muted:   #999999;
+
+  /* -- Window chrome (b&w) -- */
+  --ctp-text:      #1a1a1a;
+  --ctp-border:    #000000;
+  --ctp-shadow:    #333333;
+  --ctp-surface1:  #e8e8e8;
+  --ctp-overlay0:  #aaaaaa;
+  --ctp-base:      #ffffff;
+  --ctp-mantle:    #f5f5f5;
+  --ctp-crust:     #ebebeb;
+}
+
+/* ---------------------------------------------------------------------------
+   Window Chrome — 90s TUI / Classic Mac OS
+   --------------------------------------------------------------------------- */
+
+.highlight {
+  position: relative;
+  background-color: var(--ctp-base);
+  border: 2px solid var(--ctp-shadow);
+  border-radius: 0;
+  margin: 2em 0;
+  box-shadow:
+    4px 4px 0 var(--ctp-shadow);
+  overflow-x: auto;
+}
+
+/* Title bar — pinstripes with close box */
+.highlight::before {
+  content: "";
+  display: block;
+  height: 24px;
+  background-color: var(--ctp-surface1);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 4px,
+      rgba(0, 0, 0, 0.2) 4px,
+      rgba(0, 0, 0, 0.2) 6px
+    );
+}
+
+/* White square close box */
+.highlight::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 2px solid var(--ctp-border);
+}
+
+/* Code area */
+.highlight pre {
+  margin: 0;
+  padding: 1em 1.25em;
+  color: var(--ctp-text);
+  background-color: var(--ctp-base);
+  overflow-x: auto;
+  line-height: 1.6;
+  font-family: 'Fira Mono', monospace;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
+/* Inline code */
+code {
+  font-family: 'Fira Mono', monospace;
+  font-size: 0.875rem;
+  background-color: #e0e7f0;
+  padding: 0.15em 0.4em;
+  border-radius: 0;
+}
+
+/* Don't double-style code inside highlight blocks */
+.highlight code {
+  background: none;
+  padding: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Token Colors — Monocolor (steel blue, lightness only)
+   --------------------------------------------------------------------------- */
+
+/* -- Base text, punctuation, plain names -- */
+.highlight .p,
+.highlight .n,
+.highlight .nx,
+.highlight .x,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi  { color: var(--hl-base); }
+.highlight .w   { color: var(--ctp-surface1); }
+
+/* -- Errors -- */
+.highlight .err { color: var(--hl-strong); text-decoration: underline; }
+
+/* -- Comments -- */
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs,
+.highlight .sd,
+.highlight .cp  { color: var(--hl-muted); }
+
+/* -- Keywords -- */
+.highlight .k,
+.highlight .kd,
+.highlight .kp,
+.highlight .kr,
+.highlight .kc,
+.highlight .kn,
+.highlight .kt  { color: var(--hl-strong); }
+
+/* -- Operators -- */
+.highlight .o,
+.highlight .ow  { color: var(--hl-subtle); }
+
+/* -- Names: functions, decorators, classes, namespaces -- */
+.highlight .nf,
+.highlight .nd,
+.highlight .nc,
+.highlight .nn  { color: var(--hl-medium); }
+
+/* -- Names: attributes, labels, builtins -- */
+.highlight .na,
+.highlight .nl,
+.highlight .nb,
+.highlight .bp  { color: var(--hl-medium); }
+
+/* -- Names: constants, entities, exceptions, tags -- */
+.highlight .no,
+.highlight .ni,
+.highlight .ne,
+.highlight .nt  { color: var(--hl-strong); }
+.highlight .py  { color: var(--hl-base); }
+
+/* -- Literals & Numbers -- */
+.highlight .l,
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il,
+.highlight .ld  { color: var(--hl-medium); }
+
+/* -- Strings -- */
+.highlight .s,
+.highlight .sb,
+.highlight .sc,
+.highlight .s2,
+.highlight .sh,
+.highlight .sx,
+.highlight .s1,
+.highlight .ss  { color: var(--hl-medium); }
+.highlight .se,
+.highlight .si,
+.highlight .sr  { color: var(--hl-strong); }
+
+/* -- Generic -- */
+.highlight .g   { color: var(--hl-base); }
+.highlight .gd  { color: var(--hl-strong); text-decoration: line-through; }
+.highlight .gi  { color: var(--hl-strong); }
+.highlight .ge  { }
+.highlight .gr  { color: var(--hl-strong); }
+.highlight .gh  { color: var(--hl-strong); }
+.highlight .go  { color: var(--hl-muted); }
+.highlight .gp  { color: var(--hl-subtle); }
+.highlight .gs  { font-weight: bold; }
+.highlight .gu  { color: var(--hl-subtle); }
+.highlight .gt  { color: var(--hl-strong); }
