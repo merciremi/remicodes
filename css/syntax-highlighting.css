@@ -4,6 +4,7 @@
    a steel-blue monochrome scale.
    ========================================================================== */
 
+code,
 .highlight {
   /*
    * Monocolor token scheme — steel blue at different lightness steps.
@@ -90,9 +91,9 @@
 
 /* Inline code */
 code {
-  font-family: 'Fira Mono', monospace;
+  font-family: monospace;
   font-size: 0.875rem;
-  background-color: #e0e7f0;
+  background-color: var(--ctp-crust);
   padding: 0.15em 0.4em;
   border-radius: 0;
 }

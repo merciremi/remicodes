@@ -3,17 +3,17 @@ layout: default
 ---
 
 <article class="post">
-  <div class="post--title">
+  <section class="post--title">
     <h1>{{ page.title }}</h1>
     {% unless page.lang == 'fr' %}
       {% include breadcrumbs.html %}
     {% endunless %}
-  </div>
+  </section>
 
-  <div class="post--body">
-    <section class="post--content">
+  <section class="post--body">
+    <div class="post--content">
       {{ content | inject_anchors }}
-    </section>
+    </div>
 
     <aside class="post--information">
       <div class="aside--title">
@@ -35,7 +35,7 @@ layout: default
         {{ content | toc_only }}
       </div>
     </aside>
-  </div>
+  </section>
 </article>
 
 <section class="newsletter">

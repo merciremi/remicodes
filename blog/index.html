@@ -4,7 +4,7 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
 ---
 
 <article class="blog-archive">
-  <div class="blog-archive--title">
+  <section class="blog-archive--title">
     <h1>Sometimes, I write.</h1>
     <p>
       I find joy <em>in building things</em>. Then, I find joy in writing about what I've learned in the process. I suspect I learn new things just for the sake of having catchy stories to write later on. This blog is where I gather my technical entries, from newest to oldest.
@@ -12,9 +12,9 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
     <p>
       Don't fancy getting updates through capricious algorithms? Subscribe to my <a href="{{site.baseurl}}/newsletter">newsletter</a> or grab the <a href="{{site.baseurl}}/feed.xml">RSS feed</a>.
     </p>
-  </div>
+  </section>
 
-  <div class="blog-archive--body">
+  <section class="blog-archive--body">
     <section>
       {% assign filtered_posts = paginator.posts | where_exp: "post", "post.lang != 'fr'" %}
       {% for post in filtered_posts %}
@@ -52,6 +52,6 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
         {% endif %}
       </ul>
     </aside>
-  </div>
+  </section>
 
 </article>

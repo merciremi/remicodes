@@ -82,9 +82,9 @@ main {
   padding: 120px 90px 60px 90px;
 }
 
-article.page .page--body,
-article.post .post--body,
-article.blog-archive .blog-archive--body {
+article.page section.page--body,
+article.post section.post--body,
+article.blog-archive section.blog-archive--body {
   display: grid;
   grid-template-columns: 50vw 20vw;
   align-items: start;
@@ -106,20 +106,6 @@ article.blog-archive .blog-archive--title {
 .blog-archive--sidebar ul {
   padding: 0;
   list-style-position: inside;
-}
-
-
-
-.post--content pre code {
-  white-space: pre;
-}
-
-article.post .post--title .breadcrumbs {
-  margin-top: -24px;
-}
-
-article.post .post--title {
-  margin-bottom: 48px;
 }
 
 /* Home */
@@ -194,6 +180,7 @@ article.home > section.home--latest {
     margin-top: 3em;
   }
 
+  article.page section,
   article.blog-archive .blog-archive--title {
     width: 90vw;
   }
@@ -208,9 +195,13 @@ article.home > section.home--latest {
     position: static;
   }
 
-  article.post .post--body {
+  article.post section.post--body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  article.post div h1 {
+    margin-bottom: 48px;
   }
 
   .post--content {
@@ -262,7 +253,17 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--headers-font);
 }
 
-h1 { font-size: var(--h1-font-size); }
-h2 { font-size: var(--h2-font-size); }
-h3 { font-size: var(--h3-font-size); }
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+  margin-top: 36px;
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
 h4, h5, h6 { font-size: var(--headings-font-size); }
