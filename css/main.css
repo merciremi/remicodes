@@ -11,6 +11,13 @@ img {
   max-width: 100%;
 }
 
+article.post figure {
+  margin: 36px 0px;
+  & figcaption {
+    font-size: var(--body-small-font-size);
+  }
+}
+
 /* Links */
 
 a:visited {
