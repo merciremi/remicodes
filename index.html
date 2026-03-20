@@ -7,7 +7,7 @@ layout: home
     <div class="home--hero-text">
       <h1>
         Hey, I’m Rémi.<br>
-        I'm a freelance software engineer helping tech companies build <span class="color-shuffle">cool stuff on the internet.</span>
+        I'm a freelance software engineer helping tech companies build <span class="color-shuffle"><span>c</span><span>o</span><span>o</span><span>l</span> <span>s</span><span>t</span><span>u</span><span>f</span><span>f</span></span> on the internet.
       </h1>
 
       <div class="home--hero-secondary-text">
@@ -22,12 +22,13 @@ layout: home
 
   <div class="home--latest">
     <div class="home--latest-post">
-      <h3>Latest post</h3>
+      <h3>Hot from the press</h3>
       → <a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a>
+        <span> (<time datetime="{{ site.posts.first.date }}">{{ site.posts.first.date | date: "%b %-d, %Y" }}</time>)</span>
     </div>
     <div class="home--latest-work">
-      <h3>Freelance services</h3>
-      → <a href="/work">Work</a>
+      <h3>Can't keep up with your roadmap?</h3>
+      → <a href="/work">Check my freelance services</a>
     </div>
   </div>
 </article>
