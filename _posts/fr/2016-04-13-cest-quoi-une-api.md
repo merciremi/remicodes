@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title:  "C'est quoi une API ? Une explication (compréhensible) pour les utilisateurs métier"
 date: 2016-04-13

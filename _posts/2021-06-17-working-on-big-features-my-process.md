@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: 'Building large features: my process for branches, requests and reviews'
 excerpt: "Working on large features can be tricky. I've spent the last few months refining a process that makes it easy to keep in touch with the main branch, to make reviews more manageable, and with little GIT overhead."

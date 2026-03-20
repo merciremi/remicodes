@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Looking for a job: handling fatigue and loneliness"
 excerpt: "Today, I would like to try something different. No polished new entries, just me sharing my day-to-day looking for a new job."

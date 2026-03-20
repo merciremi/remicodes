@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Technical tests in 2023: were they any good?"
 excerpt: "As I'm reaching the end of this recruiting cycle, I wanted to reflect on the recruiting processes I've completed. Some were good, some not so much."

@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: Pick a standard and move on
 excerpt: Why would you spend your cognitive capacity on useless choices?

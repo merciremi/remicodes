@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Lost in Minitest? Start here!"
 excerpt: "I have a confession to make: I have never used Minitest in the seven years I've been a professional programmer. Lured by the promise of speed and wide adoption, I decided to try Minitest. Then I hit an unexpected roadblock."

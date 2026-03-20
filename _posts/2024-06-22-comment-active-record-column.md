@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Add comments to your tables columns"
 excerpt: "Add extra documentation to your columns attributes with this one weird trick."

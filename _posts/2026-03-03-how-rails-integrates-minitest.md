@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Using Minitest::Spec in Rails? Watch out for the lifecycle hooks!"
 excerpt: "A small mistake sent me on an overly long investigation into Minitest hooks, and how Rails integrates with these."

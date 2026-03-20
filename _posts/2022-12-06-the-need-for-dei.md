@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: The never-ending days of DEI's importance
 excerpt: "A few weeks back, the creator of Ruby on Rails wrote a pamphlet rejoicing on - what appears to him as - the waning days of DEI's dominance. This rebuttal talks about how diversity, equity, and inclusion were, are, and will always be essential to workers."

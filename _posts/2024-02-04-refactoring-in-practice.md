@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: 'Refactoring in practice: moving toward convention'
 excerpt: "A few months ago, I had to write a Rails micro-service that synchronizes data between two versions of an application. I'll show you the successive steps I used to refactor this piece of code, from shameless-green to convention."

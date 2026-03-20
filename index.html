@@ -2,52 +2,35 @@
 layout: home
 ---
 
-<section>
-  <h3 class="top">👋🏻 Hello, I'm Rémi Mercier.</h3>
+<article class="page home">
+  <section class="home--hero">
+    <div class="home--hero-text">
+      <h1>
+        Hey, I’m Rémi.<br>
+        I'm a freelance software engineer helping tech companies build <span class="color-shuffle"><span>c</span><span>o</span><span>o</span><span>l</span> <span>s</span><span>t</span><span>u</span><span>f</span><span>f</span></span> on the internet.
+      </h1>
 
-  <h1>
-    I'm an <mark>independant software engineer</mark>, a writer, and a former stained-glass
-    master (yup).
-  </h1>
+      <div class="home--hero-secondary-text">
+        <p>I help small and medium-sized companies <a href="{{site.baseurl}}/work/">build reliable applications that make their users (and their business) happy</a>.</p>
 
-  <p>
-    I help tech companies <a href="{{ site.baseurl }}/work">build better products</a> and make a dent in the universe.
-  </p>
+        <p>I find joy in building things. Then, I find joy in writing about what I’ve learned in the process. You can check what I wrote about building reliable Ruby and Rails applications, about testing, career growth...</p>
 
-  <p>
-    I've built this corner of the web
-    <a href="{{ site.baseurl }}/blog"
-      >to share what I learn while building software</a
-    >, to jot down <a href="{{ site.baseurl}}/fragments">unedited notes</a>, and
-    to share bits about
-    <a href="{{ '/about' | prepend: site.baseurl }}">myself</a>. You can also
-    check <a href="{{ site.baseurl }}/now">what I'm doing right now</a>.
-  </p>
-</section>
-
-<hr class="mt-48 m-b-48">
-
-<section>
-  <h2 class="gradient-right section-label">Latest post</h2>
-  {% assign latest_post = site.posts | where_exp: "post", "post.lang != 'fr'" | first %}
-  <div class="m-b-48">
-    <div class="post-header">
-      <h2>
-        <a href="{{ latest_post.url | prepend: site.baseurl }}">{{ latest_post.title }}</a>
-      </h2>
-      <time datetime="{{ latest_post.date | date: '%Y-%m' }}">{{ latest_post.date | date: "%B %Y" }}</time>
+        <p>Follow along if you wanna know more about me or what I’m doing at the moment.</p>
+      </div>
     </div>
-    <p>{{ latest_post.excerpt }}</p>
-    <a href="{{ latest_post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
-  </div>
-</section>
+  </section>
 
-<hr class="mt-48 m-b-48">
+  <section class="home--latest">
+    <div class="home--latest-post">
+      <h3>Hot from the press</h3>
+      → <a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a>
+        <span> (<time datetime="{{ site.posts.first.date }}">{{ site.posts.first.date | date: "%b %-d, %Y" }}</time>)</span>
+    </div>
+    <div class="home--latest-work">
+      <h3>Can't keep up with your roadmap?</h3>
+      → <a href="/work">Check my freelance services</a>
+    </div>
+  </section>
+</article>
 
-<section>
-  <p>
-    Wanna chat? Send words my way on
-    <a href="https://ruby.social/@remi" target="_blank">Mastodon</a> or through
-    <a href="mailto:hello@remimercier.com">good ol' email</a>.
-  </p>
-</section>
+<script src="{{ site.baseurl }}/javascript/color-shuffle.js"></script>

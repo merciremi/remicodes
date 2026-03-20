@@ -5,24 +5,6 @@ permalink: /work/
 hide_title: true
 ---
 
-<!-- Service Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "{{ site.url }}/work/#service",
-  "name": "Freelance Software Engineering",
-  "description": "Freelance Ruby on Rails developer offering domain modeling, testing, OOP, feature development, codebase consolidation, and mentoring services.",
-  "url": "https://remimercier.com/work/",
-  "provider": {
-    "@id": "https://remimercier.com/#person"
-  },
-  "areaServed": "Worldwide",
-  "serviceType": "Software Development",
-  "category": ["Ruby on Rails Development", "Code Review", "Technical Mentoring"]
-}
-</script>
-
 <div class="hero">
   <h3 class="drag-down-1 gradient-right">
     As a freelance Ruby on Rails fullstack engineer,
@@ -102,3 +84,21 @@ I'm currently splitting my time between [Cults](https://cults3d.com/){:target="_
 Previously at [Evalmee](https://en.evalmee.com/), [Nextory](https://nextory.com/fr/){:target="\_blank"}, [Hosman](https://www.hosman.co/){:target="\_blank"}, and [Le Wagon](https://www.lewagon.com/fr){:target="\_blank"}. For more details, see my [CV]({{site.baseurl}}/media/shared/about/remi-mercier-cv-2024.pdf).
 
 <script src="{{ site.baseurl }}/javascript/color-shuffle.js"></script>
+
+<!-- Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "{{ site.url }}/work/#service",
+  "name": "Freelance Software Engineering",
+  "description": "Freelance Ruby on Rails developer offering domain modeling, testing, OOP, feature development, codebase consolidation, and mentoring services.",
+  "url": "https://remimercier.com/work/",
+  "provider": {
+    "@id": "https://remimercier.com/#person"
+  },
+  "areaServed": "Worldwide",
+  "serviceType": "Software Development",
+  "category": ["Ruby on Rails Development", "Code Review", "Technical Mentoring"]
+}
+</script>

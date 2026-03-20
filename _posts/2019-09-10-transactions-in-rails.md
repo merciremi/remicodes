@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title:  How to use railway-oriented business transactions to unclutter your Rails controllers
 date:   2019-09-09

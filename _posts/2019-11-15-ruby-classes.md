@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "An Introduction to Ruby classes and objects"
 date:   2019-11-18

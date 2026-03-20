@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "More Minitest::Spec shenanigans"
 excerpt: "While I already covered the basics of `Minitest::Spec`, I forgot to discuss a few aspects of the spec flavor. This post serves as a complement to the previous one and digs a bit deeper into some extra `Minitest::Spec` shenanigans."

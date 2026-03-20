@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: Testing railway-oriented business transactions with Rspec
 date:   2019-10-09
