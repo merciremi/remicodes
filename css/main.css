@@ -22,7 +22,7 @@ header {
 header nav {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 header nav ul {
@@ -47,8 +47,19 @@ article.blog-archive .blog-archive--body {
   gap: 14rem;
 }
 
+article.blog-archive .blog-archive--title {
+  width: 50vw;
+}
+
+.blog-archive--sidebar,
+.post--information {
+  position: sticky;
+  top: 30px;
+}
+
 .aside--toc ol,
-.aside--toc ul {
+.aside--toc ul,
+.blog-archive--sidebar ul {
   padding: 0;
   list-style-position: inside;
 }
