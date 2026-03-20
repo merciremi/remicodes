@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: The violence within
 date:   2019-10-12

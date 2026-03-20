@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: How to wrap your head around a new codebase
 date: 2020-06-12

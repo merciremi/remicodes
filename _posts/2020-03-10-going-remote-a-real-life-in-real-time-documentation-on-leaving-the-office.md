@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: 'Going remote: a live documentation on transitioning out of the office'
 date: 2020-03-10

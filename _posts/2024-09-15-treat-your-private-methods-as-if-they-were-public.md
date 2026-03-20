@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "What if your private method was a public method? A practical tip to identify bad design"
 excerpt: Where I share a badly designed piece of code, think about what process I can use to reveal its flaws, and how to make it better.

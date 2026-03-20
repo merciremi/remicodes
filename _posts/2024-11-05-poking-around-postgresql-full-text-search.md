@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Poking around PostgreSQL full-text search: a beginners primer"
 excerpt: "Today, I want to share a different type of post. Nothing polished. Just me goofing around with PostgreSQL's full-text search capabilities."

@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: Working with tempfiles in Ruby
 date:   2020-01-28

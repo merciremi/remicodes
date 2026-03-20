@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: How to write better specifications for your features
 excerpt: "For years, I've worked without thinking much about feature specifications. Many teams endure empty Trello cards, neglected Jira tickets, and misaligned communication. So today, I want to share how to write better specifications for your features."

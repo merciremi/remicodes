@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: Get started with ActiveRecord scoped associations
 date: 2020-10-07

@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: Asynchronous HTTP requests in Rails
 date: 2020-05-05
