@@ -22,7 +22,6 @@ gem "kramdown-parser-gfm"
 group :jekyll_plugins do
   gem "jekyll-feed"
   gem 'jekyll-compose'
-  gem 'jekyll-cover', git: 'https://github.com/merciremi/jekyll-cover.git', branch: 'main'
   gem 'jekyll-redirect-from'
   gem "jekyll-paginate"
 end
