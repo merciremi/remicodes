@@ -26,39 +26,6 @@ body {
   font-size: var(--body-font-size)
 }
 
-/* News banner */
-
-.news-ribbon {
-  display: flex;
-  align-items: center;
-  background: #0a1628;
-  color: #fff;
-  font-family: var(--body-font);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  height: 32px;
-  overflow: hidden;
-}
-
-.news-ribbon--label {
-  flex-shrink: 0;
-  background: #cc0000;
-  color: #fff;
-  padding: 0 14px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  margin-right: 12px;
-}
-
-.news-ribbon marquee {
-  color: #e8e8e8;
-}
-
 header {
   padding: 30px 90px 30px 60px;
 }
@@ -80,6 +47,58 @@ header nav ul {
 main {
   max-width: 90vw;
   padding: 120px 90px 60px 90px;
+}
+
+/* Footer */
+
+footer {
+  display: grid;
+  grid-template-columns: 50vw 20vw;
+  align-items: start;
+  gap: 14rem;
+  padding: 48px 90px;
+}
+
+/* Newsletter */
+
+.inf-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inf-submit input[type="submit"] {
+  margin-top: 0 !important;
+}
+
+.inf-input input[type="email"],
+.inf-submit input[type="submit"] {
+  border: 2px solid #000;
+  border-radius: 0;
+  /*box-shadow: 3px 3px 0 #000;*/
+  padding: 0.4em 0.75em;
+  font-family: var(--body-font);
+  font-size: 0.875rem;
+  background: #fff;
+  appearance: none;
+}
+
+.inf-input input[type="email"]:focus {
+  outline: none;
+  box-shadow: 1px 1px 0 #000;
+}
+
+.inf-submit input[type="submit"] {
+  cursor: pointer;
+  font-weight: 600;
+  &:submit {
+    box-shadow: 2px 2px 0 #000;
+  }
+}
+
+.inf-submit input[type="submit"]:active {
+  box-shadow: 2px 2px 0 #000;
+  transform: translate(2px, 2px);
 }
 
 article.page section.page--body,
@@ -169,6 +188,10 @@ article.home > section.home--latest {
 
   header {
     padding: 10px 10px;
+  }
+
+  footer {
+    padding: 40px 20px;
   }
 
   article.home > section.home--latest,
@@ -267,3 +290,36 @@ h3 {
 }
 
 h4, h5, h6 { font-size: var(--headings-font-size); }
+
+/* News banner */
+
+.news-ribbon {
+  display: flex;
+  align-items: center;
+  background: #0a1628;
+  color: #fff;
+  font-family: var(--body-font);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  height: 32px;
+  overflow: hidden;
+}
+
+.news-ribbon--label {
+  flex-shrink: 0;
+  background: #cc0000;
+  color: #fff;
+  padding: 0 14px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-right: 12px;
+}
+
+.news-ribbon marquee {
+  color: #e8e8e8;
+}

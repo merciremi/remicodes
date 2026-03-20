@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html>
-{% include head.html %}
-
-<body>
-  {% include news_ribbon.html %}
-  {% if page.lang == 'fr' %}
-    {% include fr/header.html %}
-  {% else %}
-    {% include header.html %}
-  {% endif %}
-  <main>
-    {{ content }}
-  </main>
-  <!-- {% include footer.html %} -->
-</body>
-
+  {% include head.html %}
+  <body>
+    {% include news_ribbon.html %}
+    {% if page.lang == 'fr' %}
+      {% include fr/header.html %}
+    {% else %}
+      {% include header.html %}
+    {% endif %}
+    <main>
+      {{ content }}
+    </main>
+    {% include footer.html %}
+  </body>
 </html>
