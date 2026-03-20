@@ -43,10 +43,13 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
       <ul>
         {% assign categories = site.posts | map: "category" | flatten | compact | uniq | sort %}
         {% for category in categories %}
-          {% unless category == "" or category == nil %}
+          {% unless category == "" or category == nil or category == "other" %}
             <li><a href="{{ site.baseurl }}/series/{{ category }}">{{ category | capitalize }}</a></li>
           {% endunless %}
         {% endfor %}
+        {% if categories contains "other" %}
+          <li><a href="{{ site.baseurl }}/series/other">Other</a></li>
+        {% endif %}
       </ul>
     </aside>
   </div>

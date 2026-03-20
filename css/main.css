@@ -13,7 +13,7 @@ body {
   font-size: var(--body-font-size)
 }
 
-/* Renovation banner */
+/* News banner */
 
 .news-ribbon {
   display: flex;
@@ -166,6 +166,39 @@ article.post .post--title {
   .blog-archive--sidebar {
     order: -1;
     position: static;
+  }
+
+  article.post .post--body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .post--information {
+    order: -1;
+    position: static;
+  }
+
+  .aside--title {
+    display: none;
+  }
+
+  .aside--meta div {
+    display: inline;
+  }
+
+  .aside--meta p {
+    display: inline;
+    margin: 0;
+  }
+
+  .aside--meta div + div::before {
+    content: " · ";
+  }
+
+  .aside--tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0;
   }
 
   .blog-archive--sidebar ul {
