@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+
+<body>
+  {% if page.lang == 'fr' %}
+    {% include fr/header.html %}
+  {% else %}
+    {% include header.html %}
+  {% endif %}
+  <main>
+    {{ content }}
+  </main>
+  <!-- {% include footer.html %} -->
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+/* Where tests and trials go */
+
+.color-shuffle {
+  white-space: nowrap;
+}
+
+.color-shuffle span {
+  display: inline-block;
+  transition: color 0.3s ease 0.5s;
+  transform-origin: bottom center;
+}
+
+.color-shuffle span:hover {
+  transition: color 0.05s ease;
+}
+
+.color-shuffle span.wobbling {
+  animation: wobble 0.48s ease-in-out;
+}
+
+@keyframes wobble {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+

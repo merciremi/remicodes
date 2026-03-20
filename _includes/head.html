@@ -1,0 +1,129 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    {% if page.title %}
+      {{ page.title }} - Remi Mercier - Freelance Software Developer
+    {% else %}
+      {{ site.title }} - Freelance Software Developer
+    {% endif %}
+  </title>
+
+  <link rel="stylesheet" href="{{ '/css/main.css' | prepend: site.baseurl }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ site.baseurl }}/feed.xml">
+
+  <!---------------->
+  <!-- Open Graph -->
+  <!---------------->
+
+  <!-- Site title -->
+  <meta property="og:site_name" content="{{ site.title }} - Software Developer">
+
+  <!-- Page title -->
+  {% if page.title %}
+    <meta property="og:title" content="{{ page.title }} - Remi Mercier - Software Developer">
+  {% else %}
+    <meta property="og:title" content="{{ site.title }} - Software Developer">
+  {% endif %}
+
+  <!-- Type of content -->
+  {% if page.title %}
+    <meta property="og:type" content="article">
+  {% else %}
+    <meta property="og:type" content="website">
+  {% endif %}
+
+  <!-- Excerpt -->
+  {% if page.excerpt %}
+    <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+    <meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 200 }}">
+  {% else %}
+    <meta name="description" content="{{ site.description }}">
+    <meta property="og:description" content="{{ site.description }}">
+  {% endif %}
+
+  <!-- Locale -->
+  <meta property="og:locale" content="en_US">
+
+  <!-- Url -->
+  {% if page.url %}
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {% endif %}
+
+  <!-- Author -->
+  <meta property="article:author" content="{{ site.url }}/about/">
+  <meta property="article:publisher" content="https://www.linkedin.com/in/remimercier/">
+  <meta name="fediverse:creator" content="@remi@ruby.social">
+
+  <!-- Date -->
+  {% if page.date %}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {% endif %}
+
+  <!-- Cover image -->
+  {% if page.cover_image %}
+    <meta property="og:image" content="{{ site.url }}{{ page.cover_image }}">
+    <meta property="og:image:alt" content="{{ page.title | escape }}">
+  {% else %}
+    <meta property="og:image" content="{{ site.url }}/media/remi-mercier.jpg">
+  {% endif %}
+
+  <!-- Mastodon -->
+
+  <link rel="me" href="https://ruby.social/@remi">
+
+  <!------------------>
+  <!-- Schema.org   -->
+  <!------------------>
+
+  <!-- Person Schema (site-wide) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "{{ site.url }}/#person",
+    "name": "Rémi Mercier",
+    "alternateName": "merciremi",
+    "url": "{{ site.url }}",
+    "image": "{{ site.url }}/media/remi-mercier.jpg",
+    "jobTitle": "Independent Software Engineer, Technical Writer",
+    "description": "Rémi Mercier is an independent Ruby/Rails developer and technical writer based in France, known for blogging about building robust software with Ruby on Rails, testing with RSpec and Minitest, and helping developers build joyful careers.",
+    "sameAs": [
+      "https://ruby.social/@remi",
+      "https://github.com/merciremi",
+      "https://www.linkedin.com/in/remimercier/"
+    ],
+    "knowsAbout": [
+      "Ruby",
+      "Ruby on Rails",
+      "RSpec",
+      "Minitest",
+      "PostgreSQL",
+      "Git",
+      "Test-Driven Development",
+      "Object-Oriented Programming",
+      "Refactoring",
+      "Domain modeling",
+      "Career development for developers"
+    ]
+  }
+  </script>
+
+  <!-- WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "{{ site.url }}/#website",
+    "name": "Rémi Mercier",
+    "url": "{{ site.url }}",
+    "description": "{{ site.description }}",
+    "author": {
+      "@id": "{{ site.url }}/#person"
+    }
+  }
+  </script>
+</head>

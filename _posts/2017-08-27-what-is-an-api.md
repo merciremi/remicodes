@@ -2,21 +2,26 @@
 layout: post
 title: What is an API?
 date: 2017-08-27 14:34 +0100
+excerpt: "Wrapping your head around APIs can be challenging for non-technical users. What’s an API? What can be share through an API? Data? Services? How does one design an API?How do you code an API?"
+category: 'other'
+permalink: /what-is-an-api/
 ---
 
 Before we start, I’d like to ask you a few questions. Do you know how:
 
-- http://authenticweather.com/ knows the weather it’ll be doing during your upcoming trip to Dunkirk?
-- https://www.thetrainline.com/ knows if a seat is available (of that very same upcoming trip to Dunkirk)?
-- https://www.airbnb.com/ puts available flats on a map (do I even need to say “of Dunkirk”)?
+- [Authentic Weather](http://authenticweather.com/) knows the weather it’ll be doing during your upcoming trip to Dunkirk?
+- [Trainline](https://www.thetrainline.com/) knows if a seat is available (of that very same upcoming trip to Dunkirk)?
+- [Airbnb](https://www.airbnb.com/) puts available flats on a map (do I even need to say “of Dunkirk”)?
 
-![what-is-an-api-remi-mercier](/content/images/2017/09/what-is-an-api-remi-mercier.gif)
+<img class='large' src="{{ site.baseurl }}/media/2017/what-is-an-api-remi-mercier.gif" alt="">
 
 These past few years, APIs (also known as Application Programming Interfaces) have spread like wildfire in the startup growth game.
 
 To quote [Paul Bonaud](https://twitter.com/paulrb_r), back-end engineer at [@trainline_fr](https://twitter.com/trainline_fr) (formerly Captain-Train):
 
-> APIs, quite an interesting and vast subject, isn’t it?
+<blockquote>
+  APIs, quite an interesting and vast subject, isn’t it?
+</blockquote>
 
 Wrapping your head around APIs can be challenging for non-technical users. What’s an API? What can be share through an API? Data? Services? How does one design an API?How do you code an API?
 
@@ -39,7 +44,7 @@ Let’s break that acronym down:
 - **Interface**: The interface is the entry door to the service. You have to go through that door to interact with the service capabilities (e.g., filtering meteorological data for a city, publishing pictures on Instagram…)
 - **Program**: The program is a set of coded procedures written by a developer. The program is designed to interact with the application, so we don’t have to. For example, the program can submit a postal address to get coordinates (think Airbnb or Google Map).
 
-![what-is-an-api-diagram-remi-mercier](/content/images/2017/09/what-is-an-api-diagram-remi-mercier.png)
+<img class='large' src="{{ site.baseurl }}/media/2017/what-is-an-api-diagram-remi-mercier.png" alt="">
 
 To sum it up: APIs are programs using a specific point of entry (the interface, also call an end-point) to interact with an application (or some features within this application).
 
@@ -53,7 +58,7 @@ We’ve seen it above; the service can come in many shapes and forms: real-time 
 
 Developers write programs that consume these APIs.
 
-APIs can be used in various environments.
+### APIs can be used in various environments:
 
 👉 In a closed environment:
 
@@ -65,6 +70,8 @@ APIs can be used in various environments.
 
 - expose data to the world: think open data portals
 - allow other companies to offer their services within your application: think Giphy integration in Slack, Zapier…
+
+### Let's try a metaphor
 
 Metaphors can be tricky when it comes to technological matters. But the gist of APIs can easily be understood using the electricity network as a proxy.
 
@@ -97,7 +104,7 @@ APIs will do the same and specify conditions to use them:
 
 Thanks to the standardization of sockets, you can plug several lamps in your home without thinking twice about it. What matters is that every socket is functionally similar: it brings electricity right into your home.
 
-APIs and sockets are abstractions for the service they expose.
+**APIs and sockets are abstractions for the service they expose.**
 
 Wait, what? Abstractions? 🤔
 
@@ -116,4 +123,4 @@ The abstraction works the other way round. weather.com’s API doesn’t care ab
 
 ----------
 
-Was this helpful? Lemme know in the comments or on [Twitter](https://twitter.com/mercier_remi)!
+Was this helpful? Lemme know in the comments or on [Mastodon](https://ruby.social/@remi)!

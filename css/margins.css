@@ -1,0 +1,19 @@
+.m-b-48 {
+  margin-bottom: 48px;
+}
+
+.m-b-60 {
+  margin-bottom: 60px;
+}
+
+.m-b-72 {
+  margin-bottom: 72px;
+}
+
+.-mb-18 {
+  margin-bottom: calc(-1 * var(--body-font-size));
+}
+
+.mt-48 {
+  margin-top: 48px;
+}
