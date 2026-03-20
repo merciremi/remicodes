@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title:  'Debugging PGError: ERROR: column of relation already exists'
 date:   2019-07-10

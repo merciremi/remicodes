@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: 'Interfacing with external APIs: the facade pattern in Ruby'
 excerpt: "Interacting with third-party APIs is common practice in applications. This is where the structural design pattern called facade comes into play."

@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "#TIL: a daily recap of my first two months as a Ruby on Rails developer"
 date: 2018-09-01

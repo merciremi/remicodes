@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Build a minimal feature flags manager in under an hour"
 excerpt: "Feature flags (or feature toggles) are a neat way to hide in-progress features from your users. For those who need a simple on-and-off system, here's a minimal feature flag manager that'll take less than an hour to build, using plain Ruby objects, the Rails configuration, and some neat variables organization."

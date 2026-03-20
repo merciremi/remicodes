@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "From stained-glass master to software engineer: it starts with a mess"
 excerpt: "Changing careers is a long, often-overlooked process. But I want to share both the (linear) story and the (messy) history of how I became a software engineer. And as a lot of good stories, mine always starts with a lie."

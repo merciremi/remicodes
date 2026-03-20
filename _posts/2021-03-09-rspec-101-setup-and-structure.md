@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: 'An introduction to RSpec: how to install RSpec, naming convention and basic files structure'
 date: 2021-03-09

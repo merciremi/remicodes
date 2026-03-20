@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "What is Minitest::Spec?"
 excerpt: "In my previous post, I talked a lot about how Minitest comes in various syntax flavors. One flavor I did not cover much is Minitest's spec extension."

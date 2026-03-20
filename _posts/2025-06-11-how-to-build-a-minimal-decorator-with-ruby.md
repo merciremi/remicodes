@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: Build a minimal decorator with Ruby in 30 minutes
 excerpt: A while ago, I needed to add some view-related instance methods to a model. Decorators are my go-to pattern to handle this kind of logic. So, I built a minimal decorator from scratch, added a bunch of extra behaviors, only to end up abstracting all of that away. Follow along!

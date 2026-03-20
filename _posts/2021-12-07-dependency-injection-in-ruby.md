@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Exploring dependency injection in Ruby"
 excerpt: "Classes depend on each other all the time. But the way you tie those classes together will determine how hard it is to change your code. Dependency injection can help you reduce that coupling and reduce your cost of change."

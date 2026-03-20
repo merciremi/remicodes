@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Upgrading Ruby on Rails: a beginner's guide"
 excerpt: "You're about to upgrade your application to the newest version of Ruby on Rails. And you've never done it before? Fear not! Here's my battle-tested companion to migrating Rails."

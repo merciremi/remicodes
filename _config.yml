@@ -55,6 +55,12 @@ jekyll_compose:
       permalink:
       category:
       cover_image:
+      toc: true
+
+toc:
+  min_level: 1
+  max_level: 3
+  ordered_list: true
 
 # Build settings
 include: ['_pages', '_data']
@@ -66,6 +72,7 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-paginate
+  - jekyll-toc
 whitelist:
   - jekyll-redirect-from
 paginate: 20

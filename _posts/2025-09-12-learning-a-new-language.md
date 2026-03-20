@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: Finally learning a new language
 excerpt: For years, people around me have been telling me to learn new programming languages—that I shouldn’t corner myself with Ruby (and Rails). And for years, I couldn’t muster the mental energy to do it.

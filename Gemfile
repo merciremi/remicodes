@@ -20,10 +20,11 @@ gem "kramdown-parser-gfm"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed"
   gem 'jekyll-compose'
+  gem 'jekyll-feed'
+  gem 'jekyll-paginate'
   gem 'jekyll-redirect-from'
-  gem "jekyll-paginate"
+  gem 'jekyll-toc'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

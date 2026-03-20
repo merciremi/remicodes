@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: Don't sell yourself short
 date:   2020-03-01

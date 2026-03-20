@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Always serving someone"
 date: 2021-01-21

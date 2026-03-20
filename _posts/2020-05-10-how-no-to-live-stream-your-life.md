@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: How not to live stream your code
 date: 2020-05-10

@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Speed up RSpec tests: understand lifecycle and execution"
 excerpt: "One of RSpec's strengths is the legibility of its behavior-based DSL. The other side of this coin is that the proliferation of small example blocks  introduces a performance overhead."

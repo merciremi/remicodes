@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: How I use git add --patch for reviewing my work
 excerpt: "When working on features, I strive to preserve my flow, which means, that after a few hours, I'll have a bunch of untracked files waiting for me in git. I use `git add --patch` to effectively bundling my work into separate commits."

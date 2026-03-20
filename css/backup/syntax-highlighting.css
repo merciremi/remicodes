@@ -4,7 +4,6 @@
    a steel-blue monochrome scale.
    ========================================================================== */
 
-code,
 .highlight {
   /*
    * Monocolor token scheme — steel blue at different lightness steps.
@@ -16,21 +15,21 @@ code,
    *   --hl-subtle:  lighter  — operators, punctuation
    *   --hl-muted:   lightest — comments
    */
-  --hl-strong:  #000000;
-  --hl-medium:  #1a1a1a;
-  --hl-base:    #333333;
-  --hl-subtle:  #666666;
-  --hl-muted:   #999999;
+  --hl-strong:  #3d3d3d;
+  --hl-medium:  #474747;
+  --hl-base:    #424242;
+  --hl-subtle:  #4d4d4d;
+  --hl-muted:   #525252;
 
-  /* -- Window chrome (b&w) -- */
-  --ctp-text:      #1a1a1a;
-  --ctp-border:    #000000;
-  --ctp-shadow:    #333333;
-  --ctp-surface1:  #e8e8e8;
-  --ctp-overlay0:  #aaaaaa;
+  /* -- Window chrome (old Mac b&w) -- */
+  --ctp-text:      #505050;
+  --ctp-border:    #505050;
+  --ctp-shadow:    #505050;
+  --ctp-surface1:  #e0e0e0;
+  --ctp-overlay0:  #999999;
   --ctp-base:      #ffffff;
-  --ctp-mantle:    #f5f5f5;
-  --ctp-crust:     #ebebeb;
+  --ctp-mantle:    #f0f0f0;
+  --ctp-crust:     #e8e8e8;
 }
 
 /* ---------------------------------------------------------------------------
@@ -40,40 +39,28 @@ code,
 .highlight {
   position: relative;
   background-color: var(--ctp-base);
-  border: 2px solid var(--ctp-shadow);
+  border: 2px solid var(--ctp-border);
   border-radius: 0;
   margin: 2em 0;
   box-shadow:
     4px 4px 0 var(--ctp-shadow);
-  overflow-x: auto;
 }
 
-/* Title bar — pinstripes with close box */
+/* Title bar — flat grey with horizontal pinstripes and close box */
 .highlight::before {
   content: "";
   display: block;
   height: 24px;
   background-color: var(--ctp-surface1);
+  border-bottom: 2px solid var(--ctp-border);
   background-image:
     repeating-linear-gradient(
       to bottom,
       transparent 0px,
-      transparent 4px,
-      rgba(0, 0, 0, 0.2) 4px,
-      rgba(0, 0, 0, 0.2) 6px
+      transparent 2px,
+      var(--ctp-border) 2px,
+      var(--ctp-border) 3px
     );
-}
-
-/* White square close box */
-.highlight::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border: 2px solid var(--ctp-border);
 }
 
 /* Code area */
@@ -91,9 +78,9 @@ code,
 
 /* Inline code */
 code {
-  font-family: monospace;
+  font-family: 'Fira Mono', monospace;
   font-size: 0.875rem;
-  background-color: var(--ctp-crust);
+  background-color: #e0e7f0;
   padding: 0.15em 0.4em;
   border-radius: 0;
 }

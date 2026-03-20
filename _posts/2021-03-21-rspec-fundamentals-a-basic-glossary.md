@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Introduction to RSpec: the syntax"
 date: 2021-03-21

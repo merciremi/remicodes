@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: "Debugging with pry-byebug: moving in the stack frame"
 date: 2021-01-18

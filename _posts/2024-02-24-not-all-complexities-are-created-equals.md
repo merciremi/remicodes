@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: Domain complexity vs applicative complexity
 excerpt: 'For years, code would fall into two categories: easy (good!) and hard (bad!). Recently, I''ve realized that not every piece of _hard_ code is created equal. Complex code often encompasses two kinds of complexity: domain complexity and applicative complexity. And I often failed to identify which is which.'

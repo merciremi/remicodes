@@ -6,6 +6,7 @@ date: 2026-03-10
 permalink: /indierails-pocast-interview/
 category: career
 cover_image:
+toc: true
 ---
 
 I joined Jeremy Smith and Jess Brown on the [IndieRails podcast](https://www.indierails.com/){:target="\_blank"} to talk about how I managed the transition from stained-glass master to [freelance software engineer]({{site.baseurl}}/work/).

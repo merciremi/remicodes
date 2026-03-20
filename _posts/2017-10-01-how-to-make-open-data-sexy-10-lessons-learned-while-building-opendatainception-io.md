@@ -1,4 +1,5 @@
 ---
+toc: true
 layout: post
 title: 'How to make Open Data sexy: 10 lessons learned while building opendatainception.io'
 date: 2017-10-01
