@@ -155,6 +155,32 @@ article.post .post--title {
   100% { transform: rotate(0deg); }
 }
 
+/* Mobile */
+
+@media (max-width: 768px) {
+  article.blog-archive .blog-archive--body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .blog-archive--sidebar {
+    order: -1;
+    position: static;
+  }
+
+  .blog-archive--sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    list-style: none;
+  }
+
+  .blog-archive--sidebar li + li::before {
+    content: "·";
+    margin: 0 0.4em;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--headers-font);
 }
