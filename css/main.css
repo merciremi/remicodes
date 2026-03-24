@@ -264,7 +264,7 @@ article.home > section.home--latest {
     width: 90vw;
   }
 
-  article.blog-archive .blog-archive--body {
+  article.blog-archive section.blog-archive--body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
