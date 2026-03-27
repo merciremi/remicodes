@@ -1,4 +1,14 @@
 <div class="news-ribbon">
-  <span class="news-ribbon--label">⚡ Site update</span>
-  <marquee>Currently working on the website — things may look broken or change at any time &nbsp;·&nbsp; Currently working on the website — things may look broken or change at any time</marquee>
+  <div class="news-ribbon--label">
+    <p>⚡️ Site update</p>
+  </div>
+  <div class="news-ribbon--content">
+    <span>Currently working on the website — things may look broken or change at any time</span>
+    <span>New blog post: <a href="{{ site.posts.first.url | prepend: site.baseurl }}">bob {{ site.posts.first.title }}</a></span>
+  </div>
+  <div>
+    <button class="news-ribbon--toggle" aria-label="Pause ticker">⏸️</button>
+  </div>
 </div>
+
+<script src="{{ site.baseurl }}/javascript/news-ribbon.js"></script>

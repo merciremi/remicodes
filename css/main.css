@@ -16,7 +16,7 @@ body {
   padding: 0;
   font-family: var(--body-font);
   font-size: var(--body-font-size);
-  background-color: #dbeafe;
+  background-color: var(--background-color);
   /*background-color: var(--ctp-crust);*/
   color: var(--font-color);
 }
@@ -45,7 +45,7 @@ main {
 }
 
 article {
-  padding: 120px 90px 60px 90px;
+  padding: 20px 90px 60px 90px;
 }
 
 article.page section.page--body,
@@ -135,34 +135,81 @@ article.home > section.home--latest {
 /* News banner */
 
 .news-ribbon {
+  position: relative;
   display: flex;
   align-items: center;
-  background: #0a1628;
-  color: #fff;
+  background: linear-gradient(to right, #002fa7, var(--font-color));
+  color: var(--background-color);
   font-family: var(--body-font);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  height: 32px;
+  height: 3em;
   overflow: hidden;
+  gap: 2em;
+
+  & a {
+    color: var(--background-color);
+  }
 }
 
 .news-ribbon--label {
-  flex-shrink: 0;
-  background: #cc0000;
-  color: #fff;
-  padding: 0 14px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-weight: 800;
+  padding: 0 2em;
   letter-spacing: 0.08em;
-  margin-right: 12px;
+  min-width: 10em;
+  border-right: 0.25px solid var(--background-color);
+  position: relative;
+  z-index: 2;
+  background-color: #002fa7;
 }
 
-.news-ribbon marquee {
-  color: #e8e8e8;
+.news-ribbon--label::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 1px);
+  top: 0;
+  width: 4em;
+  height: 100%;
+  background: linear-gradient(to right, #002fa7, transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.news-ribbon--content {
+  flex: 1;
+  display: flex;
+  gap: 2em;
+  white-space: nowrap;
+  animation: ribbon-scroll 20s linear infinite;
+}
+
+.news-ribbon--content span::before {
+  content: "·";
+  margin-right: 2em;
+}
+
+@keyframes ribbon-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.news-ribbon--toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 2em;
+  font-size: inherit;
+}
+
+.news-ribbon.is-paused .news-ribbon--content {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-ribbon--content {
+    animation: none;
+  }
 }
 
 /*************/
@@ -340,7 +387,7 @@ section.scribbles .scribble {
   }
 
   article {
-    padding: 60px 10px 60px 20px
+    padding: 20px 10px 60px 20px
   }
 
   header {
@@ -434,5 +481,11 @@ section.scribbles .scribble {
 
   .inf-content {
     gap: 0.5rem;
+  }
+
+  .news-ribbon--content,
+  .news-ribbon--label {
+    min-width: fit-content;
+    font-size: var(--body-small-font-size);
   }
 }
