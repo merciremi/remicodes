@@ -92,7 +92,7 @@ code,
 /* Inline code */
 code {
   font-family: monospace;
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
   background-color: var(--ctp-crust);
   padding: 0.15em 0.4em;
   border-radius: 0;

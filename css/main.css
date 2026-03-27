@@ -37,7 +37,7 @@ article.post figure {
 }
 
 article.post .breadcrumbs {
-  margin-top: -24px;
+  margin-top: -1em;
 }
 
 article.post section.post--title {
@@ -269,6 +269,9 @@ section.scribbles .scribble {
 @media (max-width: 768px) {
   main {
     width: 95vw;
+  }
+
+  article {
     padding: 60px 10px 60px 20px
   }
 
