@@ -97,6 +97,7 @@ a {
   /*color: #002FA7;*/
   /*font-weight: bold;*/
   color: var(--font-color);
+  text-decoration-thickness: 1px;
 }
 
 ul {
