@@ -239,6 +239,23 @@ article.home > section.home--latest {
   100% { transform: rotate(0deg); }
 }
 
+section.scribbles {
+  margin-top: 2em;
+}
+
+section.scribbles .scribble {
+  position: relative;
+  margin-bottom: 4em;
+
+  & .scribble--icon {
+    position: absolute;
+    left: -1.2em;
+    width: 1em;
+    top: 0.2em;
+  }
+}
+
+
 /* Large screens */
 
 @media (min-width: 1400px) {
