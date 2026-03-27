@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '#00BFFF', '#8B5CF6', '#EC4899', '#06B6D4', '#84CC16'
   ];
 
+
   const spans = document.querySelectorAll('.color-shuffle span');
 
   spans.forEach(span => {

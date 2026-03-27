@@ -47,6 +47,12 @@ article.post section.post--title {
 
 a:visited {
   color: LinkText;
+  /*color: #ea580c;*/
+}
+
+a {
+  /*color: #ea580c;*/
+  /*font-weight: bold;*/
 }
 
 /* Layout */
@@ -55,7 +61,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--body-font);
-  font-size: var(--body-font-size)
+  font-size: var(--body-font-size);
+  /*background-color: #dbeafe;*/
+  /*color: #2563eb;*/
 }
 
 header {
@@ -78,6 +86,10 @@ header nav ul {
 
 main {
   max-width: 90vw;
+  /*padding: 120px 90px 60px 90px;*/
+}
+
+article {
   padding: 120px 90px 60px 90px;
 }
 
@@ -190,6 +202,7 @@ article.home > section.home--hero {
   grid-template-columns: 4fr 1fr;
   align-items: start;
   gap: 2em;
+  margin-top: -120px;
 }
 
 article.home > section.home--latest {

@@ -1,5 +1,7 @@
 <div class="breadcrumbs">
-  {% if page.category == 'other' %}
+  {% if page.category == 'other' or page.category == nil %}
+    <a href="{{ site.baseurl }}/blog">← Return to the complete archive</a>
+  {% elsif page.category.size == 0 %}
     <a href="{{ site.baseurl }}/blog">← Return to the complete archive</a>
   {% elsif page.category.size == 2 %}
     <a href="{{ site.baseurl }}/series/{{page.category.first}}">← Return to the {{page.category.first | capitalize}} blog</a>

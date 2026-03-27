@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<article class="page">
+  <section class="page--title">
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.excerpt }}</p>
+    {% include breadcrumbs.html %}
+  </section>
+  <section class="page--body">
+    <section>
+      {{ content }}
+    </section>
+  </section>
+</article>
+
+<!-- WebPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ site.url }}{{ page.url }}#webpage",
+  "name": "{{ page.title | escape }}",
+  "url": "{{ site.url }}{{ page.url }}",
+  "author": {
+    "@id": "{{ site.url }}/#person"
+  }
+}
+</script>
