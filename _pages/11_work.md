@@ -6,7 +6,7 @@ hide_title: true
 ---
 
 <div class="hero">
-  <h3 class="drag-down-1 gradient-right">
+  <h3>
     As a freelance Ruby on Rails fullstack engineer,
   </h3>
   

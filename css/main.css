@@ -17,8 +17,8 @@ body {
   font-family: var(--body-font);
   font-size: var(--body-font-size);
   background-color: #dbeafe;
-  /*background-color: #f5f9ff;*/
-  color: #114BC9;
+  /*background-color: var(--ctp-crust);*/
+  color: var(--font-color);
 }
 
 header {
@@ -89,14 +89,14 @@ h4, h5, h6 { font-size: var(--headings-font-size); }
 a:visited {
   /*color: #002FA7;*/
   /*color: #ea580c;*/
-  color: #114BC9;;
+  color: var(--font-color);;
 }
 
 a {
   /*color: #ea580c;*/
   /*color: #002FA7;*/
   /*font-weight: bold;*/
-  color: #114BC9;;
+  color: var(--font-color);
 }
 
 ul {
@@ -124,7 +124,6 @@ article.home > section.home--hero {
   grid-template-columns: 4fr 1fr;
   align-items: start;
   gap: 2em;
-  margin-top: -120px;
 }
 
 article.home > section.home--latest {
