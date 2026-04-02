@@ -17,5 +17,14 @@
 
   /*--font-color: #04173E;*/
   --font-color: #114BC9;
-  --background-color: #dbeafe;
+  --font-color: #292929;
+  /*--background-color: #dbeafe;*/
+  --background-color: #e7f1ff;
+  --background-color: #F6F6F3;
+
+  --ctp-crust:     #ebebeb;
+  --ctp-surface1:  #e8e8e8;
+  --ctp-crust:     #ebebeb;
 }
+
+/* #99ACC5  darker gray blue */
