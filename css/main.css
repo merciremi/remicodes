@@ -263,8 +263,38 @@ article.blog-archive .blog-archive--title {
     font-family: "Doto";
     font-weight: 900;
     background-color: var(--font-color);
+    border-bottom: none;
     color: var(--background-color);
     padding: 2px 10px;
+    transition: background-color 0.15s ease;
+    text-decoration: none;
+  }
+
+  & a[data-category="ruby"]:hover     {
+    background-color: #e2242a;
+  }
+
+  & a[data-category="rails"]:hover    {
+    background-color: orangered;
+  }
+
+  & a[data-category="rspec"]:hover    {
+    background-color: springgreen;
+    color: var(--font-color);
+  }
+
+  & a[data-category="debugging"]:hover {
+    background-color: hotpink;
+    color: var(--font-color);
+  }
+
+  & a[data-category="career"]:hover   {
+    background-color: royalblue;
+  }
+
+  & a[data-category="other"]:hover    {
+    background-color: yellow;
+    color: var(--font-color);
   }
 }
 
