@@ -145,6 +145,7 @@ article.home > section.home--hero {
 
 article.home > section.home--latest {
   display: flex;
+  flex-direction: row;
   gap: 5em;
   margin: 2em 0;
 }
@@ -247,6 +248,24 @@ article.blog-archive .blog-archive--title {
 .post--information {
   position: sticky;
   top: 30px;
+}
+
+.blog-archive--sidebar {
+  margin-top: 1.2em;
+  & ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  & a {
+    font-family: "Doto";
+    font-weight: 900;
+    background-color: var(--font-color);
+    color: var(--background-color);
+    padding: 2px 10px;
+  }
 }
 
 article.post section.post--title {
@@ -423,7 +442,9 @@ section.scribbles .scribble {
 
   article.home > section.home--latest,
   article.home > section.home--hero {
-    display: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
   }
 
   article.home > section.home--latest {
