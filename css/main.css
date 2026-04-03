@@ -148,6 +148,11 @@ article.home > section.home--latest {
   border-top: 1px solid #D6D6D6;
 }
 
+.home--hero-title {
+  font-family: "Sriracha";
+  font-size: 1em !important;
+}
+
 /* News banner */
 
 .news-ribbon {
