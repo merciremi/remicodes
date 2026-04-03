@@ -144,15 +144,15 @@ article.home > section.home--hero {
 }
 
 article.home > section.home--latest {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  gap: 5em;
   margin: 2em 0;
 }
 
 
 .home--latest-post,
 .home--latest-work {
-  border-top: 2px solid var(--font-color);
+  border-top: 1px solid #D6D6D6;
 }
 
 /* News banner */
