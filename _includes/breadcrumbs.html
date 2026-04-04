@@ -1,11 +1,13 @@
 <div class="breadcrumbs">
-  {% if page.category == 'other' or page.category == nil %}
-    <a href="{{ site.baseurl }}/blog">← Return to the complete archive</a>
-  {% elsif page.category.size == 0 %}
-    <a href="{{ site.baseurl }}/blog">← Return to the complete archive</a>
-  {% elsif page.category.size == 2 %}
-    <a href="{{ site.baseurl }}/series/{{page.category.first}}">← Return to the {{page.category.first | capitalize}} blog</a>
+  <time datetime="{{page.data}}">{{ page.date | date: "%B %-d, %Y" }}</time>
+
+  {% assign categories = page.category | compact %}
+  {% assign real_cats = categories | where_exp: "cat", "cat != 'other' and cat != ''" %}
+  {% if real_cats.size == 0 %}
+    <a href="{{ site.baseurl }}/blog" data-category="other">all</a>
   {% else %}
-    <a href="{{ site.baseurl }}/series/{{page.category}}">← Return to the {{page.category | capitalize}} blog</a>
+    {% for cat in real_cats %}
+      <a href="{{ site.baseurl }}/series/{{ cat }}" data-category="{{ cat | downcase }}">{{ cat | capitalize }}</a>
+    {% endfor %}
   {% endif %}
 </div>

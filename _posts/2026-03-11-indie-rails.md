@@ -4,7 +4,7 @@ title: IndieRails Podcast Interview
 excerpt: I joined Jeremy Smith and Jess Brown on the IndieRails podcast to talk about how I managed the transition from stained-glass master to freelance software engineer.
 date: 2026-03-10
 permalink: /indierails-pocast-interview/
-category: career
+category: ["career", "rails"]
 cover_image:
 toc: true
 ---
