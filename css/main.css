@@ -361,7 +361,28 @@ article.post figure {
 .aside--toc ul,
 .blog-archive--sidebar ul {
   padding: 0;
+  list-style: none;
+}
+
+.aside--toc ol {
+  list-style: decimal;
   list-style-position: inside;
+}
+
+.aside--toc li {
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  padding-left: 0.5em;
+  transition: border-color 0.2s ease;
+
+  &.toc--active {
+    border-left-color: #ccc;
+  }
+}
+
+.aside--toc a {
+  text-decoration: none;
+  border-bottom: none;
 }
 
 /*************/

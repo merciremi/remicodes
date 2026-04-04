@@ -16,20 +16,6 @@ layout: default
     </div>
 
     <aside class="post--information">
-      <div class="aside--title">
-        <p><strong>{{ page.title }}</strong></p>
-      </div>
-      <div class="aside--meta">
-        <div>
-          <p><strong>{{ page.date | date: "%B %-d, %Y" }}</strong></p>
-        </div>
-        <div>
-        <p>Written by <a href="https://ruby.social/@remi" target="_blank">{{ site.author | split: " " | first }}</a></p>
-        </div>
-        <div>
-          {% include tags.html %}
-        </div>
-      </div>
       <div class="aside--toc">
         <h5>Chapters</h5>
         {{ content | toc_only }}
@@ -65,4 +51,20 @@ layout: default
     "keywords": ["{{ page.category }}"]
     {% endif %}
   }
+</script>
+
+<script>
+  const headings = document.querySelectorAll('.post--content h2[id], .post--content h3[id]');
+  const tocLinks = document.querySelectorAll('.aside--toc a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      tocLinks.forEach(link => link.closest('li').classList.remove('toc--active'));
+      const active = document.querySelector(`.aside--toc a[href="#${entry.target.id}"]`);
+      if (active) active.closest('li').classList.add('toc--active');
+    });
+  }, { rootMargin: '0px 0px -70% 0px' });
+
+  headings.forEach(h => observer.observe(h));
 </script>
