@@ -322,6 +322,7 @@ article.post section.post--title {
 
 article.post .breadcrumbs {
   margin-top: -1em;
+  font-size: 0.9em;
 
   & time {
     font-family: "Doto";
