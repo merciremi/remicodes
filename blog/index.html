@@ -34,7 +34,7 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
 
       {% assign filtered_posts = paginator.posts | where_exp: "post", "post.lang != 'fr'" %}
       {% for post in filtered_posts %}
-        <div>
+        <div class="blog-archive--posts">
           <h2>
             <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
           </h2>
