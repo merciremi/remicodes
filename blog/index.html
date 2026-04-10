@@ -7,15 +7,31 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
   <section class="blog-archive--title">
     <h1>Sometimes, I write.</h1>
     <p>
-      I find joy <em>in building things</em>. Then, I find joy in writing about what I've learned in the process. I suspect I learn new things just for the sake of having catchy stories to write later on. This blog is where I gather my technical entries, from newest to oldest.
-    </p>
-    <p>
-      Don't fancy getting updates through capricious algorithms? Subscribe to my <a href="{{site.baseurl}}/newsletter">newsletter</a> or grab the <a href="{{site.baseurl}}/feed.xml">RSS feed</a>.
+      I find joy <em>in building things</em>. Then, I find joy in writing about it. Want to know when the next post hits. Grab the <a href="{{site.baseurl}}/feed.xml">RSS feed</a>.
     </p>
   </section>
 
   <section class="blog-archive--body">
     <section>
+      <details class="blog-archive--filters" open>
+        <summary class="filters--header">Filter by category</summary>
+        <div class="filters--options">
+          {% assign all_count = site.posts | where_exp: "post", "post.lang != 'fr'" | size %}
+          <a href="{{ site.baseurl }}/blog" class="filter-pill is-active">All ({{ all_count }})</a>
+          {% assign categories = site.posts | map: "category" | flatten | compact | uniq | sort %}
+          {% for category in categories %}
+            {% unless category == "" or category == nil or category == "other" %}
+              {% assign cat_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == category" | size %}
+              <a href="{{ site.baseurl }}/series/{{ category }}" class="filter-pill" data-category="{{ category | downcase }}">{{ category | capitalize }} ({{ cat_count }})</a>
+            {% endunless %}
+          {% endfor %}
+          {% if categories contains "other" %}
+            {% assign other_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == 'other'" | size %}
+            <a href="{{ site.baseurl }}/series/other" class="filter-pill" data-category="other">Other ({{ other_count }})</a>
+          {% endif %}
+        </div>
+      </details>
+
       {% assign filtered_posts = paginator.posts | where_exp: "post", "post.lang != 'fr'" %}
       {% for post in filtered_posts %}
         <div>
@@ -37,20 +53,5 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
         {% endif %}
       </div>
     </section>
-
-    <aside class="blog-archive--sidebar">
-      <h3>topics</h3>
-      <ul>
-        {% assign categories = site.posts | map: "category" | flatten | compact | uniq | sort %}
-        {% for category in categories %}
-          {% unless category == "" or category == nil or category == "other" %}
-            <li><a href="{{ site.baseurl }}/series/{{ category }}" data-category="{{ category | lowercase }}">{{ category | capitalize }}</a></li>
-          {% endunless %}
-        {% endfor %}
-        {% if categories contains "other" %}
-          <li><a href="{{ site.baseurl }}/blog" data-category="other">All</a></li>
-        {% endif %}
-      </ul>
-    </aside>
   </section>
 </article>
