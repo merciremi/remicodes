@@ -55,9 +55,11 @@ article {
 }
 
 article.page section.page--body,
-article.post section.post--body,
-article.blog-archive section.blog-archive--body {
-  max-width: 50vw;
+article.post section.post--body {
+  display: grid;
+  grid-template-columns: 50vw 20vw;
+  align-items: start;
+  gap: 14rem;
 }
 
 footer {
@@ -251,39 +253,59 @@ a.read-more {
 }
 
 .blog-archive--filters {
-  background-color: var(--ctp-crust);
-  padding: 16px 20px;
+  background-color: #ffffff;
+  border: 2px solid #333333;
+  box-shadow: 4px 4px 0 #333333;
   margin-bottom: 3em;
   margin-top: 3em;
 }
 
 .filters--header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
+  position: relative;
+  display: block;
+  text-align: center;
+  height: 24px;
+  line-height: 24px;
+  background-color: #e8e8e8;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 4px,
+    rgba(0, 0, 0, 0.2) 4px,
+    rgba(0, 0, 0, 0.2) 6px
+  );
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--font-color);
-  font-family: "Doto";
-  font-weight: 900;
   cursor: pointer;
+  list-style: none;
 
-  &::after {
-    content: "^";
-    align-self: center;
-    transition: transform 0.2s ease;
+  &::marker,
+  &::-webkit-details-marker { display: none; }
+
+  &::before {
+    content: "×";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    line-height: 11px;
+    text-align: center;
+    background: #fff;
+    border: 2px solid #000;
+    font-size: 12px;
   }
-}
-
-details.blog-archive--filters:not([open]) .filters--header::after {
-  transform: rotate(180deg);
 }
 
 .filters--options {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
-  margin-top: 1em;
+  padding: 16px 20px;
   font-size: 0.9rem;
 }
 
@@ -569,9 +591,6 @@ section.scribbles .scribble {
     width: 90vw;
   }
 
-  article.blog-archive section.blog-archive--body {
-    max-width: 90vw;
-  }
 
   article.post section.post--body {
     grid-template-columns: 1fr;
