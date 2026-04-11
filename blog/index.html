@@ -3,55 +3,53 @@ layout: default
 title: The complete archive of Ruby on Rails posts by Remi Mercier
 ---
 
+<section class="blog-archive--title">
+  <h1>Sometimes, I write.</h1>
+  <p>
+    I find joy <em>in building things</em>. Then, I find joy in writing about it. Want to know when the next post hits? Grab the <a href="{{site.baseurl}}/feed.xml">RSS feed</a>.
+  </p>
+</section>
+
 <article class="blog-archive">
-  <section class="blog-archive--title">
-    <h1>Sometimes, I write.</h1>
-    <p>
-      I find joy <em>in building things</em>. Then, I find joy in writing about it. Want to know when the next post hits. Grab the <a href="{{site.baseurl}}/feed.xml">RSS feed</a>.
-    </p>
-  </section>
+  {% assign filtered_posts = paginator.posts | where_exp: "post", "post.lang != 'fr'" %}
+  {% for post in filtered_posts %}
+    <div class="blog-archive--posts">
+      <h2>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h2>
+      <p>{{ post.excerpt }}</p>
+      <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
+    </div>
+  {% endfor %}
 
-  <section class="blog-archive--body">
-    <section>
-      <details class="blog-archive--filters" open>
-        <summary class="filters--header">Filters</summary>
-        <div class="filters--options">
-          {% assign categories = site.posts | map: "category" | flatten | compact | uniq | sort %}
-          {% for category in categories %}
-            {% unless category == "" or category == nil or category == "other" %}
-              {% assign cat_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == category" | size %}
-              <a href="{{ site.baseurl }}/series/{{ category }}" class="filter-pill" data-category="{{ category | downcase }}">{{ category | capitalize }} ({{ cat_count }})</a>
-            {% endunless %}
-          {% endfor %}
-          {% if categories contains "other" %}
-            {% assign other_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == 'other'" | size %}
-            <a href="{{ site.baseurl }}/series/other" class="filter-pill" data-category="other">Other ({{ other_count }})</a>
-          {% endif %}
-          {% assign all_count = site.posts | where_exp: "post", "post.lang != 'fr'" | size %}
-          <a href="{{ site.baseurl }}/blog" class="filter-pill is-active">All ({{ all_count }})</a>
-        </div>
-      </details>
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">← Previous</a>
+    {% endif %}
 
-      {% assign filtered_posts = paginator.posts | where_exp: "post", "post.lang != 'fr'" %}
-      {% for post in filtered_posts %}
-        <div class="blog-archive--posts">
-          <h2>
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </h2>
-          <p>{{ post.excerpt }}</p>
-          <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
-        </div>
-      {% endfor %}
-
-      <div class="pagination">
-        {% if paginator.previous_page %}
-          <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">← Previous</a>
-        {% endif %}
-
-        {% if paginator.next_page %}
-          <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next →</a>
-        {% endif %}
-      </div>
-    </section>
-  </section>
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next →</a>
+    {% endif %}
+  </div>
 </article>
+
+<aside class="page-sidebar">
+  <div class="blog-archive--filters">
+    <div class="filters--header">Filters</div>
+    <div class="filters--options">
+      {% assign categories = site.posts | map: "category" | flatten | compact | uniq | sort %}
+      {% for category in categories %}
+        {% unless category == "" or category == nil or category == "other" %}
+          {% assign cat_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == category" | size %}
+          <a href="{{ site.baseurl }}/series/{{ category }}" class="filter-pill" data-category="{{ category | downcase }}">{{ category | capitalize }} ({{ cat_count }})</a>
+        {% endunless %}
+      {% endfor %}
+      {% if categories contains "other" %}
+        {% assign other_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == 'other'" | size %}
+        <a href="{{ site.baseurl }}/series/other" class="filter-pill" data-category="other">Other ({{ other_count }})</a>
+      {% endif %}
+      {% assign all_count = site.posts | where_exp: "post", "post.lang != 'fr'" | size %}
+      <a href="{{ site.baseurl }}/blog" class="filter-pill is-active">All ({{ all_count }})</a>
+    </div>
+  </div>
+</aside>

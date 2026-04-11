@@ -331,6 +331,17 @@ a.read-more {
   text-decoration: none;
 }
 
+.blog-archive--title {
+  grid-column: 1 / -1;
+  padding: 20px var(--gutter) 2em var(--gutter);
+  border-bottom: 10px solid var(--ctp-crust);
+  margin-bottom: 2em;
+  margin-left: var(--gutter);
+  margin-right: var(--gutter);
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .blog-archive--posts {
   margin-top: 4em;
 }
@@ -344,38 +355,15 @@ a.read-more {
 }
 
 .filters--header {
-  position: relative;
-  display: block;
   text-align: center;
   height: 24px;
   line-height: 24px;
   background-color: var(--ctp-crust);
   font-size: 0.9rem;
-  font-family: "Doto";
+  font-family: var(--label-font);
   font-weight: 900;
   text-transform: uppercase;
   color: var(--font-color);
-  cursor: pointer;
-
-  &::marker,
-  &::-webkit-details-marker { display: none; }
-
-  &::before {
-    content: "×";
-    position: absolute;
-    left: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 14px;
-    height: 14px;
-    line-height: 11px;
-    text-align: center;
-    background: var(--background-color);
-    color: var(--font-color);
-    border: 2px solid var(--ctp-overlay0);
-    font-size: 12px;
-    font-family: "Doto";
-  }
 }
 
 .filters--options {
