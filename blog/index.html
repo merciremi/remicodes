@@ -16,8 +16,6 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
       <details class="blog-archive--filters" open>
         <summary class="filters--header">Filters</summary>
         <div class="filters--options">
-          {% assign all_count = site.posts | where_exp: "post", "post.lang != 'fr'" | size %}
-          <a href="{{ site.baseurl }}/blog" class="filter-pill is-active">All ({{ all_count }})</a>
           {% assign categories = site.posts | map: "category" | flatten | compact | uniq | sort %}
           {% for category in categories %}
             {% unless category == "" or category == nil or category == "other" %}
@@ -29,6 +27,8 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
             {% assign other_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == 'other'" | size %}
             <a href="{{ site.baseurl }}/series/other" class="filter-pill" data-category="other">Other ({{ other_count }})</a>
           {% endif %}
+          {% assign all_count = site.posts | where_exp: "post", "post.lang != 'fr'" | size %}
+          <a href="{{ site.baseurl }}/blog" class="filter-pill is-active">All ({{ all_count }})</a>
         </div>
       </details>
 
