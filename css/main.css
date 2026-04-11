@@ -462,6 +462,15 @@ article.post figure {
 /* Pages     */
 /*************/
 
+.series-title {
+  font-family: var(--label-font);
+  font-weight: 700;
+  padding: 0 0.1em;
+  margin-left: -0.3em;
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+
 section.scribbles {
   margin-top: 2em;
 }
