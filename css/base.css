@@ -1,13 +1,13 @@
 /* ============================================
    Base — variables & resets
    ============================================ */
-/*@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500');*/
 @import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Sriracha&display=swap');
 
 :root {
   --headers-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --body-font:'IBM Plex Sans', sans-serif;
+  --label-font: "Doto";
 
   --h1-font-size: clamp(1.75rem, 4vw, 2.5rem);
   --h2-font-size: clamp(1.25rem, 3vw, 1.5rem);
@@ -17,16 +17,23 @@
   --body-font-size: 1em;
   --body-small-font-size: 0.825em;
 
-  /*--font-color: #04173E;*/
-  --font-color: #114BC9;
   --font-color: #292929;
-  /*--background-color: #dbeafe;*/
-  --background-color: #e7f1ff;
   --background-color: #F6F6F3;
 
   --ctp-crust:     #ebebeb;
   --ctp-surface1:  #e8e8e8;
-  --ctp-crust:     #ebebeb;
-}
 
-/* #99ACC5  darker gray blue */
+  --cat-ruby:       #e2242a;
+  --cat-rails:      orangered;
+  --cat-rspec:      springgreen;
+  --cat-debugging:  hotpink;
+  --cat-career:     royalblue;
+  --cat-other:      yellow;
+
+  --chrome-border:  #333;
+  --chrome-shadow:  #333;
+  --chrome-bar:     #e8e8e8;
+
+  --gutter: 90px;
+  --gutter-mobile: 20px;
+}

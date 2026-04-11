@@ -5,7 +5,6 @@ permalink: /bafouilles/
 excerpt: ""
 ---
 
-
 <div class="m-b-72">
   <div class="serie-icon">
     <img src="{{ site.baseurl }}/media/shared/blue-star.svg">

@@ -10,19 +10,17 @@ layout: default
     {% endunless %}
   </section>
 
-  <section class="post--body">
-    <div class="post--content">
-      {{ content | inject_anchors }}
-    </div>
-
-    <aside class="post--information">
-      <div class="aside--toc">
-        <h5>Chapters</h5>
-        {{ content | toc_only }}
-      </div>
-    </aside>
-  </section>
+  <div class="post--content">
+    {{ content | inject_anchors }}
+  </div>
 </article>
+
+<aside class="page-sidebar">
+  <div class="aside--toc">
+    <h5>Chapters</h5>
+    {{ content | toc_only }}
+  </div>
+</aside>
 
 <script type="application/ld+json">
   {

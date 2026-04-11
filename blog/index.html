@@ -14,7 +14,7 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
   <section class="blog-archive--body">
     <section>
       <details class="blog-archive--filters" open>
-        <summary class="filters--header">Filter by category</summary>
+        <summary class="filters--header">Filters</summary>
         <div class="filters--options">
           {% assign all_count = site.posts | where_exp: "post", "post.lang != 'fr'" | size %}
           <a href="{{ site.baseurl }}/blog" class="filter-pill is-active">All ({{ all_count }})</a>

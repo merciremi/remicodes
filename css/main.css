@@ -1,15 +1,9 @@
-/* ============================================
-   REMICODES — redesign 2026
-   ============================================ */
-
 @import "base.css";
 @import "syntax-highlighting.css";
 
 /*************/
-/* Layouts   */
+/* Layout    */
 /*************/
-
-/* Main layout */
 
 body {
   margin: 0;
@@ -17,12 +11,46 @@ body {
   font-family: var(--body-font);
   font-size: var(--body-font-size);
   background-color: var(--background-color);
-  /*background-color: var(--ctp-crust);*/
   color: var(--font-color);
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "ribbon  ribbon"
+    "header  header"
+    "content sidebar"
+    "footer  footer";
+  min-height: 100vh;
+}
+
+footer {
+  grid-area: footer;
+  padding: 48px var(--gutter);
+}
+
+main {
+  grid-area: content / content / content / sidebar;
+  display: grid;
+  grid-template-columns: subgrid;
+
+  & > * {
+    grid-column: content;
+  }
+}
+
+.page-sidebar {
+  grid-column: sidebar;
+  position: sticky;
+  top: 30px;
+  align-self: start;
+  padding-top: 20px;
+  padding-right: var(--gutter);
 }
 
 header {
-  padding: 30px 90px 30px 60px;
+  grid-area: header;
+  padding: 30px var(--gutter) 30px 60px;
 }
 
 header nav {
@@ -46,63 +74,41 @@ header nav {
   }
 }
 
-main {
-  max-width: 90vw;
-}
-
 article {
-  padding: 20px 90px 60px 90px;
+  padding: 20px var(--gutter) 60px var(--gutter);
 }
 
-article.page section.page--body,
-article.post section.post--body {
-  display: grid;
-  grid-template-columns: 50vw 20vw;
-  align-items: start;
-  gap: 14rem;
-}
-
-footer {
-  display: grid;
-  grid-template-columns: 50vw 20vw;
-  align-items: start;
-  gap: 14rem;
-  padding: 48px 90px;
-}
-
-/* Main tags */
+/*************/
+/* Tags      */
+/*************/
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--headers-font);
 }
 
-h1 {
-  font-size: var(--h1-font-size);
-}
+h1 { font-size: var(--h1-font-size); }
 
 h2 {
   font-size: var(--h2-font-size);
   margin-top: 36px;
 }
 
-h3 {
-  font-size: var(--h3-font-size);
-}
+h3 { font-size: var(--h3-font-size); }
 
 h4, h5, h6 { font-size: var(--headings-font-size); }
 
-a:visited {
-  color: var(--font-color);;
-}
-
 a {
-  color: #292929;
+  color: var(--font-color);
   text-decoration: none;
   border-bottom: 1px solid var(--font-color);
 }
 
+a:visited {
+  color: var(--font-color);
+}
+
 a:hover {
-  background: #333333;
+  background: var(--font-color);
   color: var(--background-color);
   border-bottom-color: transparent;
 }
@@ -116,7 +122,7 @@ img {
 }
 
 blockquote {
-  border-left: 1px solid #333;
+  border-left: 1px solid var(--chrome-border);
   padding: 4px 1.25em;
   margin-inline-start: 1em;
 
@@ -125,7 +131,81 @@ blockquote {
   }
 }
 
-/* Homepage */
+/*********************/
+/* Category labels   */
+/*********************/
+
+/* Shared label style — used by breadcrumbs, filter pills */
+[data-category] {
+  font-family: var(--label-font);
+  font-weight: 900;
+  padding: 2px 10px;
+  border-bottom: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+[data-category="ruby"] {
+  background-color: var(--cat-ruby);
+  color: #fff;
+}
+
+[data-category="ruby"]:hover {
+  background-color: rgba(226, 36, 42, 0.12);
+  color: var(--cat-ruby);
+}
+
+[data-category="rails"] {
+  background-color: var(--cat-rails);
+  color: #fff;
+}
+
+[data-category="rails"]:hover {
+  background-color: rgba(255, 69, 0, 0.12);
+  color: var(--cat-rails);
+}
+
+[data-category="rspec"] {
+  background-color: var(--cat-rspec);
+  color: var(--font-color);
+}
+[data-category="rspec"]:hover {
+  background-color: rgba(0, 255, 127, 0.12);
+  color: springgreen;
+}
+
+[data-category="debugging"] {
+  background-color: var(--cat-debugging);
+  color: var(--font-color);
+}
+
+[data-category="debugging"]:hover {
+  background-color: rgba(255, 105, 180, 0.12);
+  color: var(--cat-debugging);
+}
+
+[data-category="career"] {
+  background-color: var(--cat-career);
+  color: #fff;
+}
+[data-category="career"]:hover {
+  background-color: rgba(65, 105, 225, 0.12);
+  color: var(--cat-career);
+}
+
+[data-category="other"] {
+  background-color: var(--cat-other);
+  color: var(--font-color);
+}
+
+[data-category="other"]:hover {
+  background-color: rgba(255, 255, 0, 0.12);
+  color: goldenrod;
+}
+
+/*************/
+/* Homepage  */
+/*************/
 
 article.home > section.home--hero {
   display: grid;
@@ -141,7 +221,6 @@ article.home > section.home--latest {
   margin: 2em 0;
 }
 
-
 .home--latest-post,
 .home--latest-work {
   border-top: 1px solid #D6D6D6;
@@ -152,9 +231,12 @@ article.home > section.home--latest {
   font-size: 1em !important;
 }
 
-/* News banner */
+/****************/
+/* News ribbon  */
+/****************/
 
 .news-ribbon {
+  grid-area: ribbon;
   position: relative;
   display: flex;
   align-items: center;
@@ -232,30 +314,23 @@ article.home > section.home--latest {
   }
 }
 
-/*************/
-/* Posts     */
-/*************/
-
-article.blog-archive .blog-archive--title {
-  width: 50vw;
-}
+/*********************/
+/* Blog archive      */
+/*********************/
 
 a.read-more {
   border-bottom: none;
   text-decoration: none;
 }
 
-
-.blog-archive--sidebar,
-.post--information {
-  position: sticky;
-  top: 30px;
+.blog-archive--posts {
+  margin-top: 4em;
 }
 
 .blog-archive--filters {
-  background-color: #ffffff;
-  border: 2px solid #333333;
-  box-shadow: 4px 4px 0 #333333;
+  background-color: #fff;
+  border: 2px solid var(--chrome-border);
+  box-shadow: 4px 4px 0 var(--chrome-shadow);
   margin-bottom: 3em;
   margin-top: 3em;
 }
@@ -266,7 +341,7 @@ a.read-more {
   text-align: center;
   height: 24px;
   line-height: 24px;
-  background-color: #e8e8e8;
+  background-color: var(--chrome-bar);
   background-image: repeating-linear-gradient(
     to bottom,
     transparent 0px,
@@ -310,33 +385,15 @@ a.read-more {
 }
 
 .filter-pill {
-  font-family: "Doto";
-  font-weight: 900;
-  border-bottom: none;
-  padding: 2px 10px;
-  text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
-
-  &.is-active                        { background-color: var(--font-color); color: var(--background-color); }
-
-  &[data-category="ruby"]            { background-color: #e2242a;     color: #fff; }
-  &[data-category="ruby"]:hover      { background-color: rgba(226, 36, 42, 0.12);    color: #e2242a; }
-
-  &[data-category="rails"]           { background-color: orangered;   color: #fff; }
-  &[data-category="rails"]:hover     { background-color: rgba(255, 69, 0, 0.12);     color: orangered; }
-
-  &[data-category="rspec"]           { background-color: springgreen; color: var(--font-color); }
-  &[data-category="rspec"]:hover     { background-color: rgba(0, 255, 127, 0.12);    color: springgreen; }
-
-  &[data-category="debugging"]       { background-color: hotpink;     color: var(--font-color); }
-  &[data-category="debugging"]:hover { background-color: rgba(255, 105, 180, 0.12);  color: hotpink; }
-
-  &[data-category="career"]          { background-color: royalblue;   color: #fff; }
-  &[data-category="career"]:hover    { background-color: rgba(65, 105, 225, 0.12);   color: royalblue; }
-
-  &[data-category="other"]           { background-color: yellow;      color: var(--font-color); }
-  &[data-category="other"]:hover     { background-color: rgba(255, 255, 0, 0.12);    color: goldenrod; }
+  &.is-active {
+    background-color: var(--font-color);
+    color: var(--background-color);
+  }
 }
+
+/*********************/
+/* Posts              */
+/*********************/
 
 article.post section.post--title {
   margin-bottom: 48px;
@@ -347,7 +404,7 @@ article.post .breadcrumbs {
   font-size: 0.9em;
 
   & time {
-    font-family: "Doto";
+    font-family: var(--label-font);
     font-weight: 900;
     background-color: var(--font-color);
     color: var(--background-color);
@@ -355,8 +412,8 @@ article.post .breadcrumbs {
     text-decoration: none;
   }
 
-  & a {
-    font-family: "Doto";
+  & a:not([data-category]) {
+    font-family: var(--label-font);
     font-weight: 900;
     background-color: var(--font-color);
     color: var(--background-color);
@@ -364,43 +421,20 @@ article.post .breadcrumbs {
     border-bottom: none;
     text-decoration: none;
   }
-
-  & a[data-category] { transition: background-color 0.2s ease, color 0.2s ease; }
-
-  & a[data-category="ruby"]            { background-color: #e2242a; color: #fff; }
-  & a[data-category="ruby"]:hover      { background-color: rgba(226, 36, 42, 0.12); color: #e2242a; }
-
-  & a[data-category="rails"]           { background-color: orangered; color: #fff; }
-  & a[data-category="rails"]:hover     { background-color: rgba(255, 69, 0, 0.12); color: orangered; }
-
-  & a[data-category="rspec"]           { background-color: springgreen; color: var(--font-color); }
-  & a[data-category="rspec"]:hover     { background-color: rgba(0, 255, 127, 0.12); color: springgreen; }
-
-  & a[data-category="debugging"]       { background-color: hotpink; color: var(--font-color); }
-  & a[data-category="debugging"]:hover { background-color: rgba(255, 105, 180, 0.12); color: hotpink; }
-
-  & a[data-category="career"]          { background-color: royalblue; color: #fff; }
-  & a[data-category="career"]:hover    { background-color: rgba(65, 105, 225, 0.12); color: royalblue; }
-
-  & a[data-category="other"]           { background-color: yellow; color: var(--font-color); }
-  & a[data-category="other"]:hover     { background-color: rgba(255, 255, 0, 0.12); color: goldenrod; }
-}
-
-.blog-archive--posts {
-  margin-top: 4em;
 }
 
 article.post figure {
-  margin: 36px 0px;
+  margin: 36px 0;
 
   & figcaption {
     font-size: var(--body-small-font-size);
   }
 }
 
+/* TOC sidebar */
+
 .aside--toc ol,
-.aside--toc ul,
-.blog-archive--sidebar ul {
+.aside--toc ul {
   padding: 0;
   list-style: none;
 }
@@ -496,16 +530,6 @@ section.scribbles .scribble {
 .inf-input input[type="email"],
 .inf-submit input[type="submit"] {
   width: 100%;
-}
-
-.inf-submit input[type="submit"] {
-  margin-top: 0 !important;
-  box-shadow: 3px 3px 0 #000;
-  border: 2px solid #000;
-}
-
-.inf-input input[type="email"],
-.inf-submit input[type="submit"] {
   border-radius: 0;
   padding: 0.4em 0.75em;
   font-family: var(--body-font);
@@ -525,6 +549,9 @@ section.scribbles .scribble {
 }
 
 .inf-submit input[type="submit"] {
+  margin-top: 0 !important;
+  box-shadow: 3px 3px 0 #000;
+  border: 2px solid #000;
   cursor: pointer;
   font-weight: 600;
   color: #000;
@@ -548,35 +575,40 @@ section.scribbles .scribble {
 /* Media queries */
 /*****************/
 
-/* Large screens */
-
-@media (min-width: 1400px) {
-  main {
-    max-width: 70vw;
-  }
-}
-
-/* Mobile */
-
 @media (max-width: 768px) {
-  main {
-    width: 95vw;
-  }
-
-  article {
-    padding: 20px 10px 60px 20px
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "ribbon"
+      "header"
+      "content"
+      "footer";
   }
 
   header {
-    padding: 10px 10px;
+    padding: 10px var(--gutter-mobile);
+  }
+
+  article {
+    padding: 20px 10px 60px var(--gutter-mobile);
   }
 
   footer {
-    padding: 40px 20px;
+    padding: 40px var(--gutter-mobile);
   }
 
-  article.home > section.home--latest,
-  article.home > section.home--hero {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-sidebar {
+    position: static;
+    padding: 0 var(--gutter-mobile);
+  }
+
+  article.home > section.home--hero,
+  article.home > section.home--latest {
     display: flex;
     flex-direction: column;
     gap: 4em;
@@ -586,28 +618,8 @@ section.scribbles .scribble {
     margin-top: 3em;
   }
 
-  article.page section,
-  article.blog-archive .blog-archive--title {
-    width: 90vw;
-  }
-
-
-  article.post section.post--body {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  article.post div h1 {
-    margin-bottom: 48px;
-  }
-
   .post--content {
     min-width: 0;
-  }
-
-  .post--information {
-    order: -1;
-    position: static;
   }
 
   .aside--title {
@@ -633,19 +645,7 @@ section.scribbles .scribble {
     gap: 0.25rem 0;
   }
 
-  .blog-archive--sidebar ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0;
-    list-style: none;
-  }
-
-  .blog-archive--sidebar li + li::before {
-    content: "·";
-    margin: 0 0.4em;
-  }
-
-  highlight pre {
+  .highlight pre {
     padding: 0.5em;
   }
 
