@@ -36,6 +36,7 @@ main {
 
   & > * {
     grid-column: content;
+    min-width: 0;
   }
 }
 
