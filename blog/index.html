@@ -13,13 +13,13 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
 <article class="blog-archive">
   {% assign filtered_posts = paginator.posts | where_exp: "post", "post.lang != 'fr'" %}
   {% for post in filtered_posts %}
-    <div class="blog-archive--posts">
+    <section class="blog-archive--posts">
       <h2>
         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       </h2>
       <p>{{ post.excerpt }}</p>
       <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read this essay →</a>
-    </div>
+    </section>
   {% endfor %}
 
   <div class="pagination">

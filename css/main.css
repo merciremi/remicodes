@@ -40,7 +40,7 @@ main {
   }
 }
 
-.page-sidebar {
+aside.page-sidebar {
   grid-column: sidebar;
   position: sticky;
   top: 30px;
@@ -51,7 +51,7 @@ main {
 
 header {
   grid-area: header;
-  padding: 30px var(--gutter) 30px 60px;
+  padding: 30px var(--gutter);
 }
 
 header nav {
@@ -87,16 +87,22 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--headers-font);
 }
 
-h1 { font-size: var(--h1-font-size); }
+h1 {
+  font-size: var(--h1-font-size);
+}
 
 h2 {
   font-size: var(--h2-font-size);
   margin-top: 36px;
 }
 
-h3 { font-size: var(--h3-font-size); }
+h3 {
+  font-size: var(--h3-font-size);
+}
 
-h4, h5, h6 { font-size: var(--headings-font-size); }
+h4, h5, h6 {
+  font-size: var(--headings-font-size);
+}
 
 a {
   color: var(--font-color);
@@ -136,20 +142,18 @@ blockquote {
 /* Category labels   */
 /*********************/
 
-/* Shared label style — used by breadcrumbs, filter pills */
 [data-category] {
   font-family: var(--label-font);
   font-weight: 900;
   padding: 2px 10px;
   border-bottom: none;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 [data-category="ruby"],
 [data-category="ruby"]:visited {
   background-color: var(--cat-ruby);
-  color: #fff;
+  color: var(--background-color);
 }
 
 [data-category="ruby"]:hover {
@@ -160,7 +164,7 @@ blockquote {
 [data-category="rails"],
 [data-category="rails"]:visited {
   background-color: var(--cat-rails);
-  color: #fff;
+  color: var(--background-color);
 }
 
 [data-category="rails"]:hover {
@@ -174,6 +178,7 @@ blockquote {
   color: var(--font-color);
 }
 
+/* TODO: convert original color to rgba to avoid magic colors */
 [data-category="rspec"]:hover {
   background-color: rgba(0, 255, 127, 0.12);
   color: springgreen;
@@ -193,7 +198,7 @@ blockquote {
 [data-category="career"],
 [data-category="career"]:visited {
   background-color: var(--cat-career);
-  color: #fff;
+  color: var(--background-color);
 }
 
 [data-category="career"]:hover {
@@ -217,10 +222,10 @@ blockquote {
 /*************/
 
 article.home > section.home--hero {
-  display: grid;
+  /*display: grid;
   grid-template-columns: 4fr 1fr;
   align-items: start;
-  gap: 2em;
+  gap: 2em;*/
 }
 
 article.home > section.home--latest {
@@ -332,23 +337,12 @@ a.read-more {
   text-decoration: none;
 }
 
-.blog-archive--title {
-  grid-column: 1 / -1;
+section.blog-archive--title {
   padding: 20px var(--gutter) 2em var(--gutter);
-  border-bottom: 10px solid var(--ctp-crust);
-  margin-bottom: 2em;
-  margin-left: var(--gutter);
-  margin-right: var(--gutter);
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.blog-archive--posts {
-  margin-top: 4em;
 }
 
 .blog-archive--filters {
-  background-color: #fff;
+  background-color: var(--background-color);
   border: 1px solid var(--ctp-crust);
   box-shadow: 3px 3px 0 var(--ctp-crust);
   margin-bottom: 3em;
@@ -357,14 +351,13 @@ a.read-more {
 
 .filters--header {
   text-align: center;
-  height: 24px;
   line-height: 24px;
   background-color: var(--ctp-crust);
-  font-size: 0.9rem;
+  color: var(--font-color);
   font-family: var(--label-font);
+  font-size: 0.9rem;
   font-weight: 900;
   text-transform: uppercase;
-  color: var(--font-color);
 }
 
 .filters--options {
@@ -400,24 +393,14 @@ article.post section.post--title {
 article.post .breadcrumbs {
   margin-top: -1em;
   font-size: 0.9em;
+  font-family: var(--label-font);
+  font-weight: 900;
+  text-decoration: none;
 
   & time {
-    font-family: var(--label-font);
-    font-weight: 900;
     background-color: var(--font-color);
     color: var(--background-color);
     padding: 2px 10px;
-    text-decoration: none;
-  }
-
-  & a:not([data-category]) {
-    font-family: var(--label-font);
-    font-weight: 900;
-    background-color: var(--font-color);
-    color: var(--background-color);
-    padding: 2px 10px;
-    border-bottom: none;
-    text-decoration: none;
   }
 }
 
@@ -449,7 +432,7 @@ article.post figure {
   transition: border-color 0.2s ease;
 
   &.toc--active {
-    border-left-color: #ccc;
+    border-left-color: var(--ctp-overlay0);
   }
 }
 
@@ -461,15 +444,6 @@ article.post figure {
 /*************/
 /* Pages     */
 /*************/
-
-.series-title {
-  font-family: var(--label-font);
-  font-weight: 700;
-  padding: 0 0.1em;
-  margin-left: -0.3em;
-  display: inline-block;
-  transform: rotate(-2deg);
-}
 
 section.scribbles {
   margin-top: 2em;
@@ -491,19 +465,23 @@ section.scribbles .scribble {
 /* Utilities */
 /*************/
 
+.s-down-hidden {
+
+}
+
 /* Color shuffle */
 
-.color-shuffle {
+.color-shuffle .word {
   white-space: nowrap;
 }
 
-.color-shuffle span {
+.color-shuffle .word > span {
   display: inline-block;
   transition: color 0.3s ease 0.5s;
   transform-origin: bottom center;
 }
 
-.color-shuffle span:hover {
+.color-shuffle .word > span:hover {
   transition: color 0.05s ease;
 }
 
@@ -609,9 +587,24 @@ section.scribbles .scribble {
     flex-direction: column;
   }
 
-  .page-sidebar {
+  section.blog-archive--title {
+    order: 1;
+
+  }
+
+  aside.page-sidebar {
     position: static;
     padding: 0 var(--gutter-mobile);
+    order: 2;
+  }
+
+  .blog-archive--filters {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  article.blog-archive {
+    order: 3;
   }
 
   article.home > section.home--hero,
@@ -623,6 +616,10 @@ section.scribbles .scribble {
 
   article.home > section.home--latest {
     margin-top: 3em;
+  }
+
+  section.blog-archive--title {
+    padding: 20px var(--gutter-mobile) 2em var(--gutter-mobile);
   }
 
   .post--content {
@@ -664,5 +661,13 @@ section.scribbles .scribble {
   .news-ribbon--label {
     min-width: fit-content;
     font-size: var(--body-small-font-size);
+  }
+
+  .s-down-hidden {
+    display: none;
+  }
+
+  iframe {
+    max-width: 100%;
   }
 }
