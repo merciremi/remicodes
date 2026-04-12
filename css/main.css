@@ -339,6 +339,19 @@ a.read-more {
 
 section.blog-archive--title {
   padding: 20px var(--gutter) 2em var(--gutter);
+
+  & h1[data-category] {
+    padding: unset;
+    font-family: var(--headers-font);
+    color: var(--font-color);
+
+    pointer-events: none;
+
+    & span {
+      background-color: var(--background-color);
+      padding: 0 0.2em;
+    }
+  }
 }
 
 .blog-archive--filters {
