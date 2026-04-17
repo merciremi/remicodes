@@ -164,7 +164,7 @@ blockquote {
 
 [data-category] {
   font-family: var(--label-font);
-  font-weight: 900;
+  font-weight: 500;
   padding: 2px 10px;
   border-bottom: none;
   text-decoration: none;
@@ -389,7 +389,7 @@ section.blog-archive--title {
   color: var(--font-color);
   font-family: var(--label-font);
   font-size: 0.9rem;
-  font-weight: 900;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -729,5 +729,9 @@ section.scribbles .scribble {
 
   iframe {
     max-width: 100%;
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
   }
 }
