@@ -5,7 +5,7 @@ title: "Poking around PostgreSQL full-text search: a beginners primer"
 excerpt: "Today, I want to share a different type of post. Nothing polished. Just me goofing around with PostgreSQL's full-text search capabilities."
 date: 2024-11-05
 permalink: /postgresql-full-text-search-for-beginners/
-categories: [other]
+categories: [postgresql]
 cover_image: "/media/2024/11/remi-mercier-postgresql-full-text-search-for-beginners.png"
 ---
 

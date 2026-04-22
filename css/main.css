@@ -193,13 +193,19 @@ blockquote {
 }
 
 [data-category="rspec"],
-[data-category="rspec"]:visited {
+[data-category="rspec"]:visited,
+[data-category="minitest"],
+[data-category="minitest"]:visited,
+[data-category="testing"],
+[data-category="testing"]:visited {
   background-color: var(--cat-rspec);
   color: var(--font-color);
 }
 
 /* TODO: convert original color to rgba to avoid magic colors */
-[data-category="rspec"]:hover {
+[data-category="rspec"]:hover,
+[data-category="minitest"]:hover,
+[data-category="testing"]:hover {
   background-color: rgba(0, 255, 127, 0.12);
   color: springgreen;
 }
@@ -235,6 +241,39 @@ blockquote {
 [data-category="other"]:hover {
   background-color: rgba(255, 255, 0, 0.12);
   color: goldenrod;
+}
+
+[data-category="postgresql"],
+[data-category="postgresql"]:visited {
+  background-color: var(--cat-postgresql);
+  color: var(--background-color);
+}
+
+[data-category="postgresql"]:hover {
+  background-color: rgba(51, 103, 145, 0.12);
+  color: var(--cat-postgresql);
+}
+
+[data-category="git"],
+[data-category="git"]:visited {
+  background-color: var(--cat-git);
+  color: var(--background-color);
+}
+
+[data-category="git"]:hover {
+  background-color: rgba(240, 80, 50, 0.12);
+  color: var(--cat-git);
+}
+
+[data-category="freelancing"],
+[data-category="freelancing"]:visited {
+  background-color: var(--cat-freelancing);
+  color: var(--background-color);
+}
+
+[data-category="freelancing"]:hover {
+  background-color: rgba(147, 112, 219, 0.12);
+  color: var(--cat-freelancing);
 }
 
 /*************/

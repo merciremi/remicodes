@@ -6,7 +6,7 @@ excerpt: "While I already covered the basics of `Minitest::Spec`, I forgot to di
 date: 2025-10-19
 permalink: /more-minitest-spec/
 redirect_from: /haikus
-categories: [other]
+categories: [minitest, testing]
 cover_image: ""
 ---
 

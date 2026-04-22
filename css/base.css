@@ -32,12 +32,15 @@
   --ctp-overlay0:  #aaaaaa;
   --ctp-mantle:    #f5f5f5;
 
-  --cat-ruby:       #e2242a;
-  --cat-rails:      orangered;
-  --cat-rspec:      springgreen;
-  --cat-debugging:  hotpink;
-  --cat-career:     royalblue;
-  --cat-other:      yellow;
+  --cat-ruby:         #e2242a;
+  --cat-rails:        orangered;
+  --cat-rspec:        springgreen;
+  --cat-debugging:    hotpink;
+  --cat-career:       royalblue;
+  --cat-other:        yellow;
+  --cat-postgresql:   #336791;
+  --cat-git:          #f05032;
+  --cat-freelancing:  mediumpurple;
 
   --chrome-border:  #333;
   --chrome-shadow:  #333;
