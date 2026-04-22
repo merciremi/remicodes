@@ -5,7 +5,7 @@ title: 'Refactoring in practice: moving toward convention'
 excerpt: "A few months ago, I had to write a Rails micro-service that synchronizes data between two versions of an application. I'll show you the successive steps I used to refactor this piece of code, from shameless-green to convention."
 date: 2024-02-05
 permalink: /refactoring-in-practice/
-category: rails
+categories: [rails]
 cover_image: '/media/2024/02/remi-mercier-refactoring-in-practice.png'
 ---
 

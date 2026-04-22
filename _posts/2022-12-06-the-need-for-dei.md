@@ -5,7 +5,7 @@ title: The never-ending days of DEI's importance
 excerpt: "A few weeks back, the creator of Ruby on Rails wrote a pamphlet rejoicing on - what appears to him as - the waning days of DEI's dominance. This rebuttal talks about how diversity, equity, and inclusion were, are, and will always be essential to workers."
 date: 2022-12-07
 permalink: /the-need-for-dei/
-category: 'other'
+categories: [other]
 cover_image: '/media/2022/12/remi-mercier-never-ending-days-of-dei-importance.png'
 ---
 

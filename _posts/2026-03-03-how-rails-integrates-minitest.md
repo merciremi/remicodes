@@ -5,7 +5,7 @@ title: "Using Minitest::Spec in Rails? Watch out for the lifecycle hooks!"
 excerpt: "A small mistake sent me on an overly long investigation into Minitest hooks, and how Rails integrates with these."
 date: 2026-03-03
 permalink: /minitest-spec-and-rails-hooks/
-category: other
+categories: [minitest, tests]
 cover_image:
 ---
 

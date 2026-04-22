@@ -5,7 +5,7 @@ title: 'Building large features: my process for branches, requests and reviews'
 excerpt: "Working on large features can be tricky. I've spent the last few months refining a process that makes it easy to keep in touch with the main branch, to make reviews more manageable, and with little GIT overhead."
 date: 2021-06-17
 permalink: /building-large-features-process/
-category: 'other'
+categories: [other]
 ---
 
 During my first couple of years as a developer, I didn't have much of a process for large features.

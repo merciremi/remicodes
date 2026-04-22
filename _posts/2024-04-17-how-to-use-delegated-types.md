@@ -5,7 +5,7 @@ title: 'Delegated types in Rails: a real-life application'
 excerpt: "Delegated types are a modelization pattern introduced in Rails in 2020. And developers have mostly been scratching their head for a few years trying to use them in their applications. Today, I want to share a real-world use case. I'll walk you through my pre-existing domain architecture, my initial requirements, my mistakes, how I eventually used delegated types, what I learned and my open questions."
 date: 2024-04-18
 permalink: "/delegated-types/"
-category: rails
+categories: [rails]
 cover_image: "/media/2024/04/remi-mercier-delegated-types-ruby-on-rails.png"
 ---
 Delegated types are a modelization pattern introduced in Rails in 2020 [^1]. While researching this pattern for a feature, I found that existing articles overly focus on the theoretical comparison between delegated types, STI, and polymorphism. Examples used in these posts are often unrepresentative of the complexity of real-life applications.

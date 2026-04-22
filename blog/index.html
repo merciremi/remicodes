@@ -37,15 +37,15 @@ title: The complete archive of Ruby on Rails posts by Remi Mercier
   <div class="blog-archive--filters">
     <div class="filters--header">Filters</div>
     <div class="filters--options">
-      {% assign categories = site.posts | map: "category" | flatten | compact | uniq | sort %}
+      {% assign categories = site.posts | map: "categories" | flatten | compact | uniq | sort %}
       {% for category in categories %}
         {% unless category == "" or category == nil or category == "other" %}
-          {% assign cat_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == category" | size %}
+          {% assign cat_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.categories contains category" | size %}
           <a href="{{ site.baseurl }}/series/{{ category }}" class="filter-pill" data-category="{{ category | downcase }}">{{ category | capitalize }} ({{ cat_count }})</a>
         {% endunless %}
       {% endfor %}
       {% if categories contains "other" %}
-        {% assign other_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == 'other'" | size %}
+        {% assign other_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.categories contains 'other'" | size %}
         <a href="{{ site.baseurl }}/series/other" class="filter-pill" data-category="other">Other ({{ other_count }})</a>
       {% endif %}
       {% assign all_count = site.posts | where_exp: "post", "post.lang != 'fr'" | size %}

@@ -5,7 +5,7 @@ title: How to write better specifications for your features
 excerpt: "For years, I've worked without thinking much about feature specifications. Many teams endure empty Trello cards, neglected Jira tickets, and misaligned communication. So today, I want to share how to write better specifications for your features."
 date: 2023-05-01
 permalink: /how-to-write-better-specifications/
-category: other
+categories: [other]
 cover_image: '/media/2023/05/how-to-write-better-specification-for-features-remi-mercier.png'
 ---
 

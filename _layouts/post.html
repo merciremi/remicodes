@@ -45,8 +45,8 @@ layout: default
       "@type": "WebPage",
       "@id": "{{ site.url }}{{ page.url }}"
     }
-    {% if page.category %},
-    "keywords": ["{{ page.category }}"]
+    {% if page.categories %},
+    "keywords": [{% for cat in page.categories %}"{{ cat }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]
     {% endif %}
   }
 </script>

@@ -4,7 +4,7 @@ title: Freelancing musings 01
 excerpt:
 date: 2000-01-01
 permalink:
-category:
+categories: 
 cover_image:
 toc: true
 ---

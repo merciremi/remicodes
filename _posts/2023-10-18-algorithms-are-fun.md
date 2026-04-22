@@ -5,7 +5,7 @@ title: Algorithms are fun... I guess?
 excerpt: "Something happened to me last week I didn't expect: I enjoyed working my way through algorithms. You may find me overly dramatic, but remember, I'm from the art world. Algorithm is a fancy term to describe the act of painting rectangles of colour in a specific pattern."
 date: 2023-10-18
 permalink: /algorithms-are-fun/
-category: other
+categories: [other]
 cover_image: '/media/2023/10/algorithms-are-fun-remi-mercier.png'
 ---
 

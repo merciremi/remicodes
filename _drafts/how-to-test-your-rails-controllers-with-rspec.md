@@ -4,7 +4,7 @@ title: 'how to test your Rails controllers with RSpec'
 excerpt: 
 date: 20/02/2024
 permalink: 
-category: 
+categories: 
 cover_image: 
 ---
 
