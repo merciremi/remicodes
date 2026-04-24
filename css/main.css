@@ -257,7 +257,7 @@ article.home > section.home--hero {
   flex-shrink: 0;
   width: 200px;
   height: 260px;
-  background-color: #FF6600;
+  /*background-color: #FF6600;*/
 }
 
 article.home > section.home--latest {
