@@ -4,7 +4,7 @@ title: minitest assertions
 excerpt:
 date: 2000-01-01
 permalink:
-category:
+categories: 
 cover_image:
 ---
 

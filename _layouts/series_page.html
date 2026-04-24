@@ -3,12 +3,13 @@ layout: default
 ---
 
 <section class="blog-archive--title">
-  <h1 data-category="{{page.category}}"><span>{{ page.title}}</span></h1>
+  <h1 data-category="{{page.categories.first}}"><span>{{ page.title}}</span></h1>
   <p>{{ page.excerpt }}</p>
 </section>
 
 <article class="blog-archive">
-  {% assign posts = site.posts | where: "category", page.category | where_exp: "post", "post.lang != 'fr'" %}
+  {% assign page_category = page.categories.first %}
+  {% assign posts = site.posts | where_exp: "post", "post.categories contains page_category" | where_exp: "post", "post.lang != 'fr'" %}
   {% for post in posts %}
     <section class="blog-archive--posts">
       <h2>
@@ -24,15 +25,15 @@ layout: default
   <div class="blog-archive--filters">
     <div class="filters--header">Explore more categories</div>
     <div class="filters--options">
-      {% assign categories = site.posts | map: "category" | flatten | compact | uniq | sort %}
+      {% assign categories = site.posts | map: "categories" | flatten | compact | uniq | sort %}
       {% for category in categories %}
         {% unless category == "" or category == nil or category == "other" %}
-          {% assign cat_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == category" | size %}
+          {% assign cat_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.categories contains category" | size %}
           <a href="{{ site.baseurl }}/series/{{ category }}" class="filter-pill" data-category="{{ category | downcase }}">{{ category | capitalize }} ({{ cat_count }})</a>
         {% endunless %}
       {% endfor %}
       {% if categories contains "other" %}
-        {% assign other_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.category == 'other'" | size %}
+        {% assign other_count = site.posts | where_exp: "item", "item.lang != 'fr'" | where_exp: "item", "item.categories contains 'other'" | size %}
         <a href="{{ site.baseurl }}/series/other" class="filter-pill" data-category="other">Other ({{ other_count }})</a>
       {% endif %}
       {% assign all_count = site.posts | where_exp: "post", "post.lang != 'fr'" | size %}

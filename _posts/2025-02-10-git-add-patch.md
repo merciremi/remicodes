@@ -5,7 +5,7 @@ title: How I use git add --patch for reviewing my work
 excerpt: "When working on features, I strive to preserve my flow, which means, that after a few hours, I'll have a bunch of untracked files waiting for me in git. I use `git add --patch` to effectively bundling my work into separate commits."
 date: 2025-02-10
 permalink: /git-add-patch/
-category: other
+categories: [other]
 cover_image: "media/2025/02/how-to-use-git-add-patch-remi-mercier.png"
 ---
 

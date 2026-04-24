@@ -4,7 +4,7 @@ title: 'Interfacing with third-party APIs: the facade pattern in Ruby'
 excerpt: ''
 date: 2024-07-23
 permalink: 
-category: 
+categories: 
 cover_image: 
 ---
 

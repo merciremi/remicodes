@@ -5,7 +5,7 @@ title: 'Interfacing with external APIs: the facade pattern in Ruby'
 excerpt: "Interacting with third-party APIs is common practice in applications. This is where the structural design pattern called facade comes into play."
 date: 2024-10-14
 permalink: /facade-pattern/
-category: ruby
+categories: [ruby]
 cover_image: "/media/2024/10/remi-mercier-facade-pattern-in-ruby.png"
 ---
 

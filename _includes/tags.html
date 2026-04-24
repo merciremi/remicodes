@@ -1,11 +1,12 @@
 <p>Filed under
   <strong>
-    {% if page.category == 'other' %}
-      <a href="{{ site.baseurl }}/blog">{{page.category | capitalize}}</a>
-    {% elsif page.category.size == 2 %}
-      <a href="{{ site.baseurl }}/series/{{page.category.first}}">{{page.category.first | capitalize}}</a>
+    {% assign real_cats = page.categories | where_exp: "cat", "cat != 'other' and cat != ''" %}
+    {% if real_cats.size == 0 %}
+      <a href="{{ site.baseurl }}/blog">Other</a>
     {% else %}
-      <a href="{{ site.baseurl }}/series/{{page.category}}">{{page.category | capitalize}}</a>
+      {% for cat in real_cats %}
+        <a href="{{ site.baseurl }}/series/{{ cat }}">{{ cat | capitalize }}</a>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
     {% endif %}
   </strong>
 </p>

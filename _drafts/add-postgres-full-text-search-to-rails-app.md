@@ -4,7 +4,7 @@ title: Add postgres full-text search to Rails app
 excerpt: 
 date: 2000-01-01
 permalink: 
-category: 
+categories: 
 cover_image: 
 ---
 

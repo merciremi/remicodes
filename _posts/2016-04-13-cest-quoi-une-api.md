@@ -4,7 +4,7 @@ layout: post
 title:  "C'est quoi une API ?"
 date:   2016-04-13
 excerpt: "This is the French version on an article explaining to newbies what are APIs."
-category: 'other'
+categories: [other]
 permalink: /cest-quoi-une-api/
 ---
 

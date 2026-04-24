@@ -5,7 +5,7 @@ title: "What if your private method was a public method? A practical tip to iden
 excerpt: Where I share a badly designed piece of code, think about what process I can use to reveal its flaws, and how to make it better.
 date: 2024-09-16
 permalink: /private-methods-public-methods/
-category: ruby
+categories: [ruby]
 cover_image: "/media/2024/09/remi-mercier-private-methods-public-methods.png"
 ---
 

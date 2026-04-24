@@ -5,7 +5,7 @@ title: Pick a standard and move on
 excerpt: Why would you spend your cognitive capacity on useless choices?
 date: 2024-03-27
 permalink: "/pick-a-standard/"
-category: rails
+categories: [rails]
 cover_image: "/media/2024/03/remi-mercier-pick-a-standard.png"
 ---
 Let me tell you about what my day looks like in a codebase with no standards, no conventions, and no processes in place.

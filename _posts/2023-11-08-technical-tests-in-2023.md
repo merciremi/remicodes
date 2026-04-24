@@ -5,7 +5,7 @@ title: "Technical tests in 2023: were they any good?"
 excerpt: "As I'm reaching the end of this recruiting cycle, I wanted to reflect on the recruiting processes I've completed. Some were good, some not so much."
 date: 2023-11-08
 permalink: /technical-tests-in-2023/
-category: career
+categories: [career]
 cover_image: '/media/2023/11/remi-mercier-technical-tests-in-2023.png'
 ---
 

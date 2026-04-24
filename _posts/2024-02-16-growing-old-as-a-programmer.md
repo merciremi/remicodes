@@ -5,7 +5,7 @@ title: Growing old as a programmer
 excerpt: "I’ll be turning 40 this year, and I’ve started to wonder about my professional life in the next two decades. Not a lot of 60-year-old developers, hey?"
 date: 2024-02-16
 permalink: /growing-old-as-a-developer/
-category: career
+categories: [career]
 cover_image: '/media/2024/02/remi-mercier-growing-old-as-a-programmer.png'
 ---
 

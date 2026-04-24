@@ -5,7 +5,7 @@ title: "Add comments to your tables columns"
 excerpt: "Add extra documentation to your columns attributes with this one weird trick."
 date: 2024-06-22
 permalink: /comment-tables-columns-attributes/
-category: rails
+categories: [rails]
 cover_image: "/media/2024/06/remi-mercier-add-comments-to-your-tables-columns.png"
 ---
 

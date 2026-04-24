@@ -3,7 +3,7 @@ layout: post
 title: The russian doll effect
 excerpt: 
 permalink: 
-category: 
+categories: 
 cover_image: 
 ---
 
