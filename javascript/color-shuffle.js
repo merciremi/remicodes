@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const brightColors = [
-    '#FF0000', '#FF8C00', '#FFD700', '#00FF00', '#00CED1',
-    '#0000FF', '#FF69B4', '#FF1493', '#00BFFF', '#ADFF2F'
+    '#FF0000', '#00CC00', '#0055FF', '#FF6600', '#FF00CC', '#9900FF'
   ];
 
 

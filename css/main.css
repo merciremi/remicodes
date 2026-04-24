@@ -80,13 +80,14 @@ header nav {
   justify-content: flex-end;
   font-weight: bold;
   text-transform: lowercase;
+  font-size: 0.9em;
 
   & ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   & a {
@@ -241,28 +242,56 @@ blockquote {
 /* Homepage  */
 /*************/
 
+article.home {
+  grid-column: 1 / -1;
+}
+
 article.home > section.home--hero {
-  /*display: grid;
-  grid-template-columns: 4fr 1fr;
+  display: flex;
+  flex-direction: row;
   align-items: start;
-  gap: 2em;*/
+  gap: 13em;
+}
+
+.home--hero-placeholder {
+  flex-shrink: 0;
+  width: 200px;
+  height: 260px;
+  background-color: #FF6600;
 }
 
 article.home > section.home--latest {
-  display: flex;
-  flex-direction: row;
-  gap: 5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   margin: 2em 0;
+  border-top: 1px solid var(--ctp-overlay0);
+
+  & > :nth-child(n+2) {
+    border-top: 1px solid var(--ctp-overlay0);
+    padding-top: 1.5em;
+
+    @media (width >= 768px) {
+      border-top: none;
+      padding-top: 0;
+      border-left: 1px solid var(--ctp-overlay0);
+      padding-left: 3em;
+    }
+  }
 }
 
 .home--latest-post,
 .home--latest-work {
-  border-top: 1px solid #D6D6D6;
+  /*border-top: 1px solid #D6D6D6;*/
 }
 
 .home--hero-title {
-  font-family: "Sriracha";
-  font-size: 1em !important;
+  font-size: 0.5em !important;
+}
+
+a:has(.color-shuffle):hover {
+  background: unset;
+  color: unset;
+  border-bottom-color: unset;
 }
 
 /****************/
@@ -526,10 +555,6 @@ section.scribbles .scribble {
 /* Utilities */
 /*************/
 
-.s-down-hidden {
-
-}
-
 /* Color shuffle */
 
 .color-shuffle .word {
@@ -672,7 +697,7 @@ section.scribbles .scribble {
   article.home > section.home--latest {
     display: flex;
     flex-direction: column;
-    gap: 4em;
+    gap: 2em;
   }
 
   article.home > section.home--latest {
