@@ -258,6 +258,7 @@ article.home > section.home--hero {
   width: 200px;
   height: 260px;
   /*background-color: #FF6600;*/
+  @media (max-width: 768px) { display: none !important}
 }
 
 article.home > section.home--latest {
