@@ -4,7 +4,7 @@ layout: post
 title: 'An introduction to RSpec: how to install RSpec, naming convention and basic files structure'
 date: 2021-03-09
 excerpt: "When you start programming, it's not easy to know what to test, how to test, and why should you test? So let's start with an introduction to RSpec: how to install RSpec, RSpec naming convention and and RSpec files structure."
-categories: [rspec]
+categories: [rspec, testing]
 permalink: /rspec-101-basic-set-up/
 ---
 

@@ -5,7 +5,7 @@ title: "Lost in Minitest? Start here!"
 excerpt: "I have a confession to make: I have never used Minitest in the seven years I've been a professional programmer. Lured by the promise of speed and wide adoption, I decided to try Minitest. Then I hit an unexpected roadblock."
 date: 2025-10-07
 permalink: /introduction-to-minitest/
-categories: [other]
+categories: [minitest, testing]
 cover_image:
 ---
 
