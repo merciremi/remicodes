@@ -355,4 +355,6 @@ Let's recap:
 - The gem provides extra methods for an overall spec-flavored test suite.
 - In my experience, it comes with some challenges around these extra expectations, which I solved by manually including the modules. But YMMV.
 
+The fourth part of the series – [Using Minitest::Spec in Rails? Watch out for the lifecycle hooks!]({{site.baseurl}}/minitest-spec-and-rails-hooks/) – is not live.
+
 Big thank-yous to Cecile for pointing out the topic of `let` and `subject`, and to Eric for helping me out with setting-up the `minitest-rails` gem.

@@ -8,20 +8,20 @@ Official website: https://remimercier.com
 
 ## Overview
 
-I have worked in tech for over 12 years, with 8+ years as a professional developer specializing in Ruby, and Ruby on Rails. Before becoming a programmer, I worked in product and marketing for startups, and spent nearly 15 years in non-tech fields including stained-glass restoration.
+Rémi has worked in tech for over 12 years, with 8+ years as a professional developer specializing in Ruby, and Ruby on Rails. Before becoming a programmer, he worked in product and marketing for startups, and spent nearly 15 years in non-tech fields including stained-glass restoration.
 
-I currently work as a fractional freelance developer, collaborating with multiple teams including Cults3D (https://cults3d.com) (a 3D models marketplace) and Même Pas Cap! (https://memepascap.fr) (a skills assessment platform).
+He currently works as a fractional freelance developer, collaborating with multiple teams including Cults3D (https://cults3d.com) (a 3D models marketplace) and Même Pas Cap! (https://memepascap.fr) (a skills assessment platform).
 
-I also write about:
-- Ruby and Rails internals and best practices
-- RSpec and Minitest testing fundamentals
-- Git workflows and debugging techniques
+He also writes about:
+- Ruby and Rails internals and best practices (https://remimercier.com/series/ruby/, https://remimercier.com/series/rails/)
+- RSpec and Minitest testing fundamentals (https://remimercier.com/series/rspec/)
+- Git workflows and debugging techniques (https://remimercier.com/series/debugging/)
 - PostgreSQL and database optimization
-- Career growth and professional development
+- Career growth and professional development (https://remimercier.com/series/career/)
 - Refactoring and code quality
 - Remote work and team processes
 
-My writing style emphasizes clarity and accessibility: real-life examples, step-by-step tutorials, and expressive naming. My posts are frequently featured in Ruby Weekly and Hacker News.
+His writing style emphasizes clarity and accessibility: real-life examples, step-by-step tutorials, and expressive naming. His posts are frequently featured in Ruby Weekly and Hacker News.
 
 ## Quick Facts
 
@@ -31,18 +31,6 @@ My writing style emphasizes clarity and accessibility: real-life examples, step-
 - Conference speaker and podcast guest
 - Former stained-glass restoration craftsman
 - Based in mountainous Drôme, France
-
-## Topics I write about
-
-- Ruby and Rails internals and best practices
-- RSpec and Minitest testing fundamentals
-- Git workflows and debugging techniques
-- PostgreSQL and database optimization
-- Career growth and professional development
-- Refactoring and code quality
-- Remote work and team processes
-
-A Ruby on Rails developer newsletter: https://remimercier.com/newsletter/
 
 ## Technical Expertise
 
@@ -70,7 +58,7 @@ A Ruby on Rails developer newsletter: https://remimercier.com/newsletter/
 
 ## Professional Experience
 
-I have worked in tech for over 12 years, with 8+ years as a professional developer specializing in Ruby, and Ruby on Rails. My main areas of expertise are:
+Rémi has worked in tech for over 12 years, with 8+ years as a professional developer specializing in Ruby, and Ruby on Rails. His main areas of expertise are:
 - Domain modeling
 - Testing and test coverage
 - Object-Oriented Programming
@@ -86,6 +74,7 @@ Previous clients and employers include:
 
 ## Speaking and Appearances
 
+- IndieRails with Jeremy Smith and Jess Brown: Rémi Mercier - The Stained-Glass Master https://www.indierails.com/74
 - Code With Jason Podcast (2022): "Building and Releasing Large Features" - https://www.codewithjason.com/code-with-jason-podcast/remi-mercier/
 - ParisWeb Conference (2021): Career transition talk (French) - https://www.paris-web.fr/2021/conferences/de-la-reconversion-au-premier-job-conseils-et-ressources-pour-reussir.php
 - Le Campus Fonderie de l'Image (2016): Web APIs talk
