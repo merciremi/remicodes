@@ -19,7 +19,7 @@ Some of the things I like to dig into:
   <img class='pink-arrow' src="{{ site.baseurl }}/media/shared/pink_arrow.png"/>
 </p>
 
-{% include newsletter_infomaniak.html %}
+{% include newsletter_mailchimp.html %}
 
 ## Who am I?
 
@@ -91,5 +91,4 @@ Also, there's no tracking on my emails. I'd rather you hit _reply_ and have chat
 
 ## Ready to join? This is the last call!
 
-{% include newsletter_infomaniak.html %}
-
+{% include newsletter_mailchimp.html %}
