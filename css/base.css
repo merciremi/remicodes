@@ -16,13 +16,13 @@
   --body-font:'IBM Plex Sans', sans-serif;
   --label-font: "DepartureMono";
 
-  --h1-font-size: clamp(1.75rem, 4vw, 2.5rem);
-  --h2-font-size: clamp(1.25rem, 3vw, 1.5rem);
-  --h3-font-size: clamp(1.1rem, 2.5vw, 1.25rem);
-  --headings-font-size: clamp(1rem, 2vw, 1.125rem);
-
-  --body-font-size: 1em;
-  --body-small-font-size: 0.825em;
+  --font-size-2xl: clamp(1.75rem, 4vw, 2.5rem);
+  --font-size-xl: clamp(1.25rem, 3vw, 1.5rem);
+  --font-size-lg: clamp(1.1rem, 2.5vw, 1.25rem);
+  --font-size-md: clamp(1rem, 2vw, 1.125rem);
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.8rem;
+  --font-size-2xs: 0.5rem;
 
   --font-color: #292929;
   --background-color: #F6F6F3;
