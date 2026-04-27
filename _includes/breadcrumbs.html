@@ -4,10 +4,10 @@
   {% assign categories = page.categories | compact %}
   {% assign real_cats = categories | where_exp: "cat", "cat != 'other' and cat != ''" %}
   {% if real_cats.size == 0 %}
-    <a href="{{ site.baseurl }}/blog" data-category="other">all</a>
+    <a href="{{ site.baseurl }}/blog" class="filter-pill" data-category="other" >all</a>
   {% else %}
     {% for cat in real_cats %}
-      <a href="{{ site.baseurl }}/series/{{ cat }}" data-category="{{ cat | downcase }}">{{ cat | capitalize }}</a>
+      <a href="{{ site.baseurl }}/series/{{ cat }}" class="filter-pill" data-category="{{ cat | downcase }}">{{ cat | capitalize }}</a>
     {% endfor %}
   {% endif %}
 </div>

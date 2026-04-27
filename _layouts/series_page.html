@@ -37,7 +37,7 @@ layout: default
         <a href="{{ site.baseurl }}/series/other" class="filter-pill" data-category="other">Other ({{ other_count }})</a>
       {% endif %}
       {% assign all_count = site.posts | where_exp: "post", "post.lang != 'fr'" | size %}
-      <a href="{{ site.baseurl }}/blog" class="filter-pill is-active">All ({{ all_count }})</a>
+      <a href="{{ site.baseurl }}/blog" class="filter-pill">All ({{ all_count }})</a>
     </div>
   </div>
 </aside>

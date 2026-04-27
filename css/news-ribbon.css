@@ -1,0 +1,82 @@
+/****************/
+/* News ribbon  */
+/****************/
+
+.news-ribbon {
+  grid-area: ribbon;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #141414, #1F1F1F, #292929);
+  color: var(--background-color);
+  font-family: var(--body-font);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  height: 3em;
+  overflow: hidden;
+  gap: 2em;
+
+  & a {
+    color: var(--background-color);
+  }
+}
+
+.news-ribbon--label {
+  padding: 0 2em;
+  letter-spacing: 0.08em;
+  min-width: 10em;
+  border-right: 0.25px solid var(--background-color);
+  position: relative;
+  z-index: 2;
+  background-color: #141414;
+}
+
+.news-ribbon--label::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 1px);
+  top: 0;
+  width: 4em;
+  height: 100%;
+  background: linear-gradient(to right, #141414, transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.news-ribbon--content {
+  flex: 1;
+  display: flex;
+  gap: 2em;
+  white-space: nowrap;
+  animation: ribbon-scroll 20s linear infinite;
+}
+
+.news-ribbon--content span::before {
+  content: "·";
+  margin-right: 2em;
+}
+
+@keyframes ribbon-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.news-ribbon--toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 2em;
+  font-size: inherit;
+}
+
+.news-ribbon.is-paused .news-ribbon--content {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-ribbon--content {
+    animation: none;
+  }
+}

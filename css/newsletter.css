@@ -1,0 +1,116 @@
+/* Newsletter — Mailchimp */
+
+#mc-embedded-subscribe-form {
+  #mc_embed_signup_scroll {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    input[type="email"] { flex: 1; min-width: 0; }
+    input[type="submit"] { flex: 0 0 auto; width: auto; }
+  }
+
+  input[type="email"] {
+    width: 100%;
+    border-radius: 0;
+    padding: 0.4em 0.75em;
+    font-family: var(--body-font);
+    font-size: var(--font-size-sm);
+    background: #fff;
+    appearance: none;
+    border: unset;
+    border-bottom: 2px solid #000;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      box-shadow: 1px 1px 0 #000;
+    }
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    border-radius: 0;
+    padding: 0.4em 0.75em;
+    font-family: var(--body-font);
+    font-size: var(--font-size-sm);
+    box-shadow: 3px 3px 0 #000;
+    border: 2px solid #000;
+    cursor: pointer;
+    font-weight: 600;
+    color: #000;
+    background: linear-gradient(to right, #000 50%, #fff 50%);
+    background-size: 200% 100%;
+    background-position: right;
+    transition: background-position 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-position: left;
+      color: #fff;
+    }
+
+    &:active {
+      box-shadow: 2px 2px 0 #000;
+      transform: translate(2px, 2px);
+    }
+  }
+}
+
+/* Newsletter */
+
+.inf-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 90vw;
+}
+
+.inf-input,
+.inf-submit {
+  flex: 1;
+  min-width: calc(85vw / 2);
+}
+
+.inf-input input[type="email"],
+.inf-submit input[type="submit"] {
+  width: 100%;
+  border-radius: 0;
+  padding: 0.4em 0.75em;
+  font-family: var(--body-font);
+  font-size: var(--font-size-sm);
+  background: #fff;
+  appearance: none;
+}
+
+.inf-input input[type="email"] {
+  border: unset;
+  border-bottom: 2px solid #000;
+}
+
+.inf-input input[type="email"]:focus {
+  outline: none;
+  box-shadow: 1px 1px 0 #000;
+}
+
+.inf-submit input[type="submit"] {
+  margin-top: 0 !important;
+  box-shadow: 3px 3px 0 #000;
+  border: 2px solid #000;
+  cursor: pointer;
+  font-weight: 600;
+  color: #000;
+  background: linear-gradient(to right, #000 50%, #fff 50%);
+  background-size: 200% 100%;
+  background-position: right;
+  transition: background-position 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-position: left;
+    color: #fff;
+  }
+}
+
+.inf-submit input[type="submit"]:active {
+  box-shadow: 2px 2px 0 #000;
+  transform: translate(2px, 2px);
+}
