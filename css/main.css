@@ -59,7 +59,7 @@ body {
 
 header {
   grid-area: header;
-  padding: clamp(15px, 3vw, 30px) clamp(20px, 6vw, 90px);
+  padding: clamp(5px, 1vw, 10px) clamp(20px, 6vw, 90px);
   display: flex;
   align-items: center;
   justify-content: space-between;
