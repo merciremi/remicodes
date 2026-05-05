@@ -60,12 +60,74 @@ body {
 header {
   grid-area: header;
   padding: clamp(15px, 3vw, 30px) clamp(20px, 6vw, 90px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header--monogram {
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  & img {
+    display: block;
+    width: 40px;
+    height: 40px;
+
+    @media (max-width: 768px) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &:hover {
+    background: none;
+    color: var(--font-color);
+  }
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
+}
+
+.header--identity {
+  display: flex;
+  flex-direction: column;
+}
+
+.header--name {
+  font-weight: 900;
+  font-size: var(--font-size-sm);
+
+  @media (max-width: 768px) {
+    font-size: var(--font-size-xs);
+  }
+}
+
+.header--tagline {
+  font-size: var(--font-size-xs);
+  color: var(--ctp-overlay0);
+  /*text-transform: uppercase;*/
+
+  @media (max-width: 768px) {
+    font-size: var(--font-size-2xs);
+  }
+}
+
+.header--cursor {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 header nav {
   display: flex;
   align-items: baseline;
-  justify-content: flex-end;
   font-weight: bold;
   text-transform: lowercase;
   font-size: var(--font-size-sm);
@@ -76,6 +138,10 @@ header nav {
     padding: 0;
     display: flex;
     gap: 2rem;
+
+    @media (max-width: 768px) {
+      gap: 1rem;
+    }
   }
 
   & a {

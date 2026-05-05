@@ -1,10 +1,23 @@
 <header>
+  <a href="{{ site.baseurl }}/" class="header--monogram" aria-label="Home">
+    <img
+      src="{{ site.baseurl }}/media/shared/remi-mercier-freelance-software-developer-monogram-1024.png"
+      alt="Remi Mercier Freelance Software Developer monogram"
+      width="40"
+      height="40"
+    >
+    <div class="header--identity">
+      <span class="header--name">Remi Mercier</span>
+      <span class="header--tagline">software · writing · <span class="header--typewriter"></span><span class="header--cursor">_</span></span>
+    </div>
+  </a>
   <nav>
     <ul>
-      <li><a href="{{ site.baseurl }}/">Home</a></li>
       <li><a href="{{ site.baseurl }}/about">About</a></li>
       <li><a href="{{ site.baseurl }}/blog">Articles</a></li>
       <li><a href="{{ site.baseurl }}/work">Work</a></li>
     </ul>
   </nav>
 </header>
+
+<script src="{{ site.baseurl }}/javascript/typewriter.js" defer></script>
