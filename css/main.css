@@ -65,7 +65,7 @@ header {
   justify-content: space-between;
 }
 
-.header--monogram {
+a.header--monogram {
   border-bottom: none;
   display: flex;
   align-items: center;
