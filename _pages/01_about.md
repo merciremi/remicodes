@@ -2,6 +2,7 @@
 layout: page
 title: "Bonjour, I'm Remi. 👋"
 permalink: /about/
+excerpt: "Ruby on Rails engineer, educator, former stained-glass maker"
 cover_image: '/media/shared/about/remi-mercier-out-of-focus.jpeg'
 ---
 
