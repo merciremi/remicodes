@@ -66,7 +66,7 @@ Finally, I also wanted to take the opportunity to thank the Ruby community for t
 
 ## What are we to do ?
 
-This 5-minute talk triggered many conversations during the weekend. One thing stands out: not only people feel the junior developers are getting the shitty end of the stick, but a lot of more experienced people too.
+This 5-minute talk triggered many conversations during the weekend. One thing stands out: not only people feel the junior developers are getting the short end of the stick, but a lot of more experienced people too.
 
 I do not have answers (yet!) to the simmering existential dread that many developers feel right now. But it sure does spark ideas and thoughts in my head. I'll keep posting these as they come along.
 
