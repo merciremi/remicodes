@@ -1,50 +1,33 @@
 ---
 layout: post
-title: I'm making a limited-edition Ruby stained glass panel
-excerpt:
+title: I'm making a collectible limited-edition Ruby stained glass
+excerpt: After talking with Jeremy Smith and Jess Brown on the IndieRails podcast about stained glass and how I transitioned to programming in Ruby, I’ve had this crazy idea that I could tie the two together in a weird project. Well, here it is!
 date: 2026-06-02
-permalink:
+permalink: /ruby-stained-glass/
 categories: [ruby, build in public]
 cover_image:
 toc: true
 ---
 
+I know it sounds like a joke, but here me out!
+
 After talking with Jeremy Smith and Jess Brown on the [IndieRails podcast]({{site.baseurl}}/indierails-pocast-interview/) about stained glass and how I transitioned to programming in Ruby, I’ve had this crazy idea that I could tie the two together in a weird project.
 
-## It all started with a joke
+## It started with a joke
 
-I’ve joked with people at [Rubycon Italy]({{site.baseurl}}/what-about-the-juniors/) about building a collectible, limited-edition stained-glass panel that would honor Ruby. All the people I met during that conference showed a deep appreciation and a strong emotional connection to Ruby. And when I joked about the stained-glass, many of them were quite excited about it.
+I’ve joked with people at [Rubycon Italy]({{site.baseurl}}/what-about-the-juniors/) about building a collectible, limited-edition stained-glass panel that would honor Ruby. All the people I met during that conference showed a deep appreciation and a strong emotional connection to Ruby. And when I joked about the stained-glass, many of them were quite excited about it. Then I talked about it to some more people when I got back in France, and they too were excited.
 
 So I’m building it. An *actual* **freaking** Ruby-inspired stained glass!!! 
 
-I’ll work through the entire process in public and document it as I go. 
+I’ll work through the entire process in public and document it as I go.
 
-Want some physical pixels to show the world you love Ruby? I’ve set up a dedicated mailing list – think pop-up newsletter – so you can follow along and be the first to know when the sale officially opens.
+## Want some physical pixels to show the world you love Ruby? 
+
+I’ve set up a dedicated mailing list – think pop-up newsletter – so you can follow along and be the first to know when the sale officially opens.
 
 <img class='pink-arrow' height="50" src="{{ site.baseurl }}/media/shared/pink_arrow.png"/>
 
-<div id="mc_embed_signup">
-  <form action="https://remimercier.us18.list-manage.com/subscribe/post?u=73774ffb65bb733533be2d97e&amp;id=0ae611543f&amp;f_id=0062aee6f0"
-        method="post"
-        id="mc-embedded-subscribe-form"
-        name="mc-embedded-subscribe-form"
-        class="validate newsletter-block"
-        target="_blank"
-        novalidate>
-
-    <div id="mc_embed_signup_scroll">
-      <input type="email" value="" name="EMAIL" placeholder="Your email address" class="required email" id="mce-EMAIL">
-      <input type="hidden" name="tags" value="3132062">
-      <input type="submit" value="Follow along" name="subscribe" id="mc-embedded-subscribe" class="button">
-      <div id="mce-responses" class="clear">
-        <div class="response" id="mce-error-response" style="display:none"></div>
-        <div class="response" id="mce-success-response" style="display:none"></div>
-      </div>
-      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_73774ffb65bb733533be2d97e_0ae611543f" tabindex="-1" value=""></div>
-    </div>
-  </form>
-</div>
+{% include stained_glass_form.html %}
 
 ## A quick FAQ
 
@@ -68,14 +51,12 @@ I'm aiming to ship worldwide. Shipping comes with challenges though, so I'll be 
 
 **Will there be different designs?**
 
-For this first run, I'm planning on a single design.
+For this first run, I'm planning on a single design (which, thanks to [@alexanderadam](https://ruby.social/@alexanderadam){:target="_blank"} (albeit unbeknown to him), I already have an idea for!)
 
 **How many panels will be made?**
 
 No hard number yet, but probably 20-ish top! The edition will be strictly limited. Once they're gone, they're gone. No second print run.
 
-**Is this a joke?**
-
-It sure started as one. But the reaction at RubyCon was real, and so is the craft behind it. This is a genuine, limited-edition collectible.
+That's it for today! See you in the next exciting episode.
 
 {% include signature.html %}

@@ -1,5 +1,43 @@
 /* Newsletter — Mailchimp */
 
+.dot-matrix-border {
+  border: 2px dotted var(--font-color);
+  padding: 1.5rem;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border: 2px dotted;
+    pointer-events: none;
+  }
+
+  &::before {
+    border-color: var(--cat-career);
+    translate: -3px 3.4px;
+  }
+
+  &::after {
+    border-color: var(--cat-debugging);
+    translate: 2px -3.4px;
+  }
+}
+
+.stained-glass-form #mc_embed_signup_scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .stained-glass-form--inputs {
+    display: flex;
+    gap: 1rem;
+    input[type="email"] { flex: 1; min-width: 0; }
+    input[type="submit"] { flex: 0 0 auto; width: auto; }
+  }
+}
+
 #mc-embedded-subscribe-form {
   #mc_embed_signup_scroll {
     display: flex;
