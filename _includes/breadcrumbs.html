@@ -7,7 +7,7 @@
     <a href="{{ site.baseurl }}/blog" class="filter-pill" data-category="other" >all</a>
   {% else %}
     {% for cat in real_cats %}
-      <a href="{{ site.baseurl }}/series/{{ cat }}" class="filter-pill" data-category="{{ cat | downcase }}">{{ cat | capitalize }}</a>
+      <a href="{{ site.baseurl }}/series/{{ cat | slugify }}" class="filter-pill" data-category="{{ cat | downcase }}">{{ cat | capitalize }}</a>
     {% endfor %}
   {% endif %}
 </div>
