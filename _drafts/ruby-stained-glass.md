@@ -1,7 +1,7 @@
 ---
 layout: post
 title: I'm making a collectible limited-edition Ruby stained glass
-excerpt: After talking with Jeremy Smith and Jess Brown on the IndieRails podcast about stained glass and how I transitioned to programming in Ruby, I’ve had this crazy idea that I could tie the two together in a weird project. Well, here it is!
+excerpt: After talking with Jeremy Smith and Jess Brown on the IndieRails podcast about stained glass and how I transitioned to programming in Ruby, I’ve had this crazy idea that I could tie the two together in a weird project. Well, here goes nothing!
 date: 2026-06-02
 permalink: /ruby-stained-glass/
 categories: [ruby, build in public]
@@ -9,21 +9,29 @@ cover_image:
 toc: true
 ---
 
-I know it sounds like a joke, but here me out!
-
 After talking with Jeremy Smith and Jess Brown on the [IndieRails podcast]({{site.baseurl}}/indierails-pocast-interview/) about stained glass and how I transitioned to programming in Ruby, I’ve had this crazy idea that I could tie the two together in a weird project.
 
 ## It started with a joke
 
-I’ve joked with people at [Rubycon Italy]({{site.baseurl}}/what-about-the-juniors/) about building a collectible, limited-edition stained-glass panel that would honor Ruby. All the people I met during that conference showed a deep appreciation and a strong emotional connection to Ruby. And when I joked about the stained-glass, many of them were quite excited about it. Then I talked about it to some more people when I got back in France, and they too were excited.
+I’ve joked with people at [Rubycon Italy]({{site.baseurl}}/what-about-the-juniors/) about building a collectible, limited-edition stained-glass panel that would honor Ruby. All the people I met during that conference showed a deep appreciation and a strong emotional connection to Ruby. So when I joked about the stained glass, many of them were quite excited about it. Then I talked about it some more with more people when I got back in France, and they too were excited.
 
-So I’m building it. An *actual* **freaking** Ruby-inspired stained glass!!! 
+So I've decided to promote this as a valid side quest for 2026 and build it! An *actual* Ruby-inspired stained glass!! How cool is that?
 
 I’ll work through the entire process in public and document it as I go.
 
+## The current plan
+
+My goal is to make a super limited-edition memorabilia, not to go back to stained glass full time. So I need to work out the feasability of this project first.
+
+To do that, I'll need to:
+- [ ] Find a cool design.
+- [ ] Buy materials and tools.
+- [ ] Build a test panel to get a better grasp of the difficulty and the time required to build it.
+- [ ] Price it (including materials, time, shipping).
+
 ## Want some physical pixels to show the world you love Ruby? 
 
-I’ve set up a dedicated mailing list – think pop-up newsletter – so you can follow along and be the first to know when the sale officially opens.
+If that's something you'd like to see in the world, I’ve set up a dedicated mailing list – think pop-up newsletter – so you can follow along (and you'll be the first to know if/when the sale officially opens).
 
 <img class='pink-arrow' height="50" src="{{ site.baseurl }}/media/shared/pink_arrow.png"/>
 
@@ -31,27 +39,19 @@ I’ve set up a dedicated mailing list – think pop-up newsletter – so you ca
 
 ## A quick FAQ
 
-**When will this be available?**
+**When would this be available?**
 
 I don't have a firm date yet, but Q3 or Q4 2026 seems like a reasonable timeline.
 
-**Will you make them yourself?**
+**Would you make them yourself?**
 
-Every panel will be handcrafted by me. I've been working with stained glass for years and this project is a direct extension of that craft.
+Every panel would be handcrafted by me. I've been working with stained glass for years and this project is a direct extension of that craft.
 
-**What will you do with my email?**
+**Would you ship internationally?**
 
-I will cherish it with all my might. Otherwise, I’ll only use it to keep you updated on this project.
+I'd love to. Shipping comes with challenges though, so I'll be as upfront as possible if any restrictions arise.
 
-**Will you ship internationally?**
-
-I'm aiming to ship worldwide. Shipping comes with challenges though, so I'll be as upfront as possible if any restrictions arise.
-
-**How much will it cost?** I haven't set a final price yet. It’ll depends on materials, production and shipping. But expect it to be on the collectible side of prices rather than cheap.
-
-**Will there be different designs?**
-
-For this first run, I'm planning on a single design (which, thanks to [@alexanderadam](https://ruby.social/@alexanderadam){:target="_blank"} (albeit unbeknown to him), I already have an idea for!)
+**How much would it cost?** No ideas for now. It’d depends on materials, production and shipping. But I'd expect it to be on the collectible side of prices rather than cheap.
 
 **How many panels will be made?**
 
