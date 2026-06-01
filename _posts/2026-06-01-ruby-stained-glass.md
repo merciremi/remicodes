@@ -2,7 +2,7 @@
 layout: post
 title: I'm making a collectible limited-edition Ruby stained glass
 excerpt: After talking with Jeremy Smith and Jess Brown on the IndieRails podcast about stained glass and how I transitioned to programming in Ruby, I’ve had this crazy idea that I could tie the two together in a weird project. Well, here goes nothing!
-date: 2026-06-02
+date: 2026-06-01
 permalink: /ruby-stained-glass/
 categories: [ruby, build in public]
 cover_image:
