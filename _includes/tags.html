@@ -5,7 +5,7 @@
       <a href="{{ site.baseurl }}/blog">Other</a>
     {% else %}
       {% for cat in real_cats %}
-        <a href="{{ site.baseurl }}/series/{{ cat }}">{{ cat | capitalize }}</a>{% unless forloop.last %}, {% endunless %}
+        <a href="{{ site.baseurl }}/series/{{ cat | slugify }}">{{ cat | capitalize }}</a>{% unless forloop.last %}, {% endunless %}
       {% endfor %}
     {% endif %}
   </strong>

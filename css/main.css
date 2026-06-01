@@ -21,6 +21,8 @@
 .text-sm { font-size: var(--font-size-sm); }
 .text-xs { font-size: var(--font-size-xs); }
 
+.pink-arrow { display: block; margin-inline: auto; }
+
 .mt-7 {
   margin-top: 7em;
 }
