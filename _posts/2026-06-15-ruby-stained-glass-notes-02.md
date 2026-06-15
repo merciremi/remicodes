@@ -2,8 +2,8 @@
 layout: post
 title: "Ideas are cheap. But glass? Not so much. (Ruby Stained Glass Notes #02)"
 excerpt: "This is episode #02 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained-glass panel celebrating Ruby. Today, we talk about how to choose glass, and how stained glass windows should follow the open-closed principle too."
-date: 2026-06-09
-permalink: /this-idea-cost-me-an-ice-cream/
+date: 2026-06-15
+permalink: /ruby-stained-glass-notes-02/
 categories: [ruby, build in public]
 cover_image:
 toc: true
@@ -13,9 +13,11 @@ Hey Ruby friends,
 
 Welcome to this second episode of the Ruby Stained Glass Notes. 
 
-Many thanks to all of you lovely people who replied either to the welcome email or the previous episode! You gave me plenty to think about (we'll talk about this later).
+Many thanks to all of you lovely people who replied either to the welcome email or the [previous episode]({{site.baseurl}}/this-idea-cost-me-an-ice-cream/)! You gave me plenty to think about (we'll talk about this later).
 
-If you're new here, thank you for signing up to this pop-up newsletter about this crazy project of mine: a limited-edition stained-glass panel celebrating Ruby.
+If you're new here, sign-up to the pop-up newsletter about this crazy project of mine: a limited-edition stained-glass panel celebrating Ruby.
+
+{% include stained_glass_form.html %}
 
 Let's dive right in!
 
@@ -25,7 +27,7 @@ Last week, I decided it was time to commit to the project. So I placed an €400
 
 <figure>
   <img class='regular box-shadowed' src="{{ site.url }}/media/2026/06/ruby-stained-glass-notes-02-01.jpg" alt="a picture of Remi Mercier carrying a package">
-  <figcaption>Picture courtesy of my daughter</figcaption>
+  <figcaption>Picture courtesy of my kiddo</figcaption>
 </figure>
 
 Choosing glass is never as simple as it looks: translucent, semi-translucent, solid, marbled, smooth, textured?
