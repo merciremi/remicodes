@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "This idea cost me an ice cream"
+title: "This idea cost me an ice cream (Ruby Stained Glass Notes #01)"
 excerpt: "This is episode #01 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained-glass panel celebrating Ruby."
 date: 2026-06-09
 permalink: /this-idea-cost-me-an-ice-cream/
