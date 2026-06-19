@@ -37,6 +37,12 @@ If that's something you'd like to see in the world, I’ve set up a dedicated ma
 
 {% include stained_glass_form.html %}
 
+## The first episodes are live
+
+Here's the list of my weekly notes on the project:
+- [Ruby Stained Glass Notes #01: This idea cost me an ice cream]({{site.baseurl}}/this-idea-cost-me-an-ice-cream/)
+- [Ruby Stained Glass Notes #02: Ideas are cheap. But glass? Not so much.]({{site.baseurl}}/ruby-stained-glass-notes-02/)
+
 ## A quick FAQ
 
 **When would this be available?**
