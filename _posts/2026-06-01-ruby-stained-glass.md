@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I'm making a collectible limited-edition Ruby stained glass
+title: I'm making a collectible limited-edition Ruby stained glass panel
 excerpt: After talking with Jeremy Smith and Jess Brown on the IndieRails podcast about stained glass and how I transitioned to programming in Ruby, I’ve had this crazy idea that I could tie the two together in a weird project. Well, here goes nothing!
 date: 2026-06-01
 permalink: /ruby-stained-glass/
@@ -15,13 +15,13 @@ After talking with Jeremy Smith and Jess Brown on the [IndieRails podcast]({{sit
 
 I’ve joked with people at [Rubycon Italy]({{site.baseurl}}/what-about-the-juniors/) about building a collectible, limited-edition stained-glass panel that would honor Ruby. All the people I met during that conference showed a deep appreciation and a strong emotional connection to Ruby. So when I joked about the stained glass, many of them were quite excited about it. Then I talked about it some more with more people when I got back in France, and they too were excited.
 
-So I've decided to promote this as a valid side quest for 2026 and build it! An *actual* Ruby-inspired stained glass!! How cool is that?
+So I've decided to promote this as a valid side quest for 2026 and build it! An *actual* Ruby-inspired stained glass window!! How cool is that?
 
 I’ll work through the entire process in public and document it as I go.
 
 ## The current plan
 
-My goal is to make a super limited-edition memorabilia, not to go back to stained glass full time. So I need to work out the feasability of this project first.
+My goal is to make a super limited-edition piece, not to go back to stained glass full time. So I need to work out the feasability of this project first.
 
 To do that, I'll need to:
 - [ ] Find a cool design.
@@ -36,6 +36,12 @@ If that's something you'd like to see in the world, I’ve set up a dedicated ma
 <img class='pink-arrow' height="50" src="{{ site.baseurl }}/media/shared/pink_arrow.png"/>
 
 {% include stained_glass_form.html %}
+
+## The first episodes are live
+
+Here's the list of my weekly notes on the project:
+- [Ruby Stained Glass Notes #01: This idea cost me an ice cream]({{site.baseurl}}/this-idea-cost-me-an-ice-cream/)
+- [Ruby Stained Glass Notes #02: Ideas are cheap. But glass? Not so much.]({{site.baseurl}}/ruby-stained-glass-notes-02/)
 
 ## A quick FAQ
 
