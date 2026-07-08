@@ -25,14 +25,15 @@
   --font-size-2xs: 0.5rem;
 
   --font-color: #292929;
-  --background-color: #F6F6F3;
+  --background-color: #eeeeee;
+  /*--background-color: #fff;*/
 
   --ctp-crust:     #ebebeb;
   --ctp-surface1:  #e8e8e8;
   --ctp-overlay0:  #aaaaaa;
   --ctp-mantle:    #f5f5f5;
 
-  --cat-ruby:         #e2242a;
+  --cat-ruby:         #ef4444;
   --cat-rails:        orangered;
   --cat-rspec:        springgreen;
   --cat-debugging:    hotpink;
@@ -42,6 +43,12 @@
   --cat-git:          #f05032;
   --cat-freelancing:  mediumpurple;
 
+  --cat-color: var(--ctp-overlay0);
+}
+
+
+
+:root {
   --chrome-border:  #333;
   --chrome-shadow:  #333;
   --chrome-bar:     #e8e8e8;

@@ -2,25 +2,36 @@
 layout: default
 ---
 
-<article class="post">
-  <section class="post--title">
-    <h1>{{ page.title }}</h1>
-    {% unless page.lang == 'fr' %}
-      {% include breadcrumbs.html %}
-    {% endunless %}
-  </section>
+<article class="post" data-category="{{ page.categories[0] | downcase }}">
 
-  <div class="post--content">
-    {{ content | inject_anchors }}
+  <aside class="post--sidebar s-down-hidden">
+    <div class="aside--sticky">
+      <div class="aside--toc">
+        <h5 class="">Chapters</h5>
+        <div class="text-sm">{{ content | toc_only }}</div>
+      </div>
+
+      <div class="aside--newsletter">
+        {% include newsletter_mailchimp.html %}
+      </div>
+    </div>
+  </aside>
+
+  <div class="post--main">
+    <section class="post--title">
+      <h1 class="mt-0">{{ page.title }}</h1>
+      {% unless page.lang == 'fr' %}
+        {% include breadcrumbs.html %}
+      {% endunless %}
+    </section>
+
+    <section class="post--content">
+      {{ content | inject_anchors }}
+    </section>
   </div>
 </article>
 
-<aside class="page-sidebar">
-  <div class="aside--toc s-down-hidden">
-    <h5>Chapters</h5>
-    {{ content | toc_only }}
-  </div>
-</aside>
+
 
 <script type="application/ld+json">
   {

@@ -5,8 +5,8 @@ layout: home
 <article class="page home">
   <section class="home--hero">
     <div class="home--hero-text">
-      <h1>
-        <span class="text-lg">Hey, I’m <a href="https://ruby.social/@remi" target="_blank">@remi</a>.</span><br>
+      <h1 class="letter-spacing-0.5">
+        <span class="text-lg">Hey, I’m <a href="https://ruby.social/@remi" target="_blank">@remi</a></span><span class="header--cursor text-monospaced text-md light-gray"> ░</span><br>
         I'm a software engineer helping tech companies build <a href="{{site.baseurl}}/work/"><span class="color-shuffle"><span class="word"><span>c</span><span>o</span><span>o</span><span>l</span></span> <span class="word"><span>s</span><span>t</span><span>u</span><span>f</span><span>f</span></span> <span class="word"><span>o</span><span>n</span></span> <span class="word"><span>t</span><span>h</span><span>e</span></span> <span class="word"><span>i</span><span>n</span><span>t</span><span>e</span><span>r</span><span>n</span><span>e</span><span>t</span></span></span></a>.
       </h1>
 
@@ -16,18 +16,37 @@ layout: home
         <p>Follow along if you wanna know more about <a href="{{site.baseurl}}/about/">me</a> or <a href="{{site.baseurl}}/now/">what I’m doing at the moment</a>.</p>
       </div>
     </div>
-    <div class="home--hero-placeholder"></div>
+    <div class="home--hero-placeholder">
+      <div class="card--folded">
+        <h3><mark>Can't keep up with your roadmap?</mark></h3>
+        <p>
+          Features piling up faster than you can ship them?
+          Database buckling under load?
+          Not sure whether to trust AI with your codebase?
+        </p>
+        <p>I hear you. So many fires, so little time to put them out.</p>
+        <p>Let me take some of that off your plate:
+           <a href="/work">I help small and mid-sized teams build Rails apps that make millions of users (and their CFO) happy.</a></p>
+        <p>Let's talk,</p>
+        <p><img src="{{ site.baseurl }}/media/shared/remi-signature.png" width="50"/></p>
+
+      </div>
+    </div>
   </section>
 
   <section class="home--latest">
     <div class="home--latest-post">
-      <h3>Hot from the press</h3>
-      → <a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a>
-        <span> (<time datetime="{{ site.posts.first.date }}">{{ site.posts.first.date | date: "%b %-d, %Y" }}</time>)</span>
-    </div>
-    <div class="home--latest-work">
-      <h3>Can't keep up with your roadmap?</h3>
-      → <a href="/work">Check my freelance services</a>
+      <h2>Hot from the press</h2>
+      <ul class="latest--list">
+        {% assign latest_posts = site.posts | where_exp: "post", "post.lang != 'fr'" %}
+        {% for post in latest_posts limit: 5 %}
+          <li>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <time datetime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+          </li>
+        {% endfor %}
+      </ul>
+      <a href="{{ site.baseurl }}/blog" class="read-more">See all essays →</a>
     </div>
   </section>
 </article>
