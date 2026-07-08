@@ -1,0 +1,11 @@
+{
+  "show_completion_documentation": false,
+  "show_completions_on_input": false,
+  "inlay_hints": {
+    "enabled": false,
+    "show_value_hints": false,
+    "show_type_hints": false,
+    "show_parameter_hints": false,
+    "show_other_hints": false
+  }
+}
