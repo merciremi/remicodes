@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How do you sell a stained-glass panel? (Ruby Stained Glass Notes #07)"
+title: "How do I sell this thing? (Ruby Stained Glass Notes #07)"
 excerpt: "This is episode #07 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained glass panel celebrating Ruby. Today, I'm back from the summer break with three open questions: how to sell the panel, how to price it, and who might want to sponsor it."
 date: 2026-09-09
 permalink: /ruby-stained-glass-notes-07/
