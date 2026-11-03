@@ -666,6 +666,34 @@ a:focus-visible .logo__hover {
   border-color: var(--ink);
 }
 
+/* "View as Markdown" button next to a post's date */
+.article .markdown-button {
+  --link-accent: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+  margin-left: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--ink-3);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+}
+.article .markdown-button:hover {
+  color: var(--ink);
+  border-color: var(--rule-2);
+}
+/* The robot is a mask filled with the text colour, so it follows the hover state. */
+.article .markdown-button::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  mask: url("/assets/media/shared/robot.svg") center / contain no-repeat;
+}
+
 /* archive filter row */
 .filter-row {
   display: flex;

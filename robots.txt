@@ -1,7 +1,11 @@
 User-agent: *
 Allow: /
+# Not part of RFC 9309 (validators may warn): tells AI agents they may use this content.
+# See https://contentsignals.org/
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 Sitemap: https://remimercier.com/sitemap.xml
 
 # LLM-friendly content:
 # See https://remimercier.com/llms.txt for structured information about this site and its author
+# Every blog post has a Markdown version: add .md to the post URL (e.g. https://remimercier.com/introduction-to-minitest.md)

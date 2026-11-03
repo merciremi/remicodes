@@ -36,6 +36,15 @@ collections:
   notes:
     output: true
     permalink: /notes/:year:month:day:hour:minute/
+  # Raw Markdown copies, generated at build time by _plugins/markdown_copies.rb.
+  # No _markdown/ folder: the documents only exist in memory.
+  markdown:
+    output: true
+
+# Which documents get a Markdown copy in the `markdown` collection.
+# Add `pages` to the list to copy Markdown pages too.
+markdown_copies:
+  sources: [posts]
 
 defaults:
   # Fallback og:image / twitter:image for jekyll-seo-tag.

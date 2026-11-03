@@ -22,6 +22,7 @@ end
 # :documents covers posts and every other collection (notes).
 Jekyll::Hooks.register :documents, :post_convert do |doc|
   next unless doc.content
+  next if doc.collection.label == MarkdownCopies::COLLECTION
 
   doc.content = lazy_load_images(doc.content)
 end

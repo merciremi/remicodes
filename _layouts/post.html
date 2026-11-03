@@ -2,9 +2,18 @@
 layout: default
 ---
 <article class="article">
-  <p class="t-label mb-2"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
+  <p class="t-label mb-2">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% if page.markdown_url %}
+
+    <a class="markdown-button" href="{{ page.markdown_url | relative_url }}" type="text/markdown">View as Markdown</a>{% endif %}
+  </p>
 
   <h1>{{ page.title }}</h1>
+
+  {%- comment -%} For people pasting this page into an AI tool: the text survives a copy-paste, but stays invisible and silent. {%- endcomment -%}
+  {% if page.markdown_url %}
+  <p class="visually-hidden" aria-hidden="true">A Markdown version of this page is available at {{ page.markdown_url | absolute_url }}, optimized for AI and LLM tools.</p>
+  {% endif %}
 
   <div class="tags">
     {% for tag in page.tags %}
