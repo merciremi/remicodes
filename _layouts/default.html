@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
-  {% include head.html %}
-  <body>
-    {% if page.lang == 'fr' %}
-      {% include fr/header.html %}
-    {% else %}
-      {% include header.html %}
-    {% endif %}
-    <main>
-      {{ content }}
-    </main>
-    {% include footer.html %}
-  </body>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+{% include head.html %}
+</head>
+{%- assign primary_tag = page.tag | default: page.tags.first -%}
+<body{% if primary_tag %} class="cat-{{ primary_tag }}"{% endif %}>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="container">
+{% include header.html %}
+<main id="main">
+{{ content }}
+</main>
+{% include footer.html variant=page.footer_variant %}
+</div>
+</body>
 </html>

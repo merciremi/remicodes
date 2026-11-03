@@ -1,23 +1,21 @@
 ---
 layout: post
 title: "How do I sell this thing? (Ruby Stained Glass Notes #07)"
-excerpt: "This is episode #07 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained glass panel celebrating Ruby. Today, I'm back from the summer break with three open questions: how to sell the panel, how to price it, and who might want to sponsor it."
 date: 2026-09-09
+tags: [ruby-stained-glass]
 permalink: /ruby-stained-glass-notes-07/
-categories: [ruby, build in public]
-cover_image:
-toc: true
+excerpt: "This is episode #07 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained glass panel celebrating Ruby. Today, I'm back from the summer break with three open questions: how to sell the panel, how to price it, and who might want to sponsor it."
 ---
 
 Hey, Ruby friends.
 
 Welcome back to the Ruby Stained Glass Notes. This is episode seven. I hope you had a great summer despite the heat. I took some time to walk on the Stevenson Trail with the family, to swim in rivers and lakes, and watch the solar eclipse from a mountainside, which was a lot of fun. 
 
-Last time, [I soldered the first test panel together]({{site.baseurl}}/ruby-stained-glass-notes-06/) and showed you what it looks like.
+Last time, [I soldered the first test panel together](/ruby-stained-glass-notes-06/) and showed you what it looks like.
 
-If you're new here, you can sign up to this pop-up newsletter about this crazy project of mine: a limited-edition stained-glass panel celebrating Ruby. 
+If you're new here, you can sign up to this pop-up newsletter about this crazy project of mine: [a limited-edition stained-glass panel celebrating Ruby](/ruby-stained-glass/). 
 
-{% include stained_glass_form.html %}
+{% include stained-glass-form.html %}
 
 Without furter ado, _allons-y_!
 

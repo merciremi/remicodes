@@ -1,0 +1,7 @@
+{%- assign toc_html = content | toc_only -%}
+{%- if toc_html contains "<li" -%}
+<nav class="toc" aria-label="Table of contents">
+  <p class="t-label mb-1">On this page</p>
+  {{ toc_html }}
+</nav>
+{%- endif -%}

@@ -1,12 +1,11 @@
 ---
-toc: true
 layout: post
 title: "Add comments to your tables columns"
-excerpt: "Add extra documentation to your columns attributes with this one weird trick."
 date: 2024-06-22
+tags: [rails]
 permalink: /comment-tables-columns-attributes/
-categories: [rails]
-cover_image: "/media/2024/06/remi-mercier-add-comments-to-your-tables-columns.png"
+redirect_from: /comment-attributes/
+excerpt: "Add extra documentation to your columns attributes with this one weird trick."
 ---
 
 I've been looking for a way to add default comments on models attributes *for ages*!
@@ -17,7 +16,7 @@ But now, I can add my own. For example, I can specify the unit for a duration co
 
 These default comments are defined in your `schema.rb`, so gems like [annotate](https://github.com/ctran/annotate_models){:target="\_blank"} will pick them up. No need to worry about overwrite anymore.
 
-{% highlight ruby %}
+```ruby
   class Book
     # == Schema Information
     #
@@ -27,29 +26,32 @@ These default comments are defined in your `schema.rb`, so gems like [annotate](
     #  duration    :integer   👉 in seconds 👈
     #
   end
-{% endhighlight %}
+```
+
 
 See this lil' `in seconds` above, that's me, adding extra documentation to my tables column so my teamates don't have to guess the unit.
 
 Here's how to do that in a migration adding a new column:
 
-{% highlight ruby %}
+```ruby
 class AddDurationToBooks < ActiveRecord::Migration[7.0]
   def change
     add_column :books, :duration, :integer, comment: "in seconds", default: 0, null: false
   end
 end
-{% endhighlight %}
+```
+
 
 I can also add a default comment to an existing attribute:
 
-{% highlight ruby %}
+```ruby
 class AddCommentToBooksDuration < ActiveRecord::Migration[7.0]
   def change
     change_column_comment(:books, :duration, from: nil, to: "in seconds")
   end
 end
-{% endhighlight %}
+```
+
 
 Passing a hash containing `:from` and `:to` will make this change reversible in migrations.
 

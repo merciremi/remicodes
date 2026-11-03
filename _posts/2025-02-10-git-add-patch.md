@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
-title: How I use git add --patch for reviewing my work
-excerpt: "When working on features, I strive to preserve my flow, which means, that after a few hours, I'll have a bunch of untracked files waiting for me in git. I use `git add --patch` to effectively bundling my work into separate commits."
+title: "How I use git add --patch for reviewing my work"
 date: 2025-02-10
+tags: [git]
 permalink: /git-add-patch/
-categories: [git]
-cover_image: "media/2025/02/how-to-use-git-add-patch-remi-mercier.png"
+excerpt: "When working on features, I strive to preserve my flow, which means, that after a few hours, I'll have a bunch of untracked files waiting for me in git. I use `git add --patch` to effectively bundling my work into separate commits."
 ---
 
 When working on features, I strive to preserve my flow, which means, that after a few hours, I'll have a bunch of untracked files waiting for me in git. Since I like to make atomic changes, I need to remember which files go hand-in-hand to bundle them up in meaningful separate commits.
@@ -22,7 +20,7 @@ Let's take this website repository as an example (#meta)!
 
 First, let's run `git status`.
 
-{% highlight zsh %}
+```zsh
   merciremi/remicodes gh-pages → git status
   On branch gh-pages
   Your branch is up to date with 'origin/gh-pages'.
@@ -35,7 +33,8 @@ First, let's run `git status`.
   	_notes/
 
   nothing added to commit but untracked files present (use "git add" to track)
-{% endhighlight %}
+```
+
 
 Here's a breakdown of the main git-related information:
 - `On branch gh-pages` is pretty self-explanatory.
@@ -44,16 +43,17 @@ Here's a breakdown of the main git-related information:
 
 I've just created `_drafts/git-patch-draft.md` and I want git to start tracking it. What happens if I run `git add --patch` on it?
 
-{% highlight zsh %}
+```zsh
   merciremi/remicodes gh-pages → git add --patch _drafts/git-patch-draft.md
   No changes.
-{% endhighlight %}
+```
+
 
 `git add --patch` needs a tracked file to work as intended. Trying to patch a file not tracked yet will result in a `No changes` message. It's pretty logical when you think about the _semantic_ used by git. If you do a bit of REST, you know you can only patch an existing resource[^1].
 
 So, I'll add my draft to my staging area.
 
-{% highlight zsh %}
+```zsh
   merciremi/remicodes gh-pages → git add _drafts/git-patch-draft.md
   merciremi/remicodes gh-pages → git status
   On branch gh-pages
@@ -68,14 +68,15 @@ So, I'll add my draft to my staging area.
   	_drafts/add-postgres-full-text-search-to-rails-app.md
   	_drafts/speed-up-rspec-suite-by-understanding-lifecycles.md
   	_notes/
-{% endhighlight %}
+```
+
 
 On top of the previous information, I now have:
 - `Changes to be committed` which represents the [staging area](https://git-scm.com/about/staging-area){:target="_blank"} (a.k.a the place where we bundle our changes before committing them).
 
 Now that git tracks my draft, I'll be able to patch every changes I make. There is a lot of stuff to parse, though:
 
-{% highlight zsh %}
+```zsh
   merciremi/remicodes gh-pages → git add --patch _drafts/git-patch-draft.md
 
   diff --git a/_drafts/git-patch-draft.md b/_drafts/git-patch-draft.md
@@ -102,7 +103,8 @@ Now that git tracks my draft, I'll be able to patch every changes I make. There 
   +   First, let's run `git status` to where we at.
 
   (1/2) Stage this hunk [y,n,q,a,d,e,p,?]?
-{% endhighlight %}
+```
+
 
 Let's explain default git metadata first:
 - `diff --git a/_drafts/git-patch-draft.md b/_drafts/git-patch-draft.md` represents which file the current diff is for. `a/` is the file before changes, `b/` is the file after changes. Why? I could rename a file, and git knows how to track this type of change.
@@ -145,7 +147,7 @@ Currently, I work on a product whose translations live on a 3-rd party service. 
 
 For this scenario, I use the regex option with my key as a literal pattern: `/my_locale_key:`. Git finds a match and asks me what I want to do with it. I add it with `y`, then git keeps going through the file for the remaining hunks. Oftentimes, I'll add a hunk with `/` and then opt out of the file with `d`.
 
-{% highlight zsh %}
+```zsh
   merciremi/some_app main → git add --patch config/locales.en.yml
 
   diff --git a/config/locales.en.yml b/config/locales.en.yml
@@ -180,7 +182,8 @@ For this scenario, I use the regex option with my key as a literal pattern: `/my
     category_not_in_catalog: Category does not contain any book from your catalog.
 
   (2/5) Stage this hunk [y,n,q,a,d,e,p,?]? d
-{% endhighlight %}
+```
+
 
 Some hunks you can split into smaller hunks with `s`. But this option depends on the hunk. A markdown file seems to be an indiscriminate blob for git, so there is no split option. A Ruby file with extensive changes can often be split.
 

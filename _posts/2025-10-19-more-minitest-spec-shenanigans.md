@@ -1,22 +1,19 @@
 ---
-toc: true
 layout: post
 title: "More Minitest::Spec shenanigans"
-excerpt: "While I already covered the basics of `Minitest::Spec`, I forgot to discuss a few aspects of the spec flavor. This post serves as a complement to the previous one and digs a bit deeper into some extra `Minitest::Spec` shenanigans."
 date: 2025-10-19
+tags: [minitest, testing]
 permalink: /more-minitest-spec/
-redirect_from: /haikus
-categories: [minitest, testing]
-cover_image: ""
+excerpt: "While I already covered the basics of `Minitest::Spec`, I forgot to discuss a few aspects of the spec flavor. This post serves as a complement to the previous one and digs a bit deeper into some extra `Minitest::Spec` shenanigans."
 ---
 
-While I already covered [the basics of `Minitest::Spec`]({{site.baseurl}}/minitest-spec), I forgot to discuss a few aspects of the spec flavor. This post serves as a complement to the previous one and digs a bit deeper into some extra `Minitest::Spec` shenanigans.
+While I already covered [the basics of `Minitest::Spec`](/minitest-spec), I forgot to discuss a few aspects of the spec flavor. This post serves as a complement to the previous one and digs a bit deeper into some extra `Minitest::Spec` shenanigans.
 
 ## `let` over `@ivar`
 
 So far, in my setup, I only used ivars to store a `User` accessible in my test examples:
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Spec
     before do
       @user = User.new(first_name: "buffy", last_name: "summers")
@@ -26,13 +23,14 @@ So far, in my setup, I only used ivars to store a `User` accessible in my test e
       expect(@user.full_name).must_equal "Buffy Summers"
     end
   end
-{% endhighlight %}
+```
+
 
 However, `Minitest::Spec` allows me to use the `let(:user)` method instead of `@user`.
 
 If you use RSpec, this will look *very familiar*. If you don't, `let` is a method exposed by the DSL, that allows you to define [memoized instance variables](https://github.com/minitest/minitest/blob/master/lib/minitest/spec.rb#L261){:target="_blank"} accessible in your test examples through accessors.
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Spec
     let(:user) { User.new(first_name: "buffy", last_name: "summers") }
 
@@ -40,13 +38,14 @@ If you use RSpec, this will look *very familiar*. If you don't, `let` is a metho
       expect(user.full_name).must_equal "Buffy Summers"
     end
   end
-{% endhighlight %}
+```
+
 
 No more `@user`, just a plain `user`, as `Minitest::Spec` `let` adds an accessor to my instance variable.
 
 Also, I no longer need the `before do ... end` block to define variables. I'll only use `before do ... end` if I need a more complex setup:
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Spec
     let(:user) { User.new(first_name: "buffy", last_name: "summers") }
 
@@ -58,7 +57,8 @@ Also, I no longer need the `before do ... end` block to define variables. I'll o
       expect(user.full_name).must_equal "Buffy Summers"
     end
   end
-{% endhighlight %}
+```
+
 
 `before do ... end` remains the standard way to create objects not directly used in test examples or to mock objects.
 
@@ -74,7 +74,7 @@ Minitest does not have a `let!` method (like RSpec does). If you need to create 
 
 `Minitest::Spec` also adds the `subject` method:
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Spec
     subject { user.full_name }
 
@@ -84,11 +84,12 @@ Minitest does not have a `let!` method (like RSpec does). If you need to create 
       expect(subject).must_equal "Buffy Summers"
     end
   end
-{% endhighlight %}
+```
+
 
 `subject` replaces explicit calls to the method I test. It’s a syntactic convenience that lets me define the *subject* of the current scope. I find it easy to read and handy when dealing with nested contexts:
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Spec
     describe "#full_name" do
       subject { user.full_name }
@@ -112,11 +113,12 @@ Minitest does not have a `let!` method (like RSpec does). If you need to create 
       end
     end
   end
-{% endhighlight %}
+```
+
 
 The output for these tests is:
 
-{% highlight zsh %}
+```zsh
   lab/minitest-post → ruby user_test.rb --verbose
   Run options: --verbose --seed 4199
 
@@ -127,13 +129,14 @@ The output for these tests is:
 
   Finished in 0.001340s, 1492.5373 runs/s, 1492.5373 assertions/s.
   2 runs, 2 assertions, 0 failures, 0 errors, 0 skips
-{% endhighlight %}
+```
+
 
 I like how combining `let` and `subject` lets me run multiple contexts while only adjusting the relevant variable. Since `let`s are lazily evaluated, the initial `let(:user)` can leverage contextual `let`s to instantiate a new `User` with the *ad hoc* local variables.
 
 In plain Minitest, it'd look like this:
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Test
     def setup
       @user = User.new(first_name: "buffy", last_name: "")
@@ -153,7 +156,8 @@ In plain Minitest, it'd look like this:
       refute_equal "Buffy Anne Summers", full_name
     end
   end
-{% endhighlight %}
+```
+
 
 Since `@user = User.new` is evaluated immediately during setup, it can't take advantage from local variables to create different variations of a `User` on the fly.
 
@@ -169,7 +173,7 @@ There are no `context` in Minitest, but `describe` blocks are still a nicer way 
 
 Be careful not to nest `describe` block too deeply:
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Spec
     describe "#full_name" do
       subject { user.full_name }
@@ -192,11 +196,12 @@ Be careful not to nest `describe` block too deeply:
       end
     end
   end
-{% endhighlight %}
+```
+
 
 The output for these tests becomes messy:
 
-{% highlight zsh %}
+```zsh
   lab/minitest-post → ruby user_test.rb --verbose
   Run options: --verbose --seed 50406
 
@@ -207,7 +212,8 @@ The output for these tests becomes messy:
 
   Finished in 0.001022s, 1956.9472 runs/s, 1956.9472 assertions/s.
   2 runs, 2 assertions, 0 failures, 0 errors, 0 skips
-{% endhighlight %}
+```
+
 
 Output legibility is a common critique I hear about Minitest. At the same time, deep nesting makes reading both the files and the output difficult, no matter the framework.
 
@@ -219,7 +225,7 @@ Maintained by the same people behind Minitest, `rails-minitest` provides a Minit
 
 Its benefits include:
 - It allows you to explicitly declare the type of class you're testing.
-- It resolves [the inheritance shenanigans]({{site.baseurl}}/minitest-spec/#:~:text=On%20the%20other%20hand,ApplicationSystemTestCase) through that typing.
+- It resolves [the inheritance shenanigans](/minitest-spec/#:~:text=On%20the%20other%20hand,ApplicationSystemTestCase) through that typing.
 - It exposes extra spec-flavored expectations for Rails mailers, jobs, routing, and more.
 
 ### How to install `minitest-rails`
@@ -228,13 +234,13 @@ The gem follows the versioning of Rails, so I added `gem "minitest-rails", "~> 8
 
 `minitest-rails` comes with a handy installation generator - `rails generate minitest:install`- which adds all the necessary files to the application.
 
-Be careful, though, the generator will overwrite your existing setup ([much like the `rails app:update` command]({{site.baseurl}}/upgrading-ruby-on-rails/)).
+Be careful, though, the generator will overwrite your existing setup ([much like the `rails app:update` command](/upgrading-ruby-on-rails/)).
 
 To prevent this, I dry-ran the generator with the `--pretend` flag, which shows all the changes the gem would make: `rails generate minitest:install <APP_PATH> -p`.
 
 The changes in my `application_system_test_case.rb` were minimal:
 
-{% highlight zsh %}
+```zsh
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   some existing stuff
 
@@ -244,7 +250,8 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   more existing stuff
 end
-{% endhighlight %}
+```
+
 
 The generator only added `require "minitest/rails"` and some parallelization configuration to my `test_helper.rb`.
 
@@ -252,29 +259,32 @@ The generator only added `require "minitest/rails"` and some parallelization con
 
 One of the benefits of the Minitest integration is that it lets me declare which class I'm testing with a `describe` block:
 
-{% highlight ruby %}
+```ruby
   describe User do
     ...
   end
-{% endhighlight %}
+```
+
 
 Instead of:
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Spec
     ...
   end
-{% endhighlight %}
+```
+
 
 I don't need to suffix my test class with `Test` (*ie* `UserTest`) and `minitest-rails` is able to infer the inheritance from the declared class.
 
 I also can cast the type explicitly to help Minitest figure out which kind of test I want to run.
 
-{% highlight ruby %}
+```ruby
   describe User, :model do
     ...
   end
-{% endhighlight %}
+```
+
 
 `minitest-rails` even lets me declare custom types and custom inheritance, but I haven't (yet) figured out how this works (and where I could use it).
 
@@ -284,19 +294,21 @@ I also can cast the type explicitly to help Minitest figure out which kind of te
 
 For instance, Rails' default Minitest syntax would look like this:
 
-{% highlight ruby %}
+```ruby
   assert_enqueued_jobs 1 do
     NotifyUser.perform_later(user_id: user.id)
   end
-{% endhighlight %}
+```
+
 
 And `minitest-rails` will look like this:
 
-{% highlight ruby %}
+```ruby
   must_enqueue_jobs 1 do
     NotifyUser.perform_later(user_id: user.id)
   end
-{% endhighlight %}
+```
+
 
 The assertion becomes an expectation, harmonizing the syntax of my tests.
 
@@ -306,7 +318,7 @@ While I managed to install the gem and update the declaration of my tests, one t
 
 Consider this test:
 
-{% highlight ruby %}
+```ruby
   describe NotifyUserJob, :job do
     let(:user) { User.new(first_name: "buffy", last_name: "summers") }
 
@@ -314,7 +326,8 @@ Consider this test:
       must_enqueue_email_with UserMailer, :notify, args: [user]
     end
   end
-{% endhighlight %}
+```
+
 
 I used the new `describe` declaration for my test case, explicitly cast the `:job` type, and used the newly available `must_enqueue_email_with` expectation.
 
@@ -324,13 +337,14 @@ It means the [`Minitest::Rails::Expectations::ActiveMailer`](https://github.com/
 
 I had to include `Minitest::Rails::Expectations::ActionMailer` within my test case to make this expectation work:
 
-{% highlight ruby %}
+```ruby
 describe CalendlyEventsManagerJob, :integration do
   include Minitest::Rails::Expectations::ActionMailer
 
   ...
 end
-{% endhighlight %}
+```
+
 
 There's no mention of this in the documentation, but I've found this comment in the `ActiveJob` expectations module:
 
@@ -355,6 +369,6 @@ Let's recap:
 - The gem provides extra methods for an overall spec-flavored test suite.
 - In my experience, it comes with some challenges around these extra expectations, which I solved by manually including the modules. But YMMV.
 
-The fourth part of the series – [Using Minitest::Spec in Rails? Watch out for the lifecycle hooks!]({{site.baseurl}}/minitest-spec-and-rails-hooks/) – is not live.
+The fourth part of the series – [Using Minitest::Spec in Rails? Watch out for the lifecycle hooks!](/minitest-spec-and-rails-hooks/) – is not live.
 
 Big thank-yous to Cecile for pointing out the topic of `let` and `subject`, and to Eric for helping me out with setting-up the `minitest-rails` gem.

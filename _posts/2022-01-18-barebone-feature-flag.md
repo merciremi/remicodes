@@ -1,29 +1,28 @@
 ---
-toc: true
 layout: post
 title: "Build a minimal feature flags manager in under an hour"
-excerpt: "Feature flags (or feature toggles) are a neat way to hide in-progress features from your users. For those who need a simple on-and-off system, here's a minimal feature flag manager that'll take less than an hour to build, using plain Ruby objects, the Rails configuration, and some neat variables organization."
 date: 2022-01-18
+tags: [ruby, rails]
 permalink: /minimal-feature-flags-manager/
-categories: ['ruby', 'rails']
-cover_image: '/media/2022/01/remi-mercier-build-feature-flags-manager.png'
+excerpt: "Feature flags (or feature toggles) are a neat way to hide in-progress features from your users. For those who need a simple on-and-off system, here's a minimal feature flag manager that'll take less than an hour to build, using plain Ruby objects, the Rails configuration, and some neat variables organization."
 ---
 
-When you deploy your code continuously, feature flags (or feature toggles) are a neat way to hide in-progress features from your users. In the past, I've written about [my process for releasing large features]({{site.baseurl}}/building-large-features-process/). But after using feature flags in the last six months, I've come to like them better than my former process.
+When you deploy your code continuously, feature flags (or feature toggles) are a neat way to hide in-progress features from your users. In the past, I've written about [my process for releasing large features](/building-large-features-process/). But after using feature flags in the last six months, I've come to like them better than my former process.
 
 Still, hiding behavior behind `if ENV['MY-FEATURE'].present?`-type conditionals bothers me.
 
 First, I don't think the syntax is very legible. Second, I _know_ it's hard to maintain a naming convention across a team. You'll soon end up with endless variations: `ENV['MY-FEATURE]`, `ENV[FF-MY-FEATURE-NAME]`, `ENV['TOGGLE-FEATURE']`, etc... These discrepancies make it hard to keep track of all your feature flags.
 
-Sure, you could use a gem or a third-party service. But for those who just need an _on-and-off_ system, here's a minimal feature flag manager that'll take you less than an hour to build. It's a plain [Ruby]({{site.baseurl}}/series/ruby) object but its configuration leans on [Ruby on Rails]({{site.baseurl}}/series/rails). I'm sure a Ruby-only implementation wouldn't be too hard to whip up, though.
+Sure, you could use a gem or a third-party service. But for those who just need an _on-and-off_ system, here's a minimal feature flag manager that'll take you less than an hour to build. It's a plain [Ruby](/topics/ruby/) object but its configuration leans on [Ruby on Rails](/topics/rails/). I'm sure a Ruby-only implementation wouldn't be too hard to whip up, though.
 
 ## Expected outcome
 
 Instead of `if ENV['EDITORIAL_FEED_FEATURE'].present?`, I'd like to see this syntax:
 
-{% highlight ruby %}
+```ruby
   if Features.enabled? :editorial_feed
-{% endhighlight %}
+```
+
 
 While looking at it, a few ideas come to mind:
 - My `Features` class will need access to all available feature flags and check if the flag passed as argument is present and enabled.
@@ -33,13 +32,14 @@ While looking at it, a few ideas come to mind:
 
 A basic implementation of my `Features` class could be this:
 
-{% highlight ruby %}
+```ruby
   class Features
     def self.enabled?(feature)
       # check if _feature_ is in the list of flags AND enabled
     end
   end
-{% endhighlight %}
+```
+
 
 ## A shameless green version
 
@@ -52,7 +52,7 @@ If you pass a feature's name to `Features.enabled?`, the method should:
 
 Let's draft our first test.
 
-{% highlight ruby %}
+```ruby
   RSpec.describe Features do
     describe '.enabled?' do
       subject { described_class.enabled?(feature) }
@@ -62,11 +62,12 @@ Let's draft our first test.
       it { is_expected.to be_in([true, false]) }
     end
   end
-{% endhighlight %}
+```
+
 
 A minimal implementation could be:
 
-{% highlight ruby %}
+```ruby
   class Features
     FEATURES = {
       audiobooks: false,
@@ -78,7 +79,8 @@ A minimal implementation could be:
       FEATURES[feature.to_sym]
     end
   end
-{% endhighlight %}
+```
+
 
 This code is problematic on several levels. Our test is green, though. If you were to put this code into the world right now, it'll work. I also like that all feature flags are neatly organized in one place.
 
@@ -93,7 +95,7 @@ Let's try and tackle the latter first.
 
 The smallest step we can take is to replace hardcoded values with environment variables.
 
-{% highlight ruby %}
+```ruby
   class Features
     FEATURES = {
       audiobooks: ENV.fetch('AUDIOBOOKS_FEATURE', false),
@@ -105,7 +107,8 @@ The smallest step we can take is to replace hardcoded values with environment va
       FEATURES[feature.to_sym]
     end
   end
-{% endhighlight %}
+```
+
 
 With this code, our test still passes but not for the right reasons.
 
@@ -127,7 +130,7 @@ You can create a custom accessor in your Rails configuration that leans on a sin
 
 First, go to your `application.rb`. At the end of the `Application` class, add your own configuration.
 
-{% highlight ruby %}
+```ruby
   # in config/application.rb
   module MyApp
   class Application < Rails::Application
@@ -136,7 +139,8 @@ First, go to your `application.rb`. At the end of the `Application` class, add y
     config.features = config_for(:features)
   end
 end
-{% endhighlight %}
+```
+
 
 What's happening here? Now, your `Rails::Application::Configuration` class has a `features` accessor that you can call with `Rails.config.features`.
 
@@ -146,13 +150,14 @@ Your application will now look for a `YAML` file named `features.yml`.
 
 In your `config` directory, create a `features.yml` file. The first key represents the environment where your variables will apply. In our example, I've used `shared` which means that all environments will share the information.
 
-{% highlight ruby %}
+```ruby
   # in config/features.yml
   shared:
     audiobooks: <%= ENV.fetch('AUDIOBOOKS_FEATURE', false) %>
     comic_strips: <%= ENV.fetch('COMIC_STRIPS_FEATURE', false) %>
     editorial_feed: <%= ENV.fetch('EDITORIAL_FEED_FEATURE', false) %>
-{% endhighlight %}
+```
+
 
 We usually store strings in `YAML` files, but it's possible to execute Ruby code with the help of the `<%= =>` syntax.
 
@@ -168,7 +173,7 @@ We don't need our constant anymore. But we need to pull the configuration in its
 
 Let's whip up a second test.
 
-{% highlight ruby %}
+```ruby
   RSpec.describe Features do
     describe '.configuration' do
       subject { described_class.configuration }
@@ -176,11 +181,12 @@ Let's whip up a second test.
       it { is_expected.to be_an_instance_of(ActiveSupport::OrderedOptions) }
     end
   end
-{% endhighlight %}
+```
+
 
 Let's try to code our method and make the test green.
 
-{% highlight ruby %}
+```ruby
   class Features
     def self.configuration
       Rails.configuration.features
@@ -188,13 +194,14 @@ Let's try to code our method and make the test green.
 
     # ...
   end
-{% endhighlight %}
+```
+
 
 Easy right! The test passes. On the other hand, we're creating a dependency between our `Features` class and the Rails configuration.
 
 Now that we've made the change easy, it's just a matter of changing `FEATURES` by `configuration` in our `enabled?` method.
 
-{% highlight ruby %}
+```ruby
   class Features
     def self.configuration
       Rails.configuration.features
@@ -204,11 +211,12 @@ Now that we've made the change easy, it's just a matter of changing `FEATURES` b
       configuration[feature.to_sym]
     end
   end
-{% endhighlight %}
+```
+
 
 The full test suite is:
 
-{% highlight ruby %}
+```ruby
   RSpec.describe Features do
     describe '.configuration' do
       subject { described_class.configuration }
@@ -224,13 +232,14 @@ The full test suite is:
       it { is_expected.to be(true) }
     end
   end
-{% endhighlight %}
+```
+
 
 Okay, so why does my second test throw a failure?
 
 Well, we created a dependency between `Features.configuration` and the Rails configuration. And that dependency needs to be mocked!
 
-{% highlight ruby %}
+```ruby
   RSpec.describe Features do
     describe '.configuration' do
       subject { described_class.configuration }
@@ -250,7 +259,8 @@ Well, we created a dependency between `Features.configuration` and the Rails con
       it { is_expected.to be(true) }
     end
   end
-{% endhighlight %}
+```
+
 
 This'll take care of the dependency. Now, my tests pass.
 
@@ -258,7 +268,7 @@ This'll take care of the dependency. Now, my tests pass.
 
 What happens if the feature we'd like to check is not in our list? `configuration[feature.to_sym]` will return `nil`. Let's update our tests accordingly.
 
-{% highlight ruby %}
+```ruby
   RSpec.describe Features do
     describe '.configuration' do
       subject { described_class.configuration }
@@ -284,7 +294,8 @@ What happens if the feature we'd like to check is not in our list? `configuratio
       end
     end
   end
-{% endhighlight %}
+```
+
 
 My third test passes. But by convention, `enabled?` should return a boolean, not `nil`. So we need to enforce its return type.
 
@@ -292,7 +303,7 @@ My third test passes. But by convention, `enabled?` should return a boolean, not
 
 First, let's update our tests.
 
-{% highlight ruby %}
+```ruby
   RSpec.describe Features do
     describe '.configuration' do
       subject { described_class.configuration }
@@ -318,7 +329,8 @@ First, let's update our tests.
       end
     end
   end
-{% endhighlight %}
+```
+
 
 There are several ways of doing this. Initially, I'd decided to modify `TrueClass`, `FalseClass`, and `NilClass` to accept a `to_boolean` method. Several readers pointed out it was _a tad_ overkill.
 
@@ -326,7 +338,7 @@ There are several ways of doing this. Initially, I'd decided to modify `TrueClas
 
 Since `.configuration` return an object inheriting from `Hash`, we can use `.fetch` on it.
 
-{% highlight ruby %}
+```ruby
   class Features
     def self.configuration
       Rails.configuration.features
@@ -336,7 +348,8 @@ Since `.configuration` return an object inheriting from `Hash`, we can use `.fet
       configuration.fetch(feature.to_sym, false)
     end
   end
-{% endhighlight %}
+```
+
 
 What happens is if our `.configuration` contains `feature` we're passing along, `.enabled?` will return the boolean stored in the YAML. If `feature` is not present, `.fetch` will default to `false`.
 
@@ -344,7 +357,7 @@ What happens is if our `.configuration` contains `feature` we're passing along, 
 
 Another suggestion was using `.present?` on my configuration hash.
 
-{% highlight ruby %}
+```ruby
   class Features
     def self.configuration
       Rails.configuration.features
@@ -354,7 +367,8 @@ Another suggestion was using `.present?` on my configuration hash.
       configuration[feature.to_sym].present?
     end
   end
-{% endhighlight %}
+```
+
 
 The return results' strategy works as in the previous example.
 
@@ -362,7 +376,7 @@ The return results' strategy works as in the previous example.
 
 A last suggestion was using `!!` a.k.a the _[double bang](https://stackoverflow.com/a/3994065){:target="\_blank"}_. This would look like this:
 
-{% highlight ruby %}
+```ruby
   class Features
     def self.configuration
       Rails.configuration.features
@@ -372,7 +386,8 @@ A last suggestion was using `!!` a.k.a the _[double bang](https://stackoverflow.
       !!configuration[feature.to_sym]
     end
   end
-{% endhighlight %}
+```
+
 
 The rationale behind it is:
 

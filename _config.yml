@@ -1,91 +1,105 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: Rémi Mercier
 email: hello@remimercier.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   Rémi Mercier – Freelance Ruby on Rails Developer
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://remimercier.com" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: ""
+url: "https://remimercier.com"
 twitter_username: mercier_remi
-github_username:  merciremi
+github_username: merciremi
 author: Rémi Mercier
 
+# Every post tag with a topic page. A post's first tag is its primary one: it sets
+# the colour, the topic, previous/next links and related posts.
+# `order: oldest` lists a topic in reading order (for series-like topics).
+# NB: intentionally not named "tags" — Jekyll reserves site.tags for its own
+# auto-generated post taxonomy hash.
+topics:
+  - { slug: minitest,    name: Minitest }
+  - { slug: ruby,        name: Ruby }
+  - { slug: ruby-stained-glass, name: Ruby Stained Glass, order: oldest }
+  - { slug: rails,       name: Rails }
+  - { slug: testing,     name: Testing }
+  - { slug: rspec,       name: RSpec }
+  - { slug: debugging,   name: Debugging }
+  - { slug: career,      name: Career }
+  - { slug: postgresql,  name: PostgreSQL }
+  - { slug: git,         name: Git }
+  - { slug: freelancing, name: Freelancing }
+  - { slug: delivery,    name: Delivery }
+  - { slug: community,   name: Community }
+  - { slug: marketing,   name: Marketing }
+
+# Rough notes and works in progress. Same layout as posts, indexed at /notes/.
+# Default URL is a timestamp from the front matter `date` (e.g. /notes/202602181430/);
+# set `permalink` in front matter to override.
 collections:
-  fragments:
+  notes:
     output: true
-  fr_posts:
-    output: true
+    permalink: /notes/:year:month:day:hour:minute/
 
 defaults:
+  # Fallback og:image / twitter:image for jekyll-seo-tag.
   - scope:
       path: ""
-      type: "fragments"
     values:
-      permalink: /:title/
+      image: /assets/media/remi-mercier.jpg
   - scope:
-      path: "fr"
-    values:
-      permalink: /fr/:basename/
-      lang: fr
-  - scope:
-      path: "_posts/fr"
+      path: ""
       type: "posts"
     values:
-      permalink: /fr/:title
-      lang: fr
-
-jekyll_compose:
-  default_front_matter:
-    drafts:
-      excerpt:
-      date: 2000-01-01
-      permalink:
-      categories:
-      cover_image:
+      layout: post
       toc: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: post
+      toc: false
 
-toc:
-  min_level: 1
-  max_level: 3
-  ordered_list: true
-
-# Build settings
-include: ['_pages', '_data']
+markdown: kramdown
 kramdown:
   input: GFM
   auto_ids: true
-markdown: kramdown
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
   - jekyll-redirect-from
-  - jekyll-paginate
   - jekyll-toc
-whitelist:
-  - jekyll-redirect-from
-paginate: 20
-paginate_path: "/blog/page/:num"
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+feed:
+  posts_limit: 100
+  excerpt_only: true
+
+toc:
+  min_level: 2
+  max_level: 2
+  ordered_list: true
+
+# Front matter added by `jekyll draft`. Fill in or delete
+# `image` before publishing: left empty, it overrides the site-wide fallback.
+jekyll_compose:
+  default_front_matter:
+    drafts:
+      image:
+        path:
+        alt:
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - MIGRATION.md
+  - spec
+  - designs
+  - vendor
+  - node_modules

@@ -1,21 +1,19 @@
 ---
 layout: post
 title: "Square? Or freeform? (Ruby Stained Glass Notes #03)"
-excerpt: "This is episode #03 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained glass panel celebrating Ruby. Today, I riff on the drawing and ask you which version you prefer!"
 date: 2026-06-26
+tags: [ruby-stained-glass]
 permalink: /ruby-stained-glass-notes-03/
-categories: [ruby, build in public]
-cover_image:
-toc: true
+excerpt: "This is episode #03 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained glass panel celebrating Ruby. Today, I riff on the drawing and ask you which version you prefer!"
 ---
 
 Hey Ruby friends,
 
-Welcome to the third episode of the Ruby Stained Glass Notes. As always, my thanks to the people who reached out after [the second episode]({{site.baseurl}}/ruby-stained-glass-notes-02/).
+Welcome to the third episode of the Ruby Stained Glass Notes. As always, my thanks to the people who reached out after [the second episode](/ruby-stained-glass-notes-02/).
 
-If you're new here, thank you for signing up to this pop-up newsletter about this crazy project of mine: a limited-edition stained-glass panel celebrating Ruby.
+If you're new here, thank you for signing up to this pop-up newsletter about this crazy project of mine: [a limited-edition stained-glass panel celebrating Ruby](/ruby-stained-glass/).
 
-{% include stained_glass_form.html %}
+{% include stained-glass-form.html %}
 
 <br>
 
@@ -30,7 +28,7 @@ There's a world between a screenshot and a drawing that works as a potential sta
 So I sat at my living room table and started riffing on the design.
 
 <figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/06/drawing.gif" alt="a hand coloring a drawing with watercolour">
+  <video src="/assets/media/2026/06/drawing.mp4" width="800" height="450" autoplay loop muted playsinline aria-label="a hand coloring a drawing with watercolour"></video>
   <figcaption>Some ASMR for your Sunday morning.
 </figcaption>
 </figure>
@@ -55,13 +53,13 @@ I can see it popping up on a desk or in my window.
 
 Here are the two versions of the drawing (with some hand-drawn mock-ups on my phone). Which one do you like best?
 
-<figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/06/ruby-stained-glass-square-panel.jpg" alt="a drawing of the Ruby stained glass panel, square version" width="600px">
+<figure class="figure--portrait">
+  <img src="/assets/media/2026/06/ruby-stained-glass-square-panel.webp" alt="a drawing of the Ruby stained glass panel, square version">
   <figcaption>Square?</figcaption>
 </figure>
 
-<figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/06/ruby-stained-glass-freeform-panel.jpg" alt="a drawing of the Ruby stained glass panel, freeform version" width="600px">
+<figure class="figure--portrait">
+  <img src="/assets/media/2026/06/ruby-stained-glass-freeform-panel.webp" alt="a drawing of the Ruby stained glass panel, freeform version">
   <figcaption>Or freeform?</figcaption>
 </figure>
 

@@ -1,12 +1,11 @@
 ---
-toc: true
 layout: post
 title: The never-ending days of DEI's importance
 excerpt: "A few weeks back, the creator of Ruby on Rails wrote a pamphlet rejoicing on - what appears to him as - the waning days of DEI's dominance. This rebuttal talks about how diversity, equity, and inclusion were, are, and will always be essential to workers."
 date: 2022-12-07
+tags: [community]
 permalink: /the-need-for-dei/
-categories: [other]
-cover_image: '/media/2022/12/remi-mercier-never-ending-days-of-dei-importance.png'
+image: '/assets/media/2022/12/remi-mercier-never-ending-days-of-dei-importance.png'
 ---
 
 A few weeks back, the creator of Ruby on Rails wrote a pamphlet rejoicing on - what appears to him as - the waning days of DEI's dominance.
@@ -50,7 +49,7 @@ First, companies are neither created _ex nihilo_ nor free from their creator's p
 
 Companies inherit the behaviors and the social framework of their parent context: society. Programmers like David and I can relate to this concept of inheritance.
 
-{% highlight ruby %}
+```ruby
 class Company < Society
   def initialize
     super
@@ -64,7 +63,7 @@ class Society
     @sexism = attributes.dig(:history, :sexism)
   end
 end
-{% endhighlight %}
+```
 
 It pains me to write it, but societies still struggle to address their systemic racism, sexism, and inequalities. Women[^2] currently experience a backlash that affects their basic rights and agency. BIPOC people are still at the wrong end of a very lousy stick.
 

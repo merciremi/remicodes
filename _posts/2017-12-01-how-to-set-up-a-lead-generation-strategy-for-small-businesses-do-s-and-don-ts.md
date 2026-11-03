@@ -1,11 +1,10 @@
 ---
-toc: true
 layout: post
 title: "How to set-up a lead generation strategy for small businesses: do’s \U0001F44D
   and don’ts \U0001F44E"
 date: 2017-12-01
+tags: [marketing]
 excerpt: "You’re building a product that can be used on the Internet? Good for you! But then, the thought of finding customers start to creep in. Should you talk about it now? Later? Should build a marketing war machine? Should you play it safe? After a few years of generating demand for companies, here is the gist of what I believe to be the best bet."
-categories: [other]
 permalink: /startups-lead-generation-strategies/
 ---
 
@@ -33,7 +32,7 @@ You sell courses? Show me the table of content, some nudgets, etc. [Paul Jarvis]
 
 [Ghost.org](https://ghost.org/features/) does a superb job showing off its awesome product (yep, I moved from WP to Ghost a few weeks ago). Another product that is doing this perfectly is [Livestorm](https://livestorm.co/). [Gilles](https://twitter.com/gillesbertaux) and his team went to great lenghts to show us what the product looks like.
 
-<img class='large' src="{{ site.baseurl }}/media/2017/livestorm.gif" alt="">
+<video src="/assets/media/2017/livestorm.mp4" width="1008" height="560" autoplay loop muted playsinline aria-label="a screen recording of the Livestorm homepage cycling through the product: webinar room, replay, email reminders and a presenter on camera"></video>
 
 Once you covered these prospects, focus on those who won’t buy just yet. I browse your website, read loads of articles and follow you on Twitter? Cool! I’m window-shopping. I have no intention of buying right now but I have a clear interest in your product. This is what newsletters are for. They keep me informed. They help your company grow your contact base until those who were not ready to buy become ready.
 
@@ -66,7 +65,7 @@ Finally, never, ever hire content agencies to write for you. They almost never t
 
 Farming out content usually ends up like this:
 
-<img class='large' src="{{ site.baseurl }}/media/2017/hiring-content-agencies-summed-up-remi-mercier.jpeg" alt="">
+<img class='large' src="/assets/media/2017/hiring-content-agencies-summed-up-remi-mercier.jpeg" alt="">
 
 ## 5. Be patient and keep shipping day in day out
 

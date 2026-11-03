@@ -1,19 +1,17 @@
 ---
-toc: true
 layout: post
 title: "Using Minitest::Spec in Rails? Watch out for the lifecycle hooks!"
-excerpt: "A small mistake sent me on an overly long investigation into Minitest hooks, and how Rails integrates with these."
 date: 2026-03-03
+tags: [minitest, testing]
 permalink: /minitest-spec-and-rails-hooks/
-categories: [minitest, testing]
-cover_image:
+excerpt: "A small mistake sent me on an overly long investigation into Minitest hooks, and how Rails integrates with these."
 ---
 
-After picking up [Minitest]({{site.url}}/introduction-to-minitest/) to complement the QA process of one of my retainer clients, I've had confusing errors in our test suite for a while. We were moving fast to cover critical parts of the application, so we never had the time to investigate the flakiness thoroughly.
+After picking up [Minitest](/introduction-to-minitest/) to complement the QA process of one of my retainer clients, I've had confusing errors in our test suite for a while. We were moving fast to cover critical parts of the application, so we never had the time to investigate the flakiness thoroughly.
 
 While preparing my upcoming talk – Lost in Minitest, the missing guide for Minitest tourists – I dug into how Ruby on Rails pulls in Minitest. And there I found the answers to my burning question: why on Earth does the following test fail?
 
-{% highlight ruby %}
+```ruby
 require "test_helper"
 
 class CustomerIdentificationTest < ActionDispatch::IntegrationTest
@@ -34,7 +32,8 @@ class CustomerIdentificationTest < ActionDispatch::IntegrationTest
       assert_response :success
     end
   end
-{% endhighlight %}
+```
+
 
 These tests look pretty unremarkable: 
   - The main context checks the response status for a new customer.
@@ -51,7 +50,7 @@ Notice the difference in how each test is set up? The first test uses the `befor
 
 Is it problematic, though? 
 
-{% highlight zsh %}
+```zsh
   $ bin/rails test
   Running via Spring preloader in process 31584
   Run options: --seed 16480
@@ -63,13 +62,14 @@ Is it problematic, though?
   Error:
   CustomerIdentificationTest::when the customer has already been verified#test_0001_returns a :success response:
   NoMethodError: undefined method 'update' for nil test/integration/customer_identification_test.rb:6:in 'block (2 levels) in <class:CustomerIdentificationTest>'
-{% endhighlight %}
+```
+
 
 Well, looks like it is.
 
 ## A detour on picking a standard
 
-I'm big on [picking a standard and moving on]({{site.baseurl}}/pick-a-standard/). But I also know that sometimes, you have to give yourself time to play with things before committing to a guideline.
+I'm big on [picking a standard and moving on](/pick-a-standard/). But I also know that sometimes, you have to give yourself time to play with things before committing to a guideline.
 
 It's like living in a house: live in it for a while before you start knocking walls down.
 
@@ -81,7 +81,7 @@ Coding with feelings? Why not.
 
 Taking the time to feel our way through our setup allowed us to experiment with our tests. Here's an updated version of the failing test, where I inverted the `setup` and `before` blocks.
 
-{% highlight ruby %}
+```ruby
 require "test_helper"
 
 class CustomerIdentificationTest < ActionDispatch::IntegrationTest
@@ -102,11 +102,12 @@ class CustomerIdentificationTest < ActionDispatch::IntegrationTest
       assert_response :success
     end
   end
-{% endhighlight %}
+```
+
 
 Can you see where this is going?
 
-{% highlight zsh %}
+```zsh
   $ bin/rails test
   Running via Spring preloader in process 57332
   Run options: --seed 23226
@@ -117,7 +118,8 @@ Can you see where this is going?
   
   Fabulous run in 2.511829s, 56.9306 runs/s, 199.8544 assertions/s.
   143 runs, 502 assertions, 0 failures, 0 errors, 0 skips
-{% endhighlight %}
+```
+
 
 Yep, using `setup` first then `before` works. Flip them and it blows up. Let me tell you, this one had me scratch my head for a while.
 
@@ -136,7 +138,7 @@ You can check the [Minitest code](https://github.com/minitest/minitest/blob/3394
 
 One more thing: the `Minitest::Spec` `before` block [is just syntactic sugar](https://github.com/minitest/minitest/blob/339492cbaec5c460ec278e754199619d6431af35/lib/minitest/spec.rb) for `Minitest::Test#setup`. So both `def setup` and `before` block are equivalent.
 
-{% highlight zsh %}
+```zsh
 ┌─────────────────────────────────────────┐
 │         TEST EXECUTION STARTS           │
 └─────────────────────────────────────────┘
@@ -159,7 +161,8 @@ One more thing: the `Minitest::Spec` `before` block [is just syntactic sugar](ht
 ┌═════════════════════════════════════════┐
 ║      ★★★ MY TESTS RUN HERE ★★★          ║
 └═════════════════════════════════════════┘
-{% endhighlight %}
+```
+
 
 Whether I use the vanilla `def setup` or the `Minitest::Spec` `before` block, Minitest treats them the same. They will both run **after** the `before_setup` hook.
 
@@ -173,7 +176,7 @@ In this instance, Rails does two things that will impact my tests:
 
 In its setup strategy, it hooks the `setup` block into `before_setup`.
 
-{% highlight ruby %}
+```ruby
   # activesupport/lib/active_support/test_case.rb
   
   module ActiveSupport
@@ -200,7 +203,8 @@ In its setup strategy, it hooks the `setup` block into `before_setup`.
       end
     end
   end
-{% endhighlight %}
+```
+
 
 What it means for us:
   - We now have three ways of building a setup for our tests: `def setup` (vanilla Minitest), `setup` block (Rails' Minitest), `before` block (`Minitest::Spec`)
@@ -208,7 +212,7 @@ What it means for us:
   - Mixing and matching will work most of the time...
   - BUT (!) these blocks are not executed at the same time due to the way Rails plugs its `setup` block in the Minitest lifecycle. So based on the order of declaration, some of my tests will fail!
 
-{% highlight zsh %}
+```zsh
 ┌─────────────────────────────────────────┐
 │         TEST EXECUTION STARTS           │
 └─────────────────────────────────────────┘
@@ -232,7 +236,8 @@ What it means for us:
 ┌═════════════════════════════════════════┐
 ║      ★★★ MY TESTS RUN HERE ★★★          ║
 └═════════════════════════════════════════┘
-{% endhighlight %}
+```
+
 
 So when I mix the `setup` block and the `before` block syntaxes in a test file, they are not executed in the order I think they are. 
 
@@ -256,7 +261,7 @@ You might have noticed several things in my initial test:
 - Why not use `let` instead of `before | setup`? I used contrived examples for clarity. Usually, I'd use `let` for instantiating data and `before` for additional setup like authentification, stubbing, etc...
 - Despite using `Minitest::Spec`, my test class still uses the Rails-styled inheritance – `class CustomerIdentificationTest < ActionDispatch::IntegrationTest` – instead of the `describe CustomerIdentification do` syntax one could expect. This is because `Minitest::Spec` is not set up properly. But this will be a story for another post.
 
-Well, that was quite the rabbit hole! I now know the why behind [some of the gotchas]({{site.url}}/more-minitest-spec/) I'd written previously.
+Well, that was quite the rabbit hole! I now know the why behind [some of the gotchas](/more-minitest-spec/) I'd written previously.
 
 Anyway, I hope you enjoyed this one as much as I enjoyed writing it.
 

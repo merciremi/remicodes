@@ -1,10 +1,9 @@
 ---
-toc: true
 layout: post
 title: Recruiting Your Next Marketing Talents? Give ’em a Technical Test
 date: 2017-03-01
+tags: [marketing]
 excerpt: "Over the past years, I’ve been invited to several interviews for marketing positions. Yet, I’ve not been asked a single time to do a marketing technical test. And you know what, this sucks!"
-categories: [other]
 permalink: /recruiting-marketing-talents/
 ---
 
@@ -29,7 +28,7 @@ These tests are so anchored in the recruiting process for developers that it rai
 3. Because being technical gives marketers an edge about conceivable strategies, their replicability and their implementation.
 4. It entertains the false narrative that marketers are just tap-dancers flushing money down the toilets. Believe it or not, marketing now comes with a serious bunch of technical skills: writing compelling copy that converts, setting up conversion funnels, analyzing data, plugging APIs, scrapping content to help the open data community, writing code, you name it!
 
-<img class='large' src="{{ site.baseurl }}/media/2017/recruiting-your-next-marketing-talent-technical-test.gif" alt="">
+<video src="/assets/media/2017/recruiting-your-next-marketing-talent-technical-test.mp4" width="640" height="480" autoplay loop muted playsinline aria-label="Chow Yun-fat lighting a cigarette with a burning banknote in A Better Tomorrow"></video>
 
 “So, you work in marketing?”
 

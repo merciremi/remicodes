@@ -1,23 +1,21 @@
 ---
-toc: true
 layout: post
 title: "Speed up RSpec tests: understand lifecycle and execution"
-excerpt: "One of RSpec's strengths is the legibility of its behavior-based DSL. The other side of this coin is that the proliferation of small example blocks  introduces a performance overhead."
 date: 2025-03-10
+tags: [rspec, testing]
 permalink: /aggregate-rspec-expectations/
-categories: [rspec, testing]
-cover_image: "/media/2025/03/faster-rspec-test-suite-remi-mercier.png"
+excerpt: "One of RSpec's strengths is the legibility of its behavior-based DSL. The other side of this coin is that the proliferation of small example blocks  introduces a performance overhead."
 ---
 
 One of RSpec's strengths is the legibility of its behavior-based DSL. The other side of this coin is that the proliferation of small example blocks introduces a performance overhead. Why? Because of RSpec test files' lifecycle! I'll describe broadly how RSpec handles a test file, and the performance implications. Then, we'll see how we can make your RSpec tests run faster!
 
-This is an intermediate-level post. If you're unfamiliar with RSpec, [start at the beginning of the series]({{site.baseurl}}/series/rspec/).
+This is an intermediate-level post. If you're unfamiliar with RSpec, [start at the beginning of the series](/topics/rspec/).
 
 ## A typical test file
 
 Let's draw a quick `books_controller_spec.rb` that checks the behavior of a `PATCH` action.
 
-{% highlight ruby %}
+```ruby
   RSpec.describe BooksController do
     let(:book) do
       Book.create(title: "The Long Way to a Small, Angry Planet", blurb: nil)
@@ -49,7 +47,8 @@ Let's draw a quick `books_controller_spec.rb` that checks the behavior of a `PAT
       end
     end
   end
-{% endhighlight %}
+```
+
 
 This test file is pretty straightforward:
   - The setup creates a book with a title and no blurb.
@@ -67,7 +66,7 @@ Test files are separated into two concepts: **example groups** and **examples**.
 
 **Examples** represent the logic within `it` blocks. And `it` blocks encapsulate **expectations**.
 
-{% highlight ruby %}
+```ruby
 RSpec.describe BooksController do                 # <-- top-level example group
     describe "PATCH /books/:id" do                # <-- nested example group
       it "returns an :ok response" do             # <-- example
@@ -75,7 +74,8 @@ RSpec.describe BooksController do                 # <-- top-level example group
       end
     end
   end
-{% endhighlight %}
+```
+
 
 When running a test file, RSpec will:
   - `run` the top-level example group,
@@ -93,7 +93,7 @@ In layman's terms, it means that for each `it`, RSpec runs anew all your `let` a
 
 Let's check our `book` instance in different `it` groups.
 
-{% highlight ruby %}
+```ruby
   it "returns an :ok response" do
     p book.id # => 1
   end
@@ -105,13 +105,14 @@ Let's check our `book` instance in different `it` groups.
   it "redirects the user to the /show page" do
     p book.id # => 1
   end
-{% endhighlight %}
+```
+
 
 At first, I would assume that my `book` is always the same book. And yet.
 
 Let's check the memory pointer associated with my `book`.
 
-{% highlight ruby %}
+```ruby
   it "returns an :ok response" do
     p book.object_id # => 56100
   end
@@ -123,7 +124,8 @@ Let's check the memory pointer associated with my `book`.
   it "redirects the user to the /show page" do
     p book.object_id # => 56350
   end
-{% endhighlight %}
+```
+
 
 Uh, what?
 
@@ -145,7 +147,7 @@ Ok, Rémi? So, how do we fix it?
 
 There's a very simple thing you can do, to cut setup time **big time**: aggregate your expectations in fewer examples.
 
-{% highlight ruby %}
+```ruby
   RSpec.describe BooksController do
     let(:book) do
       Book.create(title: "The Long Way to a Small, Angry Planet", blurb: nil)
@@ -167,7 +169,8 @@ There's a very simple thing you can do, to cut setup time **big time**: aggregat
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Sure, you lose _some_ legibility, but instead of having RSpec build your test setup three times, you only do it once. I'll try and post an update with some benchmarks later on, but this seems quite a big gain especially when used across a whole test suite.
 

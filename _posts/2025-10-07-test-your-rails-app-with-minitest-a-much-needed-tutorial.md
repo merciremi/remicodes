@@ -1,17 +1,15 @@
 ---
-toc: true
 layout: post
 title: "Lost in Minitest? Start here!"
-excerpt: "I have a confession to make: I have never used Minitest in the seven years I've been a professional programmer. Lured by the promise of speed and wide adoption, I decided to try Minitest. Then I hit an unexpected roadblock."
 date: 2025-10-07
+tags: [minitest, testing]
 permalink: /introduction-to-minitest/
-categories: [minitest, testing]
-cover_image:
+excerpt: "I have a confession to make: I have never used Minitest in the seven years I've been a professional programmer. Lured by the promise of speed and wide adoption, I decided to try Minitest. Then I hit an unexpected roadblock."
 ---
 
 I have a confession to make: I have never used Minitest in the seven years I've been a professional programmer.
 
-I've always used [the *other framework*]({{site.baseurl}}/series/rspec/).
+I've always used [the *other framework*](/topics/rspec/).
 
 But earlier this year, I started working with a client whose application relied solely on QA instead of automated tests. In an effort to bring the team peace of mind during releases, I started adding tests to the most critical parts of the application.
 
@@ -59,7 +57,7 @@ Coming from RSpec, I'm used to the concept of **expectations** which take the op
 
 One thing that slowed down my adoption is that Minitest offers **multiple styles of syntaxes**. You can write the same test in several ways, sometimes even mixing styles together. Each style lives in its own module or extension.
 
-RSpec is either loved or hated for its DSL, but it gives me one major advantage: I don’t have to decide for every test which style to use. [I use the standard and I move on]({{site.baseurl}}/pick-a-standard/).
+RSpec is either loved or hated for its DSL, but it gives me one major advantage: I don’t have to decide for every test which style to use. [I use the standard and I move on](/pick-a-standard/).
 
 With Minitest, though, I can choose from:
 - the default syntax
@@ -72,7 +70,7 @@ Let's write some tests so you get my point.
 
 Let's say I have this plain Ruby `User` class:
 
-{% highlight ruby %}
+```ruby
   class User
     attr_accessor :first_name, :last_name
 
@@ -85,11 +83,12 @@ Let's say I have this plain Ruby `User` class:
       "#{first_name.capitalize} #{last_name.capitalize}"
     end
   end
-{% endhighlight %}
+```
+
 
 And I want to write a simple test for it:
 
-{% highlight ruby %}
+```ruby
   require "minitest/autorun"
   require_relative "user"
 
@@ -102,7 +101,8 @@ And I want to write a simple test for it:
       assert_equal "buffy summers", @user.full_name
     end
   end
-{% endhighlight %}
+```
+
 
 In this case, I'm using plain Minitest. It's the default syntax, with the simplest setup.
 
@@ -116,7 +116,7 @@ Several remarks:
 
 Here's the output for this first test:
 
-{% highlight bash %}
+```bash
   lab/minitest-post → ruby user_test.rb
   Run options: --seed 64661
 
@@ -126,11 +126,12 @@ Here's the output for this first test:
 
   Finished in 0.001239s, 807.1025 runs/s, 807.1025 assertions/s.
   1 runs, 1 assertions, 0 failures, 0 errors, 0 skips
-{% endhighlight %}
+```
+
 
 If my test were to failed:
 
-{% highlight bash %}
+```bash
   lab/minitest-post → ruby user_test.rb
   Run options: --seed 22116
 
@@ -147,19 +148,21 @@ If my test were to failed:
 
   Finished in 0.001472s, 679.3478 runs/s, 679.3478 assertions/s.
   1 runs, 1 assertions, 1 failures, 0 errors, 0 skips
-{% endhighlight %}
+```
+
 
 ### The same test, but in Rails
 
-{% highlight ruby %}
+```ruby
   class User < ApplicationRecord
     def full_name
       "#{first_name.capitalize} #{last_name.capitalize}"
     end
   end
-{% endhighlight %}
+```
 
-{% highlight ruby %}
+
+```ruby
   require "test_helper"
 
   class UserTest < ActiveSupport::TestCase
@@ -171,7 +174,8 @@ If my test were to failed:
       assert_equal "Buffy Summers", @user.full_name
     end
   end
-{% endhighlight %}
+```
+
 
 What's changed:
 - My `User` now inherits from `ApplicationRecord` (because Rails).
@@ -181,7 +185,7 @@ What's changed:
 
 Since `ActiveSupport::TestCase` inherits from `Minitest::Test`, I can also mix and match syntaxes if I ever feel so inclined:
 
-{% highlight ruby %}
+```ruby
   require "test_helper"
 
   class UserTest < ActiveSupport::TestCase
@@ -197,7 +201,8 @@ Since `ActiveSupport::TestCase` inherits from `Minitest::Test`, I can also mix a
       assert_equal "buffy_summers", @user.slug
     end
   end
-{% endhighlight %}
+```
+
 
 Here, I use both Minitest syntax and the Rails DSL to define test examples in the same file. Does it work? Yep! Should I do it? I'd rather not!
 
@@ -224,6 +229,6 @@ The TL;DR is:
 - Minitest has a multitude of assertions (we'll cover those in the next post).
 - Minitest is obscure at first, but once you get the hang of it, it's quite neat.
 
-The second part of this series – [What is Minitest::Spec]({{site.baseurl}}/minitest-spec/) – is now live!
+The second part of this series – [What is Minitest::Spec](/minitest-spec/) – is now live!
 
 Thank you to [Cecile](https://www.cecilitse.org/){:target="_blank"} for her suggestions.

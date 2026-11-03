@@ -1,17 +1,15 @@
 ---
-toc: true
 layout: post
 title: "Introduction to RSpec: the syntax"
 date: 2021-03-21
-excerpt: "In this second part of my introduction to RSpec, I want to focus on the syntax. Here's a glossary of the keywords you'll use the most when testing with RSpec: describe, subject, let vs let!, it, context, etc..."
+tags: [rspec, testing]
 permalink: /rspec-fundamentals-glossary/
-categories: [rspec, testing]
-cover_image: /media/2021/03/rspec-fundamentals-glossary-remi-mercier.gif
+excerpt: "In this second part of my introduction to RSpec, I want to focus on the syntax. Here's a glossary of the keywords you'll use the most when testing with RSpec: describe, subject, let vs let!, it, context, etc..."
 ---
 
-In this second part of the [introduction to RSpec]({{site.baseurl}}/series/rspec/), I want to explore the methods you'll use the most when testing with RSpec: `describe`, `subject`, `let` and `let!`, `context`, and `it`.
+In this second part of the [introduction to RSpec](/topics/rspec/), I want to explore the methods you'll use the most when testing with RSpec: `describe`, `subject`, `let` and `let!`, `context`, and `it`.
 
-If you haven't read the first part - [how to setup RSpec and name files and, digging into their basic structure]({{site.baseurl}}/rspec-101-basic-set-up/), go and read it, I'll wait.
+If you haven't read the first part - [how to setup RSpec and name files and, digging into their basic structure](/rspec-101-basic-set-up/), go and read it, I'll wait.
 
 Done? Let's move on to our second installment!
 
@@ -25,7 +23,7 @@ We've already dug into the inner workings of `describe` in the first post. So he
 
 Since methods are an abstraction, you usually nest several `describe`s in your example group. Let's test an instance method - `#full_name`.
 
-{% highlight ruby %}
+```ruby
   # spec/models/user_spec.rb
 
   require 'rails_helper'
@@ -35,7 +33,8 @@ Since methods are an abstraction, you usually nest several `describe`s in your e
       # test the output of the method full_name
     end
   end
-{% endhighlight %}
+```
+
 
 As you can see, the first `describe` is called on the module `RSpec` and _describes_ the `User` class. <mark>This is the top-level example group</mark>. The second `describe` is called within our top-level example group and describes the method `#full_name`.
 
@@ -49,12 +48,13 @@ Note how the second `describe` takes a string as an argument. The string is the 
 
 When you run your tests, RSpec will output your description like this:
 
-{% highlight zsh %}
+```zsh
   Randomized with seed 4321
 
   User
     #full_name
-{% endhighlight %}
+```
+
 
 Once we write tests, RSpec will output more details.
 
@@ -62,7 +62,7 @@ Once we write tests, RSpec will output more details.
 
 `subject` represents the abstraction you're testing. Your subject can be a method, a request, a serialized object, etc. In our example, it's the method `#full_name`.
 
-{% highlight ruby %}
+```ruby
   # spec/models/user_spec.rb
 
   require 'rails_helper'
@@ -72,7 +72,8 @@ Once we write tests, RSpec will output more details.
       subject { user.full_name }
     end
   end
-{% endhighlight %}
+```
+
 
 `subject` is a method that takes a block in which I call the method `#full_name` on an instance of `User`.
 
@@ -80,7 +81,7 @@ What's the difference between `subject` and `describe` then? `subject` tells RSp
 
 Sometimes, you need to explicitly reference your subject in your tests (we'll see an example in a little while). In that case, it's best to name your subject.
 
-{% highlight ruby %}
+```ruby
   # spec/models/user_spec.rb
 
   require 'rails_helper'
@@ -90,7 +91,8 @@ Sometimes, you need to explicitly reference your subject in your tests (we'll se
       subject(:full_name_method) { user.full_name }
     end
   end
-{% endhighlight %}
+```
+
 
 Here `full_name_method` will reference the output of the `#full_name` method in our tests. I've chosen a somewhat crappy name - `full_name_method` - to highlight the difference between the name of the subject and the actual evaluation of the method.
 
@@ -102,7 +104,7 @@ But hang on! In our example, where does that `user.full_name` comes from? Let me
 
 `let` is specific to RSpec. It's the method that lets you create variables.
 
-{% highlight ruby %}
+```ruby
   # spec/models/user_spec.rb
 
   require 'rails_helper'
@@ -114,7 +116,8 @@ But hang on! In our example, where does that `user.full_name` comes from? Let me
       subject { user.full_name }
     end
   end
-{% endhighlight %}
+```
+
 
 Here, we create a user and assign it to the variable `user`.
 
@@ -142,7 +145,7 @@ In your test, you can also access the variable `described_class` which represent
 
 You often need to change the value of variables based on some context. Here's an example:
 
-{% highlight ruby %}
+```ruby
   # spec/models/user_spec.rb
 
   require 'rails_helper'
@@ -157,7 +160,8 @@ You often need to change the value of variables based on some context. Here's an
       let(:last_name) { 'Summers' }
     end
   end
-{% endhighlight %}
+```
+
 
 Here, `user` is still accessible everywhere, but `first_name: 'Buffy'` and `last_name: 'Summers'` are only accessible within the context of the `#full_name` example group.
 
@@ -167,7 +171,7 @@ This allows you to change the value when you need it. Speaking of context, let's
 
 `context` is best understood with an example. Let me show you something before I give you a definition.
 
-{% highlight ruby %}
+```ruby
   # spec/models/user_spec.rb
 
   require 'rails_helper'
@@ -187,7 +191,8 @@ This allows you to change the value when you need it. Speaking of context, let's
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Can you guess what `context` does?
 
@@ -204,7 +209,7 @@ Some examples of contexts you'll use in your tests:
 
 Here's the output of your tests with some contexts:
 
-{% highlight zsh %}
+```zsh
   Randomized with seed 4321
 
   User
@@ -214,7 +219,8 @@ Here's the output of your tests with some contexts:
       when a user has no last_name
         ...
 
-{% endhighlight %}
+```
+
 
 ### When to use `describe` and when to use `context`
 
@@ -229,7 +235,7 @@ We're getting there! But before we write the _actual_ content of our first test,
 
 The description of each test should state the expected behavior of the abstraction you're testing.
 
-{% highlight ruby %}
+```ruby
   # spec/models/user_spec.rb
 
   require 'rails_helper'
@@ -253,13 +259,14 @@ The description of each test should state the expected behavior of the abstracti
       end
     end
   end
-{% endhighlight %}
+```
+
 
 For each `context`, I expect a specific output. `it` makes it clear what I should get out of my abstraction.
 
 RSpec will print out your `it`s in your console.
 
-{% highlight zsh %}
+```zsh
   Randomized with seed 4321
 
   User
@@ -269,7 +276,8 @@ RSpec will print out your `it`s in your console.
       when a user has no last_name
         returns an error
 
-{% endhighlight %}
+```
+
 
 See? This is super easy to read. You are testing the instance method `full_name` defined in your class `User`. When your instance of `User` has a value for first name and last name, you expect your method to return your user's full name. When your user has no last name, you expect your method to raise an error.
 
@@ -281,7 +289,7 @@ RSpec is behavior-based. It allows you to compare the _expected_ behavior of you
 
 You `expect` your test's `subject` to equal / contain / include your expected output. Let me show you.
 
-{% highlight ruby %}
+```ruby
   # spec/models/user_spec.rb
 
   require 'rails_helper'
@@ -305,13 +313,14 @@ You `expect` your test's `subject` to equal / contain / include your expected ou
       end
     end
   end
-{% endhighlight %}
+```
+
 
 `expect` takes your `subject` as an argument and returns an `ExpectationTarget` object with the actual result of your abstraction evaluation stored in it. Then `expect` calls the method `.to` with a _matcher_ as an argument. In our example, `eq` and `raise_error` are matchers. These matchers take an argument too: the expected output.
 
 The matchers' job is to compare the expected output with the actual output. Here's the [code from RSpec](https://github.com/rspec/rspec-expectations/blob/main/lib/rspec/matchers/built_in/eq.rb#L34){:target="\_blank"}, it's pretty straighforward:
 
-{% highlight ruby %}
+```ruby
   module RSpec
     module Matchers
       module BuiltIn
@@ -327,7 +336,8 @@ The matchers' job is to compare the expected output with the actual output. Here
       end
     end
   end
-{% endhighlight %}
+```
+
 
 If your expectation is fulfilled, your example's description will print out green. If the expectation is not fulfilled, it'll output red.
 
@@ -339,7 +349,7 @@ Expectations' job is mostly to create an `ExpectationTarget` object that respond
 
 You can write your expectation in three ways:
 
-{% highlight ruby %}
+```ruby
   # spec/models/user_spec.rb
 
   require 'rails_helper'
@@ -359,7 +369,8 @@ You can write your expectation in three ways:
       it { is_expected.to eq("Buffy Summers") }
     end
   end
-{% endhighlight %}
+```
+
 
 RSpec generates its own message when your write `it { expect(subject).to ... }`. `is_expected` triggers the evaluation of your subject implicitly and returns an RSpec-generated message.
 
@@ -379,7 +390,7 @@ You can discover all matchers [here](https://github.com/rspec/rspec-expectations
 
 You were too lazy to read all this? I've made you a gif.
 
-<img class='large' src="{{ site.baseurl }}/media/2021/03/rspec-fundamentals-glossary-remi-mercier.gif" alt="a gif of a test building up">
+<video src="/assets/media/2021/03/rspec-fundamentals-glossary-remi-mercier.mp4" width="1024" height="600" autoplay loop muted playsinline aria-label="a test building up"></video>
 
 If you feel like digging deeper, here are a few links for you:
 

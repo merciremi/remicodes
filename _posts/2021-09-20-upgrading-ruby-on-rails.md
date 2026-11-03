@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
 title: "Upgrading Ruby on Rails: a beginner's guide"
-excerpt: "You're about to upgrade your application to the newest version of Ruby on Rails. And you've never done it before? Fear not! Here's my battle-tested companion to migrating Rails."
 date: 2021-09-20
+tags: [rails]
 permalink: /upgrading-ruby-on-rails/
-categories: [rails]
-cover_image: /media/2021/09/upgrading-ruby-on-rails-guide-remi-mercier.png
+excerpt: "You're about to upgrade your application to the newest version of Ruby on Rails. And you've never done it before? Fear not! Here's my battle-tested companion to migrating Rails."
 ---
 
 For a long time, upgrading applications to newer versions of Ruby on Rails seemed one of those tasks reserved to experienced developers.
@@ -41,7 +39,7 @@ Here, I'll leave the path of the recommended process to explain what I went thro
 
 Let's pause for a minute and check a typical error message from a gem:
 
-{% highlight zsh %}
+```zsh
 Bundler could not find compatible versions for gem "railties":
   In Gemfile:
     devise (~> 4.4.0) was resolved to 4.4.3, which depends on
@@ -49,7 +47,8 @@ Bundler could not find compatible versions for gem "railties":
 
     rails (~> 6.0.4) was resolved to 6.0.4, which depends on
       railties (= 6.0.4)
-{% endhighlight %}
+```
+
 
 Reading error messages is one fundamental skill in debugging (one I often overlook myself 😅).
 
@@ -77,13 +76,14 @@ Rails comes with a handy command: `rails app:update`.
 
 The command will output a list of configuration files Rails wants to update.
 
-{% highlight zsh %}
+```zsh
   identical  config/boot.rb
   exist      config
   conflict   config/routes.rb
   Overwrite  ~/config/routes.rb? (enter "h" for help) [Ynaqdhm]
 
-{% endhighlight %}
+```
+
 
 This is a tricky part. Sometimes, you're okay with Rails updating files, and sometimes you're not.
 
@@ -94,13 +94,14 @@ For each conflict, I've entered the letter `d` to print the **d**ifference in my
 
 You can also see the little `-` and `+` at the beginning of each line that hint about the expected behavior.
 
-{% highlight zsh %}
+```zsh
 Overwrite  ~/config/routes.rb? (enter "h" for help) [Ynaqdhm] d
 Rails.application.routes.draw do
 -   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 +   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 -
-{% endhighlight %}
+```
+
 
 You want to be extra careful here. You should know what needs to stay (custom configuration, for example) and what can be changed (configuration comments, typos, etc.).
 
@@ -110,7 +111,7 @@ I manually updated most of my configuration files. For each file, I would copy/p
 
 Sometimes, standard Rails configuration changes in its implementation:
 
-{% highlight zsh %}
+```zsh
 conflict  config/spring.rb
 Overwrite ~/config/spring.rb? (enter "h" for help) [Ynaqdhm] d
 - %w[
@@ -127,7 +128,8 @@ Overwrite ~/config/spring.rb? (enter "h" for help) [Ynaqdhm] d
 + )
 Retrying...
 Overwrite ~/config/spring.rb? (enter "h" for help) [Ynaqdhm] y
-{% endhighlight %}
+```
+
 
 In this case, I would allow Rails to overwrite the whole file with `y`.
 

@@ -1,32 +1,33 @@
 ---
-toc: true
 layout: post
-title: A hands-on tutorial to debugging your code with pry-byebug
+title: "A hands-on tutorial to debugging your code with pry-byebug"
 date: 2020-04-07
-excerpt: "Like most new developers, I started as a puts developer. Then, I discovered pry-byebug and debugging things got a lot easier. This is a beginner-level, hands-on, introduction to debbuging your code with pry-byebug. Behold the power of binding.pry!"
-categories: [debugging]
+tags: [debugging]
 permalink: /pry-byebug-tutorial/
+excerpt: "Like most new developers, I started as a puts developer. Then, I discovered pry-byebug and debugging things got a lot easier. This is a beginner-level, hands-on, introduction to debbuging your code with pry-byebug. Behold the power of binding.pry!"
 ---
 
 Like most new developers, I first started as a `puts` debugger. I would write `puts` everywhere to see what's what.
 
 Debugging is hard enough, so knowing your tools makes that task much simpler. When I learned the ropes of _[pry-byebug](https://github.com/deivid-rodriguez/pry-byebug){:target="\_blank"}_, I decided to passed that knowledge along to anyone who'd hear it!
 
-Let's dive right in, so I can give you practical tips on using _pry-byebug_ in your [Rails applications]({{site.baseurl}}/series/rails/).
+Let's dive right in, so I can give you practical tips on using _pry-byebug_ in your [Rails applications](/topics/rails/).
 
 ## Set up pry-byebug
 
 Add the gem to your gemfile.
 
-{% highlight ruby %}
+```ruby
   gem 'pry-byebug'
-{% endhighlight %}
+```
+
 
 Then run:
 
-{% highlight zsh %}
+```zsh
   bundle install
-{% endhighlight %}
+```
+
 
 That's it.
 
@@ -43,7 +44,7 @@ Sounds good? Let's check our code now.
 
 First, here's an excerpt from the data **we expect** to receive:
 
-{% highlight json %}
+```json
   {
     people: [
       { first_name: 'Buffy', last_name: 'Summers', email: 'buffy@sunnydale.edu'},
@@ -54,20 +55,22 @@ First, here's an excerpt from the data **we expect** to receive:
       etc...
     ]
   }.with_indifferent_access
-{% endhighlight %}
+```
+
 
 One important thing to note: this is what we expect. At that point, **we only know for sure about the structure of the data**. The data itself? We don't know yet what we'll receive.
 
 Second, here's our route.
 
-{% highlight ruby %}
+```ruby
   # Expose endpoint for webhooks from some_service
   post '/some_service', to: 'some_service_hooks#find_or_create_person'
-{% endhighlight %}
+```
+
 
 Third, here's our controller code:
 
-{% highlight ruby %}
+```ruby
   class SomeServiceHooksController < ApplicationController
     def find_or_create_person
       params[:people].each do |person|
@@ -84,7 +87,8 @@ Third, here's our controller code:
       end
     end
   end
-{% endhighlight %}
+```
+
 
 What does it do:
 - Loops over each person contained in the params.
@@ -92,7 +96,7 @@ What does it do:
 - Assigns the _ad hoc_ values and persists them.
 - Handles unexpected errors.
 
-Remember when I told I'd drawn the context from [my own experience]({{site.baseurl}}/2019-year-review/)? Well, here's what happened:
+Remember when I told I'd drawn the context from [my own experience](/2019-year-review/)? Well, here's what happened:
 
 After a while, my users reported some discrepancies in the app: some people sent by the third-party service were neither found nor created. No clear pattern emerged from the get-go. 🤔
 
@@ -104,7 +108,7 @@ After a while, my users reported some discrepancies in the app: some people sent
 
 Let's go back to our `SomeServiceHooksController`. I'll add two breakpoints inside the loop. It'll help me check the data at different stages.
 
-{% highlight ruby %}
+```ruby
   class SomeServiceHooksController < ApplicationController
     def find_or_create_person
       params[:people].each do |person|
@@ -123,13 +127,14 @@ Let's go back to our `SomeServiceHooksController`. I'll add two breakpoints insi
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Now, I can send the concatenated content of the last few webhooks to our controller (with Postman, for instance). Each `binding.pry` will pause the execution of our code. And, right amid our server's logs, _pry-byebug_ will open a debugging console.
 
 Let me show you what happens after I send the data to the endpoint:
 
-{% highlight irb %}
+```irb
   From: (pry) @ line 52 SomeServiceHooksController#find_or_create_person:
 
     49: def find_or_create_person(params)
@@ -148,7 +153,8 @@ Let me show you what happens after I send the data to the endpoint:
     62:     # handle exception
     63:   end
     64: end
-{% endhighlight %}
+```
+
 
 Behold _pry-byebug_'s console!
 
@@ -158,7 +164,7 @@ From here, you can check every variable already declared in the present context:
 
 Typing `params` in the console will give you the following output:
 
-{% highlight irb %}
+```irb
   pry(#<SomeServiceHooksController>)> params
 
   => {"people"=>
@@ -167,31 +173,35 @@ Typing `params` in the console will give you the following output:
      {"first_name"=>"Rupert", "last_name"=>"Giles", "email"=>"giles@sunnydale.edu"},
      {"first_name"=>"Cordelia", "last_name"=>"Chase", "email"=>"cordelia@gmail.com"},
      {"first_name"=>"Xander", "last_name"=>"Harris", "email"=>"xander@sunnydale.edu"}]}
-{% endhighlight %}
+```
+
 
 Typing `person` will give you:
 
-{% highlight irb %}
+```irb
   pry(#<SomeServiceHooksController>)> person
 
   => {"first_name"=>"Buffy", "last_name"=>"Summers", "email"=>"buffy@sunnydale.edu"}
-{% endhighlight %}
+```
+
 
 But soon-to-be-defined variables - like `new_person` - are not accessible yet.
 
-{% highlight irb %}
+```irb
   pry(#<SomeServiceHooksController>)> new_person
 
   => nil
-{% endhighlight %}
+```
+
 
 I can also call the methods defined in my class because Ruby reads class definitions before their execution. I can even query things from my database:
 
-{% highlight irb %}
+```irb
   pry(#<SomeServiceHooksController>)> Person.count
      (0.6ms)  SELECT COUNT(\*) FROM "people"
   => 143
-{% endhighlight %}
+```
+
 
 Fancy right? Let's move on.
 
@@ -201,13 +211,14 @@ So, our application paused just before `new_person`'s definition. What if we wan
 
 Well, we can type `next` in our _pry-byebug_ console.
 
-{% highlight irb %}
+```irb
   pry(#<SomeServiceHooksController>)> next
-{% endhighlight %}
+```
+
 
 This'll output:
 
-{% highlight irb %}
+```irb
   From: (pry) @ line 54 SomeServiceHooksController#find_or_create_person:
 
     49: def find_or_create_person(params)
@@ -226,11 +237,12 @@ This'll output:
     62:     # handle exception
     63:   end
     64: end
-{% endhighlight %}
+```
+
 
 See what happened? The `=>` cursor moved through the definition of `new_person`, and stopped just before the next line of code. So now, `new_person` is accessible:
 
-{% highlight irb %}
+```irb
   pry(#<SomeServiceHooksController>)> new_person
 
   => #<Person:0x00007fcdb143e9b0
@@ -238,7 +250,8 @@ See what happened? The `=>` cursor moved through the definition of `new_person`,
  first_name: nil,
  last_name: nil,
  email: "buffy@sunnydale.edu">
-{% endhighlight %}
+```
+
 
 Tada! An existing instance of `Person` was affected to `new_person` because it existed with the email `buffy@sunnydale.edu`.
 
@@ -250,13 +263,14 @@ In this case, `next` is not enough. You'd have to type it countless times and (s
 
 So, what should you use? `continue` of course! Lemme show you:
 
-{% highlight irb %}
+```irb
   pry(#<SomeServiceHooksController>)> continue
-{% endhighlight %}
+```
+
 
 And the output:
 
-{% highlight irb %}
+```irb
   From: (pry) @ line 60 SomeServiceHooksController#find_or_create_person:
 
       49: def find_or_create_person(params)
@@ -275,11 +289,12 @@ And the output:
       62:     # handle exception
       63:   end
       64: end
-{% endhighlight %}
+```
+
 
 The `=>` cursor didn't just move onto the next line. It only stopped at the next breakpoint. So now, I have access to the updated version of `new_person`:
 
-{% highlight irb %}
+```irb
   pry(#<SomeServiceHooksController>)> new_person
 
   => #<Lead:0x00007fcdb143e9b0
@@ -287,7 +302,8 @@ The `=>` cursor didn't just move onto the next line. It only stopped at the next
    first_name: "Buffy",
    last_name: "Summers",
    email: "buffy@sunnydale.edu">
-{% endhighlight %}
+```
+
 
 Once you've passed the last breakpoint, `continue` will resume the code's execution until the end of the current context. In our example, the current context is `SomeServiceHooksController`. Since we're in a loop, `continue` will only bring you to the next `person` until we looped through every people. Then, it'll exit the `SomeServiceHooksController` class and get on with its life.
 
@@ -307,7 +323,7 @@ When I learned to code, a lot of people told me to never trust users' input. Wel
 
 Remember when I told you that I was only sure about the structure of the data sent through the webhook? Well, it turned out that some people's data were incomplete:
 
-{% highlight json %}
+```json
   {
     people: [
       { first_name: 'Buffy', last_name: 'Summers', email: 'buffy@sunnydale.edu'},
@@ -318,7 +334,8 @@ Remember when I told you that I was only sure about the structure of the data se
       { first_name: 'Spike', last_name: '', email: nil} # 👈 😱
     ]
   }.with_indifferent_access
-{% endhighlight %}
+```
+
 
 Lesson #1: **never trust your users' input**
 

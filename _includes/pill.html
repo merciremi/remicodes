@@ -1,0 +1,2 @@
+{%- assign kind = include.kind | default: "ghost" -%}
+<a href="{{ include.href }}" class="pill pill--{{ kind }}{% if include.cat %} cat-{{ include.cat }}{% endif %}">{{ include.text }}</a>

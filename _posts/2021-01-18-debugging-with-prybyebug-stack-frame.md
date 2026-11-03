@@ -1,18 +1,17 @@
 ---
-toc: true
 layout: post
 title: "Debugging with pry-byebug: moving in the stack frame"
 date: 2021-01-18
-excerpt: "Time to level up your debugging game with frames, adding breakpoints on the fly, and some handy shortcuts."
-categories: [debugging]
+tags: [debugging]
 permalink: /pry-byebug-intermediate/
+excerpt: "Time to level up your debugging game with frames, adding breakpoints on the fly, and some handy shortcuts."
 ---
 
 It is a truth universally acknowledged that a single developer in possession of a good codebase must be in want of a bug-free application [^1].
 
 Alas, debugging never ends. The more you learn, the more debugging becomes complex.
 
-I think it is high time we dive deeper into `pry-byebug`. Are you new to `pry-byebug`? Go and check [the beginners introduction to debugging your code]({{site.baseurl}}/pry-byebug-tutorial/) first.
+I think it is high time we dive deeper into `pry-byebug`. Are you new to `pry-byebug`? Go and check [the beginners introduction to debugging your code](/pry-byebug-tutorial/) first.
 
 Here our _menu du jour_: moving in the stack frame, adding breakpoints on the fly, and some handy shortcuts (because who loves to write `continue` continually).
 
@@ -24,7 +23,7 @@ I discovered `step` only recently. One easy way to understand `step` is to expla
 
 The following example is a basic endpoint that allows me to get all available books and a `Book` model with a class method.
 
-{% highlight ruby %}
+```ruby
   # app/controllers/books_controller.rb
   class BooksController < BaseController
     def index
@@ -42,11 +41,12 @@ The following example is a basic endpoint that allows me to get all available bo
       where(available: true)
     end
   end
-{% endhighlight %}
+```
+
 
 The breakpoint will pause execution before `.available` and open a debugging console.
 
-{% highlight irb %}
+```irb
   From: (pry) @ line 4 BooksController#index:
 
     01:   def index
@@ -56,11 +56,12 @@ The breakpoint will pause execution before `.available` and open a debugging con
     05:
     06:     render json: available_books
     07:   end
-{% endhighlight %}
+```
+
 
 When I type `next`, the result of `Book.available` is assigned to `available_books` and the execution stops before the next line.
 
-{% highlight irb %}
+```irb
   From: (pry) @ line 4 BooksController#index:
 
     01:   def index
@@ -70,15 +71,16 @@ When I type `next`, the result of `Book.available` is assigned to `available_boo
     05:
  => 06:     render json: available_books
     07:   end
-{% endhighlight %}
+```
+
 
 What happened in `Book.available`? I don't know. I only executed that line of code and stayed in my current frame - `BooksController`.
 
-<img class='large' src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-01.jpeg" alt="a schema explaining how the next command stays in the same frame">
+<img src="/assets/media/2021/01/debugging-frame-stack-remi-mercier-01.jpeg" alt="a schema explaining how the next command stays in the same frame">
 
 Let's re-run my code and use `step` instead.
 
-{% highlight irb %}
+```irb
   From: (pry) @ line 4 BooksController#index:
 
     01:   def index
@@ -88,51 +90,55 @@ Let's re-run my code and use `step` instead.
     05:
     06:     render json: available_books
     07:   end
-{% endhighlight %}
+```
+
 
 Typing `step` takes me from my `BooksController` to my `Book` model. I've changed frames. I'm now exploring the class method `Book.available`.
 
-{% highlight irb %}
+```irb
   From: (pry) @ line 2 Book.available:
 
     01:   def self.available
  => 02:     where(available: true)
     03:   end
-{% endhighlight %}
+```
+
 
 I can now check whether my class method works as intended.
 
-<img class='large' src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-02.jpeg" alt="a schema explaining how the step command changes frame">
+<img src="/assets/media/2021/01/debugging-frame-stack-remi-mercier-02.jpeg" alt="a schema explaining how the step command changes frame">
 
 Disclaimer: `step` is a bit of a rabbit hole. It's a great way to explore how Rails works. For instance, if I type `step` before `where(available: true)`, my console returns:
 
-{% highlight irb %}
+```irb
   From: .rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-6.0.3.4/lib/active_record/querying.rb:21 ActiveRecord::Querying#where:
 
  => 21: delegate(*QUERYING_METHODS, to: :all)`
-{% endhighlight %}
+```
+
 
 Yep, I'm now checking out ActiveRecord's inner gut.
 
-<img class='large' src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-03.jpeg" alt="a schema explaining how the step command changes frame">
+<img src="/assets/media/2021/01/debugging-frame-stack-remi-mercier-03.jpeg" alt="a schema explaining how the step command changes frame">
 
 ## Move up the stack frame: `up`
 
 Remember when we dived into the frames? Well, how do I come back to my `BooksController`? With `up`, of course.
 
-{% highlight irb %}
+```irb
   From: (pry) @ line 2 Book.available:
 
     01:   def self.available
  => 02:     where(available: true)
     03:   end
-{% endhighlight %}
+```
+
 
 If I type `up` in my console, I'll move up the frames towards my initial breakpoint.
 
 What if I've moved down frames several times? I can either pass the number of frames I'd like to go up as an argument - `up(2)` - or type `up` several times.
 
-<img class='large' src="{{ site.baseurl }}/media/2021/01/debugging-frame-stack-remi-mercier-04.jpeg" alt="a schema explaining how the up command moves up the frame stack">
+<img src="/assets/media/2021/01/debugging-frame-stack-remi-mercier-04.jpeg" alt="a schema explaining how the up command moves up the frame stack">
 
 ## Add and remove breakpoints on the fly
 
@@ -140,7 +146,7 @@ What if I've moved down frames several times? I can either pass the number of fr
 
 If I realize, once I'm in my debugging console, that I would have needed another breakpoint, I can add it on the fly with `break line_number`.
 
-{% highlight irb %}
+```irb
   From: (pry) @ line 4 BooksController#index:
 
     01:   def index
@@ -162,7 +168,8 @@ If I realize, once I'm in my debugging console, that I would have needed another
      05:
   => 06:     render json: available_books
      07:   end
-{% endhighlight %}
+```
+
 
 I can type `break 06`, resume the execution, and have it paused before the `render json`.
 
@@ -176,7 +183,7 @@ Adding breakpoint son the fly makes for a pretty seamless debugging experience. 
 
 So, now my program is paused before the line 04, and I know I added a second breakpoint on the line 06:
 
-{% highlight irb %}
+```irb
   From: (pry) @ line 4 BooksController#index:
 
     01:   def index
@@ -186,13 +193,14 @@ So, now my program is paused before the line 04, and I know I added a second bre
     05:
     06:     render json: available_books
     07:   end
-{% endhighlight %}
+```
+
 
 What if I want to remove this second breakpoint?
 
 First, I want to find my breakpoint's reference by listing all breakpoints with `break`. Then, I can delete the breakpoint with `break --delete breakpoint_number`.
 
-{% highlight irb %}
+```irb
   [1] pry(BooksController#index)> break
 
   # Enabled At
@@ -205,7 +213,8 @@ First, I want to find my breakpoint's reference by listing all breakpoints with 
 
   # Enabled At
    -------------
-{% endhighlight %}
+```
+
 
 `break` outputs the list of all the breakpoints added in the console.
 
@@ -213,7 +222,7 @@ First, I want to find my breakpoint's reference by listing all breakpoints with 
 
 ### 3) Show breakpoints information: `break --show breakpoint_number`
 
-{% highlight irb %}
+```irb
   [1] pry(BooksController#index)> break --show 1
 
     Breakpoint 1: /path/controllers/books_controller.rb @ 06 (Enabled)
@@ -225,7 +234,8 @@ First, I want to find my breakpoint's reference by listing all breakpoints with 
      05:
   => 06:     render json: available_books
      07:   end
-{% endhighlight %}
+```
+
 
 This is the same output that the one I get after adding a breakpoint.
 

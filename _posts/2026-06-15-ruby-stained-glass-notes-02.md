@@ -1,23 +1,21 @@
 ---
 layout: post
 title: "Ideas are cheap. But glass? Not so much. (Ruby Stained Glass Notes #02)"
-excerpt: "This is episode #02 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained-glass panel celebrating Ruby. Today, we talk about how to choose glass, and how stained glass windows should follow the open-closed principle too."
 date: 2026-06-15
+tags: [ruby-stained-glass]
 permalink: /ruby-stained-glass-notes-02/
-categories: [ruby, build in public]
-cover_image:
-toc: true
+excerpt: "This is episode #02 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained-glass panel celebrating Ruby. Today, we talk about how to choose glass, and how stained glass windows should follow the open-closed principle too."
 ---
 
 Hey Ruby friends,
 
 Welcome to this second episode of the Ruby Stained Glass Notes. 
 
-Many thanks to all of you lovely people who replied either to the welcome email or the [previous episode]({{site.baseurl}}/this-idea-cost-me-an-ice-cream/)! You gave me plenty to think about (we'll talk about this later).
+Many thanks to all of you lovely people who replied either to the welcome email or the [previous episode](/this-idea-cost-me-an-ice-cream/)! You gave me plenty to think about (we'll talk about this later).
 
-If you're new here, sign-up to the pop-up newsletter about this crazy project of mine: a limited-edition stained-glass panel celebrating Ruby.
+If you're new here, sign-up to the pop-up newsletter about this crazy project of mine: [a limited-edition stained-glass panel celebrating Ruby](/ruby-stained-glass/).
 
-{% include stained_glass_form.html %}
+{% include stained-glass-form.html %}
 
 Let's dive right in!
 
@@ -25,8 +23,8 @@ Let's dive right in!
 
 Last week, I decided it was time to commit to the project. So I placed an €400-ish order for tools and glass in various colours. And I received the 12-kilogram package two days later for my birthday!
 
-<figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/06/ruby-stained-glass-notes-02-01.jpg" alt="a picture of Remi Mercier carrying a package">
+<figure class="figure--portrait">
+  <img src="/assets/media/2026/06/ruby-stained-glass-notes-02-01.webp" alt="a picture of Remi Mercier carrying a package">
   <figcaption>Picture courtesy of my kiddo</figcaption>
 </figure>
 
@@ -45,7 +43,7 @@ Except that once the stained glass panel is soldered, there is no refactoring.
 So, I picked up some semi-translucent glass made in the US by Wissmach. 
 
 <figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/06/ruby-stained-glass-notes-02-02.jpg" alt="two sheets of red glass in the sun">
+  <img src="/assets/media/2026/06/ruby-stained-glass-notes-02-02.webp" alt="two sheets of red glass in the sun">
   <figcaption>Will you look at this beauty!</figcaption>
 </figure>
 
@@ -59,8 +57,8 @@ I could talk forever about the beauty of cutting glass: the temperament of each 
 
 I searched through my bookshelves and found the first book I ever bought on stained glass making. I remembered it had a couple of pages on making Tiffany stained glass windows. 
 
-<figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/06/ruby-stained-glass-notes-02-03.jpg" alt="the cover of a book called Le Vitrail">
+<figure class="figure--portrait">
+  <img src="/assets/media/2026/06/ruby-stained-glass-notes-02-03.jpg" alt="the cover of a book called Le Vitrail">
 </figure>
 
 The book already helped me select the tools I need, and it refreshed my memory. Hopefully, when I start building the panel, I won't make too many mistakes.

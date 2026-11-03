@@ -1,26 +1,24 @@
 ---
 layout: post
-title: An impromptu lightning talk at Rubycon
-excerpt: "Last week, I spent an extended weekend in Rimini, Italy, for the first edition of Rubycon where I gave a lightning talk connecting my reconversion story with the current trend of throwing junior developers under the bus for the sake of (AI) productivity."
+title: "An impromptu lightning talk at Rubycon"
 date: 2026-05-12
+tags: [career]
 permalink: /what-about-the-juniors/
-categories: [career]
-cover_image:
-toc: true
+excerpt: "Last week, I spent an extended weekend in Rimini, Italy, for the first edition of Rubycon where I gave a lightning talk connecting my reconversion story with the current trend of throwing junior developers under the bus for the sake of (AI) productivity."
 ---
 
 Last week, I spent an extended weekend in Rimini, Italy, for the first edition of [Rubycon](https://rubycon.it/){:target="\_blank"}. 
 
 One of the first things I did, after getting my [Ruby Passport stamped](https://www.rubyevents.org/profiles/merciremi/stamps){:target="\_blank"} and drinking a ristretto (standing at the comptoir, obviously), was to put down my name to present an impromptu lightning talk. I had to decide on the spot what I wanted to talk about. 
 
-I chose to connect an abridged version of my [reconversion story]({{site.baseurl}}/from-stained-glass-master-to-software-developer/) with the current trend of throwing junior developers under the bus for the sake of (AI) productivity, and our responsibility as a community to offset/fight that trend. 
+I chose to connect an abridged version of my [reconversion story](/from-stained-glass-master-to-software-developer/) with the current trend of throwing junior developers under the bus for the sake of (AI) productivity, and our responsibility as a community to offset/fight that trend. 
 
 Below are the notes I wrote for the talk (edited for clarity).
 
 ## The talk
 
 <figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/05/remi-mercier-talk-rubycon-2026.png" alt="a picture of Remi speaking at Rubycon conference 2026">
+  <img src="/assets/media/2026/05/remi-mercier-talk-rubycon-2026.webp" alt="a picture of Remi speaking at Rubycon conference 2026">
 </figure>
 
 For those of you who don't know me, I'm a former stained-glass maker turned developer. 

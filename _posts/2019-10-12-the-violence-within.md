@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
-title: The violence within
-date:   2019-10-12
-excerpt: "Our mainstream work culture cultivates systemic violence: bullying, constant competition, sexism, etc. You name it. What if talking about could empower and protect us?"
+title: "The violence within"
+date: 2019-10-12
+tags: [career]
 permalink: /the-violence-within/
-categories: [career]
-cover_image: /media/2019/violence-within-remi-mercier.jpeg
+excerpt: "Our mainstream work culture cultivates systemic violence: bullying, constant competition, sexism, etc. You name it. What if talking about could empower and protect us?"
 ---
 
 For the past 15 years, I've had multiple encounters with the systemic violence baked in our mainstream work culture: bullying, constant competition, harassment, mocking, productivism, racism, sexism, sticks and carrots, etc. You name it.

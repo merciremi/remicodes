@@ -1,19 +1,19 @@
 ---
 layout: post
 title: "Let's talk about tools (Ruby Stained Glass Notes #04)"
-excerpt: "This is episode #04 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained glass panel celebrating Ruby. Today, I talk about tools!"
 date: 2026-07-08
+tags: [ruby-stained-glass]
 permalink: /ruby-stained-glass-notes-04/
-categories: [ruby, build in public]
-cover_image:
-toc: true
+excerpt: "This is episode #04 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained glass panel celebrating Ruby. Today, I talk about tools!"
 ---
 
 Hey Ruby friends,
 
-Welcome to the fourth episode of the Ruby Stained Glass Notes. As always, a big thank you to the people who reached out after [the last episode]({{site.baseurl}}/ruby-stained-glass-notes-03/). Thanks for your comments and suggestions!
+Welcome to the fourth episode of the Ruby Stained Glass Notes. As always, a big thank you to the people who reached out after [the last episode](/ruby-stained-glass-notes-03/). Thanks for your comments and suggestions!
 
-If you're new here, thank you for signing up to this pop-up newsletter about this crazy project of mine: a limited-edition stained-glass panel celebrating Ruby.
+If you're new here, thank you for signing up to this pop-up newsletter about this crazy project of mine: [a limited-edition stained-glass panel celebrating Ruby](/ruby-stained-glass/).
+
+{% include stained-glass-form.html %}
 
 Without further ado, let's jump in!
 
@@ -22,7 +22,7 @@ Without further ado, let's jump in!
 I wanted to start building the test panels this week, but I realised last Sunday I had forgotten to buy one critical tool: three-bladed scissors.
 
 <figure>
-  <img src="{{ site.url }}/media/2026/07/three-bladed-scissors.jpeg" alt="a pair of three-bladed scissors">
+  <img src="/assets/media/2026/07/three-bladed-scissors.jpeg" alt="a pair of three-bladed scissors">
   <figcaption>Picture by RickP on Wikipedia</figcaption>
 </figure>
 
@@ -37,13 +37,13 @@ The real star of the show is the glass cutter, obviously.
 The model I have right now has a small wheel made of tungsten carbide (a compound of tungsten and carbon), which makes it almost as hard as diamond.
 
 <figure>
-  <img src="{{ site.url }}/media/2026/07/ruby-stained-glass-notes-01.gif" alt="me doing a straight cut on glass">
+  <video src="/assets/media/2026/07/ruby-stained-glass-notes-01.mp4" width="754" height="422" autoplay loop muted playsinline aria-label="me doing a straight cut on glass"></video>
 </figure>
 
 The glass cutter doesn’t saw through the glass. It scores the glass and breaks its surface tension. You then apply pressure from below, and the cut snaps. You can also tap your cut from below to gently open the scoreline. This is pretty useful for complex cuts. 
 
 <figure>
-  <img src="{{ site.url }}/media/2026/07/ruby-stained-glass-notes-02.gif" alt="me doing a curved cut on glass">
+  <video src="/assets/media/2026/07/ruby-stained-glass-notes-02.mp4" width="600" height="314" autoplay loop muted playsinline aria-label="me doing a curved cut on glass"></video>
 </figure>
 
 Speaking of complex cuts: did you know that for centuries, becoming a stained-glass master required creating a chef-d'œuvre? The panel had to feature a piece of glass set within another, isolated so that its surrounding lead did not connect to the panel's main lead network.
@@ -51,7 +51,7 @@ Speaking of complex cuts: did you know that for centuries, becoming a stained-gl
 The next tool is the grozer (or grozing pliers). Grozers are flat-nosed pliers used to nibble away glass pieces to shape. 
 
 <figure>
-  <img src="{{ site.url }}/media/2026/07/ruby-stained-glass-notes-03.jpeg" alt="a pair of three-bladed scissors">
+  <img src="/assets/media/2026/07/ruby-stained-glass-notes-03.webp" alt="a pair of three-bladed scissors">
   <figcaption>Some grozers</figcaption>
 </figure>
 
@@ -66,19 +66,19 @@ Stained glass makers would pass a hot, flat-headed iron tool on the glass, then 
 Imagine the patience required to build these:
 
 <figure>
-  <img src="{{ site.url }}/media/2026/07/ruby-stained-glass-notes-04.jpeg" alt="a pair of three-bladed scissors">
+  <img src="/assets/media/2026/07/ruby-stained-glass-notes-04.jpeg" alt="a pair of three-bladed scissors">
   <figcaption>The Sainte-Chapelle in Paris, photo by Diego Delso, CC BY-SA 4.0</figcaption>
 </figure>
 
 There are plenty of other tools in the kit, but I’ll save those for when we actually start building.
 
-## Picture of my face when 19
+## Proof! (If you needed any)
 
 My mom reads this newsletter (hi Mom!), and she kindly sent me one of the few pictures I have of me making stained glass in the workshop (circa 2003).
 
-<figure>
-  <img src="{{ site.url }}/media/2026/07/ruby-stained-glass-notes-05.jpeg" alt="me, around age 19, cutting some glass in a workshop">
-  <figcaption>Picture by RickP on Wikipedia</figcaption>
+<figure class="figure--portrait">
+  <img src="/assets/media/2026/07/ruby-stained-glass-notes-05.jpeg" alt="me, around age 19, cutting some glass in a workshop">
+  <figcaption>Picture of my face when I was 19.</figcaption>
 </figure>
 
 That's all I've got for this week. Let's hope I'll get my scissors soon so I can start cutting some glass!

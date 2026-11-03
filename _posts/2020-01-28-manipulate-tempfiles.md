@@ -1,19 +1,17 @@
 ---
-toc: true
 layout: post
-title: Working with tempfiles in Ruby
-date:   2020-01-28
-excerpt: "A while back, I needed to create XML files, send them to a distant server and delete them once the transfer completed. This is when I discovered Tempfiles and rejoiced in using Ruby."
-categories: [ruby]
+title: "Working with tempfiles in Ruby"
+date: 2020-01-28
+tags: [ruby]
 permalink: /working-with-tempfiles/
-cover_image: /media/2020/working-with-tempfiles-remi-mercier.jpeg
+excerpt: "A while back, I needed to create XML files, send them to a distant server and delete them once the transfer completed. This is when I discovered Tempfiles and rejoiced in using Ruby."
 ---
 
 A while back, I needed to create XML files, send them to a distant server and delete them once the transfer completed.
 
 At first, I thought about creating those files into my app's `tmp` directory. Then, a cron job would run daily to delete them. It would have worked, but I wasn't very happy with it.
 
-So after looking on the internet, I came across the Ruby `Tempfile` object (and I - for the umpteenth time - rejoiced in [using Ruby as my main programming language]({{site.baseurl}}/series/ruby/)).
+So after looking on the internet, I came across the Ruby `Tempfile` object (and I - for the umpteenth time - rejoiced in [using Ruby as my main programming language](/topics/ruby/)).
 
 <blockquote>
   Tempfile is a utility class for managing temporary files. It behaves just like a File object, and you can perform all the usual file operations on it: reading data, writing data, changing its permissions, etc.
@@ -24,9 +22,9 @@ So after looking on the internet, I came across the Ruby `Tempfile` object (and 
 
 ## How-to tempfile in Ruby?
 
-Let's create a simple example. First, I'll [create an object]({{site.baseurl}}/beginners-introduction-to-ruby-classes-objects/) that generates a tempfile when instantiated. Then I'll export it on demand.
+Let's create a simple example. First, I'll [create an object](/beginners-introduction-to-ruby-classes-objects/) that generates a tempfile when instantiated. Then I'll export it on demand.
 
-{% highlight ruby %}
+```ruby
   class FileExporter
     def initialize
       @my_file = create_file
@@ -47,7 +45,8 @@ Let's create a simple example. First, I'll [create an object]({{site.baseurl}}/b
       end
     end
   end
-{% endhighlight %}
+```
+
 
 There! Here is the cool thing: once I'm done with my `FileExporter`, my tempfile will be automatically deleted. No need to do it manually.
 
@@ -63,7 +62,7 @@ Let me show you.
 
 First, let's create a normal file.
 
-{% highlight ruby %}
+```ruby
   class FileCreator
     def create_file
       file = File.new('my_file.md', 'r+')
@@ -72,15 +71,17 @@ First, let's create a normal file.
       file
     end
   end
-{% endhighlight %}
+```
 
-{% highlight irb %}
+
+```irb
   file_creator = FileCreator.new
 
   my_file = file_creator.create_file # => #<File:my_file.md>
   File.basename(my_file.path)        # => "my_file.md"
   my_file.read                       # => "Bob wuz here."
-{% endhighlight %}
+```
+
 
 You'll notice some subtleties:
 - I need to pass a name and permissions as I create my file.
@@ -89,7 +90,7 @@ You'll notice some subtleties:
 
 Now, let's create a tempfile.
 
-{% highlight ruby %}
+```ruby
   class FileCreator
     def create_file
       Tempfile.open do |file|
@@ -99,16 +100,18 @@ Now, let's create a tempfile.
       end
     end
   end
-{% endhighlight %}
+```
 
-{% highlight irb %}
+
+```irb
   file_creator = FileCreator.new
 
   my_file = file_creator.create_file # => #<File:my_file.md>
   File.basename(my_file.path)        # => "20200123-83768-1wrlh4s"
   my_file.read                       # => IOError: closed stream
   my_file.closed?                    # => true
-{% endhighlight %}
+```
+
 
 Here, the tempfile doesn't need any input on my part for its name. It's automatically generated. Note that it is possible to specify a name and an extension too.
 
@@ -131,9 +134,9 @@ In any case, <mark>your temporary file will be deleted once the object is finali
 
 ## Tempfiles' quirks
 
-Tempfiles are extremely useful when handled in strictly defined contexts, like a [railway-oriented business transaction]({{site.baseurl}}/transactions-in-rails/). But the following example can create some unwanted problems.
+Tempfiles are extremely useful when handled in strictly defined contexts, like a [railway-oriented business transaction](/transactions-in-rails/). But the following example can create some unwanted problems.
 
-{% highlight ruby %}
+```ruby
   class FileCreator
     def create_file
       file = Tempfile.new
@@ -142,14 +145,16 @@ Tempfiles are extremely useful when handled in strictly defined contexts, like a
       file.path
     end
   end
-{% endhighlight %}
+```
 
-{% highlight irb %}
+
+```irb
   file_creator = FileCreator.new
 
   my_file_path = file_creator.create_file # => #<File:my_file.md>
   File.read(my_file_path)                 # => "Bob wuz here."
-{% endhighlight %}
+```
+
 
 `FileCreator#create_file` now returns a path, not an actual reference to the file. It means that most of the time, you'll be able to read your file. But sometimes, you'll get an `Errno::ENOENT: No such file or directory @ rb_sysopen` error. Why? Because the garbage collector will have claimed your file during one of its collections. One solution would be to return the actual file - hence a reference.
 

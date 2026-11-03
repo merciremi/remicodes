@@ -1,11 +1,10 @@
 ---
-toc: true
 layout: post
-title: 'Going remote: a live documentation on transitioning out of the office'
+title: "Going remote: a live documentation on transitioning out of the office"
 date: 2020-03-10
-excerpt: "Last week, I started the process of transitioning from an on-site position to a full remote one. I'll publicly document what happens as it happens here. Interested in remote working? Join in!"
-categories: [career]
+tags: [career]
 permalink: /going-remote-live-documentation/
+excerpt: "Last week, I started the process of transitioning from an on-site position to a full remote one. I'll publicly document what happens as it happens here. Interested in remote working? Join in!"
 ---
 
 <mark>Current step: Left Hosman. Got myself a two-month sabbatical. Started a new gig mid-September.</mark>
@@ -26,7 +25,7 @@ This documentation will include:
 - personal journey: taking a leap of faith, leaving out and moving in, caring for our friends and making new ones, etc...
 - professional journey: communicating with the team, becoming (or not) the first remote employee in an on-site company, the back-and-forths, the challenges and the solutions, the outcome, etc.
 
-I'll probably take the opportunity to start a [theme-based personal garden]({{site.baseurl}}/garden/) with this new chapter of my professional life. It'll be easier to connect the dots than though an antichronological timeline of essays. But that'll come later.
+I'll probably take the opportunity to start a [theme-based personal garden](/garden/) with this new chapter of my professional life. It'll be easier to connect the dots than though an antichronological timeline of essays. But that'll come later.
 
 The list below will serve as a table of content with due dates when relevant:
 

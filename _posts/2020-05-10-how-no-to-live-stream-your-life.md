@@ -1,10 +1,9 @@
 ---
-toc: true
 layout: post
 title: How not to live stream your code
 date: 2020-05-10
+tags: [community]
 excerpt: "This week, I did my first live stream on Twitch and it didn't turn out so well (to say the least). Here's a recap of my rookie mistakes, what I liked about it anyway, and what I'm planning on doing."
-categories: [other]
 permalink: /how-not-to-live-stream/
 ---
 
@@ -12,7 +11,7 @@ A little preamble first: Some years ago, I watched the British sitcom ["How Not 
 
 Okay, back to business.
 
-Last Wednesday, I decided to livestream a coding session on Twitch - [follow me there!](https://www.twitch.tv/merciremi){:target="\_blank"} - to complete my latest tutorial on [asynchronous requests in Rails]({{site.baseurl}}/asynchronous-requests/). Several reasons convinced me to try it:
+Last Wednesday, I decided to livestream a coding session on Twitch - [follow me there!](https://www.twitch.tv/merciremi){:target="\_blank"} - to complete my latest tutorial on [asynchronous requests in Rails](/asynchronous-requests/). Several reasons convinced me to try it:
 - I've loved live coding since attending Le Wagon.
 - I've wanted to jump on the live stream bandwagon for ages now.
 - And, more importantly, I thought some people might understand tutorials better by following along a video.
@@ -44,7 +43,7 @@ __This freaking accent:__ This one was tough for me. It was hard to explain thin
 
 __Fun:__ In retrospect, I enjoyed doing it. I've been watching seasoned streamers for a while now, and even them experience hiccups. And that's okay. This is what learning-in-public is. Sometimes, things go wrong, and you fix them.
 
-__I can do better:__ I've realized that despite this first stream being shitty, I could do better. [I even recorded another screencast the next day]({{site.baseurl}}/asynchronous-requests/#async-request-screencast). I tweaked my OBS setup. I found a better place to do it. I have plenty of room to improve and find my groove. ✌️
+__I can do better:__ I've realized that despite this first stream being shitty, I could do better. [I even recorded another screencast the next day](/asynchronous-requests/#async-request-screencast). I tweaked my OBS setup. I found a better place to do it. I have plenty of room to improve and find my groove. ✌️
 
 __So much potential:__ I've felt that live streams are a fantastic way to learn, teach, and share knowledge with others. I've missed teaching code, and I'd love to see where I can take this thing. Even make it sustainable?
 

@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
-title:  How to use railway-oriented business transactions to unclutter your Rails controllers
-date:   2019-09-09
-excerpt: "When your Rails app needs to handle multiple steps, your controllers' methods can become a mess. Let's see how to Marie-Kondo them with dry-transaction"
-categories: [rails]
+title: "How to use railway-oriented business transactions to unclutter your Rails controllers"
+date: 2019-09-09
+tags: [rails]
 permalink: /transactions-in-rails/
-cover_image: /media/2019/rails-railway-oriented-business-transactions-remi-mercier.jpg
+excerpt: "When your Rails app needs to handle multiple steps, your controllers' methods can become a mess. Let's see how to Marie-Kondo them with dry-transaction"
 ---
 
 When your Rails app needs to handle multiple steps, your controllers' methods can become a mess.
@@ -21,7 +19,7 @@ In this tutorial, I'll use the [dry-transaction gem](https://github.com/dry-rb/d
 
 Let's start with coding a basic controller.
 
-{% highlight ruby %}
+```ruby
   class LeadsController < ApplicationController
     def new
       @lead = Lead.new
@@ -46,7 +44,8 @@ Let's start with coding a basic controller.
       )
     end
   end
-{% endhighlight %}
+```
+
 
 Okay, so here's a basic `LeadsController`. You have two actions: `new` and `create`. As you can see, the `create` method is straightforward:
 - I create a new lead with the information filled by our lead.
@@ -54,11 +53,11 @@ Okay, so here's a basic `LeadsController`. You have two actions: `new` and `crea
 - If everything goes well, I redirect our lead to her profile page (or any page of my choosing).
 
 But what if I want to do more? Let's say I want to:
-- connect to a distant CRM [through an API]({{site.baseurl}}/what-is-an-api/) and synchronize the lead's information with my sales team
+- connect to a distant CRM [through an API](/what-is-an-api/) and synchronize the lead's information with my sales team
 - send a welcome text and an email to the lead
 - notify someone in my team
 
-{% highlight ruby %}
+```ruby
   class LeadsController < ApplicationController
     def new
       @lead = Lead.new
@@ -98,7 +97,8 @@ But what if I want to do more? Let's say I want to:
       )
     end
   end
-{% endhighlight %}
+```
+
 
 As you can see, there are several new steps doing very different things. In a real-life app, we could do a lot more than that: create associations, generate SKU numbers, etc. The other thing is that all these steps are dependent on the `lead` being created without any errors. This puts a lot of stuff into an `else` branch. This is where business transactions can come in handy.
 
@@ -112,15 +112,17 @@ Let's set up dry-transaction and see how we can unclutter our controller.
 
 Add this line to your application's Gemfile:
 
-{% highlight zsh %}
+```zsh
   gem 'dry-transaction'
-{% endhighlight %}
+```
+
 
 Then execute:
 
-{% highlight zsh %}
+```zsh
   bundle install
-{% endhighlight %}
+```
+
 
 ### Step 2: General principles
 
@@ -130,7 +132,7 @@ Before we dive into moving parts of our `LeadsController#create` into a transact
 
 Each step is processed one at a time and must return either a `Success` or a `Failure` object.
 
-{% highlight ruby %}
+```ruby
   class Leads::Create < BaseTransaction
     # Here, I define the operation sequence
     tee :params
@@ -151,7 +153,8 @@ Each step is processed one at a time and must return either a `Success` or a `Fa
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Here are a few points to keep in mind:
 - `tee` is a specific kind of step. It'll always return a `Success`. This is fine here because I'm simply fetching an input.
@@ -164,16 +167,17 @@ Now, we can move parts of our `LeadsController#create` into a transaction.
 
 My app's architecture was:
 
-{% highlight zsh %}
+```zsh
   - app
     - controllers
       - application_controller.rb
       - leads_controller.rb
-{% endhighlight %}
+```
+
 
 At the end of this tutorial, it'll be:
 
-{% highlight zsh %}
+```zsh
   - app
     - controllers
       - application_controller.rb
@@ -182,11 +186,12 @@ At the end of this tutorial, it'll be:
       - base_transaction.rb
       - leads
         - create.rb
-{% endhighlight %}
+```
+
 
 Let's build `base_transaction.rb` first.
 
-{% highlight ruby %}
+```ruby
   class BaseTransaction
     include Dry::Transaction
 
@@ -194,13 +199,14 @@ Let's build `base_transaction.rb` first.
       new.call(*args, &block)
     end
   end
-{% endhighlight %}
+```
+
 
 `def self.call(*args, &block)` will allow us to **call** the transaction from our controllers with a hash of arguments.
 
 I'll start with the transaction we started earlier and I'll move parts of our `LeadsController#create` into it.
 
-{% highlight ruby %}
+```ruby
   class Leads::Create < BaseTransaction
     tee :params
     step :create_lead
@@ -255,7 +261,8 @@ I'll start with the transaction we started earlier and I'll move parts of our `L
       Failure(error: exception)
     end
   end
-{% endhighlight %}
+```
+
 
 All of my `LeadsController#create` steps are now in my transaction.
 
@@ -267,7 +274,7 @@ For instance, if my `MySmsProvider.welcome_sms(@lead).deliver_now` returns an er
 
 Now that all my steps are in my transaction, what should I do with my controller? We'll start by calling the transaction.
 
-{% highlight ruby %}
+```ruby
   class LeadsController < ApplicationController
     def new
       @lead = Lead.new
@@ -285,7 +292,8 @@ Now that all my steps are in my transaction, what should I do with my controller
       )
     end
   end
-{% endhighlight %}
+```
+
 
 Neat right?
 
@@ -295,7 +303,7 @@ As I said before, a transaction either returns a `Success` or a `Failure` object
 
 In our original controller, I would render the `new` form if the lead creation failed. On the other hand, if the creation succeeded, I'd redirect my new lead to its profile. Let's do this now!
 
-{% highlight ruby %}
+```ruby
   class LeadsController < ApplicationController
     def new
       @lead = Lead.new
@@ -321,11 +329,12 @@ In our original controller, I would render the `new` form if the lead creation f
       )
     end
   end
-{% endhighlight %}
+```
+
 
 Now, my controller only handles calls to a grouped set of business operations. No more database operations mingling with sending out emails or redirection rules. There is some cohesiveness in the abstraction.
 
-<img class='large' src="{{ site.baseurl }}/media/2019/marie-kondo.gif" alt="marie kondo">
+<video src="/assets/media/2019/marie-kondo.mp4" width="400" height="400" autoplay loop muted playsinline aria-label="Marie Kondo"></video>
 
 This is it!
 
@@ -335,7 +344,7 @@ Thank you [Nicolas](https://twitter.com/nicoolas25) for your feedback and help w
 
 If you have any questions or if something is not clear enough, [ping me on Twitter](https://twitter.com/mercier_remi) or [create an issue on GitHub](https://github.com/merciremi/remicodes/issues/new) so we can make this tutorial better.
 
-Next time, I'll show you [how to test your transactions with Rspec]({{site.baseurl}}/testing-business-transactions-in-rails/) [update: it's live! ✌️].
+Next time, I'll show you [how to test your transactions with Rspec](/testing-business-transactions-in-rails/) [update: it's live! ✌️].
 
 Cheers,
 

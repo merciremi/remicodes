@@ -1,10 +1,9 @@
 ---
-toc: true
 layout: post
 title: 'Life After Bootcamp: Always Be Shipping'
 date: 2018-07-01
+tags: [career]
 excerpt: "Last week was the 9th and final week of my Ruby on Rails Bootcamp at Le Wagon Paris. My buddies and I showed to the public what could be shipped in two weeks. A lot of great projects stood out that night. But now, it’s Monday morning. The excitement has worn off over the weekend, the many naps and the odd drinks. What shall I do?"
-categories: [other]
 permalink: /life-after-bootcamp/
 ---
 
@@ -22,7 +21,7 @@ Being at Le Wagon was like getting into Hogwarts. I realized I could wave my fin
 
 So for the next two months, I’ll build an app a week and go back to some basic training (remember the Karate Kid? Well, the same but with more programming and less painting fences).
 
-<img class='large' src="{{ site.baseurl }}/media/2018/karatekid.gif" alt="">
+<video src="/assets/media/2018/karatekid.mp4" width="320" height="240" autoplay loop muted playsinline aria-label="Mr. Miyagi showing Daniel how to paint the fence in The Karate Kid"></video>
 
 ☝️ Note: This is an ongoing post so I’ll update my progress as I go, mostly depending on suggestions, whims...
 
@@ -31,7 +30,7 @@ So for the next two months, I’ll build an app a week and go back to some basic
 #### Status: Done ✅
 Let’s go back to the fundamentals of the CRUD for a moment.
 
-<img class='large' src="{{ site.baseurl }}/media/2018/strikeitv0.gif" alt="Strike It App" height="90%" width="90%">
+<video src="/assets/media/2018/strikeitv0.mp4" width="1200" height="588" autoplay loop muted playsinline aria-label="a screen recording of Strike It: signing up, adding a task with a deadline, and marking tasks as done"></video>
 
 Basic features:
 - CRUD 101
@@ -90,7 +89,7 @@ Basic features:
 - CodeWars katas up to 6th kyu / Leetcode
 - Learn RSpec, integration tests, test coverage…
 - Add linter in code
-- Code speed: [complexity]({{site.baseurl}}/wtf-time-complexity/), n+1 queries…
+- Code speed: [complexity](/wtf-time-complexity/), n+1 queries…
 - Basics of trigonometry, algorithms…
 
 ---

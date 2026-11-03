@@ -1,11 +1,10 @@
 ---
-toc: true
 layout: post
-title: 'Add Omniauth GitHub to Your Rails App on Top of Devise'
+title: "Add Omniauth GitHub to Your Rails App on Top of Devise"
 date: 2018-06-01 14:44 +0100
-excerpt: "As I’ve moved into the last three weeks of Le Wagon coding bootcamp, the need to authorize people to sign-up with GitHub quickly arise. Here's a step-by-step tutorial on how to do it when you already use Devise to handle authentification."
-categories: [rails]
+tags: [rails]
 permalink: /omniauth-github-rails-app-with-devise/
+excerpt: "As I’ve moved into the last three weeks of Le Wagon coding bootcamp, the need to authorize people to sign-up with GitHub quickly arise. Here's a step-by-step tutorial on how to do it when you already use Devise to handle authentification."
 ---
 
 *Last update: 16 July 2018*
@@ -31,19 +30,21 @@ ngrok exposes your local web server through a public URL. So we need to install 
 
 First, run in your terminal:
 
-{% highlight zsh %}
+```zsh
 brew install ngrok
-{% endhighlight %}
+```
+
 
 Then run:
 
-{% highlight zsh %}
+```zsh
 ngrok http your_port
-{% endhighlight %}
+```
+
 
 You’ll get:
 
-{% highlight zsh %}
+```zsh
 ngrok by @inconshreveable                                       (Ctrl+C to quit)
 
 Session Status                online
@@ -56,7 +57,8 @@ Forwarding                    https://3aa8f0f7.ngrok.io -> localhost:3000
 
 Connections                   ttl     opn     rt1     rt5     p50     p90
                  0       0       0.00    0.00    0.00    0.00
-{% endhighlight %}
+```
+
 
 And there you have your callback URL: `http://3aa8f0f7.ngrok.io -> localhost:3000`.
 
@@ -71,31 +73,35 @@ We’ll need to change these two URLs once we move into production. ⚠️ Be ca
 ### Save your API keys in your Rails app
 We don’t want our API keys being pushed to GitHub. So I’ll use the [figaro gem](https://github.com/laserlemon/figaro) to store these in a secure file.
 
-{% highlight ruby %}
+```ruby
 # Add figaro to your gem file@
 gem 'figaro'
-{% endhighlight %}
+```
 
-{% highlight zsh %}
+
+```zsh
 # In your terminal
 bundle install
-{% endhighlight %}
+```
+
 
 Figaro creates a *config/application.yml* to put all your API keys and adds this file in .gitignore.
 
 Copy/paste your secret keys in *config/application.yml*
 
-{% highlight ruby %}
+```ruby
 development:
   GITHUB_ID: 8***********************b
   GITHUB_SECRET: 4***********************************************3
-{% endhighlight %}
+```
+
 
 Don’t forget to tell devise to use these keys in *config/initializers/devise.rb*.
 
-{% highlight ruby %}
+```ruby
 config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET'], scope: 'user,public_repo'
-{% endhighlight %}
+```
+
 
 ## Configure Omniauth GithHub with Devise
 
@@ -105,28 +111,32 @@ Let’s get down to it!
 
 The first step is to had the Omniauth gem to your app. Go to your `Gemfile`:
 
-{% highlight ruby %}
+```ruby
 gem 'omniauth-github'
-{% endhighlight %}
+```
+
 
 Then run:
 
-{% highlight zsh %}
+```zsh
 bundle install
-{% endhighlight %}
+```
+
 
 Next step is to add the `provider` and `uid` columns to our User model. Remember we already declared the provider in our *config/initializers/devise.rb*.
 
-{% highlight zsh %}
+```zsh
 rails g migration AddOmniauthToUsers provider:string uid:string
 rake db:migrate
-{% endhighlight %}
+```
+
 
 We go to `user.rb` and make our user omniauthable.
 
-{% highlight ruby %}
+```ruby
 devise :omniauthable, omniauth_providers: %i[github]
-{% endhighlight %}
+```
+
 
 With `devise_for :users` already in place, Devise will create two URL methods:
 - `user_omniauth_authorize_path(provider)`
@@ -135,9 +145,10 @@ With `devise_for :users` already in place, Devise will create two URL methods:
 ### Add it to your view
 
 Paste the following code to get a simple link to test it out:
-{% highlight ruby %}
+```ruby
 <%= link_to "Sign up with GitHub", user_github_omniauth_authorize_path %>
-{% endhighlight %}
+```
+
 
 ⚠️ The symbol passed to the `user_omniauth_authorize_path` method should match the symbol of the provider passed to Devise's config block.
 
@@ -147,19 +158,21 @@ Now, when clicking on `Sign up with GitHub`, people will be redirected to GitHub
 
 Let’s go back to our `config/routes.rb` to tell Devise in which controller we’ll implement our callbacks:
 
-{% highlight ruby %}
+```ruby
 devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-{% endhighlight %}
+```
+
 
 Now we just add the file `app/controllers/users/omniauth_callbacks_controller.rb`:
 
-{% highlight ruby %}
+```ruby
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 end
-{% endhighlight %}
+```
+
 The callback should have the same name as the provider we passed in Devise’s config block.
 
-{% highlight ruby %}
+```ruby
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
    def github
        @user = User.from_omniauth(request.env["omniauth.auth"])
@@ -176,11 +189,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
        redirect_to root_path
      end
  end
-{% endhighlight %}
+```
+
 
 Then, from the controller, we move to our user model. Here is the code from Devise documentation:
 
-{% highlight ruby %}
+```ruby
 def self.from_omniauth(auth)
    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
      user.email = auth.info.email
@@ -192,7 +206,8 @@ def self.from_omniauth(auth)
      # user.skip_confirmation!
    end
  end
-{% endhighlight %}
+```
+
 
 After changing the code above to suit my primary needs, I ran into several problems:
 - I was using Carrierwave to upload picture on Cloudinary, so I needed to add the proper logic to the method.
@@ -200,7 +215,7 @@ After changing the code above to suit my primary needs, I ran into several probl
 
 So, here’s my own version of the Class method based on my schema and needs:
 
-{% highlight ruby %}
+```ruby
 def self.from_omniauth(auth)
      user = User.find_by(email: auth.info.email)
      if user
@@ -222,7 +237,8 @@ def self.from_omniauth(auth)
      end
      user
    end
-{% endhighlight %}
+```
+
 
 What caused the second problem was that the model had two validation strategies conflicting with one another:
 - Devise
@@ -244,10 +260,11 @@ Also, don’t forget to give Heroku your API keys. Otherwise your production env
 
 Don’t forget to run:
 
-{% highlight zsh %}
+```zsh
 heroku run bundle # to install the omniauth gem
 heroku run rails db:migrate # to update your users schema
 heroku restart
-{% endhighlight %}
+```
+
 
 And here it is, now people can sign-up and sign-in to your app using their GitHub credentials. 🙌

@@ -1,11 +1,10 @@
 ---
-toc: true
 layout: post
-title: 'An introduction to RSpec: how to install RSpec, naming convention and basic files structure'
+title: "An introduction to RSpec: how to install RSpec, naming convention and basic files structure"
 date: 2021-03-09
-excerpt: "When you start programming, it's not easy to know what to test, how to test, and why should you test? So let's start with an introduction to RSpec: how to install RSpec, RSpec naming convention and and RSpec files structure."
-categories: [rspec, testing]
+tags: [rspec, testing]
 permalink: /rspec-101-basic-set-up/
+excerpt: "When you start programming, it's not easy to know what to test, how to test, and why should you test? So let's start with an introduction to RSpec: how to install RSpec, RSpec naming convention and and RSpec files structure."
 ---
 
 When you start programming, it's not easy to know what to test, how to test, and why should you test? You've probably heard that TDD (as in Test Driven Development) is THE best practice. But at first, it's hard to know what your code should do before you're writing it.
@@ -16,7 +15,7 @@ When I started programming, I'd copy other people's tests because, well, I had t
 
 So let's start with **an introduction to RSpec**: **how to install RSpec**, **RSpec naming convention** and and **RSpec files structure**.
 
-This post will kick off a [series of RSpec fundamentals]({{site.baseurl}}/series/rspec/) - short know-hows, know-whats and, know-whys - that could be of some use to newcomers. Brief essays explaining one aspect of testing with RSpec.
+This post will kick off a [series of RSpec fundamentals](/topics/rspec/) - short know-hows, know-whats and, know-whys - that could be of some use to newcomers. Brief essays explaining one aspect of testing with RSpec.
 
 If this sounds fun to you, let's begin our introduction to the fantastic world of RSpec.
 
@@ -34,29 +33,33 @@ The RSpec team maintains a gem - `rspec-rails`-, making it easy to use the frame
 
 First, add RSpec to your Gemfile.
 
-{% highlight ruby %}
+```ruby
   # Gemfile
 
   gem "rspec-rails", group: [:development, :test]
-{% endhighlight %}
+```
+
 
 Install the gem.
 
-{% highlight zsh %}
+```zsh
   bundle install
-{% endhighlight %}
+```
+
 
 Scaffold RSpec's configuration and switch your application's testing framework to RSpec.
 
-{% highlight zsh %}
+```zsh
   rails generate rspec:install
-{% endhighlight %}
+```
+
 
 Now, run your migrations and prepare your test database.
 
-{% highlight zsh %}
+```zsh
   rails db:migrate && rails db:test:prepare
-{% endhighlight %}
+```
+
 
 There! Now, you can run your tests by typing `rspec spec` in your shell. `spec` is the folder where you'll create your test files.
 
@@ -72,7 +75,7 @@ RSpec naming convention is straightforward:
 
 To make sure RSpec and Rails work smoothly together, <mark>mimick the structure of your `app` folder.</mark>
 
-{% highlight zsh %}
+```zsh
   my_app_directory
   |
   |- app
@@ -86,7 +89,8 @@ To make sure RSpec and Rails work smoothly together, <mark>mimick the structure 
      |- models
         |
         |- user_spec.rb
-{% endhighlight %}
+```
+
 
 - `app/models/user.rb` is tested by `spec/models/user_spec.rb`
 - `app/serializers/admin/book_serializer.rb` is tested by `spec/serializers/admin/book_serializer_spec.rb`
@@ -98,7 +102,7 @@ There's only one catch:
 
 So for testing controllers, your folder's structure is:
 
-{% highlight zsh %}
+```zsh
   my_app_directory
   |
   |- app
@@ -114,13 +118,14 @@ So for testing controllers, your folder's structure is:
      |- requests
         |
         |- users_controller_spec.rb
-{% endhighlight %}
+```
+
 
 ## The structure of your RSpec files
 
 Let's say we want to test our `User` model. Our file's structure would look like this:
 
-{% highlight ruby %}
+```ruby
   # spec/models/user_spec.rb
 
   require 'rails_helper'
@@ -128,7 +133,8 @@ Let's say we want to test our `User` model. Our file's structure would look like
   RSpec.describe User do
     # test stuff
   end
-{% endhighlight %}
+```
+
 
 There! Your setup is done.
 
@@ -142,7 +148,7 @@ But now, I'd like us to dig into each element so we get a better understanding o
 
 The code below is from [the RSpec repository](https://github.com/rspec/rspec-core/blob/fe3084758857f0714f05ada44a18f1dfe9bf7a7e/lib/rspec/core/dsl.rb#L42){:target="\_blank"}.
 
-{% highlight ruby %}
+```ruby
   def self.expose_example_group_alias(name)
     return if example_group_aliases.include?(name)
 
@@ -156,7 +162,8 @@ The code below is from [the RSpec repository](https://github.com/rspec/rspec-cor
 
     expose_example_group_alias_globally(name) if exposed_globally?
   end
-{% endhighlight %}
+```
+
 
 It's a bit hard to read because of the metaprogramming bits, but the main idea is that it defines the `.describe` instance method in the `RSpec::Core::ExampleGroup` class with the abstraction you're testing (`User`) and the tests you wrote as arguments.
 

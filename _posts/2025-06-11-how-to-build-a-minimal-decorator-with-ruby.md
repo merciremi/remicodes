@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
-title: Build a minimal decorator with Ruby in 30 minutes
-excerpt: A while ago, I needed to add some view-related instance methods to a model. Decorators are my go-to pattern to handle this kind of logic. So, I built a minimal decorator from scratch, added a bunch of extra behaviors, only to end up abstracting all of that away. Follow along!
+title: "Build a minimal decorator with Ruby in 30 minutes"
 date: 2025-06-12
+tags: [ruby]
 permalink: /minimal-decorator-ruby/
-categories: [ruby]
-cover_image: "/media/2025/06/minimal-decorator-ruby-remi-mercier.png"
+excerpt: "A while ago, I needed to add some view-related instance methods to a model. Decorators are my go-to pattern to handle this kind of logic. So, I built a minimal decorator from scratch, added a bunch of extra behaviors, only to end up abstracting all of that away. Follow along!"
 ---
 
 A few weeks ago, I needed to add some view-related methods to an object. Decorators are my go-to pattern to handle this kind of logic.
@@ -21,7 +19,7 @@ My `Teacher` class has a handful of methods:
   - A one-to-many relationship with the `Student` class.
   - Two public methods: one that exposes the maximum number of students a teacher can teach to, and one exposing the available teaching places.
 
-{% highlight ruby %}
+```ruby
   class Teacher < ApplicationRecord
     has_many :students
 
@@ -31,16 +29,17 @@ My `Teacher` class has a handful of methods:
       (maximum_number_of_students <=> students.size).clamp(0..)
     end
   end
-{% endhighlight %}
+```
+
 
 In my views, I want to display a table of teachers where the number of available places for each teacher is backed by a background colour.
 
-<img class='large' src="{{ site.baseurl }}/media/2025/06/minimal-decorator-table-example-remi-mercier.png" alt="a screenshot of a table with teachers names and available spaces for each">
+<img src="/assets/media/2025/06/minimal-decorator-table-example-remi-mercier.webp" alt="a screenshot of a table with teachers names and available spaces for each">
 
-{% highlight ruby %}
+```ruby
 # teachers/index.html.erb
 
-<table class="table table-striped">
+<table>
   <thead>
     <tr>
       <th>Name of the teacher</th>
@@ -58,11 +57,12 @@ In my views, I want to display a table of teachers where the number of available
     <% end %>
   </tbody>
 </table>
-{% endhighlight %}
+```
+
 
 I could write the `Teacher#colour_coded_availability` method in my model like so:
 
-{% highlight ruby %}
+```ruby
   class Teacher < ApplicationRecord
     has_many :students
 
@@ -79,7 +79,8 @@ I could write the `Teacher#colour_coded_availability` method in my model like so
       end
     end
   end
-{% endhighlight %}
+```
+
 
 However, models are not the place for methods generating CSS classes. Decorators are!
 
@@ -87,7 +88,7 @@ However, models are not the place for methods generating CSS classes. Decorators
 
 My decorator should accept an instance of `Teacher` and expose the `colour_coded_availability` public method.
 
-{% highlight ruby %}
+```ruby
 # app/decorators/teacher_decorator.rb
 
   class TeacherDecorator
@@ -104,11 +105,12 @@ My decorator should accept an instance of `Teacher` and expose the `colour_coded
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Now, I can instantiate my decorator and use it in my views:
 
-{% highlight ruby %}
+```ruby
 # app/controllers/teachers_controller.rb
   class TeachersController < ApplicationController
     def index
@@ -117,7 +119,7 @@ Now, I can instantiate my decorator and use it in my views:
   end
 
 # teachers/index.html.erb
-  <table class="table table-striped">
+  <table>
     <thead>
       <tr>
         <th>Name of the teacher</th>
@@ -135,7 +137,8 @@ Now, I can instantiate my decorator and use it in my views:
       <% end %>
     </tbody>
   </table>
-{% endhighlight %}
+```
+
 
 When I can call `teacher.colour_coded_availability` in my views, the method retrieves a CSS class and adds it to the HTML `<td>` tag.
 
@@ -149,13 +152,13 @@ And we do that by using Ruby's `method_missing`.
 
 ## Ruby's `method_missing` to the rescue
 
-`method_missing` is how Ruby handles method calls made on objects where said methods are not defined. Ruby passes the method call along [the ancestry chain]({{site.baseurl}}/beginners-introduction-to-ruby-classes-objects/) until it can either resolves it or raises a `NoMethodError`.
+`method_missing` is how Ruby handles method calls made on objects where said methods are not defined. Ruby passes the method call along [the ancestry chain](/beginners-introduction-to-ruby-classes-objects/) until it can either resolves it or raises a `NoMethodError`.
 
 When I call `@teacher.full_name`, I want my decorator to rescue the `NoMethodError`, and forward `#full_name` to the underlying instance of `Teacher`.
 
 To do that, I need to re-open Ruby's `method_missing`, add a custom behavior, then allow `method_missing` to run its normal course.
 
-{% highlight ruby %}
+```ruby
 class TeacherDecorator
   attr_reader :teacher
 
@@ -183,7 +186,8 @@ class TeacherDecorator
     teacher.respond_to?(name) || super
   end
 end
-{% endhighlight %}
+```
+
 
 In this example, I keep the original signature of Ruby's `method_missing`.
 
@@ -199,7 +203,7 @@ One way to gather default behavior shared across various decorators is to rely o
 
 Then, I can have my `TeacherDecorator` inherit from the `ApplicationDecorator`.
 
-{% highlight ruby %}
+```ruby
 class ApplicationDecorator
   def initialize(record)
     @record = record
@@ -237,7 +241,8 @@ class TeacherDecorator < ApplicationDecorator
 
   alias_method :teacher, :record
 end
-{% endhighlight %}
+```
+
 
 My `TeacherDecorator` doesn't need to bother about its initialization since it's handled by the parent `ApplicationDecorator`. The only thing I added, is the ability to reference the `record` as `teacher` so it's clearer what kind of record we're working with.
 
@@ -247,9 +252,10 @@ Some Rails native helpers will have a hard time handling my decorator.
 
 Consider this code:
 
-{% highlight ruby %}
+```ruby
   `edit_teacher_path(@teacher)` # => Should generate teachers/1/edit
-{% endhighlight %}
+```
+
 
 But if `@teacher` references an instance of my `TeacherDecorator`, the generated path is `teachers/#TeacherDecorator/edit`.
 
@@ -257,7 +263,7 @@ How do I make my decorator integrate with Rails default behavior?
 
 I can re-open the `to_param` method which is responsible for turning (among other things) a record into its `id`, and delegating its behavior to the record.
 
-{% highlight ruby %}
+```ruby
 class ApplicationDecorator
   def initialize(record)
     @record = record
@@ -281,7 +287,8 @@ class ApplicationDecorator
     record.respond_to?(name) || super
   end
 end
-{% endhighlight %}
+```
+
 
 Of course, forwarding every Rails default behaviors to the underlying record is not a great strategy (too much complexity). So, how should I do it?
 
@@ -291,11 +298,12 @@ Of course, forwarding every Rails default behaviors to the underlying record is 
 
 This means that by using SimpleDelegator, I can remove the initialization and the delegation logics from my `ApplicationDelegator`.
 
-{% highlight ruby %}
+```ruby
 require "delegate"
 
 class ApplicationDecorator < SimpleDelegator ; end
-{% endhighlight %}
+```
+
 
 Everything is abstracted away. And it just works™. `@record` is not available anymore for my `TeacherDecorator` to reference, but SimpleDelegator exposes a `__getobj__` that works exactly as my previous `@record` ivar.
 
@@ -303,7 +311,7 @@ Everything is abstracted away. And it just works™. `@record` is not available 
 
 Here's what I ended up with:
 
-{% highlight ruby %}
+```ruby
 require "delegate"
 
 class ApplicationDecorator < SimpleDelegator ; end
@@ -319,9 +327,10 @@ class TeacherDecorator < ApplicationDecorator
 
   alias_method :teacher, :__getobj__
 end
-{% endhighlight %}
+```
 
-That's it! A 30-minute minimal decorator in [plain Ruby]({{site.baseurl}}/series/ruby).
+
+That's it! A 30-minute minimal decorator in [plain Ruby](/topics/ruby/).
 
 {% include signature.html %}
 

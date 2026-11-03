@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
 title: "Technical tests in 2023: were they any good?"
-excerpt: "As I'm reaching the end of this recruiting cycle, I wanted to reflect on the recruiting processes I've completed. Some were good, some not so much."
 date: 2023-11-08
+tags: [career]
 permalink: /technical-tests-in-2023/
-categories: [career]
-cover_image: '/media/2023/11/remi-mercier-technical-tests-in-2023.png'
+excerpt: "As I'm reaching the end of this recruiting cycle, I wanted to reflect on the recruiting processes I've completed. Some were good, some not so much."
 ---
 
 As I'm reaching the end of this recruiting cycle, I wanted to reflect on the recruiting processes I've completed. And yes, I've found a good team and product I'll join in mid-November!
@@ -27,7 +25,7 @@ All in all, I did:
 - Two one-hour calls on values, challenges, etc...
 - Two reference checks.
 
-I found all processes to lean on the lengthy side. I understand the need to mitigate the risks. I've been on the other side of the [hiring table]({{site.baseurl}}/series/career/). As a candidate, however, this seemed overboard. At the same time, I gained valuable insights into companies: organizational challenges, changes of priorities, managing technical debt versus deploying new features, etc.
+I found all processes to lean on the lengthy side. I understand the need to mitigate the risks. I've been on the other side of the [hiring table](/topics/career/). As a candidate, however, this seemed overboard. At the same time, I gained valuable insights into companies: organizational challenges, changes of priorities, managing technical debt versus deploying new features, etc.
 
 ## Technical tests: the good, the bad and the ugly
 
@@ -40,7 +38,7 @@ This was (by far!) my favorite format. I digged the smaller scope and the time c
 I liked the breadth of topics this test covered:
 
   - Technical knowledge: You need to identify technical problems quickly - from N+1 queries to tight coupling, from methods length to database throttling.
-  - Tooling: In my comments, I flexed some basic tooling skills like [benchmarking code]({{site.baseurl}}/wtf-time-complexity/) snippets.
+  - Tooling: In my comments, I flexed some basic tooling skills like [benchmarking code](/wtf-time-complexity/) snippets.
   - Communication: In 30 minutes, you don't have much time to think about how well you communicate. That's why I like to use [conventional comments](https://conventionalcomments.org/){:target="\_blank"}. **Conventional comments** give me a better structure for conveying __what needs to be said__ without forgetting __how it should be said__.
   - Methodology: The pull request included bits of code unused anywhere else. I solved this using two strategies: asking for context and opening the conversation around the potential challenges these bits implied. Often, we lack information. Asking for it allows us to make informed decisions.
 
@@ -62,7 +60,7 @@ I thought I had read about this kind of test on Basecamp's blog years ago, but I
 
 And it's true, it makes for a great test.
 
-It gives you enough room to solve something meaningful, albeit on a scope small enough to fit in one day. You get to know the people you'll be working with a little better, in the good moments and the bad ones. I mean, you learn a lot about someone when moving deep in the bowels of a defunct gem as you're [debugging an obscure error message]({{site.baseurl}}/pry-byebug-intermediate/).
+It gives you enough room to solve something meaningful, albeit on a scope small enough to fit in one day. You get to know the people you'll be working with a little better, in the good moments and the bad ones. I mean, you learn a lot about someone when moving deep in the bowels of a defunct gem as you're [debugging an obscure error message](/pry-byebug-intermediate/).
 
 It's time-consuming and a bit stressful to spend the whole day pair-programming with someone you barely know. But as the company pays you, it's easier to trick the mind into thinking it's just a consulting gig.
 
@@ -132,7 +130,7 @@ Some candidates will be extroverts, and some will be introverts. Having various 
 
 It's a fascinating topic because its core lies in the power dynamic between companies and candidates, the usefulness of this power dynamic versus the needs of the business. But it'll make for another post.
 
-<img src="{{ site.baseurl }}/media/2023/11/remi-mercier-how-to-get-a-job-joke.png" alt="a screenshot of a joke I made about how ridiculously long hiring processes are">
+<img src="/assets/media/2023/11/remi-mercier-how-to-get-a-job-joke.png" alt="a screenshot of a joke I made about how ridiculously long hiring processes are">
 
 Cheers,
 

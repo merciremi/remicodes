@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
-title: 'Interfacing with external APIs: the facade pattern in Ruby'
-excerpt: "Interacting with third-party APIs is common practice in applications. This is where the structural design pattern called facade comes into play."
+title: "Interfacing with external APIs: the facade pattern in Ruby"
 date: 2024-10-14
+tags: [ruby]
 permalink: /facade-pattern/
-categories: [ruby]
-cover_image: "/media/2024/10/remi-mercier-facade-pattern-in-ruby.png"
+excerpt: "Interacting with third-party APIs is common practice in applications. This is where the structural design pattern called facade comes into play."
 ---
 
 Interacting with third-party APIs is common practice in applications. You might need to convert addresses into geographic coordinates, fetch subscription information from marketplaces, prompt an LLM, etc.
@@ -96,7 +94,7 @@ To do that, our application can send information to an LLM and get a list of sug
 
 Let's build it!
 
-{% highlight ruby %}
+```ruby
 module Answers
   class SuggestionsController
     def create
@@ -135,7 +133,8 @@ module Answers
     end
   end
 end
-{% endhighlight %}
+```
+
 
 Despite being straightforward, our `Answers::SuggestionsController` already handles a handful of steps:
 - The `create` method instantiates a client to interact with an external API: `LLM::Client`.
@@ -151,7 +150,7 @@ Some aspects of the code above bother me:
 
 Let's write some more code.
 
-{% highlight ruby %}
+```ruby
 # app/controllers/answers/suggestions_controller.rb
 module Answers
   class SuggestionsController
@@ -210,7 +209,8 @@ module Admissions
     end
   end
 end
-{% endhighlight %}
+```
+
 
 Some notable points stand out:
 - We repeat boilerplate code: instantiating the client, authenticating, and default configuration.
@@ -228,7 +228,7 @@ A facade will serve as an authoritative representation of how the external API f
 
 First, let's encapsulate the basic functionalities of the external API into a facade: the authentication strategy, a default configuration, and the instantiation of the client.
 
-{% highlight ruby %}
+```ruby
   # app/facades/llm_facade
   class LLMFacade
     attr_reader :configuration, :llm_client
@@ -254,7 +254,8 @@ First, let's encapsulate the basic functionalities of the external API into a fa
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Let's note that my facade is _just_ a Ruby object: composable and testable. It has no dependencies. I could write this facade in any object-oriented language of my choice.
 
@@ -268,7 +269,7 @@ I'm using a value object `Configuration` to represent the default configuration.
 
 Now that we have an object with basic functionalities, let's add the ability to fetch suggestions.
 
-{% highlight ruby %}
+```ruby
   # app/facades/llm_facade
   class LLMFacade
     attr_reader :configuration, :llm_client
@@ -316,7 +317,8 @@ Now that we have an object with basic functionalities, let's add the ability to 
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Here's a breakdown of what I changed:
 - I added a specific model to my default configuration.
@@ -328,7 +330,7 @@ As of now, our facade allows us to call `LLMFacade.new.fetch_suggestion_for()` i
 
 The next use case we need to implement in the facade is the ability to fetch suggestions for admission applications.
 
-{% highlight ruby %}
+```ruby
   # app/facades/llm_facade
   class LLMFacade
     attr_reader :configuration, :llm_client
@@ -386,7 +388,8 @@ The next use case we need to implement in the facade is the ability to fetch sug
       # ...
     end
   end
-{% endhighlight %}
+```
+
 
 If you thought, "But Remi, this new code looks awfully like the code used to fetch suggestions for answers!" you're right.
 
@@ -415,7 +418,7 @@ Let's find the _ad hoc_ abstractions for our parameters:
 
 Now that we identified our similar behaviors, let's refactor these two methods. Then, we'll tackle the optional formatting parameter.
 
-{% highlight ruby %}
+```ruby
   # app/facades/llm_facade
   class LLMFacade
     attr_reader :configuration, :llm_client
@@ -469,7 +472,8 @@ Now that we identified our similar behaviors, let's refactor these two methods. 
       ...
     end
   end
-{% endhighlight %}
+```
+
 
 And voilà!
 
@@ -485,7 +489,7 @@ We could improve the naming of our methods with some [riffing](https://ruby.soci
 
 Now that we have a working facade, let's use it in our controller.
 
-{% highlight ruby %}
+```ruby
   # app/controllers/answers/suggestions_controller.rb
   module Answers
     class SuggestionsController
@@ -508,7 +512,8 @@ Now that we have a working facade, let's use it in our controller.
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Sweet, right? No more boilerplate. No more crust. Just a very expressive and idiomatic call to our facade.
 

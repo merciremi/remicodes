@@ -1,21 +1,19 @@
 ---
 layout: post
 title: "Finishing the square panel – part 02 (Ruby Stained Glass Notes #09)"
-excerpt: "Today, I finish the square panel, talk about the craftsperson's curse of only seeing imperfections and why adaptability is the name of the game."
 date: 2026-09-22
+tags: [ruby-stained-glass]
 permalink: /ruby-stained-glass-notes-09/
-categories: [ruby, build in public]
-cover_image:
-toc: true
+excerpt: "Today, I finish the square panel, talk about the craftsperson's curse of only seeing imperfections and why adaptability is the name of the game."
 ---
 
 Hey Ruby friends,
 
-Welcome to episode 09 of the Ruby Stained Glass Notes. Last time, [I started working on the square panel]({{site.baseurl}}/ruby-stained-glass-notes-08/).
+Welcome to episode 09 of the Ruby Stained Glass Notes. Last time, [I started working on the square panel](/ruby-stained-glass-notes-08/).
 
-If you're new here, you can sign up to this pop-up newsletter about this crazy project of mine: [a limited-edition stained-glass panel celebrating Ruby]({{site.baseurl}}/ruby-stained-glass/).
+If you're new here, you can sign up to this pop-up newsletter about this crazy project of mine: [a limited-edition stained-glass panel celebrating Ruby](/ruby-stained-glass/).
 
-{% include stained_glass_form.html %}
+{% include stained-glass-form.html %}
 
 Let's go and solder that panel!
 
@@ -26,14 +24,14 @@ Last week, I started working on the square version of the stained-glass panel. W
 I spent the morning (it's Friday morning for me) in my basement wrapping the pieces in copper foil and soldering them together, while listening to some music. It's a great way to spend the morning!
 
 <figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/09/ruby-stained-glass-square-panel-02.jpg" alt="a hand holding the finished square stained-glass panel, a red ruby surrounded by light blue and green glass, in front of houseplants">
+  <img src="/assets/media/2026/09/ruby-stained-glass-square-panel-02.webp" alt="a hand holding the finished square stained-glass panel, a red ruby surrounded by light blue and green glass, in front of houseplants">
   <figcaption>The panel, front-lit.</figcaption>
 </figure>
 
 I've had the square panel in front of me for a few hours now, and I'm very happy with the result. I like that it's made of glass of different opacities, letting the background peek through in the blues and greens. The contrast between the radiating pieces and the Ruby works pretty well too.
 
 <figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/09/ruby-stained-glass-square-panel-03.jpg" alt="the finished square stained-glass panel standing on a sunny windowsill, casting red light onto the wooden sill">
+  <img src="/assets/media/2026/09/ruby-stained-glass-square-panel-03.webp" alt="the finished square stained-glass panel standing on a sunny windowsill, casting red light onto the wooden sill">
   <figcaption>Would you look at these colours!</figcaption>
 </figure>
 

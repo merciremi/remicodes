@@ -1,26 +1,19 @@
 ---
 layout: default
 title: Le blog de Rémi Mercier - Développeur Ruby on Rails Freelance
-permalink: "/fr/blog"
+permalink: /fr/blog/
+redirect_from: /fr/blog
 lang: fr
 ---
+{% assign fr_posts = site.posts | where: "lang", "fr" %}
 
-<div class="m-b-60">
+<div class="mb-6">
   <h1>Blog</h1>
-  <p>
-    La plupart de mes articles en français sont assez anciens. Pour des publications plus régulières, n'hésitez pas à consulter  <a href="{{ site.baseurl }}/blog">mes posts en anglais</a>.
-  </p>
+  <p>La plupart de mes articles en français sont assez anciens. Pour des publications plus régulières, n'hésitez pas à consulter <a href="{{ '/blog/' | relative_url }}">mes articles en anglais</a>.</p>
 </div>
 
-<section class="archive">
-  {% assign filtered_posts = site.posts | where_exp: "post", "post.lang == 'fr'" %}
-  {% for post in filtered_posts %}
-    <div class="m-b-48">
-      <h2>
-        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </h2>
-      <p>{{ post.excerpt }}</p>
-      <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Lire cet article →</a>
-    </div>
+<ul class="list-slim post-list post-list--lg mb-4">
+  {% for post in fr_posts %}
+  {% include post-row.html post=post size="lg" %}
   {% endfor %}
-</section>
+</ul>

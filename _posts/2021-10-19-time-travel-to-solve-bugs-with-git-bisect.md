@@ -1,15 +1,13 @@
 ---
-toc: true
 layout: post
 title: "Introduction to Git Bisect: travel through time and bugs"
-excerpt: "No matter how thorough your test coverage is, you can't test everything. So when you introduce a bug in your application, git bisect will help you zero in on your regression's origin."
 date: 2021-10-20
+tags: [debugging]
 permalink: /how-to-use-git-bisect/
-categories: [debugging]
-cover_image: /media/2021/10/remi-mercier-how-to-use-git-bisect.png
+excerpt: "No matter how thorough your test coverage is, you can't test everything. So when you introduce a bug in your application, git bisect will help you zero in on your regression's origin."
 ---
 
-No matter how thorough your [test coverage]({{site.baseurl}}/series/rspec/) is, you can't test everything.
+No matter how thorough your [test coverage](/topics/rspec/) is, you can't test everything.
 
 One day, you'll introduce a regression in your application, and you won't notice it straight away. When you finally realize you broke your feature, it can be hard to pinpoint where and when it happened. It's even harder when several people are working on the same application.
 
@@ -102,11 +100,11 @@ Your application is currently running in the `02ca345f3e29217bb6553` commit's st
 
 If this current state is faulty, it means the bug was introduced earlier. When typing `git bisect bad`, `git bisect` takes a note about the non-working state of your application then jumps to the middle commit on the left-hand side of our range (i.e. older commits).
 
-<img class='large' src="{{ site.baseurl }}/media/2021/10/remi-mercier-how-to-use-git-bisect-02.jpg" alt="a graph about git bisect bad commit">
+<img src="/assets/media/2021/10/remi-mercier-how-to-use-git-bisect-02.jpg" alt="a graph about git bisect bad commit">
 
 If the application works fine in the current state, `git bisect good` will prompt` git bisect` to explore the right-hand side of our range (i.e. newer commits).
 
-<img class='large' src="{{ site.baseurl }}/media/2021/10/remi-mercier-how-to-use-git-bisect-01.jpg" alt="a graph about git bisect good commit">
+<img src="/assets/media/2021/10/remi-mercier-how-to-use-git-bisect-01.jpg" alt="a graph about git bisect good commit">
 
 Repeat until there are no revisions left.
 

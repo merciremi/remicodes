@@ -1,21 +1,19 @@
 ---
 layout: post
 title: "Building the square panel – part 01 (Ruby Stained Glass Notes #08)"
-excerpt: "Today, I start working on the square panel, redesign its background, and talk about the feisty personality of some glass sheets."
 date: 2026-09-15
+tags: [ruby-stained-glass]
 permalink: /ruby-stained-glass-notes-08/
-categories: [ruby, build in public]
-cover_image:
-toc: true
+excerpt: "Today, I start working on the square panel, redesign its background, and talk about the feisty personality of some glass sheets."
 ---
 
 Hey Ruby friends,
 
-Welcome to the eighth episode of the Ruby Stained Glass Notes. Last time, [I shared three open questions about selling the panel]({{site.baseurl}}/ruby-stained-glass-notes-07/).
+Welcome to the eighth episode of the Ruby Stained Glass Notes. Last time, [I shared three open questions about selling the panel](/ruby-stained-glass-notes-07/).
 
-If you're new here, you can sign up to this pop-up newsletter about this crazy project of mine: [a limited-edition stained-glass panel celebrating Ruby]({{site.baseurl}}/ruby-stained-glass/).
+If you're new here, you can sign up to this pop-up newsletter about this crazy project of mine: [a limited-edition stained-glass panel celebrating Ruby](/ruby-stained-glass/).
 
-{% include stained_glass_form.html %}
+{% include stained-glass-form.html %}
 
 Let’s go!
 
@@ -30,7 +28,7 @@ I went with radiating pieces alternating between a light blue and a lively green
 Adding the background makes it a slightly harder panel to make. Instead of having seven pieces, I now have close to twenty. This means more cuts, more grinding, more soldering. But it looks cool already!
 
 <figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/09/ruby-stained-glass-square-panel-01.jpg" alt="the pieces of the square stained-glass panel laid out on paper: a red ruby surrounded by alternating light blue and green glass pieces">
+  <img src="/assets/media/2026/09/ruby-stained-glass-square-panel-01.webp" alt="the pieces of the square stained-glass panel laid out on paper: a red ruby surrounded by alternating light blue and green glass pieces">
 </figure>
 
 ## The personality of glass
@@ -44,7 +42,7 @@ Other sheets can break at the merest touch. I remember, some 20-odd years ago, h
 I was reminded of this today while cutting the red glass. The red sheet has quite the feisty personality. It's also made of several thin layers of coloured glass: red, yellow, orange, white... When you cut a piece of this red, it tends to leave razor-sharp edges. So, don't be like me: handle these carefully so you don't cut yourself too 😅.
 
 <figure>
-  <video class='regular box-shadowed' src="{{ site.url }}/media/2026/09/ruby-stained-glass-cutting-glass.mp4" autoplay loop muted playsinline style="max-width: 100%;" aria-label="hands scoring a sheet of green glass with a glass cutter, paper templates of the panel pieces nearby"></video>
+  <video src="/assets/media/2026/09/ruby-stained-glass-cutting-glass.mp4" width="504" height="402" autoplay loop muted playsinline aria-label="hands scoring a sheet of green glass with a glass cutter, paper templates of the panel pieces nearby"></video>
   <figcaption>See that moment where I break the glass while holding it in my hand? Rookie mistake!</figcaption>
 </figure>
 

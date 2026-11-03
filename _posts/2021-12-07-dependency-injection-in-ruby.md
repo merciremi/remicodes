@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
 title: "Exploring dependency injection in Ruby"
-excerpt: "Classes depend on each other all the time. But the way you tie those classes together will determine how hard it is to change your code. Dependency injection can help you reduce that coupling and reduce your cost of change."
 date: 2021-12-07
+tags: [ruby]
 permalink: /dependency-injection-in-ruby/
-categories: [ruby]
-cover_image: /media/2021/12/remi-mercier-dependency-injection-in-ruby.png
+excerpt: "Classes depend on each other all the time. But the way you tie those classes together will determine how hard it is to change your code. Dependency injection can help you reduce that coupling and reduce your cost of change."
 ---
 
 Lately, I've been interested in abstractions: why objects behave the way they do, how do we architecture our code so it's open to change (without causing unnecessary headaches), to which class _that_ specific behavior should belong? And during that time, I've repeatedly heard folks talk about __dependency injection__. Yet, dependency injection in Ruby is not widely covered. **What is a dependency injection in Ruby?**
@@ -19,7 +17,7 @@ First, let's explain what a dependency is.
 
 <blockquote>A dependency is an abstraction upon which another abstraction depends.</blockquote>
 
-In the context of a Ruby - or a Rails - application, [_abstraction_ mainly refers to _classes_]({{site.baseurl}}/beginners-introduction-to-ruby-classes-objects/).
+In the context of a Ruby - or a Rails - application, [_abstraction_ mainly refers to _classes_](/beginners-introduction-to-ruby-classes-objects/).
 
 Check out the codebase you're working on right now. Look out for classes that send messages to other classes directly from their methods.
 
@@ -27,7 +25,7 @@ Let's draw an example: each month, you need to compute revenue for authors.
 
 The code could look like this:
 
-{% highlight ruby %}
+```ruby
   class Author
     # ...
 
@@ -35,7 +33,8 @@ The code could look like this:
       RevenueCalculator.calculate_for(self, month_to_date)
     end
   end
-{% endhighlight %}
+```
+
 
 Here, `Author` has __one dependency__: `Author` depends on `RevenueCalculator` to pull the raw statistics.
 
@@ -64,7 +63,7 @@ The best way to _feel_ the problem with dependencies is to work on existing abst
 
 Here's your initial code:
 
-{% highlight ruby %}
+```ruby
   class Author
     # ...
 
@@ -72,7 +71,8 @@ Here's your initial code:
       RevenueCalculator.calculate_for(self, month_to_date)
     end
   end
-{% endhighlight %}
+```
+
 
 What is the problem here?
 
@@ -82,7 +82,7 @@ What if `RevenueCalculator` is a third-party application? What if I need to use 
 
 I could make some changes inside `Author`, of course. A simple conditional would work just fine.
 
-{% highlight ruby %}
+```ruby
   class Author
     def monthly_revenue
       if self.french?
@@ -93,7 +93,8 @@ I could make some changes inside `Author`, of course. A simple conditional would
     end
     # ...
   end
-{% endhighlight %}
+```
+
 
 But what if a new country requires a new third-party service? Should I add a new conditional?
 
@@ -107,7 +108,7 @@ You'll see that the definition of dependency injection sounds quite pompous comp
 
 The main idea behind dependency injection is that your class can interact with different abstractions instead of being stuck with one concretion. How do you do that? By passing the dependency to the class during initialization.
 
-{% highlight ruby %}
+```ruby
   class Author
     def initialize(revenue_calculator: RevenueCalculator)
       @revenue_calculator = revenue_calculator
@@ -119,7 +120,8 @@ The main idea behind dependency injection is that your class can interact with d
       @revenue_calculator.calculate_for(self, month_to_date)
     end
   end
-{% endhighlight %}
+```
+
 
 What happened here:
 - We moved the first mention of `RevenueCalculator` from the guts of `Author` to its initialization.
@@ -151,7 +153,7 @@ When a class is tightly coupled to another, its complexity shows through in your
 
 If you want to test `Author#monthly_revenue` as it's defined below, you'd need to create an instance double for `RevenueCalculator`, allow the double to receive `calculate_for`, then mock its response.
 
-{% highlight ruby %}
+```ruby
   class Author
     # ...
 
@@ -176,7 +178,8 @@ If you want to test `Author#monthly_revenue` as it's defined below, you'd need t
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Your tests know more than they should. They know about `RevenueCalculator`, about its method `calculate_for`.
 
@@ -194,7 +197,7 @@ First, dependency injection can happen at different moments in an object's life.
 
 Let's consider this code:
 
-{% highlight ruby %}
+```ruby
   class Author
     def initialize(revenue_calculator: RevenueCalculator)
       @revenue_calculator = revenue_calculator
@@ -206,19 +209,21 @@ Let's consider this code:
       @revenue_calculator.calculate_for(self, month_to_date)
     end
   end
-{% endhighlight %}
+```
+
 
 If I needed to specify a calculator other than the default, I'd need to write something like this:
 
-{% highlight zsh %}
+```zsh
   Author.create(revenue_calculator: GermanRevenueCalculator)
-{% endhighlight %}
+```
+
 
 Let's face it. There won't be many times when you'll know which calculator you need when initializing an author.
 
 A more realistic injection could have been:
 
-{% highlight ruby %}
+```ruby
   class Author
     # ...
 
@@ -226,17 +231,19 @@ A more realistic injection could have been:
       revenue_calculator.calculate_for(self, month_to_date)
     end
   end
-{% endhighlight %}
+```
+
 
 Here, I inject a `revenue_calculator` only when I need it. And I don't need to know which calculator my author will need during initialization.
 
 I could use the modularity of injection like this:
 
-{% highlight zsh %}
+```zsh
   author = Author.create(first_name: 'Deborah', last_name: 'Levy')
 
   author.monthly_revenue(EnglishRevenueCalculator)
-{% endhighlight %}
+```
+
 
 So, the definition of dependency injection I gave earlier is misleading.
 

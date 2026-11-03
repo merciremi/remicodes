@@ -1,10 +1,9 @@
 ---
-toc: true
 layout: post
 title:  'Debugging PGError: ERROR: column of relation already exists'
 date:   2019-07-10
+tags: [postgresql]
 excerpt: "How do you fix a corrupted database's schema? Here's a hands-on tutorial on restoring your local database."
-categories: [other]
 permalink: /pgerror-restore-local-database/
 ---
 
@@ -16,9 +15,9 @@ So you delete the migration file but forget to `rails db:rollback` 😱. Rookie 
 
 If you later pull a colleague's branch that add a `source` column to `leads`, you'll get:
 
-{% highlight zsh%}
+```zsh
   PGError: ERROR: column “source” of relation “leads” already exists
-{% endhighlight %}
+```
 
 Your database's schema is corrupted. At this point, you can't do much to correct your mistake. You could:
 - write a migration file to delete your `source` column
@@ -31,23 +30,23 @@ Another - and safer way - is to save your database and restore it anew. Let's se
 
 ## 1) Find the database's name in `database.yml` and run the following command.
 
-{% highlight zsh%}
+```zsh
   pg_dump -F c -v -h localhost <database_name> -f tmp/<pick_a_file_name>.psql
-{% endhighlight %}
+```
 
 This will export your database to a `.psql` file.
 
 ## 2) Drop the database and recreate it
 
-{% highlight zsh%}
+```zsh
   rails db:drop db:create
-{% endhighlight %}
+```
 
 ## 3) Restore your data to your database
 
-{% highlight zsh%}
+```zsh
   pg_restore --exit-on-error --verbose --dbname=<database_name> tmp/<pick_a_file_name>.psql
-{% endhighlight %}
+```
 
 The schema and database will sync up on your migration files. No more `source` in `leads`. 🙌
 Don't forget to delete your `<pick_a_file_name>.psql` file from `/tmp`.
@@ -58,20 +57,20 @@ And *voilà*!
 
 If you run into the following error:
 
-{% highlight zsh%}
+```zsh
   PG::ObjectInUse: ERROR:  database <your_database_name> is being accessed by other users
   DETAIL:  There are 2 other sessions using the database.
-{% endhighlight %}
+```
 
 run this into your terminal:
 
-{% highlight zsh%}
+```zsh
   kill -9 $(lsof -i tcp:3000 -t)
-{% endhighlight %}
+```
 
 It'll identify the server already running and kill it.
 
-Hope this will help! If you need more tips and tricks, check out the rest of [the technical blog]({{site.baseurl}}/blog/).
+Hope this will help! If you need more tips and tricks, check out the rest of [the technical blog](/blog/).
 
 Cheers,
 

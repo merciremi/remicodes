@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
 title: "Looking for a job: handling fatigue and loneliness"
-excerpt: "Today, I would like to try something different. No polished new entries, just me sharing my day-to-day looking for a new job."
 date: 2023-10-15
+tags: [career]
 permalink: /looking-for-a-job/
-categories: [career]
-cover_image: '/media/2023/10/looking-for-a-job-remi-mercier.png'
+excerpt: "Today, I would like to try something different. No polished new entries, just me sharing my day-to-day looking for a new job."
 ---
 
 Today, I would like to try something different. No polished new entries, just me sharing my day-to-day looking for a new job.
@@ -54,18 +52,11 @@ Looking for a job is - still - inherently lonely. You're in this middle ground w
 
 Even if you're unemployed - as I am - it's an akward position in society. You're working to get a new gig, yet you don't have A Real Job™. You're supposed to pass through unemployement quickly and quietly.
 
-<p class="callout">
-  December 2023 update:
-  <br>
-  <br>
-  During the first few days of this post, I faced to opposite reactions to this post.
-  <br>
-  <br>
-  A Reddit moderator commented that my post probably was the reason I didn't have a job. They wrote that their employers care more about their technological expertise rather than their blogging prowess. To me, their comment illustrates the shamefulness society casts upon unemployement (and a rather capitalistic nature of blogging).
-  <br>
-  <br>
-  A few days later, another person replied to my newsletter to share their journey looking for a new career and the help they get from self-organizing help groups. And I liked their comments better - for obvious reasons! - because they express how a searching for a job can lead <a href="{{site.baseurl}}/from-stained-glass-master-to-software-developer/">to unexpected paths, new careers, or finding a purpose</a>.
-</p>
+> **December 2023 update:** during the first few days of this post, I faced two opposite reactions to this post.
+>
+> A Reddit moderator commented that my post probably was the reason I didn't have a job. They wrote that their employers care more about their technological expertise rather than their blogging prowess. To me, their comment illustrates the shamefulness society casts upon unemployment (and a rather capitalistic nature of blogging).
+>
+> A few days later, another person replied to my newsletter to share their journey looking for a new career and the help they get from self-organizing help groups. And I liked their comments better — for obvious reasons! — because they express how searching for a job can lead [to unexpected paths, new careers, or finding a purpose](/from-stained-glass-master-to-software-developer/).
 
 A few years ago, my wife and some of her friends created an informal club of unemployed women. They would share their progress, hold themselves accountable, bonding over their struggles. Three months later, each of them had secure their goals.
 
@@ -97,4 +88,4 @@ Cheers,
 
 Remi
 
-ps: The second part on this mini-series, [Algorithms are fun... I guess?]({{site.baseurl}}/algorithms-are-fun/), is live.
+ps: the second part of this mini-series, "Algorithms are fun... I guess?", followed a few days later.

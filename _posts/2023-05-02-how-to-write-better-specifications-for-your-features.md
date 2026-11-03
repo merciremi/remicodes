@@ -1,12 +1,11 @@
 ---
-toc: true
 layout: post
 title: How to write better specifications for your features
 excerpt: "For years, I've worked without thinking much about feature specifications. Many teams endure empty Trello cards, neglected Jira tickets, and misaligned communication. So today, I want to share how to write better specifications for your features."
 date: 2023-05-01
+tags: [delivery]
 permalink: /how-to-write-better-specifications/
-categories: [other]
-cover_image: '/media/2023/05/how-to-write-better-specification-for-features-remi-mercier.png'
+image: '/assets/media/2023/05/how-to-write-better-specification-for-features-remi-mercier.png'
 ---
 
 For years, I've worked without thinking much about feature specifications. I had worked in several teams that were reluctant to embrace opinionated methodologies, because these methodologies were usually tied to specific tools.
@@ -14,7 +13,7 @@ For years, I've worked without thinking much about feature specifications. I had
 So, these teams (and I) stayed in this limbo of empty Trello cards, neglected Jira tickets, and misaligned communication:
 
 <figure>
-  <img class='regular box-shadowed' src="{{ site.baseurl }}/media/2023/05/how-to-write-better-specifications-for-features-empty-ticket-remi-mercier.png" alt="a screenshot of a Trello ticket with a non-descriptive title and no specifications">
+  <img class='regular box-shadowed' src="/assets/media/2023/05/how-to-write-better-specifications-for-features-empty-ticket-remi-mercier.png" alt="a screenshot of a Trello ticket with a non-descriptive title and no specifications">
 </figure>
 
 But last year, some coworkers and I started iterating on a feature specifications template. Something that'd help us get the ball rolling **much faster**.
@@ -76,7 +75,7 @@ I usually add graphs and charts as well. I map out the different parts and how t
 I don't necessarily follow UML notation and convention. As long as these graphs make sense to me and the team, it's fine.
 
 <figure>
-  <img class='large' src="{{ site.baseurl }}/media/2023/05/how-to-write-better-specification-graph-remi-mercier.png" alt="a screenshot of a mermaid.js graph">
+  <img class='large' src="/assets/media/2023/05/how-to-write-better-specification-graph-remi-mercier.png" alt="a screenshot of a mermaid.js graph">
 </figure>
 
 Graphs convey the complexity of the whole system. It's not just an input that's transformed and then output. Graphs allow people to grasp the successive steps of a feature. How the part fit in the whole.
@@ -100,7 +99,7 @@ Never assume the data you're receiving is packaged in a nicely formatted JSON.
 
 Never assume that a JSON's structure is immutable. Once, I had a key that would either be present if the data was present, present with a `nil` value, or removed if the data was `nil` but from a different origin. Not cool.
 
-Never assume your database integrity. [You might have some surprises hidden in your oldest data]({{site.baseurl}}/pry-byebug-tutorial/). So now is a good time to check your own data, as well.
+Never assume your database integrity. [You might have some surprises hidden in your oldest data](/pry-byebug-tutorial/). So now is a good time to check your own data, as well.
 
 ### Output and testing scenarios
 

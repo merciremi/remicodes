@@ -1,13 +1,12 @@
 ---
-toc: true
 layout: post
-title: Pick a standard and move on
-excerpt: Why would you spend your cognitive capacity on useless choices?
+title: "Pick a standard and move on"
 date: 2024-03-27
-permalink: "/pick-a-standard/"
-categories: [rails]
-cover_image: "/media/2024/03/remi-mercier-pick-a-standard.png"
+tags: [rails]
+permalink: /pick-a-standard/
+excerpt: "Why would you spend your cognitive capacity on useless choices?"
 ---
+
 Let me tell you about what my day looks like in a codebase with no standards, no conventions, and no processes in place.
 
 Every time I work on a new API endpoint, I wonder about:

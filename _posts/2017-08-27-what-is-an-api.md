@@ -1,10 +1,9 @@
 ---
-toc: true
 layout: post
 title: What is an API?
 date: 2017-08-27 14:34 +0100
+tags: [marketing]
 excerpt: "Wrapping your head around APIs can be challenging for non-technical users. What’s an API? What can be share through an API? Data? Services? How does one design an API?How do you code an API?"
-categories: [other]
 permalink: /what-is-an-api/
 ---
 
@@ -14,7 +13,7 @@ Before we start, I’d like to ask you a few questions. Do you know how:
 - [Trainline](https://www.thetrainline.com/) knows if a seat is available (of that very same upcoming trip to Dunkirk)?
 - [Airbnb](https://www.airbnb.com/) puts available flats on a map (do I even need to say “of Dunkirk”)?
 
-<img class='large' src="{{ site.baseurl }}/media/2017/what-is-an-api-remi-mercier.gif" alt="">
+<video src="/assets/media/2017/what-is-an-api-remi-mercier.mp4" width="500" height="334" autoplay loop muted playsinline aria-label="a man making a mind-blown gesture behind the word APIs"></video>
 
 These past few years, APIs (also known as Application Programming Interfaces) have spread like wildfire in the startup growth game.
 
@@ -45,7 +44,7 @@ Let’s break that acronym down:
 - **Interface**: The interface is the entry door to the service. You have to go through that door to interact with the service capabilities (e.g., filtering meteorological data for a city, publishing pictures on Instagram…)
 - **Program**: The program is a set of coded procedures written by a developer. The program is designed to interact with the application, so we don’t have to. For example, the program can submit a postal address to get coordinates (think Airbnb or Google Map).
 
-<img class='large' src="{{ site.baseurl }}/media/2017/what-is-an-api-diagram-remi-mercier.png" alt="">
+<img class='large' src="/assets/media/2017/what-is-an-api-diagram-remi-mercier.png" alt="">
 
 To sum it up: APIs are programs using a specific point of entry (the interface, also call an end-point) to interact with an application (or some features within this application).
 

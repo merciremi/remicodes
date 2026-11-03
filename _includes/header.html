@@ -1,21 +1,11 @@
-<header>
-  <a href="{{ site.baseurl }}/" class="header--monogram" aria-label="Home">
-    <img
-      src="{{ site.baseurl }}/media/shared/remi-mercier-freelance-software-developer-monogram-1024.png"
-      alt="Remi Mercier Freelance Software Developer monogram"
-      width="40"
-      height="40"
-    >
-    <div class="header--identity">
-      <span class="header--name">Remi Mercier</span>
-      <span class="header--tagline">software · words · craft<span class="header--cursor">_</span>
-    </div>
+<header class="site-header">
+  <a href="{{ '/' | relative_url }}" class="site-header__name">
+    {% include logo.html size=32 %}
+    {{ site.title }}
   </a>
-  <nav>
-    <ul>
-      <li><a href="{{ site.baseurl }}/about">About</a></li>
-      <li><a href="{{ site.baseurl }}/blog">Articles</a></li>
-      <li><a href="{{ site.baseurl }}/work">Work</a></li>
-    </ul>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' or page.layout == 'category' or page.layout == 'post' %} aria-current="page"{% endif %}>Articles</a>
+    <a href="{{ '/work/' | relative_url }}"{% if page.url == '/work/' %} aria-current="page"{% endif %}>Work</a>
+    <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
   </nav>
 </header>

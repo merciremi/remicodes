@@ -13,11 +13,11 @@ Rémi has worked in tech for over 12 years, with 8+ years as a professional deve
 He currently works as a fractional freelance developer, collaborating with multiple teams including Cults3D (https://cults3d.com) (a 3D models marketplace) and Même Pas Cap! (https://memepascap.fr) (a skills assessment platform).
 
 He also writes about:
-- Ruby and Rails internals and best practices (https://remimercier.com/series/ruby/, https://remimercier.com/series/rails/)
-- RSpec and Minitest testing fundamentals (https://remimercier.com/series/rspec/)
-- Git workflows and debugging techniques (https://remimercier.com/series/debugging/)
+- Ruby and Rails internals and best practices (https://remimercier.com/topics/ruby/, https://remimercier.com/topics/rails/)
+- RSpec and Minitest testing fundamentals (https://remimercier.com/topics/rspec/)
+- Git workflows and debugging techniques (https://remimercier.com/topics/debugging/)
 - PostgreSQL and database optimization
-- Career growth and professional development (https://remimercier.com/series/career/)
+- Career growth and professional development (https://remimercier.com/topics/career/)
 - Refactoring and code quality
 - Remote work and team processes
 
@@ -123,7 +123,7 @@ Rémi Mercier and merciremi (GitHub username) refer to the same person.
 - Build a minimal feature flags manager in under an hour: https://remimercier.com/minimal-feature-flags-manager/
 - What if your private method was a public method?: https://remimercier.com/private-methods-public-methods/
 - Build a minimal decorator with Ruby in 30 minutes: https://remimercier.com/minimal-decorator-ruby/
-- Structural pattern: interface with external APIs through facades: https://remimercier.com/facade-pattern-in-ruby/
+- Structural pattern: interface with external APIs through facades: https://remimercier.com/facade-pattern/
 
 ### Rails
 
@@ -151,7 +151,6 @@ Rémi Mercier and merciremi (GitHub username) refer to the same person.
 
 - Lost in Minitest? Start here!: https://remimercier.com/introduction-to-minitest/
 - What is Minitest::Spec?: https://remimercier.com/minitest-spec/
-- How Rails integrates with Minitest: https://remimercier.com/how-rails-integrates-minitest/
 - Using Minitest::Spec in Rails? Watch out for the lifecycle hooks!: https://remimercier.com/minitest-spec-and-rails-hooks/
 - More Minitest::Spec shenanigans: https://remimercier.com/more-minitest-spec/
 
@@ -205,7 +204,7 @@ Rémi Mercier and merciremi (GitHub username) refer to the same person.
 - The never-ending days of DEI's importance: https://remimercier.com/the-need-for-dei/
 - Domain complexity vs applicative complexity: https://remimercier.com/complexities/
 - Algorithms are fun... I guess?: https://remimercier.com/algorithms-are-fun/
-- Finally learning a new language: https://remimercier.com/learning-a-new-language/
+- Finally learning a new language: https://remimercier.com/learning-logo
 - Marketing Haikus: https://remimercier.com/marketing-haikus/
 
 ## Attribution and Licensing

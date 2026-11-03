@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
 title: Finally learning a new language
 excerpt: For years, people around me have been telling me to learn new programming languages—that I shouldn’t corner myself with Ruby (and Rails). And for years, I couldn’t muster the mental energy to do it.
 date: 2025-09-12
+tags: [career]
 permalink: /learning-logo
-categories: [other]
-cover_image:
 ---
 
 For years, people around me have been telling me to learn new programming languages—that I shouldn’t corner myself with Ruby (and Rails). And for years, I couldn’t muster the mental energy to do it.
@@ -66,7 +64,7 @@ My current plan:
 
 Some ideas for my jigsaw puzzle pieces:
 
-{% highlight txt %}
+```txt
                         | \
 +-----------------------+   \
 |       avance 50            >
@@ -81,6 +79,6 @@ Some ideas for my jigsaw puzzle pieces:
      *   |_   *
       *******
 
-{% endhighlight %}
+```
 
 It's been a long time since I got that excited about a side project! Let's hope I won't bore the kids to death!

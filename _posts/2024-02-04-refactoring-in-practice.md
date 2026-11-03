@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
-title: 'Refactoring in practice: moving toward convention'
-excerpt: "A few months ago, I had to write a Rails micro-service that synchronizes data between two versions of an application. I'll show you the successive steps I used to refactor this piece of code, from shameless-green to convention."
+title: "Refactoring in practice: moving toward convention"
 date: 2024-02-05
+tags: [rails]
 permalink: /refactoring-in-practice/
-categories: [rails]
-cover_image: '/media/2024/02/remi-mercier-refactoring-in-practice.png'
+excerpt: "A few months ago, I had to write a Rails micro-service that synchronizes data between two versions of an application. I'll show you the successive steps I used to refactor this piece of code, from shameless-green to convention."
 ---
 
 I've wanted to write about __real-life refactoring__ for ages! However, coming up with examples of neat refactorings is not straightforward.
@@ -19,7 +17,7 @@ A quick aside: I lean on the terminology of the tech I'm using, but the tech is 
 
 ## What are we working with?
 
-I wrote about it a while back, [I like to gather as much information as possible about the problem I need to solve]({{site.baseurl}}/how-to-write-better-specifications/). So, let's do just that.
+I wrote about it a while back: I like to gather as much information as possible about the problem I need to solve. So, let's do just that.
 
 For this project, I'll build a Rails application that streams Kafka topics and stores data.
 
@@ -29,7 +27,7 @@ Kafka sends data to __topics__. Each topic stores __messages__. Application stre
 
 Let's start with a quick sketch.
 
-{% highlight txt %}
+```txt
 
   legacy application (writes data)
     |
@@ -41,7 +39,8 @@ Let's start with a quick sketch.
     |
   new application (reads data)
 
-{% endhighlight %}
+```
+
 
 Now, let's check the data stored in each `message`.
 
@@ -49,7 +48,7 @@ Each `message` stores a list of all the `highlights` made by one user. `Highligh
 
 The organization of our Kafka topic looks like this:
 
-{% highlight txt %}
+```txt
 
   +----------------------------+
   | Topic `users.highlights` |
@@ -71,11 +70,12 @@ The organization of our Kafka topic looks like this:
   | .           ...          . |
   +----------------------------+
 
-{% endhighlight %}
+```
+
 
 Each `message` looks like this:
 
-{% highlight json %}
+```json
   {
     "message_id": "123456",
     "payload": {
@@ -97,13 +97,14 @@ Each `message` looks like this:
       }]
     }
   }
-{% endhighlight %}
+```
+
 
 Each `highlight` is created from a specific `book`, and contains the `position` of the highlight in the book, the actual `quote`, and a `timestamp`.
 
 My Rails application needs a few ActiveRecord models to find and persist data in my database.
 
-{% highlight txt %}
+```txt
 
 +----------------+      +----------------+
 |   Highlight    | 1..* |     Book       |
@@ -116,7 +117,8 @@ My Rails application needs a few ActiveRecord models to find and persist data in
 | - user_id      |
 +----------------+
 
-{% endhighlight %}
+```
+
 
 To consume Kafka events, I'll use [Karafka](https://github.com/karafka/karafka){:target="\_blank"}. I won't get into the details of setting up Karafka but know that Karafka lets you define _routes_ for your consumers to listen to topics.
 
@@ -124,7 +126,7 @@ The name of the topic is `users.highlights`. As a convention, I'll name all my `
 
 Here, my `users.highlights` will transpose to a `Users::HighlightsConsumer`.
 
-{% highlight ruby %}
+```ruby
   # karafka.rb
 
   Karafka::App.routes.draw do
@@ -132,7 +134,8 @@ Here, my `users.highlights` will transpose to a `Users::HighlightsConsumer`.
       consumer Users::HighlightsConsumer
     end
   end
-{% endhighlight %}
+```
+
 
 Now that our setup is done, let's move on.
 
@@ -148,7 +151,7 @@ So, I need to iterate on each message and find the values. Only then will I be a
 
 Remember that the content of the message is formatted as JSON.
 
-{% highlight ruby %}
+```ruby
   # app/consumers/users/highlights_consumer.rb
   module Users
     class HighlightsConsumer < ApplicationConsumer
@@ -177,7 +180,8 @@ Remember that the content of the message is formatted as JSON.
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Our shameless-green version has a few benefits:
 - It's easy to read.
@@ -194,7 +198,7 @@ Our first step is easy: let's create an abstraction reflecting the concept of Ka
 
 A message is a JSON and contains information about the **highlights** created by a user from a book.
 
-{% highlight ruby %}
+```ruby
   # app/consumers/users/highlights_consumer.rb
   module Users
     class HighlightsConsumer < ApplicationConsumer
@@ -237,7 +241,8 @@ A message is a JSON and contains information about the **highlights** created by
       end
     end
   end
-{% endhighlight %}
+```
+
 
 I merely moved the core of my data manipulation into a new object – `HighlightsMessage` – which responds to a `save` method.
 
@@ -247,7 +252,7 @@ Now, let's change the way we handle the data.
 
 Don't get me wrong, I like JSON, but wouldn't it be nice to call `data.highlights` instead of `@data.fetch("highlights")`?
 
-{% highlight ruby %}
+```ruby
   # app/models/users/highlight_message.rb
   module Users
     class HighlightsMessage
@@ -298,7 +303,8 @@ Don't get me wrong, I like JSON, but wouldn't it be nice to call `data.highlight
       end
     end
   end
-{% endhighlight %}
+```
+
 
 By introducing two small classes on initialization – `Data` and `Payload` – I keep the structure of my input data while making the code more idiomatic (i.e. a method invoked on a receiver).
 
@@ -310,7 +316,7 @@ But now that I can access the data stored in messages, I still lack a proper rep
 
 There are still a handful of places where I need to fetch my data with a `highlight ["key"]` syntax. Since I'm leaning so much in OOP, I'd rather have a temporary object returning a hash with only the data I need (and none of the data I don't need).
 
-{% highlight ruby %}
+```ruby
   # app/models/users/highlight_message.rb
   module Users
     class HighlightsMessage
@@ -380,7 +386,8 @@ There are still a handful of places where I need to fetch my data with a `highli
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Now, on top of initializing a `Data` and a `Payload` objects, I also create a collection of `Users::HighlightsMessage::Highlight`.
 
@@ -394,7 +401,7 @@ When looking for a pattern, leave your reasoning out for a minute and squint at 
 
 All our previous refactoring becomes apparent with the Squint Test. The architecture of our application now matches the organization of Kafka topics.
 
-{% highlight txt %}
+```txt
 --- Kafka architecture ----+----------- Rails architecture ---------
                            |
 - topic "users.highlights" | - consumer "Users::HighlightsConsumer"
@@ -409,7 +416,8 @@ All our previous refactoring becomes apparent with the Squint Test. The architec
           - "quote"        |           - "quote"
           - "timestamp"    |           - "timestamp"
 
-{% endhighlight %}
+```
+
 
 By slowly refactoring our code, we've been able to establish:
 - A clear terminology for consuming Kafka topics in our application,

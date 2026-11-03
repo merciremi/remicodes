@@ -1,13 +1,12 @@
 ---
-toc: true
 layout: post
-title: 'Delegated types in Rails: a real-life application'
-excerpt: "Delegated types are a modelization pattern introduced in Rails in 2020. And developers have mostly been scratching their head for a few years trying to use them in their applications. Today, I want to share a real-world use case. I'll walk you through my pre-existing domain architecture, my initial requirements, my mistakes, how I eventually used delegated types, what I learned and my open questions."
+title: "Delegated types in Rails: a real-life application"
 date: 2024-04-18
-permalink: "/delegated-types/"
-categories: [rails]
-cover_image: "/media/2024/04/remi-mercier-delegated-types-ruby-on-rails.png"
+tags: [rails]
+permalink: /delegated-types/
+excerpt: "Delegated types are a modelization pattern introduced in Rails in 2020. And developers have mostly been scratching their head for a few years trying to use them in their applications. Today, I want to share a real-world use case. I'll walk you through my pre-existing domain architecture, my initial requirements, my mistakes, how I eventually used delegated types, what I learned and my open questions."
 ---
+
 Delegated types are a modelization pattern introduced in Rails in 2020 [^1]. While researching this pattern for a feature, I found that existing articles overly focus on the theoretical comparison between delegated types, STI, and polymorphism. Examples used in these posts are often unrepresentative of the complexity of real-life applications.
 
 Today, I want to share a real-world use case. I'll walk you through my pre-existing domain architecture, the initial requirements, my mistakes, how I eventually used delegated types, what I learned, and my open questions.
@@ -34,7 +33,7 @@ However, each type of lesson __has its way of getting its list of students__:
 
 Here is the graph I initially drew (the arrows representing the logical path for each version of the method `#students`):
 
-{% highlight txt %}
+```txt
     +----------------+
     |    Students    | <----------+
     +----------------+            |
@@ -60,7 +59,8 @@ Here is the graph I initially drew (the arrows representing the logical path for
   +---- #students      |    | #students ----------+
     | +----------------+    +----------------+ |
     +------------------------------------------+
-{% endhighlight %}
+```
+
 
 In this graph, `enrollments` and `groups students` are join tables, which allow us to have many-to-many relationships. They might get some logic of their own later.
 
@@ -68,7 +68,7 @@ I've not represented `lessons` as a proper class yet. You probably already know 
 
 Here's a first draft in Rails:
 
-{% highlight ruby %}
+```ruby
   class Student < ApplicationRecord
     has_many :enrollments
     has_many :subjects, through: :enrollments
@@ -101,7 +101,8 @@ Here's a first draft in Rails:
 
     has_many :students, through: :group
   end
-{% endhighlight %}
+```
+
 
 Some things I'd like to point out:
 - Moving through the associations is straightforward, thanks to ActiveRecord associations.
@@ -111,11 +112,12 @@ Some things I'd like to point out:
 
 Before jumping to technical solutions, I like to start with the API I want to expose. For this feature, I want to write code like this:
 
-{% highlight ruby %}
+```ruby
   subject.lessons # => returns a collection of lessons
   subject.lessons.lectures # => returns a collection of lessons while filtering out those of type "directed studies"
   subject.lessons.map(&:students) # => returns a collection of students regardless of the type of lessons
-{% endhighlight %}
+```
+
 
 First, I need an aggregative logic (I want a collection of `lessons`), and an exclusive logic (I want a collection of only one type of `lessons`).
 
@@ -145,7 +147,7 @@ This association was also a way to assert the exclusive nature of the relationsh
 
 Here's an updated version of my graph:
 
-{% highlight txt %}
+```txt
     +----------------+
     |    Students    | -----------+
     +----------------+ 1          |
@@ -185,13 +187,14 @@ Here's an updated version of my graph:
     +----------------+    +----------------+
     | #students      |    | #students      |
     +----------------+    +----------------+
-{% endhighlight %}
+```
+
 
 You can already tell from this graph that things will turn ugly in about a minute.
 
 Here's what models look like:
 
-{% highlight ruby %}
+```ruby
   class Student < ApplicationRecord
     has_many :enrollments
     has_many :subjects, through: :enrollments
@@ -232,7 +235,8 @@ Here's what models look like:
     has_one :lesson
     has_many :students, through: :group
   end
-{% endhighlight %}
+```
+
 
 First, let us parse through the syntax of delegated types:
 - The containing class `Lesson` defines the delegated types `Lecture` and `DirectedStudy` and refers to them as `lessonable`s.
@@ -245,12 +249,13 @@ However, the setup above has poor design. Can you guess what's wrong?
 - `Subject` and `Group` should interact with the same abstraction (`Lesson`), but they don't.
 - `Group` can create instances of associated `DirectedStudy` instead of creating instances of `Lesson`, but it loses the common data stored in `Lesson` in the process.
 
-{% highlight zsh %}
+```zsh
   directed_study = Group.first.directed_studies.create! # => returns an instance of DirectedStudy
   directed_study.students # => Returns an AR collection of students
   directed_study.name # => NoMethodError: undefined method `name' for <DirectedStudy id: 1>
   directed_study.lesson # => nil
-{% endhighlight %}
+```
+
 
 By bypassing `Lesson` when instantiating `DirectedStudy` through `Group`, I turned the design of delegated types on its head.
 
@@ -268,7 +273,7 @@ After pulling my hair for a while, I updated my architecture to place the contai
 
 Here's an updated graph:
 
-{% highlight txt %}
+```txt
     +----------------+
     |    Students    | -----------+
     +----------------+ 1          |
@@ -308,11 +313,12 @@ Here's an updated graph:
     +----------------+    +----------------+
     | #students      |    | #students      |
     +----------------+    +----------------+
-{% endhighlight %}
+```
+
 
 Here's the updated code:
 
-{% highlight ruby %}
+```ruby
   class Student < ApplicationRecord
     has_many :enrollments
     has_many :subjects, through: :enrollments
@@ -353,9 +359,10 @@ Here's the updated code:
     has_one :lesson
     has_many :students, through: :group
   end
-{% endhighlight %}
+```
 
-Now, `Subject` and `Group` are associated with `Lesson`, and fetch the _ad hoc_ type through [Active Record scoped associations]({{site.baseurl}}/scoped-active-record-associations/). If you're wondering where these scopes - `lectures` and `directed_studies` - are defined: they're predicate methods built by Rails on the fly. It's part of the delegated types feature.
+
+Now, `Subject` and `Group` are associated with `Lesson`, and fetch the _ad hoc_ type through [Active Record scoped associations](/scoped-active-record-associations/). If you're wondering where these scopes - `lectures` and `directed_studies` - are defined: they're predicate methods built by Rails on the fly. It's part of the delegated types feature.
 
 The main takeaways are:
 - The containing class (`Lesson`) should be the only interface.
@@ -370,16 +377,17 @@ As of now, I still have a lot of questions about delegated types.
 
 Students can access their lectures through one path, and their directed studies through another path. This setup stems from a domain constraint: groups of students are not scoped to a subject.
 
-{% highlight zsh %}
+```zsh
   Student.first.subjects.first.lessons # => Returns lessons of type :lecture
   Student.first.groups.first.lessons # => Return lessons of type :directed_study
-{% endhighlight %}
+```
+
 
 While it's convenient to have built-in scopes for each type, merging or eager-loading them is a pain. I can't use the `or` query method because the underlying structure of the two scopes is not the same, and ActiveRecord throws an error.
 
 Right now, I have a method that aggregates the two scopes, but it's impossible (to my current knowledge) to leverage `includes` for native eager loading evaluation.
 
-{% highlight ruby %}
+```ruby
   class Student < ApplicationRecord
     has_many :enrollments
     has_many :subjects, through: :enrollments
@@ -394,7 +402,8 @@ Right now, I have a method that aggregates the two scopes, but it's impossible (
       Lesson.includes(:lessonable).where(id: lectures.select(:id) + directed_studies.select(:id))
     end
   end
-{% endhighlight %}
+```
+
 
 A couple of things stand out:
 - As I move across the associations, I need to do gymnastics for the association's name.

@@ -1,10 +1,9 @@
 ---
-toc: true
 layout: post
 title: 'How to make Open Data sexy: 10 lessons learned while building opendatainception.io'
 date: 2017-10-01
+tags: [marketing]
 excerpt: "In June 2015, Nicolas Terpolilli and I were ranting about the difficulty to locate Open Data portals. Poor SEO seemed to result in poor rankings. Existing listings were either outdated or partisan. We started joking around with the idea of building a truly comprehensive resource. A resource that would gather every single Open Data portal we could lay our hands on."
-categories: [other]
 permalink: /make-open-data-sexy/
 ---
 
@@ -86,7 +85,7 @@ It doesn’t mean you should aim for simplistic interpretation. Some things requ
 
 That’s why we first launched a static list sorted by alphabetic order. Alphabetical list are easy to browse. We added a table of content where countries name would take readers directly to the appropriate part of the list.
 
-<img class='large' src="{{ site.baseurl }}/media/2017/sexy-open-data-list-of-open-data-portals.gif" alt="">
+<video src="/assets/media/2017/sexy-open-data-list-of-open-data-portals.mp4" width="1008" height="560" autoplay loop muted playsinline aria-label="a screen recording scrolling through the list of open data portals, sorted by country"></video>
 
 The fist list was a HTML export. Nicolas would run a Ruby script turning a CSV into preformated HTML everytime we needed to update the list. After a dozen updates, we grew fed up with the process. We decided to inject some Angular JS context in our Wordpress page. We used open source widgets that create dynamic elements within a page. Our list would then update itself in real-time through APIs creating an endless communication between our widgets and the dataset (thanks to APIs). Timesaver!
 
@@ -118,7 +117,7 @@ The French version of this tweet [gathered 100 retweets](https://twitter.com/ope
 
 So far, it’s still the second top post of all time in [r/datasets](https://www.reddit.com/r/datasets/top/?sort=top&t=all).
 
-<img class='large' src="{{ site.baseurl }}/media/2017/how-to-make-open-data-sexy-reddit-remi-mercier.png" alt="">
+<img class='large' src="/assets/media/2017/how-to-make-open-data-sexy-reddit-remi-mercier.png" alt="">
 
 The next day, we built and launched opendatainception.io, the list visualized as a map.
 
@@ -197,7 +196,7 @@ The only thing I could have done better, would have been to keep in touch faster
 
 Remember when I talked about open data portals being 💩 at SEO? Well, we thought that a technological layer could be a great solution. It would work as [a crawler](https://en.wikipedia.org/wiki/Web_crawler) coupled with a sitemap.xml file. The file would map a portal’s metadata (and link to deeper levels of information). Nicolas coded a first draft of dataportal.json:
 
-{% highlight json %}
+```json
 {
 "language": "en",
 "name": "Paris Data",
@@ -234,7 +233,7 @@ Remember when I talked about open data portals being 💩 at SEO? Well, we thoug
   "http://opendata.paris.fr/explore/dataset/cinemas-a-paris/datapackage.json"
   ]
 }
-{% endhighlight %}
+```
 
 We 💘 Json.
 

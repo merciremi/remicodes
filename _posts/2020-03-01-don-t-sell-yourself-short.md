@@ -1,11 +1,10 @@
 ---
-toc: true
 layout: post
-title: Don't sell yourself short
-date:   2020-03-01
-excerpt: "You've just graduated from university. Maybe you're in your first two years as a developer. You are, what the market calls, a junior developer. And you're a burden to companies. That's what you're being told. Well, this is bullshit."
-categories: [career]
+title: "Don't sell yourself short"
+date: 2020-03-01
+tags: [career]
 permalink: /dont-sell-yourself-short/
+excerpt: "You've just graduated from university. Maybe you're in your first two years as a developer. You are, what the market calls, a junior developer. And you're a burden to companies. That's what you're being told. Well, this is bullshit."
 ---
 
 Imagine yourself back to the interview table. You've just graduated from university. Or you've just done a coding bootcamp. Maybe you're in your first two years as a developer.
@@ -47,7 +46,7 @@ This is was my 'aha' moment! 💡
 
 What changed? I realized that companies were only assessing my value out of my technical skills. Employers were overlooking my previous 15-ish years in the workforce and perceived me as a complete tenderfoot - [something I couldn't accept](https://daedtech.com/junior-developer-never-accept/){:target="\_blank"}.
 
-I decided to push back, [own my story]({{site.baseurl}}/own-your-story/), bring attention to my full skill set, and move from the cost centers ("We'd be investing a lot of money hiring a junior developer.") to the profit centers ("Sure, come on work with us and take our money. Please?").
+I decided to push back, [own my story](/own-your-story/), bring attention to my full skill set, and move from the cost centers ("We'd be investing a lot of money hiring a junior developer.") to the profit centers ("Sure, come on work with us and take our money. Please?").
 
 I believe that creating value is much (much) more than increasing revenues or cutting costs. But most companies don't share that point of view.
 
@@ -64,13 +63,13 @@ Here's a list of my non-tech skills and how they affect my technical work daily.
 
 - Writing: I love writing. I love when words chime and rhythm, and take me someplace else. So I try and write code that's expressive, articulated and easy to understand.
 
-- Museology: After working in museums for years, I'm officially a nerd when it comes to taxonomy. This has proved handy when searching for the [appropriate level of abstraction]({{site.baseurl}}/dependency-injection-in-ruby/) in code.
+- Museology: After working in museums for years, I'm officially a nerd when it comes to taxonomy. This has proved handy when searching for the [appropriate level of abstraction](/dependency-injection-in-ruby/) in code.
 
 - Design: Studying and designing stuff throughout my life has been one of my greatest joy. It's taught me how to listen to problems, deconstruct them to first principles, and to find creative yet down-to-earth solutions. I also learned to be less domain-dependent and find inspiration everywhere. [^1]
 
-- Craftmanship: I worked for four years as a stained-glass master. During that time, I restored stained-glass from the 15th to the 20th century. There I nourished my love of [building things]({{site.baseurl}}/building-large-features-process/), of honing the know-how, of patience and minutiae.
+- Craftmanship: I worked for four years as a stained-glass master. During that time, I restored stained-glass from the 15th to the 20th century. There I nourished my love of [building things](/building-large-features-process/), of honing the know-how, of patience and minutiae.
 
-- Entrepreneurship: Running a business for years has proved useful [when dealing with employers]({{site.baseurl}}/series/career/). I can put myself into their shoes and avoid a paradox Calvin (as in Calvin and Hobbes) pointed out:
+- Entrepreneurship: Running a business for years has proved useful [when dealing with employers](/topics/career/). I can put myself into their shoes and avoid a paradox Calvin (as in Calvin and Hobbes) pointed out:
 
 > Even though we're both talking English, we're not speaking the same language.
 

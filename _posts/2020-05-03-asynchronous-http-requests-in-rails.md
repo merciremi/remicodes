@@ -1,19 +1,17 @@
 ---
-toc: true
 layout: post
-title: Asynchronous HTTP requests in Rails
+title: "Asynchronous HTTP requests in Rails"
 date: 2020-05-05
-excerpt: "Let's look at how we can update parts of our app's pages with asynchronous HTTP requests. This is a step-by-step how-to with some good ol' Javascript fetch() method, and Rails native server-side partial rendering."
+tags: [rails]
 permalink: /asynchronous-requests/
-categories: [rails]
-cover_image: /media/2020/05/async-requests-in-rails-remi-mercier.png
+excerpt: "Let's look at how we can update parts of our app's pages with asynchronous HTTP requests. This is a step-by-step how-to with some good ol' Javascript fetch() method, and Rails native server-side partial rendering."
 ---
 
 Today is a special day. It's the day I'll (mostly) talk about Javascript!
 
-I've been struggling with AJAX requests in [Rails apps]({{site.baseurl}}/series/rails) for a while. But I've started using them a lot recently, and pieces of the puzzle kinda fell together. Asynchronous requests can be handy when you need to update some parts of your application's page without reloading the whole thing. I'll show you how to do this with plain ol' vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}), and Rails 6 native server-side partial rendering.
+I've been struggling with AJAX requests in [Rails apps](/topics/rails/) for a while. But I've started using them a lot recently, and pieces of the puzzle kinda fell together. Asynchronous requests can be handy when you need to update some parts of your application's page without reloading the whole thing. I'll show you how to do this with plain ol' vanilla Javascript (and its [fetch() method](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){:target="\_blank"}), and Rails 6 native server-side partial rendering.
 
-[2020-05-10 Update: If you're more confortable following along a video, I've recorded a screencast]({{site.baseurl}}/asynchronous-requests/#async-request-screencast).]
+[2020-05-10 Update: If you're more confortable following along a video, I've recorded a screencast](/asynchronous-requests/#async-request-screencast).]
 
 ## Some context
 
@@ -23,7 +21,7 @@ You'd start by adding some buttons at the top of your feed. Now, when readers cl
 
 Something like this 👇
 
-<img class='large' src="{{ site.baseurl }}/media/2020/05/asynchronous-requests-in-rails.gif" alt="a gif showing someone clicking on three topic buttons and filtering post on the fly">
+<video src="/assets/media/2020/05/asynchronous-requests-in-rails.mp4" width="1000" height="502" autoplay loop muted playsinline aria-label="someone clicking on three topic buttons and filtering post on the fly"></video>
 
 This sounds like a job for some asynchronous HTTP requests.
 
@@ -31,14 +29,15 @@ This sounds like a job for some asynchronous HTTP requests.
 
 Let's dive right in and add a new route:
 
-{% highlight ruby %}
+```ruby
   # Expose an endpoint for our request
   resources :posts, only: :index, controller: 'blog/posts'
-{% endhighlight %}
+```
+
 
 This will be the endpoint our requests ping. Now, here's a basic controller:
 
-{% highlight ruby %}
+```ruby
   # Located at: app/controllers/blog/posts_controller.rb
 
   class Blog::PostsController < ApplicationController
@@ -46,11 +45,12 @@ This will be the endpoint our requests ping. Now, here's a basic controller:
       @posts = Post.all
     end
   end
-{% endhighlight %}
+```
+
 
 And the corresponding view:
 
-{% highlight erb %}
+```erb
   <!-- Located at: app/views/blog/posts/index.html.erb -->
 
   <h1>My app's blog</h1>
@@ -67,7 +67,8 @@ And the corresponding view:
   <section id="posts-list">
     <%= render 'posts_list', posts: @posts %>
   </section>
-{% endhighlight %}
+```
+
 
 Note that:
   - Each filter has an ID.
@@ -76,7 +77,7 @@ Note that:
 
 Speaking of partial, here's `posts_list.html.erb`:
 
-{% highlight erb %}
+```erb
   <!-- Located at: app/views/blog/posts/\_posts_list.html.erb -->
 
   <% posts.each do \|post\| %>
@@ -85,7 +86,8 @@ Speaking of partial, here's `posts_list.html.erb`:
     <% end %>
     <%= post.excerpt %>
   <% end %>
-{% endhighlight %}
+```
+
 
 We're looping over a collection of posts. For each post, we generate a clickable title and an excerpt.
 
@@ -99,7 +101,7 @@ Before we begin, you can either write your Javascript in your `app/assets/javasc
 
 Here are the outlines of our Javascript file:
 
-{% highlight js %}
+```js
   // Located at app/javascript/packs/blog_filters.js
 
   // Store the DOM element embedding the list
@@ -126,7 +128,8 @@ Here are the outlines of our Javascript file:
   rubyFilter.onclick = () => { filterPosts('ruby'); }
   javascriptFilter.onclick = () => { filterPosts('javascript'); }
   remoteFilter.onclick = () => { filterPosts('remote'); }
-{% endhighlight %}
+```
+
 
 Here's what `blog_filters.js` does:
   - Find and store the DOM element embedding my list of posts.
@@ -141,7 +144,7 @@ Now, let's work some magic between our Javascript file and our controller.
 
 `fetch()` takes an URL as the first parameter. We've already done that. Now, we'll add details to the second parameter (it's called the `init` object).
 
-{% highlight js %}
+```js
   // Located at app/javascript/packs/blog_filters.js
 
   const postsList = document.getElementById('posts-list');
@@ -170,7 +173,8 @@ Now, let's work some magic between our Javascript file and our controller.
   rubyFilter.onclick = () => { filterPosts('ruby'); }
   javascriptFilter.onclick = () => { filterPosts('javascript'); }
   remoteFilter.onclick = () => { filterPosts('remote'); }
-{% endhighlight %}
+```
+
 
 What's happening here?
   - I specify the HTTP request I want to do.
@@ -181,7 +185,7 @@ What's happening here?
 
 This bit will ping our `Blog::PostsController#index` (through the route stored in `actionUrl`). Remember, we want our controller to filter our essays based on the category sent through our `fetch()` method. So we need to add that category to our request:
 
-{% highlight js %}
+```js
   // Located at app/javascript/packs/blog_filters.js
 
   const postsList = document.getElementById('posts-list');
@@ -211,7 +215,8 @@ This bit will ping our `Blog::PostsController#index` (through the route stored i
   rubyFilter.onclick = () => { filterPosts('ruby'); }
   javascriptFilter.onclick = () => { filterPosts('javascript'); }
   remoteFilter.onclick = () => { filterPosts('remote'); }
-{% endhighlight %}
+```
+
 
 I've added a parameter `category` to my `filterPosts` function. Then, I'm building my some Rails `params` with `category` and, I'm adding them to my `actionUrl`. Now, I can access my `category` in my `Blog::PostsController` through my `ActionController::Parameters`. 👌
 
@@ -219,7 +224,7 @@ I've added a parameter `category` to my `filterPosts` function. Then, I'm buildi
 
 I can update our controller based on the presence of the `category` key in my `params`:
 
-{% highlight ruby %}
+```ruby
   # Located at: app/controllers/blog/posts_controller.rb
 
   class Blog::PostsController < ApplicationController
@@ -232,7 +237,8 @@ I can update our controller based on the presence of the `category` key in my `p
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Let's break it down:
   - If `params['category']` is absent, my controller returns a list of posts (`@posts`) to `index.html.erb`which renders the partial `posts_list.html.erb`.
@@ -247,7 +253,7 @@ Javascript kinda places itself in between my controller and my view. Why? Becaus
 
 The first thing I like to do, is to check the HTTP status sent from my controller. If it's a `200`, I'll use the response to replace the posts list in my view.
 
-{% highlight js %}
+```js
   // Located at app/javascript/packs/blog_filters.js
 
   const postsList = document.getElementById('posts-list');
@@ -281,7 +287,8 @@ The first thing I like to do, is to check the HTTP status sent from my controlle
   rubyFilter.onclick = () => { filterPosts('ruby'); }
   javascriptFilter.onclick = () => { filterPosts('javascript'); }
   remoteFilter.onclick = () => { filterPosts('remote'); }
-{% endhighlight %}
+```
+
 
 What did I do? I applied the `text()` method to my controller `response`. `response` is - and I quote the Mozilla documentation - a readable stream of byte data (you gotta love Javascript 🙃). `text()` takes this stream and turns it into a UTF-8-encoded string.
 

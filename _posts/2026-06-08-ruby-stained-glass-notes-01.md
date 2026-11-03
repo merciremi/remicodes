@@ -1,27 +1,25 @@
 ---
 layout: post
 title: "This idea cost me an ice cream (Ruby Stained Glass Notes #01)"
-excerpt: "This is episode #01 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained-glass panel celebrating Ruby."
 date: 2026-06-09
+tags: [ruby-stained-glass]
 permalink: /this-idea-cost-me-an-ice-cream/
-categories: [ruby, build in public]
-cover_image:
-toc: true
+excerpt: "This is episode #01 of the Ruby Stained Glass Notes, a pop-up newsletter in which I write about the process of building a stained-glass panel celebrating Ruby."
 ---
 
-This is the issue #01 of the *Ruby Stained Glass Notes*, a pop-up newsletter in which I write about the process of [building a limited-edition stained-glass celebrating Ruby]({{site.baseurl}}/ruby-stained-glass/).
+This is the issue #01 of the *Ruby Stained Glass Notes*, a pop-up newsletter in which I write about the process of [building a limited-edition stained-glass celebrating Ruby](/ruby-stained-glass/).
 
 If the idea of a programmer building a stained-glass window celebrating Ruby is your kind of fun, sign-up! (And you'll be the first to know if/when the sale officially opens.)
 
-<img class='pink-arrow' height="50" src="{{ site.baseurl }}/media/shared/pink_arrow.png"/>
+<img height="50" src="/assets/media/shared/pink_arrow.png"/>
 
-{% include stained_glass_form.html %}
+{% include stained-glass-form.html %}
 
 \-\-\-
 
 Hey Ruby friends, 
 
-Thank you for signing up to this pop-up newsletter about this crazy project of mine: a limited-edition stained-glass panel celebrating Ruby.
+Thank you for signing up to this pop-up newsletter about this crazy project of mine: [a limited-edition stained-glass panel celebrating Ruby](/ruby-stained-glass/).
 
 I hope you had a good week. I've decided I'd try to send weekly updates on Saturdays, so you can read them while drinking your morning coffee or tea.
 
@@ -40,14 +38,14 @@ There are several types of stained-glass window you can make:
 Leaded stained-glass panels are your typical Middle Ages stained-glass. The pieces of glass slot into H-shaped lead rods. The lead creates these beautiful thick black lines around the glass pieces and it is what people usually picture when thinking about stained-glass windows. 
 
 <figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/06/remi-mercier-stained-glass.jpg" alt="a picture of Remi Mercier in front of a stained glass">
+  <img src="/assets/media/2026/06/remi-mercier-stained-glass.jpg" alt="a picture of Remi Mercier in front of a stained glass">
   <figcaption>Me, in front of my first stained-glass panel, made around 2002.</figcaption>
 </figure>
 
 Tiffany stained-glass panels are  named after late-19th century designer Louis Comfort Tiffany. This technique uses copper foil to join the glass pieces instead of lead. The black lines are visually lighter and the overall weight of the piece is more manageable.
 
-<figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/06/tiffany-lamp.jpg" alt="a tiffany lamp">
+<figure class="figure--portrait">
+  <img src="/assets/media/2026/06/tiffany-lamp.jpg" alt="a tiffany lamp">
   <figcaption>Picture by Telome4 - Own work, CC BY-SA 3.0</figcaption>
 </figure>
 
@@ -69,8 +67,8 @@ Alexander Adam had brought his physical copy of why's (poignant) Guide to Ruby a
 
 why's book sparked a long conversation with Sunny Ripert – with whom I work on Cults – while we were eating ice cream. In the middle of our conversation, we checked the first few pages of the book, and there it was, at the very top of the second chapter, the perfect drawing.
 
-<figure>
-  <img class='regular box-shadowed' src="{{ site.url }}/media/2026/06/stained-glass-note-screenshot.png" alt="a screenshot of my notes app with an image of a ruby">
+<figure class="figure--portrait">
+  <img src="/assets/media/2026/06/stained-glass-note-screenshot.webp" alt="a screenshot of my notes app with an image of a ruby">
   <figcaption>From my phone</figcaption>
 </figure>
 

@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
 title: "Poking around PostgreSQL full-text search: a beginners primer"
-excerpt: "Today, I want to share a different type of post. Nothing polished. Just me goofing around with PostgreSQL's full-text search capabilities."
 date: 2024-11-05
+tags: [postgresql]
 permalink: /postgresql-full-text-search-for-beginners/
-categories: [postgresql]
-cover_image: "/media/2024/11/remi-mercier-postgresql-full-text-search-for-beginners.png"
+excerpt: "Today, I want to share a different type of post. Nothing polished. Just me goofing around with PostgreSQL's full-text search capabilities."
 ---
 
 Today, I want to share a different type of post. Nothing polished. Just me goofing around with PostgreSQL's full-text search capabilities. And yes, if you're wondering how someone can have fun while using full-text search, well, I'm wondering about that myself.
@@ -37,7 +35,7 @@ Let's draw on the above example and look for a book filled with sorceresses!
 
 My database currently stores a handful of books:
 
-{% highlight sql %}
+```sql
   CREATE TABLE books (
     title VARCHAR(255),
     blurb TEXT
@@ -51,11 +49,12 @@ My database currently stores a handful of books:
   ('Sorcery School', 'A young-adult thriller where a sorceress and a sorcerer fight to keep the school from being eat up by zombies.');
 
   INSERT 0 5
-{% endhighlight %}
+```
+
 
 Let's try to select some books.
 
-{% highlight sql %}
+```sql
   SELECT * FROM books
   WHERE title LIKE '%sorceresses%';
 
@@ -63,11 +62,12 @@ Let's try to select some books.
   -------+-------
 
   (0 rows)
-{% endhighlight %}
+```
+
 
 Ugh, that's disappointing. What about querying on the blurb instead?
 
-{% highlight sql %}
+```sql
   SELECT * FROM books
   WHERE blurb LIKE '%sorceresses%';
 
@@ -76,13 +76,14 @@ Ugh, that's disappointing. What about querying on the blurb instead?
    The Last Kingdom | A historical novel set in medieval times where sorceresses save the day.
 
   (1 rows)
-{% endhighlight %}
+```
+
 
 Better!
 
 But I know I have more relevant books. Let's add an OR operator so I can search for variation of `sorceresses`.
 
-{% highlight sql %}
+```sql
   SELECT * FROM books
   WHERE blurb LIKE '%sorceress%' OR blurb LIKE '%sorceresses%';
 
@@ -93,7 +94,8 @@ But I know I have more relevant books. Let's add an OR operator so I can search 
 
   (2 rows)
 
-{% endhighlight %}
+```
+
 
 We're getting there, but what about `The Silent Grove` or `The Fair Sorceress`? They'd be a good match.
 
@@ -109,9 +111,10 @@ Full-text search turns **documents** (for instance, the rows of your database) *
 
 Let's take the following string stored in a row of `books.blurb`:
 
-{% highlight txt %}
+```txt
   A young-adult thriller where a sorceress and a sorcerer fight to keep the school from being eat up by zombies.
-{% endhighlight%}
+```
+
 
 PostgreSQL will first turn this string into tokens.
 
@@ -119,7 +122,7 @@ PostgreSQL does not expose (to my knowledge) the intermediate tokenization step,
 
 Let's start by splitting the string into an array of words, unpacking the array, adding a `position` column indicating the index of each word, and ordering the words alphabetically.
 
-{% highlight sql %}
+```sql
   SELECT token, position
   FROM unnest(string_to_array('A young-adult thriller where a sorceress and a sorcerer fight to keep the school from being eat up by zombies.', ' '))
   WITH ORDINALITY AS t(token, position)
@@ -148,7 +151,8 @@ Let's start by splitting the string into an array of words, unpacking the array,
    young-adult |        2
    zombies.    |       20
   (20 rows)
-{% endhighlight %}
+```
+
 
 Let's note a few things:
 - Stop words are still present.
@@ -169,30 +173,32 @@ Lexemes are **normalized representations of your tokens**: different forms of th
 
 For instance:
 
-{% highlight txt%}
+```txt
       tokens   |  lexemes
   -------------+-------------
    magic       | magic
    MAGICS      | magic
    magical     | magic
    magically   | magic
-{% endhighlight %}
+```
+
 
 Wanna try it? Fire up a PostgreSQL console and type the following:
 
-{% highlight sql %}
+```sql
   SELECT to_tsvector('magic MAGICS magical magically');
      to_tsvector
   -----------------
    'magic':1,2,3,4
   (1 row)
-{% endhighlight %}
+```
+
 
 `magic`, `magics`, `magical`, and `magically` are all variations of the stem `magic`, which PostgreSQL identifies as the relevant representation of the previous variations.
 
 You can see how PostgreSQL distributes the lexemes when transforming several words:
 
-{% highlight sql %}
+```sql
   SELECT to_tsvector('magical MAGIC magician');
 
     to_tsvector
@@ -200,7 +206,8 @@ You can see how PostgreSQL distributes the lexemes when transforming several wor
     'magic':1,2 'magician':3
 
   (1 row)
-{% endhighlight %}
+```
+
 
 The transformation of tokens into lexemes follows several steps:
 - Folding upper-case letters to lower-case.
@@ -212,7 +219,7 @@ This is where full-text search shines: you get a natural language input from you
 
 Chances are, you won't get an exact match. So, one way to up your chances of a match while keeping the results relevant is to split the input into manageable semantic chunks.
 
-{% highlight sql %}
+```sql
   SELECT to_tsvector('magical elves and fun sorceresses');
 
     to_tsvector
@@ -220,32 +227,35 @@ Chances are, you won't get an exact match. So, one way to up your chances of a m
     'elv':2 'fun':4 'magic':1 'sorceress':5
 
   (1 row)
-{% endhighlight %}
+```
+
 
 How does PostgreSQL turn tokens into lexemes? With **dictionaries**!
 
 PostgreSQL uses default dictionaries, but you can pass or create custom ones based on your needs. Want to work with French documents? Pass `french` as first argument to your `to_tsvector()` method. Want to add a bit of fuzzy matching? Add an Ispell dictionary that'll map synonyms to a single word. Neat!
 
-{% highlight sql %}
+```sql
   SELECT to_tsvector('french', 'les bonnes baguettes et les croissants');
                 to_tsvector
   ----------------------------------------
    'baguet':3 'bon':2 'croiss':6 'le':1,5
   (1 row)
-{% endhighlight %}
+```
+
 
 I won't dig much into dictionaries at this point, but feel free to read the [documentation](https://www.postgresql.org/docs/current/textsearch-dictionaries.html){:target="\_blank"}. You can do a _lot_ of configuration around dictionaries with PostgreSQL.
 
 Finally, normalized lexemes are stored in a specific datatype called `tsvector`.
 
-{% highlight sql %}
+```sql
   SELECT pg_typeof(to_tsvector('sorcerers'));
 
     pg_typeof
   -----------
     tsvector
   (1 row)
-{% endhighlight %}
+```
+
 
 ## Processing queries
 
@@ -264,7 +274,7 @@ After converting user input into lexemes, PostgreSQL returns a `ts_query` where 
 - **boolean operators**: `&` (AND), `|` (OR), `!` (NOT)
 - **phrase search operators**: `<->` (FOLLOWED BY), `<N>` (FOLLOWED BY where `N` is an integer specifying the distance between the two lexemes being searched for)
 
-{% highlight sql %}
+```sql
   -- Select both 'fun' and 'elves'
   SELECT 'fun & elves'::tsquery;
        tsquery
@@ -285,7 +295,8 @@ After converting user input into lexemes, PostgreSQL returns a `ts_query` where 
   ------------------
    !'fun' & 'elves'
   (1 row)
-{% endhighlight %}
+```
+
 
 Of course, PostgreSQL provides a bunch of methods to parse a query and turn it into a `ts_query`.
 
@@ -299,52 +310,57 @@ PostgreSQL offers different methods to parse a query, each with its own features
 
 For instance, I can't pass a plain sentence to `to_tsquery` because it expects tokens separated by operators such as `&`, `|`, etc.
 
-{% highlight sql %}
+```sql
   SELECT to_tsquery('The fun elves and the magical sorceresses');
   ERROR:  syntax error in tsquery: "The fun elves and the magical sorceresses"
-{% endhighlight %}
+```
+
 
 Once I provide a formatted list, PostgreSQL turns my tokens into lexemes, and the fun can begin.
 
-{% highlight sql %}
+```sql
   SELECT to_tsquery('The & fun & elves & and & the & magical & sorceresses');
                 to_tsquery
   ---------------------------------------
    'fun' & 'elv' & 'magic' & 'sorceress'
   (1 row)
-{% endhighlight %}
+```
+
 
 `t_tsquery` needs a premilinary normalization on my part, which can be annoying, but it also gives me a lot of control over the query. `to_tsquery` allows me to specify my operators. Let's say I want books with `fun elves` but no `magical sorceresses`, I can group my tokens like so:
 
-{% highlight sql %}
+```sql
   SELECT to_tsquery('The & fun & elves & and & the & !magical & !sorceresses');
                  to_tsquery
   -----------------------------------------
    'fun' & 'elv' & !'magic' & !'sorceress'
   (1 row)
-{% endhighlight %}
+```
+
 
 #### `plainto_tsquery`
 
 If I don't want to normalize my input beforehand, I can delegate the work to PostgreSQL with `plainto_tsquery`. It'll normalize my text, remove stop words, and add the `&` operator inbetween surviving words.
 
-{% highlight sql %}
+```sql
   SELECT plainto_tsquery('The fun elves and the magical sorceresses');
               plainto_tsquery
   ---------------------------------------
    'fun' & 'elv' & 'magic' & 'sorceress'
   (1 row)
-{% endhighlight %}
+```
+
 
 `plainto_tsquery` offers convenience over control. For instance, you can't use logical operators anymore. For example, you can't specify you don't want `magical sorceresses` anymore.
 
-{% highlight sql %}
+```sql
   SELECT plainto_tsquery('The fun elves and the !magical !sorceresses');
               plainto_tsquery
   ---------------------------------------
    'fun' & 'elv' & 'magic' & 'sorceress'
   (1 row)
-{% endhighlight %}
+```
+
 
 #### `phraseto_tsquery`
 
@@ -352,13 +368,14 @@ If I don't want to normalize my input beforehand, I can delegate the work to Pos
 
 This is useful when you need to fetch results from a group of words that are semantically more relevant together than separated. Think `Lord of the Ring` or `The Wheel of Time`, or any such sentences.
 
-{% highlight sql %}
+```sql
   SELECT phraseto_tsquery('the wheel of time');
     phraseto_tsquery
   --------------------
    'wheel' <2> 'time'
   (1 row)
-{% endhighlight %}
+```
+
 
 You'd rather get books from the Wheel of Time series than any random books with the words `wheels` and `time` in their blurb. `phraseto_tsquery` also does not recognize operators.
 
@@ -377,13 +394,14 @@ The PostgreSQL documentation explains its syntax:
 
 Let's search for books about `fun`, `elves`, but no `magical sorceresses`.
 
-{% highlight sql %}
+```sql
 SELECT websearch_to_tsquery('The fun elves and -"the magical sorceresses"');
              websearch_to_tsquery
 ----------------------------------------------
  'fun' & 'elv' & !( 'magic' <-> 'sorceress' )
 (1 row)
-{% endhighlight %}
+```
+
 
 Books about `sorceresses` might pop up, as long as the `sorceress` is not preceded by `magical`.
 
@@ -397,7 +415,7 @@ PostgreSQL allows you to rank results based on:
 - the frequency of lexemes in documents with `ts_rank`.
 - the density of lexemes in documents (`frequency x proximity`) with `ts_rank_cd`.
 
-{% highlight sql %}
+```sql
   SELECT title,
          ts_rank(
              to_tsvector(blurb),
@@ -413,7 +431,8 @@ PostgreSQL allows you to rank results based on:
  The Last Kingdom                              |      2.4
  Sorcery School                                |  2.01317
  (3 rows)
-{% endhighlight %}
+```
+
 
 You can add weights arguments to give an extra boost to specific columns for instance.
 

@@ -1,20 +1,18 @@
 ---
-toc: true
 layout: post
-title: Growing old as a programmer
-excerpt: "I’ll be turning 40 this year, and I’ve started to wonder about my professional life in the next two decades. Not a lot of 60-year-old developers, hey?"
+title: "Growing old as a programmer"
 date: 2024-02-16
+tags: [career]
 permalink: /growing-old-as-a-developer/
-categories: [career]
-cover_image: '/media/2024/02/remi-mercier-growing-old-as-a-programmer.png'
+excerpt: "I’ll be turning 40 this year, and I’ve started to wonder about my professional life in the next two decades. Not a lot of 60-year-old developers, hey?"
 ---
 
 I’ll be turning 40 this year, and I’ve started to wonder about my professional life in the next two decades. Not a lot of 60-year-old developers, hey?
 
-[I started working some twenty years ago]({{site.baseurl}}/from-stained-glass-master-to-software-developer/), and I feel I need to plan - albeit very loosely - for the future. Building software is still very new to me. I want to keep working at it for some time. But I don’t know how to make this job grow with me.
+[I started working some twenty years ago](/from-stained-glass-master-to-software-developer/), and I feel I need to plan - albeit very loosely - for the future. Building software is still very new to me. I want to keep working at it for some time. But I don’t know how to make this job grow with me.
 
 <figure>
-  <img class='regular box-shadowed' src="{{ site.baseurl }}/media/2023/12/growing-old-as-a-developer-remi-mercier-toot.png" alt="a screenshot of a Mastodon toot with me asking: I've been wondering a lot about aging in software development. Any > 40-year old developers out there that'd like to share their perspective? How did you grow (technically, managing, etc...)? Picked up fields over others (embeded systems over web app, for instance)?">
+  <img src="/assets/media/2023/12/growing-old-as-a-developer-remi-mercier-toot.png" alt="a screenshot of a Mastodon toot with me asking: I've been wondering a lot about aging in software development. Any > 40-year old developers out there that'd like to share their perspective? How did you grow (technically, managing, etc...)? Picked up fields over others (embeded systems over web app, for instance)?">
 </figure>
 
 I shared my angst with folks on Mastodon. Turns out, there is a handful (*\*cough\**) of older programmers. Many were kind enough to share their experience publicly.
@@ -173,7 +171,7 @@ Fifty languages! 0_o
   <cite><a href="https://mastodon.cloud/users/danielaKay/statuses/111280663993682152" target="_blank">link</a></cite>
 </blockquote>
 
-Yes! No gatekeeping, no [Real Programming™ BS]({{site.baseurl}}/own-your-story/).
+Yes! No gatekeeping, no [Real Programming™ BS](/own-your-story/).
 
 <blockquote class="toot">
   <div class="vertically-centered avatar">

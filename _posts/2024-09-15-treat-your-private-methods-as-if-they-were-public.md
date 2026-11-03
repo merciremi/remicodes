@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
 title: "What if your private method was a public method? A practical tip to identify bad design"
-excerpt: Where I share a badly designed piece of code, think about what process I can use to reveal its flaws, and how to make it better.
 date: 2024-09-16
+tags: [ruby]
 permalink: /private-methods-public-methods/
-categories: [ruby]
-cover_image: "/media/2024/09/remi-mercier-private-methods-public-methods.png"
+excerpt: "Where I share a badly designed piece of code, think about what process I can use to reveal its flaws, and how to make it better."
 ---
 
 Today, we're going to review a badly designed piece of code I once wrote, and think about a practical tip we can use to reveal its flaws, and how to make it better.
@@ -15,7 +13,7 @@ Let’s consider the following:
 
 A `lender`  can lend an object to a `borrower` through a `rental`. At the end of the rental, we need to know the transactions related to a rental: where should we debit the money, and where should we credit it?
 
-{% highlight ruby %}
+```ruby
   class Rental
     def initialize
       @transactions = []
@@ -40,7 +38,8 @@ A `lender`  can lend an object to a `borrower` through a `rental`. At the end of
       @transactions << Transaction.new(:platform, :credit, 30)
     end
   end
-{% endhighlight %}
+```
+
 
 Let's break down the steps:
 
@@ -58,7 +57,7 @@ Here's a methodology trick to help you uncover the code smell:
 
 > What would happen if we made `Rental#debit_transactions` public instead of private?
 
-{% highlight ruby %}
+```ruby
   class Rental
     def initialize
       @transactions = []
@@ -83,11 +82,12 @@ Here's a methodology trick to help you uncover the code smell:
       @transactions << Transaction.new(:platform, :credit, 30)
     end
   end
-{% endhighlight %}
+```
+
 
 Now that `Rental#debit_transactions` is part of the public interface of `Rental` - which would make sense - what happens if our application calls `debit_transactions` before it calls `transactions`?
 
-{% highlight ruby %}
+```ruby
   rental_01 = Rental.new
   rental_02 = Rental.new
 
@@ -112,7 +112,8 @@ Now that `Rental#debit_transactions` is part of the public interface of `Rental`
   #    ]
 
   # oops
-{% endhighlight %}
+```
+
 
 Let's break it down:
 - Calling `debit_transactions` populate the instance variable `@transactions`.
@@ -133,7 +134,7 @@ First, we need to ensure that `debit_transactions` and `credit_transactions` hav
 
 Instead of filling up `@transactions`, they'll both return an array, each populated with its own type of transactions.
 
-{% highlight ruby %}
+```ruby
   class Rental
     # ...
 
@@ -150,13 +151,14 @@ Instead of filling up `@transactions`, they'll both return an array, each popula
       ]
     end
   end
-{% endhighlight %}
+```
+
 
 Then, `transactions` will only focus on concatenating the return values from `debit_transactions` and `credit_transactions`, and assign it to the instance variable `@transactions`.
 
 I've added a touch of memoization to prevent the recalculation of all transactions, and avoid appending duplicated transactions to our instance variable (the initial problem stated that transactions would only be computed at the very end of the rental lifecyle).
 
-{% highlight ruby %}
+```ruby
   class Rental
     def transactions
       @transactions ||= debit_transactions + credit_transactions
@@ -177,7 +179,8 @@ I've added a touch of memoization to prevent the recalculation of all transactio
       ]
     end
   end
-{% endhighlight %}
+```
+
 
 That’s much better!
 

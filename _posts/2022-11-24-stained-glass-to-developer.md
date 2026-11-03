@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
 title: "From stained-glass master to software engineer: it starts with a mess"
-excerpt: "Changing careers is a long, often-overlooked process. But I want to share both the (linear) story and the (messy) history of how I became a software engineer. And as a lot of good stories, mine always starts with a lie."
 date: 2022-11-24
+tags: [career]
 permalink: /from-stained-glass-master-to-software-developer/
-categories: [career]
-cover_image: '/media/2022/11/from-stained-glass-master-to-software-engineer-part-1-remi-mercier.png'
+excerpt: "Changing careers is a long, often-overlooked process. But I want to share both the (linear) story and the (messy) history of how I became a software engineer. And as a lot of good stories, mine always starts with a lie."
 ---
 
 I often tell the story of how I became a software engineer.
@@ -85,17 +83,17 @@ The history - not the story - of my becoming a developer sounds more like a 10-y
 
 My history is a succession of doubts, weird changes, veering off paths, circling back, being stuck in boring jobs, etc. There's no linearity. It's hard to explain, and it's hard to grasp.
 
-<img class='large' src="{{ site.baseurl }}/media/2022/11/remi-mercier-from-stained-glass-master-to-software-engineer-story-versus-history.png" alt="a drawing showing the difference in linearity between a story and the life it's based on">
+<img src="/assets/media/2022/11/remi-mercier-from-stained-glass-master-to-software-engineer-story-versus-history.png" alt="a drawing showing the difference in linearity between a story and the life it's based on">
 
 Does it make me a lesser professional? Not at all. I **know** these experiences give me an uncanny number of edges in my day-to-day practice.
 
 Once, my team asked me to draw a proposal for a classification for error codes for technical and non-technical people. Thanks to my time as a librarian, I was able to propose a first draft based on enumerative and faceted library classifications [^1].
 
-Marketing has helped me [promote my work]({{site.baseurl}}/series/career/), get better opportunities, and make complex topics more understandable to people.
+Marketing has helped me [promote my work](/topics/career/), get better opportunities, and make complex topics more understandable to people.
 
 All these experiences are valid. But to make other people see them as such, I learned I had to share them in a timely manner.
 
-That's why I select the most relevant experiences and [create a story]({{site.baseurl}}/own-your-story/) that people can grasp in two minutes. Because where I come from is not that important. It's just a way for people to validate that [I'm not a complete fluke]({{site.baseurl}}/dont-sell-yourself-short/). A linear story is a story quickly out of the way. It leaves room for more relevant topics like your technical abilities, people skills, and achievements.
+That's why I select the most relevant experiences and [create a story](/own-your-story/) that people can grasp in two minutes. Because where I come from is not that important. It's just a way for people to validate that [I'm not a complete fluke](/dont-sell-yourself-short/). A linear story is a story quickly out of the way. It leaves room for more relevant topics like your technical abilities, people skills, and achievements.
 
 ## Thinking change is possible takes time.
 

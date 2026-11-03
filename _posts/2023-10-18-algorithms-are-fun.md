@@ -1,12 +1,11 @@
 ---
-toc: true
 layout: post
 title: Algorithms are fun... I guess?
 excerpt: "Something happened to me last week I didn't expect: I enjoyed working my way through algorithms. You may find me overly dramatic, but remember, I'm from the art world. Algorithm is a fancy term to describe the act of painting rectangles of colour in a specific pattern."
 date: 2023-10-18
+tags: [career]
 permalink: /algorithms-are-fun/
-categories: [other]
-cover_image: '/media/2023/10/algorithms-are-fun-remi-mercier.png'
+image: '/assets/media/2023/10/algorithms-are-fun-remi-mercier.png'
 ---
 
 Something happened to me last week I didn't expect: I enjoyed working my way through algorithms.
@@ -60,4 +59,4 @@ Cheers,
 
 Rémi - [@remi@ruby.social](https://ruby.social/@remi)
 
-ps: The third part on this mini-series, [Technical tests in 2023: were they any good?]({{site.baseurl}}/technical-tests-in-2023/), is live.
+ps: The third part on this mini-series, [Technical tests in 2023: were they any good?](/technical-tests-in-2023/), is live.

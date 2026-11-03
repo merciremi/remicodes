@@ -1,54 +1,48 @@
 ---
-layout: home
+layout: default
+title: Rémi Mercier - Freelance Software Developer
+permalink: /
+portrait: /assets/media/remi-mercier.jpg
 ---
 
-<article class="page home">
-  <section class="home--hero">
-    <div class="home--hero-text">
-      <h1 class="letter-spacing-0.5">
-        <span class="text-lg">Hey, I’m <a href="https://ruby.social/@remi" target="_blank">@remi</a></span><span class="header--cursor text-monospaced text-md light-gray"> ░</span><br>
-        I'm a software engineer helping tech companies build <a href="{{site.baseurl}}/work/"><span class="color-shuffle"><span class="word"><span>c</span><span>o</span><span>o</span><span>l</span></span> <span class="word"><span>s</span><span>t</span><span>u</span><span>f</span><span>f</span></span> <span class="word"><span>o</span><span>n</span></span> <span class="word"><span>t</span><span>h</span><span>e</span></span> <span class="word"><span>i</span><span>n</span><span>t</span><span>e</span><span>r</span><span>n</span><span>e</span><span>t</span></span></span></a>.
-      </h1>
+<section class="mb-6">
+  <div class="hero">
+  <div class="polaroid"><img src="{{ page.portrait }}" alt="Rémi Mercier" width="120" height="120"></div>
+  <h1>
+    <span class="t-h3">Hey, I'm @remi.</span>
+    <br>
+    I'm a software engineer helping tech companies <a href="{{ '/work/' | relative_url }}" class="rainbow-hover"><span class="visually-hidden">build cool stuff on the internet</span><span aria-hidden="true"><span class="letter" style="--i:0">b</span><span class="letter" style="--i:1">u</span><span class="letter" style="--i:2">i</span><span class="letter" style="--i:3">l</span><span class="letter" style="--i:4">d</span> <span class="letter" style="--i:5">c</span><span class="letter" style="--i:6">o</span><span class="letter" style="--i:7">o</span><span class="letter" style="--i:8">l</span> <span class="letter" style="--i:9">s</span><span class="letter" style="--i:10">t</span><span class="letter" style="--i:11">u</span><span class="letter" style="--i:12">f</span><span class="letter" style="--i:13">f</span> <span class="letter" style="--i:14">o</span><span class="letter" style="--i:15">n</span> <span class="letter" style="--i:16">t</span><span class="letter" style="--i:17">h</span><span class="letter" style="--i:18">e</span> <span class="letter" style="--i:19">i</span><span class="letter" style="--i:20">n</span><span class="letter" style="--i:21">t</span><span class="letter" style="--i:22">e</span><span class="letter" style="--i:23">r</span><span class="letter" style="--i:24">n</span><span class="letter" style="--i:25">e</span><span class="letter" style="--i:26">t</span></span></a>.
+  </h1>
+  </div>
 
-      <div class="home--hero-secondary-text">
-        <p>Welcome to my corner of the internet. This is where I share what I've learned while building software over the past 10 years. You can read about building reliable <a href="{{site.baseurl}}/series/ruby/">Ruby</a> and <a href="{{site.baseurl}}/series/rails/">Rails</a> applications, about <a href="{{site.baseurl}}/series/rspec/">testing</a> and <a href="{{site.baseurl}}/series/career/">career growth</a>, or browse the <a href="{{site.baseurl}}/blog/">full archive.</a></p>
+  <p>
+    Welcome to my corner of the internet.
+    This is where I share what I've learned while building software over the past 10 years.
+    You can read about building reliable <a href="{{ '/topics/ruby/' | relative_url }}">Ruby</a> and <a href="{{ '/topics/rails/' | relative_url }}">Rails applications</a>, about <a href="{{ '/topics/testing/' | relative_url }}">testing</a> and <a href="{{ '/topics/career/' | relative_url }}">career growth</a>, or you can browse the <a href="{{ '/blog/' | relative_url }}">full archive</a>.
+  </p>
+</section>
 
-        <p>Follow along if you wanna know more about <a href="{{site.baseurl}}/about/">me</a> or <a href="{{site.baseurl}}/now/">what I’m doing at the moment</a>.</p>
-      </div>
-    </div>
-    <div class="home--hero-placeholder">
-      <div class="card--folded">
-        <h3><mark>Can't keep up with your roadmap?</mark></h3>
-        <p>
-          Features piling up faster than you can ship them?
-          Database buckling under load?
-          Not sure whether to trust AI with your codebase?
-        </p>
-        <p>I hear you. So many fires, so little time to put them out.</p>
-        <p>Let me take some of that off your plate:
-           <a href="/work">I help small and mid-sized teams build Rails apps that make millions of users (and their CFO) happy.</a></p>
-        <p>Let's talk,</p>
-        <p><img src="{{ site.baseurl }}/media/shared/remi-signature.png" width="50"/></p>
+{% assign en_posts = site.posts | where_exp: "p", "p.lang != 'fr'" %}
+<section class="mb-6 border-t">
+  <div class="row wrap justify-between">
+    <h2 class="t-h2 mb-3">Hot from the press</h2>
+    <a href="{{ '/blog/' | relative_url }}" class="link-meta">All {{ en_posts.size }} articles &rarr;</a>
+  </div>
 
-      </div>
-    </div>
-  </section>
+  <ul class="list-slim post-list post-list--lg mb-4">
+    {% for post in en_posts limit: 6 %}
+    {% include post-row.html post=post size="lg" %}
+    {% endfor %}
+  </ul>
+</section>
 
-  <section class="home--latest">
-    <div class="home--latest-post">
-      <h2>Hot from the press</h2>
-      <ul class="latest--list">
-        {% assign latest_posts = site.posts | where_exp: "post", "post.lang != 'fr'" %}
-        {% for post in latest_posts limit: 5 %}
-          <li>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            <time datetime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-          </li>
-        {% endfor %}
-      </ul>
-      <a href="{{ site.baseurl }}/blog" class="read-more">See all essays →</a>
-    </div>
-  </section>
-</article>
+<section class="mb-6 border-t">
+  <h2 class="t-h2 mb-3">Can't keep up with your roadmap? Let's talk.</h2>
+  <p class="mb-4">I help small to mid-sized teams build Rails apps that <mark>generate 6-figure revenues</mark> and <mark>make tens of millions of users happy</mark>.</p>
+  {% include client-logos.html class="mt-5 mb-5" %}
+  <div class="row wrap items-center mt-5">
+    <a href="{{ '/work/' | relative_url }}" class="btn-accent">How I can help &rarr;</a>
+  </div>
+</section>
 
-<script src="{{ site.baseurl }}/javascript/color-shuffle.js"></script>
+{% include newsletter-form.html id="home" %}

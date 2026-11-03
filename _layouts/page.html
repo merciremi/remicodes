@@ -1,27 +1,11 @@
 ---
 layout: default
 ---
-
-<article class="page">
-  <section class="page--title">
-    {% if page.hide_title != true %}
-      <h1>{{ page.title }}</h1>
-    {% endif %}
-  </section>
-  <section class="page--body">
-    {{ content }}
-  </section>
+<article class="page-prose">
+  {% if page.kicker %}<p class="t-label mb-2">{{ page.kicker }}</p>{% endif %}
+  <h1>{{ page.title }}</h1>
+  {{ content }}
+  {% if page.show_newsletter %}
+  {% include newsletter-form.html id="page" %}
+  {% endif %}
 </article>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "{{ site.url }}{{ page.url }}#webpage",
-  "name": "{{ page.title | escape }}",
-  "url": "{{ site.url }}{{ page.url }}",
-  "author": {
-    "@id": "{{ site.url }}/#person"
-  }
-}
-</script>

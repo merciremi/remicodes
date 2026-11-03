@@ -1,0 +1,29 @@
+---
+layout: default
+footer_variant: index
+---
+{%- assign topic = site.topics | where: "slug", page.tag | first -%}
+{%- assign topic_posts = site.posts | where_exp: "p", "p.tags contains page.tag" -%}
+{%- if topic.order == "oldest" -%}
+  {%- assign topic_posts = topic_posts | sort: "date" -%}
+{%- endif -%}
+<div class="mb-6">
+  <h1 class="topic-title"><a href="{{ '/blog/' | relative_url }}" class="link-quiet">Topics</a> <span class="sep">/</span> <span class="name">{{ topic.name }}</span></h1>
+  <div>{{ content }}</div>
+</div>
+
+{% assign posts_by_year = topic_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for group in posts_by_year %}
+<section class="year">
+  <div class="year__head">
+    <h2>{{ group.name }}</h2>
+  </div>
+  <ul class="list-slim post-list">
+    {% for post in group.items %}
+    {% include post-row.html post=post size="default" %}
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+
+{% include newsletter-form.html id="topic" %}

@@ -1,0 +1,27 @@
+---
+layout: default
+title: Notes
+redirect_from: /fragments/
+excerpt: "Notes are works in progress, rough thoughts, and early drafts that might end up as fully fledged posts."
+---
+
+<div class="mb-6">
+  <h1>Notes</h1>
+  <p>WIPs, thoughts and early drafts.</p>
+</div>
+
+{% assign notes_by_year = site.notes | sort: "date" | reverse | group_by_exp: "note", "note.date | date: '%Y'" %}
+{% for group in notes_by_year %}
+<section class="year">
+  <div class="year__head">
+    <h2>{{ group.name }}</h2>
+  </div>
+  <ul class="list-slim post-list post-list--notes">
+    {% for note in group.items %}
+    {% include post-row.html post=note size="default" %}
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+
+{% include newsletter-form.html id="notes" %}

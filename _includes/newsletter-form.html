@@ -1,0 +1,21 @@
+{%- assign field_id = include.id | default: "default" -%}
+<section class="newsletter mt-1">
+  <div class="newsletter__text stack">
+    <p class="t-h2">Join +400 developers from around the world and become a pen pal. ✌🏻</p>
+    <p class="t-body">Each month (well, kind of), get my latest essays about building software that sparks joy.</p>
+  </div>
+  <form action="https://remimercier.us18.list-manage.com/subscribe/post?u=73774ffb65bb733533be2d97e&amp;id=0ae611543f"
+        method="post"
+        id="mc-embedded-subscribe-form-{{ field_id }}"
+        name="mc-embedded-subscribe-form"
+        class="validate"
+        target="_blank"
+        rel="noopener"
+        novalidate>
+    <label class="visually-hidden" for="mce-EMAIL-{{ field_id }}">Email address</label>
+    <input type="email" value="" name="EMAIL" placeholder="Enter your email" class="required email" id="mce-EMAIL-{{ field_id }}" autocomplete="email" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div class="honeypot" aria-hidden="true"><input type="text" name="b_73774ffb65bb733533be2d97e_0ae611543f" tabindex="-1" value=""></div>
+    <button type="submit" name="subscribe" id="mc-embedded-subscribe-{{ field_id }}">Subscribe</button>
+  </form>
+</section>

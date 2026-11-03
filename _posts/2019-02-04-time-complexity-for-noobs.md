@@ -1,9 +1,8 @@
 ---
-toc: true
 layout: post
 title: WTF is time complexity? 🤔
+tags: [ruby]
 excerpt: People who learn web development through coding bootcamp aren't (usually) familiar with time complexity. They might have read the words, but that's it. I know I tried to look up the Wikipedia page only to fall asleep at the end of the first paragraph. When I finally woke up, I thought "Nevermind, I'll never have to deal with it anyway". And boy, was I wrong.
-categories: [other]
 permalink: /wtf-time-complexity/
 ---
 
@@ -35,11 +34,11 @@ Say you get an array of 10,000 random integers, positive and negative. You want 
 
 Here's a first solution:
 
-{% highlight ruby%}
+```ruby
   def find_pairs(array, sum)
     array.repeated_combination(2).find_all { |a, b| a + b == sum }.uniq
   end
-{% endhighlight %}
+```
 
 Let's break it down:
 - `repeated_combination(2)` generates an enumerator containing all repeated pairs of integers from the 10,000 array (roughly 50,000,000 elements 😱).
@@ -52,9 +51,9 @@ We'll benchmark our code with [benchmark-ips](https://github.com/evanphx/benchma
 
 To add `benchmark-ips`, first run:
 
-{% highlight zsh %}
+```zsh
   gem install benchmark-ips
-{% endhighlight %}
+```
 
 Then add the benchmark to your code. Here, I'll run my `find_pairs(array, sum)` with four different inputs:
 - a 10-integer array
@@ -62,7 +61,7 @@ Then add the benchmark to your code. Here, I'll run my `find_pairs(array, sum)` 
 - a 1,000-integer array
 - a 10,000-integer array
 
-{% highlight ruby%}
+```ruby
   require 'benchmark/ips'
 
   def find_pairs(array, sum)
@@ -104,11 +103,11 @@ Then add the benchmark to your code. Here, I'll run my `find_pairs(array, sum)` 
 
     x.compare!
   end
-{% endhighlight %}
+```
 
 Here's the output:
 
-{% highlight zsh %}
+```zsh
   Warming up --------------------------------------
   find pairs in 10-integer array
                           10.685k i/100ms
@@ -133,7 +132,7 @@ Here's the output:
   find pairs in 100-integer array:     1388.0 i/s - 81.22x  slower
   find pairs in 1000-integer array:       14.2 i/s - 7934.72x  slower
   find pairs in 10_000-integer array:        0.1 i/s - 816360.51x  slower
-{% endhighlight %}
+```
 
 😓 As you can see, it takes my code 80x longer to run between a 10-integer array and a 100-integer array. But then, it takes 100x longer between the 100-integer array and the 1,000-integer array. And 100x longer between the 1,000-integer array and the 10,000-integer array.
 
@@ -170,23 +169,23 @@ If you want to get a more in-depth explanation, go and check [A Rubyist's Guide 
 
 Remember that?
 
-{% highlight ruby%}
+```ruby
   def find_pairs(array, sum)
     array.repeated_combination(2).find_all { |a, b| a + b == sum }.uniq
   end
-{% endhighlight %}
+```
 
 To calculate the time complexity of a piece of code, you just define the time complexity of each element, and the worst bit wins. So let's break down `find_pairs()` and see what's going on under the hood.
 
 #### ☝️ First, let's create a 4-integer array
 
-{% highlight ruby %}
+```ruby
   array = Array.new(4) { rand(-10...20) } # => [-6, 4, 14, 3]
-{% endhighlight %}
+```
 
 #### ✌️ Then, let's define a method `find_pairs()` and call `repeated_combination(2)` on the array to create pairs
 
-{% highlight ruby %}
+```ruby
   array = Array.new(4) { rand(-10...20) } # => [-6, 4, 14, 3]
 
   def find_pairs(array, sum)
@@ -196,7 +195,7 @@ To calculate the time complexity of a piece of code, you just define the time co
 
   # I add a to_a to transform my enumerator into an array for readability reasons
   find_pairs(array, 8).to_a # => [[-6, -6], [-6, 4], [-6, 14], [-6, 3], [4, 4], [4, 14], [4, 3], [14, 14], [14, 3], [3, 3]]
-{% endhighlight %}
+```
 
 Let's stop there for a moment. `repeated_combination(2)` iterates over each element in `array` and pair it with each element of `array`. `repeated_combination(2)` creates a nested-loop.
 
@@ -206,7 +205,7 @@ A loop inside a loop? 👉 The time complexity of this method is `0(n^2)`.
 
 #### ☝️✌️ Now let's `find_all` pairs whose integers sum to a given number.
 
-{% highlight ruby %}
+```ruby
   array = Array.new(4) { rand(-10...20) } # => [-6, 4, 14, 3]
 
   def find_pairs(array, sum)
@@ -214,7 +213,7 @@ A loop inside a loop? 👉 The time complexity of this method is `0(n^2)`.
   end
 
   find_pairs(array, 8) # => [[-6, 14], [4, 4]]
-{% endhighlight %}
+```
 
 `find_all` iterates over the enumerator returned by `repeated_combination(2)` and checks for pairs that match the block.
 
@@ -222,7 +221,7 @@ A single loop means `0(n)`. Since `0(n)` is much faster than the `O(n^2)` from `
 
 #### ✌️✌️ Finally, let's remove duplicates with `uniq`
 
-{% highlight ruby %}
+```ruby
   array = Array.new(4) { rand(-10...20) } # => [-6, 4, 14, 3]
 
   def find_pairs(array, sum)
@@ -230,7 +229,7 @@ A single loop means `0(n)`. Since `0(n)` is much faster than the `O(n^2)` from `
   end
 
   find_pairs(array, 8) # => [[-6, 14], [4, 4]]
-{% endhighlight %}
+```
 
 In this example, we don't have any duplicates. But when you run the algorithm on a 10,000-integer array, chances you'll have some.
 
@@ -252,7 +251,7 @@ This is where knowing the gist of time complexity comes in handy. If you know yo
 
 Instead of using some of Ruby's built-in methods, I'll use [Set](https://devdocs.io/ruby~2.5/set). Set creates a collection of unordered values without duplicates with fast lookup capabilities.
 
-{% highlight ruby %}
+```ruby
   require 'set'
 
   def find_pairs(array, sum)
@@ -268,7 +267,7 @@ Instead of using some of Ruby's built-in methods, I'll use [Set](https://devdocs
     end
     results
   end
-{% endhighlight %}
+```
 
 Let's break it down:
 - I create an empty Set to store `results`.
@@ -279,7 +278,7 @@ Let's break it down:
 
 Here's the benchmark for this new code:
 
-{% highlight zsh %}
+```zsh
   Warming up --------------------------------------
   find pairs in 10-integer array
                            8.171k i/100ms
@@ -304,7 +303,7 @@ Here's the benchmark for this new code:
   find pairs in 100-integer array:    14005.1 i/s - 5.72x  slower
   find pairs in 1000-integer array:     1539.6 i/s - 52.03x  slower
   find pairs in 10_000-integer array:      157.3 i/s - 509.13x  slower
-{% endhighlight %}
+```
 
 Much better! Now, my code only takes 10x longer to run when the input is multiplied by 10. Its time complexity has become linear (`0(n)`) and takes less than 0,006s to handle a 10,000-integer input 🥳.
 

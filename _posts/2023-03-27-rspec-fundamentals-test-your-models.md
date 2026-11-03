@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
-title: 'How to test your Rails models with RSpec'
-excerpt: "Today, I want to share how to test your Rails models with RSpec. Testing your models is a no-brainer strategy when building your applications. It gives you the confidence to make changes without regressions. We'll cover the fundamental testing strategies with RSpec's built-in features. And for fun, we'll check some extra tools to amp up your models' coverage."
+title: "How to test your Rails models with RSpec"
 date: 2023-03-20
+tags: [rspec, testing]
 permalink: /how-to-test-rails-models-with-rspec/
-categories: [rspec, testing]
-cover_image: '/media/2023/03/how-to-test-rails-models-with-rspec-remi-mercier.png'
+excerpt: "Today, I want to share how to test your Rails models with RSpec. Testing your models is a no-brainer strategy when building your applications. It gives you the confidence to make changes without regressions. We'll cover the fundamental testing strategies with RSpec's built-in features. And for fun, we'll check some extra tools to amp up your models' coverage."
 ---
 
 Today, I want to share __how to test Rails models with RSpec__. Testing your models is a no-brainer strategy when building your applications. It gives you the confidence to make changes without regressions.
@@ -15,13 +13,13 @@ We'll cover the fundamental testing strategies with RSpec's built-in features. A
 
 A note: I will not get into [which tests are considered pertinent](https://getaround.tech/non-deterministic-testing/){:target="\_blank"} and [which are not](https://www.codewithjason.com/different-kinds-rails-tests-use/){:target="\_blank"}. This makes for more advanced practice. Keep in mind those opinions exist.
 
-If you're unfamiliar with RSpec, please read the first two posts of my [series about RSpec fundamentals]({{site.baseurl}}/series/rspec/).
+If you're unfamiliar with RSpec, please read the first two posts of my [series about RSpec fundamentals](/topics/rspec/).
 
 ## A Rails model in need of some tests
 
 Let's use a classic example: a `User` model that handles data and behavior.
 
-{% highlight ruby %}
+```ruby
   # app/models/user.rb
 
   class User < ActiveRecord::Base
@@ -47,7 +45,8 @@ Let's use a classic example: a `User` model that handles data and behavior.
       last_name.capitalize
     end
   end
-{% endhighlight %}
+```
+
 
 This `User` model is composed of several elements:
 - an enum `gender` that associates genders with integers in our database,
@@ -73,7 +72,7 @@ Testing your models allows you to make sure you don't break your public API when
 
 Convinced? Great! Let's dive in.
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe User, type: :model do
@@ -83,7 +82,8 @@ Convinced? Great! Let's dive in.
       # to-do: test the output of the public method #full_name
     end
   end
-{% endhighlight %}
+```
+
 
 Whether I write my tests before or after writing my code, I like to ask myself these two questions:
 - <mark>What is the input?</mark>
@@ -95,7 +95,7 @@ Here, `full_name` takes an instance of `User` as an input. It then concatenates 
 
 First, we'll test our input.
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe User, type: :model do
@@ -107,13 +107,14 @@ First, we'll test our input.
       # to-do: test the output of the public method full_name
     end
   end
-{% endhighlight %}
+```
+
 
 Now, we have a subject `full_name` (_what I want to test_) and a `user` (_the input I'll check my behavior against_).
 
 Although my user input their first and last name with a weird case, my method should capitalize them.
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe User, type: :model do
@@ -127,7 +128,8 @@ Although my user input their first and last name with a weird case, my method sh
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Note how the formatting logic is nested in the concatenation. By testing `full_name`, we indirectly test our two private methods. One stone, three birds.
 
@@ -135,7 +137,7 @@ Note how the formatting logic is nested in the concatenation. By testing `full_n
 
 You might have guessed the answer from the previous example, but the short answer is __It Depends™__.
 
-<img class="box-shadowed regular" src="{{ site.baseurl }}/media/2023/03/it-depends.gif" alt="a gif showing cassidy williams saying it dpeends">
+<video src="/assets/media/2023/03/it-depends.mp4" width="480" height="360" autoplay loop muted playsinline aria-label="Cassidy Williams saying it depends"></video>
 
 A more comprehensive answer about __whether you should test your private methods__:
 
@@ -155,7 +157,7 @@ With scopes, we're getting into a greyish area.
 
 Testing scopes is an ongoing debate among programmers. [Some feel like scopes fall under the structure umbrella - like associations - and should not be tested](http://blog.davidchelimsky.net/blog/2012/02/12/validations-are-behavior-associations-are-structure/){:target="\_blank"}. Other feel scopes are behavior-driven. As I said before, I won't take a side today, but if you ever need to test scopes, here's how to do it.
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe User, type: :model do
@@ -171,13 +173,14 @@ Testing scopes is an ongoing debate among programmers. [Some feel like scopes fa
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Here, we test that the scope `by_gender` returns all users with a gender set at `female`. We expect our scope to return our user Buffy.
 
 Our test passes, but a question remains: what about users excluded by our scope? We should verify these are not returned.
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe User, type: :model do
@@ -197,7 +200,8 @@ Our test passes, but a question remains: what about users excluded by our scope?
       end
     end
   end
-{% endhighlight %}
+```
+
 
 What happened here is we didn't change the test, only the context. By adding a user that does not match the scope condition, we can check that:
 - Our scope returns the correct users.
@@ -207,7 +211,7 @@ What happened here is we didn't change the test, only the context. By adding a u
 
 Model-level validations are part of Rails' strategy to ensure your database integrity. Let me show you how to test your validations with RSpec's basic features.
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe User, type: :model do
@@ -227,7 +231,8 @@ Model-level validations are part of Rails' strategy to ensure your database inte
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Since we only have one validation, our tests are easy to write. If we had numerous validations, we'd have to add more `describe` blocks testing each validation.
 
@@ -241,7 +246,7 @@ One of Shoulda Matchers neat tricks is that you do not need to write any context
 
 Let me show you:
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe User, type: :model do
@@ -249,11 +254,12 @@ Let me show you:
       it { is_expected.to validate_inclusion_of(:gender) }
     end
   end
-{% endhighlight %}
+```
+
 
 Shoulda Matchers come with qualifiers allowing you to test the options of your models' structure. In our example, our validation checks the inclusion of the user's gender against a list.
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe User, type: :model do
@@ -261,13 +267,14 @@ Shoulda Matchers come with qualifiers allowing you to test the options of your m
       it { is_expected.to validate_inclusion_of(:gender).in_array(%i[gender_neutral non_binary male female other]) }
     end
   end
-{% endhighlight %}
+```
+
 
 Shoulda Matchers cover _a lot_ of functionalities: ActiveModel, ActiveRecord, ActionController, etc. Go and read the doc!
 
 Here are the Shoulda Matchers tests for our model:
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe User, type: :model do
@@ -285,7 +292,8 @@ Here are the Shoulda Matchers tests for our model:
       it { is_expected.to validate_inclusion_of(:gender).in_array(%i[gender_neutral non_binary male female other]) }
     end
   end
-{% endhighlight %}
+```
+
 
 Easy peasy!
 

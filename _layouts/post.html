@@ -1,79 +1,85 @@
 ---
 layout: default
 ---
+<article class="article">
+  <p class="t-label mb-2"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
 
-<article class="post" data-category="{{ page.categories[0] | downcase }}">
+  <h1>{{ page.title }}</h1>
 
-  <aside class="post--sidebar s-down-hidden">
-    <div class="aside--sticky">
-      <div class="aside--toc">
-        <h5 class="">Chapters</h5>
-        <div class="text-sm">{{ content | toc_only }}</div>
-      </div>
-
-      <div class="aside--newsletter">
-        {% include newsletter_mailchimp.html %}
-      </div>
-    </div>
-  </aside>
-
-  <div class="post--main">
-    <section class="post--title">
-      <h1 class="mt-0">{{ page.title }}</h1>
-      {% unless page.lang == 'fr' %}
-        {% include breadcrumbs.html %}
-      {% endunless %}
-    </section>
-
-    <section class="post--content">
-      {{ content | inject_anchors }}
-    </section>
+  <div class="tags">
+    {% for tag in page.tags %}
+    {%- assign tag_entry = site.topics | where: "slug", tag | first -%}
+    {%- assign tag_name = tag_entry.name | default: tag -%}
+    {%- assign tag_href = tag | prepend: "/topics/" | append: "/" -%}
+    {% include pill.html href=tag_href text=tag_name kind="cat" cat=tag %}
+    {% endfor %}
   </div>
-</article>
 
+  {% include toc.html %}
 
+  {{ content | heading_anchors }}
 
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "@id": "{{ site.url }}{{ page.url }}#blogposting",
-    "headline": "{{ page.title | escape }}",
-    "description": "{{ page.excerpt | strip_html | truncate: 200 | escape }}",
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    {% if page.last_modified_at %}
-    "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
-    {% else %}
-    "dateModified": "{{ page.date | date_to_xmlschema }}",
-    {% endif %}
-    "author": {
-      "@id": "{{ site.url }}/#person"
-    },
-    "publisher": {
-      "@id": "{{ site.url }}/#person"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "{{ site.url }}{{ page.url }}"
+  {%- if content contains "<video" %}
+  <script>
+    // Looping clips autoplay like GIFs; with reduced motion, stop them and let readers play them.
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll(".article video[autoplay]").forEach((video) => {
+        video.pause();
+        video.removeAttribute("autoplay");
+        video.controls = true;
+      });
     }
-    {% if page.categories %},
-    "keywords": [{% for cat in page.categories %}"{{ cat }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]
+  </script>
+  {%- endif %}
+
+  {%- comment -%} Previous/next entries of the same collection (posts or notes) by date, oldest first. {%- endcomment -%}
+  {% assign primary_tag = page.tags.first %}
+  {% assign siblings = site[page.collection] %}
+  {% assign dated_posts = siblings | sort: "date" %}
+  {% assign prev_post = nil %}
+  {% assign next_post = nil %}
+  {% assign found = false %}
+  {% for p in dated_posts %}
+    {% if found %}
+      {% assign next_post = p %}
+      {% break %}
     {% endif %}
-  }
-</script>
+    {% if p.url == page.url %}
+      {% assign found = true %}
+    {% else %}
+      {% assign prev_post = p %}
+    {% endif %}
+  {% endfor %}
+  {% if prev_post or next_post %}
+  <nav class="post-nav" aria-label="Previous and next posts">
+    {% if prev_post %}
+    <a href="{{ prev_post.url | relative_url }}">
+      <span class="label">&larr; Previous</span>
+      <span class="title">{{ prev_post.title }}</span>
+    </a>
+    {% else %}<span></span>{% endif %}
+    {% if next_post %}
+    <a href="{{ next_post.url | relative_url }}" class="next">
+      <span class="label">Next &rarr;</span>
+      <span class="title">{{ next_post.title }}</span>
+    </a>
+    {% else %}<span></span>{% endif %}
+  </nav>
+  {% endif %}
 
-<script>
-  const headings = document.querySelectorAll('.post--content h2[id], .post--content h3[id]');
-  const tocLinks = document.querySelectorAll('.aside--toc a');
+  {% assign prev_url = prev_post.url | default: "" %}
+  {% assign next_url = next_post.url | default: "" %}
+  {% assign related = siblings | sort: "date" | reverse | where_exp: "p", "p.tags.first == primary_tag" | where_exp: "p", "p.url != page.url" | where_exp: "p", "p.url != prev_url" | where_exp: "p", "p.url != next_url" | slice: 0, 3 %}
+  {% if related.size > 0 %}
+  <section class="mt-4 mb-6 border-t" aria-labelledby="related-heading">
+    <h2 id="related-heading" class="t-h4 mb-3">Related</h2>
+    <ul class="list-slim post-list post-list--related">
+      {% for post in related %}
+      {% include post-row.html post=post size="related" %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      tocLinks.forEach(link => link.closest('li').classList.remove('toc--active'));
-      const active = document.querySelector(`.aside--toc a[href="#${entry.target.id}"]`);
-      if (active) active.closest('li').classList.add('toc--active');
-    });
-  }, { rootMargin: '0px 0px -70% 0px' });
-
-  headings.forEach(h => observer.observe(h));
-</script>
+  {% include newsletter-form.html id="post" %}
+</article>

@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
 title: "An Introduction to Ruby classes and objects"
-date:   2019-11-18
-excerpt: "When you start learning Ruby, you often hear that everything is - or evaluates as - an object. Here's an introduction for developers who want to get the gist of objects and classes in Ruby."
-categories: [ruby]
+date: 2019-11-18
+tags: [ruby]
 permalink: /beginners-introduction-to-ruby-classes-objects/
-cover_image: /media/2019/remi-mercier-objects-classes-ruby-004.jpeg
+excerpt: "When you start learning Ruby, you often hear that everything is - or evaluates as - an object. Here's an introduction for developers who want to get the gist of objects and classes in Ruby."
 ---
 
 When you start learning Ruby, you often hear that everything is - or evaluates as - an object. And you're usually like "🤔 Come again"?
@@ -26,7 +24,7 @@ Some types of data:
 - `👶` is a baby.
 - `[]` is an empty array.
 
-<img class='large' src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-001.jpeg" alt="a schema explaining how different babies are different objects in real life, yet sharing common data types and behaviors">
+<img src="/assets/media/2019/remi-mercier-objects-classes-ruby-001.jpeg" alt="a schema explaining how different babies are different objects in real life, yet sharing common data types and behaviors">
 
 Easy right?
 
@@ -42,15 +40,16 @@ But `1` and `5` are both integers, so Ruby assign them the same class - the `Int
 
 The `Integer` class holds a specific set of methods every integer can call. Developers can then expect common patterns for different objects described by the same class.
 
-{% highlight ruby %}
+```ruby
   # For instance, the + method is defined in the Integer class.
   # It instantiates and returns a new integer summing the previous ones.
   1 + 5 # => 6
-{% endhighlight %}
+```
+
 
 Let's call the method `.class` on some objects to check their Ruby class.
 
-{% highlight ruby %}
+```ruby
   'Hello there'.class      # => String
   [1, 2, 3].class          # => Array
   true.class               # => TrueClass
@@ -58,7 +57,8 @@ Let's call the method `.class` on some objects to check their Ruby class.
   # It even works with your own classes
   Wood = Struct.new(:species)
   Wood.new('mapple').class # => Wood
-{% endhighlight %}
+```
+
 
 ## Classes as blueprints
 
@@ -68,7 +68,7 @@ Let's create a blueprint for babies. Here's what our `Baby` class needs:
 - Some data to begin with: a DNA hash should do the trick.
 - Some basics behaviours and capabilities.
 
-{% highlight ruby %}
+```ruby
 
 class Baby
   # accessor
@@ -95,7 +95,8 @@ class Baby
     @hungry || @dirty
   end
 end
-{% endhighlight %}
+```
+
 
 Here, I now have a blueprint for babies. It's pretty limited but here's what it does:
 - When new babies are conceived, they receive a mix of information - their DNA -, and they're both hungry and clean.
@@ -105,7 +106,7 @@ Here, I now have a blueprint for babies. It's pretty limited but here's what it 
 
 A baby is an "object" whose information and behaviors are specified by a class. Different babies are different "objects" but they all share the same set of basic capabilities.
 
-<img class='large' src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-002.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class">
+<img src="/assets/media/2019/remi-mercier-objects-classes-ruby-002.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class">
 
 Let's recap:
 
@@ -120,26 +121,28 @@ Yes, I know, it seems like I'm in for the tautology of the year. And yet, differ
 
 Let's take an example with the method `inspect` which returns a human-readable representation of the object. We'll make a new baby [^1] and print her information in my console.
 
-{% highlight irb %}
+```irb
   baby = Baby.new({possible_hair_colors: ['brownish', 'pale blonde', 'a pinch of redhead']})
   baby.inspect
 
   "#<Baby:0x00007ff2934b3150 @dirty=false, @hungry=true>"
-{% endhighlight %}
+```
+
 
 But how can `inspect` returns anything at all since it's not defined in my `Baby` class?  If it's not defined in `Baby` then, where is it?
 
 To find out and pull on the thread, let's get back to our console.
 
-{% highlight irb %}
+```irb
   self.inspect                             # => "main"
 
   self.class.inspect                       # => "Object"
 
   Object.public_methods.include? :inspect  # => true
-{% endhighlight %}
+```
 
-What have I just done? I've inspected [the current context]({{site.baseurl}}/your-new-friend-self/) - `self` - in which I am when I open my console. The current context is the `main` object. And in Ruby, the `main` object is represented by the class `Object`. Still with me?
+
+What have I just done? I've inspected [the current context](/your-new-friend-self/) - `self` - in which I am when I open my console. The current context is the `main` object. And in Ruby, the `main` object is represented by the class `Object`. Still with me?
 
 Forget about Ruby and web development for a second. Consider this `main` object as the mother of all objects. Every object is unique, yet they all share common patterns. For instance, they can be inspected, analyzed, etc. You can inspect integers, trees, strings, and babies all the same. Nothing stops you to submit any object to your scrutiny.
 
@@ -154,7 +157,7 @@ Well, that's the same in Ruby. Any object can be inspected. It's a common behavi
 
 It allows Ruby to define methods at appropriate levels of abstraction.
 
-<img class='large' src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-003.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class which inherits from the root Object class">
+<img src="/assets/media/2019/remi-mercier-objects-classes-ruby-003.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class which inherits from the root Object class">
 
 You can dig deeper and check the full inheritance chain by running `Object.ancestors` in your console. For those who want the TL;DR, `Object` inherits from `BasicObject` and mixes in `Kernel`'s methods (like the `p` method, we junior developers use everywhere to debug our code).
 
@@ -174,9 +177,10 @@ When you think about it, classes are nothing more than objects. If `'Hello there
 
 `Class` inherits from `Object` but also defines some pretty common methods. Let's see:
 
-{% highlight irb %}
+```irb
   Class.public_methods.include? :new # => true
-{% endhighlight %}
+```
+
 
 Every time you're calling `#new` on a class you want to instantiate, you're using an instance method of the `Class` class.  Wait, what? <mark>If `#new` is an instance method of `Class` and if I can call it on my own `Baby` class too, it means that all classes are instances of the `Class` class?</mark>
 
@@ -184,7 +188,7 @@ That's right my friend!
 
 As an instance method of `Class`, `#new` is accessible by all instances of `Class` like our `Baby` class.
 
-<img class='large' src="{{ site.baseurl }}/media/2019/remi-mercier-objects-classes-ruby-004.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class, which inherits from the root Object class, but also benefits from the Class class instance methods">
+<img src="/assets/media/2019/remi-mercier-objects-classes-ruby-004.jpeg" alt="a schema explaining how babies common data types and behaviors can be modeled through a Ruby class, which inherits from the root Object class, but also benefits from the Class class instance methods">
 
 My `Baby` class does not have a `#new` method. And yet, I can create new babies with `Baby.new(dna)`. It's because all classes - `String`, `Integer`, `Baby`, etc - inherit from `Class`.
 
@@ -192,21 +196,23 @@ Let me show you how it works when you define a class in your code.
 
 Writing :
 
-{% highlight ruby %}
+```ruby
   class Baby
     # some stuff
   end
 
   baby = Baby.new
-{% endhighlight %}
+```
+
 
 is the same as:
 
-{% highlight ruby %}
+```ruby
   Baby = Class.new
 
   baby = Baby.new
-{% endhighlight %}
+```
+
 
 So if `Baby` and `Class` are both classes, they're both instances of the `Class` class? Yep. `Class.class` returns `Class`. It's recursive.
 
@@ -218,7 +224,7 @@ Let's wrap up before letting you massage away that headache of yours:
 
 I hope you enjoyed the ride as much as I did!
 
-Keep in mind that this is only an introduction. There are many broad strokes and many (more or less voluntary) omissions on my part. If you enjoyed the topic, check out the rest of [my essays on Ruby]({{site.baseurl}}/series/ruby/).
+Keep in mind that this is only an introduction. There are many broad strokes and many (more or less voluntary) omissions on my part. If you enjoyed the topic, check out the rest of [my essays on Ruby](/topics/ruby/).
 
 Many thanks to [Nicolas](https://twitter.com/nicoolas25) and [Sylvain](https://twitter.com/abelar_s) for reading my drafts, asking a lot of questions, and making this introduction to objects and classes (much much) better.
 

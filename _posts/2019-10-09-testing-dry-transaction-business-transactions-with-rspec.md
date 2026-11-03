@@ -1,21 +1,19 @@
 ---
-toc: true
 layout: post
-title: Testing railway-oriented business transactions with Rspec
-date:   2019-10-09
-excerpt: "Railway-oriented business transactions are a great way to unclutter your Rails controllers. But how should we test them? Let's get down to it."
-categories: [rspec, testing]
+title: "Testing railway-oriented business transactions with Rspec"
+date: 2019-10-09
+tags: [rspec, testing]
 permalink: /testing-business-transactions-in-rails/
-cover_image: /media/2019/testing-rails-transactions-rspec-remi-mercier.jpeg
+excerpt: "Railway-oriented business transactions are a great way to unclutter your Rails controllers. But how should we test them? Let's get down to it."
 ---
 
-Railway-oriented business transactions are a great way to [unclutter your Rails controllers]({{site.baseurl}}/transactions-in-rails/). We've already seen how to write 'em. Now let's see how we can test 'em. I'll be using [dry-transaction](https://dry-rb.org/gems/dry-transaction/) as a business transaction DSL and RSpec for testing. I'm assuming that you already have RSpec set up for your app. If not, check [Aaron Sumner's blog](https://everydayrails.com/) and his book [Everyday Rails Testing With RSpec](https://leanpub.com/everydayrailsrspec) to saddle up.
+Railway-oriented business transactions are a great way to [unclutter your Rails controllers](/transactions-in-rails/). We've already seen how to write 'em. Now let's see how we can test 'em. I'll be using [dry-transaction](https://dry-rb.org/gems/dry-transaction/) as a business transaction DSL and RSpec for testing. I'm assuming that you already have RSpec set up for your app. If not, check [Aaron Sumner's blog](https://everydayrails.com/) and his book [Everyday Rails Testing With RSpec](https://leanpub.com/everydayrailsrspec) to saddle up.
 
 ## Starting point: a basic transaction
 
 Here's a basic transaction. I'll fetch some `params` and create a new lead. Based on the database response, I'll return either a `Success` or a `Failure`.
 
-{% highlight ruby %}
+```ruby
   # app/transactions/leads/create.rb
 
   class Leads::Create < BaseTransaction
@@ -36,7 +34,8 @@ Here's a basic transaction. I'll fetch some `params` and create a new lead. Base
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Now, I want to test it. So where do I start?
 
@@ -44,13 +43,14 @@ Now, I want to test it. So where do I start?
 
 First, I'll create a test file.
 
-{% highlight zsh %}
+```zsh
   touch app/transactions/leads/create_spec.rb
-{% endhighlight %}
+```
+
 
 Then, I'll write our test bare bones.
 
-{% highlight ruby %}
+```ruby
   # app/transactions/leads/create_spec.rb
 
   require 'rails_helper'
@@ -67,7 +67,8 @@ Then, I'll write our test bare bones.
       }
     end
   end
-{% endhighlight %}
+```
+
 
 What I'm doing here:
 - `described_class.call(params: params)` is calling my transaction with the awaited input (`params`)
@@ -78,7 +79,7 @@ What I'm doing here:
 
 What should I test then? The first thing I want to test is the transaction returning a `Success` when called with valid `params`. From this starting point, I can check if the transaction <em>does</em> create a `Lead` or if this lead has the proper attributes filled in.
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe Leads::Create, type: :transaction do
@@ -116,7 +117,8 @@ What should I test then? The first thing I want to test is the transaction retur
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Here I'm using various [RSpec built-in matchers](https://relishapp.com/rspec/rspec-expectations/v/3-8/docs/built-in-matchers) to check several things:
 - what's happening to my database when the transaction is called (with `expect { subject }.to()`)
@@ -127,7 +129,7 @@ Here I'm using various [RSpec built-in matchers](https://relishapp.com/rspec/rsp
 
 Say I want to send a SMS to my new lead through an external service. Let's add a step to my transaction.
 
-{% highlight ruby %}
+```ruby
   class Leads::Create < BaseTransaction
     map :params
     step :create_lead
@@ -155,13 +157,14 @@ Say I want to send a SMS to my new lead through an external service. Let's add a
       Failure(error: exception)
     end
   end
-{% endhighlight %}
+```
+
 
 Easy right? But `MySmsProvider` only provides production-ready credentials. So how can I test `MySmsProvider`'s different responses? RSpec allows me to mock responses.
 
 Let's start with mocking a positive response. Our basic assumptions shouldn't change because whatever steps we're adding to the transaction, it should always return a `Success` or a `Failure`.
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe Leads::Create, type: :transaction do
@@ -209,13 +212,14 @@ Let's start with mocking a positive response. Our basic assumptions shouldn't ch
       end
     end
   end
-{% endhighlight %}
+```
+
 
 But what if we want to test a negative response (i.e: Steven's phone number is invalid)?
 
 I can either add a `context` block with specific `params` or mock a error message from `MySmsProvider`. I'll do the former. `context` behaves like a sub-folder where I can inherit my test's top-level information yet change it if need be.
 
-{% highlight ruby %}
+```ruby
   require 'rails_helper'
 
   RSpec.describe Leads::Create, type: :transaction do
@@ -282,7 +286,8 @@ I can either add a `context` block with specific `params` or mock a error messag
       end
     end
   end
-{% endhighlight %}
+```
+
 
 In the last `context 'a new lead signed up with invalid params'`, the `before do` block defined in the first `context` does not apply (it's context dependent). I've decided to trigger an error based on my input rather than mocking an error with `allow_any_instance_of`. This way, I can decide to enforce validations at the transaction level to return a `Failure` if some data are missing.
 

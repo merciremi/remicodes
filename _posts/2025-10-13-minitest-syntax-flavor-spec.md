@@ -1,12 +1,10 @@
 ---
-toc: true
 layout: post
 title: "What is Minitest::Spec?"
-excerpt: "In my previous post, I talked a lot about how Minitest comes in various syntax flavors. One flavor I did not cover much is Minitest's spec extension."
 date: 2025-10-13
+tags: [minitest, testing]
 permalink: /minitest-spec/
-categories: [minitest, testing]
-cover_image:
+excerpt: "In my previous post, I talked a lot about how Minitest comes in various syntax flavors. One flavor I did not cover much is Minitest's spec extension."
 ---
 
 In my previous post, I talked a lot about how Minitest comes in various syntax flavors. One flavor I did not cover much is Minitest's spec extension.
@@ -15,7 +13,7 @@ Before I dive in with a dedicated post about assertions, I want to cover this RS
 
 ## Minitest syntax flavors: a recap
 
-As I wrote in [my previous post]({{site.baseurl}}/introduction-to-minitest/), Minitest comes in multiple flavors:
+As I wrote in [my previous post](/introduction-to-minitest/), Minitest comes in multiple flavors:
 - plain Minitest: `def test_this_method`
 - Rails' style: `test "this method"`
 - and a spec system called `Minitest::Spec`: `it "tests this method"`
@@ -36,7 +34,7 @@ I know this sounds "po-tay-to, po-tah-to", but bear with me for one sec.
 
 ### Plain Minitest flavor:
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Test
     def setup
       @user = User.new(first_name: "buffy", last_name: "summers")
@@ -46,11 +44,12 @@ I know this sounds "po-tay-to, po-tah-to", but bear with me for one sec.
       assert_equal "buffy summers", @user.full_name
     end
   end
-{% endhighlight %}
+```
+
 
 ### `Minitest::Spec` flavor:
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Spec
     before do
       @user = User.new(first_name: "buffy", last_name: "summers")
@@ -60,7 +59,8 @@ I know this sounds "po-tay-to, po-tah-to", but bear with me for one sec.
       expect(@user.full_name).must_equal "Buffy Summers"
     end
   end
-{% endhighlight %}
+```
+
 
 For someone who comes from RSpec, this looks *very* familiar:
 - Building a setup with `before do ... end` instead of `setup do ... end`.
@@ -69,7 +69,7 @@ For someone who comes from RSpec, this looks *very* familiar:
 
 Using `Minitest::Spec` also allows me to organize my tests into describe blocks for different contexts.
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Spec
     before do
       @user = User.new(first_name: "buffy", last_name: "summers")
@@ -89,15 +89,17 @@ Using `Minitest::Spec` also allows me to organize my tests into describe blocks 
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Expectations can also be slightly abstracted away with the following syntax:
 
-{% highlight ruby %}
+```ruby
   it "returns the capitalized full name" do
     _(@user.full_name).must_equal "Buffy Summers"
   end
-{% endhighlight %}
+```
+
 
 ## How to enable `Minitest::Spec`?
 
@@ -107,11 +109,12 @@ In plain Ruby files, there’s no need to configure anything at the application 
 
 The only gotcha is that test classes need to inherit from `Minitest::Spec` instead of `Minitest::Test`. If you didn't find this documented in the official repository, you're not alone. It’s not documented at all. I found it [in the source code](https://github.com/minitest/minitest/blob/master/lib/minitest/spec.rb#L58C24-L58C38){:target="_blank"} while investigating why my spec-style tests weren’t working.
 
-{% highlight ruby %}
+```ruby
   class UserTest < Minitest::Spec
     ...
   end
-{% endhighlight %}
+```
+
 
 ### In Rails applications
 
@@ -119,7 +122,7 @@ In Rails, I've found that you need to require `"minitest/spec"` and extend `Mini
 
 Here's an extract from my `test_helper.rb` file:
 
-{% highlight ruby %}
+```ruby
   # frozen_string_literal: true
 
   require "rails/test_help"
@@ -130,7 +133,8 @@ Here's an extract from my `test_helper.rb` file:
       extend Minitest::Spec::DSL
     end
   end
-{% endhighlight %}
+```
+
 
 On the other hand, there's no need to change the inheritance of your test classes to `Minitest::Spec`. The inheritance in Rails is already *quite* complicated on its own, though:
 - Unit tests inherit from `ActiveSupport::TestCase`
@@ -151,7 +155,7 @@ In Rails, both will work if used exclusively in one file. If you mix them in one
 - If you use `setup` before `before`, your tests will run normally.
 - If you use `before` before `setup`, your test will potentially fail because `setup` was not executed.
 
-{% highlight ruby %}
+```ruby
   require "test_helper"
 
   class UserTest < ActiveSupport::TestCase
@@ -173,7 +177,8 @@ In Rails, both will work if used exclusively in one file. If you mix them in one
       end
     end
   end
-{% endhighlight %}
+```
+
 
 Now that we're more familiar with `Minitest::Spec`, we have access to a new way of writing assertions, such as `must_equal`, `must_match`, and others. I'll cover those in a future post.
 
@@ -187,4 +192,4 @@ The TL;DR is:
 - `Minitest::Spec` provides a bridge between assertions and spec-style expectations.
 - Adding `Minitest::Spec` to Ruby or Rails comes with some gotchas.
 
-The third post of this series – [More Minitest::Spec shenanigans]({{site.baseurl}}/more-minitest-spec/) – is live.
+The third post of this series – [More Minitest::Spec shenanigans](/more-minitest-spec/) – is live.
