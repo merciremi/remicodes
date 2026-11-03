@@ -9,6 +9,11 @@ en:
   related: Related
   on_this_page: On this page
   table_of_contents: Table of contents
+  newsletter_title: Join +400 developers from around the world and become a pen pal. ✌🏻
+  newsletter_text: Each month (well, kind of), get my latest essays about building software that sparks joy.
+  newsletter_email_label: Email address
+  newsletter_placeholder: Enter your email
+  newsletter_subscribe: Subscribe
 fr:
   read_in: Lire en français
   view_as_markdown: Voir en Markdown
@@ -18,5 +23,10 @@ fr:
   related: Sur le même sujet
   on_this_page: Sur cette page
   table_of_contents: Table des matières
+  newsletter_title: Rejoignez plus de 400 développeur·euses du monde entier et devenez mon correspondant. ✌🏻
+  newsletter_text: Chaque mois (enfin, à peu près), recevez mes derniers posts sur comment créer du logiciel qui tourne aux petits oignons. Pour le moment, la newsletter est en anglais.
+  newsletter_email_label: Adresse e-mail
+  newsletter_placeholder: Votre adresse e-mail
+  newsletter_subscribe: S'abonner
   months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
   months_short: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]

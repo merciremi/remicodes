@@ -11,6 +11,7 @@ translation_key: blog
 <div class="mb-6">
   <h1>Blog</h1>
   <p>La plupart de mes articles en français sont assez anciens. Pour des publications plus régulières, n'hésitez pas à consulter <a href="{{ '/blog/' | relative_url }}">mes articles en anglais</a>.</p>
+  <p>Pour recevoir les prochains articles en français, abonnez-vous au <a href="{{ '/fr/feed.xml' | relative_url }}">flux RSS en français</a>.</p>
 </div>
 
 {% assign posts_by_year = fr_posts | group_by_exp: "post", "post.date | date: '%Y'" %}

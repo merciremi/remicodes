@@ -1,12 +1,12 @@
 <footer class="site-footer{% if include.variant == 'index' %} site-footer--index{% endif %}">
   <ul class="list-slim">
-    <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+    <li><a href="{% if page.lang == 'fr' %}{{ '/fr/feed.xml' | relative_url }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}">RSS</a></li>
     <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
     <li><a href="https://ruby.social/@remi">Mastodon</a></li>
     <li><a href="mailto:{{ site.email }}">Email</a></li>
   </ul>
 
-  <a href="{{ '/' | relative_url }}" class="site-footer__logo" aria-label="{{ site.title }}, home">
+  <a href="{% if page.lang == 'fr' %}{{ '/fr/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="site-footer__logo" aria-label="{{ site.title }}, home">
     {% include logo.html size=160 %}
   </a>
 

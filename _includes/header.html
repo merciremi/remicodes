@@ -1,10 +1,17 @@
+{%- if page.lang == "fr" -%}
+  {%- assign home_url = "/fr/" -%}
+  {%- assign blog_url = "/fr/blog/" -%}
+{%- else -%}
+  {%- assign home_url = "/" -%}
+  {%- assign blog_url = "/blog/" -%}
+{%- endif -%}
 <header class="site-header">
-  <a href="{{ '/' | relative_url }}" class="site-header__name">
+  <a href="{{ home_url | relative_url }}" class="site-header__name">
     {% include logo.html size=32 %}
     {{ site.title }}
   </a>
   <nav class="site-nav" aria-label="Primary">
-    <a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' or page.url == '/fr/blog/' orpage.layout == 'category' or page.layout == 'post' %} aria-current="page"{% endif %}>Articles</a>
+    <a href="{{ blog_url | relative_url }}"{% if page.url == '/blog/' or page.url == '/fr/blog/' or page.layout == 'category' or page.layout == 'post' %} aria-current="page"{% endif %}>Articles</a>
     <a href="{{ '/work/' | relative_url }}"{% if page.url == '/work/' %} aria-current="page"{% endif %}>Work</a>
     <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
     {% include language-switch.html %}

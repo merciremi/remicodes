@@ -1,0 +1,65 @@
+---
+layout: default
+title: Développeur logiciel freelance
+permalink: /fr/
+portrait: /assets/media/remi-mercier.jpg
+lang: fr
+translation_key: home
+---
+
+<section class="mb-6">
+  <div class="hero">
+  <div class="polaroid"><img src="{{ page.portrait }}" alt="Rémi Mercier" width="120" height="120"></div>
+  <h1>
+    <span class="t-h3">Salut, moi c'est Rémi.</span>
+    <br>
+    Je suis développeur web et j'aide les équipes tech à <a href="{{ '/work/' | relative_url }}" class="rainbow-hover"><span class="visually-hidden">shipper des trucs cool sur internet</span><span aria-hidden="true"><span class="letter" style="--i:0">s</span><span class="letter" style="--i:1">h</span><span class="letter" style="--i:2">i</span><span class="letter" style="--i:3">p</span><span class="letter" style="--i:4">p</span><span class="letter" style="--i:5">e</span><span class="letter" style="--i:6">r</span> <span class="letter" style="--i:7">d</span><span class="letter" style="--i:8">e</span><span class="letter" style="--i:9">s</span> <span class="letter" style="--i:10">t</span><span class="letter" style="--i:11">r</span><span class="letter" style="--i:12">u</span><span class="letter" style="--i:13">c</span><span class="letter" style="--i:14">s</span> <span class="letter" style="--i:15">c</span><span class="letter" style="--i:16">o</span><span class="letter" style="--i:17">o</span><span class="letter" style="--i:18">l</span> <span class="letter" style="--i:19">s</span><span class="letter" style="--i:20">u</span><span class="letter" style="--i:21">r</span> <span class="letter" style="--i:22">i</span><span class="letter" style="--i:23">n</span><span class="letter" style="--i:24">t</span><span class="letter" style="--i:25">e</span><span class="letter" style="--i:26">r</span><span class="letter" style="--i:27">n</span><span class="letter" style="--i:28">e</span><span class="letter" style="--i:29">t</span></span></a>.
+  </h1>
+  </div>
+
+  <p>
+    Bienvenue dans mon morceau d'internet.
+    C'est ici que je partage ce que j'apprends en développant des applications web.
+    Vous pouvez y lire des articles sur la conception d'applications en <a href="{{ '/topics/ruby/' | relative_url }}">Ruby</a> et <a href="{{ '/topics/rails/' | relative_url }}">Ruby on Rails</a>, sur les <a href="{{ '/topics/testing/' | relative_url }}">tests</a> et <a href="{{ '/topics/career/' | relative_url }}">comment se créer une carrière qui marche pour vous</a>. Vous pouvez aussi parcourir <a href="{{ '/blog/' | relative_url }}">l'archive complète</a>.
+    Pour le moment, la plupart de mes articles sont en anglais. Mais quelques-uns sont <a href="{{ '/fr/blog/' | relative_url }}">en français et je travaille à en traduire plus</a>.
+  </p>
+</section>
+
+{% assign fr_posts = site.posts | where: "lang", "fr" %}
+<section class="mb-6 border-t">
+  <div class="row wrap justify-between">
+    <h2 class="t-h2 mb-3">Publiés en français</h2>
+    <a href="{{ '/fr/blog/' | relative_url }}" class="link-meta">{% if fr_posts.size == 1 %}L'article{% else %}Les {{ fr_posts.size }} articles{% endif %} en français &rarr;</a>
+  </div>
+
+  <ul class="list-slim post-list post-list--lg mb-4">
+    {% for post in fr_posts limit: 6 %}
+    {% include post-row.html post=post size="lg" %}
+    {% endfor %}
+  </ul>
+</section>
+
+{% assign en_posts = site.posts | where_exp: "p", "p.lang != 'fr'" %}
+<section class="mb-6 border-t">
+  <div class="row wrap justify-between">
+    <h2 class="t-h2 mb-3">Publiés en anglais</h2>
+    <a href="{{ '/blog/' | relative_url }}" class="link-meta">Les {{ en_posts.size }} articles en anglais &rarr;</a>
+  </div>
+
+  <ul class="list-slim post-list post-list--lg mb-4" lang="en">
+    {% for post in en_posts limit: 6 %}
+    {% include post-row.html post=post size="lg" %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="mb-6 border-t">
+  <h2 class="t-h2 mb-3">Votre roadmap déborde&nbsp;? Parlons-en.</h2>
+  <p class="mb-4">J'aide les équipes de petite et moyenne taille à construire des applications Rails qui <mark>génèrent des revenus à 6 chiffres</mark> et <mark>font le bonheur de dizaines de millions d'utilisateurs</mark>.</p>
+  {% include client-logos.html class="mt-5 mb-5" %}
+  <div class="row wrap items-center mt-5">
+    <a href="{{ '/work/' | relative_url }}" class="btn-accent">Comment je peux vous aider &rarr;</a>
+  </div>
+</section>
+
+{% include newsletter-form.html id="home" %}
