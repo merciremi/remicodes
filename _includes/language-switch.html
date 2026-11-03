@@ -1,0 +1,4 @@
+{%- for translation in page.translations -%}
+{%- assign flag = "flags/" | append: translation.lang | append: ".svg" -%}
+<a class="language-switch" href="{{ translation.url | relative_url }}" hreflang="{{ translation.lang }}" lang="{{ translation.lang }}" title="{{ site.data.i18n[translation.lang].read_in }}">{% include {{ flag }} %}<span class="visually-hidden">{{ site.data.i18n[translation.lang].read_in }}</span></a>
+{%- endfor -%}

@@ -1,0 +1,22 @@
+# Interface strings for layouts, by page language (`lang` front matter, English by default).
+# `read_in` is written in its own language: it labels the link *to* that language.
+en:
+  read_in: Read in English
+  view_as_markdown: View as Markdown
+  previous: Previous
+  next: Next
+  previous_next: Previous and next posts
+  related: Related
+  on_this_page: On this page
+  table_of_contents: Table of contents
+fr:
+  read_in: Lire en français
+  view_as_markdown: Voir en Markdown
+  previous: Précédent
+  next: Suivant
+  previous_next: Articles précédent et suivant
+  related: Sur le même sujet
+  on_this_page: Sur cette page
+  table_of_contents: Table des matières
+  months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+  months_short: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]

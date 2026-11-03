@@ -3,11 +3,11 @@
 {%- assign iso_date = p.date | date_to_xmlschema -%}
 <li class="cat-{{ p.tags.first }}">
   {%- if size == "lg" -%}
-  <span class="date"><time datetime="{{ iso_date }}">{{ p.date | date: "%b %-d, %Y" }}</time></span>
+  <span class="date"><time datetime="{{ iso_date }}">{% include date.html date=p.date lang=p.lang style="medium" %}</time></span>
   {%- elsif size == "related" -%}
-  <span class="date"><span class="dot" aria-hidden="true"></span><time datetime="{{ iso_date }}">{{ p.date | date: "%b %-d, %Y" }}</time></span>
+  <span class="date"><span class="dot" aria-hidden="true"></span><time datetime="{{ iso_date }}">{% include date.html date=p.date lang=p.lang style="medium" %}</time></span>
   {%- else -%}
-  <span class="date"><span class="dot" aria-hidden="true"></span><time datetime="{{ iso_date }}">{{ p.date | date: "%b %-d" }}</time></span>
+  <span class="date"><span class="dot" aria-hidden="true"></span><time datetime="{{ iso_date }}">{% include date.html date=p.date lang=p.lang style="short" %}</time></span>
   {%- endif -%}
   <a class="title" href="{{ p.url | relative_url }}">{{ p.title }}</a>
 </li>

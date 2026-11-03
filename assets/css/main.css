@@ -568,6 +568,7 @@ a:focus-visible .logo__hover {
 }
 .site-nav {
   display: flex;
+  align-items: center;
   gap: 26px;
   font-size: 17px;
 }
@@ -692,6 +693,41 @@ a:focus-visible .logo__hover {
   height: 12px;
   background-color: currentColor;
   mask: url("/assets/media/shared/robot.svg") center / contain no-repeat;
+}
+
+/* Link to the other language version of a page (see _includes/language-switch.html) */
+.language-switch {
+  display: inline-flex;
+  vertical-align: middle;
+  line-height: 0;
+  text-decoration: none;
+}
+/* Beats `a:hover` and `.article p a`, which would paint a coloured underline or background. */
+.language-switch:hover {
+  background-color: transparent;
+}
+.language-switch .flag {
+  width: 24px;
+  height: 16px;
+  overflow: visible;
+}
+/* On hover, each pixel column bobs one pixel up and down, a step behind its left neighbour. */
+.language-switch:hover .flag g,
+.language-switch:focus-visible .flag g {
+  animation: flag-wave 0.6s steps(1, end) infinite;
+  animation-delay: calc(var(--i) * -0.04s);
+}
+@keyframes flag-wave {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-1px); }
+  50%  { transform: translateY(0); }
+  75%  { transform: translateY(1px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .language-switch:hover .flag g,
+  .language-switch:focus-visible .flag g {
+    animation: none;
+  }
 }
 
 /* archive filter row */

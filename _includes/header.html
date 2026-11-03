@@ -4,8 +4,9 @@
     {{ site.title }}
   </a>
   <nav class="site-nav" aria-label="Primary">
-    <a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' or page.layout == 'category' or page.layout == 'post' %} aria-current="page"{% endif %}>Articles</a>
+    <a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' or page.url == '/fr/blog/' orpage.layout == 'category' or page.layout == 'post' %} aria-current="page"{% endif %}>Articles</a>
     <a href="{{ '/work/' | relative_url }}"{% if page.url == '/work/' %} aria-current="page"{% endif %}>Work</a>
     <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+    {% include language-switch.html %}
   </nav>
 </header>

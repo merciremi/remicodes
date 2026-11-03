@@ -7,9 +7,16 @@
 {% if page.markdown_url %}<link rel="alternate" type="text/markdown" href="{{ page.markdown_url | absolute_url }}">{% endif %}
 {% comment %}
   jekyll-seo-tag handles canonical, description, Open Graph, Twitter cards,
-  article:published_time and the WebSite/BlogPosting JSON-LD. We keep our own <title>.
+  article:published_time and the WebSite/BlogPosting JSON-LD. We keep our own title.
 {% endcomment %}
 {% seo title=false %}
+{% if page.translations %}
+{%- assign page_lang = page.lang | default: "en" -%}
+{%- assign english_version = page.translations | where: "lang", "en" | first -%}
+<link rel="alternate" hreflang="{{ page_lang }}" href="{{ page.url | absolute_url }}">
+{% for translation in page.translations %}<link rel="alternate" hreflang="{{ translation.lang }}" href="{{ translation.url | absolute_url }}">
+{% endfor %}<link rel="alternate" hreflang="x-default" href="{% if page_lang == 'en' %}{{ page.url | absolute_url }}{% else %}{{ english_version.url | default: page.url | absolute_url }}{% endif %}">
+{% endif %}
 <meta name="fediverse:creator" content="@remi@ruby.social">
 <link rel="me" href="https://ruby.social/@remi">
 {% if page.url == "/" or page.url == "/about/" %}

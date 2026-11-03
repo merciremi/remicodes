@@ -1,0 +1,18 @@
+{%- comment -%}
+  A date in the page's language.
+  Params: date, lang ("en" by default), style: "long" (April 13, 2016), "medium" (Apr 13, 2016), "short" (Apr 13).
+  In French: 13 avril 2016, 13 avr. 2016, 13 avr.
+{%- endcomment -%}
+{%- assign style = include.style | default: "long" -%}
+{%- if include.lang == "fr" -%}
+  {%- assign month_index = include.date | date: "%-m" | minus: 1 -%}
+  {%- if style == "long" -%}{%- assign months = site.data.i18n.fr.months -%}{%- else -%}{%- assign months = site.data.i18n.fr.months_short -%}{%- endif -%}
+  {{- include.date | date: "%-d" }} {{ months[month_index] -}}
+  {%- unless style == "short" %} {{ include.date | date: "%Y" }}{% endunless -%}
+{%- elsif style == "medium" -%}
+  {{- include.date | date: "%b %-d, %Y" -}}
+{%- elsif style == "short" -%}
+  {{- include.date | date: "%b %-d" -}}
+{%- else -%}
+  {{- include.date | date: "%B %-d, %Y" -}}
+{%- endif -%}

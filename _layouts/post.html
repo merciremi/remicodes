@@ -1,11 +1,13 @@
 ---
 layout: default
 ---
+{%- assign page_lang = page.lang | default: "en" -%}
+{%- assign t = site.data.i18n[page_lang] -%}
 <article class="article">
   <p class="t-label mb-2">
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% if page.markdown_url %}
+    <time datetime="{{ page.date | date_to_xmlschema }}">{% include date.html date=page.date lang=page_lang %}</time>{% if page.markdown_url %}
 
-    <a class="markdown-button" href="{{ page.markdown_url | relative_url }}" type="text/markdown">View as Markdown</a>{% endif %}
+    <a class="markdown-button" href="{{ page.markdown_url | relative_url }}" type="text/markdown">{{ t.view_as_markdown }}</a>{% endif %}
   </p>
 
   <h1>{{ page.title }}</h1>
@@ -41,9 +43,13 @@ layout: default
   </script>
   {%- endif %}
 
-  {%- comment -%} Previous/next entries of the same collection (posts or notes) by date, oldest first. {%- endcomment -%}
+  {%- comment -%} Previous/next entries of the same collection (posts or notes) and language, by date, oldest first. {%- endcomment -%}
   {% assign primary_tag = page.tags.first %}
-  {% assign siblings = site[page.collection] %}
+  {% if page_lang == "en" %}
+    {% assign siblings = site[page.collection] | where_exp: "p", "p.lang == nil or p.lang == 'en'" %}
+  {% else %}
+    {% assign siblings = site[page.collection] | where: "lang", page_lang %}
+  {% endif %}
   {% assign dated_posts = siblings | sort: "date" %}
   {% assign prev_post = nil %}
   {% assign next_post = nil %}
@@ -60,16 +66,16 @@ layout: default
     {% endif %}
   {% endfor %}
   {% if prev_post or next_post %}
-  <nav class="post-nav" aria-label="Previous and next posts">
+  <nav class="post-nav" aria-label="{{ t.previous_next }}">
     {% if prev_post %}
     <a href="{{ prev_post.url | relative_url }}">
-      <span class="label">&larr; Previous</span>
+      <span class="label">&larr; {{ t.previous }}</span>
       <span class="title">{{ prev_post.title }}</span>
     </a>
     {% else %}<span></span>{% endif %}
     {% if next_post %}
     <a href="{{ next_post.url | relative_url }}" class="next">
-      <span class="label">Next &rarr;</span>
+      <span class="label">{{ t.next }} &rarr;</span>
       <span class="title">{{ next_post.title }}</span>
     </a>
     {% else %}<span></span>{% endif %}
@@ -81,7 +87,7 @@ layout: default
   {% assign related = siblings | sort: "date" | reverse | where_exp: "p", "p.tags.first == primary_tag" | where_exp: "p", "p.url != page.url" | where_exp: "p", "p.url != prev_url" | where_exp: "p", "p.url != next_url" | slice: 0, 3 %}
   {% if related.size > 0 %}
   <section class="mt-4 mb-6 border-t" aria-labelledby="related-heading">
-    <h2 id="related-heading" class="t-h4 mb-3">Related</h2>
+    <h2 id="related-heading" class="t-h4 mb-3">{{ t.related }}</h2>
     <ul class="list-slim post-list post-list--related">
       {% for post in related %}
       {% include post-row.html post=post size="related" %}

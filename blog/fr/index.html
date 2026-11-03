@@ -4,6 +4,7 @@ title: Le blog de Rémi Mercier - Développeur Ruby on Rails Freelance
 permalink: /fr/blog/
 redirect_from: /fr/blog
 lang: fr
+translation_key: blog
 ---
 {% assign fr_posts = site.posts | where: "lang", "fr" %}
 
@@ -12,8 +13,31 @@ lang: fr
   <p>La plupart de mes articles en français sont assez anciens. Pour des publications plus régulières, n'hésitez pas à consulter <a href="{{ '/blog/' | relative_url }}">mes articles en anglais</a>.</p>
 </div>
 
-<ul class="list-slim post-list post-list--lg mb-4">
-  {% for post in fr_posts %}
-  {% include post-row.html post=post size="lg" %}
+{% assign posts_by_year = fr_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for group in posts_by_year %}
+{% assign top_topic_slug = "" %}
+{%- comment -%} Starts at 0, not -1 like the English index: most French posts have no tags, and their year shouldn't take the first topic's colour. {%- endcomment -%}
+{% assign top_topic_count = 0 %}
+{% for topic in site.topics %}
+  {% assign topic_count = 0 %}
+  {% for post in group.items %}
+    {% if post.tags.first == topic.slug %}
+      {% assign topic_count = topic_count | plus: 1 %}
+    {% endif %}
   {% endfor %}
-</ul>
+  {% if topic_count > top_topic_count %}
+    {% assign top_topic_count = topic_count %}
+    {% assign top_topic_slug = topic.slug %}
+  {% endif %}
+{% endfor %}
+<section class="year">
+  <div class="year__head">
+    <h2 class="cat-{{ top_topic_slug }}">{{ group.name }}</h2>
+  </div>
+  <ul class="list-slim post-list">
+    {% for post in group.items %}
+    {% include post-row.html post=post size="default" %}
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

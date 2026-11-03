@@ -1,7 +1,8 @@
 {%- assign toc_html = content | toc_only -%}
 {%- if toc_html contains "<li" -%}
-<nav class="toc" aria-label="Table of contents">
-  <p class="t-label mb-1">On this page</p>
+{%- assign toc_lang = page.lang | default: "en" -%}
+<nav class="toc" aria-label="{{ site.data.i18n[toc_lang].table_of_contents }}">
+  <p class="t-label mb-1">{{ site.data.i18n[toc_lang].on_this_page }}</p>
   {{ toc_html }}
 </nav>
 {%- endif -%}
