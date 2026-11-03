@@ -1,19 +1,29 @@
+{%- assign nav_lang = page.lang | default: "en" -%}
 {%- if page.lang == "fr" -%}
   {%- assign home_url = "/fr/" -%}
   {%- assign blog_url = "/fr/blog/" -%}
+  {%- assign work_url = "/fr/work/" -%}
 {%- else -%}
   {%- assign home_url = "/" -%}
   {%- assign blog_url = "/blog/" -%}
+  {%- assign work_url = "/work/" -%}
 {%- endif -%}
 <header class="site-header">
   <a href="{{ home_url | relative_url }}" class="site-header__name">
     {% include logo.html size=32 %}
     {{ site.title }}
   </a>
-  <nav class="site-nav" aria-label="Primary">
+  <nav class="site-nav" id="site-nav" aria-label="Primary" popover>
     <a href="{{ blog_url | relative_url }}"{% if page.url == '/blog/' or page.url == '/fr/blog/' or page.layout == 'category' or page.layout == 'post' %} aria-current="page"{% endif %}>Articles</a>
-    <a href="{{ '/work/' | relative_url }}"{% if page.url == '/work/' %} aria-current="page"{% endif %}>Work</a>
+    <a href="{{ work_url | relative_url }}"{% if page.url == '/work/' or page.url == '/fr/work/' %} aria-current="page"{% endif %}>{{ site.data.i18n[nav_lang].nav_work }}</a>
     <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
-    {% include language-switch.html %}
   </nav>
+  <div class="site-header__actions">
+    {% include language-switch.html %}
+    {%- comment -%} Opens the nav popover on mobile; the browser handles Escape, clicks outside and aria-expanded. {%- endcomment %}
+    <button type="button" class="nav-toggle" popovertarget="site-nav">
+      {% include icons/gem.svg %}
+      <span class="visually-hidden">{{ site.data.i18n[nav_lang].menu }}</span>
+    </button>
+  </div>
 </header>

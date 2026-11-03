@@ -585,6 +585,71 @@ a:focus-visible .logo__hover {
   border-bottom: 2px solid var(--accent);
   padding-bottom: 3px;
 }
+/* The nav is also a popover (see header.html), so the browser handles the mobile menu
+   without JavaScript. These resets undo the UA popover styles, so on desktop it's a plain row. */
+.site-nav[popover] {
+  position: static;
+  inset: auto;
+  width: auto;
+  height: auto;
+  margin: 0 0 0 auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  overflow: visible;
+}
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Mobile menu button: a pixel gem made of horizontal lines. Ruby red when hovered or open. */
+.nav-toggle {
+  display: none;
+  padding: 6px;
+  margin: -6px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 0;
+}
+.nav-toggle .gem {
+  fill: currentColor;
+}
+.nav-toggle:hover {
+  color: var(--c-ruby);
+}
+.site-header:has(.site-nav:popover-open) .nav-toggle {
+  color: var(--c-ruby);
+}
+/* Browsers without popover support skip this block: no button, and the nav stays visible. */
+@supports selector(:popover-open) {
+  @media (max-width: 640px) {
+    .nav-toggle {
+      display: inline-flex;
+    }
+    .site-header__actions {
+      margin-left: auto;
+    }
+    .site-nav:not(:popover-open) {
+      display: none;
+    }
+    /* Open, the popover sits in the top layer: drop it under the gem, against the right edge. */
+    .site-nav[popover]:popover-open {
+      position: absolute;
+      inset: 88px 20px auto auto;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+      padding: 16px 20px;
+      border: 1px solid var(--rule);
+      background: var(--bg);
+    }
+  }
+}
 
 .site-footer {
   display: grid;
