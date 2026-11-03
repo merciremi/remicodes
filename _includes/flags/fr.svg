@@ -1,18 +1,18 @@
 {%- comment -%} 8-bit French flag, 15×10 pixels, for links to the French version. One <g> per pixel column, so CSS can wave the flag column by column. {%- endcomment -%}
 <svg class="flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 10" width="30" height="20" shape-rendering="crispEdges" aria-hidden="true" focusable="false">
-<g style="--i:0"><rect x="0" y="0" width="1" height="10" fill="#0055a4"/></g>
-<g style="--i:1"><rect x="1" y="0" width="1" height="10" fill="#0055a4"/></g>
-<g style="--i:2"><rect x="2" y="0" width="1" height="10" fill="#0055a4"/></g>
-<g style="--i:3"><rect x="3" y="0" width="1" height="10" fill="#0055a4"/></g>
-<g style="--i:4"><rect x="4" y="0" width="1" height="10" fill="#0055a4"/></g>
+<g style="--i:0"><rect x="0" y="0" width="1" height="10" style="fill:var(--c-career)"/></g>
+<g style="--i:1"><rect x="1" y="0" width="1" height="10" style="fill:var(--c-career)"/></g>
+<g style="--i:2"><rect x="2" y="0" width="1" height="10" style="fill:var(--c-career)"/></g>
+<g style="--i:3"><rect x="3" y="0" width="1" height="10" style="fill:var(--c-career)"/></g>
+<g style="--i:4"><rect x="4" y="0" width="1" height="10" style="fill:var(--c-career)"/></g>
 <g style="--i:5"><rect x="5" y="0" width="1" height="10" fill="#ffffff"/></g>
 <g style="--i:6"><rect x="6" y="0" width="1" height="10" fill="#ffffff"/></g>
 <g style="--i:7"><rect x="7" y="0" width="1" height="10" fill="#ffffff"/></g>
 <g style="--i:8"><rect x="8" y="0" width="1" height="10" fill="#ffffff"/></g>
 <g style="--i:9"><rect x="9" y="0" width="1" height="10" fill="#ffffff"/></g>
-<g style="--i:10"><rect x="10" y="0" width="1" height="10" fill="#ef4135"/></g>
-<g style="--i:11"><rect x="11" y="0" width="1" height="10" fill="#ef4135"/></g>
-<g style="--i:12"><rect x="12" y="0" width="1" height="10" fill="#ef4135"/></g>
-<g style="--i:13"><rect x="13" y="0" width="1" height="10" fill="#ef4135"/></g>
-<g style="--i:14"><rect x="14" y="0" width="1" height="10" fill="#ef4135"/></g>
+<g style="--i:10"><rect x="10" y="0" width="1" height="10" style="fill:var(--c-ruby)"/></g>
+<g style="--i:11"><rect x="11" y="0" width="1" height="10" style="fill:var(--c-ruby)"/></g>
+<g style="--i:12"><rect x="12" y="0" width="1" height="10" style="fill:var(--c-ruby)"/></g>
+<g style="--i:13"><rect x="13" y="0" width="1" height="10" style="fill:var(--c-ruby)"/></g>
+<g style="--i:14"><rect x="14" y="0" width="1" height="10" style="fill:var(--c-ruby)"/></g>
 </svg>
