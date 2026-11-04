@@ -1,7 +1,10 @@
 # Interface strings for layouts, by page language (`lang` front matter, English by default).
-# `read_in` is written in its own language: it labels the link *to* that language.
+# `read_in` labels the language switch, by target language, in the language of the page you're on.
 en:
-  read_in: Read in English
+  read_in:
+    fr: Read in French
+  nav_work: Work
+  menu: Menu
   view_as_markdown: View as Markdown
   previous: Previous
   next: Next
@@ -15,7 +18,10 @@ en:
   newsletter_placeholder: Enter your email
   newsletter_subscribe: Subscribe
 fr:
-  read_in: Lire en français
+  read_in:
+    en: Lire en anglais
+  nav_work: Missions
+  menu: Menu
   view_as_markdown: Voir en Markdown
   previous: Précédent
   next: Suivant

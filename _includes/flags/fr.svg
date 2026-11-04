@@ -1,4 +1,4 @@
-{%- comment -%} 8-bit French flag, 15×10 pixels, for links to the French version. One <g> per pixel column, so CSS can wave the flag column by column. {%- endcomment -%}
+{%- comment -%} 8-bit French flag, 15×10 pixels, shown on French pages in the language switch. One <g> per pixel column, so CSS can wave the flag column by column. {%- endcomment -%}
 <svg class="flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 10" width="30" height="20" shape-rendering="crispEdges" aria-hidden="true" focusable="false">
 <g style="--i:0"><rect x="0" y="0" width="1" height="10" style="fill:var(--c-career)"/></g>
 <g style="--i:1"><rect x="1" y="0" width="1" height="10" style="fill:var(--c-career)"/></g>

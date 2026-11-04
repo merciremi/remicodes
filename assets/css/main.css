@@ -695,7 +695,7 @@ a:focus-visible .logo__hover {
   mask: url("/assets/media/shared/robot.svg") center / contain no-repeat;
 }
 
-/* Link to the other language version of a page (see _includes/language-switch.html) */
+/* Link to the other language version of a page; the flag is the current page's language (see _includes/language-switch.html) */
 .language-switch {
   display: inline-flex;
   vertical-align: middle;
