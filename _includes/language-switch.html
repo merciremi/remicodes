@@ -1,4 +1,10 @@
+{%- comment -%}
+  Link to the other language versions of a page. The flag shows the language you're reading;
+  the label, in that same language, says where the link goes ("Lire en anglais", "Read in French").
+{%- endcomment -%}
+{%- assign page_lang = page.lang | default: "en" -%}
+{%- assign flag = "flags/" | append: page_lang | append: ".svg" -%}
 {%- for translation in page.translations -%}
-{%- assign flag = "flags/" | append: translation.lang | append: ".svg" -%}
-<a class="language-switch" href="{{ translation.url | relative_url }}" hreflang="{{ translation.lang }}" lang="{{ translation.lang }}" title="{{ site.data.i18n[translation.lang].read_in }}">{% include {{ flag }} %}<span class="visually-hidden">{{ site.data.i18n[translation.lang].read_in }}</span></a>
+{%- assign label = site.data.i18n[page_lang].read_in[translation.lang] -%}
+<a class="language-switch" href="{{ translation.url | relative_url }}" hreflang="{{ translation.lang }}" title="{{ label }}">{% include {{ flag }} %}<span class="visually-hidden">{{ label }}</span></a>
 {%- endfor -%}

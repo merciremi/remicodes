@@ -1,7 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if page.url == "/" %}{{ site.title }} - Freelance Software Developer{% elsif page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} — {{ site.description | strip_newlines }}{% endif %}</title>
-<link rel="icon" type="image/png" href="{{ '/assets/media/shared/remi-mercier-freelance-software-developer-monogram-1024.png' | relative_url }}">
+<link rel="icon" type="image/webp" sizes="512x512" href="{{ '/assets/media/shared/remi-mercier-favicon.webp' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 {% if page.lang == "fr" %}<link rel="alternate" type="application/atom+xml" hreflang="fr" title="{{ site.title | xml_escape }} (français)" href="{{ '/fr/feed.xml' | absolute_url }}">
 {% endif %}<link rel="alternate" type="application/atom+xml" title="{{ site.title | xml_escape }}" href="{{ '/feed.xml' | absolute_url }}">
