@@ -444,13 +444,14 @@ p {
   color: var(--ink);
 }
 
-.article ul, .article ol, .page-prose ul, .page-prose ol {
+/* Default lists read like body text. :where() lets any component class override this. */
+:where(ul:not(.list-slim), ol:not(.list-slim)) {
   font-size: 18px;
   line-height: 1.7;
   color: var(--ink-2);
 }
-/* :where() keeps this weaker than .list-slim > li. */
-:where(.article, .page-prose) li + li {
+/* Stays weaker than .list-slim > li and .toc li + li. */
+li + li {
   margin-top: 8px;
 }
 
