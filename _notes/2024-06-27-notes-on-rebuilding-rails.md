@@ -1,7 +1,8 @@
 ---
 date: 2024-06-27
 title: "Notes on Rebuilding Rails"
-permalink: /notes-on-rebuilding-rails/
+redirect_from: /notes-on-rebuilding-rails/
+note_tags: [rails, ruby]
 ---
 
 Currently reading Rebuilding Rails by Noah Gibbs.

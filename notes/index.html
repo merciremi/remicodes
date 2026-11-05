@@ -3,6 +3,7 @@ layout: default
 title: Notes
 redirect_from: /fragments/
 excerpt: "Notes are works in progress, rough thoughts, and early drafts that might end up as fully fledged posts."
+view_transitions: true
 ---
 
 <div class="mb-6">
@@ -10,18 +11,22 @@ excerpt: "Notes are works in progress, rough thoughts, and early drafts that mig
   <p>WIPs, thoughts and early drafts.</p>
 </div>
 
-{% assign notes_by_year = site.notes | sort: "date" | reverse | group_by_exp: "note", "note.date | date: '%Y'" %}
-{% for group in notes_by_year %}
-<section class="year">
-  <div class="year__head">
-    <h2>{{ group.name }}</h2>
-  </div>
-  <ul class="list-slim post-list post-list--notes">
-    {% for note in group.items %}
-    {% include post-row.html post=note size="default" %}
-    {% endfor %}
-  </ul>
-</section>
-{% endfor %}
+{% include notes-filter.html %}
+
+<div class="piles">
+  {%- for tag in site.data.note_tags %}
+  <section class="pile" aria-labelledby="pile-{{ tag.slug }}">
+    <h2 class="pile__label t-h5" id="pile-{{ tag.slug }}">
+      {{ tag.name }}
+      <span class="year__count">{{ tag.notes.size }}</span>
+    </h2>
+    <ul class="list-slim pile__cards">
+      {%- for note in tag.notes %}
+      {% include note-card.html note=note tag=tag.slug index=forloop.index %}
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+</div>
 
 {% include newsletter-form.html id="notes" %}

@@ -68,7 +68,7 @@
 }
 
 /* Tag scope: add .cat-{tag} to <body> or <article> (a post uses its first tag) */
-/* Untagged content (notes) falls back to the default link green. */
+/* Untagged content falls back to the default link green. */
 :root {
   --cat: var(--accent);
   --cat-ink: var(--accent-ink);
@@ -840,14 +840,6 @@ a:focus-visible .logo__hover {
   color: var(--accent-ink);
 }
 
-/* notes variant: styled like default links */
-.post-list--notes a.title {
-  text-decoration-thickness: 2px;
-}
-.post-list--notes a.title:hover {
-  background-color: var(--cat);
-}
-
 /* related-post variant */
 .post-list--related li {
   grid-template-columns: 130px 1fr;
@@ -889,6 +881,159 @@ a:focus-visible .logo__hover {
   .post-list li, .post-list--lg li, .post-list--related li {
     grid-template-columns: 1fr;
     gap: 7px;
+  }
+}
+
+/* ---------- 8b. notes index ---------- */
+/* Spec exception, "Notes cards": 6px radius, like the testimonial cards. */
+
+/* Notes have their own tags, without colours. */
+.notes-filter {
+  --cat: var(--rule-2);
+  --cat-ink: var(--ink);
+  view-transition-name: notes-filter;
+}
+.filter-row .pill--filter[aria-current='page'] {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: transparent;
+}
+/* breaks out of the container, like .struggles */
+.piles {
+  --breakout: max(100%, min(1280px, 100vw - 72px));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-6) var(--space-4);
+  align-items: start;
+  width: var(--breakout);
+  margin: var(--space-5) 0 0 calc((100% - var(--breakout)) / 2);
+}
+/* a tag page: the same grid, filled with cards instead of piles */
+ul.piles {
+  row-gap: var(--space-4);
+}
+.pile__label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 var(--space-2);
+}
+/* a pile: only the top 60px of a buried card shows */
+.pile__cards {
+  isolation: isolate;
+}
+.pile__cards li + li {
+  margin-top: -172px; /* 232 − 60 */
+}
+.note-card {
+  --link-accent: transparent;
+  position: relative;
+  display: block;
+  height: 232px;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.note-card:is(:hover, :focus-visible) {
+  --i: 9998;
+  outline: 0;
+}
+/* hit area, above every card: a card brought to the front can't block the ones below it */
+.note-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 9999;
+}
+.pile__cards li:not(:last-child) .note-card::after {
+  bottom: auto;
+  height: 60px;
+}
+/* --vt names the card for the page transition. It lives on the face because a name
+   creates a stacking context, which on the <li> would stop a card reaching the front. */
+.note-card__face {
+  position: relative;
+  z-index: var(--i);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  padding: 14px 16px;
+  overflow: hidden;
+  view-transition-name: var(--vt, none);
+  background: #fff;
+  border: 1px solid var(--rule-2);
+  border-radius: 6px;
+}
+.note-card:focus-visible .note-card__face {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+.note-card__title {
+  display: -webkit-box;
+  flex: none;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.note-card__date {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.note-card__text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.5;
+}
+/* untitled note: no title to make room for, so more text fits */
+.note-card__face:not(:has(.note-card__title)) .note-card__text {
+  -webkit-line-clamp: 7;
+}
+
+/* a pile of 11+ notes spans two columns, as two stacks. Only where two columns fit:
+   on a one-column grid, the span would add a column and overflow the page. */
+@media (min-width: 620px) {
+  .pile:has(li:nth-child(11)) {
+    grid-column: span 2;
+  }
+  .pile:has(li:nth-child(11)) .pile__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-4);
+  }
+  .pile:has(li:nth-child(11)) li:nth-child(2) {
+    margin-top: 0;
+  }
+  /* the second-to-last card is the front of its own stack */
+  .pile:has(li:nth-child(11)) li:nth-last-child(2) .note-card::after {
+    height: 100%;
+  }
+}
+
+/* a note page: a sheet of paper on a desk */
+body:has(.article--note) {
+  background-color: var(--inline-bg);
+}
+.article--note {
+  padding: var(--space-6);
+  background: #fff;
+  border: 1px solid var(--rule-2);
+  border-radius: 6px;
+}
+.article--note > :last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 640px) {
+  .article--note {
+    padding: var(--space-3);
   }
 }
 

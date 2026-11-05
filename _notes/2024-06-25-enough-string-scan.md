@@ -1,7 +1,8 @@
 ---
 date: 2024-06-25
 title: "StringScanner"
-permalink: /enough-string-scanner/
+redirect_from: /enough-string-scanner/
+note_tags: [ruby]
 ---
 
 Currently reading Rebuilding Rails by Noah Gibbs.

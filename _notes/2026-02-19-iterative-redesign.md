@@ -1,6 +1,7 @@
 ---
 title: Iterative redesign
 date: 2026-02-18
+note_tags: [design]
 ---
 
 *Written while listening to [Tommy Guerrero's Dusty Dreams](https://losdays.bandcamp.com/album/dusty-dreams){:target="\_blank"}.*

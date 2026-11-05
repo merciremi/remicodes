@@ -1,0 +1,16 @@
+{%- comment -%}
+  One card, in its <li>. Params: note, tag (the slug of the pile or tag page it sits in), index (stacking order, in a pile).
+  --vt is the same on the index and the tag page, so the page transition morphs a card from its pile into the grid.
+{%- endcomment -%}
+{%- assign card_date = include.note.date -%}
+<li style="--vt: note-{{ include.tag }}-{{ include.note.url | slugify }}{% if include.index %}; --i: {{ include.index }}{% endif %}">
+  <a class="note-card" href="{{ include.note.url | relative_url }}">
+    <span class="note-card__face">
+      {%- if include.note.title %}
+      <span class="note-card__title">{{ include.note.title }}</span>
+      {%- endif %}
+      <time class="note-card__date" datetime="{{ card_date | date_to_xmlschema }}">{% include date.html date=card_date style="medium" %}</time>
+      <span class="note-card__text">{{ include.note.content | without_code_tabs | strip_html | normalize_whitespace | truncatewords: 100, "" }}</span>
+    </span>
+  </a>
+</li>

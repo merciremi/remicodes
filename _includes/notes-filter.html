@@ -1,0 +1,6 @@
+<nav class="filter-row notes-filter" aria-label="Filter by tag">
+  <a href="{{ '/notes/' | relative_url }}" class="pill--all"{% unless include.current %} aria-current="page"{% endunless %}>All ({{ site.notes.size }})</a>
+  {%- for filter_tag in site.data.note_tags %}
+  <a href="{{ filter_tag.url | relative_url }}" class="pill--filter"{% if filter_tag.slug == include.current %} aria-current="page"{% endif %}>{{ filter_tag.name }} ({{ filter_tag.notes.size }})</a>
+  {%- endfor %}
+</nav>

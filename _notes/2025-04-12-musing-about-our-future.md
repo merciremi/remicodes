@@ -1,7 +1,8 @@
 ---
 date: 2025-04-12
 title: "Musing about the future of my profession"
-permalink: /musing-about-future-of-development/
+redirect_from: /musing-about-future-of-development/
+note_tags: [career]
 ---
 
 With the rise of LLMs (and even mandatory AI), I've been thinking about what could be done, to lay my own path for the future. By "my own path", I mean "not the path decided by the current zeitgeist" which is "learn to prompt or be left behind".

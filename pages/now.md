@@ -8,7 +8,7 @@ What I'm doing right now:
 
 - Started working as [a fractional freelance developer](/work/) for two teams.
 - Consolidating codebases in needs.
-- Worked my way through [Rebuilding Rails](/notes-on-rebuilding-rails/){:target="\_blank"} by Noah Gibbs.
+- Worked my way through [Rebuilding Rails](/notes/202406270000/){:target="\_blank"} by Noah Gibbs.
 - Learning the [fundamentals of Rust](https://stevedonovan.github.io/rust-gentle-intro/1-basics.html){:target="\_blank"} and looking for ways to contribute to the Zed codebase.
 - Baking cakes, melting cheese.
 

@@ -1,0 +1,27 @@
+---
+layout: default
+---
+{%- comment -%} A note is a sheet of paper on a desk: the newsletter form stays off the sheet. {%- endcomment -%}
+<article class="article article--note">
+  <p class="t-label mb-2">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{% include date.html date=page.date %}</time>
+  </p>
+
+  {%- comment -%} Untitled notes show no heading, but screen readers still need one to navigate by. {%- endcomment -%}
+  {% if page.title %}
+  <h1>{{ page.title }}</h1>
+  {% else %}
+  <h1 class="visually-hidden">Note from {% include date.html date=page.date %}</h1>
+  {% endif %}
+
+  <div class="tags">
+    {% for note_tag in page.note_tags %}
+    {%- assign note_tag_href = note_tag | slugify | prepend: "/notes/tags/" | append: "/" -%}
+    {% include pill.html href=note_tag_href text=note_tag %}
+    {% endfor %}
+  </div>
+
+  {{ content | heading_anchors }}
+</article>
+
+{% include newsletter-form.html id="post" %}

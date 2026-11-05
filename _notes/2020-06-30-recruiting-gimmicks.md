@@ -1,7 +1,8 @@
 ---
 date: 2020-06-30
 title: The one with the recruiting gimmicks
-permalink: /recruiting-gimmicks/
+redirect_from: /recruiting-gimmicks/
+note_tags: [career]
 ---
 
 I've been receiving an increasing number of work opportunities over the past twelve months. I always try to reply, even if I know a message was sent through a script scraping Github or Linkedin for developers' profile.
@@ -11,7 +12,6 @@ But let's face it, whether the people reaching out are from HR or CTOs, their me
 I'll try to be as factual as possible. This is an ongoing list.
 
 ### The one with the young team.
-
 
 > The average age is 27. We're a vibrant, young and playful team.
 
