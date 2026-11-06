@@ -7,6 +7,15 @@ permalink: /minitest-spec-and-rails-hooks/
 excerpt: "A small mistake sent me on an overly long investigation into Minitest hooks, and how Rails integrates with these."
 ---
 
+> ## TL;DR: Why do my `Minitest::Spec` tests fail when I mix `setup` and `before` blocks in Rails?
+>
+> Because these blocks are not executed at the same time. In my example, a nested `setup` block calls `@customer.update` before the `before` block has set `@customer`, hence the `NoMethodError`.
+>
+> - In Minitest, `def setup` and the `before` block are equivalent: `before` is just syntactic sugar for `Minitest::Test#setup`, and both run after the `before_setup` hook.
+> - Rails plugs its `setup` block into the `before_setup` hook. No matter how deep it's nested in my test file, it'll always be executed first.
+> - The fix is simple: in a Rails app using `Minitest::Spec`, don't mix `setup` and `before` blocks. Only use `before` and stick to the `Minitest::Spec` syntax.
+{:.tldr}
+
 After picking up [Minitest](/introduction-to-minitest/) to complement the QA process of one of my retainer clients, I've had confusing errors in our test suite for a while. We were moving fast to cover critical parts of the application, so we never had the time to investigate the flakiness thoroughly.
 
 While preparing my upcoming talk – Lost in Minitest, the missing guide for Minitest tourists – I dug into how Ruby on Rails pulls in Minitest. And there I found the answers to my burning question: why on Earth does the following test fail?
