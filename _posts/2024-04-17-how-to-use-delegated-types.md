@@ -422,6 +422,8 @@ A big thank you to [Ronan](https://ruby.social/@r3trofitted){:target="\_blank"},
 
 [July 1, 2025 edit]: Kasper Timm Hansen has published a post proposing [better naming and API for delegated types](https://kaspth.com/posts/making-rails-delegated_types-clearer){:target="_blank"}.
 
+[November 6, 2026 edit]: Just relized Alex Barry had published a post [exploring delegated types through a subscription app](https://albarrync.github.io/blog/exploring-rails-delegated-types/){:target="_blank"}, comparing them to class-table and single-table inheritance.
+
 Cheers,
 
 Rémi - [@remi@ruby.social](https://ruby.social/@remi)
