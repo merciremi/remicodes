@@ -91,6 +91,7 @@ module MarkdownCopies
       excerpt = source.data["excerpt"]
       header << "> #{excerpt.strip}" << "" if excerpt.is_a?(String)
       header << "Published on #{source.date.strftime('%Y-%m-%d')} by #{site.config['author']}." if source.respond_to?(:date)
+      header << "Updated on #{source.data['last_modified_at'].strftime('%Y-%m-%d')}." if source.data["last_modified_at"]
       header << "Original: #{site.config['url']}#{source.url}"
 
       "#{header.join("\n")}\n\n#{body}\n"

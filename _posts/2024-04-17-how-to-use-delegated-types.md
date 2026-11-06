@@ -2,10 +2,22 @@
 layout: post
 title: "Delegated types in Rails: a real-life application"
 date: 2024-04-18
+last_modified_at: 2026-11-06
 tags: [rails]
 permalink: /delegated-types/
 excerpt: "Delegated types are a modelization pattern introduced in Rails in 2020. And developers have mostly been scratching their head for a few years trying to use them in their applications. Today, I want to share a real-world use case. I'll walk you through my pre-existing domain architecture, my initial requirements, my mistakes, how I eventually used delegated types, what I learned and my open questions."
 ---
+
+> ## TL;DR: How do you use delegated types in Rails and when do they fit?
+>
+> Use delegated types when several models share most of their attributes and need to be queried as one collection, but each type has its own data or behavior. In this example, I use `Lesson` as the "containing class", and `Lecture` and `DirectedStudy` as its delegated types.
+>
+> - The containing class is the only interface: other models should associate with `Lesson`, never directly with one of its delegated type.
+> - The containing class stores the common attributes and delegates the type-specific methods (_ie_ `delegate :students, to: :lessonable`).
+> - Delegated types only hold specific data and custom method implementations. They are not designed to be used in isolation: a `DirectedStudy` created outside of a `Lesson` won't inherit from the containing class data or behavior.
+{:.tldr}
+
+## Intro
 
 Delegated types are a modelization pattern introduced in Rails in 2020 [^1]. While researching this pattern for a feature, I found that existing articles overly focus on the theoretical comparison between delegated types, STI, and polymorphism. Examples used in these posts are often unrepresentative of the complexity of real-life applications.
 
@@ -422,7 +434,7 @@ A big thank you to [Ronan](https://ruby.social/@r3trofitted){:target="\_blank"},
 
 [July 1, 2025 edit]: Kasper Timm Hansen has published a post proposing [better naming and API for delegated types](https://kaspth.com/posts/making-rails-delegated_types-clearer){:target="_blank"}.
 
-[November 6, 2026 edit]: Just relized Alex Barry had published a post [exploring delegated types through a subscription app](https://albarrync.github.io/blog/exploring-rails-delegated-types/){:target="_blank"}, comparing them to class-table and single-table inheritance.
+[November 6, 2026 edit]: Just realized Alex Barry had published a post [exploring delegated types through a subscription app](https://albarrync.github.io/blog/exploring-rails-delegated-types/){:target="_blank"}, comparing them to class-table and single-table inheritance.
 
 Cheers,
 

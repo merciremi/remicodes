@@ -5,6 +5,7 @@ en:
     fr: Read in French
   nav_work: Work
   menu: Menu
+  updated: Updated
   view_as_markdown: View as Markdown
   previous: Previous
   next: Next
@@ -22,6 +23,7 @@ fr:
     en: Lire en anglais
   nav_work: Missions
   menu: Menu
+  updated: Mis à jour le
   view_as_markdown: Voir en Markdown
   previous: Précédent
   next: Suivant

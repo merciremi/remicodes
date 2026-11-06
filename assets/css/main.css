@@ -903,6 +903,32 @@ blockquote {
   color: var(--ink);
 }
 
+/* Summary box at the top of a post: a Markdown blockquote followed by {:.tldr}. */
+blockquote.tldr {
+  position: relative;
+  margin: 0 0 var(--space-5);
+  padding: var(--space-3);
+  border: 1.5px dotted var(--cat);
+  border-radius: 6px;
+}
+/* The bulb sits on the corner; the page background interrupts the dotted border behind it. */
+blockquote.tldr::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 32px;
+  height: 32px;
+  background: var(--bg) url("/assets/media/shared/light-bulb-8bit.svg") center / 32px no-repeat;
+  image-rendering: pixelated;
+}
+blockquote.tldr > :first-child {
+  margin-top: 0;
+}
+blockquote.tldr > :last-child {
+  margin-bottom: 0;
+}
+
 figure.quote {
   margin: 0 0 24px;
   padding: 0 0 0 22px;

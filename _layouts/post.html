@@ -5,7 +5,7 @@ layout: default
 {%- assign t = site.data.i18n[page_lang] -%}
 <article class="article">
   <p class="t-label mb-2">
-    <time datetime="{{ page.date | date_to_xmlschema }}">{% include date.html date=page.date lang=page_lang %}</time>{% if page.markdown_url %}
+    <time datetime="{{ page.date | date_to_xmlschema }}">{% include date.html date=page.date lang=page_lang %}</time>{% if page.last_modified_at %} · {{ t.updated }} <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% include date.html date=page.last_modified_at lang=page_lang %}</time>{% endif %}{% if page.markdown_url %}
 
     <a class="markdown-button" href="{{ page.markdown_url | relative_url }}" type="text/markdown">{{ t.view_as_markdown }}</a>{% endif %}
   </p>
