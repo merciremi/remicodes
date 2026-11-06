@@ -37,6 +37,19 @@ translation_key: home
   </ul>
 </section>
 
+{% assign latest_notes = site.notes | sort: "date" | reverse | slice: 0, 6 %}
+<section class="mb-6">
+  <div class="row wrap justify-end mb-3">
+    <a href="{{ '/notes/' | relative_url }}" class="link-meta">All notes &rarr;</a>
+  </div>
+
+  <ul class="list-slim notes-row">
+    {%- for note in latest_notes %}
+    {% include note-card.html note=note tag="home" index=forloop.rindex %}
+    {%- endfor %}
+  </ul>
+</section>
+
 <section class="mb-6 border-t">
   <h2 class="t-h2 mb-3">Can't keep up with your roadmap? Let's talk.</h2>
   <p class="mb-4">I help small to mid-sized teams build Rails apps that <mark>generate 6-figure revenues</mark> and <mark>make tens of millions of users happy</mark>.</p>

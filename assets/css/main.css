@@ -257,6 +257,9 @@ a:hover {
 .justify-between {
   justify-content: space-between;
 }
+.justify-end {
+  justify-content: flex-end;
+}
 .items-center {
   align-items: center;
 }
@@ -996,6 +999,63 @@ ul.piles {
 /* untitled note: no title to make room for, so more text fits */
 .note-card__face:not(:has(.note-card__title)) .note-card__text {
   -webkit-line-clamp: 7;
+}
+
+/* homepage: the latest notes stacked sideways, newest on the left and on top.
+   The cards share the width; once they'd overlap too much, the row scrolls.
+   Each <li> is the visible slice of its card: the card hangs off its left side, under
+   the newer ones, and the hit area fills the <li>, so hit areas never overlap. */
+.notes-row {
+  --note-width: 260px;
+  display: flex;
+  isolation: isolate;
+  overflow-x: auto;
+  /* overflow clips on every side: leave room for the lift and the tilted corners */
+  margin: -16px;
+  padding: 16px;
+}
+/* six angles that look random: CSS has no widely supported random() */
+.notes-row li:nth-child(1) .note-card__face {
+  rotate: -2deg;
+}
+.notes-row li:nth-child(2) .note-card__face {
+  rotate: 1.4deg;
+}
+.notes-row li:nth-child(3) .note-card__face {
+  rotate: -0.8deg;
+}
+.notes-row li:nth-child(4) .note-card__face {
+  rotate: 2.2deg;
+}
+.notes-row li:nth-child(5) .note-card__face {
+  rotate: -1.6deg;
+}
+.notes-row li:nth-child(6) .note-card__face {
+  rotate: 0.9deg;
+}
+.notes-row .note-card:is(:hover, :focus-visible) .note-card__face {
+  translate: 0 -8px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .notes-row .note-card__face {
+    transition: translate 0.15s ease;
+  }
+}
+.notes-row li {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  justify-content: flex-end;
+  min-width: 44px;
+}
+.notes-row li:first-child {
+  flex: none;
+  width: var(--note-width);
+}
+.notes-row .note-card {
+  position: static;
+  flex: none;
+  width: var(--note-width);
 }
 
 /* a pile of 11+ notes spans two columns, as two stacks. Only where two columns fit:
