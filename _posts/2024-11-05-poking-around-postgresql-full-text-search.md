@@ -5,6 +5,7 @@ date: 2024-11-05
 tags: [postgresql]
 permalink: /postgresql-full-text-search-for-beginners/
 excerpt: "Today, I want to share a different type of post. Nothing polished. Just me goofing around with PostgreSQL's full-text search capabilities."
+favorite: true
 ---
 
 Today, I want to share a different type of post. Nothing polished. Just me goofing around with PostgreSQL's full-text search capabilities. And yes, if you're wondering how someone can have fun while using full-text search, well, I'm wondering about that myself.

@@ -7,6 +7,15 @@ permalink: /more-minitest-spec/
 excerpt: "While I already covered the basics of `Minitest::Spec`, I forgot to discuss a few aspects of the spec flavor. This post serves as a complement to the previous one and digs a bit deeper into some extra `Minitest::Spec` shenanigans."
 ---
 
+> ## TL;DR: What else does `Minitest::Spec` offer beyond the basics?
+>
+> `Minitest::Spec` also exposes `let` and `subject`, and lets you nest `describe` blocks. In my example, combining them lets me run multiple contexts for `user.full_name` while only adjusting the relevant variable.
+>
+> - `let` and `subject` are lazily evaluated. A `let` isn't re-evaluated within a test example, but it is across test examples, so states won't leak from one `it` case to the next.
+> - Minitest has no `let!`, no named `subject`, and no `context`. Use `before do ... end` for objects your test examples don't explicitly reference, and be careful not to nest `describe` blocks too deeply.
+> - The `minitest-rails` gem resolves the inheritance shenanigans through typing (`describe User, :model do`) and exposes extra expectations (`must_enqueue_jobs`). In my experience, mailers expectations didn't work out of the box: I had to include `Minitest::Rails::Expectations::ActionMailer` manually.
+{:.tldr}
+
 While I already covered [the basics of `Minitest::Spec`](/minitest-spec), I forgot to discuss a few aspects of the spec flavor. This post serves as a complement to the previous one and digs a bit deeper into some extra `Minitest::Spec` shenanigans.
 
 ## `let` over `@ivar`

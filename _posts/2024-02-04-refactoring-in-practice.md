@@ -5,6 +5,7 @@ date: 2024-02-05
 tags: [rails]
 permalink: /refactoring-in-practice/
 excerpt: "A few months ago, I had to write a Rails micro-service that synchronizes data between two versions of an application. I'll show you the successive steps I used to refactor this piece of code, from shameless-green to convention."
+favorite: true
 ---
 
 I've wanted to write about __real-life refactoring__ for ages! However, coming up with examples of neat refactorings is not straightforward.

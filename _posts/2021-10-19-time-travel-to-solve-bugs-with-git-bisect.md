@@ -5,6 +5,7 @@ date: 2021-10-20
 tags: [debugging]
 permalink: /how-to-use-git-bisect/
 excerpt: "No matter how thorough your test coverage is, you can't test everything. So when you introduce a bug in your application, git bisect will help you zero in on your regression's origin."
+favorite: true
 ---
 
 No matter how thorough your [test coverage](/topics/rspec/) is, you can't test everything.

@@ -5,6 +5,7 @@ date: 2021-12-07
 tags: [ruby]
 permalink: /dependency-injection-in-ruby/
 excerpt: "Classes depend on each other all the time. But the way you tie those classes together will determine how hard it is to change your code. Dependency injection can help you reduce that coupling and reduce your cost of change."
+favorite: true
 ---
 
 Lately, I've been interested in abstractions: why objects behave the way they do, how do we architecture our code so it's open to change (without causing unnecessary headaches), to which class _that_ specific behavior should belong? And during that time, I've repeatedly heard folks talk about __dependency injection__. Yet, dependency injection in Ruby is not widely covered. **What is a dependency injection in Ruby?**

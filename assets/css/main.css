@@ -801,19 +801,41 @@ a:focus-visible .logo__hover {
 .post-list .date {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   font-family: var(--mono);
   font-size: 13px;
   letter-spacing: 0.02em;
   color: var(--ink-3);
 }
+/* Dots and hearts share a 14px slot: the 12px dot is centred in it, so both sit on the same vertical centerline and the dates line up. */
 .post-list .dot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 12px;
+  height: 12px;
+  margin-inline: 1px;
   border-radius: 50%;
   background: var(--cat);
   flex: none;
+}
+/* Favorite posts: a pixel heart. */
+.post-list .dot--favorite {
+  width: 14px;
+  margin-inline: 0;
+  border-radius: 0;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 6' shape-rendering='crispEdges'%3E%3Cpath d='M1 0h2v1H1zM4 0h2v1H4zM0 1h7v2H0zM1 3h5v1H1zM2 4h3v1H2zM3 5h1v1H3z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+.post-list li:hover .dot--favorite {
+  animation: favorite-spin 1.2s steps(12) infinite;
+}
+@keyframes favorite-spin {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .post-list li:hover .dot--favorite {
+    animation: none;
+  }
 }
 .post-list a.title {
   --link-accent: var(--cat);

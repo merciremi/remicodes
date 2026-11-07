@@ -7,6 +7,15 @@ permalink: /minitest-spec/
 excerpt: "In my previous post, I talked a lot about how Minitest comes in various syntax flavors. One flavor I did not cover much is Minitest's spec extension."
 ---
 
+> ## TL;DR: What is `Minitest::Spec` and how do I enable it?
+>
+> `Minitest::Spec` is the third main flavor of Minitest: an extension of `Minitest::Test` that provides a bridge between assertions and spec-style expectations. In my `UserTest` example, `assert_equal` becomes `expect(@user.full_name).must_equal`.
+>
+> - If you come from RSpec, it'll look *very* familiar: `before do ... end` instead of `setup do ... end`, `it` instead of `test` or `def test_*`, expectations instead of assertions, and `describe` blocks for different contexts.
+> - In plain Ruby, test classes inherit from `Minitest::Spec` instead of `Minitest::Test`. In Rails, require `"minitest/spec"` and extend `Minitest::Spec::DSL` to `ActiveSupport::TestCase`, with no need to change the inheritance of your test classes.
+> - Don't mix `setup do` and `before do` in the same file in Rails: if you use `before` before `setup`, your test will potentially fail.
+{:.tldr}
+
 In my previous post, I talked a lot about how Minitest comes in various syntax flavors. One flavor I did not cover much is Minitest's spec extension.
 
 Before I dive in with a dedicated post about assertions, I want to cover this RSpec-style way of writing tests.

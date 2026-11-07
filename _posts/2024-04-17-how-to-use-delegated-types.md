@@ -6,6 +6,7 @@ last_modified_at: 2026-11-06
 tags: [rails]
 permalink: /delegated-types/
 excerpt: "Delegated types are a modelization pattern introduced in Rails in 2020. And developers have mostly been scratching their head for a few years trying to use them in their applications. Today, I want to share a real-world use case. I'll walk you through my pre-existing domain architecture, my initial requirements, my mistakes, how I eventually used delegated types, what I learned and my open questions."
+favorite: true
 ---
 
 > ## TL;DR: How do you use delegated types in Rails and when do they fit?

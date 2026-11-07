@@ -3,9 +3,19 @@ layout: post
 title: "Lost in Minitest? Start here!"
 date: 2025-10-07
 tags: [minitest, testing]
+favorite: true
 permalink: /introduction-to-minitest/
 excerpt: "I have a confession to make: I have never used Minitest in the seven years I've been a professional programmer. Lured by the promise of speed and wide adoption, I decided to try Minitest. Then I hit an unexpected roadblock."
 ---
+
+> ## TL;DR: What is Minitest and how do I get started?
+>
+> Minitest is a prominent testing framework for Ruby code, embedded by default in Ruby and Ruby on Rails. Its biggest weakness is its onboarding, so I write the same test for a `User` class in plain Ruby, then in Rails, to show you the basics.
+>
+> - To get started, run `rails test` in a new Rails app, or in an existing app with no other test framework configured. Otherwise, add `gem 'minitest'` to your Gemfile.
+> - Minitest offers multiple syntaxes: the default one (`def test_returns_the_full_name`), Rails' custom one (`test "returns the full name"`), and the spec one. You can mix them in the same file, but I'd rather not.
+> - In Rails, your test file inherits from a different class based on your type of test: `ActiveSupport::TestCase`, `ActionDispatch::IntegrationTest`, `ActionView::TestCase`, or `ApplicationSystemTestCase`.
+{:.tldr}
 
 I have a confession to make: I have never used Minitest in the seven years I've been a professional programmer.
 

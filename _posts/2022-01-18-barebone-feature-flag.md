@@ -5,6 +5,7 @@ date: 2022-01-18
 tags: [ruby, rails]
 permalink: /minimal-feature-flags-manager/
 excerpt: "Feature flags (or feature toggles) are a neat way to hide in-progress features from your users. For those who need a simple on-and-off system, here's a minimal feature flag manager that'll take less than an hour to build, using plain Ruby objects, the Rails configuration, and some neat variables organization."
+favorite: true
 ---
 
 When you deploy your code continuously, feature flags (or feature toggles) are a neat way to hide in-progress features from your users. In the past, I've written about [my process for releasing large features](/building-large-features-process/). But after using feature flags in the last six months, I've come to like them better than my former process.

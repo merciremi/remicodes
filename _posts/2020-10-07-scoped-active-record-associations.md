@@ -5,6 +5,7 @@ date: 2020-10-07
 tags: [rails]
 permalink: /scoped-active-record-associations/
 excerpt: "Active Record Associations are a great feature of Rails. But I never thought of using scopes with has_one or has_many associations until recently! So let me show you a neat little trick that'll make your code much much more expressive (and keep your N+1 queries in check)."
+favorite: true
 ---
 
 Active Record Associations are a great feature of [Ruby on Rails](/topics/rails/). Associations allow you to declare - well - associations between your models. AR Associations also allow you to write operations when several models are linked (e.g., `Author.first.books.create(title: 'I love Rails!')`).

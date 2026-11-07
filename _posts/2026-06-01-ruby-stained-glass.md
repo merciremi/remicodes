@@ -5,6 +5,7 @@ date: 2026-06-01
 tags: [ruby-stained-glass]
 permalink: /ruby-stained-glass/
 excerpt: "After talking with Jeremy Smith and Jess Brown on the IndieRails podcast about stained glass and how I transitioned to programming in Ruby, I’ve had this crazy idea that I could tie the two together in a weird project. Well, here goes nothing!"
+favorite: true
 ---
 
 After talking with Jeremy Smith and Jess Brown on the [IndieRails podcast](/indierails-pocast-interview/) about stained glass and how I transitioned to programming in Ruby, I’ve had this crazy idea that I could tie the two together in a weird project.
