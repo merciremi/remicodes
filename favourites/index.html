@@ -1,0 +1,41 @@
+---
+layout: default
+title: My favourite posts
+excerpt: "The posts I'm proudest of, and the ones I'd send first to a new reader."
+---
+{% assign favourite_posts = site.posts | where_exp: "p", "p.lang != 'fr'" | where: "favorite", true %}
+
+<div class="mb-6">
+  <h1 class="topic-title favourites-title"><a href="{{ '/blog/' | relative_url }}" class="link-quiet">All posts</a> <span class="sep">/</span> <span class="name">Favourites</span></h1>
+  <p>My personal favourites.</p>
+</div>
+
+{% assign favourites_by_year = favourite_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for group in favourites_by_year %}
+{% assign top_topic_slug = "" %}
+{% assign top_topic_count = -1 %}
+{% for topic in site.topics %}
+  {% assign topic_count = 0 %}
+  {% for post in group.items %}
+    {% if post.tags.first == topic.slug %}
+      {% assign topic_count = topic_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+  {% if topic_count > top_topic_count %}
+    {% assign top_topic_count = topic_count %}
+    {% assign top_topic_slug = topic.slug %}
+  {% endif %}
+{% endfor %}
+<section class="year">
+  <div class="year__head">
+    <h2 class="cat-{{ top_topic_slug }}">{{ group.name }}</h2>
+  </div>
+  <ul class="list-slim post-list">
+    {% for post in group.items %}
+    {% include post-row.html post=post size="default" %}
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+
+{% include newsletter-form.html id="favourites" %}

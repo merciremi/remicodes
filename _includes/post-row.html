@@ -1,13 +1,24 @@
 {%- assign p = include.post -%}
 {%- assign size = include.size | default: "default" -%}
 {%- assign iso_date = p.date | date_to_xmlschema -%}
+{%- if p.favorite -%}
+  {%- assign dot_modifier = " dot--favorite" -%}
+{%- elsif p.collection == "notes" -%}
+  {%- assign dot_modifier = " dot--note" -%}
+{%- else -%}
+  {%- assign dot_modifier = "" -%}
+{%- endif -%}
 <li class="cat-{{ p.tags.first }}">
   {%- if size == "lg" -%}
   <span class="date"><time datetime="{{ iso_date }}">{% include date.html date=p.date lang=p.lang style="medium" %}</time></span>
   {%- elsif size == "related" -%}
-  <span class="date"><span class="dot{% if p.favorite %} dot--favorite{% endif %}" aria-hidden="true"></span><time datetime="{{ iso_date }}">{% include date.html date=p.date lang=p.lang style="medium" %}</time></span>
+  <span class="date"><span class="dot{{ dot_modifier }}" aria-hidden="true"></span><time datetime="{{ iso_date }}">{% include date.html date=p.date lang=p.lang style="medium" %}</time></span>
   {%- else -%}
-  <span class="date"><span class="dot{% if p.favorite %} dot--favorite{% endif %}" aria-hidden="true"></span><time datetime="{{ iso_date }}">{% include date.html date=p.date lang=p.lang style="short" %}</time></span>
+  <span class="date"><span class="dot{{ dot_modifier }}" aria-hidden="true"></span><time datetime="{{ iso_date }}">{% include date.html date=p.date lang=p.lang style="short" %}</time></span>
   {%- endif -%}
+  {%- if p.collection == "notes" -%}
+  <span class="title-cell"><span class="note-tag">note</span><a class="title" href="{{ p.url | relative_url }}">{{ p.title }}</a></span>
+  {%- else -%}
   <a class="title" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+  {%- endif -%}
 </li>

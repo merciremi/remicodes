@@ -8,11 +8,13 @@ translation_key: blog
 
 <div class="mb-6">
   <h1>Sometimes, I write.</h1>
-  <p>I find joy in building things. Then, I find joy in writing about it. There are currently {{ en_posts.size }} articles about Ruby, Ruby on Rails, testing strategies and everything in-between.</p>
+  <p>I find joy in building things. Then, I find joy in writing about it. There are currently {{ en_posts.size }} articles and <a href="{{ '/notes/' | relative_url }}">{{ site.notes.size }} notes</a> about Ruby, Ruby on Rails, testing strategies and everything in-between.</p>
   <p>Want to know when the next post hits? Grab the <a href="/feed.xml">RSS feed</a>.</p>
 </div>
 
 <nav class="filter-row" aria-label="Filter by topic">
+  {% assign favourite_posts = en_posts | where: "favorite", true %}
+  <a href="{{ '/favourites/' | relative_url }}" class="pill--filter pill--favourites">Favourites ({{ favourite_posts.size }})</a>
   {% assign sorted_topics = site.topics | sort_natural: "name" %}
   {% for topic in sorted_topics %}
   {% assign topic_posts = en_posts | where_exp: "p", "p.tags contains topic.slug" %}
@@ -20,7 +22,8 @@ translation_key: blog
   {% endfor %}
 </nav>
 
-{% assign posts_by_year = en_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% assign en_entries = en_posts | concat: site.notes | sort: "date" | reverse %}
+{% assign posts_by_year = en_entries | group_by_exp: "post", "post.date | date: '%Y'" %}
 {% for group in posts_by_year %}
 {% assign top_topic_slug = "" %}
 {% assign top_topic_count = -1 %}

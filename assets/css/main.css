@@ -51,6 +51,14 @@
   --ink-testing: #111111;
   --c-ruby-stained-glass: var(--c-ruby);
   --ink-ruby-stained-glass: var(--ink-ruby);
+  --c-favourite: hotpink;
+  --ink-favourite: #111111;
+
+  /* Pixel icons, used as masks so they take the colour of their background. */
+  /* Heart: 7×6 grid. */
+  --icon-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 6' shape-rendering='crispEdges'%3E%3Cpath d='M1 0h2v1H1zM4 0h2v1H4zM0 1h7v2H0zM1 3h5v1H1zM2 4h3v1H2zM3 5h1v1H3z'/%3E%3C/svg%3E");
+  /* Light bulb outline with its filament: 10×12 grid. */
+  --icon-bulb: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 12' shape-rendering='crispEdges'%3E%3Cpath d='M3 0h4v1H3zM1 1h2v1H1zM7 1h2v1H7zM0 2h1v4H0zM9 2h1v4H9zM1 6h1v1H1zM8 6h1v1H8zM2 7h1v1H2zM7 7h1v1H7zM2 8h6v1H2zM2 10h6v1H2zM4 11h2v1H4zM3 4h4v1H3zM3 5h1v1H3zM6 5h1v1H6zM4 6h2v2H4z'/%3E%3C/svg%3E");
 
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
@@ -756,6 +764,26 @@ a:focus-visible .logo__hover {
   color: var(--cat-ink);
   border-color: transparent;
 }
+/* Favourites pill: same as topic pills, in pink, with the pixel heart left of the label. */
+.filter-row .pill--favourites {
+  --cat: var(--c-favourite);
+  --cat-ink: var(--ink-favourite);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.filter-row .pill--favourites::before {
+  content: "";
+  flex: none;
+  width: 14px;
+  height: 12px;
+  background: var(--cat);
+  mask: var(--icon-heart) center / 100% 100% no-repeat;
+}
+/* On hover the pill fills with pink, so the heart switches to the text colour. */
+.filter-row .pill--favourites:hover::before {
+  background: var(--cat-ink);
+}
 .filter-row .pill--all {
   font-family: var(--mono);
   font-size: 12px;
@@ -776,6 +804,33 @@ a:focus-visible .logo__hover {
   background-image: none;
   background-color: var(--ink);
   color: var(--bg);
+}
+
+/* "All posts / Favourites": the topic-title breadcrumb, with the name in pink. */
+.favourites-title {
+  --cat: var(--c-favourite);
+}
+.favourites-title .name {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+/* The pixel heart at 5px per pixel (7×6 grid), so it stays crisp. Spins like the list hearts on hover. */
+.favourites-title .name::before {
+  content: "";
+  flex: none;
+  width: 35px;
+  height: 30px;
+  background: currentColor;
+  mask: var(--icon-heart) center / 100% 100% no-repeat;
+}
+.favourites-title .name:hover::before {
+  animation: favorite-spin 1.2s steps(12) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .favourites-title .name:hover::before {
+    animation: none;
+  }
 }
 
 .topic-title .sep {
@@ -822,7 +877,7 @@ a:focus-visible .logo__hover {
   width: 14px;
   margin-inline: 0;
   border-radius: 0;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 6' shape-rendering='crispEdges'%3E%3Cpath d='M1 0h2v1H1zM4 0h2v1H4zM0 1h7v2H0zM1 3h5v1H1zM2 4h3v1H2zM3 5h1v1H3z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  mask: var(--icon-heart) center / 100% 100% no-repeat;
 }
 .post-list li:hover .dot--favorite {
   animation: favorite-spin 1.2s steps(12) infinite;
@@ -836,6 +891,21 @@ a:focus-visible .logo__hover {
   .post-list li:hover .dot--favorite {
     animation: none;
   }
+}
+/* Notes: a hollow dot with a dotted ring. border-box keeps it at 12px so dates stay aligned. */
+.post-list .dot--note {
+  box-sizing: border-box;
+  background: transparent;
+  border: 1.5px dotted var(--ink-3);
+}
+/* Notes: the pixel light bulb, inside the "note" label. */
+.post-list .note-tag::before {
+  content: "";
+  flex: none;
+  width: 10px;
+  height: 12px;
+  background: currentColor;
+  mask: var(--icon-bulb) center / 100% 100% no-repeat;
 }
 .post-list a.title {
   --link-accent: var(--cat);
@@ -852,6 +922,33 @@ a:focus-visible .logo__hover {
 .post-list a.title:hover {
   text-decoration-thickness: 2px;
   color: var(--cat-ink);
+}
+
+/* Notes mixed into a list of posts: a bulb + "note" label left of the title. */
+.post-list .title-cell {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+.post-list .note-tag {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  padding: 3px 6px;
+  color: var(--ink-3);
+  border: 1.5px dotted var(--rule-2);
+  position: relative;
+  top: -2px;
+}
+/* Redundant on the notes index, where every row is a note. */
+.post-list--notes .note-tag {
+  display: none;
 }
 
 /* homepage variant: every title in the site green */
