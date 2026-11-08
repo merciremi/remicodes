@@ -57,10 +57,6 @@
   /* Pixel icons, used as masks so they take the colour of their background. */
   /* Heart: 7×6 grid. */
   --icon-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 6' shape-rendering='crispEdges'%3E%3Cpath d='M1 0h2v1H1zM4 0h2v1H4zM0 1h7v2H0zM1 3h5v1H1zM2 4h3v1H2zM3 5h1v1H3z'/%3E%3C/svg%3E");
-  /* Light bulb outline with its filament: 10×12 grid. */
-  /* The glass inside the bulb, around the filament: same 10×12 grid, lights up on hover. */
-  --icon-bulb-glow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 12' shape-rendering='crispEdges'%3E%3Cpath d='M3 1h4v1H3zM1 2h8v2H1zM1 4h2v1H1zM7 4h2v1H7zM1 5h2v1H1zM4 5h2v1H4zM7 5h2v1H7zM2 6h2v1H2zM6 6h2v1H6zM3 7h1v1H3zM6 7h1v1H6z'/%3E%3C/svg%3E");
-  --icon-bulb: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 12' shape-rendering='crispEdges'%3E%3Cpath d='M3 0h4v1H3zM1 1h2v1H1zM7 1h2v1H7zM0 2h1v4H0zM9 2h1v4H9zM1 6h1v1H1zM8 6h1v1H8zM2 7h1v1H2zM7 7h1v1H7zM2 8h6v1H2zM2 10h6v1H2zM4 11h2v1H4zM3 4h4v1H3zM3 5h1v1H3zM6 5h1v1H6zM4 6h2v2H4z'/%3E%3C/svg%3E");
 
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
@@ -900,29 +896,14 @@ a:focus-visible .logo__hover {
   background: transparent;
   border: 1.5px dotted var(--ink-3);
 }
-/* Notes: the pixel light bulb, inside the "note" label. */
+/* Notes: the TL;DR box's 8-bit light bulb, at its native 16px, inside the "note" label. */
 .post-list .note-tag::before {
   content: "";
   flex: none;
-  width: 10px;
-  height: 12px;
-  background: currentColor;
-  mask: var(--icon-bulb) center / 100% 100% no-repeat;
-}
-/* The glass, laid over the bulb (left edge of the padding box, vertically centred). Turns yellow when the row is hovered. */
-.post-list .note-tag::after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 50%;
-  width: 10px;
-  height: 12px;
-  transform: translateY(-50%);
-  background: transparent;
-  mask: var(--icon-bulb-glow) center / 100% 100% no-repeat;
-}
-.post-list li:hover .note-tag::after {
-  background: var(--mark);
+  width: 16px;
+  height: 16px;
+  background: url("/assets/media/shared/light-bulb-8bit.svg") center / 16px no-repeat;
+  image-rendering: pixelated;
 }
 .post-list a.title {
   --link-accent: var(--cat);
