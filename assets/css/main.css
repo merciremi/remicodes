@@ -56,6 +56,8 @@
 
   /* Pixel icons, used as masks so they take the colour of their background. */
   /* Heart: 7×6 grid. */
+  /* Masking tape: a 10×10 tile with the pixel heart in hotpink (= --c-favourite; data URIs can't read CSS variables). Draw at 20px or 10px to keep pixels crisp. */
+  --tape-hearts: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' shape-rendering='crispEdges'%3E%3Cpath fill='hotpink' transform='translate(1 2)' d='M1 0h2v1H1zM4 0h2v1H4zM0 1h7v2H0zM1 3h5v1H1zM2 4h3v1H2zM3 5h1v1H3z'/%3E%3C/svg%3E");
   --icon-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 6' shape-rendering='crispEdges'%3E%3Cpath d='M1 0h2v1H1zM4 0h2v1H4zM0 1h7v2H0zM1 3h5v1H1zM2 4h3v1H2zM3 5h1v1H3z'/%3E%3C/svg%3E");
 
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -1078,7 +1080,7 @@ figure.quote blockquote p:last-child {
   margin-bottom: 0;
 }
 
-/* testimonial card, pinned with the same pink tape as the polaroid */
+/* testimonial card, pinned with the same heart tape as the polaroid */
 figure.quote-card {
   position: relative;
   margin: var(--space-5) 0;
@@ -1095,7 +1097,8 @@ figure.quote-card::before {
   left: 50%;
   width: 72px;
   height: 20px;
-  background: rgba(255, 105, 180, 0.75); /* hotpink */
+  background: var(--tape-hearts) center / 20px repeat-x, var(--accent);
+  opacity: 0.9;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
   transform: translateX(-50%) rotate(var(--tape-tilt, -3deg));
   clip-path: polygon(
@@ -1300,7 +1303,7 @@ figure.portrait figcaption {
   width: 100%;
   height: auto;
 }
-/* strip of pink masking tape holding the polaroid, with torn ends */
+/* strip of green masking tape with pink pixel hearts holding the polaroid, with torn ends */
 .polaroid::before {
   content: "";
   position: absolute;
@@ -1308,7 +1311,8 @@ figure.portrait figcaption {
   left: 50%;
   width: 60px;
   height: 20px;
-  background: rgba(255, 105, 180, 0.75); /* hotpink */
+  background: var(--tape-hearts) center / 20px repeat-x, var(--accent);
+  opacity: 0.9;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
   transform: translateX(-50%) rotate(-7deg);
   clip-path: polygon(
@@ -1332,6 +1336,7 @@ figure.portrait figcaption {
     width: 48px;
     height: 16px;
     top: -8px;
+    background-size: 10px;
   }
 }
 
