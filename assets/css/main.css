@@ -170,7 +170,7 @@ body {
   background: var(--bg);
   min-height: 100vh;
   padding-inline: 28px;
-  padding-block-end: 120px;
+  padding-block-end: 20px;
 }
 
 .container {
@@ -890,18 +890,12 @@ a:focus-visible .logo__hover {
     animation: none;
   }
 }
-/* Notes: a hollow dot with a dotted ring. border-box keeps it at 12px so dates stay aligned. */
+/* Notes: the TL;DR box's 8-bit light bulb in place of the dot, at its native 16px. The negative margins keep it in the 14px slot so dates stay aligned. */
 .post-list .dot--note {
-  box-sizing: border-box;
-  background: transparent;
-  border: 1.5px dotted var(--ink-3);
-}
-/* Notes: the TL;DR box's 8-bit light bulb, at its native 16px, inside the "note" label. */
-.post-list .note-tag::before {
-  content: "";
-  flex: none;
   width: 16px;
   height: 16px;
+  margin-inline: -1px;
+  border-radius: 0;
   background: url("/assets/media/shared/light-bulb-8bit.svg") center / 16px no-repeat;
   image-rendering: pixelated;
 }
@@ -922,7 +916,7 @@ a:focus-visible .logo__hover {
   color: var(--cat-ink);
 }
 
-/* Notes mixed into a list of posts: a bulb + "note" label left of the title. */
+/* Notes mixed into a list of posts: a "note" label left of the title. */
 .post-list .title-cell {
   display: flex;
   align-items: baseline;
@@ -931,9 +925,6 @@ a:focus-visible .logo__hover {
 }
 .post-list .note-tag {
   flex: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
   font-family: var(--mono);
   font-size: 12px;
   line-height: 1;
@@ -944,7 +935,7 @@ a:focus-visible .logo__hover {
   position: relative;
   top: -2px;
 }
-/* Notes among posts get a grey underline, to match their grey dot and label. */
+/* Notes among posts get a grey underline, to match their label. */
 .post-list:not(.post-list--notes) .title-cell a.title {
   --link-accent: var(--rule-2);
 }
