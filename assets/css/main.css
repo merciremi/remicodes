@@ -1703,12 +1703,33 @@ hr {
   margin-bottom: var(--space-7);
   /* clear the overlaid header */
   padding: 160px max(28px, calc(50vw - var(--measure-home) / 2)) var(--space-6);
-  /* darken the left half, where the text sits; the ruby on the right stays bright */
-  background:
-    linear-gradient(90deg, rgba(10, 8, 8, 0.82) 0%, rgba(10, 8, 8, 0.55) 45%, rgba(10, 8, 8, 0) 75%),
-    var(--hero-image) 70% center / cover no-repeat,
-    #1a1412;
+  /* the photo shows under the video while it loads, and instead of it with reduced motion */
+  position: relative;
+  isolation: isolate;
+  background: var(--hero-image) 70% center / cover no-repeat, #1a1412;
   color: #FFFFFF;
+}
+.panel-hero__video {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+}
+/* darken the left half, where the text sits; the ruby on the right stays bright */
+.panel-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(10, 8, 8, 0.82) 0%, rgba(10, 8, 8, 0.55) 45%, rgba(10, 8, 8, 0) 75%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel-hero__video {
+    display: none;
+  }
 }
 .panel-hero__body {
   max-width: 460px;
@@ -1785,11 +1806,14 @@ hr {
   .panel-hero {
     align-items: flex-end;
     padding: 180px 20px var(--space-6);
-    /* the ruby sits mid-frame on narrow screens: shade from the bottom instead */
-    background:
-      linear-gradient(0deg, rgba(10, 8, 8, 0.88) 0%, rgba(10, 8, 8, 0.5) 45%, rgba(10, 8, 8, 0.1) 75%),
-      var(--hero-image) 65% center / cover no-repeat,
-      #1a1412;
+    background-position: 65% center;
+  }
+  .panel-hero__video {
+    object-position: 65% center;
+  }
+  /* the ruby sits mid-frame on narrow screens: shade from the bottom instead */
+  .panel-hero::before {
+    background: linear-gradient(0deg, rgba(10, 8, 8, 0.88) 0%, rgba(10, 8, 8, 0.5) 45%, rgba(10, 8, 8, 0.1) 90%);
   }
   .panel-hero__form {
     flex-wrap: wrap;

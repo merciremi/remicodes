@@ -14,6 +14,11 @@ image: /assets/media/2026/11/ruby-stained-glass-panel-hero.webp
 {%- assign notes = site.posts | where_exp: "p", "p.tags contains 'ruby-stained-glass'" | sort: "date" -%}
 
 <section class="panel-hero" style="--hero-image: url('{{ page.image | relative_url }}')">
+  <video class="panel-hero__video" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+         poster="{{ '/assets/media/2026/11/ruby-stained-glass-panel-hero-2-poster.webp' | relative_url }}">
+    <source src="{{ '/assets/media/2026/11/ruby-stained-glass-panel-hero-2.webm' | relative_url }}" type="video/webm">
+    <source src="{{ '/assets/media/2026/11/ruby-stained-glass-panel-hero-2.mp4' | relative_url }}" type="video/mp4">
+  </video>
   <div class="panel-hero__body">
     <h1 class="panel-hero__title">The Ruby Stained-Glass Panel</h1>
     <h2>Handcrafted physical pixels,<br> for you lovely Ruby nerds.</h2>
