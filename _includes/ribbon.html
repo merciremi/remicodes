@@ -1,7 +1,7 @@
-{%- comment -%} Site-wide announcement bar. Hide it on a page with `hide_ribbon: true`. {%- endcomment -%}
+{%- comment -%} Site-wide announcement bar. Hide it on a page with `hide_ribbon: true`. Each side is a row of 40 hearts, clipped at the screen edge. {%- endcomment -%}
 {%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.en -%}
 <a class="ribbon" href="{{ '/projects/ruby-stained-glass/' | relative_url }}">
-  <span class="ribbon__heart" aria-hidden="true"></span>
+  <span class="ribbon__hearts ribbon__hearts--left" aria-hidden="true">{%- for i in (1..40) -%}<span class="ribbon__heart"></span>{%- endfor -%}</span>
   <span class="ribbon__text">{{ t.ribbon_text }} <span class="ribbon__cta">{{ t.ribbon_cta }}</span></span>
-  <span class="ribbon__heart" aria-hidden="true"></span>
+  <span class="ribbon__hearts ribbon__hearts--right" aria-hidden="true">{%- for i in (1..40) -%}<span class="ribbon__heart"></span>{%- endfor -%}</span>
 </a>

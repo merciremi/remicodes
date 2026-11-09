@@ -570,6 +570,21 @@ mark {
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
+/* rows of hearts fill the space on each side; overflow is clipped at the outer edge,
+   so the hearts next to the text are always the visible ones */
+.ribbon__hearts {
+  flex: 1 1 0;
+  min-width: 14px;
+  display: flex;
+  gap: 14px;
+  overflow: hidden;
+}
+.ribbon__hearts--left {
+  flex-direction: row-reverse;
+}
+.ribbon__text {
+  flex: 0 1 auto;
+}
 /* the pixel heart from the post lists, in the text colour; 14x12 keeps the 7x6 grid crisp */
 .ribbon__heart {
   flex: none;
@@ -577,6 +592,15 @@ mark {
   height: 12px;
   background: currentColor;
   mask: var(--icon-heart) center / 100% 100% no-repeat;
+}
+/* same 8-bit spin as the favourite hearts in post lists */
+.ribbon:hover .ribbon__heart {
+  animation: favorite-spin 1.2s steps(12) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ribbon:hover .ribbon__heart {
+    animation: none;
+  }
 }
 @media (max-width: 640px) {
   .ribbon {
