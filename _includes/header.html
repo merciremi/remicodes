@@ -7,13 +7,15 @@
 {%- endif -%}
 <header class="site-header">
   <a href="{{ home_url | relative_url }}" class="site-header__name">
-    {% include logo.html size=32 %}
+    {% include logo.html size=32 src=page.header_logo %}
     {{ site.title }}
   </a>
+  {%- unless page.hide_nav %}
   <nav class="site-nav" aria-label="Primary">
     <a href="{{ blog_url | relative_url }}"{% if page.url == '/blog/' or page.url == '/fr/blog/' or page.layout == 'category' or page.layout == 'post' %} aria-current="page"{% endif %}>Articles</a>
     <a href="{{ '/work/' | relative_url }}"{% if page.url == '/work/' %} aria-current="page"{% endif %}>Work</a>
     <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
     {% include language-switch.html %}
   </nav>
+  {%- endunless %}
 </header>

@@ -4,8 +4,11 @@
 {% include head.html %}
 </head>
 {%- assign primary_tag = page.tag | default: page.tags.first -%}
-<body{% if primary_tag %} class="cat-{{ primary_tag }}"{% endif %}>
+{%- capture body_classes -%}{% if primary_tag %}cat-{{ primary_tag }}{% endif %} {{ page.body_class }}{%- endcapture -%}
+{%- assign body_classes = body_classes | strip -%}
+<body{% if body_classes != "" %} class="{{ body_classes }}"{% endif %}>
 <a class="skip-link" href="#main">Skip to content</a>
+{% unless page.hide_ribbon %}{% include ribbon.html %}{% endunless %}
 <div class="container">
 {% include header.html %}
 <main id="main">

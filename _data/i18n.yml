@@ -18,6 +18,8 @@ en:
   newsletter_email_label: Email address
   newsletter_placeholder: Enter your email
   newsletter_subscribe: Subscribe
+  ribbon_text: The Ruby Stained-Glass Panel launches soon!!!
+  ribbon_cta: Sign up to be the first to know.
 fr:
   read_in:
     en: Lire en anglais
@@ -36,5 +38,7 @@ fr:
   newsletter_email_label: Adresse e-mail
   newsletter_placeholder: Votre adresse e-mail
   newsletter_subscribe: S'abonner
+  ribbon_text: Le vitrail Ruby arrive bientôt!!!
+  ribbon_cta: Inscrivez-vous pour être les premiers au courant.
   months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
   months_short: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]

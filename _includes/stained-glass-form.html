@@ -1,14 +1,17 @@
 {%- assign field_id = include.id | default: "stained-glass" -%}
+{%- comment -%} bare=true renders the form alone (no red box, no pitch), e.g. in the panel page hero. {%- endcomment -%}
+{%- unless include.bare -%}
 <section class="newsletter newsletter--stained-glass">
   <div class="newsletter__text stack">
     <p class="t-h2">Join +50 nerds from around the world and follow this crazy project of mine. 💎</p>
     <p class="">Each week, I share my progress on the project, all of my questions about glass, electronics, pricing...</p>
   </div>
+{%- endunless %}
   <form action="https://remimercier.us18.list-manage.com/subscribe/post?u=73774ffb65bb733533be2d97e&amp;id=0ae611543f&amp;f_id=0062aee6f0"
         method="post"
         id="mc-embedded-subscribe-form-{{ field_id }}"
         name="mc-embedded-subscribe-form"
-        class="validate"
+        class="validate{% if include.class %} {{ include.class }}{% endif %}"
         target="_blank"
         rel="noopener"
         novalidate>
@@ -19,4 +22,6 @@
     <div class="honeypot" aria-hidden="true"><input type="text" name="b_73774ffb65bb733533be2d97e_0ae611543f" tabindex="-1" value=""></div>
     <button type="submit" name="subscribe" id="mc-embedded-subscribe-{{ field_id }}">Follow along</button>
   </form>
+{%- unless include.bare %}
 </section>
+{%- endunless %}

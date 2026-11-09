@@ -1,0 +1,33 @@
+---
+layout: default
+title: "The Ruby Stained-Glass Panel"
+permalink: /projects/ruby-stained-glass/
+tag: ruby-stained-glass
+body_class: landing
+header_logo: /assets/media/shared/rm-monogram-dark.svg
+hide_nav: true
+hide_ribbon: true
+excerpt: "A collectible, limited-edition stained-glass panel celebrating Ruby. Soon in pre-sales."
+image: /assets/media/2026/11/ruby-stained-glass-panel-hero.webp
+---
+{%- assign notes = site.posts | where_exp: "p", "p.tags contains 'ruby-stained-glass'" | sort: "date" -%}
+
+<section class="panel-hero" style="--hero-image: url('{{ page.image | relative_url }}')">
+  <div class="panel-hero__body">
+    <h1 class="panel-hero__title">The Ruby Stained-Glass Panel</h1>
+    <h2>Handcrafted physical pixels,<br> for you lovely Ruby nerds.</h2>
+    <p class="panel-hero__subtitle">Soon in pre-sales \(^o^)/</p>
+    <p class="panel-hero__cta">Sign up to be the first to know when pre-sales launch.</p>
+    {% include stained-glass-form.html bare=true id="hero" class="panel-hero__form" %}
+  </div>
+</section>
+
+<section class="mb-7">
+  <h2 class="mb-2">The Ruby Stained-Glass Notes</h2>
+  <p class="mb-5">Every note I've written while making the panel.</p>
+  <ul class="list-slim post-list post-list--related">
+    {% for post in notes %}
+    {% include post-row.html post=post size="related" %}
+    {% endfor %}
+  </ul>
+</section>

@@ -1,4 +1,9 @@
+{%- comment -%} src= swaps the monogram for a single image (no hover variant), e.g. the light-on-dark one over a photo. {%- endcomment -%}
 <span class="logo">
+{%- if include.src %}
+  <img src="{{ include.src | relative_url }}" alt="" width="{{ include.size }}" height="{{ include.size }}">
+{%- else %}
   <img src="{{ '/assets/media/shared/rm-monogram-misreg-dither.svg' | relative_url }}" alt="" width="{{ include.size }}" height="{{ include.size }}">
   <img src="{{ '/assets/media/shared/rm-monogram-misreg-color-coloured_neon.svg' | relative_url }}" alt="" width="{{ include.size }}" height="{{ include.size }}" class="logo__hover">
+{%- endif %}
 </span>

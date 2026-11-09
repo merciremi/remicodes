@@ -269,6 +269,10 @@ a:hover {
   align-items: center;
 }
 /* Strips native list styling, for lists used as layout (nav, post lists, logos). */
+/* keep a phrase (e.g. a kaomoji and the word before it) on one line */
+.nowrap {
+  white-space: nowrap;
+}
 .list-slim {
   list-style: none;
   margin: 0;
@@ -535,6 +539,50 @@ mark {
 @media (prefers-reduced-motion: reduce) {
   .rainbow-hover:hover .letter {
     animation: none;
+  }
+}
+
+/* ---------- 5b. announcement ribbon ---------- */
+
+/* full-bleed bar above the header: bleeds past the body gutters */
+.ribbon {
+  --link-accent: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-inline: -28px;
+  padding: 10px 28px;
+  background: var(--c-ruby-stained-glass);
+  color: var(--ink-ruby-stained-glass);
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+}
+.ribbon:hover {
+  background: var(--c-ruby-stained-glass);
+  color: var(--ink-ruby-stained-glass);
+}
+.ribbon__cta {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+/* the pixel heart from the post lists, in the text colour; 14x12 keeps the 7x6 grid crisp */
+.ribbon__heart {
+  flex: none;
+  width: 14px;
+  height: 12px;
+  background: currentColor;
+  mask: var(--icon-heart) center / 100% 100% no-repeat;
+}
+@media (max-width: 640px) {
+  .ribbon {
+    margin-inline: -20px;
+    padding-inline: 20px;
+    font-size: 14px;
   }
 }
 
@@ -1624,4 +1672,129 @@ hr {
 }
 .border-t {
   border-top: 1px dotted var(--rule-2);
+}
+
+/* ---------- 16. landing hero (Ruby Stained-Glass Panel page) ---------- */
+
+/* body has a horizontal gutter; the hero bleeds past it to the viewport edges */
+.landing {
+  overflow-x: clip;
+}
+/* the header floats over the photo, inside the same column as the rest of the site */
+.landing .site-header {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  right: 28px;
+  z-index: 1;
+  max-width: var(--measure-home);
+  margin-inline: auto;
+}
+.landing .site-header__name {
+  color: #FFFFFF;
+}
+
+.panel-hero {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin-inline: calc(50% - 50vw);
+  margin-bottom: var(--space-7);
+  /* clear the overlaid header */
+  padding: 160px max(28px, calc(50vw - var(--measure-home) / 2)) var(--space-6);
+  /* darken the left half, where the text sits; the ruby on the right stays bright */
+  background:
+    linear-gradient(90deg, rgba(10, 8, 8, 0.82) 0%, rgba(10, 8, 8, 0.55) 45%, rgba(10, 8, 8, 0) 75%),
+    var(--hero-image) 70% center / cover no-repeat,
+    #1a1412;
+  color: #FFFFFF;
+}
+.panel-hero__body {
+  max-width: 460px;
+}
+.panel-hero__title {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+}
+.panel-hero h2 {
+  margin: 0 0 var(--space-3);
+  color: #FFFFFF;
+}
+.panel-hero__subtitle {
+  display: inline-block;
+  margin: 0 0 var(--space-4);
+  padding: 4px 10px;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--c-ruby-stained-glass);
+  color: var(--ink-ruby-stained-glass);
+}
+.panel-hero__cta {
+  margin: 0 0 var(--space-2);
+  font-size: 17px;
+  color: #FFFFFF;
+}
+.panel-hero__form {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+}
+.panel-hero__form input {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--sans);
+  font-size: 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ink);
+}
+.panel-hero__form button {
+  flex: none;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 22px;
+  border: 1.5px solid var(--c-ruby-stained-glass);
+  border-radius: 0;
+  background: var(--c-ruby-stained-glass);
+  color: var(--ink-ruby-stained-glass);
+  cursor: pointer;
+}
+.panel-hero__form button:hover {
+  background: transparent;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+.panel-hero :focus-visible {
+  outline-color: #FFFFFF;
+}
+
+@media (max-width: 640px) {
+  .landing .site-header {
+    left: 20px;
+    right: 20px;
+  }
+  .panel-hero {
+    align-items: flex-end;
+    padding: 180px 20px var(--space-6);
+    /* the ruby sits mid-frame on narrow screens: shade from the bottom instead */
+    background:
+      linear-gradient(0deg, rgba(10, 8, 8, 0.88) 0%, rgba(10, 8, 8, 0.5) 45%, rgba(10, 8, 8, 0.1) 75%),
+      var(--hero-image) 65% center / cover no-repeat,
+      #1a1412;
+  }
+  .panel-hero__form {
+    flex-wrap: wrap;
+  }
+  .panel-hero__form input {
+    flex-basis: 100%;
+  }
 }

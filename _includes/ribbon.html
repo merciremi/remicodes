@@ -1,0 +1,7 @@
+{%- comment -%} Site-wide announcement bar. Hide it on a page with `hide_ribbon: true`. {%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.en -%}
+<a class="ribbon" href="{{ '/projects/ruby-stained-glass/' | relative_url }}">
+  <span class="ribbon__heart" aria-hidden="true"></span>
+  <span class="ribbon__text">{{ t.ribbon_text }} <span class="ribbon__cta">{{ t.ribbon_cta }}</span></span>
+  <span class="ribbon__heart" aria-hidden="true"></span>
+</a>
