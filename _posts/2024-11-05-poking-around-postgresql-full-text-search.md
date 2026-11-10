@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Poking around PostgreSQL full-text search: a beginners primer"
+title: "Full-text search in PostgreSQL : a beginners primer"
 date: 2024-11-05
 tags: [postgresql]
 permalink: /postgresql-full-text-search-for-beginners/
@@ -104,7 +104,7 @@ I could add new conditions to my `WHERE` clause. But in real-life applications, 
 
 This long-winded (yet contrived) example shows you, reader, that when you hit the limitations of basic search operators, it's time to reach for PostgreSQL's full-text search.
 
-## How does full-text search works?
+## How does full-text search works in PostgreSQL?
 
 ### From documents to tokens
 

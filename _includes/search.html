@@ -1,0 +1,20 @@
+{%- comment -%}
+  Search field with autocomplete. The index (/search.json) is built by _plugins/search_index.rb
+  and only fetched the first time someone focuses the field.
+{%- endcomment -%}
+<div class="search" data-search data-index-url="{{ '/search.json' | relative_url }}">
+  <label class="visually-hidden" for="search-input">Search posts and notes</label>
+  <input type="search"
+         id="search-input"
+         class="search__input"
+         placeholder="Search posts and notes…"
+         autocomplete="off"
+         spellcheck="false"
+         role="combobox"
+         aria-autocomplete="list"
+         aria-expanded="false"
+         aria-controls="search-results">
+  <ul id="search-results" class="search__results" role="listbox" aria-label="Search results" hidden></ul>
+  <p class="visually-hidden" aria-live="polite" data-search-status></p>
+</div>
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
