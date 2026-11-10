@@ -45,6 +45,8 @@ collections:
 # Add `pages` to the list to copy Markdown pages too.
 markdown_copies:
   sources: [posts]
+  # Ends the attribution footer: "Written by Rémi Mercier (…/about/), <author_bio>."
+  author_bio: independent Ruby on Rails developer and technical writer
 
 defaults:
   # Fallback og:image / twitter:image for jekyll-seo-tag.

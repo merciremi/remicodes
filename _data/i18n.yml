@@ -7,6 +7,9 @@ en:
   menu: Menu
   updated: Updated
   view_as_markdown: View as Markdown
+  copy_markdown: Copy Markdown
+  markdown_copied: Copied!
+  markdown_copy_failed: Copy failed
   previous: Previous
   next: Next
   previous_next: Previous and next posts
@@ -35,6 +38,9 @@ fr:
   menu: Menu
   updated: Mis à jour le
   view_as_markdown: Voir en Markdown
+  copy_markdown: Copier le Markdown
+  markdown_copied: Copié !
+  markdown_copy_failed: Échec de la copie
   previous: Précédent
   next: Suivant
   previous_next: Articles précédent et suivant

@@ -791,13 +791,40 @@ a:focus-visible .logo__hover {
   color: var(--ink);
   border-color: var(--rule-2);
 }
-/* The robot is a mask filled with the text colour, so it follows the hover state. */
+/* The icons are masks filled with the text colour, so they follow the hover state. */
 .article .markdown-button::before {
   content: "";
   width: 12px;
   height: 12px;
   background-color: currentColor;
   mask: url("/assets/media/shared/robot.svg") center / contain no-repeat;
+}
+/* "Copy Markdown": filled light grey next to the outlined link, with an 8-bit clipboard that turns into a check once copied. */
+.article .markdown-button--copy {
+  margin-left: 4px;
+  font-family: inherit;
+  color: var(--ink-2);
+  background: var(--rule);
+  border-color: var(--rule);
+  cursor: pointer;
+}
+.article .markdown-button--copy:hover {
+  color: var(--ink);
+  background: var(--rule-2);
+  border-color: var(--rule-2);
+}
+.article .markdown-button--copy::before {
+  mask-image: url("/assets/media/shared/clipboard-8bit.svg");
+}
+.article .markdown-button--copy[hidden] {
+  display: none;
+}
+.article .markdown-button--copy[data-state='copied'] {
+  color: var(--ink);
+  border-color: var(--accent);
+}
+.article .markdown-button--copy[data-state='copied']::before {
+  mask-image: url("/assets/media/shared/check-8bit.svg");
 }
 
 /* Link to the other language version of a page; the flag is the current page's language (see _includes/language-switch.html) */
