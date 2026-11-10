@@ -11,6 +11,14 @@
   const list = root.querySelector("[role=listbox]");
   const status = root.querySelector("[data-search-status]");
 
+  // Interface strings, in the page's language (see _data/i18n.yml).
+  const text = {
+    empty: root.dataset.textEmpty,
+    none: root.dataset.textNone,
+    one: root.dataset.textOne,
+    many: root.dataset.textMany,
+  };
+
   let index = null;
   let loading = null;
   let results = [];
@@ -90,8 +98,8 @@
     list.replaceChildren();
 
     if (results.length === 0) {
-      list.append(element("li", "search__empty", `Nothing matches “${query}”.`));
-      status.textContent = "No results.";
+      list.append(element("li", "search__empty", text.empty.replace("%{query}", query)));
+      status.textContent = text.none;
     } else {
       results.forEach((entry, i) => {
         const option = element("li", "search__result");
@@ -112,7 +120,8 @@
         option.append(link);
         list.append(option);
       });
-      status.textContent = `${results.length} result${results.length > 1 ? "s" : ""}.`;
+      status.textContent =
+        results.length === 1 ? text.one : text.many.replace("%{count}", results.length);
     }
 
     list.hidden = false;

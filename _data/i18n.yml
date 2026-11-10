@@ -20,6 +20,14 @@ en:
   newsletter_subscribe: Subscribe
   ribbon_text: The Ruby Stained-Glass Panel launches soon!!!
   ribbon_cta: Sign up to be the first to know.
+  # Search field. %{query} and %{count} are filled in by assets/js/search.js.
+  search_label: Search posts and notes
+  search_placeholder: Search posts and notes…
+  search_results_label: Search results
+  search_empty: Nothing matches “%{query}”.
+  search_none: No results.
+  search_one: 1 result.
+  search_many: "%{count} results."
 fr:
   read_in:
     en: Lire en anglais
@@ -40,5 +48,12 @@ fr:
   newsletter_subscribe: S'abonner
   ribbon_text: Le vitrail Ruby arrive bientôt!!!
   ribbon_cta: Inscrivez-vous pour être les premiers au courant.
+  search_label: Rechercher un article
+  search_placeholder: Rechercher un article…
+  search_results_label: Résultats de recherche
+  search_empty: Aucun article ne correspond à « %{query} ».
+  search_none: Aucun résultat.
+  search_one: 1 résultat.
+  search_many: "%{count} résultats."
   months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
   months_short: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]

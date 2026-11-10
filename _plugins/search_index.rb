@@ -1,4 +1,8 @@
-# Generator: publishes /search.json, the index behind the search field on the blog index.
+# Generator: publishes the indexes behind the search field on the blog indexes, one per language:
+#   - /search.json    → English posts and notes (blog/index.html);
+#   - /fr/search.json → French posts (blog/fr/index.html).
+# A document's language is its `lang` front matter, English by default.
+# Scribbles are never indexed: only posts and notes are.
 # Runs on every build, so new posts and notes are searchable for free.
 #
 # One entry per post and note:
@@ -8,7 +12,8 @@
 # Opt a single document out with `search: false` in its front matter.
 
 module SearchIndex
-  PATH = "search.json"
+  DEFAULT_LANG = "en"
+  FILENAME = "search.json"
   EXCERPT_LENGTH = 200
 
   class Generator < Jekyll::Generator
@@ -18,16 +23,10 @@ module SearchIndex
     def generate(site)
       topic_names = Array(site.config["topics"]).to_h { |topic| [topic["slug"], topic["name"]] }
 
-      entries = documents(site).map { |doc| entry_for(doc, topic_names) }
-
-      index = Jekyll::PageWithoutAFile.new(site, site.source, "", PATH)
-      index.content = JSON.generate(entries)
-      index.data.merge!(
-        "layout" => "none",
-        "sitemap" => false,
-        "render_with_liquid" => false # titles or excerpts with {{ }} must stay as is
-      )
-      site.pages << index
+      documents(site).group_by { |doc| doc.data["lang"] || DEFAULT_LANG }.each do |lang, docs|
+        entries = docs.map { |doc| entry_for(doc, topic_names) }
+        site.pages << index_page(site, lang, entries)
+      end
     end
 
     private
@@ -39,6 +38,18 @@ module SearchIndex
         .reject { |doc| doc.data["search"] == false }
         .sort_by(&:date)
         .reverse
+    end
+
+    def index_page(site, lang, entries)
+      dir = lang == DEFAULT_LANG ? "" : lang
+      page = Jekyll::PageWithoutAFile.new(site, site.source, dir, FILENAME)
+      page.content = JSON.generate(entries)
+      page.data.merge!(
+        "layout" => "none",
+        "sitemap" => false,
+        "render_with_liquid" => false # titles or excerpts with {{ }} must stay as is
+      )
+      page
     end
 
     def entry_for(doc, topic_names)
