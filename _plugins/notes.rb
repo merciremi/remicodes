@@ -41,9 +41,35 @@ class NoteTagPages < Jekyll::Generator
     end.sort_by { |tag| tag["name"].downcase }
 
     site.data["note_tags"].each { |tag| site.pages << tag_page(site, tag) }
+
+    notes.each do |note|
+      note.data["stack_notes"] = stack_notes(note, grouped)
+      note.data["referenced_by"] = referencing_notes(note, notes, site)
+    end
   end
 
   private
+
+  # The other notes linking to this one, newest first. Reads the raw Markdown, so it catches
+  # inline links and reference definitions, root-relative or with the full domain.
+  def referencing_notes(note, notes, site)
+    path = Regexp.escape(note.url.chomp("/"))
+    domain = Regexp.escape(site.config["url"].to_s.sub(%r{\Ahttps?://(www\.)?}, ""))
+    link = %r{(?:\]\(|^\[[^\]]+\]:\s*)(?:https?://(?:www\.)?#{domain})?#{path}/?(?:#[^)\s]*)?(?=[)\s]|\z)}
+
+    notes.reject { |other| other == note }.select { |other| other.content.match?(link) }.reverse
+  end
+
+  STACK_DEPTH = 2
+
+  # The sheets lying under a note on its page: the notes sharing one of its tags, those
+  # that come after it first, then wrapping round to the oldest. Empty if it's alone in its piles.
+  def stack_notes(note, grouped)
+    slugs = Array(note.data["note_tags"]).map { |tag| Jekyll::Utils.slugify(tag.to_s) }
+    mates = slugs.flat_map { |slug| grouped[slug].map(&:last) }.uniq.sort_by(&:date)
+    index = mates.index(note)
+    (mates[(index + 1)..] + mates[0...index]).first(STACK_DEPTH)
+  end
 
   def tag_page(site, tag)
     Jekyll::PageWithoutAFile.new(site, site.source, "notes/tags/#{tag["slug"]}", "index.html").tap do |page|

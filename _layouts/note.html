@@ -2,8 +2,10 @@
 layout: default
 ---
 {%- comment -%} A note is a sheet of paper on a desk: the newsletter form stays off the sheet. {%- endcomment -%}
+<div class="note-stack">
 <article class="article article--note">
-  <p class="t-label mb-2">
+  <a class="article--note__close" href="{{ '/notes/' | relative_url }}" aria-label="Back to all notes">&times;</a>
+  <p class="t-label mb-2 article--note__date">
     <time datetime="{{ page.date | date_to_xmlschema }}">{% include date.html date=page.date %}</time>
   </p>
 
@@ -14,14 +16,42 @@ layout: default
   <h1 class="visually-hidden">Note from {% include date.html date=page.date %}</h1>
   {% endif %}
 
-  <div class="tags">
+  {{ content | heading_anchors }}
+
+  <div class="tags mt-6">
     {% for note_tag in page.note_tags %}
     {%- assign note_tag_href = note_tag | slugify | prepend: "/notes/tags/" | append: "/" -%}
     {% include pill.html href=note_tag_href text=note_tag %}
     {% endfor %}
   </div>
 
-  {{ content | heading_anchors }}
+  {% if page.referenced_by.size > 0 %}
+  <nav class="note-backlinks mt-6" aria-labelledby="note-backlinks-title">
+    <p class="t-label mb-2" id="note-backlinks-title">Referenced in</p>
+    <ul>
+      {% for ref in page.referenced_by %}
+      <li class="note-backlinks__item">
+        <a href="{{ ref.url | relative_url }}">{% if ref.title %}{{ ref.title }}{% else %}Note from {% include date.html date=ref.date %}{% endif %}</a>
+        {%- comment -%} A glimpse of the note, shown on hover or focus. Screen readers skip it: the link already names the note. {%- endcomment %}
+        <span class="note-backlinks__preview" aria-hidden="true">
+          {%- if ref.title %}<span class="note-backlinks__preview-title">{{ ref.title }}</span>{% endif -%}
+          <span class="note-backlinks__preview-text">{{ ref.content | without_code_tabs | strip_html | normalize_whitespace | truncatewords: 45 }}</span>
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
 </article>
+
+{%- comment -%}
+  Other notes from the same tags lie under this one: their edges peek out, and clicking one opens it.
+  They come after the article in the source so it's read first; z-index puts them underneath.
+{%- endcomment -%}
+{%- for stack_note in page.stack_notes -%}
+{%- capture stack_note_name -%}{% if stack_note.title %}{{ stack_note.title | escape }}{% else %}Note from {% include date.html date=stack_note.date %}{% endif %}{%- endcapture -%}
+<a class="note-stack__sheet" href="{{ stack_note.url | relative_url }}" aria-label="Another note: {{ stack_note_name | strip_newlines | strip }}"></a>
+{%- endfor %}
+</div>
 
 {% include newsletter-form.html id="post" %}

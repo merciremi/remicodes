@@ -965,7 +965,6 @@ ul.piles {
   view-transition-name: var(--vt, none);
   background: #fff;
   border: 1px solid var(--rule-2);
-  border-radius: 6px;
 }
 .note-card:focus-visible .note-card__face {
   outline: 2px solid var(--ink);
@@ -1085,8 +1084,113 @@ body:has(.article--note) {
 .article--note {
   padding: var(--space-6);
   background: #fff;
+}
+.article--note {
+  position: relative;
+  z-index: 2;
+}
+
+/* the notes sharing a tag lie under the open one, fanned out to the right so their edges peek out */
+.note-stack {
+  position: relative;
+}
+.note-stack__sheet {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #f7f7f5;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  /* each sheet deeper in the pile sits another step right and down, and 1deg more askew */
+  --depth: 1;
+  transform: translate(calc(var(--depth) * var(--space-2)), calc(var(--depth) * var(--space-2))) rotate(calc(var(--depth) * 1deg));
+  transition: transform 0.2s ease;
+}
+.note-stack__sheet:nth-of-type(2) {
+  --depth: 2;
+  z-index: 0;
+  background: #efefec;
+}
+/* pulled out a little from under the pile, to show it's there to take */
+.note-stack__sheet:is(:hover, :focus-visible) {
+  --depth: 1.3;
+  background-color: #f7f7f5;
+}
+.note-stack__sheet:nth-of-type(2):is(:hover, :focus-visible) {
+  --depth: 2.3;
+  background-color: #efefec;
+}
+/* room under the pile, so the lower sheets don't run into what follows */
+.note-stack:has(.note-stack__sheet) {
+  margin-bottom: var(--space-2);
+}
+.note-stack:has(.note-stack__sheet:nth-of-type(2)) {
+  margin-bottom: var(--space-4);
+}
+@media (prefers-reduced-motion: reduce) {
+  .note-stack__sheet {
+    transition: none;
+  }
+}
+/* notes linking to this one: hovering a link shows a glimpse of that note */
+.note-backlinks__item {
+  position: relative;
+}
+.note-backlinks__preview {
+  position: absolute;
+  bottom: calc(100% + var(--space-1));
+  left: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: min(320px, 80vw);
+  padding: 14px 16px;
+  background: #fff;
   border: 1px solid var(--rule-2);
-  border-radius: 6px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2, var(--ink));
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  pointer-events: none;
+}
+.note-backlinks__preview-title {
+  font-weight: 600;
+  color: var(--ink);
+}
+.note-backlinks__item:has(> a:is(:hover, :focus-visible)) .note-backlinks__preview {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .note-backlinks__preview {
+    transition: none;
+  }
+}
+
+/* askew sheets poke past the screen edge on a phone: no sideways scroll for that */
+body:has(.note-stack) {
+  overflow-x: clip;
+}
+.article--note__date {
+  text-align: right;
+}
+.article--note__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--ink-3);
+  text-decoration: none;
+}
+.article--note__close:is(:hover, :focus-visible) {
+  color: var(--ink);
+  background-color: transparent;
 }
 .article--note > :last-child {
   margin-bottom: 0;
@@ -1094,6 +1198,11 @@ body:has(.article--note) {
 @media (max-width: 640px) {
   .article--note {
     padding: var(--space-3);
+  }
+  /* the padding is narrower here: keep the X clear of the date */
+  .article--note__close {
+    top: 4px;
+    right: 6px;
   }
 }
 
