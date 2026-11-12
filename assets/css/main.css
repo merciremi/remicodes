@@ -76,7 +76,7 @@
 }
 
 /* Tag scope: add .cat-{tag} to <body> or <article> (a post uses its first tag) */
-/* Untagged content (notes) falls back to the default link green. */
+/* Untagged content falls back to the default link green. */
 :root {
   --cat: var(--accent);
   --cat-ink: var(--accent-ink);
@@ -264,6 +264,9 @@ a:hover {
 }
 .justify-between {
   justify-content: space-between;
+}
+.justify-end {
+  justify-content: flex-end;
 }
 .items-center {
   align-items: center;
@@ -1082,14 +1085,6 @@ a:focus-visible .logo__hover {
   color: var(--accent-ink);
 }
 
-/* notes variant: styled like default links */
-.post-list--notes a.title {
-  text-decoration-thickness: 2px;
-}
-.post-list--notes a.title:hover {
-  background-color: var(--cat);
-}
-
 /* related-post variant */
 .post-list--related li {
   grid-template-columns: 130px 1fr;
@@ -1131,6 +1126,325 @@ a:focus-visible .logo__hover {
   .post-list li, .post-list--lg li, .post-list--related li {
     grid-template-columns: 1fr;
     gap: 7px;
+  }
+}
+
+/* ---------- 8b. notes index ---------- */
+/* Spec exception, "Notes cards": 6px radius, like the testimonial cards. */
+
+/* Notes have their own tags, without colours. */
+.notes-filter {
+  --cat: var(--rule-2);
+  --cat-ink: var(--ink);
+  view-transition-name: notes-filter;
+}
+.filter-row .pill--filter[aria-current='page'] {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: transparent;
+}
+/* breaks out of the container, like .struggles */
+.piles {
+  --breakout: max(100%, min(1280px, 100vw - 72px));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-6) var(--space-4);
+  align-items: start;
+  width: var(--breakout);
+  margin: var(--space-5) 0 0 calc((100% - var(--breakout)) / 2);
+}
+/* a tag page: the same grid, filled with cards instead of piles */
+ul.piles {
+  row-gap: var(--space-4);
+}
+.pile__label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 var(--space-2);
+}
+/* a pile: only the top 60px of a buried card shows */
+.pile__cards {
+  isolation: isolate;
+}
+.pile__cards li + li {
+  margin-top: -172px; /* 232 − 60 */
+}
+.note-card {
+  --link-accent: transparent;
+  position: relative;
+  display: block;
+  height: 232px;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.note-card:is(:hover, :focus-visible) {
+  --i: 9998;
+  outline: 0;
+}
+/* hit area, above every card: a card brought to the front can't block the ones below it */
+.note-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 9999;
+}
+.pile__cards li:not(:last-child) .note-card::after {
+  bottom: auto;
+  height: 60px;
+}
+/* --vt names the card for the page transition. It lives on the face because a name
+   creates a stacking context, which on the <li> would stop a card reaching the front. */
+.note-card__face {
+  position: relative;
+  z-index: var(--i);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  padding: 14px 16px;
+  overflow: hidden;
+  view-transition-name: var(--vt, none);
+  background: #fff;
+  border: 1px solid var(--rule-2);
+}
+.note-card:focus-visible .note-card__face {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+.note-card__title {
+  display: -webkit-box;
+  flex: none;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.note-card__date {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.note-card__text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.5;
+}
+/* untitled note: no title to make room for, so more text fits */
+.note-card__face:not(:has(.note-card__title)) .note-card__text {
+  -webkit-line-clamp: 7;
+}
+
+/* homepage: the latest notes stacked sideways, newest on the left and on top.
+   The cards share the width; once they'd overlap too much, the row scrolls.
+   Each <li> is the visible slice of its card: the card hangs off its left side, under
+   the newer ones, and the hit area fills the <li>, so hit areas never overlap. */
+.notes-row {
+  --note-width: 260px;
+  display: flex;
+  isolation: isolate;
+  overflow-x: auto;
+  /* overflow clips on every side: leave room for the lift and the tilted corners */
+  margin: -16px;
+  padding: 16px;
+}
+/* six angles that look random: CSS has no widely supported random() */
+.notes-row li:nth-child(1) .note-card__face {
+  rotate: -2deg;
+}
+.notes-row li:nth-child(2) .note-card__face {
+  rotate: 1.4deg;
+}
+.notes-row li:nth-child(3) .note-card__face {
+  rotate: -0.8deg;
+}
+.notes-row li:nth-child(4) .note-card__face {
+  rotate: 2.2deg;
+}
+.notes-row li:nth-child(5) .note-card__face {
+  rotate: -1.6deg;
+}
+.notes-row li:nth-child(6) .note-card__face {
+  rotate: 0.9deg;
+}
+.notes-row .note-card:is(:hover, :focus-visible) .note-card__face {
+  translate: 0 -8px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .notes-row .note-card__face {
+    transition: translate 0.15s ease;
+  }
+}
+.notes-row li {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  justify-content: flex-end;
+  min-width: 44px;
+}
+.notes-row li:first-child {
+  flex: none;
+  width: var(--note-width);
+}
+.notes-row .note-card {
+  position: static;
+  flex: none;
+  width: var(--note-width);
+}
+
+/* a pile of 11+ notes spans two columns, as two stacks. Only where two columns fit:
+   on a one-column grid, the span would add a column and overflow the page. */
+@media (min-width: 620px) {
+  .pile:has(li:nth-child(11)) {
+    grid-column: span 2;
+  }
+  .pile:has(li:nth-child(11)) .pile__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-4);
+  }
+  .pile:has(li:nth-child(11)) li:nth-child(2) {
+    margin-top: 0;
+  }
+  /* the second-to-last card is the front of its own stack */
+  .pile:has(li:nth-child(11)) li:nth-last-child(2) .note-card::after {
+    height: 100%;
+  }
+}
+
+/* a note page: a sheet of paper on a desk */
+body:has(.article--note) {
+  background-color: var(--inline-bg);
+}
+.article--note {
+  padding: var(--space-6);
+  background: #fff;
+}
+.article--note {
+  position: relative;
+  z-index: 2;
+}
+
+/* the notes sharing a tag lie under the open one, fanned out to the right so their edges peek out */
+.note-stack {
+  position: relative;
+}
+.note-stack__sheet {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #f7f7f5;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  /* each sheet deeper in the pile sits another step right and down, and 1deg more askew */
+  --depth: 1;
+  transform: translate(calc(var(--depth) * var(--space-2)), calc(var(--depth) * var(--space-2))) rotate(calc(var(--depth) * 1deg));
+  transition: transform 0.2s ease;
+}
+.note-stack__sheet:nth-of-type(2) {
+  --depth: 2;
+  z-index: 0;
+  background: #efefec;
+}
+/* pulled out a little from under the pile, to show it's there to take */
+.note-stack__sheet:is(:hover, :focus-visible) {
+  --depth: 1.3;
+  background-color: #f7f7f5;
+}
+.note-stack__sheet:nth-of-type(2):is(:hover, :focus-visible) {
+  --depth: 2.3;
+  background-color: #efefec;
+}
+/* room under the pile, so the lower sheets don't run into what follows */
+.note-stack:has(.note-stack__sheet) {
+  margin-bottom: var(--space-2);
+}
+.note-stack:has(.note-stack__sheet:nth-of-type(2)) {
+  margin-bottom: var(--space-4);
+}
+@media (prefers-reduced-motion: reduce) {
+  .note-stack__sheet {
+    transition: none;
+  }
+}
+/* notes linking to this one: hovering a link shows a glimpse of that note */
+.note-backlinks__item {
+  position: relative;
+}
+.note-backlinks__preview {
+  position: absolute;
+  bottom: calc(100% + var(--space-1));
+  left: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: min(320px, 80vw);
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--rule-2);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2, var(--ink));
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  pointer-events: none;
+}
+.note-backlinks__preview-title {
+  font-weight: 600;
+  color: var(--ink);
+}
+.note-backlinks__item:has(> a:is(:hover, :focus-visible)) .note-backlinks__preview {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .note-backlinks__preview {
+    transition: none;
+  }
+}
+
+/* askew sheets poke past the screen edge on a phone: no sideways scroll for that */
+body:has(.note-stack) {
+  overflow-x: clip;
+}
+.article--note__date {
+  text-align: right;
+}
+.article--note__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--ink-3);
+  text-decoration: none;
+}
+.article--note__close:is(:hover, :focus-visible) {
+  color: var(--ink);
+  background-color: transparent;
+}
+.article--note > :last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 640px) {
+  .article--note {
+    padding: var(--space-3);
+  }
+  /* the padding is narrower here: keep the X clear of the date */
+  .article--note__close {
+    top: 4px;
+    right: 6px;
   }
 }
 

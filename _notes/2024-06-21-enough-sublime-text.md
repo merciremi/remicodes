@@ -1,7 +1,8 @@
 ---
 date: 2024-06-21
 title: "Enough Sublime Text"
-permalink: /enough-sublime-text/
+redirect_from: /enough-sublime-text/
+note_tags: [editor]
 ---
 
 Currently trying to move from pretty good user, to advanced user for Sublime Text.

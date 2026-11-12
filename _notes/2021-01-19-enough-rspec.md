@@ -1,7 +1,8 @@
 ---
 title: Enough RSpec
 date: 2021-01-19
-permalink: /enough-rspec/
+redirect_from: /enough-rspec/
+note_tags: [rspec, testing]
 ---
 
 How to force the user as the serializer's scope:

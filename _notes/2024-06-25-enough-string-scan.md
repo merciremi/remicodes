@@ -1,10 +1,11 @@
 ---
 date: 2024-06-25
 title: "StringScanner"
-permalink: /enough-string-scanner/
+redirect_from: /enough-string-scanner/
+note_tags: [ruby]
 ---
 
-Currently reading Rebuilding Rails by Noah Gibbs.
+Currently reading [Rebuilding Rails](/notes/202406270000/) by Noah Gibbs.
 
 At some point, he writes about checking out Active Support for some pointers on metaprogramming. Currently felt into a rabbit hole on the [duration part of the lib](https://github.com/rails/rails/tree/main/activesupport/lib/active_support/duration){:target="\_blank"}.
 

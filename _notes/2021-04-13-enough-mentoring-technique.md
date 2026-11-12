@@ -1,7 +1,8 @@
 ---
 date: 2021-04-13
 title: "Enough mentoring"
-permalink: /enough-mentoring/
+redirect_from: /enough-mentoring/
+note_tags: [career, mentoring]
 ---
 
 Here's a list of things I'm learning while helping people, during 1-1 technical meetings.

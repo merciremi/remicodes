@@ -29,9 +29,8 @@ topics:
   - { slug: community,   name: Community }
   - { slug: marketing,   name: Marketing }
 
-# Rough notes and works in progress. Same layout as posts, indexed at /notes/.
-# Default URL is a timestamp from the front matter `date` (e.g. /notes/202602181430/);
-# set `permalink` in front matter to override.
+# Rough notes and works in progress, with their own layout and tags, indexed at /notes/.
+# Default URL is a timestamp from the front matter `date` (e.g. /notes/202602181430/)
 collections:
   notes:
     output: true
@@ -69,8 +68,7 @@ defaults:
       path: ""
       type: "notes"
     values:
-      layout: post
-      toc: false
+      layout: note
 
 markdown: kramdown
 kramdown:

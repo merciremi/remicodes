@@ -1,7 +1,8 @@
 ---
 title: Enough Docker
 date: 2020-11-12
-permalink: /enough-docker/
+redirect_from: /enough-docker/
+note_tags: [docker]
 ---
 
 The team I've joined in September uses Docker to keep local versions of our database's schema synced up with production.
