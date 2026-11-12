@@ -24,9 +24,9 @@ I've been a **professional developer for the past eight years**, and I've worked
 
 Are you a small to mid-sized team? Are you struggling to get your roadmap done? Head over to [the page dedicated to my retainer offer](/work/). I'm currently working with small to mid-sized teams to help them ship Rails applications that generate 6-figure revenues.
 
-<figure class="portrait">
-  <img src="/assets/media/shared/about/remi-mercier-on-stage.jpeg" alt="me speaking on stage with a headset mic, in front of a projected slide" width="340" height="340">
-  <figcaption>Speaking about APIs at a tech conference (circa 2018)</figcaption>
+<figure>
+  <img src="/assets/media/shared/about/remi-mercier-minitest-talk.webp" alt="Rémi Mercier in a plaid shirt, holding a microphone on stage next to a large screen showing a Minitest code example">
+  <figcaption>Giving my <a href="{{ '/topics/minitest/' | relative_url }}">introduction to Minitest</a> talk at ParisRB (early 2026)</figcaption>
 </figure>
 
 Right now, I'm actively working on [the Ruby Stained Glass project](/ruby-stained-glass/) where I build limited-edition stained-glass panels celebrating our beloved language, Ruby.
