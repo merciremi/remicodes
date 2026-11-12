@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Presale is approaching rapidly
+title: "3D modelling is HARD, and news about the pre-sale (Ruby Stained Glass Notes #14)"
 date: 2026-11-11
 tags: [ruby-stained-glass]
 permalink: /ruby-stained-glass-notes-14/
-excerpt: ""
+excerpt: "Today, I talk about the estimated date for the pre-sale and how learning Fusion 360 is hard."
 image:
   path:
   alt:
@@ -34,10 +34,29 @@ I've spent almost all my Monday afternoons in October and November at my local m
 
 To give you an example, last Monday I spent four hours designing two teeny-tiny bumps and their matching holes, so the lid has a better friction fit with the box. You can't even see these components unless you zoom right in, yet they took me ages (and they work pretty well)!
 
+<figure>
+  <img src="/assets/media/2026/11/ruby-stained-glass-notes-14-01.webp" width="1600" height="1393" alt="a translucent 3D-printed box holding a microcontroller, with handwritten notes: '4 hours!' pointing at a tiny bump on the rim, and 'Only 3 hours!' pointing at the curved clips holding the board">
+</figure>
+
 Working in Fusion 360 can be quite infuriating, because there are so many things you'd like to do but can't figure out how. It's not that the software isn't capable of them, it's just that the interface makes it very hard to find where to do what.
 
 At first, this annoyed me a lot. But I quickly realised that many of the things I was trying to do made no sense in terms of actual modelling in three dimensions. There are constraints and rules you need to follow. So now, whenever I'm stuck, I try to see it through the lens of real-world modelling. Does moving that component to the left make it hit a wall? What do I need to build a mirror image of this arc?
 
 Adding features to this kind of software must be very (very!) challenging. The number of constraints one needs to accommodate must be staggering.
 
+## I built a dedicated page for the project
+
+So far, I've relied on the initial blog post to share the project, but I've finally taken the time to slap together a proper landing page. I'll add more information later on, but I'm already really happy with the hero video.
+
+<figure>
+  <video autoplay loop muted playsinline poster="/assets/media/2026/11/ruby-stained-glass-panel-hero-2-poster.webp" aria-label="the hero video of the Ruby Stained Glass project page">
+    <source src="/assets/media/2026/11/ruby-stained-glass-panel-hero-2.webm" type="video/webm">
+    <source src="/assets/media/2026/11/ruby-stained-glass-panel-hero-2.mp4" type="video/mp4">
+  </video>
+</figure>
+
+This page is part of a larger redesign of my website: notebook vibes, 8-bit details and pops of colour to dazzle your eyes! [Check out the project page here](/projects/ruby-stained-glass/).
+
 That's it for this week! Talk to you next Sunday, hopefully with an actual launch date for the pre-sale!
+
+{% include signature.html %}
