@@ -53,14 +53,21 @@ module SearchIndex
     end
 
     def entry_for(doc, topic_names)
+      excerpt = excerpt_for(doc)
       {
-        "title" => doc.data["title"].to_s,
+        # Untitled notes (see notes.rb) go by their first words, so the result still has a link text.
+        "title" => doc.data["title"].to_s.empty? ? untitled_title(excerpt) : doc.data["title"].to_s,
         "url" => doc.url,
-        "excerpt" => excerpt_for(doc),
+        "excerpt" => excerpt,
         "tags" => Array(doc.data["tags"]).map { |slug| topic_names.fetch(slug, slug) },
         "date" => doc.date.strftime("%Y-%m-%d"),
         "kind" => doc.collection.label == "notes" ? "note" : "post"
       }
+    end
+
+    def untitled_title(excerpt)
+      words = excerpt.split
+      words.size > 10 ? "#{words.first(10).join(" ")}…" : excerpt
     end
 
     def excerpt_for(doc)

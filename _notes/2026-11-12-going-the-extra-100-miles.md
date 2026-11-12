@@ -1,6 +1,7 @@
 ---
 title: "Going the extra 100 miles"
 date: 2026-11-12 14:46:07 +0100
+note_tags: [build-in-public]
 ---
 
 In a recent conversation on Reddit, a user raised doubts about the quality of [the Ruby Stained-Glass Panel](/projects/ruby-stained-glass/) based on the pictures of the prototype.
