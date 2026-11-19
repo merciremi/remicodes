@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Lost in Minitest? Start here!"
+title: "An introduction to Minitest: the guide I wish I had"
 date: 2025-10-07
 last_modified_at: 2026-11-07
 tags: [minitest, testing]
 favorite: true
 permalink: /introduction-to-minitest/
-excerpt: "I have a confession to make: I have never used Minitest in the seven years I've been a professional programmer. Lured by the promise of speed and wide adoption, I decided to try Minitest. Then I hit an unexpected roadblock."
+excerpt: "Minitest is a prominent testing framework for Ruby code, embedded by default in Ruby and Ruby on Rails. Its biggest weakness is its onboarding. Here's in introduction to guide you."
 ---
 
 > ## TL;DR: What is Minitest and how do I get started?
