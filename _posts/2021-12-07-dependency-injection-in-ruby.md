@@ -9,6 +9,27 @@ favorite: true
 translation_key: dependency-injection-in-ruby
 ---
 
+> ## TL;DR: What is dependency injection in Ruby?
+>
+> Dependency injection is a coding practice that moves a dependency out of the guts of a class and requires it at the right moment in the life of an object: at initialization, or when you call the method that needs it. In my example, `Author#monthly_revenue` stops calling `RevenueCalculator` directly and receives a calculator instead.
+>
+> ```ruby
+>   class Author
+>     def initialize(revenue_calculator: RevenueCalculator)
+>       @revenue_calculator = revenue_calculator
+>     end
+>
+>     def monthly_revenue
+>       @revenue_calculator.calculate_for(self, month_to_date)
+>     end
+>   end
+> ```
+>
+> - Calling a concrete class from inside a method (`RevenueCalculator.calculate_for`) tightly couples your classes, and each new requirement (a `FrenchRevenueCalculator`?) breeds conditionals.
+> - Injecting the dependency lets your class work with any calculator that responds to the same API: you rely on polymorphism instead of conditionals.
+> - Loose coupling lowers your cost of change, gathers dependencies in one place, and lets you test with a fake calculator instead of mocking a concrete class.
+{:.tldr}
+
 Lately, I've been interested in abstractions: why objects behave the way they do, how do we architecture our code so it's open to change (without causing unnecessary headaches), to which class _that_ specific behavior should belong? And during that time, I've repeatedly heard folks talk about __dependency injection__. Yet, dependency injection in Ruby is not widely covered. **What is a dependency injection in Ruby?**
 
 I'm glad to report that I've finally managed to wrap my head around this enough to use this practice regularly. I guess it's time for me to give you a tour of my current understanding of dependency injection: what it is, why do you need it, and how to use it?

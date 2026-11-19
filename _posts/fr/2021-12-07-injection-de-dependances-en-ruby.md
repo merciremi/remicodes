@@ -10,6 +10,27 @@ translation_service: "Opus 5.5"
 translation_date: 2026-11-18
 ---
 
+> ## TL;DR : C'est quoi l'injection de dépendances en Ruby ?
+>
+> **L'injection de dépendances est une pratique qui permet d'exiger une dépendance au bon moment de la vie d'un objet** (à l'initialisation, ou à l'appel de la méthode qui en a besoin), plutôt que de l'enfouir dans les bas-fonds d'une classe. Dans mon exemple, `Author#monthly_revenue` n'appelle plus directement `RevenueCalculator` : on lui passe à l'instantiation. Passer la dépendance à l'initialisation (ou à via un appel de méthode), c'est l'injection de dépendances. 
+>
+> ```ruby
+>   class Author
+>     def initialize(revenue_calculator: RevenueCalculator)
+>       @revenue_calculator = revenue_calculator
+>     end
+>
+>     def monthly_revenue(month)
+>       @revenue_calculator.calculate_for(self, month)
+>     end
+>   end
+> ```
+>
+> - Appeler une classe concrète depuis une méthode (`RevenueCalculator.calculate_for`) crée un couplage fort entre vos classes, et chaque nouvelle exigence (un `FrenchRevenueCalculator` ?) ajoute une condition.
+> - Injecter la dépendance permet à votre classe de fonctionner avec n'importe quel calculateur, du moment qu'il répond à la même API.
+> - Un couplage faible réduit le coût du changement, rassemble les dépendances au même endroit, et vous permet d'injecter un calculateur réservé aux tests plutôt que de simuler une classe concrète.
+{:.tldr}
+
 En ce moment, je m'intéresse aux abstractions : Pourquoi les objets se comportent-ils comme ils le font ? Comment architecturer mon code pour qu'il reste ouvert au changement (sans provoquer de migraines inutiles) ? À quelle classe tel comportement devrait-il appartenir ? Et quand on s'intéresse à ces questions, une expression revient souvent : l'__injection de dépendances__. D'accord, mais **c'est quoi l'injection de dépendances ?** et comment on injecte une dépendance avec Ruby ?
 
 ## Qu'est-ce qu'une dépendance ?
