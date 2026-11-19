@@ -1701,6 +1701,15 @@ figcaption {
   line-height: 1.5;
   color: var(--ink-3);
 }
+/* Paragraphs in a caption keep the caption's style, not the body text's. */
+figcaption p {
+  margin: 0 0 8px;
+  font: inherit;
+  color: inherit;
+}
+figcaption p:last-child {
+  margin-bottom: 0;
+}
 
 figure.portrait {
   display: flex;
