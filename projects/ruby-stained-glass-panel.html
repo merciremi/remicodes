@@ -8,6 +8,9 @@ body_class: landing
 header_logo: /assets/media/shared/rm-monogram-dark.svg
 hide_nav: true
 hide_ribbon: true
+# Pre-order stock shown under the hero button. Update `panels_left` after each sale.
+panels_total: 20
+panels_left: 12
 excerpt: "A collectible, limited-edition stained-glass panel celebrating Ruby. Now available for pre-orders."
 image:
   path: /assets/media/2026/11/ruby-stained-glass-panel-og.jpg
@@ -24,7 +27,7 @@ image:
   <div class="panel-hero__body">
     <h1 class="panel-hero__title">The Ruby Stained-Glass Panel</h1>
     <h2>Handcrafted physical pixels,<br> for you lovely Ruby nerds.</h2>
-    <p class="panel-hero__subtitle">Now available for pre-orders \(^o^)/</p>
+    <p class="panel-hero__subtitle">{{ page.panels_left }} out of {{ page.panels_total }} panels left \(^o^)/</p>
     <a class="panel-hero__button" href="https://buy.stripe.com/eVqfZi8Bpbj8c1k5Yucs800">Pre-order yours</a>
   </div>
 </section>

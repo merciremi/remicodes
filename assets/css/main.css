@@ -2240,8 +2240,8 @@ hr {
   font-size: 14px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: var(--c-ruby-stained-glass);
-  color: var(--ink-ruby-stained-glass);
+  border: 1px dotted rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
 }
 .panel-hero__cta {
   margin: 0 0 var(--space-2);
@@ -2280,6 +2280,12 @@ hr {
   background: var(--c-ruby-stained-glass);
   color: var(--ink-ruby-stained-glass);
   cursor: pointer;
+}
+/* The pre-order link is the page's main CTA: bigger than the shared button style. */
+.panel-hero__button {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 16px 32px;
 }
 .panel-hero__form button:hover,
 .panel-hero__button:hover {
