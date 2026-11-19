@@ -2,6 +2,7 @@
 layout: post
 title: "Lost in Minitest? Start here!"
 date: 2025-10-07
+last_modified_at: 2026-11-07
 tags: [minitest, testing]
 favorite: true
 permalink: /introduction-to-minitest/

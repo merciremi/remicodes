@@ -2,6 +2,7 @@
 layout: post
 title: "More Minitest::Spec shenanigans"
 date: 2025-10-19
+last_modified_at: 2026-11-07
 tags: [minitest, testing]
 permalink: /more-minitest-spec/
 excerpt: "While I already covered the basics of `Minitest::Spec`, I forgot to discuss a few aspects of the spec flavor. This post serves as a complement to the previous one and digs a bit deeper into some extra `Minitest::Spec` shenanigans."

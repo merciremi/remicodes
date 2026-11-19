@@ -2,6 +2,7 @@
 layout: post
 title: "Exploring dependency injection in Ruby"
 date: 2021-12-07
+last_modified_at: 2026-11-19
 tags: [ruby]
 permalink: /dependency-injection-in-ruby/
 excerpt: "Classes depend on each other all the time. But the way you tie those classes together will determine how hard it is to change your code. Dependency injection can help you reduce that coupling and reduce your cost of change."

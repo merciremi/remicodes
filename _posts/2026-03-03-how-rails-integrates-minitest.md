@@ -2,6 +2,7 @@
 layout: post
 title: "Using Minitest::Spec in Rails? Watch out for the lifecycle hooks!"
 date: 2026-03-03
+last_modified_at: 2026-11-06
 tags: [minitest, testing]
 permalink: /minitest-spec-and-rails-hooks/
 excerpt: "A small mistake sent me on an overly long investigation into Minitest hooks, and how Rails integrates with these."
