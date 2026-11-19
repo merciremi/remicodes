@@ -21,8 +21,8 @@ en:
   newsletter_email_label: Email address
   newsletter_placeholder: Enter your email
   newsletter_subscribe: Subscribe
-  ribbon_text: The Ruby Stained-Glass Panel launches soon!!!
-  ribbon_cta: Sign up to be the first to know.
+  ribbon_text: The Ruby Stained-Glass Panel is available for pre-orders!!!
+  ribbon_cta: Get yours now.
   # Search field. %{query} and %{count} are filled in by assets/js/search.js.
   search_label: Search posts and notes
   search_placeholder: Search posts and notes…
@@ -52,8 +52,8 @@ fr:
   newsletter_email_label: Adresse e-mail
   newsletter_placeholder: Votre adresse e-mail
   newsletter_subscribe: S'abonner
-  ribbon_text: Le vitrail Ruby arrive bientôt!!!
-  ribbon_cta: Inscrivez-vous pour être les premiers au courant.
+  ribbon_text: Le vitrail Ruby est disponible en précommande!!!
+  ribbon_cta: Réservez le vôtre.
   search_label: Rechercher un article
   search_placeholder: Rechercher un article…
   search_results_label: Résultats de recherche

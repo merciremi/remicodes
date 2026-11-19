@@ -2264,7 +2264,12 @@ hr {
   background: rgba(255, 255, 255, 0.95);
   color: var(--ink);
 }
-.panel-hero__form button {
+.panel-hero__button {
+  display: inline-block;
+  text-decoration: none;
+}
+.panel-hero__form button,
+.panel-hero__button {
   flex: none;
   font-family: var(--sans);
   font-size: 16px;
@@ -2276,7 +2281,8 @@ hr {
   color: var(--ink-ruby-stained-glass);
   cursor: pointer;
 }
-.panel-hero__form button:hover {
+.panel-hero__form button:hover,
+.panel-hero__button:hover {
   background: transparent;
   color: #FFFFFF;
   border-color: #FFFFFF;
