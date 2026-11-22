@@ -5,6 +5,7 @@ date: 2026-11-18
 last_modified_at: 2026-11-19
 excerpt: "Vos objets Ruby dépendent les uns des autres en permanence. Mais la façon dont vous les liez entre eux détermine à quel point votre code sera facile à modifier. L'injection de dépendances peut vous aider à réduire ce couplage et le coût du changement."
 lang: fr
+tags: [ruby]
 permalink: /fr/injection-de-dependances-en-ruby/
 translation_key: dependency-injection-in-ruby
 translation_service: "Opus 5.5"

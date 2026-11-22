@@ -4,6 +4,7 @@ title: "Débuter avec RSpec : installation, conventions et structure des fichier
 date: 2026-11-20
 excerpt: "Dans ce tutoriel RSpec, je vous montre comment installer RSpec dans une application Rails, comprendre ses conventions et organiser vos fichiers de test."
 lang: fr
+tags: [testing]
 permalink: /fr/rspec-tutoriel-debutant-installation/
 translation_key: rspec-101-basic-set-up
 translation_service: "Opus 5.5"

@@ -115,7 +115,8 @@ module MarkdownCopies
     def front_matter(site, source, canonical_url)
       excerpt = source.data["excerpt"]
       updated = source.data["last_modified_at"]
-      topic_names = Array(site.config["topics"]).to_h { |topic| [topic["slug"], topic["name"]] }
+      name_key = "name_#{source.data["lang"]}"
+      topic_names = Array(site.config["topics"]).to_h { |topic| [topic["slug"], topic[name_key] || topic["name"]] }
       topics = Array(source.data["tags"]).map { |slug| topic_names.fetch(slug, slug) }
 
       data = {

@@ -21,9 +21,8 @@ module SearchIndex
     priority :lowest
 
     def generate(site)
-      topic_names = Array(site.config["topics"]).to_h { |topic| [topic["slug"], topic["name"]] }
-
       documents(site).group_by { |doc| doc.data["lang"] || DEFAULT_LANG }.each do |lang, docs|
+        topic_names = Array(site.config["topics"]).to_h { |topic| [topic["slug"], topic["name_#{lang}"] || topic["name"]] }
         entries = docs.map { |doc| entry_for(doc, topic_names) }
         site.pages << index_page(site, lang, entries)
       end

@@ -18,7 +18,7 @@ topics:
   - { slug: ruby,        name: Ruby }
   - { slug: ruby-stained-glass, name: Ruby Stained Glass, order: oldest }
   - { slug: rails,       name: Rails }
-  - { slug: testing,     name: Testing }
+  - { slug: testing,     name: Testing, name_fr: Tests }
   - { slug: rspec,       name: RSpec }
   - { slug: debugging,   name: Debugging }
   - { slug: career,      name: Career }

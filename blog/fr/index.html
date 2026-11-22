@@ -14,7 +14,17 @@ translation_key: blog
   <p>Pour recevoir les prochains articles en français, abonnez-vous au <a href="{{ '/fr/feed.xml' | relative_url }}">flux RSS en français</a>.</p>
 </div>
 
-<div class="mb-6">{% include search.html %}</div>
+<div class="mb-3">{% include search.html %}</div>
+
+{%- comment -%} One pill per French topic page (topics/fr/), not per topic: most topics have no French page yet. {%- endcomment -%}
+{% assign fr_topic_pages = site.pages | where: "layout", "category" | where: "lang", "fr" | sort_natural: "title" %}
+<nav class="filter-row border-b pb-3 mb-6" aria-label="Filtrer par sujet">
+  {% for topic_page in fr_topic_pages %}
+  {% assign topic = site.topics | where: "slug", topic_page.tag | first %}
+  {% assign topic_posts = fr_posts | where_exp: "p", "p.tags contains topic_page.tag" %}
+  <a href="{{ topic_page.url | relative_url }}" class="pill--filter cat-{{ topic_page.tag }}">{{ topic.name_fr | default: topic.name }} ({{ topic_posts.size }})</a>
+  {% endfor %}
+</nav>
 
 {% assign posts_by_year = fr_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 {% for group in posts_by_year %}

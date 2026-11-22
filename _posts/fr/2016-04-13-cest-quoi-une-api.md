@@ -4,6 +4,7 @@ title:  "C'est quoi une API ? Une explication (compréhensible) pour les utilisa
 date: 2016-04-13
 excerpt: "Ces dernières années, les APIs (acronyme d'Application Programming Interface) sont devenues un vecteur incontournable de développement pour les start-ups."
 lang: fr
+tags: [marketing]
 permalink: /fr/cest-quoi-une-api/
 translation_key: what-is-an-api
 ---

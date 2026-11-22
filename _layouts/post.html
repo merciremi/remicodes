@@ -25,8 +25,9 @@ layout: default
   <div class="tags">
     {% for tag in page.tags %}
     {%- assign tag_entry = site.topics | where: "slug", tag | first -%}
-    {%- assign tag_name = tag_entry.name | default: tag -%}
-    {%- assign tag_href = tag | prepend: "/topics/" | append: "/" -%}
+    {%- assign name_key = "name_" | append: page_lang -%}
+    {%- assign tag_name = tag_entry[name_key] | default: tag_entry.name | default: tag -%}
+    {%- assign tag_href = tag | prepend: t.topics_url | append: "/" -%}
     {% include pill.html href=tag_href text=tag_name kind="cat" cat=tag %}
     {% endfor %}
   </div>
