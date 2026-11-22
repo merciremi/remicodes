@@ -2,7 +2,7 @@
 layout: category
 title: "Sujets / Marketing"
 tag: marketing
-permalink: /fr/topics/marketing/
+permalink: /fr/tags/marketing/
 lang: fr
 translation_key: topic-marketing
 ---

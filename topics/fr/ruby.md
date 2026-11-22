@@ -2,7 +2,7 @@
 layout: category
 title: "Sujets / Ruby"
 tag: ruby
-permalink: /fr/topics/ruby/
+permalink: /fr/tags/ruby/
 lang: fr
 translation_key: topic-ruby
 ---

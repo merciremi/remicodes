@@ -2,7 +2,7 @@
 layout: category
 title: "Sujets / Tests"
 tag: testing
-permalink: /fr/topics/testing/
+permalink: /fr/tags/testing/
 lang: fr
 translation_key: topic-testing
 ---
