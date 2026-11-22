@@ -10,11 +10,11 @@ excerpt: "A small mistake sent me on an overly long investigation into Minitest 
 
 > ## TL;DR: Why do my `Minitest::Spec` tests fail when I mix `setup` and `before` blocks in Rails?
 >
-> Because these blocks are not executed at the same time. In my example, a nested `setup` block calls `@customer.update` before the `before` block has set `@customer`, hence the `NoMethodError`.
+> **In a Rails app using `Minitest::Spec`, `setup` blocks always run before `before` blocks, no matter how they're nested, because Rails plugs `setup` into Minitest's `before_setup` hook.** So if a `setup` block depends on a variable set in a `before` block, it fails. In my example, a nested `setup` block calls `@customer.update` before the `before` block has set `@customer`, hence the `NoMethodError`.
 >
-> - In Minitest, `def setup` and the `before` block are equivalent: `before` is just syntactic sugar for `Minitest::Test#setup`, and both run after the `before_setup` hook.
-> - Rails plugs its `setup` block into the `before_setup` hook. No matter how deep it's nested in my test file, it'll always be executed first.
-> - The fix is simple: in a Rails app using `Minitest::Spec`, don't mix `setup` and `before` blocks. Only use `before` and stick to the `Minitest::Spec` syntax.
+> - **In plain Minitest, `def setup` and `before` are equivalent:** `before` is syntactic sugar for `Minitest::Test#setup`, and both run after the `before_setup` hook.
+> - **In Rails, `setup` blocks hook into `before_setup`:** no matter how deep a `setup` block is nested in your test file, it's executed first.
+> - **The fix:** in a Rails app using `Minitest::Spec`, don't mix `setup` and `before` blocks. Only use `before` and stick to the `Minitest::Spec` syntax.
 {:.tldr}
 
 After picking up [Minitest](/introduction-to-minitest/) to complement the QA process of one of my retainer clients, I've had confusing errors in our test suite for a while. We were moving fast to cover critical parts of the application, so we never had the time to investigate the flakiness thoroughly.

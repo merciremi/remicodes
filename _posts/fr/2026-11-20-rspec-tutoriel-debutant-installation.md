@@ -13,11 +13,15 @@ translation_date: 2026-11-20
 
 > ## TL;DR : C'est quoi RSpec ?
 >
-> RSpec est un framework de test écrit en Ruby qui permet de tester du code Ruby (et Ruby on Rails). RSpec a été créé en 2005 par Steven Baker et est aujourd'hui le framework de test le plus utilisé de l'écosystème Ruby.
+> **RSpec est un framework de test pour Ruby et Ruby on Rails, centré sur le comportement attendu du code** : pour telle entrée, j'attends telle sortie. Créé en 2005 par Steven Baker, RSpec est, avec Minitest, l'un des deux frameworks de test les plus utilisés de l'écosystème Ruby. Il permet de tester la quasi-totalité d'une application : modèles, requêtes, jobs, mailers, etc.
 >
-> La spécificité de RSpec par rapport à Minitest (un autre framework de test) ? RSpec se concentre sur le comportement attendu de votre programme : qu'est-ce que je passe en _input_ ? Qu'est-ce que j'attends en _output_ ?
+> **Comment installer RSpec dans une application Rails ?**
 >
-> C'est aussi un super framework pour tester la quasi-totalité de votre _stack_.
+> 1. Ajoutez `gem "rspec-rails", group: [:development, :test]` à votre Gemfile, puis lancez `bundle install`.
+> 2. Lancez `rails generate rspec:install` : cette commande crée le dossier `spec/`, les fichiers `spec_helper.rb` et `rails_helper.rb`, et le fichier `.rspec`.
+> 3. Lancez vos tests avec `bundle exec rspec`.
+>
+> **Quelles sont les conventions de RSpec ?** Chaque fichier testé a son fichier `_spec.rb` (`user.rb` est testé par `user_spec.rb`), et le dossier `spec/` reproduit l'arborescence du dossier `app/`. Seule exception : l'équipe de RSpec recommande de tester les contrôleurs dans `spec/requests/` plutôt que dans `spec/controllers/`.
 {:.tldr}
 
 Quand on débute en programmation, pas facile de savoir quoi tester, comment tester, et pourquoi tester. Vous avez sûrement entendu dire que le TDD (pour _Test Driven Development_) est LA bonne pratique par excellence. Mais au début, difficile de savoir ce que votre code doit faire avant même de l'écrire.

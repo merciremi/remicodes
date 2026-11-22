@@ -14,7 +14,7 @@ translation_date: 2026-11-18
 
 > ## TL;DR : C'est quoi l'injection de dépendances en Ruby ?
 >
-> **L'injection de dépendances est une pratique qui permet d'exiger une dépendance au bon moment de la vie d'un objet** (à l'initialisation, ou à l'appel de la méthode qui en a besoin), plutôt que de l'enfouir dans les bas-fonds d'une classe. Dans mon exemple, `Author#monthly_revenue` n'appelle plus directement `RevenueCalculator` : on lui passe à l'instantiation. Passer la dépendance à l'initialisation (ou à via un appel de méthode), c'est l'injection de dépendances. 
+> **L'injection de dépendances est une pratique de programmation où un objet reçoit ses dépendances de l'extérieur (à l'initialisation, ou en argument d'une méthode) au lieu de les créer ou de les appeler directement dans ses propres méthodes.** Dans mon exemple, `Author#monthly_revenue` n'appelle plus directement `RevenueCalculator` : la classe `Author` reçoit un calculateur à l'initialisation.
 >
 > ```ruby
 >   class Author
@@ -28,9 +28,9 @@ translation_date: 2026-11-18
 >   end
 > ```
 >
-> - Appeler une classe concrète depuis une méthode (`RevenueCalculator.calculate_for`) crée un couplage fort entre vos classes, et chaque nouvelle exigence (un `FrenchRevenueCalculator` ?) ajoute une condition.
-> - Injecter la dépendance permet à votre classe de fonctionner avec n'importe quel calculateur, du moment qu'il répond à la même API.
-> - Un couplage faible réduit le coût du changement, rassemble les dépendances au même endroit, et vous permet d'injecter un calculateur réservé aux tests plutôt que de simuler une classe concrète.
+> - **Sans injection de dépendances,** appeler une classe concrète depuis une méthode (`RevenueCalculator.calculate_for`) crée un couplage fort entre vos classes, et chaque nouvelle exigence (un `FrenchRevenueCalculator` ?) ajoute une condition.
+> - **Avec l'injection de dépendances,** votre classe fonctionne avec n'importe quel calculateur, du moment qu'il répond à la même API : vous vous appuyez sur le polymorphisme plutôt que sur des conditions.
+> - **Les bénéfices :** un couplage faible réduit le coût du changement, rassemble les dépendances au même endroit, et vous permet d'injecter un calculateur réservé aux tests plutôt que de simuler une classe concrète.
 {:.tldr}
 
 En ce moment, je m'intéresse aux abstractions : Pourquoi les objets se comportent-ils comme ils le font ? Comment architecturer mon code pour qu'il reste ouvert au changement (sans provoquer de migraines inutiles) ? À quelle classe tel comportement devrait-il appartenir ? Et quand on s'intéresse à ces questions, une expression revient souvent : l'__injection de dépendances__. D'accord, mais **c'est quoi l'injection de dépendances ?** et comment on injecte une dépendance avec Ruby ?

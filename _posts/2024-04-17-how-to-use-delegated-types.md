@@ -11,11 +11,11 @@ favorite: true
 
 > ## TL;DR: How do you use delegated types in Rails and when do they fit?
 >
-> Use delegated types when several models share most of their attributes and need to be queried as one collection, but each type has its own data or behavior. In this example, I use `Lesson` as the "containing class", and `Lecture` and `DirectedStudy` as its delegated types.
+> **Delegated types are a Rails modeling pattern (introduced in 2020) where a containing model stores the attributes shared by several types in one table, while each type stores its specific data in its own table.** Use delegated types when several models share most of their attributes and must be queried as one collection, but each type has its own data or behavior. In my example, `Lesson` is the containing class (`delegated_type :lessonable, types: ["Lecture", "DirectedStudy"]`), and `Lecture` and `DirectedStudy` are its delegated types.
 >
-> - The containing class is the only interface: other models should associate with `Lesson`, never directly with one of its delegated type.
-> - The containing class stores the common attributes and delegates the type-specific methods (_ie_ `delegate :students, to: :lessonable`).
-> - Delegated types only hold specific data and custom method implementations. They are not designed to be used in isolation: a `DirectedStudy` created outside of a `Lesson` won't inherit from the containing class data or behavior.
+> - **The containing class is the only interface.** Other models associate with `Lesson`, never directly with one of its delegated types.
+> - **The containing class stores the common attributes** and delegates type-specific methods to the delegated type (e.g. `delegate :students, to: :lessonable`).
+> - **Delegated types only hold specific data and custom method implementations.** They aren't designed to be used in isolation: a `DirectedStudy` created outside of a `Lesson` won't get the containing class's data or behavior.
 {:.tldr}
 
 ## Intro

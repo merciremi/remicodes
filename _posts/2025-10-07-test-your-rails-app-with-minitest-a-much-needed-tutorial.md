@@ -11,11 +11,11 @@ excerpt: "Minitest is a prominent testing framework for Ruby code, embedded by d
 
 > ## TL;DR: What is Minitest and how do I get started?
 >
-> Minitest is a prominent testing framework for Ruby code, embedded by default in Ruby and Ruby on Rails. Its biggest weakness is its onboarding, so I write the same test for a `User` class in plain Ruby, then in Rails, to show you the basics.
+> **Minitest is a testing framework for Ruby that ships with Ruby and is the default testing framework in Ruby on Rails.** Its biggest weakness is its onboarding: the documentation is scattered and sparse. In this tutorial, I write the same test for a `User` class in plain Ruby, then in Rails, to show you the basics.
 >
-> - To get started, run `rails test` in a new Rails app, or in an existing app with no other test framework configured. Otherwise, add `gem 'minitest'` to your Gemfile.
-> - Minitest offers multiple syntaxes: the default one (`def test_returns_the_full_name`), Rails' custom one (`test "returns the full name"`), and the spec one. You can mix them in the same file, but I'd rather not.
-> - In Rails, your test file inherits from a different class based on your type of test: `ActiveSupport::TestCase`, `ActionDispatch::IntegrationTest`, `ActionView::TestCase`, or `ApplicationSystemTestCase`.
+> - **To get started with Minitest in Rails,** run `rails test` in a new Rails app, or in an existing app with no other test framework configured. Otherwise, add `gem "minitest"` to your Gemfile.
+> - **Minitest offers three syntaxes:** the default one (`def test_returns_the_full_name`), Rails' custom one (`test "returns the full name"`), and the spec one (`it "returns the full name"`). You can mix them in the same file, but I'd rather not.
+> - **In Rails, each type of test inherits from a different class:** `ActiveSupport::TestCase` for unit tests, `ActionDispatch::IntegrationTest` for integration tests, `ActionView::TestCase` for views and helpers, and `ApplicationSystemTestCase` for system tests.
 {:.tldr}
 
 I have a confession to make: I have never used Minitest in the seven years I've been a professional programmer.

@@ -10,11 +10,12 @@ excerpt: "In my previous post, I talked a lot about how Minitest comes in variou
 
 > ## TL;DR: What is `Minitest::Spec` and how do I enable it?
 >
-> `Minitest::Spec` is the third main flavor of Minitest: an extension of `Minitest::Test` that provides a bridge between assertions and spec-style expectations. In my `UserTest` example, `assert_equal` becomes `expect(@user.full_name).must_equal`.
+> **`Minitest::Spec` is Minitest's spec-style syntax: an extension of `Minitest::Test` that replaces assertions with RSpec-like expectations.** It's the third main flavor of Minitest, alongside the default `def test_*` syntax and Rails' `test "..."` syntax. With `Minitest::Spec`, `assert_equal "Jane Doe", @user.full_name` becomes `expect(@user.full_name).must_equal "Jane Doe"`.
 >
-> - If you come from RSpec, it'll look *very* familiar: `before do ... end` instead of `setup do ... end`, `it` instead of `test` or `def test_*`, expectations instead of assertions, and `describe` blocks for different contexts.
-> - In plain Ruby, test classes inherit from `Minitest::Spec` instead of `Minitest::Test`. In Rails, require `"minitest/spec"` and extend `Minitest::Spec::DSL` to `ActiveSupport::TestCase`, with no need to change the inheritance of your test classes.
-> - Don't mix `setup do` and `before do` in the same file in Rails: if you use `before` before `setup`, your test will potentially fail.
+> - **The syntax is close to RSpec:** `describe` blocks for contexts, `before do ... end` instead of `setup do ... end`, `it` instead of `test` or `def test_*`, and expectations instead of assertions.
+> - **To enable `Minitest::Spec` in plain Ruby,** make your test classes inherit from `Minitest::Spec` instead of `Minitest::Test`.
+> - **To enable `Minitest::Spec` in Rails,** `require "minitest/spec"` and extend `ActiveSupport::TestCase` with `Minitest::Spec::DSL`. Your test classes keep their current inheritance.
+> - **In Rails, don't mix `setup do` and `before do` blocks in the same file:** Rails runs `setup` first, so a `setup` block that depends on a `before` block can fail.
 {:.tldr}
 
 In my previous post, I talked a lot about how Minitest comes in various syntax flavors. One flavor I did not cover much is Minitest's spec extension.
