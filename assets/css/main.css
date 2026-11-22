@@ -361,6 +361,14 @@ a:hover {
   letter-spacing: 0.03em;
   color: var(--ink-3);
 }
+.translation-notice {
+  margin-top: var(--space-4);
+  font-size: 14px;
+  color: var(--ink-3);
+}
+.translation-notice a {
+  color: inherit;
+}
 .t-body {
   font-size: 18px;
   line-height: 1.7;

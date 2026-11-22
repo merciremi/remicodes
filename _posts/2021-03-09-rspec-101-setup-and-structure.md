@@ -2,8 +2,10 @@
 layout: post
 title: "An introduction to RSpec: how to install RSpec, naming convention and basic files structure"
 date: 2021-03-09
+last_modified_at: 2026-11-22
 tags: [rspec, testing]
 permalink: /rspec-101-basic-set-up/
+translation_key: rspec-101-basic-set-up
 excerpt: "When you start programming, it's not easy to know what to test, how to test, and why should you test? So let's start with an introduction to RSpec: how to install RSpec, RSpec naming convention and and RSpec files structure."
 ---
 
@@ -144,7 +146,7 @@ But now, I'd like us to dig into each element so we get a better understanding o
 
 - `RSpec` is the core module for all RSpec code. It encapsulates and loads a lot of things on instantiation: configuration, expectations, examples, etc. You can check out the code [here](https://github.com/rspec/rspec-core/blob/main/lib/rspec/core.rb#L41){:target="\_blank"}.
 
-- `.describe` is a class method defined on the `RSpec` module. It groups your tests around a common abstraction: a class, a request, etc. In the example above, our abstraction is the `User` model.
+- `.describe` is a method defined on the `RSpec` module. It groups your tests around a common abstraction: a class, a request, etc. In the example above, our abstraction is the `User` model.
 
 The code below is from [the RSpec repository](https://github.com/rspec/rspec-core/blob/fe3084758857f0714f05ada44a18f1dfe9bf7a7e/lib/rspec/core/dsl.rb#L42){:target="\_blank"}.
 
@@ -165,7 +167,7 @@ The code below is from [the RSpec repository](https://github.com/rspec/rspec-cor
 ```
 
 
-It's a bit hard to read because of the metaprogramming bits, but the main idea is that it defines the `.describe` instance method in the `RSpec::Core::ExampleGroup` class with the abstraction you're testing (`User`) and the tests you wrote as arguments.
+It's a bit hard to read because of the metaprogramming bits, but the main idea is that it defines `describe` as a method on the `RSpec` module. When you call `RSpec.describe User do ... end`, it hands your arguments (`User`) and your block over to `RSpec::Core::ExampleGroup.describe`, which builds a group of tests from them, then registers that group so RSpec can run it.
 
 - `User` is the class you're testing. It's passed as an argument to the `.describe` method.
 

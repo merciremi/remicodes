@@ -35,6 +35,13 @@ layout: default
 
   {{ content | heading_anchors }}
 
+  {%- comment -%} Translated posts: credit the original and the translation, after the signature and footnotes. {%- endcomment -%}
+  {%- assign original = page.translations | where: "lang", "en" | first -%}
+  {%- if page.translation_service and original and t.translation_notice %}
+  {%- assign original_month = original.date | date: "%-m" | minus: 1 -%}
+  <p class="translation-notice">{{ t.translation_notice | replace: "%url%", original.url | replace: "%service%", page.translation_service | replace: "%title%", original.title }}</p>
+  {%- endif %}
+
   {%- if content contains "<video" %}
   <script>
     // Looping clips autoplay like GIFs; with reduced motion, stop them and let readers play them.

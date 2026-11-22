@@ -37,6 +37,7 @@ fr:
   nav_work: Missions
   menu: Menu
   updated: Mis à jour le
+  translation_notice: "Version française de l'article anglais <a href=\"%url%\" hreflang=\"en\">%title%</a>. Première traduction par %service%. Revue, éditée et mise à jour par mes soins."
   view_as_markdown: Voir en Markdown
   copy_markdown: Copier le Markdown
   markdown_copied: Copié !

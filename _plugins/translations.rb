@@ -6,7 +6,7 @@
 #   blog/fr/index.html  → translation_key: blog, lang: fr
 #
 # Each version then gets `translations`, the list of its other versions
-# ({ "lang", "url", "title" }), used for the hreflang tags in <head> and the
+# ({ "lang", "url", "title", "date" }), used for the hreflang tags in <head> and the
 # language switch in layouts. A page with no `lang` is English.
 #
 # Pages in French also get `locale: fr_FR`, so jekyll-seo-tag's og:locale is
@@ -45,7 +45,7 @@ module Translations
 
       versions.each do |version|
         version.data["translations"] = (versions - [version]).map do |other|
-          { "lang" => lang(other), "url" => other.url, "title" => other.data["title"] }
+          { "lang" => lang(other), "url" => other.url, "title" => other.data["title"], "date" => other.data["date"] }
         end
       end
     end
