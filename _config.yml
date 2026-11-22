@@ -11,6 +11,7 @@ author: Rémi Mercier
 # Every post tag with a topic page. A post's first tag is its primary one: it sets
 # the colour, the topic, previous/next links and related posts.
 # `order: oldest` lists a topic in reading order (for series-like topics).
+# `name_fr` is the name on French pages, when it differs from `name`.
 # NB: intentionally not named "tags" — Jekyll reserves site.tags for its own
 # auto-generated post taxonomy hash.
 topics:
