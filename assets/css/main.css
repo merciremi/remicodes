@@ -2310,6 +2310,11 @@ hr {
   color: #FFFFFF;
   border-color: #FFFFFF;
 }
+.panel-hero__note {
+  margin: var(--space-2) 0 0;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+}
 .panel-hero :focus-visible {
   outline-color: #FFFFFF;
 }
